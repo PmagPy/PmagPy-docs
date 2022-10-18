@@ -6,6 +6,10 @@ title: Books with Jupyter
 
 PmagPy is a set of tools written in Python for the analysis of paleomagnetic data. It facilitates interpretation of demagnetization data, paleointensity data, and data from other types of rock magnetic experiments. PmagPy can be used to create a wide variety of useful plots. It is designed to work with the MagIC database (https://earthref.org/MagIC), allowing manipulation of downloaded data sets as well as preparation of new contributions for uploading to the MagIC database. It also supports the use of Jupyter notebooks for fully documented and nicely illustrated data analysis.
 
+Users of PmagPy should cite the open access article:
+
+Tauxe, L., R. Shaar, L. Jonestrask, N. L. Swanson-Hysell, R. Minnett, A. A. P. Koppers, C. G. Constable, N. Jarboe, K. Gaastra, and L. Fairchild (2016), PmagPy: Software package for paleomagnetic data analysis and a bridge to the Magnetics Information Consortium (MagIC) Database, Geochem. Geophys. Geosyst., 17, doi:[10.1002/2016GC006307](http://dx.doi.org/10.1002/2016GC006307).
+
 ::::{grid} 1 1 2 3
 :class-container: text-center
 :gutter: 3
@@ -18,7 +22,7 @@ PmagPy is a set of tools written in Python for the analysis of paleomagnetic dat
 Documentation notebooks ✏️
 ^^^
 
-See PmagPy functions in action within these documentation notebooks
+See capabilities of PmagPy functions within these documentation Jupyter notebooks
 :::
 
 :::{grid-item-card}
@@ -68,14 +72,14 @@ Download and use Pmag GUI to analyze data and prepare data for MagIC
 :::
 
 :::{grid-item-card}
-:link: content/components
+:link: https://www2.earthref.org/MagIC
 :link-type: doc
 :class-header: bg-light
 
-UI components ⚡
+MagIC database ⚡
 ^^^
 
-Create interactive and web-native components and services.
+Develop new contributions and analyze existing datasets in the MagIC database.
 :::
 
 ::::
@@ -105,7 +109,6 @@ The code base for the PmagPy project has been built up over the years by Lisa Ta
 :::
 
 :::{grid-item-card}
-:link: contribute/intro.md
 :class-header: bg-light
 
 🙌 Contribute and raise issues
@@ -199,6 +202,3 @@ Many thanks to the National Science Foundation, which [provides support for the 
 :::
 
 ::::
-
-```{tableofcontents}
-```
