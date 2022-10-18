@@ -3,8 +3,10 @@
 
 format: jb-book
 root: intro
-chapters:
-- file: PmagPy_introduction
-- file: PmagPy_calculations
-- file: PmagPy_plots_analysis
-- file: PmagPy_MagIC
+parts:
+  - caption: Documentation notebooks
+    chapters:
+    - file: documentation_notebooks/PmagPy_introduction
+    - file: documentation_notebooks/PmagPy_calculations
+    - file: documentation_notebooks/PmagPy_plots_analysis
+    - file: documentation_notebooks/PmagPy_MagIC
