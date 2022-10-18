@@ -1,0 +1,854 @@
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
+    <title>Introduction to PmagPy &#8212; PmagPy Notebooks</title>
+    
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../_static/styles/theme.css?digest=1999514e3f237ded88cf" rel="stylesheet">
+<link href="../_static/styles/pydata-sphinx-theme.css?digest=1999514e3f237ded88cf" rel="stylesheet">
+
+    
+  <link rel="stylesheet"
+    href="../_static/vendor/fontawesome/5.13.0/css/all.min.css">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900.woff2">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
+
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css" />
+    <link rel="stylesheet" href="../_static/styles/sphinx-book-theme.css?digest=5115cc725059bd94278eecd172e13a965bf8f5a9" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/mystnb.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/design-style.b7bb847fb20b106c3d81b95245e65545.min.css" />
+    
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=1999514e3f237ded88cf">
+
+    <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
+    <script src="../_static/jquery.js"></script>
+    <script src="../_static/underscore.js"></script>
+    <script src="../_static/doctools.js"></script>
+    <script src="../_static/clipboard.min.js"></script>
+    <script src="../_static/copybutton.js"></script>
+    <script src="../_static/scripts/sphinx-book-theme.js?digest=9c920249402e914e316237a7dbc6769907cce411"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="../_static/togglebutton.js"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
+    <script src="../_static/design-tabs.js"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
+const thebe_selector = ".thebe,.cell"
+const thebe_selector_input = "pre"
+const thebe_selector_output = ".output, .cell_output"
+</script>
+    <script async="async" src="../_static/sphinx-thebe.js"></script>
+    <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
+    <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="Calculations with PmagPy" href="PmagPy_calculations.html" />
+    <link rel="prev" title="OSX pip install" href="../installation/osx_pip.html" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="docsearch:language" content="None">
+    
+
+    <!-- Google Analytics -->
+    
+  </head>
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="60">
+<!-- Checkboxes to toggle the left sidebar -->
+<input type="checkbox" class="sidebar-toggle" name="__navigation" id="__navigation" aria-label="Toggle navigation sidebar">
+<label class="overlay overlay-navbar" for="__navigation">
+    <div class="visually-hidden">Toggle navigation sidebar</div>
+</label>
+<!-- Checkboxes to toggle the in-page toc -->
+<input type="checkbox" class="sidebar-toggle" name="__page-toc" id="__page-toc" aria-label="Toggle in-page Table of Contents">
+<label class="overlay overlay-pagetoc" for="__page-toc">
+    <div class="visually-hidden">Toggle in-page Table of Contents</div>
+</label>
+<!-- Headers at the top -->
+<div class="announcement header-item noprint"></div>
+<div class="header header-item noprint"></div>
+
+    
+    <div class="container-fluid" id="banner"></div>
+
+    
+
+    <div class="container-xl">
+      <div class="row">
+          
+<!-- Sidebar -->
+<div class="bd-sidebar noprint" id="site-navigation">
+    <div class="bd-sidebar__content">
+        <div class="bd-sidebar__top"><div class="navbar-brand-box">
+    <a class="navbar-brand text-wrap" href="../index.html">
+      
+        <!-- `logo` is deprecated in Sphinx 4.0, so remove this when we stop supporting 3 -->
+        
+      
+      
+      <img src="../_static/pmagpy_logo.png" class="logo" alt="logo">
+      
+      
+      <h1 class="site-logo" id="site-title">PmagPy Notebooks</h1>
+      
+    </a>
+</div><form class="bd-search d-flex align-items-center" action="../search.html" method="get">
+  <i class="icon fas fa-search"></i>
+  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search this book..." aria-label="Search this book..." autocomplete="off" >
+</form><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item active">
+        
+        <ul class="nav bd-sidenav bd-sidenav__home-link">
+            <li class="toctree-l1">
+                <a class="reference internal" href="../intro.html">
+                    PmagPy: An open source package for paleomagnetic data analysis
+                </a>
+            </li>
+        </ul>
+        <p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  Installation
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../installation/osx_pip.html">
+   OSX pip install
+  </a>
+ </li>
+</ul>
+<p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  Documentation notebooks
+ </span>
+</p>
+<ul class="current nav bd-sidenav">
+ <li class="toctree-l1 current active">
+  <a class="current reference internal" href="#">
+   Introduction to PmagPy
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="PmagPy_calculations.html">
+   Calculations with PmagPy
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="PmagPy_plots_analysis.html">
+   Visualizations and more analysis with PmagPy
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="PmagPy_MagIC.html">
+   Working with the MagIC database using PmagPy
+  </a>
+ </li>
+</ul>
+
+    </div>
+</nav></div>
+        <div class="bd-sidebar__bottom">
+             <!-- To handle the deprecated key -->
+            
+            <div class="navbar_extra_footer">
+            Powered by <a href="https://jupyterbook.org">Jupyter Book</a>
+            </div>
+            
+        </div>
+    </div>
+    <div id="rtd-footer-container"></div>
+</div>
+
+
+          
+
+
+          
+<!-- A tiny helper pixel to detect if we've scrolled -->
+<div class="sbt-scroll-pixel-helper"></div>
+<!-- Main content -->
+<div class="col py-0 content-container">
+    
+    <div class="header-article row sticky-top noprint">
+        
+
+
+
+<div class="col py-1 d-flex header-article-main">
+    <div class="header-article__left">
+        
+        <label for="__navigation"
+  class="headerbtn"
+  data-toggle="tooltip"
+data-placement="right"
+title="Toggle navigation"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-bars"></i>
+  </span>
+
+</label>
+
+        
+    </div>
+    <div class="header-article__right">
+<div class="menu-dropdown menu-dropdown-launch-buttons">
+  <button class="headerbtn menu-dropdown__trigger"
+      aria-label="Launch interactive content">
+      <i class="fas fa-rocket"></i>
+  </button>
+  <div class="menu-dropdown__content">
+    <ul>
+      <li>
+        <a href="https://mybinder.org/v2/gh/pmagpy/pmagpy-docs/master?urlpath=tree/documentation_notebooks/PmagPy_introduction.ipynb"
+   class="headerbtn"
+   data-toggle="tooltip"
+data-placement="left"
+title="Launch on Binder"
+>
+  
+
+<span class="headerbtn__icon-container">
+  
+    <img src="../_static/images/logo_binder.svg">
+  </span>
+<span class="headerbtn__text-container">Binder</span>
+</a>
+
+      </li>
+      
+    </ul>
+  </div>
+</div>
+
+<button onclick="toggleFullScreen()"
+  class="headerbtn"
+  data-toggle="tooltip"
+data-placement="bottom"
+title="Fullscreen mode"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+<div class="menu-dropdown menu-dropdown-repository-buttons">
+  <button class="headerbtn menu-dropdown__trigger"
+      aria-label="Source repositories">
+      <i class="fab fa-github"></i>
+  </button>
+  <div class="menu-dropdown__content">
+    <ul>
+      <li>
+        <a href="https://github.com/pmagpy/pmagpy-docs"
+   class="headerbtn"
+   data-toggle="tooltip"
+data-placement="left"
+title="Source repository"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fab fa-github"></i>
+  </span>
+<span class="headerbtn__text-container">repository</span>
+</a>
+
+      </li>
+      
+      <li>
+        <a href="https://github.com/pmagpy/pmagpy-docs/issues/new?title=Issue%20on%20page%20%2Fdocumentation_notebooks/PmagPy_introduction.html&body=Your%20issue%20content%20here."
+   class="headerbtn"
+   data-toggle="tooltip"
+data-placement="left"
+title="Open an issue"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-lightbulb"></i>
+  </span>
+<span class="headerbtn__text-container">open issue</span>
+</a>
+
+      </li>
+      
+    </ul>
+  </div>
+</div>
+
+<div class="menu-dropdown menu-dropdown-download-buttons">
+  <button class="headerbtn menu-dropdown__trigger"
+      aria-label="Download this page">
+      <i class="fas fa-download"></i>
+  </button>
+  <div class="menu-dropdown__content">
+    <ul>
+      <li>
+        <a href="../_sources/documentation_notebooks/PmagPy_introduction.ipynb"
+   class="headerbtn"
+   data-toggle="tooltip"
+data-placement="left"
+title="Download source file"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="headerbtn__text-container">.ipynb</span>
+</a>
+
+      </li>
+      
+      <li>
+        
+<button onclick="printPdf(this)"
+  class="headerbtn"
+  data-toggle="tooltip"
+data-placement="left"
+title="Print to PDF"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="headerbtn__text-container">.pdf</span>
+</button>
+
+      </li>
+      
+    </ul>
+  </div>
+</div>
+<label for="__page-toc"
+  class="headerbtn headerbtn-page-toc"
+  
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-list"></i>
+  </span>
+
+</label>
+
+    </div>
+</div>
+
+<!-- Table of contents -->
+<div class="col-md-3 bd-toc show noprint">
+    <div class="tocsection onthispage pt-5 pb-3">
+        <i class="fas fa-list"></i> Contents
+    </div>
+    <nav id="bd-toc-nav" aria-label="Page">
+        <ul class="visible nav section-nav flex-column">
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#">
+   Introduction to PmagPy
+  </a>
+  <ul class="visible nav section-nav flex-column">
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#what-is-pmagpy">
+     What is
+     <strong>
+      PmagPy
+     </strong>
+     ?
+    </a>
+   </li>
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#what-are-paleomagnetism-and-rock-magnetism">
+     What are paleomagnetism and rock magnetism?
+    </a>
+   </li>
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#using-jupyter-notebooks-for-earth-science">
+     Using Jupyter notebooks for Earth Science
+    </a>
+   </li>
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#quick-start-for-jupyter-notebooks">
+     Quick start for Jupyter Notebooks
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#guide-to-pmagpy">
+   Guide to PmagPy
+  </a>
+  <ul class="visible nav section-nav flex-column">
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#functions-demonstrated-within-pmagpy-calculations-ipynb">
+     Functions demonstrated within
+     <span class="xref myst">
+      PmagPy_calculations.ipynb
+     </span>
+     :
+    </a>
+   </li>
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#functions-demonstrated-within-pmagpy-plots-analysis-ipynb">
+     Functions demonstrated within
+     <span class="xref myst">
+      PmagPy_plots_analysis.ipynb
+     </span>
+     :
+    </a>
+   </li>
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#functions-demonstrated-within-pmagpy-magic-ipynb">
+     Functions demonstrated within
+     <span class="xref myst">
+      PmagPy_MagIC.ipynb
+     </span>
+     :
+    </a>
+   </li>
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#customizing-this-notebook">
+     Customizing this notebook
+    </a>
+   </li>
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#get-started">
+     Get started
+    </a>
+   </li>
+  </ul>
+ </li>
+</ul>
+
+    </nav>
+</div>
+    </div>
+    <div class="article row">
+        <div class="col pl-md-3 pl-lg-5 content-container">
+            <!-- Table of contents that is only displayed when printing the page -->
+            <div id="jb-print-docs-body" class="onlyprint">
+                <h1>Introduction to PmagPy</h1>
+                <!-- Table of contents -->
+                <div id="print-main-content">
+                    <div id="jb-print-toc">
+                        
+                        <div>
+                            <h2> Contents </h2>
+                        </div>
+                        <nav aria-label="Page">
+                            <ul class="visible nav section-nav flex-column">
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#">
+   Introduction to PmagPy
+  </a>
+  <ul class="visible nav section-nav flex-column">
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#what-is-pmagpy">
+     What is
+     <strong>
+      PmagPy
+     </strong>
+     ?
+    </a>
+   </li>
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#what-are-paleomagnetism-and-rock-magnetism">
+     What are paleomagnetism and rock magnetism?
+    </a>
+   </li>
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#using-jupyter-notebooks-for-earth-science">
+     Using Jupyter notebooks for Earth Science
+    </a>
+   </li>
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#quick-start-for-jupyter-notebooks">
+     Quick start for Jupyter Notebooks
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#guide-to-pmagpy">
+   Guide to PmagPy
+  </a>
+  <ul class="visible nav section-nav flex-column">
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#functions-demonstrated-within-pmagpy-calculations-ipynb">
+     Functions demonstrated within
+     <span class="xref myst">
+      PmagPy_calculations.ipynb
+     </span>
+     :
+    </a>
+   </li>
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#functions-demonstrated-within-pmagpy-plots-analysis-ipynb">
+     Functions demonstrated within
+     <span class="xref myst">
+      PmagPy_plots_analysis.ipynb
+     </span>
+     :
+    </a>
+   </li>
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#functions-demonstrated-within-pmagpy-magic-ipynb">
+     Functions demonstrated within
+     <span class="xref myst">
+      PmagPy_MagIC.ipynb
+     </span>
+     :
+    </a>
+   </li>
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#customizing-this-notebook">
+     Customizing this notebook
+    </a>
+   </li>
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#get-started">
+     Get started
+    </a>
+   </li>
+  </ul>
+ </li>
+</ul>
+
+                        </nav>
+                    </div>
+                </div>
+            </div>
+            <main id="main-content" role="main">
+                
+              <div>
+                
+  <section class="tex2jax_ignore mathjax_ignore" id="introduction-to-pmagpy">
+<h1>Introduction to PmagPy<a class="headerlink" href="#introduction-to-pmagpy" title="Permalink to this headline">#</a></h1>
+<p>by Lisa Tauxe, Lori Jonestrask, Nick Swanson-Hysell and Nick Jarboe</p>
+<section id="what-is-pmagpy">
+<h2>What is <strong>PmagPy</strong>?<a class="headerlink" href="#what-is-pmagpy" title="Permalink to this headline">#</a></h2>
+<p><strong>PmagPy</strong> is a software package for analyzing paleomagnetic and rock magnetic data using Python. These notebooks demonstrate how to use <strong>PmagPy</strong> in a Jupyter notebook or Python script.  For examples of how to use PmagPy scripts on the command line, see the static version of <a class="reference external" href="https://pmagpy.github.io/PmagPy-cli.html"><strong>PmagPy_cli</strong></a>.  If you are running this notebook locally, you can click the following link to launch <span class="xref myst"><strong>PmagPy-cli.ipynb</strong></span></p>
+</section>
+<section id="what-are-paleomagnetism-and-rock-magnetism">
+<h2>What are paleomagnetism and rock magnetism?<a class="headerlink" href="#what-are-paleomagnetism-and-rock-magnetism" title="Permalink to this headline">#</a></h2>
+<p>For information on the science of paleomagnetism and rock magnetism, see textbook at: <a class="reference external" href="https://earthref.org/MagIC/books/Tauxe/Essentials/">https://earthref.org/MagIC/books/Tauxe/Essentials/</a></p>
+</section>
+<section id="using-jupyter-notebooks-for-earth-science">
+<h2>Using Jupyter notebooks for Earth Science<a class="headerlink" href="#using-jupyter-notebooks-for-earth-science" title="Permalink to this headline">#</a></h2>
+<p>You will need to have Python 3 and Jupyter (<a class="reference external" href="https://jupyter.org/install">https://jupyter.org/install</a>) installed on your system to run this notebook.</p>
+<p>If you already have some experience working with Python, you should be able to navigate these notebooks.</p>
+<p>If not, we have a full course in Python for Earth Scientists available on Github.  To check it out, see:</p>
+<p><a class="reference external" href="https://nbviewer.jupyter.org/github/ltauxe/Python-for-Earth-Science-Students/blob/master/Lecture_01.ipynb">https://nbviewer.jupyter.org/github/ltauxe/Python-for-Earth-Science-Students/blob/master/Lecture_01.ipynb</a></p>
+</section>
+<section id="quick-start-for-jupyter-notebooks">
+<h2>Quick start for Jupyter Notebooks<a class="headerlink" href="#quick-start-for-jupyter-notebooks" title="Permalink to this headline">#</a></h2>
+<ul class="simple">
+<li><p>click on a box (called a “cell”), then click on ‘Run’ in the menu bar.  That will execute the cell.</p></li>
+<li><p>there are two types of cells:  Markdown and Code - see the menu bar for the type of cell you just clicked on.</p></li>
+<li><p>Markdown cells are for text and clicking on it will typeset the text.</p></li>
+<li><p>Code cells are for code and clicking on it will execute the code.</p></li>
+</ul>
+</section>
+</section>
+<section class="tex2jax_ignore mathjax_ignore" id="guide-to-pmagpy">
+<h1>Guide to PmagPy<a class="headerlink" href="#guide-to-pmagpy" title="Permalink to this headline">#</a></h1>
+<p>The functionality of PmagPy is demonstrated within three notebooks in this repository:</p>
+<ul class="simple">
+<li><p><a class="reference internal" href="PmagPy_calculations.html"><span class="doc std std-doc">PmagPy_calculations.ipynb</span></a> This notebook demonstrates many of the PmagPy calculation functions such as those that rotate directions, return statistical parameters, and simulate data from specified distributions.</p></li>
+<li><p><a class="reference internal" href="PmagPy_plots_analysis.html"><span class="doc std std-doc">PmagPy_plots_analysis.ipynb</span></a> This notebook demonstrates PmagPy functions that can be used to visual data as well as those that conduct statistical tests that have associated visualizations.</p></li>
+<li><p><a class="reference internal" href="PmagPy_MagIC.html"><span class="doc std std-doc">PmagPy_MagIC.ipynb</span></a> This notebook demonstrates how PmagPy can be used to read and write data to and from the MagIC database format including conversion from many individual lab measurement file formats.</p></li>
+</ul>
+<section id="functions-demonstrated-within-pmagpy-calculations-ipynb">
+<h2>Functions demonstrated within <a class="reference internal" href="PmagPy_calculations.html"><span class="doc std std-doc">PmagPy_calculations.ipynb</span></a>:<a class="headerlink" href="#functions-demonstrated-within-pmagpy-calculations-ipynb" title="Permalink to this headline">#</a></h2>
+<ul class="simple">
+<li><p>Functions in <strong>PmagPy_calculations.ipynb</strong>:</p>
+<ul>
+<li><p><a class="reference external" href="#aarm_magic">aarm_magic</a> : calculate AARM tensors</p></li>
+<li><p><a class="reference external" href="#aarm_magic">atrm_magic</a> : calculate ATRM tensors</p></li>
+<li><p><a class="reference external" href="#angle">angle</a> : calculates the angle between two vectors</p></li>
+<li><p><a class="reference external" href="#apwp">apwp</a> : returns predicted paleolatitudes, directions and pole latitude/longitude from apparent polar wander paths of Besse and Courtillot (2002).</p></li>
+<li><p><a class="reference external" href="#b_vdm">b_vdm</a> : converts B (in microT) and (magnetic) latitude to V(A)DM (see <a class="reference external" href="#vdm_b">vdm_b</a>)</p></li>
+<li><p><a class="reference external" href="#bootams">bootams</a> : calculates bootstrap statistics for tensor data</p></li>
+<li><p><a class="reference external" href="#cart_dir">cart_dir</a> : converts cartesian coordinates (x,y,z) to declination, inclination, intensity (see <a class="reference external" href="#dir_cart">dir_cart</a>)</p></li>
+<li><p><a class="reference external" href="#di_eq">di_eq</a> : maps declination, inclinatitions to X,Y for plotting in equal area projections</p></li>
+<li><p><a class="reference external" href="#di_geo">di_geo</a> : rotates declination, inclination in specimen coordinates to geographic coordinates</p></li>
+<li><p><a class="reference external" href="#di_rot">di_rot</a> : rotates directions to a  coordinate system with D,I as center</p></li>
+<li><p><a class="reference external" href="#di_tilt">di_tilt</a> : rotates directions to stratigraphic coordinates</p></li>
+<li><p><a class="reference external" href="#di_vgp">di_vgp</a> : converts direction to Virtual Geomagnetic Pole (see <a class="reference external" href="#vgp_di">vgp_di</a>)</p></li>
+<li><p><a class="reference external" href="#dia_vgp">dia_vgp</a> : converts direction and <span class="math notranslate nohighlight">\(\alpha_{95}\)</span> to Virtual Geomagnetic Pole and dp,dm</p></li>
+<li><p><a class="reference external" href="#dipole_pinc">dipole_pinc</a> : calculates inclination given latitude assuming geocentric axial dipole</p></li>
+<li><p><a class="reference external" href="#dipole_plat">dipole_plat</a> : calculates latitude given inclination assuming geocentric axial dipole</p></li>
+<li><p><a class="reference external" href="#dir_cart">dir_cart</a> : converts declination, inclination, intensity to cartesian coordinates (see <a class="reference external" href="#cart_dir">cart_dir</a>)</p></li>
+<li><p><a class="reference external" href="#eigs_s">eigs_s</a> : converts eigenparameters to equivalent 6 element tensor (see <a class="reference external" href="#s_eigs">s_eigs</a>)</p></li>
+<li><p><a class="reference external" href="#eq_di">eq_di</a> : takes X,Y from equal area projection (e.g., from digitized coordinates) and  converts to declination, inclination</p></li>
+<li><p><a class="reference external" href="#fcalc">fcalc</a> : returns the value from an F table, given the degrees of freedom.</p></li>
+<li><p><a class="reference external" href="#fisher">fisher</a> : generates sets of directions drawn from Fisher distributions with vertical true mean</p></li>
+<li><p><a class="reference external" href="#fishrot">fishrot</a> : generates sets of directions drawn from Fisher distributions with arbitrary true mean</p></li>
+<li><p><a class="reference external" href="#flip">flip</a> : flips a second mode (reverse directions) to their antipodes</p></li>
+<li><p><a class="reference external" href="#gaussian">gaussian</a> : generates data drawn from a normal distribution</p></li>
+<li><p><a class="reference external" href="#gobing">gobing</a> : calculates Bingham statistics from a set of directions</p></li>
+<li><p><a class="reference external" href="#gofish">gofish</a> : calculates Fisher statistics from a set of directions</p></li>
+<li><p><a class="reference external" href="#gokent">gokent</a> : calculates Kent statistics from a set of directions</p></li>
+<li><p><a class="reference external" href="#goprinc">goprinc</a> : calculates principal directions statistics</p></li>
+<li><p><a class="reference external" href="#igrf">igrf</a> : calculates geomagnetic field vectors for location, age given a field model (e.g., IGRF)</p></li>
+<li><p><a class="reference external" href="#incfish">incfish</a> : estimates the true mean inclination from inclination only data</p></li>
+<li><p><a class="reference external" href="#pca">pca</a> : calculates the best-fit line or plane for demagnetization data and associated statistics</p></li>
+<li><p><a class="reference external" href="#pt_rot">pt_rot</a> : rotates point given finite rotation pole</p></li>
+<li><p><a class="reference external" href="#scalc">scalc</a> : calculates  VGP scatter</p></li>
+<li><p><a class="reference external" href="#s_eigs">s_eigs</a> : takes a 6 element tensor and calculates eigen parameters (see <a class="reference external" href="#eigs_s">eigs_s</a>)</p></li>
+<li><p><a class="reference external" href="#s_geo">s_geo</a> : rotates 6 element tensors to geographic coordinates</p></li>
+<li><p><a class="reference external" href="#s_hext">s_hext</a> : calculates Hext statistics from 6 element tensors</p></li>
+<li><p><a class="reference external" href="#s_tilt">s_tilt</a> : rotates 6 element tensors to stratigraphic coordinates</p></li>
+<li><p><a class="reference external" href="#separate_directions">separate_directions</a> : separates a set of directions into two modes (normal and reverse)</p></li>
+<li><p><a class="reference external" href="#squish">squish</a>: flattens inclination data given flattening factor (see <a class="reference external" href="#unsquish">unsquish</a>)</p></li>
+<li><p><a class="reference external" href="#sundec">sundec</a> : calulates direction to sun for location, date, time and sun azimuth</p></li>
+<li><p><a class="reference external" href="#tk03">tk03</a> : generates sets of directions consistent with the TK03 field model</p></li>
+<li><p><a class="reference external" href="#uniform">uniform</a> : generates sets of uniformly distributed directions</p></li>
+<li><p><a class="reference external" href="#unsquish">unsquish</a> : unsquishes flattened inclinations, given flattening factor (see <a class="reference external" href="#squish">squish</a>)</p></li>
+<li><p><a class="reference external" href="#vector_mean">vector_mean</a> : calculates vector mean for sets of vectors (declination, inclination, intensity)</p></li>
+<li><p><a class="reference external" href="#vdm_b">vdm_b</a> : calculates intensity at given location from specified virtual dipole moment (see <a class="reference external" href="#b_vdm">b_vdm</a>)</p></li>
+<li><p><a class="reference external" href="#vgp_di">vgp_di</a> : calculates direction at given location from virtual geomagnetic pole (see <a class="reference external" href="#di_vgp">di_vgp</a>)</p></li>
+<li><p><a class="reference external" href="#watsons_f">watsons_f</a> : calculates Watson’s F statistic for testing for common mean</p></li>
+</ul>
+</li>
+</ul>
+</section>
+<section id="functions-demonstrated-within-pmagpy-plots-analysis-ipynb">
+<h2>Functions demonstrated within <a class="reference internal" href="PmagPy_plots_analysis.html"><span class="doc std std-doc">PmagPy_plots_analysis.ipynb</span></a>:<a class="headerlink" href="#functions-demonstrated-within-pmagpy-plots-analysis-ipynb" title="Permalink to this headline">#</a></h2>
+<ul class="simple">
+<li><p>Functions in <strong>PmagPy_plots_analysis.ipynb</strong></p>
+<ul>
+<li><p><a class="reference external" href="#ani_depthplot">ani_depthplot</a> : plots anisotropy data against depth in stratigraphic section (Xmas tree plots)</p></li>
+<li><p><a class="reference external" href="#aniso_magic">aniso_magic</a> : makes plots of anisotropy data and bootstrapped confidences</p></li>
+<li><p><a class="reference external" href="#biplot_magic">biplot_magic</a> : plots different columns against each other in MagIC formatted data files</p></li>
+<li><p><a class="reference external" href="#chi_magic">chi_magic</a> : plots magnetic susceptibility data in MagIC format as function of field, frequency or temperature</p></li>
+<li><p><a class="reference external" href="#common_mean">common_mean</a> : graphical approach to testing two sets of directions for common mean using bootstrap</p></li>
+<li><p><a class="reference external" href="#core_depthplot">core_depthplot</a> : plots MagIC formatted data</p></li>
+<li><p><a class="reference external" href="#curie">curie</a> : makes plots of Curie Temperature data and provides estimates for Tc</p></li>
+<li><p><a class="reference external" href="#dayplot_magic">dayplot_magic</a> : makes Day et al. (1977) and other plots with hysteresis statistics</p></li>
+<li><p><a class="reference external" href="#dmag_magic">dmag_magic</a> : plots remanence against demagnetization step for MagIC formatted files</p></li>
+<li><p><a class="reference external" href="#eqarea">eqarea</a> and <a class="reference external" href="#eqarea_magic">eqarea_magic</a> : makes equal area projections for directions</p></li>
+<li><p><a class="reference external" href="#eqarea_ell">eqarea_ell</a> : makes equal area projections for directions with specified confidence ellipses</p></li>
+<li><p><a class="reference external" href="#find_ei">find_ei</a> : finds the inclination unflattening factor that unsquishes directions to match TK03 distribution</p></li>
+<li><p><a class="reference external" href="#fishqq">fishqq</a>: makes a Quantile-Quantile plot for directions against uniform and exponential distributions</p></li>
+<li><p><a class="reference external" href="#foldtest">foldtest</a> &amp; <a class="reference external" href="#foldtest_magic">foldtest_magic</a> : finds  tilt correction that maximizes concentration of directions, with bootstrap confidence bounds.</p></li>
+<li><p><a class="reference external" href="#forc_diagram">forc_diagram</a>: plots FORC diagrams for both conventional and irregular FORCs</p></li>
+<li><p><a class="reference external" href="#hysteresis_magic">hysteresis_magic</a> : makes plots of hysteresis data (not FORCs).</p></li>
+<li><p><a class="reference external" href="#irm_unmix">irm_unmix</a> : analyzes IRM acquisition data in terms of coercivity distributions</p></li>
+<li><p><a class="reference external" href="#irm_magic">irmaq_magic</a> : plots IRM acquistion data</p></li>
+<li><p><a class="reference external" href="#lnp_magic">lnp_magic</a> : plots lines and planes for site level data and calculates best fit mean and alpha_95</p></li>
+<li><p><a class="reference external" href="#lowes">lowes</a> : makes a plot of the Lowe’s spectrum for a geomagnetic field model</p></li>
+<li><p><a class="reference external" href="#lowrie">lowrie</a> and <a class="reference external" href="#lowrie">lowrie_magic</a> : makes plots of Lowrie’s (1990) 3D-IRM demagnetization experiments</p></li>
+<li><p><a class="reference external" href="#plot_cdf">plot_cdf</a> and <a class="reference external" href="#plot_2cdfs">plot_2cdfs</a> : makes a cumulative distribution plot of data</p></li>
+<li><p><a class="reference external" href="#plotdi_a">plotdi_a</a> : makes equal are plots of directions and their <span class="math notranslate nohighlight">\(\alpha_{95}\)</span>s</p></li>
+<li><p><a class="reference external" href="#plot_geomagia">plot_geomagia</a> : makes plots from files downloaded from the  geomagia website</p></li>
+<li><p><a class="reference external" href="#plot_magic_keys">plot_magic_keys</a> : plots data from MagIC formatted data files</p></li>
+<li><p><a class="reference external" href="#plot_ts">plot_ts</a> : makes a plot of the desired Geomagnetic Reversal time scale</p></li>
+<li><p><a class="reference external" href="#qqplot">qqplot</a> : makes a Quantile-Quantile plot for data against a normal distribution</p></li>
+<li><p><a class="reference external" href="#qqunf">qqunf</a> : makes a Quantile-Quantile plot for data against a uniform distribution</p></li>
+<li><p><a class="reference external" href="#quick_hyst">quick_hyst</a> : makes hysteresis plots</p></li>
+<li><p><a class="reference external" href="#revtest">revtest</a> &amp; <a class="reference external" href="#revtest_magic">revtest_magic</a> : performs a bootstrap reversals test</p></li>
+<li><p><a class="reference external" href="#thellier_magic">thellier_magic</a> : makes plots of thellier-thellier data.</p></li>
+<li><p><a class="reference external" href="#watsons_v">watsons_v</a> : makes a graph for Watson’s V test for common mean</p></li>
+<li><p><a class="reference external" href="#zeq">zeq</a> and <a class="reference external" href="#zeq_magic">zeq_magic</a> : makes quicky zijderveld plots for measurement data</p></li>
+</ul>
+</li>
+<li><p>Maps:</p>
+<ul>
+<li><p><a class="reference external" href="#cont_rot">cont_rot</a> : makes plots of continents after rotation to specified coordinate system</p></li>
+<li><p><a class="reference external" href="#plot_mag_map">plot_mag_map</a> : makes a color contour plot of geomagnetic field models</p></li>
+<li><p><a class="reference external" href="#plot_map_pts">plot_map_pts</a> : plots points on maps</p></li>
+<li><p><a class="reference external" href="#polemap_magic">polemap_magic</a> : reads in MagIC formatted file with paleomagnetic poles and plots them</p></li>
+<li><p><a class="reference external" href="#vgpmap_magic">vgpmap_magic</a> : reads in MagIC formatted file with virtual geomagnetic poles and plots them</p></li>
+</ul>
+</li>
+</ul>
+</section>
+<section id="functions-demonstrated-within-pmagpy-magic-ipynb">
+<h2>Functions demonstrated within <a class="reference internal" href="PmagPy_MagIC.html"><span class="doc std std-doc">PmagPy_MagIC.ipynb</span></a>:<a class="headerlink" href="#functions-demonstrated-within-pmagpy-magic-ipynb" title="Permalink to this headline">#</a></h2>
+<ul class="simple">
+<li><p>Functions in <strong>PmagPy_MagIC.ipynb</strong></p>
+<ul>
+<li><p><a class="reference external" href="#magic_read">reading MagIC files</a> : reading in MagIC formatted files</p></li>
+<li><p><a class="reference external" href="#magic_write">writing MagIC files</a> : outputing MagIC formatted files</p></li>
+<li><p><a class="reference external" href="#combine_magic">combine_magic</a> : combines two MagIC formatted files of same type</p></li>
+<li><p><a class="reference external" href="#convert_ages">convert_ages</a> : convert ages in downloaded MagIC file to Ma</p></li>
+<li><p><a class="reference external" href="#grab_magic_key">grab_magic_key</a> : prints out a single column from a MagIC format file</p></li>
+<li><p><a class="reference external" href="#magic_select">magic_select</a> : selects data from MagIC format file given conditions (e.g., method_codes contain string)</p></li>
+<li><p><a class="reference external" href="#sites_extract">sites_extract</a> : makes excel or latex files from sites.txt for publications</p></li>
+<li><p><a class="reference external" href="#criteria_extract">criteria_extract</a> : makes excel or latex files from criteria.txt for publications</p></li>
+<li><p><a class="reference external" href="#specimens_extract">specimens_extract</a> : makes excel or latex files from specimens.txt for publications</p></li>
+<li><p><a class="reference external" href="#Contributions">contributions</a> work with data model 3.0 MagIC contributions</p>
+<ul>
+<li><p><a class="reference external" href="#download_magic">download_magic</a> : unpacks a contribution text file downloaded from the MagIC website</p></li>
+<li><p><a class="reference external" href="#upload_magic">upload_magic</a> : prepares a directory with a MagIC contribution for uploading to MagIC</p></li>
+<li><p><a class="reference external" href="#cb.add_sites_to_meas_table">cb.add_sites_to_meas_table</a> : completes a measurements data frame with the information required for plotting by site.</p></li>
+<li><p><a class="reference external" href="#cb.get_intensity_col">cb.get_intensity_col</a> : finds the first non-zero type of intensity data in a measurements dataframe.</p></li>
+</ul>
+</li>
+<li><p><a class="reference external" href="#Conversion-Scripts">conversion scripts</a> : convert many laboratory measurement formats to the MagIC data model 3 format</p>
+<ul>
+<li><p><a class="reference external" href="#_2g_asc_magic">_2g_asc_magic</a> : converts 2G ascii files to MagIC</p></li>
+<li><p><a class="reference external" href="#_2g_bin_magic">_2g_bin_magic</a> : converts 2G binary files to MagIC</p></li>
+<li><p><a class="reference external" href="#agm_magic">agm_magic</a> : converts Princeton Measurements alternating gradient force magnetization (AGM) files to MagIC.</p></li>
+<li><p><a class="reference external" href="#bgc_magic">bgc_magic</a> : convert Berkeley Geochronology Center files to MagIC.</p></li>
+<li><p><a class="reference external" href="#cit_magic">cit_magic</a> : convert Cal Tech format files to MagIC.</p></li>
+<li><p><a class="reference external" href="#generic_magic">generic_magic</a> : converts generic files to MagIC.</p></li>
+<li><p><a class="reference external" href="#huji_magic">huji_magic</a> : converts Hebrew University, Jerusalem, Israel files to MagIC.</p></li>
+<li><p><a class="reference external" href="#huji_sample_magic">huji_sample_magic</a> : converts HUJI files to a MagIC format.</p></li>
+<li><p><a class="reference external" href="#jr6_jr6_magic">jr6_jr6_magic</a> : converts the AGICO JR6 spinner .jr6 files to MagIC</p></li>
+<li><p><a class="reference external" href="#jr6_txt_magic">jr6_txt_magic</a> : converts the AGICO JR6 .txt files to MagIC</p></li>
+<li><p><a class="reference external" href="#k15_magic">k15_magic</a> : converts 15 measurement anisotropy of magnetic susceptibility files to MagIC.</p></li>
+<li><p><a class="reference external" href="#kly4s_magic">kly4s_magic</a> : converts SIO KLY4S formatted files to MagIC.</p></li>
+<li><p><a class="reference external" href="#ldeo_magic">ldeo_magic</a> : converts Lamont-Doherty files to MagIC.</p></li>
+<li><p><a class="reference external" href="#livdb_magic">livdb_magic</a> : converts Liverpool files to MagIC.</p></li>
+<li><p><a class="reference external" href="#mst_magic">mst_magic</a> : converts Curie Temperature experimental data to MagIC</p></li>
+<li><p><a class="reference external" href="#sio_magic">sio_magic</a> : converts Scripps Institution of Oceanography data files to MagIC</p></li>
+<li><p><a class="reference external" href="#sufar4_magic">sufar4_magic</a> : converts AGICO SUFAR program (ver.1.2.) ascii files to MagIC</p></li>
+<li><p><a class="reference external" href="#tdt_magic">tdt_magic</a> : converts Thellier Tool files to MagIC</p></li>
+<li><p><a class="reference external" href="#utrecht_magic">utrecht_magic</a> : converts Fort Hoofddijk, Utrecht University Robot files to MagIC</p></li>
+<li><p><a class="reference external" href="#orientation_magic">orientation_magic</a> : converts an “orient.txt” formatted file with field notebook information into MagIC formatted files</p></li>
+<li><p><a class="reference external" href="#azdip_magic">azdip_magic</a> : converts an “azdip” formatted file to a samples.txt file format</p></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p>other handy scripts</p>
+<ul>
+<li><p><a class="reference external" href="#chartmaker">chartmaker</a> : script for making chart to guide IZZI lab experiment</p></li>
+</ul>
+</li>
+</ul>
+</section>
+<section id="customizing-this-notebook">
+<h2>Customizing this notebook<a class="headerlink" href="#customizing-this-notebook" title="Permalink to this headline">#</a></h2>
+<p>If you want to make changes to this notebook, you should make a copy (see File menu).  Otherwise each time you update <strong>PmagPy</strong>, your changes will be overwritten.</p>
+</section>
+<section id="get-started">
+<h2>Get started<a class="headerlink" href="#get-started" title="Permalink to this headline">#</a></h2>
+<p>To use the functions in this notebook, we have to   import the <strong>PmagPy</strong> modules <strong>pmagplotlib</strong>, <strong>pmag</strong> and <strong>ipmag</strong> and some other handy functions for use in the notebook.  This is done in the following code block which must be executed before running any other code block. To execute, click on the code block and then click on the “Run” button in the menu.</p>
+<p>In order to access the example data, this notebook is meant to be run in the PmagPy-data directory (PmagPy directory for developers).</p>
+<p>Try it!  Run the code block below (click on the cell and then click ‘Run’):</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">pmagpy.pmag</span> <span class="k">as</span> <span class="nn">pmag</span>
+<span class="kn">import</span> <span class="nn">pmagpy.pmagplotlib</span> <span class="k">as</span> <span class="nn">pmagplotlib</span>
+<span class="kn">import</span> <span class="nn">pmagpy.ipmag</span> <span class="k">as</span> <span class="nn">ipmag</span>
+<span class="kn">import</span> <span class="nn">pmagpy.contribution_builder</span> <span class="k">as</span> <span class="nn">cb</span>
+<span class="kn">from</span> <span class="nn">pmagpy</span> <span class="kn">import</span> <span class="n">convert_2_magic</span> <span class="k">as</span> <span class="n">convert</span>
+<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span> <span class="c1"># our plotting buddy</span>
+<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span> <span class="c1"># the fabulous NumPy package</span>
+<span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span> <span class="c1"># and of course Pandas</span>
+<span class="c1"># test if Basemap and/or cartopy is installed</span>
+<span class="n">has_basemap</span><span class="p">,</span> <span class="n">Basemap</span> <span class="o">=</span> <span class="n">pmag</span><span class="o">.</span><span class="n">import_basemap</span><span class="p">()</span>
+<span class="n">has_cartopy</span><span class="p">,</span> <span class="n">Cartopy</span> <span class="o">=</span> <span class="n">pmag</span><span class="o">.</span><span class="n">import_cartopy</span><span class="p">()</span>
+<span class="c1"># test if xlwt is installed (allows you to export to excel)</span>
+<span class="k">try</span><span class="p">:</span>
+    <span class="kn">import</span> <span class="nn">xlwt</span>
+    <span class="n">has_xlwt</span> <span class="o">=</span> <span class="kc">True</span>
+<span class="k">except</span> <span class="ne">ImportError</span><span class="p">:</span>
+    <span class="n">has_xlwt</span> <span class="o">=</span> <span class="kc">False</span>
+<span class="c1"># This allows you to make matplotlib plots inside the notebook.  </span>
+<span class="o">%</span><span class="k">matplotlib</span> inline 
+<span class="kn">from</span> <span class="nn">IPython.display</span> <span class="kn">import</span> <span class="n">Image</span>
+<span class="kn">import</span> <span class="nn">os</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;All modules imported!&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>All modules imported!
+</pre></div>
+</div>
+</div>
+</div>
+<ul class="simple">
+<li><p>Now you have everything you need to run PmagPy!</p></li>
+</ul>
+</section>
+</section>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            kernelName: "python3",
+            path: "./documentation_notebooks"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+              </div>
+              
+            </main>
+            <footer class="footer-article noprint">
+                
+    <!-- Previous / next buttons -->
+<div class='prev-next-area'>
+    <a class='left-prev' id="prev-link" href="../installation/osx_pip.html" title="previous page">
+        <i class="fas fa-angle-left"></i>
+        <div class="prev-next-info">
+            <p class="prev-next-subtitle">previous</p>
+            <p class="prev-next-title">OSX pip install</p>
+        </div>
+    </a>
+    <a class='right-next' id="next-link" href="PmagPy_calculations.html" title="next page">
+    <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">Calculations with PmagPy</p>
+    </div>
+    <i class="fas fa-angle-right"></i>
+    </a>
+</div>
+            </footer>
+        </div>
+    </div>
+    <div class="footer-content row">
+        <footer class="col footer"><p>
+  
+    By Lisa Tauxe, Nick Swanson-Hysell, and Lori Jonestrask<br/>
+  
+      &copy; Copyright 2022.<br/>
+</p>
+        </footer>
+    </div>
+    
+</div>
+
+
+      </div>
+    </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="../_static/scripts/pydata-sphinx-theme.js?digest=1999514e3f237ded88cf"></script>
+
+
+  </body>
+</html>
