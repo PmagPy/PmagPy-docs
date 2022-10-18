@@ -11,3 +11,11 @@ With Jupyter book installed, the Jupyter book in this repository can be made wit
 ```
 jupyter-book build PmagPy-docs
 ```
+
+The resulting html can be published to github pages using this directions:
+
+https://jupyterbook.org/en/stable/publish/gh-pages.html
+
+```
+ghp-import -n -p -f _build/html
+```
