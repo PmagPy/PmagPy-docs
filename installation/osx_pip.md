@@ -1,3 +1,5 @@
+# OSX pip install
+
 <h2 id="install-pmagpy">Install PmagPy</h2>
 <ul>
 <li><p>Install pmagpy and pmagpy-cli:</p>

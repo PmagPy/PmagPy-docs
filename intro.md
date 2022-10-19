@@ -4,15 +4,23 @@ title: Books with Jupyter
 
 # PmagPy: An open source package for paleomagnetic data analysis
 
-PmagPy is a set of tools written in Python for the analysis of paleomagnetic data. It facilitates interpretation of demagnetization data, paleointensity data, and data from other types of rock magnetic experiments. PmagPy can be used to create a wide variety of useful plots. It is designed to work with the MagIC database (https://earthref.org/MagIC), allowing manipulation of downloaded data sets as well as preparation of new contributions for uploading to the MagIC database. It also supports the use of Jupyter notebooks for fully documented and nicely illustrated data analysis.
-
-Users of PmagPy should cite the open access article:
-
-Tauxe, L., R. Shaar, L. Jonestrask, N. L. Swanson-Hysell, R. Minnett, A. A. P. Koppers, C. G. Constable, N. Jarboe, K. Gaastra, and L. Fairchild (2016), PmagPy: Software package for paleomagnetic data analysis and a bridge to the Magnetics Information Consortium (MagIC) Database, Geochem. Geophys. Geosyst., 17, doi:[10.1002/2016GC006307](http://dx.doi.org/10.1002/2016GC006307).
+PmagPy is a set of tools written in Python for the analysis of paleomagnetic data. It facilitates interpretation of demagnetization data, paleointensity data, and data from other types of rock magnetic experiments. The package is hosted on Github (https://github.com/PmagPy/PmagPy) and can be installed via PyPi (https://pypi.org/project/pmagpy/). PmagPy can be used to create a wide variety of useful plots. It is designed to work with the MagIC database (https://earthref.org/MagIC), allowing manipulation of downloaded data sets as well as preparation of new contributions for uploading to the MagIC database. It also supports the use of Jupyter notebooks for fully documented and nicely illustrated data analysis.
 
 ::::{grid} 1 1 2 3
 :class-container: text-center
 :gutter: 3
+
+:::{grid-item-card}
+:link: installation/osx_pip
+:link-type: doc
+:class-header: bg-light
+
+Installation 🪴
+^^^
+
+Instructions for how to install PmagPy for your use case.
+
+:::
 
 :::{grid-item-card}
 :link: documentation_notebooks/PmagPy_introduction
@@ -26,43 +34,29 @@ See capabilities of PmagPy functions within these documentation Jupyter notebook
 :::
 
 :::{grid-item-card}
-:link: documentation_notebooks/PmagPy_introduction
+:link: example_notebooks/example_notebooks
 :link-type: doc
 :class-header: bg-light
 
-MyST Markdown ✨
+Example notebooks 📓
 ^^^
 
-Write MyST Markdown to create enriched documents with publication-quality features.
+See example notebooks that analyze specific datasets using PmagPy.
 
 :::
 
 :::{grid-item-card}
-:link: content/executable/index
-:link-type: doc
+:link: https://jupyterhub.earthref.org/
 :class-header: bg-light
 
-Executable content 🔁
+Live notebooks 🚀
 ^^^
 
-Execute notebook cells, store results, and insert outputs across pages.
-
+Launch PmagPy notebooks on the Earthref JupyterHub.
 :::
 
 :::{grid-item-card}
-:link: interactive/launchbuttons
-:link-type: doc
-:class-header: bg-light
-
-Live environments 🚀
-^^^
-
-Connect your book with Binder, JupyterHub, and other live environments
-:::
-
-:::{grid-item-card}
-:link: publish/web
-:link-type: doc
+:link: https://github.com/PmagPy/PmagPy-Standalone-OSX/releases/latest/
 :class-header: bg-light
 
 GUIs 🎁
@@ -72,8 +66,7 @@ Download and use Pmag GUI to analyze data and prepare data for MagIC
 :::
 
 :::{grid-item-card}
-:link: https://www2.earthref.org/MagIC
-:link-type: doc
+:link: https://www2.earthref.org/MagIC/
 :class-header: bg-light
 
 MagIC database ⚡
@@ -84,11 +77,17 @@ Develop new contributions and analyze existing datasets in the MagIC database.
 
 ::::
 
-This documentation is organized into a few major sections.
+PmagPy is comprised of:
 
-- **Tutorials** are step-by-step introductory guides to Jupyter Book.
-- **Topic Guides** cover specific areas in more depth, and are organized as discrete "how-to" sections.
-- **Reference** sections describe the API/syntax/etc of Jupyter Book in detail.
+- **Function modules for paleomagnetic data analysis** Function modules include that for paleomagnetic data analysis (pmagpy.pmag) and plotting (pmagpy.pmagplotlib) as well as interactive higher level data analysis (pmagpy.ipmag). The functions within these modules are at the heart of the GUI and command line programs. With pmagpy in the python path (which can be accomplished through pip installation ```pip install pmagpy```), these modules can be imported (e.g. ```import pmagpy.ipmag as ipmag```).
+- **A graphical user interface (GUI) program** The PmagPy application enables users to get data into the MagIC database format as well as analyze demagnetization and paleointensity data.
+- **Command line programs** The PmagPy command line programs enable all sorts of  paleomagnetic data analysis and wrangling. They are contained within the programs folder of the PmagPy repository (https://github.com/PmagPy/PmagPy) and can be pip installed (```pip install pmagpy-cli```).
+
+# Citing PmagPy
+
+Users of PmagPy should cite the open access article:
+
+Tauxe, L., R. Shaar, L. Jonestrask, N. L. Swanson-Hysell, R. Minnett, A. A. P. Koppers, C. G. Constable, N. Jarboe, K. Gaastra, and L. Fairchild (2016), PmagPy: Software package for paleomagnetic data analysis and a bridge to the Magnetics Information Consortium (MagIC) Database, Geochem. Geophys. Geosyst., 17, doi:[10.1002/2016GC006307](http://dx.doi.org/10.1002/2016GC006307).
 
 # Connect with us
 
@@ -126,7 +125,7 @@ Check out our [contributing guide](https://github.com/PmagPy/PmagPy/blob/master/
 
 # Analyzed with PmagPy
 
-Below are some papers that have been conducted analysis with PmagPy.
+Below are just a few of the hundreds of papers that have been conducted analysis with PmagPy.
 You can find more on [{bdg-primary}`Google Scholar`](https://scholar.google.com/scholar?cites=16152229079597538403).
 
 
@@ -152,7 +151,7 @@ Explore this paper {fas}`arrow-right`
 :margin: 3
 :class-body: text-center
 :class-header: bg-light text-center
-:link: https://doi.org/10.1130/B32012.1/
+:link: https://doi.org/10.1130/B32012.1
 
 **Supercontinents**
 ^^^
@@ -169,7 +168,7 @@ Explore this paper {fas}`arrow-right`
 :margin: 3
 :class-body: text-center
 :class-header: bg-light text-center
-:link: https://the-turing-way.netlify.app
+:link: https://doi.org/10.1029/2018GC007509
 
 **Ancient fields**
 ^^^
@@ -191,7 +190,7 @@ Explore this paper {fas}`arrow-right`
 
 ```{image} https://www.nsf.gov/policies/images/NSF_Official_logo_High_Res_1200ppi.png
 :class: m-auto
-:width: 200px
+:width: 150px
 ```
 
 :::

@@ -4,9 +4,16 @@
 format: jb-book
 root: intro
 parts:
+  - caption: Installation
+    chapters:
+    - file: installation/osx_pip.md
   - caption: Documentation notebooks
     chapters:
     - file: documentation_notebooks/PmagPy_introduction
     - file: documentation_notebooks/PmagPy_calculations
     - file: documentation_notebooks/PmagPy_plots_analysis
     - file: documentation_notebooks/PmagPy_MagIC
+  - caption: Example notebooks
+    chapters:
+    - file: example_notebooks/example_notebooks
+    - file: example_notebooks/Tauxe_etal_2016
