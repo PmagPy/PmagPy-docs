@@ -1,0 +1,1744 @@
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
+    <title>Tauxe et al. 2016 example notebook &#8212; PmagPy Documentation</title>
+    
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../_static/styles/theme.css?digest=1999514e3f237ded88cf" rel="stylesheet">
+<link href="../_static/styles/pydata-sphinx-theme.css?digest=1999514e3f237ded88cf" rel="stylesheet">
+
+    
+  <link rel="stylesheet"
+    href="../_static/vendor/fontawesome/5.13.0/css/all.min.css">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900.woff2">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
+
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css" />
+    <link rel="stylesheet" href="../_static/styles/sphinx-book-theme.css?digest=5115cc725059bd94278eecd172e13a965bf8f5a9" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/mystnb.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/design-style.b7bb847fb20b106c3d81b95245e65545.min.css" />
+    
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=1999514e3f237ded88cf">
+
+    <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
+    <script src="../_static/jquery.js"></script>
+    <script src="../_static/underscore.js"></script>
+    <script src="../_static/doctools.js"></script>
+    <script src="../_static/clipboard.min.js"></script>
+    <script src="../_static/copybutton.js"></script>
+    <script src="../_static/scripts/sphinx-book-theme.js?digest=9c920249402e914e316237a7dbc6769907cce411"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="../_static/togglebutton.js"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
+    <script src="../_static/design-tabs.js"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
+const thebe_selector = ".thebe,.cell"
+const thebe_selector_input = "pre"
+const thebe_selector_output = ".output, .cell_output"
+</script>
+    <script async="async" src="../_static/sphinx-thebe.js"></script>
+    <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
+    <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="prev" title="Example notebook list" href="example_notebooks.html" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="docsearch:language" content="None">
+    
+
+    <!-- Google Analytics -->
+    
+  </head>
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="60">
+<!-- Checkboxes to toggle the left sidebar -->
+<input type="checkbox" class="sidebar-toggle" name="__navigation" id="__navigation" aria-label="Toggle navigation sidebar">
+<label class="overlay overlay-navbar" for="__navigation">
+    <div class="visually-hidden">Toggle navigation sidebar</div>
+</label>
+<!-- Checkboxes to toggle the in-page toc -->
+<input type="checkbox" class="sidebar-toggle" name="__page-toc" id="__page-toc" aria-label="Toggle in-page Table of Contents">
+<label class="overlay overlay-pagetoc" for="__page-toc">
+    <div class="visually-hidden">Toggle in-page Table of Contents</div>
+</label>
+<!-- Headers at the top -->
+<div class="announcement header-item noprint"></div>
+<div class="header header-item noprint"></div>
+
+    
+    <div class="container-fluid" id="banner"></div>
+
+    
+
+    <div class="container-xl">
+      <div class="row">
+          
+<!-- Sidebar -->
+<div class="bd-sidebar noprint" id="site-navigation">
+    <div class="bd-sidebar__content">
+        <div class="bd-sidebar__top"><div class="navbar-brand-box">
+    <a class="navbar-brand text-wrap" href="../index.html">
+      
+        <!-- `logo` is deprecated in Sphinx 4.0, so remove this when we stop supporting 3 -->
+        
+      
+      
+      <img src="../_static/pmagpy_logo.png" class="logo" alt="logo">
+      
+      
+      <h1 class="site-logo" id="site-title">PmagPy Documentation</h1>
+      
+    </a>
+</div><form class="bd-search d-flex align-items-center" action="../search.html" method="get">
+  <i class="icon fas fa-search"></i>
+  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search this book..." aria-label="Search this book..." autocomplete="off" >
+</form><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item active">
+        
+        <ul class="nav bd-sidenav bd-sidenav__home-link">
+            <li class="toctree-l1">
+                <a class="reference internal" href="../intro.html">
+                    PmagPy: An open source package for paleomagnetic data analysis
+                </a>
+            </li>
+        </ul>
+        <p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  Installation
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../installation/osx_pip.html">
+   OSX pip install
+  </a>
+ </li>
+</ul>
+<p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  Documentation notebooks
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../documentation_notebooks/PmagPy_introduction.html">
+   Introduction to PmagPy
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../documentation_notebooks/PmagPy_calculations.html">
+   Calculations with PmagPy
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../documentation_notebooks/PmagPy_plots_analysis.html">
+   Visualizations and more analysis with PmagPy
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../documentation_notebooks/PmagPy_MagIC.html">
+   Working with the MagIC database using PmagPy
+  </a>
+ </li>
+</ul>
+<p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  Example notebooks
+ </span>
+</p>
+<ul class="current nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="example_notebooks.html">
+   Example notebook list
+  </a>
+ </li>
+ <li class="toctree-l1 current active">
+  <a class="current reference internal" href="#">
+   Tauxe et al. 2016 example notebook
+  </a>
+ </li>
+</ul>
+
+    </div>
+</nav></div>
+        <div class="bd-sidebar__bottom">
+             <!-- To handle the deprecated key -->
+            
+            <div class="navbar_extra_footer">
+            Powered by <a href="https://jupyterbook.org">Jupyter Book</a>
+            </div>
+            
+        </div>
+    </div>
+    <div id="rtd-footer-container"></div>
+</div>
+
+
+          
+
+
+          
+<!-- A tiny helper pixel to detect if we've scrolled -->
+<div class="sbt-scroll-pixel-helper"></div>
+<!-- Main content -->
+<div class="col py-0 content-container">
+    
+    <div class="header-article row sticky-top noprint">
+        
+
+
+
+<div class="col py-1 d-flex header-article-main">
+    <div class="header-article__left">
+        
+        <label for="__navigation"
+  class="headerbtn"
+  data-toggle="tooltip"
+data-placement="right"
+title="Toggle navigation"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-bars"></i>
+  </span>
+
+</label>
+
+        
+    </div>
+    <div class="header-article__right">
+<div class="menu-dropdown menu-dropdown-launch-buttons">
+  <button class="headerbtn menu-dropdown__trigger"
+      aria-label="Launch interactive content">
+      <i class="fas fa-rocket"></i>
+  </button>
+  <div class="menu-dropdown__content">
+    <ul>
+      <li>
+        <a href="https://mybinder.org/v2/gh/pmagpy/pmagpy-docs/master?urlpath=tree/example_notebooks/Tauxe_etal_2016.ipynb"
+   class="headerbtn"
+   data-toggle="tooltip"
+data-placement="left"
+title="Launch on Binder"
+>
+  
+
+<span class="headerbtn__icon-container">
+  
+    <img src="../_static/images/logo_binder.svg">
+  </span>
+<span class="headerbtn__text-container">Binder</span>
+</a>
+
+      </li>
+      
+    </ul>
+  </div>
+</div>
+
+<button onclick="toggleFullScreen()"
+  class="headerbtn"
+  data-toggle="tooltip"
+data-placement="bottom"
+title="Fullscreen mode"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+<div class="menu-dropdown menu-dropdown-repository-buttons">
+  <button class="headerbtn menu-dropdown__trigger"
+      aria-label="Source repositories">
+      <i class="fab fa-github"></i>
+  </button>
+  <div class="menu-dropdown__content">
+    <ul>
+      <li>
+        <a href="https://github.com/pmagpy/pmagpy-docs"
+   class="headerbtn"
+   data-toggle="tooltip"
+data-placement="left"
+title="Source repository"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fab fa-github"></i>
+  </span>
+<span class="headerbtn__text-container">repository</span>
+</a>
+
+      </li>
+      
+      <li>
+        <a href="https://github.com/pmagpy/pmagpy-docs/issues/new?title=Issue%20on%20page%20%2Fexample_notebooks/Tauxe_etal_2016.html&body=Your%20issue%20content%20here."
+   class="headerbtn"
+   data-toggle="tooltip"
+data-placement="left"
+title="Open an issue"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-lightbulb"></i>
+  </span>
+<span class="headerbtn__text-container">open issue</span>
+</a>
+
+      </li>
+      
+    </ul>
+  </div>
+</div>
+
+<div class="menu-dropdown menu-dropdown-download-buttons">
+  <button class="headerbtn menu-dropdown__trigger"
+      aria-label="Download this page">
+      <i class="fas fa-download"></i>
+  </button>
+  <div class="menu-dropdown__content">
+    <ul>
+      <li>
+        <a href="../_sources/example_notebooks/Tauxe_etal_2016.ipynb"
+   class="headerbtn"
+   data-toggle="tooltip"
+data-placement="left"
+title="Download source file"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="headerbtn__text-container">.ipynb</span>
+</a>
+
+      </li>
+      
+      <li>
+        
+<button onclick="printPdf(this)"
+  class="headerbtn"
+  data-toggle="tooltip"
+data-placement="left"
+title="Print to PDF"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="headerbtn__text-container">.pdf</span>
+</button>
+
+      </li>
+      
+    </ul>
+  </div>
+</div>
+<label for="__page-toc"
+  class="headerbtn headerbtn-page-toc"
+  
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-list"></i>
+  </span>
+
+</label>
+
+    </div>
+</div>
+
+<!-- Table of contents -->
+<div class="col-md-3 bd-toc show noprint">
+    <div class="tocsection onthispage pt-5 pb-3">
+        <i class="fas fa-list"></i> Contents
+    </div>
+    <nav id="bd-toc-nav" aria-label="Page">
+        <ul class="visible nav section-nav flex-column">
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#">
+   Tauxe et al. 2016 example notebook
+  </a>
+ </li>
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#before-you-begin">
+   Before you begin
+  </a>
+ </li>
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#introduction">
+   Introduction
+  </a>
+ </li>
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#import-necessary-function-libraries-for-data-analysis">
+   Import necessary function libraries for data analysis
+  </a>
+ </li>
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#background-on-the-osler-volcanic-group">
+   Background on the Osler Volcanic Group
+  </a>
+ </li>
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#import-data-into-the-notebook">
+   Import data into the notebook
+  </a>
+  <ul class="visible nav section-nav flex-column">
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#unpack-files-downloaded-from-the-magic-database">
+     Unpack files downloaded from the MagIC database
+    </a>
+   </li>
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#loading-the-unpacked-data-into-pandas-dataframes">
+     Loading the unpacked data into Pandas Dataframes
+    </a>
+   </li>
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#filtering-by-polarity-and-tilt-correction">
+     Filtering by polarity and tilt-correction
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#data-analysis-and-visualization">
+   Data analysis and visualization
+  </a>
+  <ul class="visible nav section-nav flex-column">
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#calculating-fisher-means">
+     Calculating Fisher means
+    </a>
+   </li>
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#plotting-the-halls-1974-results">
+     Plotting the Halls (1974) results
+    </a>
+   </li>
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#combining-and-plotting-the-halls-1974-and-swanson-hysell-et-al-2014-data">
+     Combining and plotting the Halls (1974) and Swanson-Hysell et al. (2014) data
+    </a>
+   </li>
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#fold-test-on-the-site-mean-directions">
+     Fold test on the site mean directions
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#developing-a-mean-paleomagnetic-pole">
+   Developing a mean paleomagnetic pole
+  </a>
+  <ul class="visible nav section-nav flex-column">
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#conducting-a-common-mean-test">
+     Conducting a common mean test
+    </a>
+   </li>
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#calculating-a-mean-paleomagnetic-pole">
+     Calculating a mean paleomagnetic pole
+    </a>
+   </li>
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#plotting-vgps-and-the-mean-pole">
+     Plotting VGPs and the mean pole
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#concluding-thoughts">
+   Concluding thoughts
+  </a>
+ </li>
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#works-cited">
+   Works cited
+  </a>
+ </li>
+</ul>
+
+    </nav>
+</div>
+    </div>
+    <div class="article row">
+        <div class="col pl-md-3 pl-lg-5 content-container">
+            <!-- Table of contents that is only displayed when printing the page -->
+            <div id="jb-print-docs-body" class="onlyprint">
+                <h1>Tauxe et al. 2016 example notebook</h1>
+                <!-- Table of contents -->
+                <div id="print-main-content">
+                    <div id="jb-print-toc">
+                        
+                        <div>
+                            <h2> Contents </h2>
+                        </div>
+                        <nav aria-label="Page">
+                            <ul class="visible nav section-nav flex-column">
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#">
+   Tauxe et al. 2016 example notebook
+  </a>
+ </li>
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#before-you-begin">
+   Before you begin
+  </a>
+ </li>
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#introduction">
+   Introduction
+  </a>
+ </li>
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#import-necessary-function-libraries-for-data-analysis">
+   Import necessary function libraries for data analysis
+  </a>
+ </li>
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#background-on-the-osler-volcanic-group">
+   Background on the Osler Volcanic Group
+  </a>
+ </li>
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#import-data-into-the-notebook">
+   Import data into the notebook
+  </a>
+  <ul class="visible nav section-nav flex-column">
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#unpack-files-downloaded-from-the-magic-database">
+     Unpack files downloaded from the MagIC database
+    </a>
+   </li>
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#loading-the-unpacked-data-into-pandas-dataframes">
+     Loading the unpacked data into Pandas Dataframes
+    </a>
+   </li>
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#filtering-by-polarity-and-tilt-correction">
+     Filtering by polarity and tilt-correction
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#data-analysis-and-visualization">
+   Data analysis and visualization
+  </a>
+  <ul class="visible nav section-nav flex-column">
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#calculating-fisher-means">
+     Calculating Fisher means
+    </a>
+   </li>
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#plotting-the-halls-1974-results">
+     Plotting the Halls (1974) results
+    </a>
+   </li>
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#combining-and-plotting-the-halls-1974-and-swanson-hysell-et-al-2014-data">
+     Combining and plotting the Halls (1974) and Swanson-Hysell et al. (2014) data
+    </a>
+   </li>
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#fold-test-on-the-site-mean-directions">
+     Fold test on the site mean directions
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#developing-a-mean-paleomagnetic-pole">
+   Developing a mean paleomagnetic pole
+  </a>
+  <ul class="visible nav section-nav flex-column">
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#conducting-a-common-mean-test">
+     Conducting a common mean test
+    </a>
+   </li>
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#calculating-a-mean-paleomagnetic-pole">
+     Calculating a mean paleomagnetic pole
+    </a>
+   </li>
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#plotting-vgps-and-the-mean-pole">
+     Plotting VGPs and the mean pole
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#concluding-thoughts">
+   Concluding thoughts
+  </a>
+ </li>
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#works-cited">
+   Works cited
+  </a>
+ </li>
+</ul>
+
+                        </nav>
+                    </div>
+                </div>
+            </div>
+            <main id="main-content" role="main">
+                
+              <div>
+                
+  <section class="tex2jax_ignore mathjax_ignore" id="tauxe-et-al-2016-example-notebook">
+<h1>Tauxe et al. 2016 example notebook<a class="headerlink" href="#tauxe-et-al-2016-example-notebook" title="Permalink to this headline">#</a></h1>
+</section>
+<section class="tex2jax_ignore mathjax_ignore" id="before-you-begin">
+<h1>Before you begin<a class="headerlink" href="#before-you-begin" title="Permalink to this headline">#</a></h1>
+<p>You may be viewing this notebook as a rendered html webpage (which can be seen at this link: <a class="reference external" href="http://pmagpy.github.io/Example_PmagPy_Notebook.html">http://pmagpy.github.io/Example_PmagPy_Notebook.html</a>) or PDF in which case you can go ahead and simply have a look at it. However, if you wish to execute the code within a downloaded version of this notebook (which can be found here: <a class="reference external" href="https://github.com/PmagPy/2016_Tauxe-et-al_PmagPy_Notebooks">https://github.com/PmagPy/2016_Tauxe-et-al_PmagPy_Notebooks</a>), it is necessary to have an installed distribution of Python and to have installed the PmagPy software distribution. The instructions in the PmagPy Cookbook can help get you started in this regard:</p>
+<p><a class="reference external" href="http://earthref.org/PmagPy/cookbook">http://earthref.org/PmagPy/cookbook</a></p>
+<p>The user may also benefit from perusing the ‘Survival computer skills’ and ‘Introduction to Python Programming’ chapters of the cookbook if they are new to programming in Python.</p>
+</section>
+<section class="tex2jax_ignore mathjax_ignore" id="introduction">
+<h1>Introduction<a class="headerlink" href="#introduction" title="Permalink to this headline">#</a></h1>
+<p>This notebook was created by Nicholas Swanson-Hysell, Lisa Tauxe and Luke Fairchild. It accompanies a paper entitled:</p>
+<p><strong>PmagPy: Software package for paleomagnetic data analysis and a bridge to the Magnetics Information Consortium (MagIC) Database</strong></p>
+<p><em>L. Tauxe, R. Shaar, L. Jonestrask, N.L. Swanson-Hysell, R. Minnett, A.A.P., Koppers, C.G. Constable, N. Jarboe, K. Gaastra, and L. Fairchild</em></p>
+<p>The analysis in this notebook uses data from two contributions within the MagIC database:</p>
+<p>Halls, H. (1974), A paleomagnetic reversal in the Osler Volcanic Group,
+northern Lake Superior, Can. J. Earth Sci., 11, 1200–1207,
+doi:10.1139/e74-113. Link to MagIC contribution:
+<a class="reference external" href="http://earthref.org/MAGIC/doi/10.1139/e74-113">http://earthref.org/MAGIC/doi/10.1139/e74-113</a></p>
+<p>and</p>
+<p>Swanson-Hysell, N. L., A. A. Vaughan, M. R. Mustain, and K. E. Asp (2014), Confirmation of progressive plate motion during the Midcontinent Rift’s early magmatic stage from the Osler Volcanic Group, Ontario, Canada, Geochem. Geophys. Geosyst., 15, 2039–2047, doi:10.1002/2013GC005180. Link to MagIC contribution:
+<a class="reference external" href="http://earthref.org/MAGIC/doi/10.1002/2013GC005180">http://earthref.org/MAGIC/doi/10.1002/2013GC005180</a></p>
+<p>To explore the use of Jupyter notebooks, follow each of these links and click on the text file icon in the Data column.  Move each of the files from your download directory into a ‘Project Directory’ on your hard drive.  In the example below, the project directory for the Halls data set is <strong>Halls1974</strong> and for the Swanson-Hysell data set, <strong>Swanson-Hysell2014</strong> within a subdirectory with the notebook code in it. If you cloned the notebook repository or downloaded a zip copy of it, you will already have these data files.  Fire up a command line prompt (cmd on PCs and `terminal’ in the Applications/Utilities folder on a Mac) and type <code class="docutils literal notranslate"><span class="pre">jupyter</span> <span class="pre">notebook</span></code> or <code class="docutils literal notranslate"><span class="pre">ipython</span> <span class="pre">notebook</span></code> to launch a notebook environment within your default web browser.</p>
+<p>In this notebook, we will use PmagPy to:</p>
+<ul class="simple">
+<li><p>Unpack data downloaded from the MagIC database.</p></li>
+<li><p>Plot directions and VGPs.</p></li>
+<li><p>Calculate and plot Fisher means for directions and VGPs.</p></li>
+<li><p>Conduct a bootstrap fold test on the data.</p></li>
+<li><p>Conduct a common mean test between the data from the two contributions.</p></li>
+</ul>
+</section>
+<section class="tex2jax_ignore mathjax_ignore" id="import-necessary-function-libraries-for-data-analysis">
+<h1>Import necessary function libraries for data analysis<a class="headerlink" href="#import-necessary-function-libraries-for-data-analysis" title="Permalink to this headline">#</a></h1>
+<p>This Jupyter notebook works using a Python 3.4 kernel. The code block below imports the pmagpy module from PmagPy that provides functions that will be used in the data analysis. At present, the most straight-forward way to do so is to install the pmagpy module using the pip package manager by executing this command at the command line:</p>
+<p><code class="docutils literal notranslate"><span class="pre">pip</span> <span class="pre">install</span> <span class="pre">pmagpy</span></code></p>
+<p>Approachs not using pip can also work. One way would be to download the pmagpy folder from the main PmagPy repository and either put it in the same directory as the notebook or put it anywhere on your local machine and add a statement such as <code class="docutils literal notranslate"><span class="pre">export</span> <span class="pre">PYTHONPATH=$PYTHONPATH:~/PmagPy</span></code> in your .profile or .bash_profile file that points to where PmagPy is on your local machine (in this example in the home directory).</p>
+<p>With PmagPy available in this way, the function modules from <strong>PmagPy</strong> can be imported:  <strong>pmag</strong>, a module with ~160 (and growing) functions for analyzing paleomagnetic and rock magnetic data and  <strong>ipmag</strong>, a module with functions that combine and extend <strong>pmag</strong> functions and exposes <strong>pmagplotlib</strong> functions in order to generate output that works well within the Jupyter notebook environment.</p>
+<p>To execute the code, click on play button in the menu bar, choose run under the ‘cell’ menu at the top of the notebook, or type shift+enter.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">pmagpy.ipmag</span> <span class="k">as</span> <span class="nn">ipmag</span>
+<span class="kn">import</span> <span class="nn">pmagpy.pmag</span> <span class="k">as</span> <span class="nn">pmag</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>There are three other important Python libraries (which are bundled with the Canopy and Anaconda installations of Python) that come in quite handy and are used within this notebook:  <strong>numpy</strong> for data analysis using arrays, <strong>pandas</strong> for data manipulation within dataframes and <strong>matplotlib</strong> for plotting. The call <code class="docutils literal notranslate"><span class="pre">%matplotlib</span> <span class="pre">inline</span></code> results in the plots being shown within this notebook rather than coming up in external windows.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
+<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
+<span class="o">%</span><span class="k">matplotlib</span> inline
+<span class="o">%</span><span class="k">config</span> InlineBackend.figure_formats = {&#39;svg&#39;,}
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section class="tex2jax_ignore mathjax_ignore" id="background-on-the-osler-volcanic-group">
+<h1>Background on the Osler Volcanic Group<a class="headerlink" href="#background-on-the-osler-volcanic-group" title="Permalink to this headline">#</a></h1>
+<p>The data being analyzed in this notebook come from lava flows of the Osler Volcanic Group which is a sequence of Midcontinent Rift lava flows exposed on Black Bay Peninsula and the Lake Superior Archipelago in northern Lake Superior. Halls (1974; doi:10.1139/e74-113) conducted the first paleomagnetic study of these flows and determined that they were of dominantly reversed polarity with a paleomagnetic reversal very near to the top of the exposed stratigraphy. This reversal is associated with the deposition of a conglomerate unit and an angular unconformity. The data presented in Halls (1974) from the reversed polarity lavas were from flows high in the succession in close stratigraphic proximity to a sequence of felsic flows at Agate Point—one of which was dated by Davis and Green (1997; doi:10.1139/e17-039) with a resulting <span class="math notranslate nohighlight">\(^{207}\)</span>Pb/<span class="math notranslate nohighlight">\(^{206}\)</span>Pb date on zircon of 1105.3 ± 2.1 Ma. Swanson-Hysell et al. (2014; doi:10.1002/2013GC005180) conducted a paleomagnetic study that spanned more of the Osler Group flows from their base up to the upper portions of the exposed reversed polarity flows. The analysis of these data determined that there was a significant change in direction between the data from flows in the lower third of the reversed polarity stratigraphy and those in the upper third stratigraphy. This change was interpreted to be caused by a progression along the apparent polar wander path associated with equatorward motion of Laurentia.</p>
+</section>
+<section class="tex2jax_ignore mathjax_ignore" id="import-data-into-the-notebook">
+<h1>Import data into the notebook<a class="headerlink" href="#import-data-into-the-notebook" title="Permalink to this headline">#</a></h1>
+<section id="unpack-files-downloaded-from-the-magic-database">
+<h2>Unpack files downloaded from the MagIC database<a class="headerlink" href="#unpack-files-downloaded-from-the-magic-database" title="Permalink to this headline">#</a></h2>
+<p>Data within the MagIC database can be downloaded as a single .txt file. This file can be split into its constituent EarthRef and pmag tables either within the Pmag GUI, using a command line PmagPy program or using the function <strong>ipmag.download_magic</strong> within the notebook as is done here. The code block below uses this function by giving the file name, specifying where it is and telling it where to unpack the data set into the magic tables. Once these tables are unpacked, we can use them for subsequent data analysis. The <code class="docutils literal notranslate"><span class="pre">%%capture</span></code> line blocks annoying messages printed by the <strong>ipmag.download_magic</strong> function.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">%%capture</span>
+<span class="n">ipmag</span><span class="o">.</span><span class="n">download_magic</span><span class="p">(</span><span class="s1">&#39;magic_contribution_11087.txt&#39;</span><span class="p">,</span>
+                     <span class="n">dir_path</span><span class="o">=</span><span class="s1">&#39;./Example_Data/Halls1974&#39;</span><span class="p">,</span>
+                     <span class="n">input_dir_path</span><span class="o">=</span><span class="s1">&#39;./Example_Data/Halls1974&#39;</span><span class="p">,</span>
+                     <span class="n">overwrite</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span><span class="n">print_progress</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+<span class="n">ipmag</span><span class="o">.</span><span class="n">download_magic</span><span class="p">(</span><span class="s1">&#39;magic_contribution_11088.txt&#39;</span><span class="p">,</span>
+                     <span class="n">dir_path</span><span class="o">=</span><span class="s1">&#39;./Example_Data/Swanson-Hysell2014&#39;</span><span class="p">,</span>
+                     <span class="n">input_dir_path</span><span class="o">=</span><span class="s1">&#39;./Example_Data/Swanson-Hysell2014&#39;</span><span class="p">,</span>
+                     <span class="n">overwrite</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span><span class="n">print_progress</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>True
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="loading-the-unpacked-data-into-pandas-dataframes">
+<h2>Loading the unpacked data into Pandas Dataframes<a class="headerlink" href="#loading-the-unpacked-data-into-pandas-dataframes" title="Permalink to this headline">#</a></h2>
+<p>With the results unpacked from MagIC, the data can now be analyzed within the notebook. The data from the Halls1974/pmag_sites.txt table can be imported in order to look at the directions from each site. A nice way to deal with data within Python is using the dataframe structure of the pandas package. The code block below uses the pd.read_csv function to create a dataframe from the pmag_sites.txt file. All MagIC formatted files are tab delimited (<code class="docutils literal notranslate"><span class="pre">sep='\t'</span></code>) with two header lines, one with the type of delimiter and MagIC table and one with the MagIC database column names. To see the formats for MagIC tables, go to <a class="reference external" href="http://earthref.org/MAGIC/metadata.htm">http://earthref.org/MAGIC/metadata.htm</a>.
+To skip the first header line in a particular file when importing it to a DataFrame, set skiprows=1.  The <code class="docutils literal notranslate"><span class="pre">data_frame_name.head(X)</span></code> function allows us to inspect the first <code class="docutils literal notranslate"><span class="pre">X</span></code> rows of the dataframe (in this case 4).</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">Halls1974_sites</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s1">&#39;./Example_Data/Halls1974/pmag_sites.txt&#39;</span><span class="p">,</span>
+                              <span class="n">sep</span><span class="o">=</span><span class="s1">&#39;</span><span class="se">\t</span><span class="s1">&#39;</span><span class="p">,</span><span class="n">skiprows</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+<span class="n">Halls1974_sites</span><span class="o">.</span><span class="n">head</span><span class="p">(</span><span class="mi">4</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>er_citation_names</th>
+      <th>er_location_name</th>
+      <th>er_site_name</th>
+      <th>magic_method_codes</th>
+      <th>site_dec</th>
+      <th>site_inc</th>
+      <th>site_k</th>
+      <th>site_n</th>
+      <th>site_polarity</th>
+      <th>site_tilt_correction</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>This study</td>
+      <td>Osler Volcanics, Nipigon Strait, Upper Normal</td>
+      <td>1</td>
+      <td>DE-K:FS-FD:FS-H:LP-DC2:SO-SM</td>
+      <td>289.8</td>
+      <td>43.6</td>
+      <td>517</td>
+      <td>5</td>
+      <td>n</td>
+      <td>100</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>This study</td>
+      <td>Osler Volcanics, Nipigon Strait, Upper Normal</td>
+      <td>1</td>
+      <td>DE-K:FS-FD:FS-H:LP-DC2:SO-SM</td>
+      <td>293.1</td>
+      <td>34.5</td>
+      <td>517</td>
+      <td>5</td>
+      <td>n</td>
+      <td>0</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>This study</td>
+      <td>Osler Volcanics, Nipigon Strait, Upper Normal</td>
+      <td>2</td>
+      <td>DE-K:FS-FD:FS-H:LP-DC2:SO-SM</td>
+      <td>285.7</td>
+      <td>42.0</td>
+      <td>243</td>
+      <td>5</td>
+      <td>n</td>
+      <td>100</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>This study</td>
+      <td>Osler Volcanics, Nipigon Strait, Upper Normal</td>
+      <td>2</td>
+      <td>DE-K:FS-FD:FS-H:LP-DC2:SO-SM</td>
+      <td>290.6</td>
+      <td>31.9</td>
+      <td>243</td>
+      <td>5</td>
+      <td>n</td>
+      <td>0</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+</div>
+</section>
+<section id="filtering-by-polarity-and-tilt-correction">
+<h2>Filtering by polarity and tilt-correction<a class="headerlink" href="#filtering-by-polarity-and-tilt-correction" title="Permalink to this headline">#</a></h2>
+<p>Let’s start our analysis on the reversed polarity sites that are below an angular unconformity in the Halls (1974) data set. A nice thing about dataframes is that there is built-in functionality to filter them based on column values. The code block below creates a new dataframe of sites that have the site_polarity value of ‘r’ in the pmag_sites table. It then creates one dataframe for tilt-corrected sites (value of 100 in site_tilt_correction) and sites that have not been tilt-corrected (value of 0 in site_tilt_correction).</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">Halls1974_sites_r</span> <span class="o">=</span> <span class="n">Halls1974_sites</span><span class="o">.</span><span class="n">ix</span><span class="p">[</span><span class="n">Halls1974_sites</span><span class="o">.</span><span class="n">site_polarity</span><span class="o">==</span><span class="s1">&#39;r&#39;</span><span class="p">]</span>
+<span class="n">Halls1974_sites_r_tc</span> <span class="o">=</span> <span class="n">Halls1974_sites_r</span><span class="o">.</span><span class="n">ix</span><span class="p">[</span><span class="n">Halls1974_sites_r</span><span class="o">.</span><span class="n">site_tilt_correction</span><span class="o">==</span><span class="mi">100</span><span class="p">]</span>
+<span class="n">Halls1974_sites_r_tc</span><span class="o">.</span><span class="n">reset_index</span><span class="p">(</span><span class="n">inplace</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+<span class="n">Halls1974_sites_r_is</span> <span class="o">=</span> <span class="n">Halls1974_sites_r</span><span class="o">.</span><span class="n">ix</span><span class="p">[</span><span class="n">Halls1974_sites_r</span><span class="o">.</span><span class="n">site_tilt_correction</span><span class="o">==</span><span class="mi">0</span><span class="p">]</span>
+<span class="n">Halls1974_sites_r_is</span><span class="o">.</span><span class="n">reset_index</span><span class="p">(</span><span class="n">inplace</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+</section>
+<section class="tex2jax_ignore mathjax_ignore" id="data-analysis-and-visualization">
+<h1>Data analysis and visualization<a class="headerlink" href="#data-analysis-and-visualization" title="Permalink to this headline">#</a></h1>
+<p>The data can be analyzed and visualized using PmagPy functions. We will first create a directory called ‘Example_Notebook_Output’  from within the notebook (using the initial ! before the command invokes a command as if typed on the command line from within a notebook) so that we have a place to put saved figures.  You can do this outside of the notebook if you prefer.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">!</span>mkdir <span class="s1">&#39;Example_Notebook_Output&#39;</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>mkdir: Example_Notebook_Output: File exists
+</pre></div>
+</div>
+</div>
+</div>
+<section id="calculating-fisher-means">
+<h2>Calculating Fisher means<a class="headerlink" href="#calculating-fisher-means" title="Permalink to this headline">#</a></h2>
+<p>Fisher means for the data can be calculated with the function <strong>ipmag.fisher_mean</strong>. This function takes in a list of declination values, a list of inclination values and returns a dictionary that gives the Fisher mean and associated statistical parameters. This dictionary is printed out for the mean of the tilt-corrected data within the first code block. These dictionary objects are given names such that we can subsequently access the values. The second code block uses the <strong>ipmag.print_direction_mean</strong> to print out a formatted version of these same results.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">Halls1974_r_is_mean</span> <span class="o">=</span> <span class="n">ipmag</span><span class="o">.</span><span class="n">fisher_mean</span><span class="p">(</span><span class="n">Halls1974_sites_r_is</span><span class="o">.</span><span class="n">site_dec</span><span class="o">.</span><span class="n">tolist</span><span class="p">(),</span>
+                                        <span class="n">Halls1974_sites_r_is</span><span class="o">.</span><span class="n">site_inc</span><span class="o">.</span><span class="n">tolist</span><span class="p">())</span>
+<span class="n">Halls1974_r_tc_mean</span> <span class="o">=</span> <span class="n">ipmag</span><span class="o">.</span><span class="n">fisher_mean</span><span class="p">(</span><span class="n">Halls1974_sites_r_tc</span><span class="o">.</span><span class="n">site_dec</span><span class="o">.</span><span class="n">tolist</span><span class="p">(),</span>
+                                        <span class="n">Halls1974_sites_r_tc</span><span class="o">.</span><span class="n">site_inc</span><span class="o">.</span><span class="n">tolist</span><span class="p">())</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">Halls1974_r_tc_mean</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>{&#39;dec&#39;: 114.96744501761694, &#39;inc&#39;: -57.572956213862817, &#39;alpha95&#39;: 4.6244793676899487, &#39;n&#39;: 25, &#39;r&#39;: 24.402456203028084, &#39;k&#39;: 40.164419949836713, &#39;csd&#39;: 12.780983354077163}
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="s1">&#39;The mean for the tilt-corrected Halls (1974) Osler directions is:&#39;</span><span class="p">)</span>
+<span class="n">ipmag</span><span class="o">.</span><span class="n">print_direction_mean</span><span class="p">(</span><span class="n">Halls1974_r_tc_mean</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>The mean for the tilt-corrected Halls (1974) Osler directions is:
+Dec: 115.0  Inc: -57.6
+Number of directions in mean (n): 25
+Angular radius of 95% confidence (a_95): 4.6
+Precision parameter (k) estimate: 40.2
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="plotting-the-halls-1974-results">
+<h2>Plotting the Halls (1974) results<a class="headerlink" href="#plotting-the-halls-1974-results" title="Permalink to this headline">#</a></h2>
+<p>The code block below creates a figure with an equal area stereonet and uses the <strong>ipmag.plot_di</strong> function to plot the data both in tilt-corrected and <em>in situ</em> coordinates. The figure can be saved out of the notebook using the <code class="docutils literal notranslate"><span class="pre">plt.savefig()</span></code> function. The saved figure file type can be .png, .eps, .svg among others. Saved figures can be used as is for publication or, if necessary, exported vector graphics (e.g. .eps and .svg files) can be edited with software such as Adobe Illustrator or Inkscape.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">num</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">4</span><span class="p">,</span><span class="mi">4</span><span class="p">))</span>
+<span class="n">ipmag</span><span class="o">.</span><span class="n">plot_net</span><span class="p">(</span><span class="n">fignum</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+<span class="n">ipmag</span><span class="o">.</span><span class="n">plot_di</span><span class="p">(</span><span class="n">Halls1974_sites_r_is</span><span class="o">.</span><span class="n">site_dec</span><span class="o">.</span><span class="n">tolist</span><span class="p">(),</span>
+              <span class="n">Halls1974_sites_r_is</span><span class="o">.</span><span class="n">site_inc</span><span class="o">.</span><span class="n">tolist</span><span class="p">(),</span><span class="n">color</span><span class="o">=</span><span class="s1">&#39;r&#39;</span><span class="p">,</span>
+              <span class="n">label</span><span class="o">=</span><span class="s1">&#39;Halls (1974) site means (in situ)&#39;</span><span class="p">)</span>
+<span class="n">ipmag</span><span class="o">.</span><span class="n">plot_di</span><span class="p">(</span><span class="n">Halls1974_sites_r_tc</span><span class="o">.</span><span class="n">site_dec</span><span class="o">.</span><span class="n">tolist</span><span class="p">(),</span>
+              <span class="n">Halls1974_sites_r_tc</span><span class="o">.</span><span class="n">site_inc</span><span class="o">.</span><span class="n">tolist</span><span class="p">(),</span><span class="n">color</span><span class="o">=</span><span class="s1">&#39;b&#39;</span><span class="p">,</span>
+             <span class="n">label</span><span class="o">=</span><span class="s1">&#39;Halls (1974) site means (tilt-corrected)&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">legend</span><span class="p">(</span><span class="n">loc</span><span class="o">=</span><span class="mi">9</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">savefig</span><span class="p">(</span><span class="s1">&#39;Example_Notebook_Output/Halls_1974_sites.svg&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../_images/Tauxe_etal_2016_18_0.svg" src="../_images/Tauxe_etal_2016_18_0.svg" /></div>
+</div>
+<p>A similar plot showing the Fisher means of the site means calculated above and their associated <span class="math notranslate nohighlight">\(\alpha_{95}\)</span> confidence ellipses can be generated using the <strong>ipmag.plot_di_mean</strong> function.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">num</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">4</span><span class="p">,</span><span class="mi">4</span><span class="p">))</span>
+<span class="n">ipmag</span><span class="o">.</span><span class="n">plot_net</span><span class="p">(</span><span class="n">fignum</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+<span class="n">ipmag</span><span class="o">.</span><span class="n">plot_di_mean</span><span class="p">(</span><span class="n">Halls1974_r_tc_mean</span><span class="p">[</span><span class="s1">&#39;dec&#39;</span><span class="p">],</span>
+                   <span class="n">Halls1974_r_tc_mean</span><span class="p">[</span><span class="s1">&#39;inc&#39;</span><span class="p">],</span>
+                   <span class="n">Halls1974_r_tc_mean</span><span class="p">[</span><span class="s1">&#39;alpha95&#39;</span><span class="p">],</span><span class="s1">&#39;b&#39;</span><span class="p">,</span>
+                   <span class="n">label</span><span class="o">=</span><span class="s1">&#39;Halls (1974) tilt-corrected mean&#39;</span><span class="p">)</span>
+<span class="n">ipmag</span><span class="o">.</span><span class="n">plot_di_mean</span><span class="p">(</span><span class="n">Halls1974_r_is_mean</span><span class="p">[</span><span class="s1">&#39;dec&#39;</span><span class="p">],</span>
+                   <span class="n">Halls1974_r_is_mean</span><span class="p">[</span><span class="s1">&#39;inc&#39;</span><span class="p">],</span>
+                   <span class="n">Halls1974_r_is_mean</span><span class="p">[</span><span class="s1">&#39;alpha95&#39;</span><span class="p">],</span><span class="s1">&#39;r&#39;</span><span class="p">,</span>
+                   <span class="n">label</span><span class="o">=</span><span class="s1">&#39;Halls (1974) insitu mean&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">legend</span><span class="p">(</span><span class="n">loc</span><span class="o">=</span><span class="mi">9</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">savefig</span><span class="p">(</span><span class="s1">&#39;Example_Notebook_Output/Halls_1974_means.svg&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../_images/Tauxe_etal_2016_20_0.svg" src="../_images/Tauxe_etal_2016_20_0.svg" /></div>
+</div>
+<p>The means that have been calculated are now dictionaries that can be made into a new dataframe to present the results. A table like this can be exported into a variety of formats (e.g. LaTeX, html, csv) for inclusion in a publication.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">Halls1974_r_is_mean</span> <span class="o">=</span> <span class="n">ipmag</span><span class="o">.</span><span class="n">fisher_mean</span><span class="p">(</span><span class="n">Halls1974_sites_r_is</span><span class="o">.</span><span class="n">site_dec</span><span class="o">.</span><span class="n">tolist</span><span class="p">(),</span>
+                                        <span class="n">Halls1974_sites_r_is</span><span class="o">.</span><span class="n">site_inc</span><span class="o">.</span><span class="n">tolist</span><span class="p">())</span>
+<span class="n">Halls1974_r_tc_mean</span> <span class="o">=</span> <span class="n">ipmag</span><span class="o">.</span><span class="n">fisher_mean</span><span class="p">(</span><span class="n">Halls1974_sites_r_tc</span><span class="o">.</span><span class="n">site_dec</span><span class="o">.</span><span class="n">tolist</span><span class="p">(),</span>
+                                        <span class="n">Halls1974_sites_r_tc</span><span class="o">.</span><span class="n">site_inc</span><span class="o">.</span><span class="n">tolist</span><span class="p">())</span>
+<span class="n">means</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">([</span><span class="n">Halls1974_r_is_mean</span><span class="p">,</span><span class="n">Halls1974_r_tc_mean</span><span class="p">],</span>
+                     <span class="n">index</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;Halls 1974 Osler R (insitu)&#39;</span><span class="p">,</span><span class="s1">&#39;Halls 1974 Osler R (tilt-corrected)&#39;</span><span class="p">])</span>
+<span class="n">means</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>alpha95</th>
+      <th>csd</th>
+      <th>dec</th>
+      <th>inc</th>
+      <th>k</th>
+      <th>n</th>
+      <th>r</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>Halls 1974 Osler R (insitu)</th>
+      <td>7.429483</td>
+      <td>20.147915</td>
+      <td>119.491601</td>
+      <td>-37.834483</td>
+      <td>16.162548</td>
+      <td>25</td>
+      <td>23.515086</td>
+    </tr>
+    <tr>
+      <th>Halls 1974 Osler R (tilt-corrected)</th>
+      <td>4.624479</td>
+      <td>12.780983</td>
+      <td>114.967445</td>
+      <td>-57.572956</td>
+      <td>40.164420</td>
+      <td>25</td>
+      <td>24.402456</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+</div>
+<p>Alternatively, one can export the MagIC data table pmag_results.txt into a tab delimited or latex file using the PmagPy program: <strong>pmag_results_extract.py</strong> which can be run at the command line as:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">pmag_results_extract</span><span class="o">.</span><span class="n">py</span> <span class="o">-</span><span class="n">f</span> <span class="n">Halls1974</span><span class="o">/</span><span class="n">pmag_results</span><span class="o">.</span><span class="n">txt</span>
+</pre></div>
+</div>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">pmag_results_extract</span><span class="o">.</span><span class="n">py</span> <span class="o">-</span><span class="n">f</span> <span class="n">Halls1974</span><span class="o">/</span><span class="n">pmag_results</span><span class="o">.</span><span class="n">txt</span> <span class="o">-</span><span class="n">tex</span>
+</pre></div>
+</div>
+<p>or executed as shell command within the notebook by using the ! prefix as is done in the cell block below.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">!</span>pmag_results_extract.py -f Example_Data/Halls1974/pmag_results.txt
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>data saved in:  /Users/Laurentia/0000_Github/2016_Tauxe-et-al_PmagPy_Notebooks/Directions.txt /Users/Laurentia/0000_Github/2016_Tauxe-et-al_PmagPy_Notebooks/Intensities.txt /Users/Laurentia/0000_Github/2016_Tauxe-et-al_PmagPy_Notebooks/SiteNfo.txt
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="combining-and-plotting-the-halls-1974-and-swanson-hysell-et-al-2014-data">
+<h2>Combining and plotting the Halls (1974) and Swanson-Hysell et al. (2014) data<a class="headerlink" href="#combining-and-plotting-the-halls-1974-and-swanson-hysell-et-al-2014-data" title="Permalink to this headline">#</a></h2>
+<p>First, let’s read in the data from the pmag_results.txt table from the Swanson-Hysell et al., (2014) study into a Pandas dataframe.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">SH2014_sites</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s1">&#39;./Example_Data/Swanson-Hysell2014/pmag_results.txt&#39;</span><span class="p">,</span>
+                           <span class="n">sep</span><span class="o">=</span><span class="s1">&#39;</span><span class="se">\t</span><span class="s1">&#39;</span><span class="p">,</span><span class="n">skiprows</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+<span class="n">SH2014_sites</span><span class="o">.</span><span class="n">head</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>average_age</th>
+      <th>average_age_high</th>
+      <th>average_age_low</th>
+      <th>average_age_unit</th>
+      <th>average_alpha95</th>
+      <th>average_dec</th>
+      <th>average_height</th>
+      <th>average_inc</th>
+      <th>average_lat</th>
+      <th>average_lon</th>
+      <th>...</th>
+      <th>er_specimen_names</th>
+      <th>magic_method_codes</th>
+      <th>pmag_result_name</th>
+      <th>tilt_dec_corr</th>
+      <th>tilt_dec_uncorr</th>
+      <th>tilt_inc_corr</th>
+      <th>tilt_inc_uncorr</th>
+      <th>vgp_alpha95</th>
+      <th>vgp_lat</th>
+      <th>vgp_lon</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>1106</td>
+      <td>1110</td>
+      <td>1103</td>
+      <td>Ma</td>
+      <td>2.7</td>
+      <td>79.7</td>
+      <td>11.8</td>
+      <td>-70.5</td>
+      <td>48.8122</td>
+      <td>272.338</td>
+      <td>...</td>
+      <td>NaN</td>
+      <td>DE-FM:LP-DC4:LP-DIR-AF</td>
+      <td>SI1(11.8 to 26.4)</td>
+      <td>79.7</td>
+      <td>120.3</td>
+      <td>-70.5</td>
+      <td>-77.1</td>
+      <td>NaN</td>
+      <td>33.1</td>
+      <td>229.6</td>
+    </tr>
+  </tbody>
+</table>
+<p>1 rows × 27 columns</p>
+</div></div></div>
+</div>
+<p>Swanson-Hysell et al. (2014) argued that data from the upper third of the Simpson Island stratigraphy should be compared with the reverse data from the Halls (1974) Nipigon Strait region study. The dataframe can be filtered using the average_height value from the pmag_results table.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">SH2014_OslerR_upper</span> <span class="o">=</span> <span class="n">SH2014_sites</span><span class="o">.</span><span class="n">ix</span><span class="p">[</span><span class="n">SH2014_sites</span><span class="o">.</span><span class="n">average_height</span><span class="o">&gt;</span><span class="mi">2082</span><span class="p">]</span>
+<span class="n">SH2014_OslerR_upper</span><span class="o">.</span><span class="n">reset_index</span><span class="p">(</span><span class="n">inplace</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+<span class="n">SH2014_OslerR_upper</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>index</th>
+      <th>average_age</th>
+      <th>average_age_high</th>
+      <th>average_age_low</th>
+      <th>average_age_unit</th>
+      <th>average_alpha95</th>
+      <th>average_dec</th>
+      <th>average_height</th>
+      <th>average_inc</th>
+      <th>average_lat</th>
+      <th>...</th>
+      <th>er_specimen_names</th>
+      <th>magic_method_codes</th>
+      <th>pmag_result_name</th>
+      <th>tilt_dec_corr</th>
+      <th>tilt_dec_uncorr</th>
+      <th>tilt_inc_corr</th>
+      <th>tilt_inc_uncorr</th>
+      <th>vgp_alpha95</th>
+      <th>vgp_lat</th>
+      <th>vgp_lon</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>50</td>
+      <td>1106</td>
+      <td>1110</td>
+      <td>1103</td>
+      <td>Ma</td>
+      <td>4.3</td>
+      <td>120.7</td>
+      <td>2089.0</td>
+      <td>-56.8</td>
+      <td>48.7499</td>
+      <td>...</td>
+      <td>NaN</td>
+      <td>DE-FM:LP-DC4:LP-DIR-AF</td>
+      <td>SI4(106.0 to 121.4)</td>
+      <td>120.7</td>
+      <td>140.0</td>
+      <td>-56.8</td>
+      <td>-46.6</td>
+      <td>NaN</td>
+      <td>46.4</td>
+      <td>190.3</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>51</td>
+      <td>1106</td>
+      <td>1110</td>
+      <td>1103</td>
+      <td>Ma</td>
+      <td>4.1</td>
+      <td>111.5</td>
+      <td>2104.4</td>
+      <td>-50.9</td>
+      <td>48.7494</td>
+      <td>...</td>
+      <td>NaN</td>
+      <td>DE-FM:LP-DC4:LP-DIR-AF</td>
+      <td>SI4(121.4 to 127.3)</td>
+      <td>111.5</td>
+      <td>129.6</td>
+      <td>-50.9</td>
+      <td>-43.6</td>
+      <td>NaN</td>
+      <td>36.9</td>
+      <td>190.4</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>52</td>
+      <td>1106</td>
+      <td>1110</td>
+      <td>1103</td>
+      <td>Ma</td>
+      <td>4.7</td>
+      <td>109.6</td>
+      <td>2116.8</td>
+      <td>-60.6</td>
+      <td>48.7490</td>
+      <td>...</td>
+      <td>NaN</td>
+      <td>DE-FM:LP-DC4:LP-DIR-AF</td>
+      <td>SI4(133.8 to 143.1)</td>
+      <td>109.6</td>
+      <td>134.8</td>
+      <td>-60.6</td>
+      <td>-52.7</td>
+      <td>NaN</td>
+      <td>41.7</td>
+      <td>201.8</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>53</td>
+      <td>1106</td>
+      <td>1110</td>
+      <td>1103</td>
+      <td>Ma</td>
+      <td>4.0</td>
+      <td>151.1</td>
+      <td>2143.4</td>
+      <td>-62.4</td>
+      <td>48.7485</td>
+      <td>...</td>
+      <td>NaN</td>
+      <td>DE-FM:LP-DC4:LP-DIR-AF</td>
+      <td>SI4(160.4 to 171.1)</td>
+      <td>151.1</td>
+      <td>163.7</td>
+      <td>-62.4</td>
+      <td>-46.6</td>
+      <td>NaN</td>
+      <td>69.5</td>
+      <td>179.1</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>54</td>
+      <td>1106</td>
+      <td>1110</td>
+      <td>1103</td>
+      <td>Ma</td>
+      <td>2.2</td>
+      <td>126.1</td>
+      <td>2336.0</td>
+      <td>-68.9</td>
+      <td>48.7466</td>
+      <td>...</td>
+      <td>NaN</td>
+      <td>DE-FM:LP-DC4:LP-DIR-AF</td>
+      <td>SI8(0.0 to 3.9)</td>
+      <td>126.1</td>
+      <td>152.4</td>
+      <td>-68.9</td>
+      <td>-56.4</td>
+      <td>NaN</td>
+      <td>56.4</td>
+      <td>209.4</td>
+    </tr>
+  </tbody>
+</table>
+<p>5 rows × 28 columns</p>
+</div></div></div>
+</div>
+<p>Let’s fish out the declinations and inclinations in geographic (<em>in situ</em>) coordinates (is) and those in tilt-corrected coordinates (tc) from the pmag_results table from the Swanson-Hysell2014 dataset and convert them from a dataframe object to a python list object.  We can see what happened with a print command.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">SH2014_upperR_dec_is</span> <span class="o">=</span> <span class="n">SH2014_OslerR_upper</span><span class="p">[</span><span class="s1">&#39;tilt_dec_uncorr&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">tolist</span><span class="p">()</span>
+<span class="n">SH2014_upperR_inc_is</span> <span class="o">=</span> <span class="n">SH2014_OslerR_upper</span><span class="p">[</span><span class="s1">&#39;tilt_inc_uncorr&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">tolist</span><span class="p">()</span>
+<span class="n">SH2014_upperR_dec_tc</span> <span class="o">=</span> <span class="n">SH2014_OslerR_upper</span><span class="p">[</span><span class="s1">&#39;tilt_dec_corr&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">tolist</span><span class="p">()</span>
+<span class="n">SH2014_upperR_inc_tc</span> <span class="o">=</span> <span class="n">SH2014_OslerR_upper</span><span class="p">[</span><span class="s1">&#39;tilt_inc_corr&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">tolist</span><span class="p">()</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">SH2014_upperR_inc_tc</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[-56.8, -50.9, -60.6, -62.4, -68.9, -71.6, -59.1, -64.4, -69.6, -66.0, -65.2, -63.3, -63.0, -65.3, -72.2, -78.6, -79.5, -53.3, -52.0, -55.3, -66.3, -61.0, -48.4, -53.6, -55.6, -57.1, -42.5, -50.4, -49.4, -56.0, -60.9, -61.0, -70.0, -52.5]
+</pre></div>
+</div>
+</div>
+</div>
+<p>And now the same for the Halls1974 data table.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">Halls1974_upperR_dec_is</span> <span class="o">=</span> <span class="n">Halls1974_sites_r_is</span><span class="p">[</span><span class="s1">&#39;site_dec&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">tolist</span><span class="p">()</span>
+<span class="n">Halls1974_upperR_inc_is</span> <span class="o">=</span> <span class="n">Halls1974_sites_r_is</span><span class="p">[</span><span class="s1">&#39;site_inc&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">tolist</span><span class="p">()</span>
+<span class="n">Halls1974_upperR_dec_tc</span> <span class="o">=</span> <span class="n">Halls1974_sites_r_tc</span><span class="p">[</span><span class="s1">&#39;site_dec&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">tolist</span><span class="p">()</span>
+<span class="n">Halls1974_upperR_inc_tc</span> <span class="o">=</span> <span class="n">Halls1974_sites_r_tc</span><span class="p">[</span><span class="s1">&#39;site_inc&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">tolist</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>We can combine the data from the two papers using the <strong>numpy</strong> (np) concatenate function:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">combined_upperR_dec_is</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">concatenate</span><span class="p">((</span><span class="n">SH2014_upperR_dec_is</span><span class="p">,</span>
+                                        <span class="n">Halls1974_upperR_dec_is</span><span class="p">),</span> <span class="n">axis</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span>
+<span class="n">combined_upperR_inc_is</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">concatenate</span><span class="p">((</span><span class="n">SH2014_upperR_inc_is</span><span class="p">,</span>
+                                        <span class="n">Halls1974_upperR_inc_is</span><span class="p">),</span> <span class="n">axis</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span>
+
+<span class="n">combined_upperR_dec_tc</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">concatenate</span><span class="p">((</span><span class="n">SH2014_upperR_dec_tc</span><span class="p">,</span>
+                                        <span class="n">Halls1974_upperR_dec_tc</span><span class="p">),</span> <span class="n">axis</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span>
+<span class="n">combined_upperR_inc_tc</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">concatenate</span><span class="p">((</span><span class="n">SH2014_upperR_inc_tc</span><span class="p">,</span>
+                                        <span class="n">Halls1974_upperR_inc_tc</span><span class="p">),</span> <span class="n">axis</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>Now we can plot the data!</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">num</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">4</span><span class="p">,</span><span class="mi">4</span><span class="p">))</span>
+<span class="n">ipmag</span><span class="o">.</span><span class="n">plot_net</span><span class="p">(</span><span class="n">fignum</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+<span class="n">ipmag</span><span class="o">.</span><span class="n">plot_di</span><span class="p">(</span><span class="n">combined_upperR_dec_is</span><span class="p">,</span>
+              <span class="n">combined_upperR_inc_is</span><span class="p">,</span><span class="n">color</span><span class="o">=</span><span class="s1">&#39;r&#39;</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s1">&#39;insitu directions&#39;</span><span class="p">)</span>
+<span class="n">ipmag</span><span class="o">.</span><span class="n">plot_di</span><span class="p">(</span><span class="n">combined_upperR_dec_tc</span><span class="p">,</span>
+              <span class="n">combined_upperR_inc_tc</span><span class="p">,</span><span class="n">color</span><span class="o">=</span><span class="s1">&#39;b&#39;</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s1">&#39;tilt-corrected directions&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">legend</span><span class="p">()</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../_images/Tauxe_etal_2016_37_0.svg" src="../_images/Tauxe_etal_2016_37_0.svg" /></div>
+</div>
+<p>The combined means can be calculated with the <strong>ipmag.fisher_mean</strong> function and printed out with some formatting with the <strong>ipmag.print_direction_mean</strong> function.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">OslerUpper_is_mean</span> <span class="o">=</span> <span class="n">ipmag</span><span class="o">.</span><span class="n">fisher_mean</span><span class="p">(</span><span class="n">combined_upperR_dec_is</span><span class="p">,</span>
+                                       <span class="n">combined_upperR_inc_is</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;The Fisher mean of the insitu upper Osler R directions:&quot;</span><span class="p">)</span>
+<span class="n">ipmag</span><span class="o">.</span><span class="n">print_direction_mean</span><span class="p">(</span><span class="n">OslerUpper_is_mean</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;&#39;</span><span class="p">)</span>
+<span class="n">OslerUpper_tc_mean</span> <span class="o">=</span> <span class="n">ipmag</span><span class="o">.</span><span class="n">fisher_mean</span><span class="p">(</span><span class="n">combined_upperR_dec_tc</span><span class="p">,</span>
+                                      <span class="n">combined_upperR_inc_tc</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;The Fisher mean of the tilt-corrected upper Osler R directions:&quot;</span> <span class="p">)</span>
+<span class="n">ipmag</span><span class="o">.</span><span class="n">print_direction_mean</span><span class="p">(</span><span class="n">OslerUpper_tc_mean</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;&#39;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;The k_2/k_1 ratio is:&#39;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">OslerUpper_tc_mean</span><span class="p">[</span><span class="s1">&#39;k&#39;</span><span class="p">]</span><span class="o">/</span><span class="n">OslerUpper_is_mean</span><span class="p">[</span><span class="s1">&#39;k&#39;</span><span class="p">]</span> <span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>The Fisher mean of the insitu upper Osler R directions:
+Dec: 128.3  Inc: -47.6
+Number of directions in mean (n): 59
+Angular radius of 95% confidence (a_95): 4.2
+Precision parameter (k) estimate: 19.9
+
+The Fisher mean of the tilt-corrected upper Osler R directions:
+Dec: 110.9  Inc: -59.9
+Number of directions in mean (n): 59
+Angular radius of 95% confidence (a_95): 2.8
+Precision parameter (k) estimate: 43.9
+
+The k_2/k_1 ratio is:
+2.20159915009
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="fold-test-on-the-site-mean-directions">
+<h2>Fold test on the site mean directions<a class="headerlink" href="#fold-test-on-the-site-mean-directions" title="Permalink to this headline">#</a></h2>
+<p>In the above plot, the blue directions that have been corrected for tilting have a higher precision than the red values that are uncorrected for tilting. The ratio of the precision parameter from before and after tilt-correction (<span class="math notranslate nohighlight">\(k_2\)</span>/<span class="math notranslate nohighlight">\(k_1\)</span>) is 2.2 (see output of code above). Calculating this ratio provides a way to qualitatively assess whether there is improvement in the precision of the data such that the magnetization was likely acquired prior to tilting. This ratio was at the heart of the McElhinny (1964; doi:10.1111/j.1365-246X.1964.tb06300.x) fold test (in which this would constitute of a positive test). However, that test has been shown to not be meaningful as summarized by McFadden (1990; doi:10.1111/j.1365-246X.1990.tb01761.x).</p>
+<p>Halls (1974) noted that the precision increases with structural correction in the Osler dataset, but did not report the values of a statistical fold test. Swanson-Hysell et al. (2014) included all of these data, but did not report the results of the fold test. Here we conduct a Tauxe and Watson (1994; doi:10.1016/0012-821X(94)90006-X) bootstrap fold test on these data that reveals that the tightest grouping of vectors is achieved upon correction for bedding tilt thereby constituting a positive fold test.</p>
+<p>Before we can do that, we must wrangle the data into the format expected by the fold test program.  We can start with the in situ directions from the pmag_results.txt files and pair them with the bedding orientations in the er_sites.txt files for each of the studies.</p>
+<p>The <em>in situ</em> (geographic coordinates) for the reverse sites from Halls (1974) were read in from the pmag_sites table into Halls1974_sites_r_is.   We read the data from the Swanson-Hysell 2014 data from pmag_results table, so the column headers are different.  Both of these data sets must be paired with the bedding information in the er_sites tables for each study and put into the format expected by the function <strong>ipmag.bootstrap_fold_test</strong> which expects an array of declination, inclination, dip direction and dip for all the sites where the directional data are in geographic coordinates.</p>
+<p>The first step is to make a container for the directions and orientations.  In this case, we make an empty list OslerR_upper_diddd.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">OslerR_upper_diddd</span><span class="o">=</span><span class="p">[]</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>Let’s start with the Halls (1974) data set in Halls1974_sites_r_is. It is handier for the MagIC data tables in this exercise to have a list of dictionaries instead of a Pandas data frame.  So let’s convert the Halls 1974 filtered dataframe to a list of dictionaries called Halls1974.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">Halls1974</span><span class="o">=</span><span class="n">Halls1974_sites_r_is</span><span class="o">.</span><span class="n">T</span><span class="o">.</span><span class="n">to_dict</span><span class="p">()</span><span class="o">.</span><span class="n">values</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>Now we can read in the data from the er_sites.txt table (with the bedding attitudes) using the function <strong>pmag.magic_read</strong> which reads in magic tables into a list of dictionaries.  Then we will step through the records and pair each site with its bedding orientations using a handy function <strong>get_dict_item</strong> from the <strong>pmag</strong> module that will find correct site record. The function expects a list of dictionaries (Halls1974_sites), a key to filter on (‘er_site_name’), the value of the key (<strong>pmag.magic_read</strong> reads things in as strings but because the names are numbers, pandas converted them to integers, hence the str(site[‘er_site_name’]), and whether the two must be equal (‘T’), not equal (‘F’), contain (‘has’) or not contain (‘not’).   After finding the correct orientation record for the site, we can put the directions and bedding orientations together into the list <strong>OslerR_upper_diddd</strong>.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">Halls1974_sites</span><span class="p">,</span><span class="n">filetype</span><span class="o">=</span><span class="n">pmag</span><span class="o">.</span><span class="n">magic_read</span><span class="p">(</span><span class="s1">&#39;./Example_Data/Halls1974/er_sites.txt&#39;</span><span class="p">)</span> <span class="c1"># reads in the data</span>
+<span class="k">for</span> <span class="n">site</span> <span class="ow">in</span> <span class="n">Halls1974</span><span class="p">:</span>
+    <span class="n">orientations</span><span class="o">=</span><span class="n">pmag</span><span class="o">.</span><span class="n">get_dictitem</span><span class="p">(</span><span class="n">Halls1974_sites</span><span class="p">,</span><span class="s1">&#39;er_site_name&#39;</span><span class="p">,</span>
+                                       <span class="nb">str</span><span class="p">(</span><span class="n">site</span><span class="p">[</span><span class="s1">&#39;er_site_name&#39;</span><span class="p">]),</span><span class="s1">&#39;T&#39;</span><span class="p">)</span>
+    <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">orientations</span><span class="p">)</span><span class="o">&gt;</span><span class="mi">0</span><span class="p">:</span> <span class="c1"># record found</span>
+        <span class="n">OslerR_upper_diddd</span><span class="o">.</span><span class="n">append</span><span class="p">([</span><span class="n">site</span><span class="p">[</span><span class="s1">&#39;site_dec&#39;</span><span class="p">],</span><span class="n">site</span><span class="p">[</span><span class="s1">&#39;site_inc&#39;</span><span class="p">],</span> 
+                        <span class="nb">float</span><span class="p">(</span><span class="n">orientations</span><span class="p">[</span><span class="mi">0</span><span class="p">][</span><span class="s1">&#39;site_bed_dip_direction&#39;</span><span class="p">]),</span>
+                                   <span class="nb">float</span><span class="p">(</span><span class="n">orientations</span><span class="p">[</span><span class="mi">0</span><span class="p">][</span><span class="s1">&#39;site_bed_dip&#39;</span><span class="p">])])</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;no orientations found for site, &#39;</span><span class="p">,</span><span class="n">site</span><span class="p">[</span><span class="s1">&#39;er_site_name&#39;</span><span class="p">])</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>We can do the same for the filtered upper Osler sequence of Swanson-Hysell et al. (2014).  These have slightly different keys, but the general idea is the same.  In the cell below, we convert the dataframe to a list of dictionaries, fish out the bedding orientations and attach them to the same list as before (OslerR_upper_diddd).</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">SH2014</span><span class="o">=</span><span class="n">SH2014_OslerR_upper</span><span class="o">.</span><span class="n">T</span><span class="o">.</span><span class="n">to_dict</span><span class="p">()</span><span class="o">.</span><span class="n">values</span><span class="p">()</span>
+<span class="n">SH2014_sites</span><span class="p">,</span><span class="n">filetype</span><span class="o">=</span><span class="n">pmag</span><span class="o">.</span><span class="n">magic_read</span><span class="p">(</span><span class="s1">&#39;./Example_Data/Swanson-Hysell2014/er_sites.txt&#39;</span><span class="p">)</span>
+<span class="k">for</span> <span class="n">site</span> <span class="ow">in</span> <span class="n">SH2014</span><span class="p">:</span>
+    <span class="n">orientations</span><span class="o">=</span><span class="n">pmag</span><span class="o">.</span><span class="n">get_dictitem</span><span class="p">(</span><span class="n">SH2014_sites</span><span class="p">,</span><span class="s1">&#39;er_site_name&#39;</span><span class="p">,</span> 
+                                   <span class="nb">str</span><span class="p">(</span><span class="n">site</span><span class="p">[</span><span class="s1">&#39;er_site_names&#39;</span><span class="p">]),</span><span class="s1">&#39;T&#39;</span><span class="p">)</span>
+    <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">orientations</span><span class="p">)</span><span class="o">&gt;</span><span class="mi">0</span><span class="p">:</span> <span class="c1"># record found</span>
+        <span class="n">OslerR_upper_diddd</span><span class="o">.</span><span class="n">append</span><span class="p">([</span><span class="n">site</span><span class="p">[</span><span class="s1">&#39;tilt_dec_uncorr&#39;</span><span class="p">],</span><span class="n">site</span><span class="p">[</span><span class="s1">&#39;tilt_inc_uncorr&#39;</span><span class="p">],</span> 
+                        <span class="nb">float</span><span class="p">(</span><span class="n">orientations</span><span class="p">[</span><span class="mi">0</span><span class="p">][</span><span class="s1">&#39;site_bed_dip_direction&#39;</span><span class="p">]),</span>
+                                   <span class="nb">float</span><span class="p">(</span><span class="n">orientations</span><span class="p">[</span><span class="mi">0</span><span class="p">][</span><span class="s1">&#39;site_bed_dip&#39;</span><span class="p">])])</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;no orientations found for site, &#39;</span><span class="p">,</span><span class="n">site</span><span class="p">[</span><span class="s1">&#39;er_site_names&#39;</span><span class="p">]</span> <span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>Now all we have to do is make a numpy array out of the OslerR_upper_diddd and send it to the <strong>ipmag.bootstrap_fold_test</strong> function.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">diddd</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="n">OslerR_upper_diddd</span><span class="p">)</span>
+<span class="n">ipmag</span><span class="o">.</span><span class="n">bootstrap_fold_test</span><span class="p">(</span><span class="n">diddd</span><span class="p">,</span><span class="n">num_sims</span><span class="o">=</span><span class="mi">100</span><span class="p">,</span> <span class="n">min_untilt</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">max_untilt</span><span class="o">=</span><span class="mi">140</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>doing  100  iterations...please be patient.....
+</pre></div>
+</div>
+<img alt="../_images/Tauxe_etal_2016_49_1.svg" src="../_images/Tauxe_etal_2016_49_1.svg" /><img alt="../_images/Tauxe_etal_2016_49_2.svg" src="../_images/Tauxe_etal_2016_49_2.svg" /><div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>tightest grouping of vectors obtained at (95% confidence bounds):
+100 - 138 percent unfolding
+range of all bootstrap samples: 
+96  -  139 percent unfolding
+</pre></div>
+</div>
+<img alt="../_images/Tauxe_etal_2016_49_4.svg" src="../_images/Tauxe_etal_2016_49_4.svg" /></div>
+</div>
+</section>
+</section>
+<section class="tex2jax_ignore mathjax_ignore" id="developing-a-mean-paleomagnetic-pole">
+<h1>Developing a mean paleomagnetic pole<a class="headerlink" href="#developing-a-mean-paleomagnetic-pole" title="Permalink to this headline">#</a></h1>
+<p>The virtual geomagnetic poles (VGPs) calculated from the Halls (1974) and Swanson-Hysell (2014) site means can be combined into a single paleomagnetic pole for the upper portion of the reversed polarity Osler Volcanic Group flows. Developing such a combined pole makes sense from a stratigraphic perspective given that the data come from a similar portion of the Osler Volcanic Group stratigraphy. We can test whether or not this combination makes sense from the data themselves by posing the question: are the data sets consistent with being drawn from a common mean?</p>
+<p>First, the VGP longitudes and latitudes for the Halls (1974) data can be accessed from the pmag_results table. The results need to be filtered so that individual VGPs are being used (rather than mean poles) and that the reversed poles are being used (rather than the normal ones).</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">Halls1974_results</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s1">&#39;./Example_Data/Halls1974/pmag_results.txt&#39;</span><span class="p">,</span><span class="n">sep</span><span class="o">=</span><span class="s1">&#39;</span><span class="se">\t</span><span class="s1">&#39;</span><span class="p">,</span><span class="n">skiprows</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+
+<span class="c1">#filter so that individual results are shown filtering out mean poles</span>
+<span class="n">Halls1974_results_i</span> <span class="o">=</span> <span class="n">Halls1974_results</span><span class="o">.</span><span class="n">ix</span><span class="p">[</span><span class="n">Halls1974_results</span><span class="p">[</span><span class="s1">&#39;data_type&#39;</span><span class="p">]</span><span class="o">==</span><span class="s1">&#39;i&#39;</span><span class="p">]</span>
+
+<span class="c1">#filter so that reversed poles are included rather than normal poles</span>
+<span class="n">Halls1974_results_r</span> <span class="o">=</span> <span class="n">Halls1974_results_i</span><span class="o">.</span><span class="n">ix</span><span class="p">[</span><span class="n">Halls1974_results</span><span class="p">[</span><span class="s1">&#39;er_location_names&#39;</span><span class="p">]</span><span class="o">==</span><span class="s1">&#39;Osler Volcanics, Nipigon Strait, Lower Reversed&#39;</span><span class="p">]</span>
+
+<span class="n">Halls1974_results_r</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>average_alpha95</th>
+      <th>average_dec</th>
+      <th>average_inc</th>
+      <th>average_k</th>
+      <th>average_lat</th>
+      <th>average_lat_sigma</th>
+      <th>average_lon</th>
+      <th>average_lon_sigma</th>
+      <th>average_n</th>
+      <th>average_r</th>
+      <th>...</th>
+      <th>magic_method_codes</th>
+      <th>pmag_result_name</th>
+      <th>pole_comp_name</th>
+      <th>reversal_test</th>
+      <th>rock_magnetic_test</th>
+      <th>tilt_correction</th>
+      <th>vgp_alpha95</th>
+      <th>vgp_lat</th>
+      <th>vgp_lon</th>
+      <th>vgp_n</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>5</th>
+      <td>NaN</td>
+      <td>106.1</td>
+      <td>-44.2</td>
+      <td>NaN</td>
+      <td>48.661051</td>
+      <td>NaN</td>
+      <td>271.948459</td>
+      <td>NaN</td>
+      <td>1</td>
+      <td>NaN</td>
+      <td>...</td>
+      <td>DE-DI:FS-LOC-GOOGLE:LP-DC2</td>
+      <td>VGP : Site 6</td>
+      <td>Characteristic</td>
+      <td>ND</td>
+      <td>ND</td>
+      <td>100</td>
+      <td>NaN</td>
+      <td>29.540889</td>
+      <td>188.653302</td>
+      <td>1</td>
+    </tr>
+    <tr>
+      <th>6</th>
+      <td>NaN</td>
+      <td>109.8</td>
+      <td>-62.4</td>
+      <td>NaN</td>
+      <td>48.678061</td>
+      <td>NaN</td>
+      <td>271.975320</td>
+      <td>NaN</td>
+      <td>1</td>
+      <td>NaN</td>
+      <td>...</td>
+      <td>DE-DI:FS-LOC-GOOGLE:LP-DC2</td>
+      <td>VGP : Site 7</td>
+      <td>Characteristic</td>
+      <td>ND</td>
+      <td>ND</td>
+      <td>100</td>
+      <td>NaN</td>
+      <td>42.900204</td>
+      <td>203.816622</td>
+      <td>1</td>
+    </tr>
+    <tr>
+      <th>7</th>
+      <td>NaN</td>
+      <td>140.7</td>
+      <td>-64.8</td>
+      <td>NaN</td>
+      <td>48.680014</td>
+      <td>NaN</td>
+      <td>271.973994</td>
+      <td>NaN</td>
+      <td>1</td>
+      <td>NaN</td>
+      <td>...</td>
+      <td>DE-DI:FS-LOC-GOOGLE:LP-DC2</td>
+      <td>VGP : Site 8</td>
+      <td>Characteristic</td>
+      <td>ND</td>
+      <td>ND</td>
+      <td>100</td>
+      <td>NaN</td>
+      <td>63.777608</td>
+      <td>192.735742</td>
+      <td>1</td>
+    </tr>
+    <tr>
+      <th>8</th>
+      <td>NaN</td>
+      <td>110.0</td>
+      <td>-56.6</td>
+      <td>NaN</td>
+      <td>48.676652</td>
+      <td>NaN</td>
+      <td>271.940536</td>
+      <td>NaN</td>
+      <td>1</td>
+      <td>NaN</td>
+      <td>...</td>
+      <td>DE-DI:FS-LOC-GOOGLE:LP-DC2</td>
+      <td>VGP : Site 9</td>
+      <td>Characteristic</td>
+      <td>ND</td>
+      <td>ND</td>
+      <td>100</td>
+      <td>NaN</td>
+      <td>39.324957</td>
+      <td>196.487855</td>
+      <td>1</td>
+    </tr>
+    <tr>
+      <th>9</th>
+      <td>NaN</td>
+      <td>128.2</td>
+      <td>-42.0</td>
+      <td>NaN</td>
+      <td>48.664307</td>
+      <td>NaN</td>
+      <td>271.930409</td>
+      <td>NaN</td>
+      <td>1</td>
+      <td>NaN</td>
+      <td>...</td>
+      <td>DE-DI:FS-LOC-GOOGLE:LP-DC2</td>
+      <td>VGP : Site 10</td>
+      <td>Characteristic</td>
+      <td>ND</td>
+      <td>ND</td>
+      <td>100</td>
+      <td>NaN</td>
+      <td>42.896450</td>
+      <td>169.933902</td>
+      <td>1</td>
+    </tr>
+  </tbody>
+</table>
+<p>5 rows × 27 columns</p>
+</div></div></div>
+</div>
+<p>The data can be made into a list of [vgp_lon, vgp_lat] values using the <strong>ipmag.make_di_block</strong> function.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">SH_vgps</span> <span class="o">=</span> <span class="n">ipmag</span><span class="o">.</span><span class="n">make_di_block</span><span class="p">(</span><span class="n">SH2014_OslerR_upper</span><span class="p">[</span><span class="s1">&#39;vgp_lon&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">tolist</span><span class="p">(),</span>
+                              <span class="n">SH2014_OslerR_upper</span><span class="p">[</span><span class="s1">&#39;vgp_lat&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">tolist</span><span class="p">())</span>
+<span class="n">Halls_vgps</span> <span class="o">=</span> <span class="n">ipmag</span><span class="o">.</span><span class="n">make_di_block</span><span class="p">(</span><span class="n">Halls1974_results_r</span><span class="p">[</span><span class="s1">&#39;vgp_lon&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">tolist</span><span class="p">(),</span>
+                              <span class="n">Halls1974_results_r</span><span class="p">[</span><span class="s1">&#39;vgp_lat&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">tolist</span><span class="p">())</span>
+</pre></div>
+</div>
+</div>
+</div>
+<section id="conducting-a-common-mean-test">
+<h2>Conducting a common mean test<a class="headerlink" href="#conducting-a-common-mean-test" title="Permalink to this headline">#</a></h2>
+<p>The question “are the data sets consistent with being drawn from a common mean?” can be addressed utilizing the <strong>ipmag.watson_common_mean</strong> function. This function calculates Watson’s V statistic from input data through Monte Carlo simulation in order to test whether two populations of directional data could have been drawn from a common mean. The critical angle between the two sample mean directions and the corresponding McFadden and McElhinny (1990) classification is also printed. A plot can be shown of the cumulative distribution of the Watson V statistic as calculated during the Monte Carlo simulations, as suggested by Tauxe et al. (2010).</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">ipmag</span><span class="o">.</span><span class="n">common_mean_watson</span><span class="p">(</span><span class="n">SH_vgps</span><span class="p">,</span><span class="n">Halls_vgps</span><span class="p">,</span><span class="n">NumSims</span><span class="o">=</span><span class="mi">1000</span><span class="p">,</span><span class="n">plot</span><span class="o">=</span><span class="s1">&#39;yes&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Results of Watson V test: 
+
+Watson&#39;s V:           5.4
+Critical value of V:  6.5
+&quot;Pass&quot;: Since V is less than Vcrit, the null hypothesis
+that the two populations are drawn from distributions
+that share a common mean direction can not be rejected.
+
+M&amp;M1990 classification:
+
+Angle between data set means: 7.0
+Critical angle for M&amp;M1990:   7.7
+The McFadden and McElhinny (1990) classification for
+this test is: &#39;B&#39;
+</pre></div>
+</div>
+<img alt="../_images/Tauxe_etal_2016_55_1.svg" src="../_images/Tauxe_etal_2016_55_1.svg" /></div>
+</div>
+</section>
+<section id="calculating-a-mean-paleomagnetic-pole">
+<h2>Calculating a mean paleomagnetic pole<a class="headerlink" href="#calculating-a-mean-paleomagnetic-pole" title="Permalink to this headline">#</a></h2>
+<p>We can go ahead and calculate a mean paleomagnetic pole combining the VGPs from both studies. This mean pole was published in Swanson-Hysell et al. (2014).</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">Osler_upperR_pole</span> <span class="o">=</span> <span class="n">pmag</span><span class="o">.</span><span class="n">fisher_mean</span><span class="p">(</span><span class="n">SH_vgps</span><span class="o">+</span><span class="n">Halls_vgps</span><span class="p">)</span>
+<span class="n">ipmag</span><span class="o">.</span><span class="n">print_pole_mean</span><span class="p">(</span><span class="n">Osler_upperR_pole</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Plon: 201.6  Plat: 42.5
+Number of directions in mean (n): 59
+Angular radius of 95% confidence (A_95): 3.7
+Precision parameter (k) estimate: 25.7
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="plotting-vgps-and-the-mean-pole">
+<h2>Plotting VGPs and the mean pole<a class="headerlink" href="#plotting-vgps-and-the-mean-pole" title="Permalink to this headline">#</a></h2>
+<p>The code below uses the <strong>ipmag.plot_vgp</strong> function to plot the virtual geomagnetic poles and the <strong>ipmag.plot_pole</strong> function to plot the calculated mean pole along with its <span class="math notranslate nohighlight">\(A_{95}\)</span> confidence ellipse.</p>
+<p>The plot is developed using the <strong>Basemap</strong> package which enables the plotting of data on a variety of geographic projections. <strong>Basemap</strong> is not a standard part of most scientific python distributions so you may need to take extra steps to install it. If using the Anaconda distribution, you can type <code class="docutils literal notranslate"><span class="pre">conda</span> <span class="pre">install</span> <span class="pre">basemap</span></code> at the command line. The Enthought Canopy distribution has a GUI package manager that you can use for installing the package although a Canopy subscription (free for academic users) may be necessary for installation.</p>
+<p>The plot is saved to the Example_Notebook_Output folder as an .svg file.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">mpl_toolkits.basemap</span> <span class="kn">import</span> <span class="n">Basemap</span>
+
+<span class="n">m</span> <span class="o">=</span> <span class="n">Basemap</span><span class="p">(</span><span class="n">projection</span><span class="o">=</span><span class="s1">&#39;ortho&#39;</span><span class="p">,</span><span class="n">lat_0</span><span class="o">=</span><span class="mi">35</span><span class="p">,</span><span class="n">lon_0</span><span class="o">=</span><span class="mi">200</span><span class="p">,</span><span class="n">resolution</span><span class="o">=</span><span class="s1">&#39;c&#39;</span><span class="p">,</span><span class="n">area_thresh</span><span class="o">=</span><span class="mi">50000</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">6</span><span class="p">,</span> <span class="mi">6</span><span class="p">))</span>
+<span class="n">m</span><span class="o">.</span><span class="n">drawcoastlines</span><span class="p">(</span><span class="n">linewidth</span><span class="o">=</span><span class="mf">0.25</span><span class="p">)</span>
+<span class="n">m</span><span class="o">.</span><span class="n">fillcontinents</span><span class="p">(</span><span class="n">color</span><span class="o">=</span><span class="s1">&#39;bisque&#39;</span><span class="p">,</span><span class="n">zorder</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+<span class="n">m</span><span class="o">.</span><span class="n">drawmeridians</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="mi">360</span><span class="p">,</span><span class="mi">30</span><span class="p">))</span>
+<span class="n">m</span><span class="o">.</span><span class="n">drawparallels</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="o">-</span><span class="mi">90</span><span class="p">,</span><span class="mi">90</span><span class="p">,</span><span class="mi">30</span><span class="p">))</span>
+
+<span class="n">ipmag</span><span class="o">.</span><span class="n">plot_vgp</span><span class="p">(</span><span class="n">m</span><span class="p">,</span><span class="n">SH2014_OslerR_upper</span><span class="p">[</span><span class="s1">&#39;vgp_lon&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">tolist</span><span class="p">(),</span>
+               <span class="n">SH2014_OslerR_upper</span><span class="p">[</span><span class="s1">&#39;vgp_lat&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">tolist</span><span class="p">(),</span>
+               <span class="n">marker</span><span class="o">=</span><span class="s1">&#39;o&#39;</span><span class="p">)</span>
+
+<span class="n">ipmag</span><span class="o">.</span><span class="n">plot_vgp</span><span class="p">(</span><span class="n">m</span><span class="p">,</span><span class="n">Halls1974_results_r</span><span class="p">[</span><span class="s1">&#39;vgp_lon&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">tolist</span><span class="p">(),</span>
+               <span class="n">Halls1974_results_r</span><span class="p">[</span><span class="s1">&#39;vgp_lat&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">tolist</span><span class="p">(),</span>
+               <span class="n">marker</span><span class="o">=</span><span class="s1">&#39;o&#39;</span><span class="p">,</span><span class="n">label</span><span class="o">=</span><span class="s1">&#39;Osler upper reversed VGPs&#39;</span><span class="p">)</span>
+               
+<span class="n">ipmag</span><span class="o">.</span><span class="n">plot_pole</span><span class="p">(</span><span class="n">m</span><span class="p">,</span><span class="n">Osler_upperR_pole</span><span class="p">[</span><span class="s1">&#39;dec&#39;</span><span class="p">],</span>
+             <span class="n">Osler_upperR_pole</span><span class="p">[</span><span class="s1">&#39;inc&#39;</span><span class="p">],</span>
+             <span class="n">Osler_upperR_pole</span><span class="p">[</span><span class="s1">&#39;alpha95&#39;</span><span class="p">],</span>
+             <span class="n">marker</span><span class="o">=</span><span class="s1">&#39;s&#39;</span><span class="p">,</span><span class="n">label</span><span class="o">=</span><span class="s1">&#39;Osler upper reversed pole&#39;</span><span class="p">)</span>
+
+<span class="n">plt</span><span class="o">.</span><span class="n">legend</span><span class="p">()</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">savefig</span><span class="p">(</span><span class="s1">&#39;Example_Notebook_Output/pole_plot.svg&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../_images/Tauxe_etal_2016_59_0.svg" src="../_images/Tauxe_etal_2016_59_0.svg" /></div>
+</div>
+</section>
+</section>
+<section class="tex2jax_ignore mathjax_ignore" id="concluding-thoughts">
+<h1>Concluding thoughts<a class="headerlink" href="#concluding-thoughts" title="Permalink to this headline">#</a></h1>
+<p>This notebook is intended to be an illustrative case study of some of the types of data analysis that can be accomplished using PmagPy within a Jupyter notebook. All the capabilities of PmagPy can be utilized within notebooks, although continued work is needed for the functionality within some of the command line programs to be made into functions that work well within the environment.</p>
+<p>An advantage of this type of workflow is that it is well-documented and reproducible. The decisions that went into the data analysis and the implementation of the statistical tests are fully transparent (as is the underlying code). Additionally, if one were to seek to add more data to the mean pole, all of the data analysis could be quickly redone by executing all of the code in the notebook.</p>
+<p>Smaller snippets of code that demonstrate additional PmagPy functionality within the notebook environment can be seen in this notebook:</p>
+<p><a class="reference external" href="http://pmagpy.github.io/Additional_PmagPy_Examples.html">http://pmagpy.github.io/Additional_PmagPy_Examples.html</a></p>
+</section>
+<section class="tex2jax_ignore mathjax_ignore" id="works-cited">
+<h1>Works cited<a class="headerlink" href="#works-cited" title="Permalink to this headline">#</a></h1>
+<p>Davis, D., and J. Green (1997), Geochronology of the North American Midcontinent rift in western Lake Superior and implications for its geodynamic evolution, Can. J. Earth Sci., 34, 476–488, doi:10.1139/e17–039.</p>
+<p>Halls, H. (1974), A paleomagnetic reversal in the Osler Volcanic Group, northern Lake Superior, Can. J. Earth Sci., 11, 1200–1207, doi:10.1139/e74–113.</p>
+<p>McElhinny, M. W. (1964), Statistical Significance of the Fold Test in Palaeomagnetism. Geophysical Journal of the Royal Astronomical Society, 8: 338–340. doi: 10.1111/j.1365-246X.1964.tb06300.x</p>
+<p>McFadden, P. L. and McElhinny, M. W. (1990), Classification of the reversal test in palaeomagnetism. Geophysical Journal International, 103: 725–729. doi: 10.1111/j.1365-246X.1990.tb05683.x</p>
+<p>McFadden, P. L. (1990), A new fold test for palaeomagnetic studies. Geophysical Journal International, 103: 163–169. doi: 10.1111/j.1365-246X.1990.tb01761.x</p>
+<p>Swanson-Hysell, N. L., A. A. Vaughan, M. R. Mustain, and K. E. Asp (2014), Confirmation of progressive plate motion during the Midcontinent Rift’s early magmatic stage from the Osler Volcanic Group, Ontario, Canada, Geochemistry Geophysics Geosystems, 15, 2039–2047, doi:10.1002/2013GC005180.</p>
+<p>Tauxe, L., and G. S. Watson (1994), The fold test: an eigen analysis approach, Earth Planet. Sci. Lett., 122, 331–341, doi:10.1016/0012-821X(94)90006-X.</p>
+<p>Tauxe, L. with contributions from Subir K. Banerjee, Robert F. Butler and Rob van der Voo, Essentials of Paleomagnetism, Univ. California Press, 2010.  Current online version:  <a class="reference external" href="https://earthref.org/MagIC/books/Tauxe/Essentials/">https://earthref.org/MagIC/books/Tauxe/Essentials/</a></p>
+</section>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            kernelName: "python3",
+            path: "./example_notebooks"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+              </div>
+              
+            </main>
+            <footer class="footer-article noprint">
+                
+    <!-- Previous / next buttons -->
+<div class='prev-next-area'>
+    <a class='left-prev' id="prev-link" href="example_notebooks.html" title="previous page">
+        <i class="fas fa-angle-left"></i>
+        <div class="prev-next-info">
+            <p class="prev-next-subtitle">previous</p>
+            <p class="prev-next-title">Example notebook list</p>
+        </div>
+    </a>
+</div>
+            </footer>
+        </div>
+    </div>
+    <div class="footer-content row">
+        <footer class="col footer"><p>
+  
+    By PmagPy Contributors<br/>
+  
+      &copy; Copyright 2022.<br/>
+</p>
+        </footer>
+    </div>
+    
+</div>
+
+
+      </div>
+    </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="../_static/scripts/pydata-sphinx-theme.js?digest=1999514e3f237ded88cf"></script>
+
+
+  </body>
+</html>

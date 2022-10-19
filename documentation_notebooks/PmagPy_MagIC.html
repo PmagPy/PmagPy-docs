@@ -6,7 +6,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
 
-    <title>Working with the MagIC database using PmagPy &#8212; PmagPy Notebooks</title>
+    <title>Working with the MagIC database using PmagPy &#8212; PmagPy Documentation</title>
     
   <!-- Loaded before other Sphinx assets -->
   <link href="../_static/styles/theme.css?digest=1999514e3f237ded88cf" rel="stylesheet">
@@ -54,6 +54,7 @@ const thebe_selector_output = ".output, .cell_output"
     <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="Example notebook list" href="../example_notebooks/example_notebooks.html" />
     <link rel="prev" title="Visualizations and more analysis with PmagPy" href="PmagPy_plots_analysis.html" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="docsearch:language" content="None">
@@ -98,7 +99,7 @@ const thebe_selector_output = ".output, .cell_output"
       <img src="../_static/pmagpy_logo.png" class="logo" alt="logo">
       
       
-      <h1 class="site-logo" id="site-title">PmagPy Notebooks</h1>
+      <h1 class="site-logo" id="site-title">PmagPy Documentation</h1>
       
     </a>
 </div><form class="bd-search d-flex align-items-center" action="../search.html" method="get">
@@ -150,6 +151,23 @@ const thebe_selector_output = ".output, .cell_output"
  <li class="toctree-l1 current active">
   <a class="current reference internal" href="#">
    Working with the MagIC database using PmagPy
+  </a>
+ </li>
+</ul>
+<p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  Example notebooks
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../example_notebooks/example_notebooks.html">
+   Example notebook list
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../example_notebooks/Tauxe_etal_2016.html">
+   Tauxe et al. 2016 example notebook
   </a>
  </li>
 </ul>
@@ -973,14 +991,9 @@ title="Print to PDF"
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
-<span class="ne">FileNotFoundError</span><span class="g g-Whitespace">                         </span>Traceback (most recent call last)
-<span class="nn">Input In [1],</span> in <span class="ni">&lt;cell line: 1&gt;</span><span class="nt">()</span>
-<span class="ne">----&gt; </span><span class="mi">1</span> <span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="s1">&#39;data_files/3_0/McMurdo/samples.txt&#39;</span><span class="p">)</span> <span class="k">as</span> <span class="n">f</span><span class="p">:</span>
-<span class="g g-Whitespace">      </span><span class="mi">2</span>     <span class="k">for</span> <span class="n">line</span> <span class="ow">in</span> <span class="n">f</span><span class="o">.</span><span class="n">readlines</span><span class="p">()[:</span><span class="mi">3</span><span class="p">]:</span>
-<span class="g g-Whitespace">      </span><span class="mi">3</span>         <span class="nb">print</span><span class="p">(</span><span class="n">line</span><span class="p">,</span> <span class="n">end</span><span class="o">=</span><span class="s2">&quot;&quot;</span><span class="p">)</span>
-
-<span class="ne">FileNotFoundError</span>: [Errno 2] No such file or directory: &#39;data_files/3_0/McMurdo/samples.txt&#39;
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>tab 	samples
+azimuth	azimuth_dec_correction	citations	description	dip	geologic_classes	geologic_types	lat	lithologies	lon	method_codes	orientation_quality	sample	site
+260	0	This study	Archived samples from 1965, 66 expeditions.	-57	Extrusive:Igneous	Lava Flow	-77.85	Trachyte	166.64	SO-SIGHT:FS-FD	g	mc01a	mc01
 </pre></div>
 </div>
 </div>
@@ -6469,6 +6482,13 @@ chart_maker(Int, Top, start=100, outfile=&#39;chart.txt&#39;)
             <p class="prev-next-title">Visualizations and more analysis with PmagPy</p>
         </div>
     </a>
+    <a class='right-next' id="next-link" href="../example_notebooks/example_notebooks.html" title="next page">
+    <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">Example notebook list</p>
+    </div>
+    <i class="fas fa-angle-right"></i>
+    </a>
 </div>
             </footer>
         </div>
@@ -6476,7 +6496,7 @@ chart_maker(Int, Top, start=100, outfile=&#39;chart.txt&#39;)
     <div class="footer-content row">
         <footer class="col footer"><p>
   
-    By Lisa Tauxe, Nick Swanson-Hysell, and Lori Jonestrask<br/>
+    By PmagPy Contributors<br/>
   
       &copy; Copyright 2022.<br/>
 </p>

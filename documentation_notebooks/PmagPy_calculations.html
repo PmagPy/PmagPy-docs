@@ -6,7 +6,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
 
-    <title>Calculations with PmagPy &#8212; PmagPy Notebooks</title>
+    <title>Calculations with PmagPy &#8212; PmagPy Documentation</title>
     
   <!-- Loaded before other Sphinx assets -->
   <link href="../_static/styles/theme.css?digest=1999514e3f237ded88cf" rel="stylesheet">
@@ -99,7 +99,7 @@ const thebe_selector_output = ".output, .cell_output"
       <img src="../_static/pmagpy_logo.png" class="logo" alt="logo">
       
       
-      <h1 class="site-logo" id="site-title">PmagPy Notebooks</h1>
+      <h1 class="site-logo" id="site-title">PmagPy Documentation</h1>
       
     </a>
 </div><form class="bd-search d-flex align-items-center" action="../search.html" method="get">
@@ -151,6 +151,23 @@ const thebe_selector_output = ".output, .cell_output"
  <li class="toctree-l1">
   <a class="reference internal" href="PmagPy_MagIC.html">
    Working with the MagIC database using PmagPy
+  </a>
+ </li>
+</ul>
+<p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  Example notebooks
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../example_notebooks/example_notebooks.html">
+   Example notebook list
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../example_notebooks/Tauxe_etal_2016.html">
+   Tauxe et al. 2016 example notebook
   </a>
  </li>
 </ul>
@@ -1046,11 +1063,23 @@ title="Print to PDF"
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>-W- You are trying to open a file: /Users/unimos/0000_Github/PmagPy-docs/documentation_notebooks/data_files/aarm_magic/arm_magic_example.dat that does not exist
-you must provide a valid mag_file
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>-I- Using online data model
+-I- Getting method codes from earthref.org
+-I- Importing controlled vocabularies from https://earthref.org
+-I- overwriting /Users/nebula/Python/PmagPy/data_files/aarm_magic/specimens.txt
+-I- 7 records written to specimens file
+-I- overwriting /Users/nebula/Python/PmagPy/data_files/aarm_magic/samples.txt
+-I- 1 records written to samples file
+-I- overwriting /Users/nebula/Python/PmagPy/data_files/aarm_magic/sites.txt
+-I- 1 records written to sites file
+-I- overwriting /Users/nebula/Python/PmagPy/data_files/aarm_magic/locations.txt
+-I- 1 records written to locations file
+-I- overwriting /Users/nebula/Python/PmagPy/data_files/aarm_magic/aarm_measurements.txt
+-I- 126 records written to measurements file
 </pre></div>
 </div>
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>(False, &#39;you must provide a valid mag_file&#39;)
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>(True,
+ &#39;/Users/nebula/Python/PmagPy/data_files/aarm_magic/aarm_measurements.txt&#39;)
 </pre></div>
 </div>
 </div>
@@ -1064,26 +1093,30 @@ you must provide a valid mag_file
 <div class="cell_output docutils container">
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Help on function aarm_magic in module pmagpy.ipmag:
 
-aarm_magic(meas_file, dir_path=&#39;.&#39;, input_dir_path=&#39;&#39;, input_spec_file=&#39;specimens.txt&#39;, output_spec_file=&#39;specimens.txt&#39;)
+aarm_magic(infile, dir_path=&#39;.&#39;, input_dir_path=&#39;&#39;, spec_file=&#39;specimens.txt&#39;, samp_file=&#39;samples.txt&#39;, data_model_num=3, coord=&#39;s&#39;)
     Converts AARM  data to best-fit tensor (6 elements plus sigma)
     
     Parameters
     ----------
-    meas_file : str
+    infile : str
         input measurement file
     dir_path : str
         output directory, default &quot;.&quot;
     input_dir_path : str
         input file directory IF different from dir_path, default &quot;&quot;
-    input_spec_file : str
-        input specimen file name, default &quot;specimens.txt&quot;
-    output_spec_file : str
-        output specimen file name, default &quot;specimens.txt&quot;
-    
+    spec_file : str
+        input/output specimen file name, default &quot;specimens.txt&quot;
+    samp_file : str
+        input sample file name, default &quot;samples.txt&quot;
+    data_model_num : number
+        MagIC data model [2, 3], default 3
+    coord : str
+        coordinate system specimen/geographic/tilt-corrected,
+        [&#39;s&#39;, &#39;g&#39;, &#39;t&#39;], default &#39;s&#39;
     
     Returns
     ---------
-    Tuple : (True or False indicating if conversion was successful, output file name written)
+    Tuple : (True or False indicating if conversion was sucessful, output file name written)
     
     Info
     ---------
@@ -1091,17 +1124,10 @@ aarm_magic(meas_file, dir_path=&#39;.&#39;, input_dir_path=&#39;&#39;, input_spe
       The baseline should be the AF demagnetized state (3 axis demag is
       preferable) for the following ARM acquisition. The order of the
       measurements is:
-           for 6 positions (AF demag before each step):
-               1) labfield parallel to X
-               2) labfield parallel to Y
-               3) labfield parallel to Z
-               4) labfield anti-parallel to X
-               5) labfield anti-parallel to Y
-               6) labfield anti-parallel to Z
-            for 9 positions (AF demag before each step):
-                positions 1,2,3, 6,7,8, 11,12,13 (from Figure D.2 in Essentials, earthref.org/MagIC/books/Tauxe/Essentials, Appendix D)
-            for 15  positions (AF demag before each step):
-                positions 1-15 (for 15 positions)
+    
+           positions 1,2,3, 6,7,8, 11,12,13 (for 9 positions)
+           positions 1,2,3,4, 6,7,8,9, 11,12,13,14 (for 12 positions)
+           positions 1-15 (for 15 positions)
 </pre></div>
 </div>
 </div>
@@ -1113,11 +1139,11 @@ aarm_magic(meas_file, dir_path=&#39;.&#39;, input_dir_path=&#39;&#39;, input_spe
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>-E- /Users/unimos/0000_Github/PmagPy-docs/documentation_notebooks/data_files/aarm_magic/aarm_measurements.txt is not a valid measurements file, empty_file
-for data model 2.0 please use atrm_magic_dm2
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>7  records written to file  /Users/nebula/Python/PmagPy/data_files/aarm_magic/specimens.txt
+specimen data stored in /Users/nebula/Python/PmagPy/data_files/aarm_magic/specimens.txt
 </pre></div>
 </div>
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>False
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>(True, &#39;/Users/nebula/Python/PmagPy/data_files/aarm_magic/specimens.txt&#39;)
 </pre></div>
 </div>
 </div>
@@ -1130,43 +1156,11 @@ for data model 2.0 please use atrm_magic_dm2
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>-I- Using online data model
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>(True, [])
 </pre></div>
 </div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>-I- Getting method codes from earthref.org
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>-I- Importing controlled vocabularies from https://earthref.org
-</pre></div>
-</div>
-<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
-<span class="ne">KeyError</span><span class="g g-Whitespace">                                  </span>Traceback (most recent call last)
-<span class="nn">Input In [5],</span> in <span class="ni">&lt;cell line: 2&gt;</span><span class="nt">()</span>
-<span class="g g-Whitespace">      </span><span class="mi">1</span> <span class="c1"># plot the data generated by aarm_magic:</span>
-<span class="ne">----&gt; </span><span class="mi">2</span> <span class="n">ipmag</span><span class="o">.</span><span class="n">aniso_magic_nb</span><span class="p">(</span><span class="n">infile</span><span class="o">=</span><span class="s1">&#39;data_files/aarm_magic/specimens.txt&#39;</span><span class="p">,</span> <span class="n">save_plots</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
-
-<span class="nn">File ~/0000_Github/PmagPy/pmagpy/ipmag.py:10391,</span> in <span class="ni">aniso_magic_nb</span><span class="nt">(infile, samp_file, site_file, verbose, ipar, ihext, ivec, isite, iloc, iboot, vec, Dir, PDir, crd, num_bootstraps, dir_path, fignum, save_plots, interactive, fmt, contribution)</span>
-<span class="g g-Whitespace">  </span><span class="mi">10384</span> <span class="k">def</span> <span class="nf">aniso_magic_nb</span><span class="p">(</span><span class="n">infile</span><span class="o">=</span><span class="s1">&#39;specimens.txt&#39;</span><span class="p">,</span> <span class="n">samp_file</span><span class="o">=</span><span class="s1">&#39;samples.txt&#39;</span><span class="p">,</span> <span class="n">site_file</span><span class="o">=</span><span class="s1">&#39;sites.txt&#39;</span><span class="p">,</span> <span class="n">verbose</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span>
-<span class="g g-Whitespace">  </span><span class="mi">10385</span>                    <span class="n">ipar</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">ihext</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">ivec</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">isite</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">iloc</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">iboot</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">vec</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span>
-<span class="g g-Whitespace">  </span><span class="mi">10386</span>                    <span class="n">Dir</span><span class="o">=</span><span class="p">[],</span> <span class="n">PDir</span><span class="o">=</span><span class="p">[],</span> <span class="n">crd</span><span class="o">=</span><span class="s2">&quot;s&quot;</span><span class="p">,</span> <span class="n">num_bootstraps</span><span class="o">=</span><span class="mi">1000</span><span class="p">,</span> <span class="n">dir_path</span><span class="o">=</span><span class="s2">&quot;.&quot;</span><span class="p">,</span> <span class="n">fignum</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span>
-<span class="g g-Whitespace">  </span><span class="mi">10387</span>                    <span class="n">save_plots</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">interactive</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">fmt</span><span class="o">=</span><span class="s2">&quot;png&quot;</span><span class="p">,</span> <span class="n">contribution</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
-<span class="g g-Whitespace">  </span><span class="mi">10388</span>     <span class="sd">&quot;&quot;&quot;</span>
-<span class="g g-Whitespace">  </span><span class="mi">10389</span><span class="sd">     Wrapper for aniso_magic</span>
-<span class="g g-Whitespace">  </span><span class="mi">10390</span><span class="sd">     &quot;&quot;&quot;</span>
-<span class="ne">&gt; </span><span class="mi">10391</span>     <span class="k">return</span> <span class="n">aniso_magic</span><span class="p">(</span><span class="n">infile</span><span class="p">,</span> <span class="n">samp_file</span><span class="p">,</span> <span class="n">site_file</span><span class="p">,</span> <span class="n">verbose</span><span class="p">,</span> <span class="n">ipar</span><span class="p">,</span> <span class="n">ihext</span><span class="p">,</span> <span class="n">ivec</span><span class="p">,</span>
-<span class="g g-Whitespace">  </span><span class="mi">10392</span>                        <span class="n">isite</span><span class="p">,</span> <span class="n">iloc</span><span class="p">,</span> <span class="n">iboot</span><span class="p">,</span> <span class="n">vec</span><span class="p">,</span> <span class="n">Dir</span><span class="p">,</span> <span class="n">PDir</span><span class="p">,</span> <span class="n">crd</span><span class="p">,</span> <span class="n">num_bootstraps</span><span class="p">,</span>
-<span class="g g-Whitespace">  </span><span class="mi">10393</span>                        <span class="n">dir_path</span><span class="p">,</span> <span class="n">fignum</span><span class="p">,</span> <span class="n">save_plots</span><span class="p">,</span> <span class="n">interactive</span><span class="p">,</span> <span class="n">fmt</span><span class="p">,</span> <span class="n">contribution</span><span class="p">)</span>
-
-<span class="nn">File ~/0000_Github/PmagPy/pmagpy/ipmag.py:10481,</span> in <span class="ni">aniso_magic</span><span class="nt">(infile, samp_file, site_file, verbose, ipar, ihext, ivec, isite, iloc, iboot, vec, Dir, PDir, crd, num_bootstraps, dir_path, fignum, save_plots, interactive, fmt, contribution, image_records)</span>
-<span class="g g-Whitespace">  </span><span class="mi">10479</span> <span class="c1"># get other data</span>
-<span class="g g-Whitespace">  </span><span class="mi">10480</span> <span class="n">con</span><span class="o">.</span><span class="n">propagate_location_to_specimens</span><span class="p">()</span>
-<span class="ne">&gt; </span><span class="mi">10481</span> <span class="n">spec_container</span> <span class="o">=</span> <span class="n">con</span><span class="o">.</span><span class="n">tables</span><span class="p">[</span><span class="s1">&#39;specimens&#39;</span><span class="p">]</span>
-<span class="g g-Whitespace">  </span><span class="mi">10482</span> <span class="n">spec_df</span> <span class="o">=</span> <span class="n">spec_container</span><span class="o">.</span><span class="n">df</span>
-<span class="g g-Whitespace">  </span><span class="mi">10483</span> <span class="c1"># use only anisotropy records</span>
-
-<span class="ne">KeyError</span>: &#39;specimens&#39;
-</pre></div>
-</div>
+<img alt="../_images/PmagPy_calculations_7_1.png" src="../_images/PmagPy_calculations_7_1.png" />
+<img alt="../_images/PmagPy_calculations_7_2.png" src="../_images/PmagPy_calculations_7_2.png" />
 </div>
 </div>
 </section>
@@ -4808,7 +4802,7 @@ watsons_f(DI1, DI2)
     <div class="footer-content row">
         <footer class="col footer"><p>
   
-    By Lisa Tauxe, Nick Swanson-Hysell, and Lori Jonestrask<br/>
+    By PmagPy Contributors<br/>
   
       &copy; Copyright 2022.<br/>
 </p>

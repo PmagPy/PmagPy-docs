@@ -34,7 +34,7 @@ See capabilities of PmagPy functions within these documentation Jupyter notebook
 :::
 
 :::{grid-item-card}
-:link: content/executable/index
+:link: example_notebooks/example_notebooks
 :link-type: doc
 :class-header: bg-light
 
@@ -46,8 +46,7 @@ See example notebooks that analyze specific datasets using PmagPy.
 :::
 
 :::{grid-item-card}
-:link: interactive/launchbuttons
-:link-type: doc
+:link: https://jupyterhub.earthref.org/
 :class-header: bg-light
 
 Live notebooks 🚀
@@ -57,8 +56,7 @@ Launch PmagPy notebooks on the Earthref JupyterHub.
 :::
 
 :::{grid-item-card}
-:link: publish/web
-:link-type: doc
+:link: https://github.com/PmagPy/PmagPy-Standalone-OSX/releases/latest/
 :class-header: bg-light
 
 GUIs 🎁
@@ -68,8 +66,7 @@ Download and use Pmag GUI to analyze data and prepare data for MagIC
 :::
 
 :::{grid-item-card}
-:link: https://www2.earthref.org/MagIC
-:link-type: doc
+:link: https://www2.earthref.org/MagIC/
 :class-header: bg-light
 
 MagIC database ⚡
@@ -154,7 +151,7 @@ Explore this paper {fas}`arrow-right`
 :margin: 3
 :class-body: text-center
 :class-header: bg-light text-center
-:link: https://doi.org/10.1130/B32012.1/
+:link: https://doi.org/10.1130/B32012.1
 
 **Supercontinents**
 ^^^
@@ -171,7 +168,7 @@ Explore this paper {fas}`arrow-right`
 :margin: 3
 :class-body: text-center
 :class-header: bg-light text-center
-:link: https://the-turing-way.netlify.app
+:link: https://doi.org/10.1029/2018GC007509
 
 **Ancient fields**
 ^^^
