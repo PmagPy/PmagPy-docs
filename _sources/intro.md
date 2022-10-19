@@ -4,14 +4,14 @@ title: Books with Jupyter
 
 # PmagPy: An open source package for paleomagnetic data analysis
 
-PmagPy is a set of tools written in Python for the analysis of paleomagnetic data. It facilitates interpretation of demagnetization data, paleointensity data, and data from other types of rock magnetic experiments. The package is hosted on Github (https://github.com/PmagPy/PmagPy) and can be installed via PyPi (https://pypi.org/project/pmagpy/). PmagPy can be used to create a wide variety of useful plots. It is designed to work with the MagIC database (https://earthref.org/MagIC), allowing manipulation of downloaded data sets as well as preparation of new contributions for uploading to the MagIC database. It also supports the use of Jupyter notebooks for fully documented and nicely illustrated data analysis.
+PmagPy is a set of tools written in Python for the analysis of paleomagnetic data. It facilitates interpretation of demagnetization data, paleointensity data, and data from other types of rock magnetic experiments. The package is hosted on Github (https://github.com/PmagPy/PmagPy) and can be pip installed via PyPi (https://pypi.org/project/pmagpy/). PmagPy can be used to create a wide variety of useful plots. It is designed to work with the MagIC database (https://earthref.org/MagIC), allowing manipulation of downloaded data sets as well as preparation of new contributions for uploading to the MagIC database. Utilizing PmagPy within Jupyter notebooks enables fully documented and nicely illustrated data analysis.
 
 ::::{grid} 1 1 2 3
 :class-container: text-center
 :gutter: 3
 
 :::{grid-item-card}
-:link: installation/osx_pip
+:link: installation/PmagPy_install
 :link-type: doc
 :class-header: bg-light
 
@@ -76,6 +76,10 @@ Develop new contributions and analyze existing datasets in the MagIC database.
 :::
 
 ::::
+
+```{note}
+More complete documentation of PmagPy than currently available on this site can be found in the PmagPy cookbook: https://earthref.org/PmagPy/cookbook/
+```
 
 PmagPy is comprised of:
 
@@ -181,6 +185,10 @@ G^3: Archeointensity of the Four Corners Region of the American Southwest
 Explore this paper {fas}`arrow-right`
 :::
 
+# Learn more about paleomagnetism 📖
+
+The online textbook [Essentials of Paleomagnetism](https://earthref.org/MagIC/books/Tauxe/Essentials/) is a place to learn more about Earth's geomagnetic field, rock magnetism, paleomagnetism, statistics associated with paleomagnetic data and more. The problems within the book call upon the reader to use PmagPy functions.
+
 # Acknowledgements
 
 ::::{grid} 2 2 2 2
@@ -197,7 +205,7 @@ Explore this paper {fas}`arrow-right`
 
 :::{grid-item}
 :columns: 7
-Many thanks to the National Science Foundation, which [provides support for the MagIC database and PmagPy](https://www.nsf.gov/awardsearch/showAward?AWD_ID=2148719).
+This work is supported by the National Science Foundation through its [support for the MagIC database and PmagPy](https://www.nsf.gov/awardsearch/showAward?AWD_ID=2148719).
 :::
 
 ::::
