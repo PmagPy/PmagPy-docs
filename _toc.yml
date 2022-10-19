@@ -6,6 +6,7 @@ root: intro
 parts:
   - caption: Installation
     chapters:
+    - file: installation/PmagPy_install.md
     - file: installation/osx_pip.md
   - caption: Documentation notebooks
     chapters:

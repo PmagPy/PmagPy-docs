@@ -3,7 +3,7 @@
 
 title: PmagPy Documentation
 author: PmagPy Contributors
-logo: images/pmagpy_logo.png
+logo: images/logos/pmagpy_logo_notext.png
 
 # Force re-execution of notebooks on each build.
 # See https://jupyterbook.org/content/execute.html
