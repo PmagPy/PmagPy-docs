@@ -117,18 +117,50 @@ const thebe_selector_output = ".output, .cell_output"
  </span>
 </p>
 <ul class="nav bd-sidenav">
- <li class="toctree-l1">
+ <li class="toctree-l1 has-children">
   <a class="reference internal" href="installation/PmagPy_install.html">
    Installing
    <strong>
     PmagPy
    </strong>
   </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="installation/osx_pip.html">
-   OSX pip install
-  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" type="checkbox"/>
+  <label for="toctree-checkbox-1">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="installation/osx_pip.html">
+     OSX pip install
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="installation/osx_developer.html">
+     OSX developer install
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="installation/windows_pip.html">
+     Windows pip install
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="installation/windows_developer.html">
+     Windows developer install
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="installation/linux_pip.html">
+     Linux pip install
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="installation/linux_developer.html">
+     Linux developer install
+    </a>
+   </li>
+  </ul>
  </li>
 </ul>
 <p aria-level="2" class="caption" role="heading">
@@ -164,14 +196,33 @@ const thebe_selector_output = ".output, .cell_output"
  </span>
 </p>
 <ul class="nav bd-sidenav">
- <li class="toctree-l1">
+ <li class="toctree-l1 has-children">
   <a class="reference internal" href="example_notebooks/example_notebooks.html">
-   Example notebook list
+   Example notebooks
   </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" type="checkbox"/>
+  <label for="toctree-checkbox-2">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="example_notebooks/Tauxe_etal_2016.html">
+     Tauxe et al. 2016 example notebook
+    </a>
+   </li>
+  </ul>
  </li>
+</ul>
+<p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  Function docstrings
+ </span>
+</p>
+<ul class="nav bd-sidenav">
  <li class="toctree-l1">
-  <a class="reference internal" href="example_notebooks/Tauxe_etal_2016.html">
-   Tauxe et al. 2016 example notebook
+  <a class="reference internal" href="api/api.html">
+   API Reference
   </a>
  </li>
 </ul>
@@ -329,12 +380,63 @@ title="Print to PDF"
     </ul>
   </div>
 </div>
+<label for="__page-toc"
+  class="headerbtn headerbtn-page-toc"
+  
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-list"></i>
+  </span>
+
+</label>
 
     </div>
 </div>
 
 <!-- Table of contents -->
 <div class="col-md-3 bd-toc show noprint">
+    <div class="tocsection onthispage pt-5 pb-3">
+        <i class="fas fa-list"></i> Contents
+    </div>
+    <nav id="bd-toc-nav" aria-label="Page">
+        <ul class="visible nav section-nav flex-column">
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#">
+   PmagPy-docs
+  </a>
+ </li>
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#developing-the-book-content-and-deploying-the-book">
+   Developing the book content and deploying the book
+  </a>
+  <ul class="visible nav section-nav flex-column">
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#installing-jupyter-book">
+     Installing Jupyter Book
+    </a>
+   </li>
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#building-the-jupyter-book">
+     Building the Jupyter Book
+    </a>
+   </li>
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#deploying-the-jupyter-book">
+     Deploying the Jupyter Book
+    </a>
+   </li>
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#translating-from-the-pmagpy-cookbook">
+     Translating from the PmagPy Cookbook
+    </a>
+   </li>
+  </ul>
+ </li>
+</ul>
+
+    </nav>
 </div>
     </div>
     <div class="article row">
@@ -346,6 +448,46 @@ title="Print to PDF"
                 <div id="print-main-content">
                     <div id="jb-print-toc">
                         
+                        <div>
+                            <h2> Contents </h2>
+                        </div>
+                        <nav aria-label="Page">
+                            <ul class="visible nav section-nav flex-column">
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#">
+   PmagPy-docs
+  </a>
+ </li>
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#developing-the-book-content-and-deploying-the-book">
+   Developing the book content and deploying the book
+  </a>
+  <ul class="visible nav section-nav flex-column">
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#installing-jupyter-book">
+     Installing Jupyter Book
+    </a>
+   </li>
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#building-the-jupyter-book">
+     Building the Jupyter Book
+    </a>
+   </li>
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#deploying-the-jupyter-book">
+     Deploying the Jupyter Book
+    </a>
+   </li>
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#translating-from-the-pmagpy-cookbook">
+     Translating from the PmagPy Cookbook
+    </a>
+   </li>
+  </ul>
+ </li>
+</ul>
+
+                        </nav>
                     </div>
                 </div>
             </div>
@@ -355,22 +497,45 @@ title="Print to PDF"
                 
   <section class="tex2jax_ignore mathjax_ignore" id="pmagpy-docs">
 <h1>PmagPy-docs<a class="headerlink" href="#pmagpy-docs" title="Permalink to this headline">#</a></h1>
-<p>At the moment, this repository is an experiment to generate a Jupyter-Book from PmagPy notebooks.</p>
+<p>This repository generates this Jupyter Book website: <a class="reference external" href="https://pmagpy.github.io/PmagPy-docs/">https://pmagpy.github.io/PmagPy-docs/</a></p>
+</section>
+<section class="tex2jax_ignore mathjax_ignore" id="developing-the-book-content-and-deploying-the-book">
+<h1>Developing the book content and deploying the book<a class="headerlink" href="#developing-the-book-content-and-deploying-the-book" title="Permalink to this headline">#</a></h1>
+<section id="installing-jupyter-book">
+<h2>Installing Jupyter Book<a class="headerlink" href="#installing-jupyter-book" title="Permalink to this headline">#</a></h2>
 <p>Jupyter book can be installed via pip:</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">pip</span> <span class="n">install</span> <span class="o">-</span><span class="n">U</span> <span class="n">jupyter</span><span class="o">-</span><span class="n">book</span>
 </pre></div>
 </div>
+</section>
+<section id="building-the-jupyter-book">
+<h2>Building the Jupyter Book<a class="headerlink" href="#building-the-jupyter-book" title="Permalink to this headline">#</a></h2>
 <p>With Jupyter book installed, the Jupyter book in this repository can be made with this command:</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">jupyter</span><span class="o">-</span><span class="n">book</span> <span class="n">build</span> <span class="n">PmagPy</span><span class="o">-</span><span class="n">docs</span>
 </pre></div>
 </div>
 <p>To keep the repository from getting humongous. The current approach is to build the html locally using the above command, but not to push the changes in the resulting <code class="docutils literal notranslate"><span class="pre">_build</span></code> folder.</p>
+</section>
+<section id="deploying-the-jupyter-book">
+<h2>Deploying the Jupyter Book<a class="headerlink" href="#deploying-the-jupyter-book" title="Permalink to this headline">#</a></h2>
 <p>The resulting html after a local build can be published to github pages using these directions:</p>
 <p><a class="reference external" href="https://jupyterbook.org/en/stable/publish/gh-pages.html">https://jupyterbook.org/en/stable/publish/gh-pages.html</a></p>
-<p>and specifically this command:</p>
+<p>and specifically this command from within the <code class="docutils literal notranslate"><span class="pre">main</span></code> branch:</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">ghp</span><span class="o">-</span><span class="kn">import</span> <span class="o">-</span><span class="n">n</span> <span class="o">-</span><span class="n">p</span> <span class="o">-</span><span class="n">f</span> <span class="n">_build</span><span class="o">/</span><span class="n">html</span>
 </pre></div>
 </div>
+</section>
+<section id="translating-from-the-pmagpy-cookbook">
+<h2>Translating from the PmagPy Cookbook<a class="headerlink" href="#translating-from-the-pmagpy-cookbook" title="Permalink to this headline">#</a></h2>
+<p>We are in the process of translating the content from the PmagPy Cookbook to this updated format.</p>
+<p>This involves getting the .txt documents into MyST markdown. Here is what I did for a two step process that worked on the osx_developer.tex file.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">pandoc</span> <span class="o">-</span><span class="n">s</span> <span class="n">osx_developer</span><span class="o">.</span><span class="n">tex</span> <span class="o">-</span><span class="n">o</span> <span class="n">osx_developer</span><span class="o">.</span><span class="n">rst</span>
+</pre></div>
+</div>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">rst2myst</span> <span class="n">convert</span> <span class="n">osx_developer</span><span class="o">.</span><span class="n">rst</span>
+</pre></div>
+</div>
+</section>
 </section>
 
     <script type="text/x-thebe-config">

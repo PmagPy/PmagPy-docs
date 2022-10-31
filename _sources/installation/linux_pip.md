@@ -1,6 +1,6 @@
-# OSX pip install
+# Linux pip install
 
-These are the install instructions for OSX/pip.
+These are the install instructions for Linux/pip.
 
 ## Install Python
 
@@ -13,10 +13,8 @@ need to download Anaconda.
 - Download and install [Anaconda Python
   3](https://www.anaconda.com/download).
 
-- Note: if you already installed Anaconda Python, and then you upgrade
-  to OSX Catalina, you may need to reinstall Anaconda. In general, if
-  you run into errors with your Anaconda Python environment, it can
-  save time to simply [uninstall and
+- In general, if you run into errors with your Anaconda Python
+  environment, it can save time to simply [uninstall and
   reinstall](https://docs.anaconda.com/anaconda/install/uninstall/).
 
 - Open your command line (Terminal). See [this Cookbook
@@ -61,18 +59,102 @@ need to download Anaconda.
   `sudo pip install scripttest`. You will then be asked for your
   computer password.
 
+## Install wxPython
+
+Next, you need to install wxPython.
+
+Most recently (on Ubuntu 18.04.2), I’ve had success with simply running:
+
+```
+conda install wxPython
+```
+
+However, in the past this didn’t work and still may not work for all
+Linux distributions. Try the above command first, and if that fails, try
+working through the instructions below.
+
+- The following is a list of wxPython dependencies for Ubuntu 16.04
+  (this list may be redundant or incomplete, depending on your specific
+  OS):
+
+  ```
+  pip install libtiff
+
+  sudo apt-get install libgtk-3-dev freeglut3-dev libgstreamer1.0-0 gstreamer1.0-plugins-base gstreamer1.0-plugins-good gstreamer1.0-plugins-bad gstreamer1.0-plugins-ugly gstreamer1.0-libav gstreamer1.0-doc gstreamer1.0-tools libgstreamer-plugins-base0.10-dev
+
+  sudo apt-get install dpkg-dev build-essential libjpeg-dev  libtiff-dev libsdl1.2-dev   libnotify-dev  freeglut3 freeglut3-dev libsm-dev libwebkitgtk-3.0-dev libxtst-dev python-dev libpng-dev
+
+  sudo apt-get install libwebkit2gtk-4.0-dev libsdl2-dev
+  ```
+
+  Carefully read through [this
+  page](https://wxpython.org/pages/downloads/) and look for a
+  compatible wheel for your distribution. Download the appropriate
+  wheel and then install it:
+
+  ```
+  pip install wxPython-4.0.1-cp35-cp35m-linux_x86_64.whl
+  ```
+
+  Be sure to replace the wheel name above with the actual wheel you
+  downloaded.
+
+  Or install the wheel from the download site directly:
+
+  ```
+  pip install -U -f https://extras.wxpython.org/wxPython4/extras/linux/gtk3/ubuntu-16.04 wxPython
+  ```
+
+  Again, you will need the replace the link above with the link
+  appropriate for your OS.
+
+- If you aren’t able to find a wheel that works, try [these
+  instructions](https://wxpython.org/blog/2017-08-17-builds-for-linux-with-pip/)
+
 ## Test your python
 
-To make sure that you have installed Python successfully, type
-`python` on your command line. You should see something like this:
+Run python on your command line.
+
+You should see something like this:
 
 ```
-Python 3.7.10 (default, Feb 26 2021, 10:16:00)
-[Clang 10.0.0 ] :: Anaconda, Inc. on darwin
+Python 3.6.1 |Anaconda custom (x86_64)| (default, May 11 2017, 13:04:09)
+[GCC 4.2.1 Compatible Apple LLVM 6.0 (clang-600.0.57)] on darwin
 Type "help", "copyright", "credits" or "license" for more information.
+>>>
 ```
 
-(Press control-D to exit)
+If you don’t see that, go back and reinstall Anaconda.
+
+Once you have successfully started the python interactive prompt, try:
+
+```
+import wx
+```
+
+You may have an error like this:
+
+```
+ImportError: libwx_gtk3u_core-3.0.so.0: cannot open shared object file: No such file or directory
+```
+
+If so, exit the python interpreter (quit()) and try:
+
+```
+export LD_LIBRARY_PATH=~/anaconda3/lib/python3.6/site-packages/wx/
+```
+
+(If you are using a non-Anaconda Python, your path to wx may be
+different).
+
+Try again to import wx. If it now works, you may want to add that line
+to the end of your .bashrc file so that you don’t have to specify the
+path each time.
+
+For more details about this issue, see [this
+explanation](https://github.com/wxWidgets/Phoenix/blob/e13273c5d939d993abf2a2649e90b3ea0d39382c/packaging/README-bdist.txt#L38-L57)
+and [this Github issue](https://github.com/pyenv/pyenv/issues/691)
+for more information.
 
 ## Install PmagPy
 
@@ -113,14 +195,20 @@ Test the GUIs:
 - On the command line, open Pmag GUI by running:
 
   ```
-  pmag_gui_anaconda
+  pmag_gui.py
   ```
 
-Remember that the program may be very slow to initialize the first time!
-You may also need to resize the GUI window. If the program doesn’t open
-or you get an error message, go back and carefully follow the install
-instructions to make sure you didn’t miss a step. If you still have a
-problem, try the [Troubleshooting
+If you get an error about “pythonw”, you may need to link “python” to
+“pythonw” with a command like:
+
+```
+ln -s ~/anaconda3/bin/python3 ~/anaconda3/bin/pythonw
+```
+
+If you get any other errors, or if any of the test commands don’t work,
+go back and carefully follow the install instructions to make sure you
+didn’t miss a step. If you still have a problem, try the
+[Troubleshooting
 section](https://earthref.org/PmagPy/cookbook/#trouble). If you don’t
 find an answer there, check out the existing [Github
 issues](https://github.com/PmagPy/PmagPy/issues) and create a new one

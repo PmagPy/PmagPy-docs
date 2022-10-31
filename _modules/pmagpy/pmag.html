@@ -116,18 +116,50 @@ const thebe_selector_output = ".output, .cell_output"
  </span>
 </p>
 <ul class="nav bd-sidenav">
- <li class="toctree-l1">
+ <li class="toctree-l1 has-children">
   <a class="reference internal" href="../../installation/PmagPy_install.html">
    Installing
    <strong>
     PmagPy
    </strong>
   </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="../../installation/osx_pip.html">
-   OSX pip install
-  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" type="checkbox"/>
+  <label for="toctree-checkbox-1">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../installation/osx_pip.html">
+     OSX pip install
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../installation/osx_developer.html">
+     OSX developer install
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../installation/windows_pip.html">
+     Windows pip install
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../installation/windows_developer.html">
+     Windows developer install
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../installation/linux_pip.html">
+     Linux pip install
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../installation/linux_developer.html">
+     Linux developer install
+    </a>
+   </li>
+  </ul>
  </li>
 </ul>
 <p aria-level="2" class="caption" role="heading">
@@ -163,25 +195,32 @@ const thebe_selector_output = ".output, .cell_output"
  </span>
 </p>
 <ul class="nav bd-sidenav">
- <li class="toctree-l1">
+ <li class="toctree-l1 has-children">
   <a class="reference internal" href="../../example_notebooks/example_notebooks.html">
-   Example notebook list
+   Example notebooks
   </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="../../example_notebooks/Tauxe_etal_2016.html">
-   Tauxe et al. 2016 example notebook
-  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" type="checkbox"/>
+  <label for="toctree-checkbox-2">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../example_notebooks/Tauxe_etal_2016.html">
+     Tauxe et al. 2016 example notebook
+    </a>
+   </li>
+  </ul>
  </li>
 </ul>
 <p aria-level="2" class="caption" role="heading">
  <span class="caption-text">
-  API
+  Function docstrings
  </span>
 </p>
 <ul class="nav bd-sidenav">
  <li class="toctree-l1">
-  <a class="reference internal" href="../../api.html">
+  <a class="reference internal" href="../../api/api.html">
    API Reference
   </a>
  </li>
@@ -341,7 +380,7 @@ title="Open an issue"
 <span class="n">WARNINGS</span> <span class="o">=</span> <span class="p">{</span><span class="s1">&#39;basemap&#39;</span><span class="p">:</span> <span class="kc">False</span><span class="p">,</span> <span class="s1">&#39;cartopy&#39;</span><span class="p">:</span> <span class="kc">False</span><span class="p">}</span>
 
 
-<div class="viewcode-block" id="get_version"><a class="viewcode-back" href="../../api.html#pmagpy.pmag.get_version">[docs]</a><span class="k">def</span> <span class="nf">get_version</span><span class="p">():</span>
+<div class="viewcode-block" id="get_version"><a class="viewcode-back" href="../../api/api.html#pmagpy.pmag.get_version">[docs]</a><span class="k">def</span> <span class="nf">get_version</span><span class="p">():</span>
     <span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">    Determines the version of PmagPy installed on your machine.</span>
 
@@ -358,7 +397,7 @@ title="Open an issue"
     <span class="k">return</span> <span class="n">version</span></div>
 
 
-<div class="viewcode-block" id="sort_diclist"><a class="viewcode-back" href="../../api.html#pmagpy.pmag.sort_diclist">[docs]</a><span class="k">def</span> <span class="nf">sort_diclist</span><span class="p">(</span><span class="n">undecorated</span><span class="p">,</span> <span class="n">sort_on</span><span class="p">):</span>
+<div class="viewcode-block" id="sort_diclist"><a class="viewcode-back" href="../../api/api.html#pmagpy.pmag.sort_diclist">[docs]</a><span class="k">def</span> <span class="nf">sort_diclist</span><span class="p">(</span><span class="n">undecorated</span><span class="p">,</span> <span class="n">sort_on</span><span class="p">):</span>
     <span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">    Sort a list of dictionaries by the value in each dictionary for the sorting key.</span>
 
@@ -385,7 +424,7 @@ title="Open an issue"
     <span class="k">return</span><span class="p">[</span><span class="n">undecorated</span><span class="p">[</span><span class="n">index</span><span class="p">]</span> <span class="k">for</span> <span class="p">(</span><span class="n">key</span><span class="p">,</span> <span class="n">index</span><span class="p">)</span> <span class="ow">in</span> <span class="n">decorated</span><span class="p">]</span></div>
 
 
-<div class="viewcode-block" id="get_dictitem"><a class="viewcode-back" href="../../api.html#pmagpy.pmag.get_dictitem">[docs]</a><span class="k">def</span> <span class="nf">get_dictitem</span><span class="p">(</span><span class="n">In</span><span class="p">,</span> <span class="n">k</span><span class="p">,</span> <span class="n">v</span><span class="p">,</span> <span class="n">flag</span><span class="p">,</span> <span class="n">float_to_int</span><span class="o">=</span><span class="kc">False</span><span class="p">):</span>
+<div class="viewcode-block" id="get_dictitem"><a class="viewcode-back" href="../../api/api.html#pmagpy.pmag.get_dictitem">[docs]</a><span class="k">def</span> <span class="nf">get_dictitem</span><span class="p">(</span><span class="n">In</span><span class="p">,</span> <span class="n">k</span><span class="p">,</span> <span class="n">v</span><span class="p">,</span> <span class="n">flag</span><span class="p">,</span> <span class="n">float_to_int</span><span class="o">=</span><span class="kc">False</span><span class="p">):</span>
     <span class="sd">&quot;&quot;&quot; </span>
 <span class="sd">    Returns a list of dictionaries from list In with key (k)  = value (v) . </span>
 <span class="sd">    </span>
@@ -468,7 +507,7 @@ title="Open an issue"
         <span class="k">return</span> <span class="p">[</span><span class="n">dictionary</span> <span class="k">for</span> <span class="n">dictionary</span> <span class="ow">in</span> <span class="n">In</span> <span class="k">if</span> <span class="n">dictionary</span><span class="p">[</span><span class="n">k</span><span class="p">]]</span></div>
 
 
-<div class="viewcode-block" id="get_dictkey"><a class="viewcode-back" href="../../api.html#pmagpy.pmag.get_dictkey">[docs]</a><span class="k">def</span> <span class="nf">get_dictkey</span><span class="p">(</span><span class="n">In</span><span class="p">,</span> <span class="n">k</span><span class="p">,</span> <span class="n">dtype</span><span class="p">):</span>
+<div class="viewcode-block" id="get_dictkey"><a class="viewcode-back" href="../../api/api.html#pmagpy.pmag.get_dictkey">[docs]</a><span class="k">def</span> <span class="nf">get_dictkey</span><span class="p">(</span><span class="n">In</span><span class="p">,</span> <span class="n">k</span><span class="p">,</span> <span class="n">dtype</span><span class="p">):</span>
     <span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">    Returns list of given key (k) from input list of dictionaries (In) in data typed dtype.</span>
 <span class="sd">    </span>
@@ -515,7 +554,7 @@ title="Open an issue"
     <span class="k">return</span> <span class="n">Out</span></div>
 
 
-<div class="viewcode-block" id="find"><a class="viewcode-back" href="../../api.html#pmagpy.pmag.find">[docs]</a><span class="k">def</span> <span class="nf">find</span><span class="p">(</span><span class="n">f</span><span class="p">,</span> <span class="n">seq</span><span class="p">):</span>
+<div class="viewcode-block" id="find"><a class="viewcode-back" href="../../api/api.html#pmagpy.pmag.find">[docs]</a><span class="k">def</span> <span class="nf">find</span><span class="p">(</span><span class="n">f</span><span class="p">,</span> <span class="n">seq</span><span class="p">):</span>
     <span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">    Returns input value (f) if it is in the given array (seq). </span>
 <span class="sd">    </span>
@@ -540,7 +579,7 @@ title="Open an issue"
     <span class="k">return</span> <span class="s2">&quot;&quot;</span></div>
 
 
-<div class="viewcode-block" id="get_orient"><a class="viewcode-back" href="../../api.html#pmagpy.pmag.get_orient">[docs]</a><span class="k">def</span> <span class="nf">get_orient</span><span class="p">(</span><span class="n">samp_data</span><span class="p">,</span> <span class="n">er_sample_name</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
+<div class="viewcode-block" id="get_orient"><a class="viewcode-back" href="../../api/api.html#pmagpy.pmag.get_orient">[docs]</a><span class="k">def</span> <span class="nf">get_orient</span><span class="p">(</span><span class="n">samp_data</span><span class="p">,</span> <span class="n">er_sample_name</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
     <span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">    Returns orientation and orientation method of input sample (er_sample_name). </span>
 <span class="sd">    </span>
@@ -601,7 +640,7 @@ title="Open an issue"
     <span class="k">return</span> <span class="n">orient</span><span class="p">,</span> <span class="n">az_type</span></div>
 
 
-<div class="viewcode-block" id="EI"><a class="viewcode-back" href="../../api.html#pmagpy.pmag.EI">[docs]</a><span class="k">def</span> <span class="nf">EI</span><span class="p">(</span><span class="n">inc</span><span class="p">):</span>
+<div class="viewcode-block" id="EI"><a class="viewcode-back" href="../../api/api.html#pmagpy.pmag.EI">[docs]</a><span class="k">def</span> <span class="nf">EI</span><span class="p">(</span><span class="n">inc</span><span class="p">):</span>
     <span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">    Given a mean inclination value of a distribution of directions, this</span>
 <span class="sd">    function calculates the expected elongation of this distribution using a</span>
@@ -629,7 +668,7 @@ title="Open an issue"
     <span class="k">return</span> <span class="n">poly_tk03</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">*</span> <span class="n">inc</span><span class="o">**</span><span class="mi">3</span> <span class="o">+</span> <span class="n">poly_tk03</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="o">*</span> <span class="n">inc</span><span class="o">**</span><span class="mi">2</span> <span class="o">+</span> <span class="n">poly_tk03</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span> <span class="o">*</span> <span class="n">inc</span> <span class="o">+</span> <span class="n">poly_tk03</span><span class="p">[</span><span class="mi">3</span><span class="p">]</span></div>
 
 
-<div class="viewcode-block" id="find_f"><a class="viewcode-back" href="../../api.html#pmagpy.pmag.find_f">[docs]</a><span class="k">def</span> <span class="nf">find_f</span><span class="p">(</span><span class="n">data</span><span class="p">):</span>
+<div class="viewcode-block" id="find_f"><a class="viewcode-back" href="../../api/api.html#pmagpy.pmag.find_f">[docs]</a><span class="k">def</span> <span class="nf">find_f</span><span class="p">(</span><span class="n">data</span><span class="p">):</span>
     <span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">    Given a distribution of directions, this function determines parameters</span>
 <span class="sd">    (elongation, inclination, flattening factor, and elongation direction) that</span>
@@ -717,7 +756,7 @@ title="Open an issue"
         <span class="k">return</span> <span class="p">[]</span>
 
 
-<div class="viewcode-block" id="convert_lat"><a class="viewcode-back" href="../../api.html#pmagpy.pmag.convert_lat">[docs]</a><span class="k">def</span> <span class="nf">convert_lat</span><span class="p">(</span><span class="n">Recs</span><span class="p">):</span>
+<div class="viewcode-block" id="convert_lat"><a class="viewcode-back" href="../../api/api.html#pmagpy.pmag.convert_lat">[docs]</a><span class="k">def</span> <span class="nf">convert_lat</span><span class="p">(</span><span class="n">Recs</span><span class="p">):</span>
     <span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">    Uses lat, for age&lt;5Ma, model_lat if present, else tries to use average_inc to estimate plat.</span>
 <span class="sd">    </span>
@@ -744,7 +783,7 @@ title="Open an issue"
     <span class="k">return</span> <span class="n">New</span></div>
 
 
-<div class="viewcode-block" id="convert_ages"><a class="viewcode-back" href="../../api.html#pmagpy.pmag.convert_ages">[docs]</a><span class="k">def</span> <span class="nf">convert_ages</span><span class="p">(</span><span class="n">Recs</span><span class="p">,</span> <span class="n">data_model</span><span class="o">=</span><span class="mi">3</span><span class="p">):</span>
+<div class="viewcode-block" id="convert_ages"><a class="viewcode-back" href="../../api/api.html#pmagpy.pmag.convert_ages">[docs]</a><span class="k">def</span> <span class="nf">convert_ages</span><span class="p">(</span><span class="n">Recs</span><span class="p">,</span> <span class="n">data_model</span><span class="o">=</span><span class="mi">3</span><span class="p">):</span>
     <span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">    Converts ages in a list of dictionaries to units of Millions of years ago, Ma. </span>
 <span class="sd">    </span>
@@ -833,7 +872,7 @@ title="Open an issue"
     <span class="k">return</span> <span class="n">NewMeas</span>
 
 
-<div class="viewcode-block" id="convert_items"><a class="viewcode-back" href="../../api.html#pmagpy.pmag.convert_items">[docs]</a><span class="k">def</span> <span class="nf">convert_items</span><span class="p">(</span><span class="n">data</span><span class="p">,</span> <span class="n">mapping</span><span class="p">):</span>
+<div class="viewcode-block" id="convert_items"><a class="viewcode-back" href="../../api/api.html#pmagpy.pmag.convert_items">[docs]</a><span class="k">def</span> <span class="nf">convert_items</span><span class="p">(</span><span class="n">data</span><span class="p">,</span> <span class="n">mapping</span><span class="p">):</span>
     <span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">    This function maps a given set of dictionsaries to the new given map and outputs an updated dictionary.</span>
 <span class="sd">    </span>
@@ -853,7 +892,7 @@ title="Open an issue"
     <span class="k">return</span> <span class="n">new_recs</span></div>
 
 
-<div class="viewcode-block" id="convert_directory_2_to_3"><a class="viewcode-back" href="../../api.html#pmagpy.pmag.convert_directory_2_to_3">[docs]</a><span class="k">def</span> <span class="nf">convert_directory_2_to_3</span><span class="p">(</span><span class="n">meas_fname</span><span class="o">=</span><span class="s2">&quot;magic_measurements.txt&quot;</span><span class="p">,</span> <span class="n">input_dir</span><span class="o">=</span><span class="s2">&quot;.&quot;</span><span class="p">,</span>
+<div class="viewcode-block" id="convert_directory_2_to_3"><a class="viewcode-back" href="../../api/api.html#pmagpy.pmag.convert_directory_2_to_3">[docs]</a><span class="k">def</span> <span class="nf">convert_directory_2_to_3</span><span class="p">(</span><span class="n">meas_fname</span><span class="o">=</span><span class="s2">&quot;magic_measurements.txt&quot;</span><span class="p">,</span> <span class="n">input_dir</span><span class="o">=</span><span class="s2">&quot;.&quot;</span><span class="p">,</span>
                              <span class="n">output_dir</span><span class="o">=</span><span class="s2">&quot;.&quot;</span><span class="p">,</span> <span class="n">meas_only</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">data_model</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
     <span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">    Convert 2.0 measurements file into 3.0 measurements file.</span>
@@ -930,7 +969,7 @@ title="Open an issue"
     <span class="k">return</span> <span class="n">NewMeas</span><span class="p">,</span> <span class="n">upgraded</span><span class="p">,</span> <span class="n">no_upgrade</span></div>
 
 
-<div class="viewcode-block" id="convert_and_combine_2_to_3"><a class="viewcode-back" href="../../api.html#pmagpy.pmag.convert_and_combine_2_to_3">[docs]</a><span class="k">def</span> <span class="nf">convert_and_combine_2_to_3</span><span class="p">(</span><span class="n">dtype</span><span class="p">,</span> <span class="n">map_dict</span><span class="p">,</span> <span class="n">input_dir</span><span class="o">=</span><span class="s2">&quot;.&quot;</span><span class="p">,</span> <span class="n">output_dir</span><span class="o">=</span><span class="s2">&quot;.&quot;</span><span class="p">,</span> <span class="n">data_model</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
+<div class="viewcode-block" id="convert_and_combine_2_to_3"><a class="viewcode-back" href="../../api/api.html#pmagpy.pmag.convert_and_combine_2_to_3">[docs]</a><span class="k">def</span> <span class="nf">convert_and_combine_2_to_3</span><span class="p">(</span><span class="n">dtype</span><span class="p">,</span> <span class="n">map_dict</span><span class="p">,</span> <span class="n">input_dir</span><span class="o">=</span><span class="s2">&quot;.&quot;</span><span class="p">,</span> <span class="n">output_dir</span><span class="o">=</span><span class="s2">&quot;.&quot;</span><span class="p">,</span> <span class="n">data_model</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
     <span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">    Read in er_*.txt file and pmag_*.txt file in working directory.</span>
 <span class="sd">    Combine the data, then translate headers from 2.5 --&gt; 3.0.</span>
@@ -992,7 +1031,7 @@ title="Open an issue"
         <span class="k">return</span> <span class="kc">None</span></div>
 
 
-<div class="viewcode-block" id="convert_criteria_file_2_to_3"><a class="viewcode-back" href="../../api.html#pmagpy.pmag.convert_criteria_file_2_to_3">[docs]</a><span class="k">def</span> <span class="nf">convert_criteria_file_2_to_3</span><span class="p">(</span><span class="n">fname</span><span class="o">=</span><span class="s2">&quot;pmag_criteria.txt&quot;</span><span class="p">,</span> <span class="n">input_dir</span><span class="o">=</span><span class="s2">&quot;.&quot;</span><span class="p">,</span>
+<div class="viewcode-block" id="convert_criteria_file_2_to_3"><a class="viewcode-back" href="../../api/api.html#pmagpy.pmag.convert_criteria_file_2_to_3">[docs]</a><span class="k">def</span> <span class="nf">convert_criteria_file_2_to_3</span><span class="p">(</span><span class="n">fname</span><span class="o">=</span><span class="s2">&quot;pmag_criteria.txt&quot;</span><span class="p">,</span> <span class="n">input_dir</span><span class="o">=</span><span class="s2">&quot;.&quot;</span><span class="p">,</span>
                                  <span class="n">output_dir</span><span class="o">=</span><span class="s2">&quot;.&quot;</span><span class="p">,</span> <span class="n">data_model</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
     <span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">    Convert a criteria file from 2.5 to 3.0 format and write it out to file</span>
@@ -1347,7 +1386,7 @@ title="Open an issue"
     <span class="n">magic_write</span><span class="p">(</span><span class="n">outfile</span><span class="p">,</span> <span class="n">UsedSamps</span><span class="p">,</span> <span class="s1">&#39;er_samples&#39;</span><span class="p">)</span>
 
 
-<div class="viewcode-block" id="orient"><a class="viewcode-back" href="../../api.html#pmagpy.pmag.orient">[docs]</a><span class="k">def</span> <span class="nf">orient</span><span class="p">(</span><span class="n">mag_azimuth</span><span class="p">,</span> <span class="n">field_dip</span><span class="p">,</span> <span class="n">or_con</span><span class="p">):</span>
+<div class="viewcode-block" id="orient"><a class="viewcode-back" href="../../api/api.html#pmagpy.pmag.orient">[docs]</a><span class="k">def</span> <span class="nf">orient</span><span class="p">(</span><span class="n">mag_azimuth</span><span class="p">,</span> <span class="n">field_dip</span><span class="p">,</span> <span class="n">or_con</span><span class="p">):</span>
     <span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">    Uses specified orientation convention to convert user supplied orientations</span>
 <span class="sd">    to laboratory azimuth and plunge. </span>
@@ -1407,7 +1446,7 @@ title="Open an issue"
     <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Error in orientation convention&quot;</span><span class="p">)</span></div>
 
 
-<div class="viewcode-block" id="get_Sb"><a class="viewcode-back" href="../../api.html#pmagpy.pmag.get_Sb">[docs]</a><span class="k">def</span> <span class="nf">get_Sb</span><span class="p">(</span><span class="n">data</span><span class="p">):</span>
+<div class="viewcode-block" id="get_Sb"><a class="viewcode-back" href="../../api/api.html#pmagpy.pmag.get_Sb">[docs]</a><span class="k">def</span> <span class="nf">get_Sb</span><span class="p">(</span><span class="n">data</span><span class="p">):</span>
     <span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">    Returns vgp scatter for a data set.</span>
 <span class="sd">    </span>
@@ -1436,7 +1475,7 @@ title="Open an issue"
     <span class="k">return</span> <span class="n">np</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span><span class="n">Sb</span> <span class="o">/</span> <span class="nb">float</span><span class="p">(</span><span class="n">N</span> <span class="o">-</span> <span class="mf">1.</span><span class="p">))</span></div>
 
 
-<div class="viewcode-block" id="get_sb_df"><a class="viewcode-back" href="../../api.html#pmagpy.pmag.get_sb_df">[docs]</a><span class="k">def</span> <span class="nf">get_sb_df</span><span class="p">(</span><span class="n">df</span><span class="p">,</span> <span class="n">mm97</span><span class="o">=</span><span class="kc">False</span><span class="p">):</span>
+<div class="viewcode-block" id="get_sb_df"><a class="viewcode-back" href="../../api/api.html#pmagpy.pmag.get_sb_df">[docs]</a><span class="k">def</span> <span class="nf">get_sb_df</span><span class="p">(</span><span class="n">df</span><span class="p">,</span> <span class="n">mm97</span><span class="o">=</span><span class="kc">False</span><span class="p">):</span>
     <span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">    Calculates Sf for a dataframe with VGP Lat., and optional Fisher&#39;s k, site latitude and N information can be used to correct for within site scatter (McElhinny &amp; McFadden, 1997)</span>
 
@@ -1503,7 +1542,7 @@ title="Open an issue"
     <span class="k">return</span> <span class="p">[</span><span class="n">Crits</span><span class="p">]</span>
 
 
-<div class="viewcode-block" id="grade"><a class="viewcode-back" href="../../api.html#pmagpy.pmag.grade">[docs]</a><span class="k">def</span> <span class="nf">grade</span><span class="p">(</span><span class="n">PmagRec</span><span class="p">,</span> <span class="n">ACCEPT</span><span class="p">,</span> <span class="nb">type</span><span class="p">,</span> <span class="n">data_model</span><span class="o">=</span><span class="mf">2.5</span><span class="p">):</span>
+<div class="viewcode-block" id="grade"><a class="viewcode-back" href="../../api/api.html#pmagpy.pmag.grade">[docs]</a><span class="k">def</span> <span class="nf">grade</span><span class="p">(</span><span class="n">PmagRec</span><span class="p">,</span> <span class="n">ACCEPT</span><span class="p">,</span> <span class="nb">type</span><span class="p">,</span> <span class="n">data_model</span><span class="o">=</span><span class="mf">2.5</span><span class="p">):</span>
     <span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">    Finds the &#39;grade&#39; (pass/fail; A/F) of a record (specimen,sample,site) given the acceptance criteria</span>
 <span class="sd">    &quot;&quot;&quot;</span>
@@ -1585,7 +1624,7 @@ title="Open an issue"
     <span class="k">return</span> <span class="n">kill</span></div>
 
 
-<div class="viewcode-block" id="flip"><a class="viewcode-back" href="../../api.html#pmagpy.pmag.flip">[docs]</a><span class="k">def</span> <span class="nf">flip</span><span class="p">(</span><span class="n">di_block</span><span class="p">,</span> <span class="n">combine</span><span class="o">=</span><span class="kc">False</span><span class="p">):</span>
+<div class="viewcode-block" id="flip"><a class="viewcode-back" href="../../api/api.html#pmagpy.pmag.flip">[docs]</a><span class="k">def</span> <span class="nf">flip</span><span class="p">(</span><span class="n">di_block</span><span class="p">,</span> <span class="n">combine</span><span class="o">=</span><span class="kc">False</span><span class="p">):</span>
     <span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">    Determines &#39;normal&#39; direction along the principle eigenvector, then flips </span>
 <span class="sd">    the reverse mode to the antipode.</span>
@@ -1622,7 +1661,7 @@ title="Open an issue"
         <span class="k">return</span> <span class="n">D1</span><span class="p">,</span> <span class="n">D2</span></div>
 
 
-<div class="viewcode-block" id="dia_vgp"><a class="viewcode-back" href="../../api.html#pmagpy.pmag.dia_vgp">[docs]</a><span class="k">def</span> <span class="nf">dia_vgp</span><span class="p">(</span><span class="o">*</span><span class="n">args</span><span class="p">):</span>  <span class="c1"># new function interface by J.Holmes, SIO, 6/1/2011</span>
+<div class="viewcode-block" id="dia_vgp"><a class="viewcode-back" href="../../api/api.html#pmagpy.pmag.dia_vgp">[docs]</a><span class="k">def</span> <span class="nf">dia_vgp</span><span class="p">(</span><span class="o">*</span><span class="n">args</span><span class="p">):</span>  <span class="c1"># new function interface by J.Holmes, SIO, 6/1/2011</span>
     <span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">    Converts directional data (declination, inclination, alpha95) at a given</span>
 <span class="sd">    location (Site latitude, Site longitude) to pole position (pole longitude,</span>
@@ -1725,7 +1764,7 @@ title="Open an issue"
     <span class="k">return</span> <span class="n">plong</span><span class="o">.</span><span class="n">tolist</span><span class="p">(),</span> <span class="n">plat</span><span class="o">.</span><span class="n">tolist</span><span class="p">(),</span> <span class="n">dp</span><span class="o">.</span><span class="n">tolist</span><span class="p">(),</span> <span class="n">dm</span><span class="o">.</span><span class="n">tolist</span><span class="p">()</span></div>
 
 
-<div class="viewcode-block" id="int_pars"><a class="viewcode-back" href="../../api.html#pmagpy.pmag.int_pars">[docs]</a><span class="k">def</span> <span class="nf">int_pars</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="n">vds</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
+<div class="viewcode-block" id="int_pars"><a class="viewcode-back" href="../../api/api.html#pmagpy.pmag.int_pars">[docs]</a><span class="k">def</span> <span class="nf">int_pars</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="n">vds</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
     <span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">    Depreciated 9/7/2022 </span>
 <span class="sd">    </span>
@@ -1827,7 +1866,7 @@ title="Open an issue"
         <span class="n">pars</span><span class="p">[</span><span class="s1">&#39;int_k_prime_sse&#39;</span><span class="p">]</span><span class="o">=</span><span class="n">krv_data</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span>
     <span class="k">return</span> <span class="n">pars</span>
 
-<div class="viewcode-block" id="dovds"><a class="viewcode-back" href="../../api.html#pmagpy.pmag.dovds">[docs]</a><span class="k">def</span> <span class="nf">dovds</span><span class="p">(</span><span class="n">data</span><span class="p">):</span>
+<div class="viewcode-block" id="dovds"><a class="viewcode-back" href="../../api/api.html#pmagpy.pmag.dovds">[docs]</a><span class="k">def</span> <span class="nf">dovds</span><span class="p">(</span><span class="n">data</span><span class="p">):</span>
     <span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">    Calculates vector difference sum for demagnetization data.</span>
 <span class="sd">    </span>
@@ -1861,7 +1900,7 @@ title="Open an issue"
     <span class="k">return</span> <span class="n">vds</span></div>
 
 
-<div class="viewcode-block" id="vspec_magic"><a class="viewcode-back" href="../../api.html#pmagpy.pmag.vspec_magic">[docs]</a><span class="k">def</span> <span class="nf">vspec_magic</span><span class="p">(</span><span class="n">data</span><span class="p">):</span>
+<div class="viewcode-block" id="vspec_magic"><a class="viewcode-back" href="../../api/api.html#pmagpy.pmag.vspec_magic">[docs]</a><span class="k">def</span> <span class="nf">vspec_magic</span><span class="p">(</span><span class="n">data</span><span class="p">):</span>
     <span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">    Takes average vector of replicate measurements.</span>
 <span class="sd">    &quot;&quot;&quot;</span>
@@ -1937,7 +1976,7 @@ title="Open an issue"
                 <span class="k">return</span> <span class="n">vdata</span><span class="p">,</span> <span class="n">treats</span>  <span class="c1"># bye-bye</span></div>
 
 
-<div class="viewcode-block" id="vspec_magic3"><a class="viewcode-back" href="../../api.html#pmagpy.pmag.vspec_magic3">[docs]</a><span class="k">def</span> <span class="nf">vspec_magic3</span><span class="p">(</span><span class="n">data</span><span class="p">):</span>
+<div class="viewcode-block" id="vspec_magic3"><a class="viewcode-back" href="../../api/api.html#pmagpy.pmag.vspec_magic3">[docs]</a><span class="k">def</span> <span class="nf">vspec_magic3</span><span class="p">(</span><span class="n">data</span><span class="p">):</span>
     <span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">    Takes average vector of replicate measurements.</span>
 <span class="sd">    &quot;&quot;&quot;</span>
@@ -2017,7 +2056,7 @@ title="Open an issue"
                 <span class="k">return</span> <span class="n">vdata</span><span class="p">,</span> <span class="n">treats</span>  <span class="c1"># bye-bye</span></div>
 
 
-<div class="viewcode-block" id="get_specs"><a class="viewcode-back" href="../../api.html#pmagpy.pmag.get_specs">[docs]</a><span class="k">def</span> <span class="nf">get_specs</span><span class="p">(</span><span class="n">data</span><span class="p">):</span>
+<div class="viewcode-block" id="get_specs"><a class="viewcode-back" href="../../api/api.html#pmagpy.pmag.get_specs">[docs]</a><span class="k">def</span> <span class="nf">get_specs</span><span class="p">(</span><span class="n">data</span><span class="p">):</span>
     <span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">    Takes a magic format file and returns a list of unique specimen names.</span>
 <span class="sd">    &quot;&quot;&quot;</span>
@@ -2034,7 +2073,7 @@ title="Open an issue"
     <span class="k">return</span> <span class="n">speclist</span></div>
 
 
-<div class="viewcode-block" id="vector_mean"><a class="viewcode-back" href="../../api.html#pmagpy.pmag.vector_mean">[docs]</a><span class="k">def</span> <span class="nf">vector_mean</span><span class="p">(</span><span class="n">data</span><span class="p">):</span>
+<div class="viewcode-block" id="vector_mean"><a class="viewcode-back" href="../../api/api.html#pmagpy.pmag.vector_mean">[docs]</a><span class="k">def</span> <span class="nf">vector_mean</span><span class="p">(</span><span class="n">data</span><span class="p">):</span>
     <span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">    Calculates the vector mean of a given set of vectors.</span>
 <span class="sd">    </span>
@@ -2073,7 +2112,7 @@ title="Open an issue"
     <span class="k">return</span> <span class="nb">dir</span><span class="p">,</span> <span class="n">R</span></div>
 
 
-<div class="viewcode-block" id="mark_dmag_rec"><a class="viewcode-back" href="../../api.html#pmagpy.pmag.mark_dmag_rec">[docs]</a><span class="k">def</span> <span class="nf">mark_dmag_rec</span><span class="p">(</span><span class="n">s</span><span class="p">,</span> <span class="n">ind</span><span class="p">,</span> <span class="n">data</span><span class="p">):</span>
+<div class="viewcode-block" id="mark_dmag_rec"><a class="viewcode-back" href="../../api/api.html#pmagpy.pmag.mark_dmag_rec">[docs]</a><span class="k">def</span> <span class="nf">mark_dmag_rec</span><span class="p">(</span><span class="n">s</span><span class="p">,</span> <span class="n">ind</span><span class="p">,</span> <span class="n">data</span><span class="p">):</span>
     <span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">    Depreciated 9/14/2022</span>
 <span class="sd">    </span>
@@ -2106,7 +2145,7 @@ title="Open an issue"
     <span class="k">return</span> <span class="n">Samps</span>
 
 
-<div class="viewcode-block" id="find_dmag_rec"><a class="viewcode-back" href="../../api.html#pmagpy.pmag.find_dmag_rec">[docs]</a><span class="k">def</span> <span class="nf">find_dmag_rec</span><span class="p">(</span><span class="n">s</span><span class="p">,</span> <span class="n">data</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
+<div class="viewcode-block" id="find_dmag_rec"><a class="viewcode-back" href="../../api/api.html#pmagpy.pmag.find_dmag_rec">[docs]</a><span class="k">def</span> <span class="nf">find_dmag_rec</span><span class="p">(</span><span class="n">s</span><span class="p">,</span> <span class="n">data</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
     <span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">    Returns demagnetization data for specimen s from the data. Excludes other</span>
 <span class="sd">    kinds of experiments and &quot;bad&quot; measurements.</span>
@@ -2229,7 +2268,7 @@ title="Open an issue"
     <span class="k">return</span> <span class="n">datablock</span><span class="p">,</span> <span class="n">meas_units</span></div>
 
 
-<div class="viewcode-block" id="open_file"><a class="viewcode-back" href="../../api.html#pmagpy.pmag.open_file">[docs]</a><span class="k">def</span> <span class="nf">open_file</span><span class="p">(</span><span class="n">infile</span><span class="p">,</span> <span class="n">verbose</span><span class="o">=</span><span class="kc">True</span><span class="p">):</span>
+<div class="viewcode-block" id="open_file"><a class="viewcode-back" href="../../api/api.html#pmagpy.pmag.open_file">[docs]</a><span class="k">def</span> <span class="nf">open_file</span><span class="p">(</span><span class="n">infile</span><span class="p">,</span> <span class="n">verbose</span><span class="o">=</span><span class="kc">True</span><span class="p">):</span>
     <span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">    Open file and return a list of the file&#39;s lines.</span>
 <span class="sd">    Try to use utf-8 encoding, and if that fails use Latin-1.</span>
@@ -2278,7 +2317,7 @@ title="Open an issue"
     <span class="k">return</span> <span class="n">lines</span></div>
 
 
-<div class="viewcode-block" id="magic_read"><a class="viewcode-back" href="../../api.html#pmagpy.pmag.magic_read">[docs]</a><span class="k">def</span> <span class="nf">magic_read</span><span class="p">(</span><span class="n">infile</span><span class="p">,</span> <span class="n">data</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">return_keys</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">verbose</span><span class="o">=</span><span class="kc">False</span><span class="p">):</span>
+<div class="viewcode-block" id="magic_read"><a class="viewcode-back" href="../../api/api.html#pmagpy.pmag.magic_read">[docs]</a><span class="k">def</span> <span class="nf">magic_read</span><span class="p">(</span><span class="n">infile</span><span class="p">,</span> <span class="n">data</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">return_keys</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">verbose</span><span class="o">=</span><span class="kc">False</span><span class="p">):</span>
     <span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">    Reads a Magic template file, returns data in a list of dictionaries.</span>
 
@@ -2396,7 +2435,7 @@ title="Open an issue"
     <span class="k">return</span> <span class="n">magic_data</span><span class="p">,</span> <span class="n">file_type</span></div>
 
 
-<div class="viewcode-block" id="magic_read_dict"><a class="viewcode-back" href="../../api.html#pmagpy.pmag.magic_read_dict">[docs]</a><span class="k">def</span> <span class="nf">magic_read_dict</span><span class="p">(</span><span class="n">path</span><span class="p">,</span> <span class="n">data</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">sort_by_this_name</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">return_keys</span><span class="o">=</span><span class="kc">False</span><span class="p">):</span>
+<div class="viewcode-block" id="magic_read_dict"><a class="viewcode-back" href="../../api/api.html#pmagpy.pmag.magic_read_dict">[docs]</a><span class="k">def</span> <span class="nf">magic_read_dict</span><span class="p">(</span><span class="n">path</span><span class="p">,</span> <span class="n">data</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">sort_by_this_name</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">return_keys</span><span class="o">=</span><span class="kc">False</span><span class="p">):</span>
     <span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">    Read a magic-formatted tab-delimited file and returns a dictionary of dictionaries, with this format:</span>
 <span class="sd">    </span>
@@ -2457,7 +2496,7 @@ title="Open an issue"
         <span class="k">return</span> <span class="n">DATA</span><span class="p">,</span> <span class="n">file_type</span></div>
 
 
-<div class="viewcode-block" id="sort_magic_data"><a class="viewcode-back" href="../../api.html#pmagpy.pmag.sort_magic_data">[docs]</a><span class="k">def</span> <span class="nf">sort_magic_data</span><span class="p">(</span><span class="n">magic_data</span><span class="p">,</span> <span class="n">sort_name</span><span class="p">):</span>
+<div class="viewcode-block" id="sort_magic_data"><a class="viewcode-back" href="../../api/api.html#pmagpy.pmag.sort_magic_data">[docs]</a><span class="k">def</span> <span class="nf">sort_magic_data</span><span class="p">(</span><span class="n">magic_data</span><span class="p">,</span> <span class="n">sort_name</span><span class="p">):</span>
     <span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">    Sort magic_data by header.</span>
 <span class="sd">    </span>
@@ -2480,7 +2519,7 @@ title="Open an issue"
     <span class="k">return</span> <span class="n">magic_data_sorted</span></div>
 
 
-<div class="viewcode-block" id="upload_read"><a class="viewcode-back" href="../../api.html#pmagpy.pmag.upload_read">[docs]</a><span class="k">def</span> <span class="nf">upload_read</span><span class="p">(</span><span class="n">infile</span><span class="p">,</span> <span class="n">table</span><span class="p">):</span>
+<div class="viewcode-block" id="upload_read"><a class="viewcode-back" href="../../api/api.html#pmagpy.pmag.upload_read">[docs]</a><span class="k">def</span> <span class="nf">upload_read</span><span class="p">(</span><span class="n">infile</span><span class="p">,</span> <span class="n">table</span><span class="p">):</span>
     <span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">    Depreciated 9/14/2022</span>
 <span class="sd">    </span>
@@ -2529,7 +2568,7 @@ title="Open an issue"
     <span class="k">return</span> <span class="n">magic_data</span></div>
 
 
-<div class="viewcode-block" id="putout"><a class="viewcode-back" href="../../api.html#pmagpy.pmag.putout">[docs]</a><span class="k">def</span> <span class="nf">putout</span><span class="p">(</span><span class="n">ofile</span><span class="p">,</span> <span class="n">keylist</span><span class="p">,</span> <span class="n">Rec</span><span class="p">):</span>
+<div class="viewcode-block" id="putout"><a class="viewcode-back" href="../../api/api.html#pmagpy.pmag.putout">[docs]</a><span class="k">def</span> <span class="nf">putout</span><span class="p">(</span><span class="n">ofile</span><span class="p">,</span> <span class="n">keylist</span><span class="p">,</span> <span class="n">Rec</span><span class="p">):</span>
     <span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">    Writes out a magic format record to ofile.</span>
 <span class="sd">    &quot;&quot;&quot;</span>
@@ -2546,7 +2585,7 @@ title="Open an issue"
     <span class="n">pmag_out</span><span class="o">.</span><span class="n">close</span><span class="p">()</span></div>
 
 
-<div class="viewcode-block" id="first_rec"><a class="viewcode-back" href="../../api.html#pmagpy.pmag.first_rec">[docs]</a><span class="k">def</span> <span class="nf">first_rec</span><span class="p">(</span><span class="n">ofile</span><span class="p">,</span> <span class="n">Rec</span><span class="p">,</span> <span class="n">file_type</span><span class="p">):</span>
+<div class="viewcode-block" id="first_rec"><a class="viewcode-back" href="../../api/api.html#pmagpy.pmag.first_rec">[docs]</a><span class="k">def</span> <span class="nf">first_rec</span><span class="p">(</span><span class="n">ofile</span><span class="p">,</span> <span class="n">Rec</span><span class="p">,</span> <span class="n">file_type</span><span class="p">):</span>
     <span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">    Opens the file ofile as a magic template file with headers as the keys to Rec.</span>
 <span class="sd">    </span>
@@ -2576,7 +2615,7 @@ title="Open an issue"
     <span class="k">return</span> <span class="n">keylist</span></div>
 
 
-<div class="viewcode-block" id="magic_write_old"><a class="viewcode-back" href="../../api.html#pmagpy.pmag.magic_write_old">[docs]</a><span class="k">def</span> <span class="nf">magic_write_old</span><span class="p">(</span><span class="n">ofile</span><span class="p">,</span> <span class="n">Recs</span><span class="p">,</span> <span class="n">file_type</span><span class="p">):</span>
+<div class="viewcode-block" id="magic_write_old"><a class="viewcode-back" href="../../api/api.html#pmagpy.pmag.magic_write_old">[docs]</a><span class="k">def</span> <span class="nf">magic_write_old</span><span class="p">(</span><span class="n">ofile</span><span class="p">,</span> <span class="n">Recs</span><span class="p">,</span> <span class="n">file_type</span><span class="p">):</span>
     <span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">    Writes out a magic format list of dictionaries to ofile.</span>
 
@@ -2622,7 +2661,7 @@ title="Open an issue"
     <span class="n">pmag_out</span><span class="o">.</span><span class="n">close</span><span class="p">()</span></div>
 
 
-<div class="viewcode-block" id="magic_write"><a class="viewcode-back" href="../../api.html#pmagpy.pmag.magic_write">[docs]</a><span class="k">def</span> <span class="nf">magic_write</span><span class="p">(</span><span class="n">ofile</span><span class="p">,</span> <span class="n">Recs</span><span class="p">,</span> <span class="n">file_type</span><span class="p">,</span> <span class="n">dataframe</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span><span class="n">append</span><span class="o">=</span><span class="kc">False</span><span class="p">):</span>
+<div class="viewcode-block" id="magic_write"><a class="viewcode-back" href="../../api/api.html#pmagpy.pmag.magic_write">[docs]</a><span class="k">def</span> <span class="nf">magic_write</span><span class="p">(</span><span class="n">ofile</span><span class="p">,</span> <span class="n">Recs</span><span class="p">,</span> <span class="n">file_type</span><span class="p">,</span> <span class="n">dataframe</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span><span class="n">append</span><span class="o">=</span><span class="kc">False</span><span class="p">):</span>
     <span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">    Writes out a magic format list of dictionaries to ofile.</span>
 
@@ -2694,7 +2733,7 @@ title="Open an issue"
     <span class="k">return</span> <span class="kc">True</span><span class="p">,</span> <span class="n">ofile</span></div>
 
 
-<div class="viewcode-block" id="dotilt"><a class="viewcode-back" href="../../api.html#pmagpy.pmag.dotilt">[docs]</a><span class="k">def</span> <span class="nf">dotilt</span><span class="p">(</span><span class="n">dec</span><span class="p">,</span> <span class="n">inc</span><span class="p">,</span> <span class="n">bed_az</span><span class="p">,</span> <span class="n">bed_dip</span><span class="p">):</span>
+<div class="viewcode-block" id="dotilt"><a class="viewcode-back" href="../../api/api.html#pmagpy.pmag.dotilt">[docs]</a><span class="k">def</span> <span class="nf">dotilt</span><span class="p">(</span><span class="n">dec</span><span class="p">,</span> <span class="n">inc</span><span class="p">,</span> <span class="n">bed_az</span><span class="p">,</span> <span class="n">bed_dip</span><span class="p">):</span>
     <span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">    Does a tilt correction on a direction (dec,inc) using bedding dip direction</span>
 <span class="sd">    and bedding dip.</span>
@@ -2732,7 +2771,7 @@ title="Open an issue"
     <span class="k">return</span> <span class="n">Dir</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="n">Dir</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span></div>
 
 
-<div class="viewcode-block" id="dotilt_V"><a class="viewcode-back" href="../../api.html#pmagpy.pmag.dotilt_V">[docs]</a><span class="k">def</span> <span class="nf">dotilt_V</span><span class="p">(</span><span class="n">indat</span><span class="p">):</span>
+<div class="viewcode-block" id="dotilt_V"><a class="viewcode-back" href="../../api/api.html#pmagpy.pmag.dotilt_V">[docs]</a><span class="k">def</span> <span class="nf">dotilt_V</span><span class="p">(</span><span class="n">indat</span><span class="p">):</span>
     <span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">    Does a tilt correction on an array with rows of dec,inc bedding dip direction and dip.</span>
 
@@ -2775,7 +2814,7 @@ title="Open an issue"
     <span class="k">return</span> <span class="n">Dir</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="n">Dir</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span></div>
 
 
-<div class="viewcode-block" id="dogeo"><a class="viewcode-back" href="../../api.html#pmagpy.pmag.dogeo">[docs]</a><span class="k">def</span> <span class="nf">dogeo</span><span class="p">(</span><span class="n">dec</span><span class="p">,</span> <span class="n">inc</span><span class="p">,</span> <span class="n">az</span><span class="p">,</span> <span class="n">pl</span><span class="p">):</span>
+<div class="viewcode-block" id="dogeo"><a class="viewcode-back" href="../../api/api.html#pmagpy.pmag.dogeo">[docs]</a><span class="k">def</span> <span class="nf">dogeo</span><span class="p">(</span><span class="n">dec</span><span class="p">,</span> <span class="n">inc</span><span class="p">,</span> <span class="n">az</span><span class="p">,</span> <span class="n">pl</span><span class="p">):</span>
     <span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">    Rotates declination and inclination into geographic coordinates using the</span>
 <span class="sd">    azimuth and plunge of the X direction (lab arrow) of a specimen.</span>
@@ -2817,7 +2856,7 @@ title="Open an issue"
     <span class="k">return</span> <span class="n">Dir_geo</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="n">Dir_geo</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span>    <span class="c1"># send back declination and inclination</span></div>
 
 
-<div class="viewcode-block" id="dogeo_V"><a class="viewcode-back" href="../../api.html#pmagpy.pmag.dogeo_V">[docs]</a><span class="k">def</span> <span class="nf">dogeo_V</span><span class="p">(</span><span class="n">indat</span><span class="p">):</span>
+<div class="viewcode-block" id="dogeo_V"><a class="viewcode-back" href="../../api/api.html#pmagpy.pmag.dogeo_V">[docs]</a><span class="k">def</span> <span class="nf">dogeo_V</span><span class="p">(</span><span class="n">indat</span><span class="p">):</span>
     <span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">    Rotates declination and inclination into geographic coordinates using the</span>
 <span class="sd">    azimuth and plunge of the X direction (lab arrow) of a specimen.</span>
@@ -2864,7 +2903,7 @@ title="Open an issue"
     <span class="k">return</span> <span class="n">Dir_geo</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="n">Dir_geo</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span></div>
 
 
-<div class="viewcode-block" id="dodirot"><a class="viewcode-back" href="../../api.html#pmagpy.pmag.dodirot">[docs]</a><span class="k">def</span> <span class="nf">dodirot</span><span class="p">(</span><span class="n">D</span><span class="p">,</span> <span class="n">I</span><span class="p">,</span> <span class="n">Dbar</span><span class="p">,</span> <span class="n">Ibar</span><span class="p">):</span>
+<div class="viewcode-block" id="dodirot"><a class="viewcode-back" href="../../api/api.html#pmagpy.pmag.dodirot">[docs]</a><span class="k">def</span> <span class="nf">dodirot</span><span class="p">(</span><span class="n">D</span><span class="p">,</span> <span class="n">I</span><span class="p">,</span> <span class="n">Dbar</span><span class="p">,</span> <span class="n">Ibar</span><span class="p">):</span>
     <span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">    Rotate a direction (declination, inclination) by the difference between</span>
 <span class="sd">    dec = 0 and inc = 90 and the provided desired mean direction.</span>
@@ -2894,7 +2933,7 @@ title="Open an issue"
     <span class="k">return</span> <span class="n">drot</span><span class="p">,</span> <span class="n">irot</span></div>
 
 
-<div class="viewcode-block" id="dodirot_V"><a class="viewcode-back" href="../../api.html#pmagpy.pmag.dodirot_V">[docs]</a><span class="k">def</span> <span class="nf">dodirot_V</span><span class="p">(</span><span class="n">di_block</span><span class="p">,</span> <span class="n">Dbar</span><span class="p">,</span> <span class="n">Ibar</span><span class="p">):</span>
+<div class="viewcode-block" id="dodirot_V"><a class="viewcode-back" href="../../api/api.html#pmagpy.pmag.dodirot_V">[docs]</a><span class="k">def</span> <span class="nf">dodirot_V</span><span class="p">(</span><span class="n">di_block</span><span class="p">,</span> <span class="n">Dbar</span><span class="p">,</span> <span class="n">Ibar</span><span class="p">):</span>
     <span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">    Rotate an array of dec/inc pairs to coordinate system with Dec, Inc as 0, 90.</span>
 
@@ -2927,7 +2966,7 @@ title="Open an issue"
     <span class="k">return</span> <span class="n">np</span><span class="o">.</span><span class="n">column_stack</span><span class="p">((</span><span class="n">drot</span><span class="p">,</span> <span class="n">irot</span><span class="p">))</span></div>
 
 
-<div class="viewcode-block" id="find_samp_rec"><a class="viewcode-back" href="../../api.html#pmagpy.pmag.find_samp_rec">[docs]</a><span class="k">def</span> <span class="nf">find_samp_rec</span><span class="p">(</span><span class="n">s</span><span class="p">,</span> <span class="n">data</span><span class="p">,</span> <span class="n">az_type</span><span class="p">):</span>
+<div class="viewcode-block" id="find_samp_rec"><a class="viewcode-back" href="../../api/api.html#pmagpy.pmag.find_samp_rec">[docs]</a><span class="k">def</span> <span class="nf">find_samp_rec</span><span class="p">(</span><span class="n">s</span><span class="p">,</span> <span class="n">data</span><span class="p">,</span> <span class="n">az_type</span><span class="p">):</span>
     <span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">    Find the orientation info for samp s</span>
 <span class="sd">    &quot;&quot;&quot;</span>
@@ -2969,7 +3008,7 @@ title="Open an issue"
     <span class="k">return</span> <span class="n">orient</span></div>
 
 
-<div class="viewcode-block" id="vspec"><a class="viewcode-back" href="../../api.html#pmagpy.pmag.vspec">[docs]</a><span class="k">def</span> <span class="nf">vspec</span><span class="p">(</span><span class="n">data</span><span class="p">):</span>
+<div class="viewcode-block" id="vspec"><a class="viewcode-back" href="../../api/api.html#pmagpy.pmag.vspec">[docs]</a><span class="k">def</span> <span class="nf">vspec</span><span class="p">(</span><span class="n">data</span><span class="p">):</span>
     <span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">    Depreciated 9/14/2022</span>
 <span class="sd">    </span>
@@ -3000,7 +3039,7 @@ title="Open an issue"
     <span class="k">return</span> <span class="n">step_meth</span><span class="p">,</span> <span class="n">vdata</span></div>
 
 
-<div class="viewcode-block" id="Vdiff"><a class="viewcode-back" href="../../api.html#pmagpy.pmag.Vdiff">[docs]</a><span class="k">def</span> <span class="nf">Vdiff</span><span class="p">(</span><span class="n">D1</span><span class="p">,</span> <span class="n">D2</span><span class="p">):</span>
+<div class="viewcode-block" id="Vdiff"><a class="viewcode-back" href="../../api/api.html#pmagpy.pmag.Vdiff">[docs]</a><span class="k">def</span> <span class="nf">Vdiff</span><span class="p">(</span><span class="n">D1</span><span class="p">,</span> <span class="n">D2</span><span class="p">):</span>
     <span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">    Calculates the vector difference between two directions D1, D2.</span>
 <span class="sd">    </span>
@@ -3027,7 +3066,7 @@ title="Open an issue"
     <span class="k">return</span> <span class="n">cart2dir</span><span class="p">(</span><span class="n">C</span><span class="p">)</span></div>
 
 
-<div class="viewcode-block" id="angle"><a class="viewcode-back" href="../../api.html#pmagpy.pmag.angle">[docs]</a><span class="k">def</span> <span class="nf">angle</span><span class="p">(</span><span class="n">D1</span><span class="p">,</span> <span class="n">D2</span><span class="p">):</span>
+<div class="viewcode-block" id="angle"><a class="viewcode-back" href="../../api/api.html#pmagpy.pmag.angle">[docs]</a><span class="k">def</span> <span class="nf">angle</span><span class="p">(</span><span class="n">D1</span><span class="p">,</span> <span class="n">D2</span><span class="p">):</span>
     <span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">    Calculate the angle between two directions.</span>
 
@@ -3070,7 +3109,7 @@ title="Open an issue"
     <span class="k">return</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="n">angles</span><span class="p">)</span></div>
 
 
-<div class="viewcode-block" id="cart2dir"><a class="viewcode-back" href="../../api.html#pmagpy.pmag.cart2dir">[docs]</a><span class="k">def</span> <span class="nf">cart2dir</span><span class="p">(</span><span class="n">cart</span><span class="p">):</span>
+<div class="viewcode-block" id="cart2dir"><a class="viewcode-back" href="../../api/api.html#pmagpy.pmag.cart2dir">[docs]</a><span class="k">def</span> <span class="nf">cart2dir</span><span class="p">(</span><span class="n">cart</span><span class="p">):</span>
     <span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">    Converts a direction in cartesian coordinates into declinations and inclination.</span>
 
@@ -3115,7 +3154,7 @@ title="Open an issue"
     <span class="k">return</span> <span class="n">direction_array</span>  <span class="c1"># return the directions list</span></div>
 
 
-<div class="viewcode-block" id="tauV"><a class="viewcode-back" href="../../api.html#pmagpy.pmag.tauV">[docs]</a><span class="k">def</span> <span class="nf">tauV</span><span class="p">(</span><span class="n">T</span><span class="p">):</span>
+<div class="viewcode-block" id="tauV"><a class="viewcode-back" href="../../api/api.html#pmagpy.pmag.tauV">[docs]</a><span class="k">def</span> <span class="nf">tauV</span><span class="p">(</span><span class="n">T</span><span class="p">):</span>
     <span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">    Gets the eigenvalues (tau) and eigenvectors (V) from 3x3 matrix T.</span>
 <span class="sd">    </span>
@@ -3177,7 +3216,7 @@ title="Open an issue"
     <span class="k">return</span> <span class="n">t</span><span class="p">,</span> <span class="n">V</span></div>
 
 
-<div class="viewcode-block" id="Tmatrix"><a class="viewcode-back" href="../../api.html#pmagpy.pmag.Tmatrix">[docs]</a><span class="k">def</span> <span class="nf">Tmatrix</span><span class="p">(</span><span class="n">X</span><span class="p">):</span>
+<div class="viewcode-block" id="Tmatrix"><a class="viewcode-back" href="../../api/api.html#pmagpy.pmag.Tmatrix">[docs]</a><span class="k">def</span> <span class="nf">Tmatrix</span><span class="p">(</span><span class="n">X</span><span class="p">):</span>
     <span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">    Gets the orientation matrix (T) from data in X.</span>
 <span class="sd">    </span>
@@ -3203,7 +3242,7 @@ title="Open an issue"
     <span class="k">return</span> <span class="n">T</span></div>
 
 
-<div class="viewcode-block" id="dir2cart"><a class="viewcode-back" href="../../api.html#pmagpy.pmag.dir2cart">[docs]</a><span class="k">def</span> <span class="nf">dir2cart</span><span class="p">(</span><span class="n">d</span><span class="p">):</span>
+<div class="viewcode-block" id="dir2cart"><a class="viewcode-back" href="../../api/api.html#pmagpy.pmag.dir2cart">[docs]</a><span class="k">def</span> <span class="nf">dir2cart</span><span class="p">(</span><span class="n">d</span><span class="p">):</span>
     <span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">    Converts a list or array of vector directions in degrees (declination,</span>
 <span class="sd">    inclination) to an array of the direction in cartesian coordinates (x,y,z).</span>
@@ -3257,7 +3296,7 @@ title="Open an issue"
     <span class="k">return</span> <span class="n">cart</span></div>
 
 
-<div class="viewcode-block" id="dms2dd"><a class="viewcode-back" href="../../api.html#pmagpy.pmag.dms2dd">[docs]</a><span class="k">def</span> <span class="nf">dms2dd</span><span class="p">(</span><span class="n">d</span><span class="p">):</span>
+<div class="viewcode-block" id="dms2dd"><a class="viewcode-back" href="../../api/api.html#pmagpy.pmag.dms2dd">[docs]</a><span class="k">def</span> <span class="nf">dms2dd</span><span class="p">(</span><span class="n">d</span><span class="p">):</span>
     <span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">    Converts a list or array of degree, minute, second locations to an array of decimal degrees. </span>
 <span class="sd">    </span>
@@ -3300,7 +3339,7 @@ title="Open an issue"
     <span class="k">return</span> <span class="n">dd</span></div>
 
 
-<div class="viewcode-block" id="findrec"><a class="viewcode-back" href="../../api.html#pmagpy.pmag.findrec">[docs]</a><span class="k">def</span> <span class="nf">findrec</span><span class="p">(</span><span class="n">s</span><span class="p">,</span> <span class="n">data</span><span class="p">):</span>
+<div class="viewcode-block" id="findrec"><a class="viewcode-back" href="../../api/api.html#pmagpy.pmag.findrec">[docs]</a><span class="k">def</span> <span class="nf">findrec</span><span class="p">(</span><span class="n">s</span><span class="p">,</span> <span class="n">data</span><span class="p">):</span>
     <span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">    Finds all the records belonging to s in data.</span>
 <span class="sd">    </span>
@@ -3328,7 +3367,7 @@ title="Open an issue"
     <span class="k">return</span> <span class="n">datablock</span></div>
 
 
-<div class="viewcode-block" id="domean"><a class="viewcode-back" href="../../api.html#pmagpy.pmag.domean">[docs]</a><span class="k">def</span> <span class="nf">domean</span><span class="p">(</span><span class="n">data</span><span class="p">,</span> <span class="n">start</span><span class="p">,</span> <span class="n">end</span><span class="p">,</span> <span class="n">calculation_type</span><span class="p">):</span>
+<div class="viewcode-block" id="domean"><a class="viewcode-back" href="../../api/api.html#pmagpy.pmag.domean">[docs]</a><span class="k">def</span> <span class="nf">domean</span><span class="p">(</span><span class="n">data</span><span class="p">,</span> <span class="n">start</span><span class="p">,</span> <span class="n">end</span><span class="p">,</span> <span class="n">calculation_type</span><span class="p">):</span>
     <span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">    Gets average direction using Fisher or principal component analysis (line or plane) methods.</span>
 
@@ -3513,7 +3552,7 @@ title="Open an issue"
     <span class="k">return</span> <span class="n">mpars</span></div>
 
 
-<div class="viewcode-block" id="circ"><a class="viewcode-back" href="../../api.html#pmagpy.pmag.circ">[docs]</a><span class="k">def</span> <span class="nf">circ</span><span class="p">(</span><span class="n">dec</span><span class="p">,</span> <span class="n">dip</span><span class="p">,</span> <span class="n">alpha</span><span class="p">,</span><span class="n">npts</span><span class="o">=</span><span class="mi">201</span><span class="p">):</span>
+<div class="viewcode-block" id="circ"><a class="viewcode-back" href="../../api/api.html#pmagpy.pmag.circ">[docs]</a><span class="k">def</span> <span class="nf">circ</span><span class="p">(</span><span class="n">dec</span><span class="p">,</span> <span class="n">dip</span><span class="p">,</span> <span class="n">alpha</span><span class="p">,</span><span class="n">npts</span><span class="o">=</span><span class="mi">201</span><span class="p">):</span>
     <span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">    Calculates points on an circle about dec and dip with angle alpha.</span>
 
@@ -3576,7 +3615,7 @@ title="Open an issue"
     <span class="k">return</span> <span class="n">D_out</span><span class="p">,</span> <span class="n">I_out</span></div>
 
 
-<div class="viewcode-block" id="PintPars"><a class="viewcode-back" href="../../api.html#pmagpy.pmag.PintPars">[docs]</a><span class="k">def</span> <span class="nf">PintPars</span><span class="p">(</span><span class="n">datablock</span><span class="p">,</span> <span class="n">araiblock</span><span class="p">,</span> <span class="n">zijdblock</span><span class="p">,</span> <span class="n">start</span><span class="p">,</span> <span class="n">end</span><span class="p">,</span> <span class="n">accept</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
+<div class="viewcode-block" id="PintPars"><a class="viewcode-back" href="../../api/api.html#pmagpy.pmag.PintPars">[docs]</a><span class="k">def</span> <span class="nf">PintPars</span><span class="p">(</span><span class="n">datablock</span><span class="p">,</span> <span class="n">araiblock</span><span class="p">,</span> <span class="n">zijdblock</span><span class="p">,</span> <span class="n">start</span><span class="p">,</span> <span class="n">end</span><span class="p">,</span> <span class="n">accept</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
     <span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">    Calculate the paleointensity with magic parameters and make some definitions.</span>
 <span class="sd">    &quot;&quot;&quot;</span>
@@ -4130,7 +4169,7 @@ title="Open an issue"
     <span class="k">return</span> <span class="n">pars</span><span class="p">,</span> <span class="mi">0</span></div>
 
 
-<div class="viewcode-block" id="getkeys"><a class="viewcode-back" href="../../api.html#pmagpy.pmag.getkeys">[docs]</a><span class="k">def</span> <span class="nf">getkeys</span><span class="p">(</span><span class="n">table</span><span class="p">):</span>
+<div class="viewcode-block" id="getkeys"><a class="viewcode-back" href="../../api/api.html#pmagpy.pmag.getkeys">[docs]</a><span class="k">def</span> <span class="nf">getkeys</span><span class="p">(</span><span class="n">table</span><span class="p">):</span>
     <span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">    Customize by commenting out unwanted keys.</span>
 <span class="sd">    &quot;&quot;&quot;</span>
@@ -4306,7 +4345,7 @@ title="Open an issue"
 <span class="c1">#    return namestring</span>
 
 
-<div class="viewcode-block" id="magic_help"><a class="viewcode-back" href="../../api.html#pmagpy.pmag.magic_help">[docs]</a><span class="k">def</span> <span class="nf">magic_help</span><span class="p">(</span><span class="n">keyhelp</span><span class="p">):</span>
+<div class="viewcode-block" id="magic_help"><a class="viewcode-back" href="../../api/api.html#pmagpy.pmag.magic_help">[docs]</a><span class="k">def</span> <span class="nf">magic_help</span><span class="p">(</span><span class="n">keyhelp</span><span class="p">):</span>
     <span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">    Returns a help message for a given magic key.</span>
 <span class="sd">    </span>
@@ -4627,7 +4666,7 @@ title="Open an issue"
     <span class="k">return</span> <span class="n">helpme</span><span class="p">[</span><span class="n">keyhelp</span><span class="p">]</span></div>
 
 
-<div class="viewcode-block" id="dosundec"><a class="viewcode-back" href="../../api.html#pmagpy.pmag.dosundec">[docs]</a><span class="k">def</span> <span class="nf">dosundec</span><span class="p">(</span><span class="n">sundata</span><span class="p">):</span>
+<div class="viewcode-block" id="dosundec"><a class="viewcode-back" href="../../api/api.html#pmagpy.pmag.dosundec">[docs]</a><span class="k">def</span> <span class="nf">dosundec</span><span class="p">(</span><span class="n">sundata</span><span class="p">):</span>
     <span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">    Returns the declination for a given set of suncompass data.</span>
 <span class="sd">    </span>
@@ -4694,7 +4733,7 @@ title="Open an issue"
     <span class="k">return</span> <span class="n">sunaz</span></div>
 
 
-<div class="viewcode-block" id="gha"><a class="viewcode-back" href="../../api.html#pmagpy.pmag.gha">[docs]</a><span class="k">def</span> <span class="nf">gha</span><span class="p">(</span><span class="n">julian_day</span><span class="p">,</span> <span class="n">f</span><span class="p">):</span>
+<div class="viewcode-block" id="gha"><a class="viewcode-back" href="../../api/api.html#pmagpy.pmag.gha">[docs]</a><span class="k">def</span> <span class="nf">gha</span><span class="p">(</span><span class="n">julian_day</span><span class="p">,</span> <span class="n">f</span><span class="p">):</span>
     <span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">    Returns greenwich hour angle.</span>
 <span class="sd">    </span>
@@ -4746,7 +4785,7 @@ title="Open an issue"
     <span class="k">return</span> <span class="n">H</span><span class="p">,</span> <span class="n">delta</span></div>
 
 
-<div class="viewcode-block" id="julian"><a class="viewcode-back" href="../../api.html#pmagpy.pmag.julian">[docs]</a><span class="k">def</span> <span class="nf">julian</span><span class="p">(</span><span class="n">mon</span><span class="p">,</span> <span class="n">day</span><span class="p">,</span> <span class="n">year</span><span class="p">):</span>
+<div class="viewcode-block" id="julian"><a class="viewcode-back" href="../../api/api.html#pmagpy.pmag.julian">[docs]</a><span class="k">def</span> <span class="nf">julian</span><span class="p">(</span><span class="n">mon</span><span class="p">,</span> <span class="n">day</span><span class="p">,</span> <span class="n">year</span><span class="p">):</span>
     <span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">    Returns julian day.</span>
 <span class="sd">    </span>
@@ -4787,7 +4826,7 @@ title="Open an issue"
     <span class="k">return</span> <span class="n">julian_day</span></div>
 
 
-<div class="viewcode-block" id="fillkeys"><a class="viewcode-back" href="../../api.html#pmagpy.pmag.fillkeys">[docs]</a><span class="k">def</span> <span class="nf">fillkeys</span><span class="p">(</span><span class="n">Recs</span><span class="p">):</span>
+<div class="viewcode-block" id="fillkeys"><a class="viewcode-back" href="../../api/api.html#pmagpy.pmag.fillkeys">[docs]</a><span class="k">def</span> <span class="nf">fillkeys</span><span class="p">(</span><span class="n">Recs</span><span class="p">):</span>
     <span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">    Reconciles keys of dictionaries within Recs.</span>
 <span class="sd">    </span>
@@ -4813,7 +4852,7 @@ title="Open an issue"
     <span class="k">return</span> <span class="n">OutRecs</span><span class="p">,</span> <span class="n">keylist</span></div>
 
 
-<div class="viewcode-block" id="fisher_mean"><a class="viewcode-back" href="../../api.html#pmagpy.pmag.fisher_mean">[docs]</a><span class="k">def</span> <span class="nf">fisher_mean</span><span class="p">(</span><span class="n">data</span><span class="p">):</span>
+<div class="viewcode-block" id="fisher_mean"><a class="viewcode-back" href="../../api/api.html#pmagpy.pmag.fisher_mean">[docs]</a><span class="k">def</span> <span class="nf">fisher_mean</span><span class="p">(</span><span class="n">data</span><span class="p">):</span>
     <span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">    Calculates the Fisher mean and associated parameter from a di_block.</span>
 
@@ -4880,7 +4919,7 @@ title="Open an issue"
     <span class="k">return</span> <span class="n">fpars</span></div>
 
 
-<div class="viewcode-block" id="gausspars"><a class="viewcode-back" href="../../api.html#pmagpy.pmag.gausspars">[docs]</a><span class="k">def</span> <span class="nf">gausspars</span><span class="p">(</span><span class="n">data</span><span class="p">):</span>
+<div class="viewcode-block" id="gausspars"><a class="viewcode-back" href="../../api/api.html#pmagpy.pmag.gausspars">[docs]</a><span class="k">def</span> <span class="nf">gausspars</span><span class="p">(</span><span class="n">data</span><span class="p">):</span>
     <span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">    Calculates gaussian statistics for data. </span>
 <span class="sd">    </span>
@@ -4923,7 +4962,7 @@ title="Open an issue"
     <span class="k">return</span> <span class="n">mean</span><span class="p">,</span> <span class="n">stdev</span></div>
 
 
-<div class="viewcode-block" id="calculate_k"><a class="viewcode-back" href="../../api.html#pmagpy.pmag.calculate_k">[docs]</a><span class="k">def</span> <span class="nf">calculate_k</span><span class="p">(</span><span class="n">R</span><span class="p">,</span><span class="n">N</span><span class="p">):</span>
+<div class="viewcode-block" id="calculate_k"><a class="viewcode-back" href="../../api/api.html#pmagpy.pmag.calculate_k">[docs]</a><span class="k">def</span> <span class="nf">calculate_k</span><span class="p">(</span><span class="n">R</span><span class="p">,</span><span class="n">N</span><span class="p">):</span>
     <span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">    Calculates the the Fisher concentration parameter (k) based on the number of</span>
 <span class="sd">    vectors and the resultant vector length. This calculation occurs within the</span>
@@ -4952,7 +4991,7 @@ title="Open an issue"
     <span class="k">return</span> <span class="n">k</span></div>
 
 
-<div class="viewcode-block" id="calculate_r"><a class="viewcode-back" href="../../api.html#pmagpy.pmag.calculate_r">[docs]</a><span class="k">def</span> <span class="nf">calculate_r</span><span class="p">(</span><span class="n">alpha95</span><span class="p">,</span><span class="n">N</span><span class="p">):</span>
+<div class="viewcode-block" id="calculate_r"><a class="viewcode-back" href="../../api/api.html#pmagpy.pmag.calculate_r">[docs]</a><span class="k">def</span> <span class="nf">calculate_r</span><span class="p">(</span><span class="n">alpha95</span><span class="p">,</span><span class="n">N</span><span class="p">):</span>
     <span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">    Calculates the resultant vector length (R) based on the number of vectors</span>
 <span class="sd">    and provided Fisher alpha95. Doing so can be useful for conducting</span>
@@ -4977,7 +5016,7 @@ title="Open an issue"
     <span class="k">return</span> <span class="n">R</span></div>
 
 
-<div class="viewcode-block" id="weighted_mean"><a class="viewcode-back" href="../../api.html#pmagpy.pmag.weighted_mean">[docs]</a><span class="k">def</span> <span class="nf">weighted_mean</span><span class="p">(</span><span class="n">data</span><span class="p">):</span>
+<div class="viewcode-block" id="weighted_mean"><a class="viewcode-back" href="../../api/api.html#pmagpy.pmag.weighted_mean">[docs]</a><span class="k">def</span> <span class="nf">weighted_mean</span><span class="p">(</span><span class="n">data</span><span class="p">):</span>
     <span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">    Calculates the weighted mean of data.</span>
 <span class="sd">    </span>
@@ -5051,7 +5090,7 @@ title="Open an issue"
     <span class="k">return</span> <span class="n">PmagRec</span>
 
 
-<div class="viewcode-block" id="fisher_by_pol"><a class="viewcode-back" href="../../api.html#pmagpy.pmag.fisher_by_pol">[docs]</a><span class="k">def</span> <span class="nf">fisher_by_pol</span><span class="p">(</span><span class="n">data</span><span class="p">):</span>
+<div class="viewcode-block" id="fisher_by_pol"><a class="viewcode-back" href="../../api/api.html#pmagpy.pmag.fisher_by_pol">[docs]</a><span class="k">def</span> <span class="nf">fisher_by_pol</span><span class="p">(</span><span class="n">data</span><span class="p">):</span>
     <span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">    Do fisher mean after splitting data into two polarity domains.</span>
 <span class="sd">    </span>
@@ -5156,7 +5195,7 @@ title="Open an issue"
     <span class="k">return</span> <span class="n">FisherByPoles</span></div>
 
 
-<div class="viewcode-block" id="dolnp3_0"><a class="viewcode-back" href="../../api.html#pmagpy.pmag.dolnp3_0">[docs]</a><span class="k">def</span> <span class="nf">dolnp3_0</span><span class="p">(</span><span class="n">Data</span><span class="p">):</span>
+<div class="viewcode-block" id="dolnp3_0"><a class="viewcode-back" href="../../api/api.html#pmagpy.pmag.dolnp3_0">[docs]</a><span class="k">def</span> <span class="nf">dolnp3_0</span><span class="p">(</span><span class="n">Data</span><span class="p">):</span>
     <span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">    DEPRECATED!!  USE dolnp()</span>
 <span class="sd">    Description: takes a list of dicts with the controlled vocabulary of 3_0 and calls dolnp on them after reformating for compatibility.</span>
@@ -5216,7 +5255,7 @@ title="Open an issue"
         <span class="k">return</span> <span class="n">ReturnData</span></div>
 
 
-<div class="viewcode-block" id="dolnp"><a class="viewcode-back" href="../../api.html#pmagpy.pmag.dolnp">[docs]</a><span class="k">def</span> <span class="nf">dolnp</span><span class="p">(</span><span class="n">data</span><span class="p">,</span> <span class="n">direction_type_key</span><span class="p">):</span>
+<div class="viewcode-block" id="dolnp"><a class="viewcode-back" href="../../api/api.html#pmagpy.pmag.dolnp">[docs]</a><span class="k">def</span> <span class="nf">dolnp</span><span class="p">(</span><span class="n">data</span><span class="p">,</span> <span class="n">direction_type_key</span><span class="p">):</span>
     <span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">    Returns fisher mean, a95 for data using the method of McFadden and McElhinny 1988 for lines and planes.</span>
 
@@ -5324,7 +5363,7 @@ title="Open an issue"
     <span class="k">return</span> <span class="n">fpars</span></div>
 
 
-<div class="viewcode-block" id="vclose"><a class="viewcode-back" href="../../api.html#pmagpy.pmag.vclose">[docs]</a><span class="k">def</span> <span class="nf">vclose</span><span class="p">(</span><span class="n">L</span><span class="p">,</span> <span class="n">V</span><span class="p">):</span>
+<div class="viewcode-block" id="vclose"><a class="viewcode-back" href="../../api/api.html#pmagpy.pmag.vclose">[docs]</a><span class="k">def</span> <span class="nf">vclose</span><span class="p">(</span><span class="n">L</span><span class="p">,</span> <span class="n">V</span><span class="p">):</span>
     <span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">    Calculates the closest vector.</span>
 <span class="sd">    &quot;&quot;&quot;</span>
@@ -5337,7 +5376,7 @@ title="Open an issue"
     <span class="k">return</span> <span class="n">X</span></div>
 
 
-<div class="viewcode-block" id="calculate_best_fit_vectors"><a class="viewcode-back" href="../../api.html#pmagpy.pmag.calculate_best_fit_vectors">[docs]</a><span class="k">def</span> <span class="nf">calculate_best_fit_vectors</span><span class="p">(</span><span class="n">L</span><span class="p">,</span> <span class="n">E</span><span class="p">,</span> <span class="n">V</span><span class="p">,</span> <span class="n">n_planes</span><span class="p">):</span>
+<div class="viewcode-block" id="calculate_best_fit_vectors"><a class="viewcode-back" href="../../api/api.html#pmagpy.pmag.calculate_best_fit_vectors">[docs]</a><span class="k">def</span> <span class="nf">calculate_best_fit_vectors</span><span class="p">(</span><span class="n">L</span><span class="p">,</span> <span class="n">E</span><span class="p">,</span> <span class="n">V</span><span class="p">,</span> <span class="n">n_planes</span><span class="p">):</span>
     <span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">    Calculates the best fit vectors for a set of plane interpretations used in fisher mean calculations.</span>
 <span class="sd">    </span>
@@ -5382,7 +5421,7 @@ title="Open an issue"
     <span class="k">return</span> <span class="n">XV</span></div>
 
 
-<div class="viewcode-block" id="process_data_for_mean"><a class="viewcode-back" href="../../api.html#pmagpy.pmag.process_data_for_mean">[docs]</a><span class="k">def</span> <span class="nf">process_data_for_mean</span><span class="p">(</span><span class="n">data</span><span class="p">,</span> <span class="n">direction_type_key</span><span class="p">):</span>
+<div class="viewcode-block" id="process_data_for_mean"><a class="viewcode-back" href="../../api/api.html#pmagpy.pmag.process_data_for_mean">[docs]</a><span class="k">def</span> <span class="nf">process_data_for_mean</span><span class="p">(</span><span class="n">data</span><span class="p">,</span> <span class="n">direction_type_key</span><span class="p">):</span>
     <span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">    Takes a list of dicts with dec and inc as well as direction_type if possible or method_codes and sorts the data into lines and planes and process it for fisher means</span>
 <span class="sd">    </span>
@@ -5455,7 +5494,7 @@ title="Open an issue"
     <span class="k">return</span> <span class="n">fdata</span><span class="p">,</span> <span class="n">n_lines</span><span class="p">,</span> <span class="n">L</span><span class="p">,</span> <span class="n">n_planes</span><span class="p">,</span> <span class="n">E</span></div>
 
 
-<div class="viewcode-block" id="scoreit"><a class="viewcode-back" href="../../api.html#pmagpy.pmag.scoreit">[docs]</a><span class="k">def</span> <span class="nf">scoreit</span><span class="p">(</span><span class="n">pars</span><span class="p">,</span> <span class="n">PmagSpecRec</span><span class="p">,</span> <span class="n">accept</span><span class="p">,</span> <span class="n">text</span><span class="p">,</span> <span class="n">verbose</span><span class="p">):</span>
+<div class="viewcode-block" id="scoreit"><a class="viewcode-back" href="../../api/api.html#pmagpy.pmag.scoreit">[docs]</a><span class="k">def</span> <span class="nf">scoreit</span><span class="p">(</span><span class="n">pars</span><span class="p">,</span> <span class="n">PmagSpecRec</span><span class="p">,</span> <span class="n">accept</span><span class="p">,</span> <span class="n">text</span><span class="p">,</span> <span class="n">verbose</span><span class="p">):</span>
     <span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">    Depreciated 9/14/2022</span>
 <span class="sd">    </span>
@@ -5525,7 +5564,7 @@ title="Open an issue"
     <span class="k">return</span> <span class="n">pars</span><span class="p">,</span> <span class="n">kill</span></div>
 
 
-<div class="viewcode-block" id="b_vdm"><a class="viewcode-back" href="../../api.html#pmagpy.pmag.b_vdm">[docs]</a><span class="k">def</span> <span class="nf">b_vdm</span><span class="p">(</span><span class="n">B</span><span class="p">,</span> <span class="n">lat</span><span class="p">):</span>
+<div class="viewcode-block" id="b_vdm"><a class="viewcode-back" href="../../api/api.html#pmagpy.pmag.b_vdm">[docs]</a><span class="k">def</span> <span class="nf">b_vdm</span><span class="p">(</span><span class="n">B</span><span class="p">,</span> <span class="n">lat</span><span class="p">):</span>
     <span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">    Converts a magnetic field value to a virtual dipole moment (VDM)</span>
 <span class="sd">    or a virtual axial dipole moment (VADM).</span>
@@ -5550,7 +5589,7 @@ title="Open an issue"
     <span class="k">return</span> <span class="n">fact</span> <span class="o">*</span> <span class="n">B</span> <span class="o">/</span> <span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span><span class="mi">1</span> <span class="o">+</span> <span class="mi">3</span> <span class="o">*</span> <span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">cos</span><span class="p">(</span><span class="n">colat</span><span class="p">)</span><span class="o">**</span><span class="mi">2</span><span class="p">)))</span></div>
 
 
-<div class="viewcode-block" id="vdm_b"><a class="viewcode-back" href="../../api.html#pmagpy.pmag.vdm_b">[docs]</a><span class="k">def</span> <span class="nf">vdm_b</span><span class="p">(</span><span class="n">vdm</span><span class="p">,</span> <span class="n">lat</span><span class="p">):</span>
+<div class="viewcode-block" id="vdm_b"><a class="viewcode-back" href="../../api/api.html#pmagpy.pmag.vdm_b">[docs]</a><span class="k">def</span> <span class="nf">vdm_b</span><span class="p">(</span><span class="n">vdm</span><span class="p">,</span> <span class="n">lat</span><span class="p">):</span>
     <span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">    Converts a virtual dipole moment (VDM) or a virtual axial dipole moment</span>
 <span class="sd">    (VADM) to a local magnetic field value </span>
@@ -5575,7 +5614,7 @@ title="Open an issue"
     <span class="n">colat</span> <span class="o">=</span> <span class="p">(</span><span class="mf">90.</span> <span class="o">-</span> <span class="n">lat</span><span class="p">)</span> <span class="o">*</span> <span class="n">rad</span>
     <span class="k">return</span> <span class="n">vdm</span> <span class="o">*</span> <span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span><span class="mi">1</span> <span class="o">+</span> <span class="mi">3</span> <span class="o">*</span> <span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">cos</span><span class="p">(</span><span class="n">colat</span><span class="p">)</span><span class="o">**</span><span class="mi">2</span><span class="p">)))</span> <span class="o">/</span> <span class="n">fact</span></div>
 
-<div class="viewcode-block" id="binglookup"><a class="viewcode-back" href="../../api.html#pmagpy.pmag.binglookup">[docs]</a><span class="k">def</span> <span class="nf">binglookup</span><span class="p">(</span><span class="n">w1i</span><span class="p">,</span><span class="n">w2i</span><span class="p">):</span>
+<div class="viewcode-block" id="binglookup"><a class="viewcode-back" href="../../api/api.html#pmagpy.pmag.binglookup">[docs]</a><span class="k">def</span> <span class="nf">binglookup</span><span class="p">(</span><span class="n">w1i</span><span class="p">,</span><span class="n">w2i</span><span class="p">):</span>
     <span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">    Bingham statistics lookup table.</span>
 <span class="sd">    </span>
@@ -6408,7 +6447,7 @@ title="Open an issue"
     <span class="n">k2</span><span class="o">=</span><span class="n">k2_df</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="n">k2_df</span><span class="p">[</span><span class="s1">&#39;w2&#39;</span><span class="p">]</span><span class="o">==</span><span class="n">w2</span><span class="p">][</span><span class="nb">str</span><span class="p">(</span><span class="n">w1</span><span class="p">)]</span><span class="o">.</span><span class="n">values</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
     <span class="k">return</span> <span class="n">k1</span><span class="p">,</span><span class="n">k2</span></div>
 
-<div class="viewcode-block" id="binglookup_old"><a class="viewcode-back" href="../../api.html#pmagpy.pmag.binglookup_old">[docs]</a><span class="k">def</span> <span class="nf">binglookup_old</span><span class="p">(</span><span class="n">w1i</span><span class="p">,</span> <span class="n">w2i</span><span class="p">):</span>
+<div class="viewcode-block" id="binglookup_old"><a class="viewcode-back" href="../../api/api.html#pmagpy.pmag.binglookup_old">[docs]</a><span class="k">def</span> <span class="nf">binglookup_old</span><span class="p">(</span><span class="n">w1i</span><span class="p">,</span> <span class="n">w2i</span><span class="p">):</span>
     <span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">    Bingham statistics lookup table.</span>
 <span class="sd">    &quot;&quot;&quot;</span>
@@ -6434,7 +6473,7 @@ title="Open an issue"
     <span class="k">return</span> <span class="n">k1</span><span class="p">,</span> <span class="n">k2</span></div>
 
 
-<div class="viewcode-block" id="cdfout"><a class="viewcode-back" href="../../api.html#pmagpy.pmag.cdfout">[docs]</a><span class="k">def</span> <span class="nf">cdfout</span><span class="p">(</span><span class="n">data</span><span class="p">,</span> <span class="n">file</span><span class="p">):</span>
+<div class="viewcode-block" id="cdfout"><a class="viewcode-back" href="../../api/api.html#pmagpy.pmag.cdfout">[docs]</a><span class="k">def</span> <span class="nf">cdfout</span><span class="p">(</span><span class="n">data</span><span class="p">,</span> <span class="n">file</span><span class="p">):</span>
     <span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">    spits out the cdf for data to file</span>
 <span class="sd">    &quot;&quot;&quot;</span>
@@ -6447,7 +6486,7 @@ title="Open an issue"
     <span class="n">f</span><span class="o">.</span><span class="n">close</span><span class="p">()</span></div>
 
 
-<div class="viewcode-block" id="dobingham"><a class="viewcode-back" href="../../api.html#pmagpy.pmag.dobingham">[docs]</a><span class="k">def</span> <span class="nf">dobingham</span><span class="p">(</span><span class="n">di_block</span><span class="p">):</span>
+<div class="viewcode-block" id="dobingham"><a class="viewcode-back" href="../../api/api.html#pmagpy.pmag.dobingham">[docs]</a><span class="k">def</span> <span class="nf">dobingham</span><span class="p">(</span><span class="n">di_block</span><span class="p">):</span>
     <span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">    Calculates the Bingham mean and associated statistical parameters from</span>
 <span class="sd">    directions that are input as a di_block.</span>
@@ -6511,7 +6550,7 @@ title="Open an issue"
     <span class="k">return</span> <span class="n">bpars</span></div>
 
 
-<div class="viewcode-block" id="doflip"><a class="viewcode-back" href="../../api.html#pmagpy.pmag.doflip">[docs]</a><span class="k">def</span> <span class="nf">doflip</span><span class="p">(</span><span class="n">dec</span><span class="p">,</span> <span class="n">inc</span><span class="p">):</span>
+<div class="viewcode-block" id="doflip"><a class="viewcode-back" href="../../api/api.html#pmagpy.pmag.doflip">[docs]</a><span class="k">def</span> <span class="nf">doflip</span><span class="p">(</span><span class="n">dec</span><span class="p">,</span> <span class="n">inc</span><span class="p">):</span>
     <span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">    Flips upper hemisphere data to lower hemisphere.</span>
 <span class="sd">    </span>
@@ -6538,7 +6577,7 @@ title="Open an issue"
     <span class="k">return</span> <span class="n">dec</span><span class="p">,</span> <span class="n">inc</span></div>
 
 
-<div class="viewcode-block" id="doreverse"><a class="viewcode-back" href="../../api.html#pmagpy.pmag.doreverse">[docs]</a><span class="k">def</span> <span class="nf">doreverse</span><span class="p">(</span><span class="n">dec</span><span class="p">,</span> <span class="n">inc</span><span class="p">):</span>
+<div class="viewcode-block" id="doreverse"><a class="viewcode-back" href="../../api/api.html#pmagpy.pmag.doreverse">[docs]</a><span class="k">def</span> <span class="nf">doreverse</span><span class="p">(</span><span class="n">dec</span><span class="p">,</span> <span class="n">inc</span><span class="p">):</span>
     <span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">    Calculates the antipode of a direction.</span>
 <span class="sd">    </span>
@@ -6566,7 +6605,7 @@ title="Open an issue"
     <span class="k">return</span> <span class="n">dec</span><span class="p">,</span> <span class="n">inc</span></div>
 
 
-<div class="viewcode-block" id="doreverse_list"><a class="viewcode-back" href="../../api.html#pmagpy.pmag.doreverse_list">[docs]</a><span class="k">def</span> <span class="nf">doreverse_list</span><span class="p">(</span><span class="n">decs</span><span class="p">,</span> <span class="n">incs</span><span class="p">):</span>
+<div class="viewcode-block" id="doreverse_list"><a class="viewcode-back" href="../../api/api.html#pmagpy.pmag.doreverse_list">[docs]</a><span class="k">def</span> <span class="nf">doreverse_list</span><span class="p">(</span><span class="n">decs</span><span class="p">,</span> <span class="n">incs</span><span class="p">):</span>
     <span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">    Calculates the antipode of list of directions.</span>
 <span class="sd">    </span>
@@ -6590,7 +6629,7 @@ title="Open an issue"
     <span class="k">return</span> <span class="n">decs_flipped</span><span class="p">,</span> <span class="n">incs_flipped</span></div>
 
 
-<div class="viewcode-block" id="doincfish"><a class="viewcode-back" href="../../api.html#pmagpy.pmag.doincfish">[docs]</a><span class="k">def</span> <span class="nf">doincfish</span><span class="p">(</span><span class="n">inc</span><span class="p">):</span>
+<div class="viewcode-block" id="doincfish"><a class="viewcode-back" href="../../api/api.html#pmagpy.pmag.doincfish">[docs]</a><span class="k">def</span> <span class="nf">doincfish</span><span class="p">(</span><span class="n">inc</span><span class="p">):</span>
     <span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">    Calculates Fisher mean inclination from inclination-only data.</span>
 
@@ -6680,7 +6719,7 @@ title="Open an issue"
     <span class="k">return</span> <span class="n">fpars</span></div>
 
 
-<div class="viewcode-block" id="dokent"><a class="viewcode-back" href="../../api.html#pmagpy.pmag.dokent">[docs]</a><span class="k">def</span> <span class="nf">dokent</span><span class="p">(</span><span class="n">data</span><span class="p">,</span> <span class="n">NN</span><span class="p">,</span> <span class="n">distribution_95</span><span class="o">=</span><span class="kc">False</span><span class="p">):</span>
+<div class="viewcode-block" id="dokent"><a class="viewcode-back" href="../../api/api.html#pmagpy.pmag.dokent">[docs]</a><span class="k">def</span> <span class="nf">dokent</span><span class="p">(</span><span class="n">data</span><span class="p">,</span> <span class="n">NN</span><span class="p">,</span> <span class="n">distribution_95</span><span class="o">=</span><span class="kc">False</span><span class="p">):</span>
     <span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">    Gets Kent parameters for data.</span>
 <span class="sd">    </span>
@@ -6827,7 +6866,7 @@ title="Open an issue"
     <span class="k">return</span> <span class="n">kpars</span></div>
 
 
-<div class="viewcode-block" id="doprinc"><a class="viewcode-back" href="../../api.html#pmagpy.pmag.doprinc">[docs]</a><span class="k">def</span> <span class="nf">doprinc</span><span class="p">(</span><span class="n">data</span><span class="p">):</span>
+<div class="viewcode-block" id="doprinc"><a class="viewcode-back" href="../../api/api.html#pmagpy.pmag.doprinc">[docs]</a><span class="k">def</span> <span class="nf">doprinc</span><span class="p">(</span><span class="n">data</span><span class="p">):</span>
     <span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">    Gets principal components from data in form of a list of [dec,inc,int] data.</span>
 
@@ -6885,7 +6924,7 @@ title="Open an issue"
     <span class="k">return</span> <span class="n">ppars</span></div>
 
 
-<div class="viewcode-block" id="pt_rot"><a class="viewcode-back" href="../../api.html#pmagpy.pmag.pt_rot">[docs]</a><span class="k">def</span> <span class="nf">pt_rot</span><span class="p">(</span><span class="n">EP</span><span class="p">,</span> <span class="n">Lats</span><span class="p">,</span> <span class="n">Lons</span><span class="p">):</span>
+<div class="viewcode-block" id="pt_rot"><a class="viewcode-back" href="../../api/api.html#pmagpy.pmag.pt_rot">[docs]</a><span class="k">def</span> <span class="nf">pt_rot</span><span class="p">(</span><span class="n">EP</span><span class="p">,</span> <span class="n">Lats</span><span class="p">,</span> <span class="n">Lons</span><span class="p">):</span>
     <span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">    Rotates points on a globe by an Euler pole rotation using method of</span>
 <span class="sd">    Cox and Hart 1986, box 7-3.</span>
@@ -6937,7 +6976,7 @@ title="Open an issue"
     <span class="k">return</span> <span class="n">RLats</span><span class="p">,</span> <span class="n">RLons</span></div>
 
 
-<div class="viewcode-block" id="dread"><a class="viewcode-back" href="../../api.html#pmagpy.pmag.dread">[docs]</a><span class="k">def</span> <span class="nf">dread</span><span class="p">(</span><span class="n">infile</span><span class="p">,</span> <span class="n">cols</span><span class="p">):</span>
+<div class="viewcode-block" id="dread"><a class="viewcode-back" href="../../api/api.html#pmagpy.pmag.dread">[docs]</a><span class="k">def</span> <span class="nf">dread</span><span class="p">(</span><span class="n">infile</span><span class="p">,</span> <span class="n">cols</span><span class="p">):</span>
     <span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">    Depreciated 9/14/2022 </span>
 <span class="sd">    </span>
@@ -6955,7 +6994,7 @@ title="Open an issue"
     <span class="k">return</span> <span class="n">data</span></div>
 
 
-<div class="viewcode-block" id="fshdev"><a class="viewcode-back" href="../../api.html#pmagpy.pmag.fshdev">[docs]</a><span class="k">def</span> <span class="nf">fshdev</span><span class="p">(</span><span class="n">k</span><span class="p">):</span>
+<div class="viewcode-block" id="fshdev"><a class="viewcode-back" href="../../api/api.html#pmagpy.pmag.fshdev">[docs]</a><span class="k">def</span> <span class="nf">fshdev</span><span class="p">(</span><span class="n">k</span><span class="p">):</span>
     <span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">    Generate a random draw from a Fisher distribution with mean declination</span>
 <span class="sd">    of 0 and inclination of 90 with a specified kappa.</span>
@@ -6992,7 +7031,7 @@ title="Open an issue"
     <span class="k">else</span><span class="p">:</span>
         <span class="k">return</span> <span class="n">dec</span><span class="p">,</span> <span class="n">inc</span></div>
 
-<div class="viewcode-block" id="kentdev"><a class="viewcode-back" href="../../api.html#pmagpy.pmag.kentdev">[docs]</a><span class="k">def</span> <span class="nf">kentdev</span><span class="p">(</span><span class="n">kappa</span><span class="p">,</span> <span class="n">beta</span><span class="p">,</span> <span class="n">n</span><span class="o">=</span><span class="mi">1000</span><span class="p">):</span>
+<div class="viewcode-block" id="kentdev"><a class="viewcode-back" href="../../api/api.html#pmagpy.pmag.kentdev">[docs]</a><span class="k">def</span> <span class="nf">kentdev</span><span class="p">(</span><span class="n">kappa</span><span class="p">,</span> <span class="n">beta</span><span class="p">,</span> <span class="n">n</span><span class="o">=</span><span class="mi">1000</span><span class="p">):</span>
     <span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">    Generate a random draw from a Kent distribution with mean declination</span>
 <span class="sd">    of 0 and inclination of 90, elongated along -90 to 90 longitude </span>
@@ -7091,7 +7130,7 @@ title="Open an issue"
         <span class="n">N</span> <span class="o">=</span> <span class="n">N</span> <span class="o">+</span> <span class="mi">1</span>
     <span class="k">return</span> <span class="n">decs</span><span class="p">,</span> <span class="n">incs</span></div>
 
-<div class="viewcode-block" id="lowes"><a class="viewcode-back" href="../../api.html#pmagpy.pmag.lowes">[docs]</a><span class="k">def</span> <span class="nf">lowes</span><span class="p">(</span><span class="n">data</span><span class="p">):</span>
+<div class="viewcode-block" id="lowes"><a class="viewcode-back" href="../../api/api.html#pmagpy.pmag.lowes">[docs]</a><span class="k">def</span> <span class="nf">lowes</span><span class="p">(</span><span class="n">data</span><span class="p">):</span>
     <span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">    Gets Lowe&#39;s power spectrum from gauss coefficients.</span>
 
@@ -7118,7 +7157,7 @@ title="Open an issue"
     <span class="k">return</span> <span class="n">Ls</span><span class="p">,</span> <span class="n">Rs</span></div>
 
 
-<div class="viewcode-block" id="magnetic_lat"><a class="viewcode-back" href="../../api.html#pmagpy.pmag.magnetic_lat">[docs]</a><span class="k">def</span> <span class="nf">magnetic_lat</span><span class="p">(</span><span class="n">inc</span><span class="p">):</span>
+<div class="viewcode-block" id="magnetic_lat"><a class="viewcode-back" href="../../api/api.html#pmagpy.pmag.magnetic_lat">[docs]</a><span class="k">def</span> <span class="nf">magnetic_lat</span><span class="p">(</span><span class="n">inc</span><span class="p">):</span>
     <span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">    Calculates the magnetic latitude from inclination.</span>
 <span class="sd">    </span>
@@ -7183,7 +7222,7 @@ title="Open an issue"
     <span class="k">return</span> <span class="n">chi</span><span class="p">,</span> <span class="n">chi_inv</span>
 
 
-<div class="viewcode-block" id="Dir_anis_corr"><a class="viewcode-back" href="../../api.html#pmagpy.pmag.Dir_anis_corr">[docs]</a><span class="k">def</span> <span class="nf">Dir_anis_corr</span><span class="p">(</span><span class="n">InDir</span><span class="p">,</span> <span class="n">AniSpec</span><span class="p">):</span>
+<div class="viewcode-block" id="Dir_anis_corr"><a class="viewcode-back" href="../../api/api.html#pmagpy.pmag.Dir_anis_corr">[docs]</a><span class="k">def</span> <span class="nf">Dir_anis_corr</span><span class="p">(</span><span class="n">InDir</span><span class="p">,</span> <span class="n">AniSpec</span><span class="p">):</span>
     <span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">    Depreciated 9/14/2022</span>
 <span class="sd">    </span>
@@ -7203,7 +7242,7 @@ title="Open an issue"
     <span class="k">return</span> <span class="n">cart2dir</span><span class="p">(</span><span class="n">H</span><span class="p">)</span></div>
 
 
-<div class="viewcode-block" id="doaniscorr"><a class="viewcode-back" href="../../api.html#pmagpy.pmag.doaniscorr">[docs]</a><span class="k">def</span> <span class="nf">doaniscorr</span><span class="p">(</span><span class="n">PmagSpecRec</span><span class="p">,</span> <span class="n">AniSpec</span><span class="p">):</span>
+<div class="viewcode-block" id="doaniscorr"><a class="viewcode-back" href="../../api/api.html#pmagpy.pmag.doaniscorr">[docs]</a><span class="k">def</span> <span class="nf">doaniscorr</span><span class="p">(</span><span class="n">PmagSpecRec</span><span class="p">,</span> <span class="n">AniSpec</span><span class="p">):</span>
     <span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">    Depreciated 9/14/2022</span>
 <span class="sd">    </span>
@@ -7259,7 +7298,7 @@ title="Open an issue"
     <span class="k">return</span> <span class="n">AniSpecRec</span></div>
 
 
-<div class="viewcode-block" id="vfunc"><a class="viewcode-back" href="../../api.html#pmagpy.pmag.vfunc">[docs]</a><span class="k">def</span> <span class="nf">vfunc</span><span class="p">(</span><span class="n">pars_1</span><span class="p">,</span> <span class="n">pars_2</span><span class="p">):</span>
+<div class="viewcode-block" id="vfunc"><a class="viewcode-back" href="../../api/api.html#pmagpy.pmag.vfunc">[docs]</a><span class="k">def</span> <span class="nf">vfunc</span><span class="p">(</span><span class="n">pars_1</span><span class="p">,</span> <span class="n">pars_2</span><span class="p">):</span>
     <span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">    Calculate the Watson Vw test statistic. Calculated as 2*(Sw-Rw)</span>
 
@@ -7282,7 +7321,7 @@ title="Open an issue"
     <span class="k">return</span> <span class="mi">2</span> <span class="o">*</span> <span class="p">(</span><span class="n">Sw</span> <span class="o">-</span> <span class="n">Rw</span><span class="p">)</span></div>
 
 
-<div class="viewcode-block" id="vgp_di"><a class="viewcode-back" href="../../api.html#pmagpy.pmag.vgp_di">[docs]</a><span class="k">def</span> <span class="nf">vgp_di</span><span class="p">(</span><span class="n">plat</span><span class="p">,</span> <span class="n">plong</span><span class="p">,</span> <span class="n">slat</span><span class="p">,</span> <span class="n">slong</span><span class="p">):</span>
+<div class="viewcode-block" id="vgp_di"><a class="viewcode-back" href="../../api/api.html#pmagpy.pmag.vgp_di">[docs]</a><span class="k">def</span> <span class="nf">vgp_di</span><span class="p">(</span><span class="n">plat</span><span class="p">,</span> <span class="n">plong</span><span class="p">,</span> <span class="n">slat</span><span class="p">,</span> <span class="n">slong</span><span class="p">):</span>
     <span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">    Converts a pole position (pole latitude, pole longitude) to a direction</span>
 <span class="sd">    (declination, inclination) at a given location (slat, slong) assuming a</span>
@@ -7329,7 +7368,7 @@ title="Open an issue"
     <span class="k">return</span> <span class="n">dec</span><span class="p">,</span> <span class="n">inc</span></div>
 
 
-<div class="viewcode-block" id="watsonsV"><a class="viewcode-back" href="../../api.html#pmagpy.pmag.watsonsV">[docs]</a><span class="k">def</span> <span class="nf">watsonsV</span><span class="p">(</span><span class="n">Dir1</span><span class="p">,</span> <span class="n">Dir2</span><span class="p">):</span>
+<div class="viewcode-block" id="watsonsV"><a class="viewcode-back" href="../../api/api.html#pmagpy.pmag.watsonsV">[docs]</a><span class="k">def</span> <span class="nf">watsonsV</span><span class="p">(</span><span class="n">Dir1</span><span class="p">,</span> <span class="n">Dir2</span><span class="p">):</span>
     <span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">    Calculates Watson&#39;s V statistic for two sets of directions</span>
 <span class="sd">    &quot;&quot;&quot;</span>
@@ -7374,7 +7413,7 @@ title="Open an issue"
     <span class="k">return</span> <span class="n">V</span><span class="p">,</span> <span class="n">Vp</span><span class="p">[</span><span class="n">k</span><span class="p">]</span></div>
 
 
-<div class="viewcode-block" id="dimap"><a class="viewcode-back" href="../../api.html#pmagpy.pmag.dimap">[docs]</a><span class="k">def</span> <span class="nf">dimap</span><span class="p">(</span><span class="n">D</span><span class="p">,</span> <span class="n">I</span><span class="p">):</span>
+<div class="viewcode-block" id="dimap"><a class="viewcode-back" href="../../api/api.html#pmagpy.pmag.dimap">[docs]</a><span class="k">def</span> <span class="nf">dimap</span><span class="p">(</span><span class="n">D</span><span class="p">,</span> <span class="n">I</span><span class="p">):</span>
     <span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">    Function to map directions  to x,y pairs in equal area projection.</span>
 
@@ -7417,7 +7456,7 @@ title="Open an issue"
     <span class="k">return</span> <span class="n">XY</span></div>
 
 
-<div class="viewcode-block" id="dimap_V"><a class="viewcode-back" href="../../api.html#pmagpy.pmag.dimap_V">[docs]</a><span class="k">def</span> <span class="nf">dimap_V</span><span class="p">(</span><span class="n">D</span><span class="p">,</span> <span class="n">I</span><span class="p">):</span>
+<div class="viewcode-block" id="dimap_V"><a class="viewcode-back" href="../../api/api.html#pmagpy.pmag.dimap_V">[docs]</a><span class="k">def</span> <span class="nf">dimap_V</span><span class="p">(</span><span class="n">D</span><span class="p">,</span> <span class="n">I</span><span class="p">):</span>
     <span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">    Maps declinations and inclinations into equal area projections.</span>
 
@@ -7448,7 +7487,7 @@ title="Open an issue"
     <span class="k">return</span> <span class="n">XY</span></div>
 
 
-<div class="viewcode-block" id="getmeths"><a class="viewcode-back" href="../../api.html#pmagpy.pmag.getmeths">[docs]</a><span class="k">def</span> <span class="nf">getmeths</span><span class="p">(</span><span class="n">method_type</span><span class="p">):</span>
+<div class="viewcode-block" id="getmeths"><a class="viewcode-back" href="../../api/api.html#pmagpy.pmag.getmeths">[docs]</a><span class="k">def</span> <span class="nf">getmeths</span><span class="p">(</span><span class="n">method_type</span><span class="p">):</span>
     <span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">    Returns MagIC method codes available for a given type.</span>
 <span class="sd">    </span>
@@ -7498,7 +7537,7 @@ title="Open an issue"
     <span class="k">return</span> <span class="n">meths</span></div>
 
 
-<div class="viewcode-block" id="first_up"><a class="viewcode-back" href="../../api.html#pmagpy.pmag.first_up">[docs]</a><span class="k">def</span> <span class="nf">first_up</span><span class="p">(</span><span class="n">ofile</span><span class="p">,</span> <span class="n">Rec</span><span class="p">,</span> <span class="n">file_type</span><span class="p">):</span>
+<div class="viewcode-block" id="first_up"><a class="viewcode-back" href="../../api/api.html#pmagpy.pmag.first_up">[docs]</a><span class="k">def</span> <span class="nf">first_up</span><span class="p">(</span><span class="n">ofile</span><span class="p">,</span> <span class="n">Rec</span><span class="p">,</span> <span class="n">file_type</span><span class="p">):</span>
     <span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">    Writes the header for a MagIC template file.</span>
 <span class="sd">    &quot;&quot;&quot;</span>
@@ -7536,7 +7575,7 @@ title="Open an issue"
     <span class="k">return</span> <span class="n">DataRec</span>
 
 
-<div class="viewcode-block" id="get_age"><a class="viewcode-back" href="../../api.html#pmagpy.pmag.get_age">[docs]</a><span class="k">def</span> <span class="nf">get_age</span><span class="p">(</span><span class="n">Rec</span><span class="p">,</span> <span class="n">sitekey</span><span class="p">,</span> <span class="n">keybase</span><span class="p">,</span> <span class="n">Ages</span><span class="p">,</span> <span class="n">DefaultAge</span><span class="p">):</span>
+<div class="viewcode-block" id="get_age"><a class="viewcode-back" href="../../api/api.html#pmagpy.pmag.get_age">[docs]</a><span class="k">def</span> <span class="nf">get_age</span><span class="p">(</span><span class="n">Rec</span><span class="p">,</span> <span class="n">sitekey</span><span class="p">,</span> <span class="n">keybase</span><span class="p">,</span> <span class="n">Ages</span><span class="p">,</span> <span class="n">DefaultAge</span><span class="p">):</span>
     <span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">    Finds the age record for a given site.</span>
 <span class="sd">    &quot;&quot;&quot;</span>
@@ -7562,7 +7601,7 @@ title="Open an issue"
 <span class="c1">#</span>
 
 
-<div class="viewcode-block" id="adjust_ages"><a class="viewcode-back" href="../../api.html#pmagpy.pmag.adjust_ages">[docs]</a><span class="k">def</span> <span class="nf">adjust_ages</span><span class="p">(</span><span class="n">AgesIn</span><span class="p">):</span>
+<div class="viewcode-block" id="adjust_ages"><a class="viewcode-back" href="../../api/api.html#pmagpy.pmag.adjust_ages">[docs]</a><span class="k">def</span> <span class="nf">adjust_ages</span><span class="p">(</span><span class="n">AgesIn</span><span class="p">):</span>
     <span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">    Function to adjust ages to a common age_unit.</span>
 <span class="sd">    &quot;&quot;&quot;</span>
@@ -7609,7 +7648,7 @@ title="Open an issue"
 <span class="c1">#</span>
 
 
-<div class="viewcode-block" id="gaussdev"><a class="viewcode-back" href="../../api.html#pmagpy.pmag.gaussdev">[docs]</a><span class="k">def</span> <span class="nf">gaussdev</span><span class="p">(</span><span class="n">mean</span><span class="p">,</span> <span class="n">sigma</span><span class="p">,</span> <span class="n">N</span><span class="o">=</span><span class="mi">1</span><span class="p">):</span>
+<div class="viewcode-block" id="gaussdev"><a class="viewcode-back" href="../../api/api.html#pmagpy.pmag.gaussdev">[docs]</a><span class="k">def</span> <span class="nf">gaussdev</span><span class="p">(</span><span class="n">mean</span><span class="p">,</span> <span class="n">sigma</span><span class="p">,</span> <span class="n">N</span><span class="o">=</span><span class="mi">1</span><span class="p">):</span>
     <span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">    Returns a number randomly drawn from a gaussian distribution with the given mean, sigma</span>
 <span class="sd">    </span>
@@ -7633,7 +7672,7 @@ title="Open an issue"
 <span class="c1">#</span>
 
 
-<div class="viewcode-block" id="get_unf"><a class="viewcode-back" href="../../api.html#pmagpy.pmag.get_unf">[docs]</a><span class="k">def</span> <span class="nf">get_unf</span><span class="p">(</span><span class="n">N</span><span class="o">=</span><span class="mi">100</span><span class="p">):</span>
+<div class="viewcode-block" id="get_unf"><a class="viewcode-back" href="../../api/api.html#pmagpy.pmag.get_unf">[docs]</a><span class="k">def</span> <span class="nf">get_unf</span><span class="p">(</span><span class="n">N</span><span class="o">=</span><span class="mi">100</span><span class="p">):</span>
     <span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">    Generates N uniformly distributed directions</span>
 <span class="sd">    using the way described in Fisher et al. (1987).</span>
@@ -7691,7 +7730,7 @@ title="Open an issue"
 <span class="c1">##</span>
 
 
-<div class="viewcode-block" id="s2a"><a class="viewcode-back" href="../../api.html#pmagpy.pmag.s2a">[docs]</a><span class="k">def</span> <span class="nf">s2a</span><span class="p">(</span><span class="n">s</span><span class="p">):</span>
+<div class="viewcode-block" id="s2a"><a class="viewcode-back" href="../../api/api.html#pmagpy.pmag.s2a">[docs]</a><span class="k">def</span> <span class="nf">s2a</span><span class="p">(</span><span class="n">s</span><span class="p">):</span>
     <span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">    Convert 6 element &quot;s&quot; list to 3x3 a matrix (see Tauxe 1998). </span>
 <span class="sd">    </span>
@@ -7720,7 +7759,7 @@ title="Open an issue"
 <span class="c1">#</span>
 
 
-<div class="viewcode-block" id="a2s"><a class="viewcode-back" href="../../api.html#pmagpy.pmag.a2s">[docs]</a><span class="k">def</span> <span class="nf">a2s</span><span class="p">(</span><span class="n">a</span><span class="p">):</span>
+<div class="viewcode-block" id="a2s"><a class="viewcode-back" href="../../api/api.html#pmagpy.pmag.a2s">[docs]</a><span class="k">def</span> <span class="nf">a2s</span><span class="p">(</span><span class="n">a</span><span class="p">):</span>
     <span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">    Convert 3x3 a matrix to 6 element &quot;s&quot; list  (see Tauxe 1998).</span>
 <span class="sd">    </span>
@@ -7748,7 +7787,7 @@ title="Open an issue"
     <span class="k">return</span> <span class="n">s</span></div>
 
 
-<div class="viewcode-block" id="doseigs"><a class="viewcode-back" href="../../api.html#pmagpy.pmag.doseigs">[docs]</a><span class="k">def</span> <span class="nf">doseigs</span><span class="p">(</span><span class="n">s</span><span class="p">):</span>
+<div class="viewcode-block" id="doseigs"><a class="viewcode-back" href="../../api/api.html#pmagpy.pmag.doseigs">[docs]</a><span class="k">def</span> <span class="nf">doseigs</span><span class="p">(</span><span class="n">s</span><span class="p">):</span>
     <span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">    Convert s format for eigenvalues and eigenvectors.</span>
 
@@ -7788,7 +7827,7 @@ title="Open an issue"
 <span class="c1">#</span>
 
 
-<div class="viewcode-block" id="doeigs_s"><a class="viewcode-back" href="../../api.html#pmagpy.pmag.doeigs_s">[docs]</a><span class="k">def</span> <span class="nf">doeigs_s</span><span class="p">(</span><span class="n">tau</span><span class="p">,</span> <span class="n">Vdirs</span><span class="p">):</span>
+<div class="viewcode-block" id="doeigs_s"><a class="viewcode-back" href="../../api/api.html#pmagpy.pmag.doeigs_s">[docs]</a><span class="k">def</span> <span class="nf">doeigs_s</span><span class="p">(</span><span class="n">tau</span><span class="p">,</span> <span class="n">Vdirs</span><span class="p">):</span>
     <span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">    Gets elements of s from eigenvaulues - note that this is very unstable.</span>
 <span class="sd">     </span>
@@ -7828,7 +7867,7 @@ title="Open an issue"
 <span class="c1">#</span>
 
 
-<div class="viewcode-block" id="fcalc"><a class="viewcode-back" href="../../api.html#pmagpy.pmag.fcalc">[docs]</a><span class="k">def</span> <span class="nf">fcalc</span><span class="p">(</span><span class="n">col</span><span class="p">,</span> <span class="n">row</span><span class="p">):</span>
+<div class="viewcode-block" id="fcalc"><a class="viewcode-back" href="../../api/api.html#pmagpy.pmag.fcalc">[docs]</a><span class="k">def</span> <span class="nf">fcalc</span><span class="p">(</span><span class="n">col</span><span class="p">,</span> <span class="n">row</span><span class="p">):</span>
     <span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">    Looks up an F-test stastic from F tables F(col,row), where row is number of degrees of freedom - this is 95% confidence (p=0.05).</span>
 
@@ -8254,7 +8293,7 @@ title="Open an issue"
     <span class="k">return</span> <span class="n">ftest</span><span class="p">[</span><span class="nb">int</span><span class="p">(</span><span class="n">row</span><span class="p">)][</span><span class="nb">int</span><span class="p">(</span><span class="n">col</span><span class="p">)]</span></div>
 
 
-<div class="viewcode-block" id="tcalc"><a class="viewcode-back" href="../../api.html#pmagpy.pmag.tcalc">[docs]</a><span class="k">def</span> <span class="nf">tcalc</span><span class="p">(</span><span class="n">nf</span><span class="p">,</span> <span class="n">p</span><span class="p">):</span>
+<div class="viewcode-block" id="tcalc"><a class="viewcode-back" href="../../api/api.html#pmagpy.pmag.tcalc">[docs]</a><span class="k">def</span> <span class="nf">tcalc</span><span class="p">(</span><span class="n">nf</span><span class="p">,</span> <span class="n">p</span><span class="p">):</span>
     <span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">    T-table for nf degrees of freedom (95% confidence).</span>
 <span class="sd">    </span>
@@ -8686,7 +8725,7 @@ title="Open an issue"
 <span class="c1">#</span>
 
 
-<div class="viewcode-block" id="sbar"><a class="viewcode-back" href="../../api.html#pmagpy.pmag.sbar">[docs]</a><span class="k">def</span> <span class="nf">sbar</span><span class="p">(</span><span class="n">Ss</span><span class="p">):</span>
+<div class="viewcode-block" id="sbar"><a class="viewcode-back" href="../../api/api.html#pmagpy.pmag.sbar">[docs]</a><span class="k">def</span> <span class="nf">sbar</span><span class="p">(</span><span class="n">Ss</span><span class="p">):</span>
     <span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">    Calculate average s,sigma from a list of S&#39;s.</span>
 <span class="sd">    </span>
@@ -8747,7 +8786,7 @@ title="Open an issue"
     <span class="k">return</span> <span class="n">nf</span><span class="p">,</span> <span class="n">sigma</span><span class="p">,</span> <span class="n">avs</span></div>
 
 
-<div class="viewcode-block" id="dohext"><a class="viewcode-back" href="../../api.html#pmagpy.pmag.dohext">[docs]</a><span class="k">def</span> <span class="nf">dohext</span><span class="p">(</span><span class="n">nf</span><span class="p">,</span> <span class="n">sigma</span><span class="p">,</span> <span class="n">s</span><span class="p">):</span>
+<div class="viewcode-block" id="dohext"><a class="viewcode-back" href="../../api/api.html#pmagpy.pmag.dohext">[docs]</a><span class="k">def</span> <span class="nf">dohext</span><span class="p">(</span><span class="n">nf</span><span class="p">,</span> <span class="n">sigma</span><span class="p">,</span> <span class="n">s</span><span class="p">):</span>
     <span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">    Calculates hext parameters for nf, sigma and s.</span>
 
@@ -8852,7 +8891,7 @@ title="Open an issue"
 <span class="c1">#</span>
 
 
-<div class="viewcode-block" id="design"><a class="viewcode-back" href="../../api.html#pmagpy.pmag.design">[docs]</a><span class="k">def</span> <span class="nf">design</span><span class="p">(</span><span class="n">npos</span><span class="p">):</span>
+<div class="viewcode-block" id="design"><a class="viewcode-back" href="../../api/api.html#pmagpy.pmag.design">[docs]</a><span class="k">def</span> <span class="nf">design</span><span class="p">(</span><span class="n">npos</span><span class="p">):</span>
     <span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">    Make a design matrix for an anisotropy experiment. </span>
 <span class="sd">    </span>
@@ -8921,7 +8960,7 @@ title="Open an issue"
 <span class="c1">#</span>
 
 
-<div class="viewcode-block" id="dok15_s"><a class="viewcode-back" href="../../api.html#pmagpy.pmag.dok15_s">[docs]</a><span class="k">def</span> <span class="nf">dok15_s</span><span class="p">(</span><span class="n">k15</span><span class="p">):</span>
+<div class="viewcode-block" id="dok15_s"><a class="viewcode-back" href="../../api/api.html#pmagpy.pmag.dok15_s">[docs]</a><span class="k">def</span> <span class="nf">dok15_s</span><span class="p">(</span><span class="n">k15</span><span class="p">):</span>
     <span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">    Calculates least-squares matrix for 15 measurements from Jelinek [1976].</span>
 <span class="sd">    </span>
@@ -8975,7 +9014,7 @@ title="Open an issue"
 <span class="c1">#</span>
 
 
-<div class="viewcode-block" id="cross"><a class="viewcode-back" href="../../api.html#pmagpy.pmag.cross">[docs]</a><span class="k">def</span> <span class="nf">cross</span><span class="p">(</span><span class="n">v</span><span class="p">,</span> <span class="n">w</span><span class="p">):</span>
+<div class="viewcode-block" id="cross"><a class="viewcode-back" href="../../api/api.html#pmagpy.pmag.cross">[docs]</a><span class="k">def</span> <span class="nf">cross</span><span class="p">(</span><span class="n">v</span><span class="p">,</span> <span class="n">w</span><span class="p">):</span>
     <span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">    Cross product of two vectors.</span>
 <span class="sd">    </span>
@@ -9000,7 +9039,7 @@ title="Open an issue"
 <span class="c1">#</span>
 
 
-<div class="viewcode-block" id="dosgeo"><a class="viewcode-back" href="../../api.html#pmagpy.pmag.dosgeo">[docs]</a><span class="k">def</span> <span class="nf">dosgeo</span><span class="p">(</span><span class="n">s</span><span class="p">,</span> <span class="n">az</span><span class="p">,</span> <span class="n">pl</span><span class="p">):</span>
+<div class="viewcode-block" id="dosgeo"><a class="viewcode-back" href="../../api/api.html#pmagpy.pmag.dosgeo">[docs]</a><span class="k">def</span> <span class="nf">dosgeo</span><span class="p">(</span><span class="n">s</span><span class="p">,</span> <span class="n">az</span><span class="p">,</span> <span class="n">pl</span><span class="p">):</span>
     <span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">    Rotates matrix a to its azimuth and plunge. </span>
 <span class="sd">    </span>
@@ -9041,7 +9080,7 @@ title="Open an issue"
 <span class="c1">#</span>
 
 
-<div class="viewcode-block" id="dostilt"><a class="viewcode-back" href="../../api.html#pmagpy.pmag.dostilt">[docs]</a><span class="k">def</span> <span class="nf">dostilt</span><span class="p">(</span><span class="n">s</span><span class="p">,</span> <span class="n">bed_az</span><span class="p">,</span> <span class="n">bed_dip</span><span class="p">):</span>
+<div class="viewcode-block" id="dostilt"><a class="viewcode-back" href="../../api/api.html#pmagpy.pmag.dostilt">[docs]</a><span class="k">def</span> <span class="nf">dostilt</span><span class="p">(</span><span class="n">s</span><span class="p">,</span> <span class="n">bed_az</span><span class="p">,</span> <span class="n">bed_dip</span><span class="p">):</span>
     <span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">    Rotates &quot;s&quot; tensor to stratigraphic coordinates</span>
 
@@ -9072,7 +9111,7 @@ title="Open an issue"
 <span class="c1">#</span>
 
 
-<div class="viewcode-block" id="apseudo"><a class="viewcode-back" href="../../api.html#pmagpy.pmag.apseudo">[docs]</a><span class="k">def</span> <span class="nf">apseudo</span><span class="p">(</span><span class="n">Ss</span><span class="p">,</span> <span class="n">ipar</span><span class="p">,</span> <span class="n">sigma</span><span class="p">):</span>
+<div class="viewcode-block" id="apseudo"><a class="viewcode-back" href="../../api/api.html#pmagpy.pmag.apseudo">[docs]</a><span class="k">def</span> <span class="nf">apseudo</span><span class="p">(</span><span class="n">Ss</span><span class="p">,</span> <span class="n">ipar</span><span class="p">,</span> <span class="n">sigma</span><span class="p">):</span>
     <span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">    Depreciated: 9/14/2022</span>
 <span class="sd">    </span>
@@ -9112,7 +9151,7 @@ title="Open an issue"
 <span class="c1">#</span>
 
 
-<div class="viewcode-block" id="sbootpars"><a class="viewcode-back" href="../../api.html#pmagpy.pmag.sbootpars">[docs]</a><span class="k">def</span> <span class="nf">sbootpars</span><span class="p">(</span><span class="n">Taus</span><span class="p">,</span> <span class="n">Vs</span><span class="p">):</span>
+<div class="viewcode-block" id="sbootpars"><a class="viewcode-back" href="../../api/api.html#pmagpy.pmag.sbootpars">[docs]</a><span class="k">def</span> <span class="nf">sbootpars</span><span class="p">(</span><span class="n">Taus</span><span class="p">,</span> <span class="n">Vs</span><span class="p">):</span>
     <span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">    Get bootstrap parameters for s data from bootstrap eigenvalues and eigenvectors.</span>
 <span class="sd">    </span>
@@ -9216,7 +9255,7 @@ title="Open an issue"
 <span class="c1">#</span>
 
 
-<div class="viewcode-block" id="s_boot"><a class="viewcode-back" href="../../api.html#pmagpy.pmag.s_boot">[docs]</a><span class="k">def</span> <span class="nf">s_boot</span><span class="p">(</span><span class="n">Ss</span><span class="p">,</span> <span class="n">ipar</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">nb</span><span class="o">=</span><span class="mi">1000</span><span class="p">):</span>
+<div class="viewcode-block" id="s_boot"><a class="viewcode-back" href="../../api/api.html#pmagpy.pmag.s_boot">[docs]</a><span class="k">def</span> <span class="nf">s_boot</span><span class="p">(</span><span class="n">Ss</span><span class="p">,</span> <span class="n">ipar</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">nb</span><span class="o">=</span><span class="mi">1000</span><span class="p">):</span>
     <span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">    Returns bootstrap parameters for S data.</span>
 
@@ -9275,7 +9314,7 @@ title="Open an issue"
 <span class="c1">#</span>
 
 
-<div class="viewcode-block" id="designAARM"><a class="viewcode-back" href="../../api.html#pmagpy.pmag.designAARM">[docs]</a><span class="k">def</span> <span class="nf">designAARM</span><span class="p">(</span><span class="n">npos</span><span class="p">):</span>
+<div class="viewcode-block" id="designAARM"><a class="viewcode-back" href="../../api/api.html#pmagpy.pmag.designAARM">[docs]</a><span class="k">def</span> <span class="nf">designAARM</span><span class="p">(</span><span class="n">npos</span><span class="p">):</span>
     <span class="c1">#</span>
     <span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">    Calculates B matrix for AARM calculations.</span>
@@ -9336,7 +9375,7 @@ title="Open an issue"
 <span class="c1">#</span>
 
 
-<div class="viewcode-block" id="designATRM"><a class="viewcode-back" href="../../api.html#pmagpy.pmag.designATRM">[docs]</a><span class="k">def</span> <span class="nf">designATRM</span><span class="p">(</span><span class="n">npos</span><span class="p">):</span>
+<div class="viewcode-block" id="designATRM"><a class="viewcode-back" href="../../api/api.html#pmagpy.pmag.designATRM">[docs]</a><span class="k">def</span> <span class="nf">designATRM</span><span class="p">(</span><span class="n">npos</span><span class="p">):</span>
     <span class="c1">#</span>
     <span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">    Calculates B matrix for ATRM calculations.</span>
@@ -9395,7 +9434,7 @@ title="Open an issue"
 <span class="c1">#</span>
 
 
-<div class="viewcode-block" id="domagicmag"><a class="viewcode-back" href="../../api.html#pmagpy.pmag.domagicmag">[docs]</a><span class="k">def</span> <span class="nf">domagicmag</span><span class="p">(</span><span class="n">file</span><span class="p">,</span> <span class="n">Recs</span><span class="p">):</span>
+<div class="viewcode-block" id="domagicmag"><a class="viewcode-back" href="../../api/api.html#pmagpy.pmag.domagicmag">[docs]</a><span class="k">def</span> <span class="nf">domagicmag</span><span class="p">(</span><span class="n">file</span><span class="p">,</span> <span class="n">Recs</span><span class="p">):</span>
     <span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">    Converts a magic record back into the SIO mag format.</span>
 <span class="sd">    &quot;&quot;&quot;</span>
@@ -9422,7 +9461,7 @@ title="Open an issue"
 <span class="c1">#</span>
 
 
-<div class="viewcode-block" id="cleanup"><a class="viewcode-back" href="../../api.html#pmagpy.pmag.cleanup">[docs]</a><span class="k">def</span> <span class="nf">cleanup</span><span class="p">(</span><span class="n">first_I</span><span class="p">,</span> <span class="n">first_Z</span><span class="p">):</span>
+<div class="viewcode-block" id="cleanup"><a class="viewcode-back" href="../../api/api.html#pmagpy.pmag.cleanup">[docs]</a><span class="k">def</span> <span class="nf">cleanup</span><span class="p">(</span><span class="n">first_I</span><span class="p">,</span> <span class="n">first_Z</span><span class="p">):</span>
     <span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">     cleans up unbalanced steps</span>
 <span class="sd">     failure can be from unbalanced final step, or from missing steps,</span>
@@ -9448,7 +9487,7 @@ title="Open an issue"
 <span class="c1">#</span>
 
 
-<div class="viewcode-block" id="sortarai"><a class="viewcode-back" href="../../api.html#pmagpy.pmag.sortarai">[docs]</a><span class="k">def</span> <span class="nf">sortarai</span><span class="p">(</span><span class="n">datablock</span><span class="p">,</span> <span class="n">s</span><span class="p">,</span> <span class="n">Zdiff</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
+<div class="viewcode-block" id="sortarai"><a class="viewcode-back" href="../../api/api.html#pmagpy.pmag.sortarai">[docs]</a><span class="k">def</span> <span class="nf">sortarai</span><span class="p">(</span><span class="n">datablock</span><span class="p">,</span> <span class="n">s</span><span class="p">,</span> <span class="n">Zdiff</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
     <span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">    Sorts data block in to first_Z, first_I, etc.</span>
 
@@ -9649,7 +9688,7 @@ title="Open an issue"
     <span class="k">return</span> <span class="n">araiblock</span><span class="p">,</span> <span class="n">field</span></div>
 
 
-<div class="viewcode-block" id="sortmwarai"><a class="viewcode-back" href="../../api.html#pmagpy.pmag.sortmwarai">[docs]</a><span class="k">def</span> <span class="nf">sortmwarai</span><span class="p">(</span><span class="n">datablock</span><span class="p">,</span> <span class="n">exp_type</span><span class="p">):</span>
+<div class="viewcode-block" id="sortmwarai"><a class="viewcode-back" href="../../api/api.html#pmagpy.pmag.sortmwarai">[docs]</a><span class="k">def</span> <span class="nf">sortmwarai</span><span class="p">(</span><span class="n">datablock</span><span class="p">,</span> <span class="n">exp_type</span><span class="p">):</span>
     <span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">     sorts microwave double heating data block in to first_Z, first_I, etc.</span>
 <span class="sd">    &quot;&quot;&quot;</span>
@@ -9835,7 +9874,7 @@ title="Open an issue"
     <span class="c1">#</span>
 
 
-<div class="viewcode-block" id="docustom"><a class="viewcode-back" href="../../api.html#pmagpy.pmag.docustom">[docs]</a><span class="k">def</span> <span class="nf">docustom</span><span class="p">(</span><span class="n">lon</span><span class="p">,</span> <span class="n">lat</span><span class="p">,</span> <span class="n">alt</span><span class="p">,</span> <span class="n">gh</span><span class="p">):</span>
+<div class="viewcode-block" id="docustom"><a class="viewcode-back" href="../../api/api.html#pmagpy.pmag.docustom">[docs]</a><span class="k">def</span> <span class="nf">docustom</span><span class="p">(</span><span class="n">lon</span><span class="p">,</span> <span class="n">lat</span><span class="p">,</span> <span class="n">alt</span><span class="p">,</span> <span class="n">gh</span><span class="p">):</span>
     <span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">    Passes the coefficients to the Malin and Barraclough</span>
 <span class="sd">    routine (function pmag.magsyn) to calculate the field from the coefficients.</span>
@@ -9867,7 +9906,7 @@ title="Open an issue"
     <span class="k">return</span> <span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="n">z</span><span class="p">,</span> <span class="n">f</span></div>
 
 
-<div class="viewcode-block" id="doigrf"><a class="viewcode-back" href="../../api.html#pmagpy.pmag.doigrf">[docs]</a><span class="k">def</span> <span class="nf">doigrf</span><span class="p">(</span><span class="n">lon</span><span class="p">,</span> <span class="n">lat</span><span class="p">,</span> <span class="n">alt</span><span class="p">,</span> <span class="n">date</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
+<div class="viewcode-block" id="doigrf"><a class="viewcode-back" href="../../api/api.html#pmagpy.pmag.doigrf">[docs]</a><span class="k">def</span> <span class="nf">doigrf</span><span class="p">(</span><span class="n">lon</span><span class="p">,</span> <span class="n">lat</span><span class="p">,</span> <span class="n">alt</span><span class="p">,</span> <span class="n">date</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
     <span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">    Calculates the interpolated (&lt;=2020) or extrapolated (&gt;2020) main field and</span>
 <span class="sd">    secular variation coefficients and passes them to the Malin and Barraclough</span>
@@ -10032,7 +10071,7 @@ title="Open an issue"
 <span class="c1">#</span>
 
 
-<div class="viewcode-block" id="unpack"><a class="viewcode-back" href="../../api.html#pmagpy.pmag.unpack">[docs]</a><span class="k">def</span> <span class="nf">unpack</span><span class="p">(</span><span class="n">gh</span><span class="p">):</span>
+<div class="viewcode-block" id="unpack"><a class="viewcode-back" href="../../api/api.html#pmagpy.pmag.unpack">[docs]</a><span class="k">def</span> <span class="nf">unpack</span><span class="p">(</span><span class="n">gh</span><span class="p">):</span>
     <span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">    Unpacks gh list into l m g h type list.</span>
 
@@ -10072,7 +10111,7 @@ title="Open an issue"
     <span class="k">return</span> <span class="n">data</span></div>
 
 
-<div class="viewcode-block" id="magsyn"><a class="viewcode-back" href="../../api.html#pmagpy.pmag.magsyn">[docs]</a><span class="k">def</span> <span class="nf">magsyn</span><span class="p">(</span><span class="n">gh</span><span class="p">,</span> <span class="n">sv</span><span class="p">,</span> <span class="n">b</span><span class="p">,</span> <span class="n">date</span><span class="p">,</span> <span class="n">itype</span><span class="p">,</span> <span class="n">alt</span><span class="p">,</span> <span class="n">colat</span><span class="p">,</span> <span class="n">elong</span><span class="p">):</span>
+<div class="viewcode-block" id="magsyn"><a class="viewcode-back" href="../../api/api.html#pmagpy.pmag.magsyn">[docs]</a><span class="k">def</span> <span class="nf">magsyn</span><span class="p">(</span><span class="n">gh</span><span class="p">,</span> <span class="n">sv</span><span class="p">,</span> <span class="n">b</span><span class="p">,</span> <span class="n">date</span><span class="p">,</span> <span class="n">itype</span><span class="p">,</span> <span class="n">alt</span><span class="p">,</span> <span class="n">colat</span><span class="p">,</span> <span class="n">elong</span><span class="p">):</span>
     <span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">    Computes x, y, z, and f for a given date and position, from the</span>
 <span class="sd">    spherical harmonic coefficients of the International Geomagnetic</span>
@@ -10215,7 +10254,7 @@ title="Open an issue"
 <span class="c1">#</span>
 
 
-<div class="viewcode-block" id="measurements_methods"><a class="viewcode-back" href="../../api.html#pmagpy.pmag.measurements_methods">[docs]</a><span class="k">def</span> <span class="nf">measurements_methods</span><span class="p">(</span><span class="n">meas_data</span><span class="p">,</span> <span class="n">noave</span><span class="p">):</span>
+<div class="viewcode-block" id="measurements_methods"><a class="viewcode-back" href="../../api/api.html#pmagpy.pmag.measurements_methods">[docs]</a><span class="k">def</span> <span class="nf">measurements_methods</span><span class="p">(</span><span class="n">meas_data</span><span class="p">,</span> <span class="n">noave</span><span class="p">):</span>
     <span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">    Get list of unique specs</span>
 <span class="sd">    &quot;&quot;&quot;</span>
@@ -10727,7 +10766,7 @@ title="Open an issue"
     <span class="k">return</span> <span class="n">SpecOuts</span></div>
 
 
-<div class="viewcode-block" id="measurements_methods3"><a class="viewcode-back" href="../../api.html#pmagpy.pmag.measurements_methods3">[docs]</a><span class="k">def</span> <span class="nf">measurements_methods3</span><span class="p">(</span><span class="n">meas_data</span><span class="p">,</span> <span class="n">noave</span><span class="p">,</span><span class="n">savelast</span><span class="o">=</span><span class="kc">False</span><span class="p">):</span>
+<div class="viewcode-block" id="measurements_methods3"><a class="viewcode-back" href="../../api/api.html#pmagpy.pmag.measurements_methods3">[docs]</a><span class="k">def</span> <span class="nf">measurements_methods3</span><span class="p">(</span><span class="n">meas_data</span><span class="p">,</span> <span class="n">noave</span><span class="p">,</span><span class="n">savelast</span><span class="o">=</span><span class="kc">False</span><span class="p">):</span>
     <span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">    Add necessary method codes, experiment names, sequence, etc.</span>
 <span class="sd">    &quot;&quot;&quot;</span>
@@ -11410,7 +11449,7 @@ title="Open an issue"
     <span class="k">return</span> <span class="n">MagRecs</span>
 
 
-<div class="viewcode-block" id="parse_site"><a class="viewcode-back" href="../../api.html#pmagpy.pmag.parse_site">[docs]</a><span class="k">def</span> <span class="nf">parse_site</span><span class="p">(</span><span class="n">sample</span><span class="p">,</span> <span class="n">convention</span><span class="p">,</span> <span class="n">Z</span><span class="p">):</span>
+<div class="viewcode-block" id="parse_site"><a class="viewcode-back" href="../../api/api.html#pmagpy.pmag.parse_site">[docs]</a><span class="k">def</span> <span class="nf">parse_site</span><span class="p">(</span><span class="n">sample</span><span class="p">,</span> <span class="n">convention</span><span class="p">,</span> <span class="n">Z</span><span class="p">):</span>
     <span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">    Parse the site name from the sample name using the specified convention</span>
 <span class="sd">    &quot;&quot;&quot;</span>
@@ -11463,7 +11502,7 @@ title="Open an issue"
     <span class="k">return</span></div>
 
 
-<div class="viewcode-block" id="get_samp_con"><a class="viewcode-back" href="../../api.html#pmagpy.pmag.get_samp_con">[docs]</a><span class="k">def</span> <span class="nf">get_samp_con</span><span class="p">():</span>
+<div class="viewcode-block" id="get_samp_con"><a class="viewcode-back" href="../../api/api.html#pmagpy.pmag.get_samp_con">[docs]</a><span class="k">def</span> <span class="nf">get_samp_con</span><span class="p">():</span>
     <span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">    Get sample naming convention.</span>
 <span class="sd">    &quot;&quot;&quot;</span>
@@ -11508,7 +11547,7 @@ title="Open an issue"
     <span class="k">return</span> <span class="n">samp_con</span><span class="p">,</span> <span class="n">Z</span></div>
 
 
-<div class="viewcode-block" id="get_tilt"><a class="viewcode-back" href="../../api.html#pmagpy.pmag.get_tilt">[docs]</a><span class="k">def</span> <span class="nf">get_tilt</span><span class="p">(</span><span class="n">dec_geo</span><span class="p">,</span> <span class="n">inc_geo</span><span class="p">,</span> <span class="n">dec_tilt</span><span class="p">,</span> <span class="n">inc_tilt</span><span class="p">):</span>
+<div class="viewcode-block" id="get_tilt"><a class="viewcode-back" href="../../api/api.html#pmagpy.pmag.get_tilt">[docs]</a><span class="k">def</span> <span class="nf">get_tilt</span><span class="p">(</span><span class="n">dec_geo</span><span class="p">,</span> <span class="n">inc_geo</span><span class="p">,</span> <span class="n">dec_tilt</span><span class="p">,</span> <span class="n">inc_tilt</span><span class="p">):</span>
     <span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">    Function to return the dip direction and dip that would yield the tilt</span>
 <span class="sd">    corrected direction if applied to the uncorrected direction (geographic</span>
@@ -11557,7 +11596,7 @@ title="Open an issue"
 <span class="c1">#</span>
 
 
-<div class="viewcode-block" id="get_azpl"><a class="viewcode-back" href="../../api.html#pmagpy.pmag.get_azpl">[docs]</a><span class="k">def</span> <span class="nf">get_azpl</span><span class="p">(</span><span class="n">cdec</span><span class="p">,</span> <span class="n">cinc</span><span class="p">,</span> <span class="n">gdec</span><span class="p">,</span> <span class="n">ginc</span><span class="p">):</span>
+<div class="viewcode-block" id="get_azpl"><a class="viewcode-back" href="../../api/api.html#pmagpy.pmag.get_azpl">[docs]</a><span class="k">def</span> <span class="nf">get_azpl</span><span class="p">(</span><span class="n">cdec</span><span class="p">,</span> <span class="n">cinc</span><span class="p">,</span> <span class="n">gdec</span><span class="p">,</span> <span class="n">ginc</span><span class="p">):</span>
     <span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">    Gets azimuth and plunge from specimen declination, inclination, and (geographic) coordinates.</span>
 <span class="sd">    </span>
@@ -11594,7 +11633,7 @@ title="Open an issue"
     <span class="k">return</span> <span class="n">az</span> <span class="o">-</span> <span class="mf">.01</span><span class="p">,</span> <span class="n">pl</span> <span class="o">-</span> <span class="mf">.01</span></div>
 
 
-<div class="viewcode-block" id="set_priorities"><a class="viewcode-back" href="../../api.html#pmagpy.pmag.set_priorities">[docs]</a><span class="k">def</span> <span class="nf">set_priorities</span><span class="p">(</span><span class="n">SO_methods</span><span class="p">,</span> <span class="n">ask</span><span class="p">):</span>
+<div class="viewcode-block" id="set_priorities"><a class="viewcode-back" href="../../api/api.html#pmagpy.pmag.set_priorities">[docs]</a><span class="k">def</span> <span class="nf">set_priorities</span><span class="p">(</span><span class="n">SO_methods</span><span class="p">,</span> <span class="n">ask</span><span class="p">):</span>
     <span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">    Figure out which sample_azimuth to use, if multiple orientation methods</span>
 <span class="sd">    &quot;&quot;&quot;</span>
@@ -11634,7 +11673,7 @@ title="Open an issue"
 <span class="c1">#</span>
 
 
-<div class="viewcode-block" id="get_EOL"><a class="viewcode-back" href="../../api.html#pmagpy.pmag.get_EOL">[docs]</a><span class="k">def</span> <span class="nf">get_EOL</span><span class="p">(</span><span class="n">file</span><span class="p">):</span>
+<div class="viewcode-block" id="get_EOL"><a class="viewcode-back" href="../../api/api.html#pmagpy.pmag.get_EOL">[docs]</a><span class="k">def</span> <span class="nf">get_EOL</span><span class="p">(</span><span class="n">file</span><span class="p">):</span>
     <span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">    Find EOL of input file (whether mac,PC or unix format)</span>
 <span class="sd">    &quot;&quot;&quot;</span>
@@ -11659,7 +11698,7 @@ title="Open an issue"
 <span class="c1">#</span>
 
 
-<div class="viewcode-block" id="sortshaw"><a class="viewcode-back" href="../../api.html#pmagpy.pmag.sortshaw">[docs]</a><span class="k">def</span> <span class="nf">sortshaw</span><span class="p">(</span><span class="n">s</span><span class="p">,</span> <span class="n">datablock</span><span class="p">):</span>
+<div class="viewcode-block" id="sortshaw"><a class="viewcode-back" href="../../api/api.html#pmagpy.pmag.sortshaw">[docs]</a><span class="k">def</span> <span class="nf">sortshaw</span><span class="p">(</span><span class="n">s</span><span class="p">,</span> <span class="n">datablock</span><span class="p">):</span>
     <span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">    Sorts data block in to ARM1,ARM2 NRM,TRM,ARM1,ARM2=[],[],[],[]</span>
 <span class="sd">    stick first zero field stuff into first_Z</span>
@@ -11722,7 +11761,7 @@ title="Open an issue"
 <span class="c1">#</span>
 
 
-<div class="viewcode-block" id="makelist"><a class="viewcode-back" href="../../api.html#pmagpy.pmag.makelist">[docs]</a><span class="k">def</span> <span class="nf">makelist</span><span class="p">(</span><span class="n">List</span><span class="p">):</span>
+<div class="viewcode-block" id="makelist"><a class="viewcode-back" href="../../api/api.html#pmagpy.pmag.makelist">[docs]</a><span class="k">def</span> <span class="nf">makelist</span><span class="p">(</span><span class="n">List</span><span class="p">):</span>
     <span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">    Makes a colon delimited list from List.</span>
 <span class="sd">    </span>
@@ -11745,7 +11784,7 @@ title="Open an issue"
     <span class="k">return</span> <span class="n">clist</span><span class="p">[:</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span></div>
 
 
-<div class="viewcode-block" id="getvec"><a class="viewcode-back" href="../../api.html#pmagpy.pmag.getvec">[docs]</a><span class="k">def</span> <span class="nf">getvec</span><span class="p">(</span><span class="n">gh</span><span class="p">,</span> <span class="n">lat</span><span class="p">,</span> <span class="n">lon</span><span class="p">):</span>
+<div class="viewcode-block" id="getvec"><a class="viewcode-back" href="../../api/api.html#pmagpy.pmag.getvec">[docs]</a><span class="k">def</span> <span class="nf">getvec</span><span class="p">(</span><span class="n">gh</span><span class="p">,</span> <span class="n">lat</span><span class="p">,</span> <span class="n">lon</span><span class="p">):</span>
     <span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">    Evaluates the vector at a given latitude and longitude for a specified</span>
 <span class="sd">    set of coefficients.</span>
@@ -11783,7 +11822,7 @@ title="Open an issue"
     <span class="k">return</span> <span class="n">vec</span></div>
 
 
-<div class="viewcode-block" id="s_l"><a class="viewcode-back" href="../../api.html#pmagpy.pmag.s_l">[docs]</a><span class="k">def</span> <span class="nf">s_l</span><span class="p">(</span><span class="n">l</span><span class="p">,</span> <span class="n">alpha</span><span class="o">=</span><span class="mf">27.7</span><span class="p">):</span>
+<div class="viewcode-block" id="s_l"><a class="viewcode-back" href="../../api/api.html#pmagpy.pmag.s_l">[docs]</a><span class="k">def</span> <span class="nf">s_l</span><span class="p">(</span><span class="n">l</span><span class="p">,</span> <span class="n">alpha</span><span class="o">=</span><span class="mf">27.7</span><span class="p">):</span>
     <span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">    Get sigma as a function of degree l from Constable and Parker (1988)</span>
 
@@ -11810,7 +11849,7 @@ title="Open an issue"
 <span class="c1">#</span>
 
 
-<div class="viewcode-block" id="mktk03"><a class="viewcode-back" href="../../api.html#pmagpy.pmag.mktk03">[docs]</a><span class="k">def</span> <span class="nf">mktk03</span><span class="p">(</span><span class="n">terms</span><span class="p">,</span> <span class="n">seed</span><span class="p">,</span> <span class="n">G2</span><span class="p">,</span> <span class="n">G3</span><span class="p">,</span><span class="n">G1</span><span class="o">=-</span><span class="mf">18e3</span><span class="p">,</span><span class="n">verbose</span><span class="o">=</span><span class="kc">False</span><span class="p">):</span>
+<div class="viewcode-block" id="mktk03"><a class="viewcode-back" href="../../api/api.html#pmagpy.pmag.mktk03">[docs]</a><span class="k">def</span> <span class="nf">mktk03</span><span class="p">(</span><span class="n">terms</span><span class="p">,</span> <span class="n">seed</span><span class="p">,</span> <span class="n">G2</span><span class="p">,</span> <span class="n">G3</span><span class="p">,</span><span class="n">G1</span><span class="o">=-</span><span class="mf">18e3</span><span class="p">,</span><span class="n">verbose</span><span class="o">=</span><span class="kc">False</span><span class="p">):</span>
     <span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">    Generates a list of gauss coefficients drawn from the TK03 distribution.</span>
 <span class="sd">    </span>
@@ -11876,7 +11915,7 @@ title="Open an issue"
 <span class="c1">#</span>
 
 
-<div class="viewcode-block" id="pinc"><a class="viewcode-back" href="../../api.html#pmagpy.pmag.pinc">[docs]</a><span class="k">def</span> <span class="nf">pinc</span><span class="p">(</span><span class="n">lat</span><span class="p">):</span>
+<div class="viewcode-block" id="pinc"><a class="viewcode-back" href="../../api/api.html#pmagpy.pmag.pinc">[docs]</a><span class="k">def</span> <span class="nf">pinc</span><span class="p">(</span><span class="n">lat</span><span class="p">):</span>
     <span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">    Calculate paleoinclination from latitude using dipole formula: tan(I) = 2tan(lat). </span>
 <span class="sd">    </span>
@@ -11900,7 +11939,7 @@ title="Open an issue"
 <span class="c1">#</span>
 
 
-<div class="viewcode-block" id="plat"><a class="viewcode-back" href="../../api.html#pmagpy.pmag.plat">[docs]</a><span class="k">def</span> <span class="nf">plat</span><span class="p">(</span><span class="n">inc</span><span class="p">):</span>
+<div class="viewcode-block" id="plat"><a class="viewcode-back" href="../../api/api.html#pmagpy.pmag.plat">[docs]</a><span class="k">def</span> <span class="nf">plat</span><span class="p">(</span><span class="n">inc</span><span class="p">):</span>
     <span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">    Calculate paleolatitude from inclination using dipole formula: tan(I) = 2tan(lat).</span>
 <span class="sd">    </span>
@@ -11925,7 +11964,7 @@ title="Open an issue"
 <span class="c1">#</span>
 
 
-<div class="viewcode-block" id="pseudo"><a class="viewcode-back" href="../../api.html#pmagpy.pmag.pseudo">[docs]</a><span class="k">def</span> <span class="nf">pseudo</span><span class="p">(</span><span class="n">DIs</span><span class="p">,</span> <span class="n">random_seed</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
+<div class="viewcode-block" id="pseudo"><a class="viewcode-back" href="../../api/api.html#pmagpy.pmag.pseudo">[docs]</a><span class="k">def</span> <span class="nf">pseudo</span><span class="p">(</span><span class="n">DIs</span><span class="p">,</span> <span class="n">random_seed</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
     <span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">    Draw a bootstrap sample of directions returning as many bootstrapped samples</span>
 <span class="sd">    as in the input directions.</span>
@@ -11957,7 +11996,7 @@ title="Open an issue"
     <span class="k">return</span> <span class="n">D</span><span class="p">[</span><span class="n">Inds</span><span class="p">]</span></div>
 
 
-<div class="viewcode-block" id="di_boot"><a class="viewcode-back" href="../../api.html#pmagpy.pmag.di_boot">[docs]</a><span class="k">def</span> <span class="nf">di_boot</span><span class="p">(</span><span class="n">DIs</span><span class="p">,</span> <span class="n">nb</span><span class="o">=</span><span class="mi">5000</span><span class="p">):</span>
+<div class="viewcode-block" id="di_boot"><a class="viewcode-back" href="../../api/api.html#pmagpy.pmag.di_boot">[docs]</a><span class="k">def</span> <span class="nf">di_boot</span><span class="p">(</span><span class="n">DIs</span><span class="p">,</span> <span class="n">nb</span><span class="o">=</span><span class="mi">5000</span><span class="p">):</span>
     <span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">    Returns bootstrap means for Directional data.</span>
 <span class="sd">     </span>
@@ -11996,7 +12035,7 @@ title="Open an issue"
     <span class="k">return</span> <span class="n">BDIs</span></div>
 
 
-<div class="viewcode-block" id="dir_df_boot"><a class="viewcode-back" href="../../api.html#pmagpy.pmag.dir_df_boot">[docs]</a><span class="k">def</span> <span class="nf">dir_df_boot</span><span class="p">(</span><span class="n">dir_df</span><span class="p">,</span> <span class="n">nb</span><span class="o">=</span><span class="mi">5000</span><span class="p">,</span> <span class="n">par</span><span class="o">=</span><span class="kc">False</span><span class="p">):</span>
+<div class="viewcode-block" id="dir_df_boot"><a class="viewcode-back" href="../../api/api.html#pmagpy.pmag.dir_df_boot">[docs]</a><span class="k">def</span> <span class="nf">dir_df_boot</span><span class="p">(</span><span class="n">dir_df</span><span class="p">,</span> <span class="n">nb</span><span class="o">=</span><span class="mi">5000</span><span class="p">,</span> <span class="n">par</span><span class="o">=</span><span class="kc">False</span><span class="p">):</span>
     <span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">    Performs a bootstrap for direction DataFrame with optional parametric bootstrap</span>
 
@@ -12060,7 +12099,7 @@ title="Open an issue"
     <span class="k">return</span> <span class="n">BDIs</span></div>
 
 
-<div class="viewcode-block" id="dir_df_fisher_mean"><a class="viewcode-back" href="../../api.html#pmagpy.pmag.dir_df_fisher_mean">[docs]</a><span class="k">def</span> <span class="nf">dir_df_fisher_mean</span><span class="p">(</span><span class="n">dir_df</span><span class="p">):</span>
+<div class="viewcode-block" id="dir_df_fisher_mean"><a class="viewcode-back" href="../../api/api.html#pmagpy.pmag.dir_df_fisher_mean">[docs]</a><span class="k">def</span> <span class="nf">dir_df_fisher_mean</span><span class="p">(</span><span class="n">dir_df</span><span class="p">):</span>
     <span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">    Calculates fisher mean for Pandas dataframe.</span>
 
@@ -12115,7 +12154,7 @@ title="Open an issue"
     <span class="k">return</span> <span class="n">fpars</span></div>
 
 
-<div class="viewcode-block" id="pseudosample"><a class="viewcode-back" href="../../api.html#pmagpy.pmag.pseudosample">[docs]</a><span class="k">def</span> <span class="nf">pseudosample</span><span class="p">(</span><span class="n">x</span><span class="p">):</span>
+<div class="viewcode-block" id="pseudosample"><a class="viewcode-back" href="../../api/api.html#pmagpy.pmag.pseudosample">[docs]</a><span class="k">def</span> <span class="nf">pseudosample</span><span class="p">(</span><span class="n">x</span><span class="p">):</span>
     <span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">    Draw a bootstrap sample of x</span>
 <span class="sd">    &quot;&quot;&quot;</span>
@@ -12127,7 +12166,7 @@ title="Open an issue"
     <span class="k">return</span> <span class="n">BXs</span></div>
 
 
-<div class="viewcode-block" id="get_plate_data"><a class="viewcode-back" href="../../api.html#pmagpy.pmag.get_plate_data">[docs]</a><span class="k">def</span> <span class="nf">get_plate_data</span><span class="p">(</span><span class="n">plate</span><span class="p">):</span>
+<div class="viewcode-block" id="get_plate_data"><a class="viewcode-back" href="../../api/api.html#pmagpy.pmag.get_plate_data">[docs]</a><span class="k">def</span> <span class="nf">get_plate_data</span><span class="p">(</span><span class="n">plate</span><span class="p">):</span>
     <span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">    Returns the pole list for a given plate</span>
 
@@ -12149,7 +12188,7 @@ title="Open an issue"
     <span class="k">return</span> <span class="n">apwp</span></div>
 
 
-<div class="viewcode-block" id="bc02"><a class="viewcode-back" href="../../api.html#pmagpy.pmag.bc02">[docs]</a><span class="k">def</span> <span class="nf">bc02</span><span class="p">(</span><span class="n">data</span><span class="p">):</span>
+<div class="viewcode-block" id="bc02"><a class="viewcode-back" href="../../api/api.html#pmagpy.pmag.bc02">[docs]</a><span class="k">def</span> <span class="nf">bc02</span><span class="p">(</span><span class="n">data</span><span class="p">):</span>
     <span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">    Get APWP from Besse and Courtillot 2002 paper</span>
 
@@ -12193,7 +12232,7 @@ title="Open an issue"
     <span class="k">return</span> <span class="n">pole_lat</span><span class="p">,</span> <span class="n">pole_lon</span></div>
 
 
-<div class="viewcode-block" id="linreg"><a class="viewcode-back" href="../../api.html#pmagpy.pmag.linreg">[docs]</a><span class="k">def</span> <span class="nf">linreg</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">):</span>
+<div class="viewcode-block" id="linreg"><a class="viewcode-back" href="../../api/api.html#pmagpy.pmag.linreg">[docs]</a><span class="k">def</span> <span class="nf">linreg</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">):</span>
     <span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">    Does a linear regression</span>
 <span class="sd">    &quot;&quot;&quot;</span>
@@ -12222,7 +12261,7 @@ title="Open an issue"
     <span class="k">return</span> <span class="n">linpars</span></div>
 
 
-<div class="viewcode-block" id="interval_overlap"><a class="viewcode-back" href="../../api.html#pmagpy.pmag.interval_overlap">[docs]</a><span class="k">def</span> <span class="nf">interval_overlap</span><span class="p">(</span><span class="n">interval_a</span><span class="p">,</span> <span class="n">interval_b</span><span class="p">):</span>
+<div class="viewcode-block" id="interval_overlap"><a class="viewcode-back" href="../../api/api.html#pmagpy.pmag.interval_overlap">[docs]</a><span class="k">def</span> <span class="nf">interval_overlap</span><span class="p">(</span><span class="n">interval_a</span><span class="p">,</span> <span class="n">interval_b</span><span class="p">):</span>
     <span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">    Determine the extent of overlap between two ranges of numbers </span>
 <span class="sd">    </span>
@@ -12241,7 +12280,7 @@ title="Open an issue"
     <span class="k">return</span> <span class="n">overlap</span></div>
 
 
-<div class="viewcode-block" id="squish"><a class="viewcode-back" href="../../api.html#pmagpy.pmag.squish">[docs]</a><span class="k">def</span> <span class="nf">squish</span><span class="p">(</span><span class="n">incs</span><span class="p">,</span> <span class="n">f</span><span class="p">):</span>
+<div class="viewcode-block" id="squish"><a class="viewcode-back" href="../../api/api.html#pmagpy.pmag.squish">[docs]</a><span class="k">def</span> <span class="nf">squish</span><span class="p">(</span><span class="n">incs</span><span class="p">,</span> <span class="n">f</span><span class="p">):</span>
     <span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">    Returns &#39;flattened&#39; inclination, assuming factor, f and King (1955) formula:</span>
 <span class="sd">    tan (I_o) = f tan (I_f)</span>
@@ -12260,7 +12299,7 @@ title="Open an issue"
     <span class="k">return</span> <span class="n">np</span><span class="o">.</span><span class="n">degrees</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">arctan</span><span class="p">(</span><span class="n">I_o</span><span class="p">))</span></div>
 
 
-<div class="viewcode-block" id="unsquish"><a class="viewcode-back" href="../../api.html#pmagpy.pmag.unsquish">[docs]</a><span class="k">def</span> <span class="nf">unsquish</span><span class="p">(</span><span class="n">incs</span><span class="p">,</span> <span class="n">f</span><span class="p">):</span>
+<div class="viewcode-block" id="unsquish"><a class="viewcode-back" href="../../api/api.html#pmagpy.pmag.unsquish">[docs]</a><span class="k">def</span> <span class="nf">unsquish</span><span class="p">(</span><span class="n">incs</span><span class="p">,</span> <span class="n">f</span><span class="p">):</span>
     <span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">    Returns &#39;unflattened&#39; inclination, assuming factor, f and King (1955) formula: tan (I_o) = tan (I_f)/f.</span>
 
@@ -12292,7 +12331,7 @@ title="Open an issue"
     <span class="k">return</span> <span class="n">np</span><span class="o">.</span><span class="n">degrees</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">arctan</span><span class="p">(</span><span class="n">I_o</span><span class="p">))</span></div>
 
 
-<div class="viewcode-block" id="get_ts"><a class="viewcode-back" href="../../api.html#pmagpy.pmag.get_ts">[docs]</a><span class="k">def</span> <span class="nf">get_ts</span><span class="p">(</span><span class="n">ts</span><span class="p">):</span>
+<div class="viewcode-block" id="get_ts"><a class="viewcode-back" href="../../api/api.html#pmagpy.pmag.get_ts">[docs]</a><span class="k">def</span> <span class="nf">get_ts</span><span class="p">(</span><span class="n">ts</span><span class="p">):</span>
     <span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">    returns GPTS timescales.</span>
 <span class="sd">    options are:  ck95, gts04, and gts12</span>
@@ -12320,7 +12359,7 @@ title="Open an issue"
     <span class="k">return</span></div>
 
 
-<div class="viewcode-block" id="execute"><a class="viewcode-back" href="../../api.html#pmagpy.pmag.execute">[docs]</a><span class="k">def</span> <span class="nf">execute</span><span class="p">(</span><span class="n">st</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
+<div class="viewcode-block" id="execute"><a class="viewcode-back" href="../../api/api.html#pmagpy.pmag.execute">[docs]</a><span class="k">def</span> <span class="nf">execute</span><span class="p">(</span><span class="n">st</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
     <span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">    Work around for Python3 exec function which doesn&#39;t allow changes to the local namespace because of scope.</span>
 <span class="sd">    This breaks a lot of the old functionality in the code which was originally in Python2. So this function</span>
@@ -12344,7 +12383,7 @@ title="Open an issue"
 <span class="c1"># Functions for dealing with acceptance criteria</span>
 
 
-<div class="viewcode-block" id="initialize_acceptance_criteria"><a class="viewcode-back" href="../../api.html#pmagpy.pmag.initialize_acceptance_criteria">[docs]</a><span class="k">def</span> <span class="nf">initialize_acceptance_criteria</span><span class="p">(</span><span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
+<div class="viewcode-block" id="initialize_acceptance_criteria"><a class="viewcode-back" href="../../api/api.html#pmagpy.pmag.initialize_acceptance_criteria">[docs]</a><span class="k">def</span> <span class="nf">initialize_acceptance_criteria</span><span class="p">(</span><span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
     <span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">    initialize acceptance criteria with NULL values for thellier_gui and demag_gui</span>
 
@@ -12821,7 +12860,7 @@ title="Open an issue"
     <span class="k">return</span><span class="p">(</span><span class="n">acceptance_criteria</span><span class="p">)</span></div>
 
 
-<div class="viewcode-block" id="read_criteria_from_file"><a class="viewcode-back" href="../../api.html#pmagpy.pmag.read_criteria_from_file">[docs]</a><span class="k">def</span> <span class="nf">read_criteria_from_file</span><span class="p">(</span><span class="n">path</span><span class="p">,</span> <span class="n">acceptance_criteria</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
+<div class="viewcode-block" id="read_criteria_from_file"><a class="viewcode-back" href="../../api/api.html#pmagpy.pmag.read_criteria_from_file">[docs]</a><span class="k">def</span> <span class="nf">read_criteria_from_file</span><span class="p">(</span><span class="n">path</span><span class="p">,</span> <span class="n">acceptance_criteria</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
     <span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">    Read accceptance criteria from magic criteria file</span>
 <span class="sd">    # old format:</span>
@@ -13042,7 +13081,7 @@ title="Open an issue"
 
 <span class="c1"># Helpers for command-line programs</span>
 
-<div class="viewcode-block" id="add_flag"><a class="viewcode-back" href="../../api.html#pmagpy.pmag.add_flag">[docs]</a><span class="k">def</span> <span class="nf">add_flag</span><span class="p">(</span><span class="n">var</span><span class="p">,</span> <span class="n">flag</span><span class="p">):</span>
+<div class="viewcode-block" id="add_flag"><a class="viewcode-back" href="../../api/api.html#pmagpy.pmag.add_flag">[docs]</a><span class="k">def</span> <span class="nf">add_flag</span><span class="p">(</span><span class="n">var</span><span class="p">,</span> <span class="n">flag</span><span class="p">):</span>
     <span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">    For use when calling command-line scripts from within a program.</span>
 <span class="sd">    if a variable is present, add its proper command_line flag.</span>
@@ -13055,7 +13094,7 @@ title="Open an issue"
     <span class="k">return</span> <span class="n">var</span></div>
 
 
-<div class="viewcode-block" id="get_named_arg"><a class="viewcode-back" href="../../api.html#pmagpy.pmag.get_named_arg">[docs]</a><span class="k">def</span> <span class="nf">get_named_arg</span><span class="p">(</span><span class="n">name</span><span class="p">,</span> <span class="n">default_val</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">reqd</span><span class="o">=</span><span class="kc">False</span><span class="p">):</span>
+<div class="viewcode-block" id="get_named_arg"><a class="viewcode-back" href="../../api/api.html#pmagpy.pmag.get_named_arg">[docs]</a><span class="k">def</span> <span class="nf">get_named_arg</span><span class="p">(</span><span class="n">name</span><span class="p">,</span> <span class="n">default_val</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">reqd</span><span class="o">=</span><span class="kc">False</span><span class="p">):</span>
     <span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">    Extract the value after a command-line flag such as &#39;-f&#39; and return it.</span>
 <span class="sd">    If the command-line flag is missing, return default_val.</span>
@@ -13094,7 +13133,7 @@ title="Open an issue"
 
 <span class="c1"># Miscellaneous helpers</span>
 
-<div class="viewcode-block" id="merge_recs_headers"><a class="viewcode-back" href="../../api.html#pmagpy.pmag.merge_recs_headers">[docs]</a><span class="k">def</span> <span class="nf">merge_recs_headers</span><span class="p">(</span><span class="n">recs</span><span class="p">):</span>
+<div class="viewcode-block" id="merge_recs_headers"><a class="viewcode-back" href="../../api/api.html#pmagpy.pmag.merge_recs_headers">[docs]</a><span class="k">def</span> <span class="nf">merge_recs_headers</span><span class="p">(</span><span class="n">recs</span><span class="p">):</span>
     <span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">    Take a list of recs [rec1,rec2,rec3....], each rec is a dictionary.</span>
 <span class="sd">    make sure that all recs have the same headers.</span>
@@ -13112,7 +13151,7 @@ title="Open an issue"
     <span class="k">return</span> <span class="n">recs</span></div>
 
 
-<div class="viewcode-block" id="resolve_file_name"><a class="viewcode-back" href="../../api.html#pmagpy.pmag.resolve_file_name">[docs]</a><span class="k">def</span> <span class="nf">resolve_file_name</span><span class="p">(</span><span class="n">fname</span><span class="p">,</span> <span class="n">dir_path</span><span class="o">=</span><span class="s1">&#39;.&#39;</span><span class="p">):</span>
+<div class="viewcode-block" id="resolve_file_name"><a class="viewcode-back" href="../../api/api.html#pmagpy.pmag.resolve_file_name">[docs]</a><span class="k">def</span> <span class="nf">resolve_file_name</span><span class="p">(</span><span class="n">fname</span><span class="p">,</span> <span class="n">dir_path</span><span class="o">=</span><span class="s1">&#39;.&#39;</span><span class="p">):</span>
     <span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">    Parse file name information and output full path.</span>
 <span class="sd">    Allows input as:</span>
@@ -13159,7 +13198,7 @@ title="Open an issue"
     <span class="k">return</span> <span class="n">name</span>
 
 
-<div class="viewcode-block" id="adjust_val_to_360"><a class="viewcode-back" href="../../api.html#pmagpy.pmag.adjust_val_to_360">[docs]</a><span class="k">def</span> <span class="nf">adjust_val_to_360</span><span class="p">(</span><span class="n">val</span><span class="p">):</span>
+<div class="viewcode-block" id="adjust_val_to_360"><a class="viewcode-back" href="../../api/api.html#pmagpy.pmag.adjust_val_to_360">[docs]</a><span class="k">def</span> <span class="nf">adjust_val_to_360</span><span class="p">(</span><span class="n">val</span><span class="p">):</span>
     <span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">    Take in a single numeric (or null) argument.</span>
 <span class="sd">    Return argument adjusted to be between</span>
@@ -13174,7 +13213,7 @@ title="Open an issue"
             <span class="k">return</span> <span class="n">val</span></div>
 
 
-<div class="viewcode-block" id="adjust_to_360"><a class="viewcode-back" href="../../api.html#pmagpy.pmag.adjust_to_360">[docs]</a><span class="k">def</span> <span class="nf">adjust_to_360</span><span class="p">(</span><span class="n">val</span><span class="p">,</span> <span class="n">key</span><span class="p">):</span>
+<div class="viewcode-block" id="adjust_to_360"><a class="viewcode-back" href="../../api/api.html#pmagpy.pmag.adjust_to_360">[docs]</a><span class="k">def</span> <span class="nf">adjust_to_360</span><span class="p">(</span><span class="n">val</span><span class="p">,</span> <span class="n">key</span><span class="p">):</span>
     <span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">    Take in a value and a key.  If the key is of the type:</span>
 <span class="sd">    declination/longitude/azimuth/direction, adjust it to be within</span>
@@ -13197,7 +13236,7 @@ title="Open an issue"
         <span class="k">return</span> <span class="n">new_val</span></div>
 
 
-<div class="viewcode-block" id="adjust_all_to_360"><a class="viewcode-back" href="../../api.html#pmagpy.pmag.adjust_all_to_360">[docs]</a><span class="k">def</span> <span class="nf">adjust_all_to_360</span><span class="p">(</span><span class="n">dictionary</span><span class="p">):</span>
+<div class="viewcode-block" id="adjust_all_to_360"><a class="viewcode-back" href="../../api/api.html#pmagpy.pmag.adjust_all_to_360">[docs]</a><span class="k">def</span> <span class="nf">adjust_all_to_360</span><span class="p">(</span><span class="n">dictionary</span><span class="p">):</span>
     <span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">    Take a dictionary and check each key/value pair.</span>
 <span class="sd">    If this key is of type: declination/longitude/azimuth/direction,</span>
@@ -13208,7 +13247,7 @@ title="Open an issue"
     <span class="k">return</span> <span class="n">dictionary</span></div>
 
 
-<div class="viewcode-block" id="get_test_WD"><a class="viewcode-back" href="../../api.html#pmagpy.pmag.get_test_WD">[docs]</a><span class="k">def</span> <span class="nf">get_test_WD</span><span class="p">():</span>
+<div class="viewcode-block" id="get_test_WD"><a class="viewcode-back" href="../../api/api.html#pmagpy.pmag.get_test_WD">[docs]</a><span class="k">def</span> <span class="nf">get_test_WD</span><span class="p">():</span>
     <span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">    Find proper working directory to run tests.</span>
 <span class="sd">    With developer install, tests should be run from PmagPy directory.</span>
@@ -13221,7 +13260,7 @@ title="Open an issue"
     <span class="k">return</span> <span class="n">WD</span></div>
 
 
-<div class="viewcode-block" id="MissingCommandLineArgException"><a class="viewcode-back" href="../../api.html#pmagpy.pmag.MissingCommandLineArgException">[docs]</a><span class="k">class</span> <span class="nc">MissingCommandLineArgException</span><span class="p">(</span><span class="ne">Exception</span><span class="p">):</span>
+<div class="viewcode-block" id="MissingCommandLineArgException"><a class="viewcode-back" href="../../api/api.html#pmagpy.pmag.MissingCommandLineArgException">[docs]</a><span class="k">class</span> <span class="nc">MissingCommandLineArgException</span><span class="p">(</span><span class="ne">Exception</span><span class="p">):</span>
 
     <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">message</span><span class="p">):</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">message</span> <span class="o">=</span> <span class="s2">&quot;</span><span class="si">{}</span><span class="s2"> is a required option! Please provide this information and try again&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span>
@@ -13231,7 +13270,7 @@ title="Open an issue"
         <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">message</span></div>
 
 
-<div class="viewcode-block" id="do_mag_map"><a class="viewcode-back" href="../../api.html#pmagpy.pmag.do_mag_map">[docs]</a><span class="k">def</span> <span class="nf">do_mag_map</span><span class="p">(</span><span class="n">date</span><span class="p">,</span> <span class="n">lon_0</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">alt</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">file</span><span class="o">=</span><span class="s2">&quot;&quot;</span><span class="p">,</span> <span class="n">mod</span><span class="o">=</span><span class="s2">&quot;cals10k&quot;</span><span class="p">,</span><span class="n">resolution</span><span class="o">=</span><span class="s1">&#39;low&#39;</span><span class="p">):</span>
+<div class="viewcode-block" id="do_mag_map"><a class="viewcode-back" href="../../api/api.html#pmagpy.pmag.do_mag_map">[docs]</a><span class="k">def</span> <span class="nf">do_mag_map</span><span class="p">(</span><span class="n">date</span><span class="p">,</span> <span class="n">lon_0</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">alt</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">file</span><span class="o">=</span><span class="s2">&quot;&quot;</span><span class="p">,</span> <span class="n">mod</span><span class="o">=</span><span class="s2">&quot;cals10k&quot;</span><span class="p">,</span><span class="n">resolution</span><span class="o">=</span><span class="s1">&#39;low&#39;</span><span class="p">):</span>
     <span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">    Returns lists of declination, inclination and intensities for lat/lon grid for</span>
 <span class="sd">    desired model and date.</span>
@@ -13318,7 +13357,7 @@ title="Open an issue"
     <span class="k">return</span> <span class="n">Bdec</span><span class="p">,</span> <span class="n">Binc</span><span class="p">,</span> <span class="n">B</span><span class="p">,</span> <span class="n">Brad</span><span class="p">,</span> <span class="n">lons</span><span class="p">,</span> <span class="n">lats</span>  <span class="c1"># return the arrays.</span></div>
 
 
-<div class="viewcode-block" id="doeqdi"><a class="viewcode-back" href="../../api.html#pmagpy.pmag.doeqdi">[docs]</a><span class="k">def</span> <span class="nf">doeqdi</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="n">UP</span><span class="o">=</span><span class="kc">False</span><span class="p">):</span>
+<div class="viewcode-block" id="doeqdi"><a class="viewcode-back" href="../../api/api.html#pmagpy.pmag.doeqdi">[docs]</a><span class="k">def</span> <span class="nf">doeqdi</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="n">UP</span><span class="o">=</span><span class="kc">False</span><span class="p">):</span>
     <span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">    Takes digitized x,y, data and returns the dec,inc, assuming an</span>
 <span class="sd">    equal area projection.</span>
@@ -13345,7 +13384,7 @@ title="Open an issue"
     <span class="k">return</span> <span class="n">dec</span><span class="p">,</span> <span class="n">inc</span></div>
 
 
-<div class="viewcode-block" id="separate_directions"><a class="viewcode-back" href="../../api.html#pmagpy.pmag.separate_directions">[docs]</a><span class="k">def</span> <span class="nf">separate_directions</span><span class="p">(</span><span class="n">di_block</span><span class="p">):</span>
+<div class="viewcode-block" id="separate_directions"><a class="viewcode-back" href="../../api/api.html#pmagpy.pmag.separate_directions">[docs]</a><span class="k">def</span> <span class="nf">separate_directions</span><span class="p">(</span><span class="n">di_block</span><span class="p">):</span>
     <span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">    Separates set of directions into two modes based on principal direction</span>
 
@@ -13371,7 +13410,7 @@ title="Open an issue"
     <span class="k">return</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="n">mode1</span><span class="p">),</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="n">mode2</span><span class="p">)</span></div>
 
 
-<div class="viewcode-block" id="dovandamme"><a class="viewcode-back" href="../../api.html#pmagpy.pmag.dovandamme">[docs]</a><span class="k">def</span> <span class="nf">dovandamme</span><span class="p">(</span><span class="n">vgp_df</span><span class="p">):</span>
+<div class="viewcode-block" id="dovandamme"><a class="viewcode-back" href="../../api/api.html#pmagpy.pmag.dovandamme">[docs]</a><span class="k">def</span> <span class="nf">dovandamme</span><span class="p">(</span><span class="n">vgp_df</span><span class="p">):</span>
     <span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">    Determine the S_b value for VGPs using the Vandamme (1994) method</span>
 <span class="sd">    for determining cutoff value for &quot;outliers&quot;.</span>
@@ -13402,7 +13441,7 @@ title="Open an issue"
         <span class="n">A</span> <span class="o">=</span> <span class="mf">1.8</span> <span class="o">*</span> <span class="n">ASD</span> <span class="o">+</span> <span class="mf">5.</span></div>
 
 
-<div class="viewcode-block" id="scalc_vgp_df"><a class="viewcode-back" href="../../api.html#pmagpy.pmag.scalc_vgp_df">[docs]</a><span class="k">def</span> <span class="nf">scalc_vgp_df</span><span class="p">(</span><span class="n">vgp_df</span><span class="p">,</span> <span class="n">anti</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">rev</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">cutoff</span><span class="o">=</span><span class="mf">180.</span><span class="p">,</span> <span class="n">kappa</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">n</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">spin</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">v</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">boot</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">mm97</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">nb</span><span class="o">=</span><span class="mi">1000</span><span class="p">,</span><span class="n">verbose</span><span class="o">=</span><span class="kc">True</span><span class="p">):</span>
+<div class="viewcode-block" id="scalc_vgp_df"><a class="viewcode-back" href="../../api/api.html#pmagpy.pmag.scalc_vgp_df">[docs]</a><span class="k">def</span> <span class="nf">scalc_vgp_df</span><span class="p">(</span><span class="n">vgp_df</span><span class="p">,</span> <span class="n">anti</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">rev</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">cutoff</span><span class="o">=</span><span class="mf">180.</span><span class="p">,</span> <span class="n">kappa</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">n</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">spin</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">v</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">boot</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">mm97</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">nb</span><span class="o">=</span><span class="mi">1000</span><span class="p">,</span><span class="n">verbose</span><span class="o">=</span><span class="kc">True</span><span class="p">):</span>
     <span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">    Calculates Sf for a dataframe with VGP Lat., and optional Fisher&#39;s k,</span>
 <span class="sd">    site latitude and N information can be used to correct for within site</span>
@@ -13487,7 +13526,7 @@ title="Open an issue"
     <span class="k">return</span> <span class="n">N</span><span class="p">,</span> <span class="n">S_B</span><span class="p">,</span> <span class="n">low</span><span class="p">,</span> <span class="n">high</span><span class="p">,</span> <span class="n">cutoff</span></div>
 
 
-<div class="viewcode-block" id="watsons_f"><a class="viewcode-back" href="../../api.html#pmagpy.pmag.watsons_f">[docs]</a><span class="k">def</span> <span class="nf">watsons_f</span><span class="p">(</span><span class="n">DI1</span><span class="p">,</span> <span class="n">DI2</span><span class="p">):</span>
+<div class="viewcode-block" id="watsons_f"><a class="viewcode-back" href="../../api/api.html#pmagpy.pmag.watsons_f">[docs]</a><span class="k">def</span> <span class="nf">watsons_f</span><span class="p">(</span><span class="n">DI1</span><span class="p">,</span> <span class="n">DI2</span><span class="p">):</span>
     <span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">    Calculates Watson&#39;s F statistic (equation 11.16 in Essentials text book).</span>
 
@@ -13523,7 +13562,7 @@ title="Open an issue"
     <span class="k">return</span> <span class="n">F</span><span class="p">,</span> <span class="n">Fcrit</span></div>
 
 
-<div class="viewcode-block" id="apwp"><a class="viewcode-back" href="../../api.html#pmagpy.pmag.apwp">[docs]</a><span class="k">def</span> <span class="nf">apwp</span><span class="p">(</span><span class="n">data</span><span class="p">,</span> <span class="n">print_results</span><span class="o">=</span><span class="kc">False</span><span class="p">):</span>
+<div class="viewcode-block" id="apwp"><a class="viewcode-back" href="../../api/api.html#pmagpy.pmag.apwp">[docs]</a><span class="k">def</span> <span class="nf">apwp</span><span class="p">(</span><span class="n">data</span><span class="p">,</span> <span class="n">print_results</span><span class="o">=</span><span class="kc">False</span><span class="p">):</span>
     <span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">    Calculates expected pole positions and directions for given plate, location and age.</span>
 <span class="sd">    </span>
@@ -13562,7 +13601,7 @@ title="Open an issue"
         <span class="k">return</span> <span class="p">[</span><span class="n">data</span><span class="p">[</span><span class="mi">3</span><span class="p">],</span> <span class="n">paleo_lat</span><span class="p">,</span> <span class="n">ExpDec</span><span class="p">,</span> <span class="n">ExpInc</span><span class="p">,</span> <span class="n">pole_lat</span><span class="p">,</span> <span class="n">pole_lon</span><span class="p">]</span></div>
 
 
-<div class="viewcode-block" id="chart_maker"><a class="viewcode-back" href="../../api.html#pmagpy.pmag.chart_maker">[docs]</a><span class="k">def</span> <span class="nf">chart_maker</span><span class="p">(</span><span class="n">Int</span><span class="p">,</span> <span class="n">Top</span><span class="p">,</span> <span class="n">start</span><span class="o">=</span><span class="mi">100</span><span class="p">,</span> <span class="n">outfile</span><span class="o">=</span><span class="s1">&#39;chart.txt&#39;</span><span class="p">):</span>
+<div class="viewcode-block" id="chart_maker"><a class="viewcode-back" href="../../api/api.html#pmagpy.pmag.chart_maker">[docs]</a><span class="k">def</span> <span class="nf">chart_maker</span><span class="p">(</span><span class="n">Int</span><span class="p">,</span> <span class="n">Top</span><span class="p">,</span> <span class="n">start</span><span class="o">=</span><span class="mi">100</span><span class="p">,</span> <span class="n">outfile</span><span class="o">=</span><span class="s1">&#39;chart.txt&#39;</span><span class="p">):</span>
     <span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">    Makes a chart for performing IZZI experiments. Print out the file and</span>
 <span class="sd">    tape it to the oven.  This chart will help keep track of the different</span>
@@ -13648,7 +13687,7 @@ title="Open an issue"
     <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;output stored in: chart.txt&quot;</span><span class="p">)</span></div>
 
 
-<div class="viewcode-block" id="import_basemap"><a class="viewcode-back" href="../../api.html#pmagpy.pmag.import_basemap">[docs]</a><span class="k">def</span> <span class="nf">import_basemap</span><span class="p">():</span>
+<div class="viewcode-block" id="import_basemap"><a class="viewcode-back" href="../../api/api.html#pmagpy.pmag.import_basemap">[docs]</a><span class="k">def</span> <span class="nf">import_basemap</span><span class="p">():</span>
     <span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">    Try to import Basemap and print out a useful help message</span>
 <span class="sd">    if Basemap is either not installed or is missing required</span>
@@ -13702,7 +13741,7 @@ title="Open an issue"
     <span class="k">return</span> <span class="n">has_basemap</span><span class="p">,</span> <span class="n">Basemap</span></div>
 
 
-<div class="viewcode-block" id="import_cartopy"><a class="viewcode-back" href="../../api.html#pmagpy.pmag.import_cartopy">[docs]</a><span class="k">def</span> <span class="nf">import_cartopy</span><span class="p">():</span>
+<div class="viewcode-block" id="import_cartopy"><a class="viewcode-back" href="../../api/api.html#pmagpy.pmag.import_cartopy">[docs]</a><span class="k">def</span> <span class="nf">import_cartopy</span><span class="p">():</span>
     <span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">    Try to import cartopy and print out a help message</span>
 <span class="sd">    if it is not installed</span>
@@ -13730,7 +13769,7 @@ title="Open an issue"
     <span class="k">return</span> <span class="n">has_cartopy</span><span class="p">,</span> <span class="n">cartopy</span></div>
 
 
-<div class="viewcode-block" id="age_to_BP"><a class="viewcode-back" href="../../api.html#pmagpy.pmag.age_to_BP">[docs]</a><span class="k">def</span> <span class="nf">age_to_BP</span><span class="p">(</span><span class="n">age</span><span class="p">,</span> <span class="n">age_unit</span><span class="p">):</span>
+<div class="viewcode-block" id="age_to_BP"><a class="viewcode-back" href="../../api/api.html#pmagpy.pmag.age_to_BP">[docs]</a><span class="k">def</span> <span class="nf">age_to_BP</span><span class="p">(</span><span class="n">age</span><span class="p">,</span> <span class="n">age_unit</span><span class="p">):</span>
     <span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">    Convert an age value into the equivalent in time Before Present(BP) where Present is 1950.</span>
 
@@ -13763,7 +13802,7 @@ title="Open an issue"
     <span class="k">return</span> <span class="n">ageBP</span></div>
 
 
-<div class="viewcode-block" id="vocab_convert"><a class="viewcode-back" href="../../api.html#pmagpy.pmag.vocab_convert">[docs]</a><span class="k">def</span> <span class="nf">vocab_convert</span><span class="p">(</span><span class="n">vocab</span><span class="p">,</span> <span class="n">standard</span><span class="p">,</span> <span class="n">key</span><span class="o">=</span><span class="s1">&#39;&#39;</span><span class="p">):</span>
+<div class="viewcode-block" id="vocab_convert"><a class="viewcode-back" href="../../api/api.html#pmagpy.pmag.vocab_convert">[docs]</a><span class="k">def</span> <span class="nf">vocab_convert</span><span class="p">(</span><span class="n">vocab</span><span class="p">,</span> <span class="n">standard</span><span class="p">,</span> <span class="n">key</span><span class="o">=</span><span class="s1">&#39;&#39;</span><span class="p">):</span>
     <span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">    Converts MagIC database terms (method codes, geologic_types, etc) to other standards.</span>
 <span class="sd">    May not be comprehensive for each standard. Terms added to standards as people need them</span>
@@ -13993,7 +14032,7 @@ title="Open an issue"
     <span class="k">return</span> <span class="n">standard_value</span></div>
 
 
-<div class="viewcode-block" id="fix_directories"><a class="viewcode-back" href="../../api.html#pmagpy.pmag.fix_directories">[docs]</a><span class="k">def</span> <span class="nf">fix_directories</span><span class="p">(</span><span class="n">input_dir_path</span><span class="p">,</span> <span class="n">output_dir_path</span><span class="p">):</span>
+<div class="viewcode-block" id="fix_directories"><a class="viewcode-back" href="../../api/api.html#pmagpy.pmag.fix_directories">[docs]</a><span class="k">def</span> <span class="nf">fix_directories</span><span class="p">(</span><span class="n">input_dir_path</span><span class="p">,</span> <span class="n">output_dir_path</span><span class="p">):</span>
     <span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">    Take arguments input/output directories and fixes them.</span>
 <span class="sd">    If no input_directory, default to output_dir_path for both.</span>

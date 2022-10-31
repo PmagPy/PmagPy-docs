@@ -1,6 +1,6 @@
-# OSX pip install
+# OSX developer install
 
-These are the install instructions for OSX/pip.
+These are the install instructions for OSX/developer.
 
 ## Install Python
 
@@ -27,7 +27,7 @@ need to download Anaconda.
   packages:
 
   ```
-  conda create -n pmagpy_env future wxPython cartopy pandas matplotlib requests jupyter
+  conda create -n pmagpy_env future wxPython cartopy pandas matplotlib requests jupyter seaborn
   conda activate pmagpy_env
   pip install --user --upgrade pip setuptools
   conda install conda-forge::python-wget
@@ -67,30 +67,56 @@ To make sure that you have installed Python successfully, type
 `python` on your command line. You should see something like this:
 
 ```
-Python 3.7.10 (default, Feb 26 2021, 10:16:00)
+Python 3.7.11 (default, Jul 27 2021, 07:03:16)
 [Clang 10.0.0 ] :: Anaconda, Inc. on darwin
 Type "help", "copyright", "credits" or "license" for more information.
+>>>
 ```
 
 (Press control-D to exit)
 
 ## Install PmagPy
 
-- Install pmagpy and pmagpy-cli:
+Here are the steps to clone and install **PmagPy**.
+
+- **PmagPy** has been most extensively tested using the bash shell (not
+  csh, zsh, etc.). However, bash is no longer the default for OSX. The
+  new default shell (zsh) should work, but if you run into trouble and
+  need to switch, you can [follow these
+  instructions](https://support.apple.com/guide/terminal/change-the-default-shell-trml113/mac).
+  Select Terminal `-->` Preferences `-->` General, and choose
+  “default login shell”. Restart Terminal, and you’ll be ready to go.
+
+- Download and [install git](https://git-scm.com/downloads)
+
+- Navigate to the directory where you want to put the PmagPy folder,
+  then run:
 
   ```
-  pip install --upgrade pmagpy --no-deps
-  pip install --upgrade pmagpy-cli --no-deps
+  git clone https://github.com/PmagPy/PmagPy.git
   ```
 
-- If you are getting weird install errors, try uninstalling and then
-  force reinstalling with this:
+- You should now have a full local copy of the PmagPy repository.
+  Change directories into PmagPy:
 
   ```
-  pip uninstall pmagpy pmagpy-cli
-  pip install pmagpy --upgrade --no-deps --force-reinstall --no-cache-dir
-  pip install pmagpy-cli --upgrade --no-deps --force-reinstall --no-cache-dir
+  cd PmagPy
   ```
+
+- Next, you need to add PmagPy to your PATH so that the PmagPy programs
+  can be called from any directory. Try running:
+
+  ```
+  python dev_setup.py install
+  ```
+
+- If you have problems with the install, run `python dev_setup.py -h`
+  for more information. You can also set your [PATH
+  manually](https://earthref.org/PmagPy/cookbook/#setting_path) if
+  dev_setup.py fails.
+
+- After completing the developer install, you should restart your
+  command line.
 
 ## Test PmagPy
 
@@ -113,7 +139,7 @@ Test the GUIs:
 - On the command line, open Pmag GUI by running:
 
   ```
-  pmag_gui_anaconda
+  pmag_gui.py
   ```
 
 Remember that the program may be very slow to initialize the first time!
@@ -133,44 +159,18 @@ Accessing example data files:
 There are many data files used in the examples of programs and for use
 with the textbook [Essentials of
 Paleomagnetism](http://earthref.org/MAGIC/books/Tauxe/Essentials/WebBook3.html).
-You may want to copy the data files to your Desktop or another
-convenient location. To do this, navigate on the command line to your
-desired destination folder (for help, see [this Cookbook
-section](https://earthref.org/PmagPy/cookbook/#file_system)). Then,
-use the command:
-
-```
-move_data_files.py
-```
-
-This will copy all of the PmagPy example files to your current
-directory. NB: If you have a developer install, you can simply navigate
-to PmagPy/data_files, and move_data_files.py will not be needed.
+You can find these in PmagPy/data_files.
 
 ## Keeping PmagPy up-to-date
 
-To stay up to date with new features and bug fixes, you should
-periodically update both **PmagPy** packages.
+You will want to stay up to date with **PmagPy** development. To update
+your developer install, you will just need to navigate to the **PmagPy**
+directory and run:
 
 ```
-pip install pmagpy --upgrade --no-deps
+git pull
 ```
 
-To check the currently installed version number for pmagpy (or any other
-Python package), run:
-
-```
-conda list
-```
-
-If you ever need to uninstall pmagpy or pmagpy-cli:
-
-```
-pip uninstall pmagpy
-```
-
-or
-
-```
-pip uninstall pmagpy-cli
-```
+This will grab all of the latest code from
+[Github](https://github.com/PmagPy/PmagPy), and will be immediately
+available to you.

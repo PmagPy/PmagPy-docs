@@ -6,7 +6,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
 
-    <title>OSX pip install &#8212; PmagPy Documentation</title>
+    <title>Windows pip install &#8212; PmagPy Documentation</title>
     
   <!-- Loaded before other Sphinx assets -->
   <link href="../_static/styles/theme.css?digest=1999514e3f237ded88cf" rel="stylesheet">
@@ -52,8 +52,8 @@ const thebe_selector_output = ".output, .cell_output"
     <script async="async" src="../_static/sphinx-thebe.js"></script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
-    <link rel="next" title="OSX developer install" href="osx_developer.html" />
-    <link rel="prev" title="Installing PmagPy" href="PmagPy_install.html" />
+    <link rel="next" title="Windows developer install" href="windows_developer.html" />
+    <link rel="prev" title="OSX developer install" href="osx_developer.html" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="docsearch:language" content="None">
     
@@ -132,8 +132,8 @@ const thebe_selector_output = ".output, .cell_output"
    </i>
   </label>
   <ul class="current">
-   <li class="toctree-l2 current active">
-    <a class="current reference internal" href="#">
+   <li class="toctree-l2">
+    <a class="reference internal" href="osx_pip.html">
      OSX pip install
     </a>
    </li>
@@ -142,8 +142,8 @@ const thebe_selector_output = ".output, .cell_output"
      OSX developer install
     </a>
    </li>
-   <li class="toctree-l2">
-    <a class="reference internal" href="windows_pip.html">
+   <li class="toctree-l2 current active">
+    <a class="current reference internal" href="#">
      Windows pip install
     </a>
    </li>
@@ -317,7 +317,7 @@ title="Source repository"
       </li>
       
       <li>
-        <a href="https://github.com/pmagpy/pmagpy-docs/issues/new?title=Issue%20on%20page%20%2Finstallation/osx_pip.html&body=Your%20issue%20content%20here."
+        <a href="https://github.com/pmagpy/pmagpy-docs/issues/new?title=Issue%20on%20page%20%2Finstallation/windows_pip.html&body=Your%20issue%20content%20here."
    class="headerbtn"
    data-toggle="tooltip"
 data-placement="left"
@@ -345,7 +345,7 @@ title="Open an issue"
   <div class="menu-dropdown__content">
     <ul>
       <li>
-        <a href="../_sources/installation/osx_pip.md"
+        <a href="../_sources/installation/windows_pip.md"
    class="headerbtn"
    data-toggle="tooltip"
 data-placement="left"
@@ -443,7 +443,7 @@ title="Print to PDF"
         <div class="col pl-md-3 pl-lg-5 content-container">
             <!-- Table of contents that is only displayed when printing the page -->
             <div id="jb-print-docs-body" class="onlyprint">
-                <h1>OSX pip install</h1>
+                <h1>Windows pip install</h1>
                 <!-- Table of contents -->
                 <div id="print-main-content">
                     <div id="jb-print-toc">
@@ -493,27 +493,24 @@ title="Print to PDF"
                 
               <div>
                 
-  <section class="tex2jax_ignore mathjax_ignore" id="osx-pip-install">
-<h1>OSX pip install<a class="headerlink" href="#osx-pip-install" title="Permalink to this headline">#</a></h1>
-<p>These are the install instructions for OSX/pip.</p>
+  <section class="tex2jax_ignore mathjax_ignore" id="windows-pip-install">
+<h1>Windows pip install<a class="headerlink" href="#windows-pip-install" title="Permalink to this headline">#</a></h1>
+<p>These are the install instructions for Windows/pip.</p>
 <section id="install-python">
 <h2>Install Python<a class="headerlink" href="#install-python" title="Permalink to this headline">#</a></h2>
 <p>First, you will need to download a scientific Python distribution. We
-strongly recommend Anaconda. Be warned, your computer comes with a
-version of Python already installed; but this pre-installed version does
-NOT have everything you will need to run <strong>PmagPy</strong>, so you will still
-need to download Anaconda.</p>
+strongly recommend Anaconda.</p>
 <ul>
 <li><p>Download and install <a class="reference external" href="https://www.anaconda.com/download">Anaconda Python
-3</a>.</p></li>
-<li><p>Note: if you already installed Anaconda Python, and then you upgrade
-to OSX Catalina, you may need to reinstall Anaconda. In general, if
-you run into errors with your Anaconda Python environment, it can
-save time to simply <a class="reference external" href="https://docs.anaconda.com/anaconda/install/uninstall/">uninstall and
-reinstall</a>.</p></li>
-<li><p>Open your command line (Terminal). See <a class="reference external" href="https://earthref.org/PmagPy/cookbook/#command_line">this Cookbook
+3</a>. Select an install for “Just
+Me”, not for all users. You should select “Add Anaconda to my PATH
+environment variable” in Advanced Installation Options (if
+available). Otherwise, stick with the defaults.</p></li>
+<li><p>Open your command line (Command Prompt). See <a class="reference external" href="https://earthref.org/PmagPy/cookbook/#command_line">this Cookbook
 section</a> for
-more information on finding your command line.</p></li>
+more information on finding Command Prompt)</p></li>
+<li><p>Note: if you did not add Anaconda Python to your PATH as recommended
+above, you will open the “Anaconda Prompt” instead).</p></li>
 <li><p>Create and activate a new conda Python environment with some required
 packages:</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">conda</span> <span class="n">create</span> <span class="o">-</span><span class="n">n</span> <span class="n">pmagpy_env</span> <span class="n">future</span> <span class="n">wxPython</span> <span class="n">cartopy</span> <span class="n">pandas</span> <span class="n">matplotlib</span> <span class="n">requests</span> <span class="n">jupyter</span>
@@ -526,42 +523,33 @@ packages:</p>
 <li><p>You have now created a new environment called “pmagpy_env” and
 activated it. This gives you a Python environment with the packages
 you need to run PmagPy programs. Each time you want to use PmagPy,
-you will open your Terminal and then run:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">conda</span> <span class="n">activate</span> <span class="n">pmagpy_env</span>
-</pre></div>
-</div>
+you will open your Command Prompt and then run:</p>
+<p>conda activate pmagpy_env</p>
 <p>You can also deactivate the environment using:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">conda</span> <span class="n">deactivate</span>
-</pre></div>
-</div>
+<p>conda deactivate</p>
 <p>You must always activate your pmagpy environment when you open a new
-Terminal window if you want to use PmagPy in that window. To learn
-more about managing conda environments, etc., see the Anaconda
+Command Prompt window if you want to use PmagPy in that window. To
+learn more about managing conda environments, etc., see the Anaconda
 documentation and
 <a class="reference external" href="https://know.continuum.io/rs/387-XNW-688/images/conda-cheatsheet.pdf">cheatsheet</a>.</p>
 </li>
-<li><p>When running these commands you may see some warnings about
-dependencies, but you can just ignore them!</p></li>
-<li><p>If a package fails to install, you may need to use “sudo”: i.e.,
-<code class="docutils literal notranslate"><span class="pre">sudo</span> <span class="pre">pip</span> <span class="pre">install</span> <span class="pre">scripttest</span></code>. You will then be asked for your
-computer password.</p></li>
 </ul>
 </section>
 <section id="test-your-python">
 <h2>Test your python<a class="headerlink" href="#test-your-python" title="Permalink to this headline">#</a></h2>
 <p>To make sure that you have installed Python successfully, type
 <code class="docutils literal notranslate"><span class="pre">python</span></code> on your command line. You should see something like this:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">Python</span> <span class="mf">3.7.10</span> <span class="p">(</span><span class="n">default</span><span class="p">,</span> <span class="n">Feb</span> <span class="mi">26</span> <span class="mi">2021</span><span class="p">,</span> <span class="mi">10</span><span class="p">:</span><span class="mi">16</span><span class="p">:</span><span class="mi">00</span><span class="p">)</span>
-<span class="p">[</span><span class="n">Clang</span> <span class="mf">10.0.0</span> <span class="p">]</span> <span class="p">::</span> <span class="n">Anaconda</span><span class="p">,</span> <span class="n">Inc</span><span class="o">.</span> <span class="n">on</span> <span class="n">darwin</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">Python</span> <span class="mf">3.6.4</span> <span class="o">|</span><span class="n">Anaconda</span> <span class="n">custom</span> <span class="p">(</span><span class="mi">32</span><span class="o">-</span><span class="n">bit</span><span class="p">)</span><span class="o">|</span> <span class="p">(</span><span class="n">default</span><span class="p">,</span> <span class="n">Jan</span> <span class="mi">16</span> <span class="mi">2018</span><span class="p">,</span> <span class="mi">10</span><span class="p">:</span><span class="mi">21</span><span class="p">:</span><span class="mi">59</span><span class="p">)</span> <span class="p">[</span><span class="n">MSC</span> <span class="n">v</span><span class="mf">.1900</span> <span class="mi">32</span> <span class="n">bit</span> <span class="p">(</span><span class="n">Intel</span><span class="p">)]</span> <span class="n">on</span> <span class="n">win32</span>
 <span class="n">Type</span> <span class="s2">&quot;help&quot;</span><span class="p">,</span> <span class="s2">&quot;copyright&quot;</span><span class="p">,</span> <span class="s2">&quot;credits&quot;</span> <span class="ow">or</span> <span class="s2">&quot;license&quot;</span> <span class="k">for</span> <span class="n">more</span> <span class="n">information</span><span class="o">.</span>
+<span class="o">&gt;&gt;&gt;</span>
 </pre></div>
 </div>
-<p>(Press control-D to exit)</p>
+<p>(Type “quit()” and then hit enter to end your python session)</p>
 </section>
 <section id="install-pmagpy">
 <h2>Install PmagPy<a class="headerlink" href="#install-pmagpy" title="Permalink to this headline">#</a></h2>
 <ul>
-<li><p>Install pmagpy and pmagpy-cli:</p>
+<li><p>Install pmagpy and pmagpy-cli into your pmagpy_env:</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">pip</span> <span class="n">install</span> <span class="o">--</span><span class="n">upgrade</span> <span class="n">pmagpy</span> <span class="o">--</span><span class="n">no</span><span class="o">-</span><span class="n">deps</span>
 <span class="n">pip</span> <span class="n">install</span> <span class="o">--</span><span class="n">upgrade</span> <span class="n">pmagpy</span><span class="o">-</span><span class="n">cli</span> <span class="o">--</span><span class="n">no</span><span class="o">-</span><span class="n">deps</span>
 </pre></div>
@@ -596,7 +584,7 @@ be much faster in subsequent runs.</p>
 <p>Test the GUIs:</p>
 <ul>
 <li><p>On the command line, open Pmag GUI by running:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">pmag_gui_anaconda</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">pmag_gui</span>
 </pre></div>
 </div>
 </li>
@@ -622,12 +610,12 @@ convenient location. To do this, navigate on the command line to your
 desired destination folder (for help, see <a class="reference external" href="https://earthref.org/PmagPy/cookbook/#file_system">this Cookbook
 section</a>). Then,
 use the command:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">move_data_files</span><span class="o">.</span><span class="n">py</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">move_data_files</span>
 </pre></div>
 </div>
 <p>This will copy all of the PmagPy example files to your current
 directory. NB: If you have a developer install, you can simply navigate
-to PmagPy/data_files, and move_data_files.py will not be needed.</p>
+to PmagPy/data_files, and move_data_files will not be needed.</p>
 </section>
 <section id="keeping-pmagpy-up-to-date">
 <h2>Keeping PmagPy up-to-date<a class="headerlink" href="#keeping-pmagpy-up-to-date" title="Permalink to this headline">#</a></h2>
@@ -679,17 +667,17 @@ Python package), run:</p>
                 
     <!-- Previous / next buttons -->
 <div class='prev-next-area'>
-    <a class='left-prev' id="prev-link" href="PmagPy_install.html" title="previous page">
+    <a class='left-prev' id="prev-link" href="osx_developer.html" title="previous page">
         <i class="fas fa-angle-left"></i>
         <div class="prev-next-info">
             <p class="prev-next-subtitle">previous</p>
-            <p class="prev-next-title">Installing <strong>PmagPy</strong></p>
+            <p class="prev-next-title">OSX developer install</p>
         </div>
     </a>
-    <a class='right-next' id="next-link" href="osx_developer.html" title="next page">
+    <a class='right-next' id="next-link" href="windows_developer.html" title="next page">
     <div class="prev-next-info">
         <p class="prev-next-subtitle">next</p>
-        <p class="prev-next-title">OSX developer install</p>
+        <p class="prev-next-title">Windows developer install</p>
     </div>
     <i class="fas fa-angle-right"></i>
     </a>

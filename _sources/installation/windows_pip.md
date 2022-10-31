@@ -1,27 +1,24 @@
-# OSX pip install
+# Windows pip install
 
-These are the install instructions for OSX/pip.
+These are the install instructions for Windows/pip.
 
 ## Install Python
 
 First, you will need to download a scientific Python distribution. We
-strongly recommend Anaconda. Be warned, your computer comes with a
-version of Python already installed; but this pre-installed version does
-NOT have everything you will need to run **PmagPy**, so you will still
-need to download Anaconda.
+strongly recommend Anaconda.
 
 - Download and install [Anaconda Python
-  3](https://www.anaconda.com/download).
+  3](https://www.anaconda.com/download). Select an install for “Just
+  Me”, not for all users. You should select “Add Anaconda to my PATH
+  environment variable” in Advanced Installation Options (if
+  available). Otherwise, stick with the defaults.
 
-- Note: if you already installed Anaconda Python, and then you upgrade
-  to OSX Catalina, you may need to reinstall Anaconda. In general, if
-  you run into errors with your Anaconda Python environment, it can
-  save time to simply [uninstall and
-  reinstall](https://docs.anaconda.com/anaconda/install/uninstall/).
-
-- Open your command line (Terminal). See [this Cookbook
+- Open your command line (Command Prompt). See [this Cookbook
   section](https://earthref.org/PmagPy/cookbook/#command_line) for
-  more information on finding your command line.
+  more information on finding Command Prompt)
+
+- Note: if you did not add Anaconda Python to your PATH as recommended
+  above, you will open the “Anaconda Prompt” instead).
 
 - Create and activate a new conda Python environment with some required
   packages:
@@ -36,30 +33,19 @@ need to download Anaconda.
 - You have now created a new environment called “pmagpy_env” and
   activated it. This gives you a Python environment with the packages
   you need to run PmagPy programs. Each time you want to use PmagPy,
-  you will open your Terminal and then run:
+  you will open your Command Prompt and then run:
 
-  ```
   conda activate pmagpy_env
-  ```
 
   You can also deactivate the environment using:
 
-  ```
   conda deactivate
-  ```
 
   You must always activate your pmagpy environment when you open a new
-  Terminal window if you want to use PmagPy in that window. To learn
-  more about managing conda environments, etc., see the Anaconda
+  Command Prompt window if you want to use PmagPy in that window. To
+  learn more about managing conda environments, etc., see the Anaconda
   documentation and
   [cheatsheet](https://know.continuum.io/rs/387-XNW-688/images/conda-cheatsheet.pdf).
-
-- When running these commands you may see some warnings about
-  dependencies, but you can just ignore them!
-
-- If a package fails to install, you may need to use “sudo”: i.e.,
-  `sudo pip install scripttest`. You will then be asked for your
-  computer password.
 
 ## Test your python
 
@@ -67,16 +53,16 @@ To make sure that you have installed Python successfully, type
 `python` on your command line. You should see something like this:
 
 ```
-Python 3.7.10 (default, Feb 26 2021, 10:16:00)
-[Clang 10.0.0 ] :: Anaconda, Inc. on darwin
+Python 3.6.4 |Anaconda custom (32-bit)| (default, Jan 16 2018, 10:21:59) [MSC v.1900 32 bit (Intel)] on win32
 Type "help", "copyright", "credits" or "license" for more information.
+>>>
 ```
 
-(Press control-D to exit)
+(Type “quit()” and then hit enter to end your python session)
 
 ## Install PmagPy
 
-- Install pmagpy and pmagpy-cli:
+- Install pmagpy and pmagpy-cli into your pmagpy_env:
 
   ```
   pip install --upgrade pmagpy --no-deps
@@ -113,7 +99,7 @@ Test the GUIs:
 - On the command line, open Pmag GUI by running:
 
   ```
-  pmag_gui_anaconda
+  pmag_gui
   ```
 
 Remember that the program may be very slow to initialize the first time!
@@ -140,12 +126,12 @@ section](https://earthref.org/PmagPy/cookbook/#file_system)). Then,
 use the command:
 
 ```
-move_data_files.py
+move_data_files
 ```
 
 This will copy all of the PmagPy example files to your current
 directory. NB: If you have a developer install, you can simply navigate
-to PmagPy/data_files, and move_data_files.py will not be needed.
+to PmagPy/data_files, and move_data_files will not be needed.
 
 ## Keeping PmagPy up-to-date
 
