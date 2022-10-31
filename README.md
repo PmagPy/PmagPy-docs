@@ -1,6 +1,6 @@
 # PmagPy-docs
 
-At the moment, this repository is an experiment to generate a Jupyter-Book from PmagPy notebooks.
+This repository generates this Jupyter Book website: https://pmagpy.github.io/PmagPy-docs/
 
 Jupyter book can be installed via pip:
 ```
