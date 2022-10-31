@@ -89,7 +89,7 @@ PmagPy is comprised of:
 
 # Citing PmagPy
 
-Users of PmagPy should cite the open access article:
+Users of PmagPy should cite the open access article {cite:p}`Tauxe2016a`:
 
 Tauxe, L., R. Shaar, L. Jonestrask, N. L. Swanson-Hysell, R. Minnett, A. A. P. Koppers, C. G. Constable, N. Jarboe, K. Gaastra, and L. Fairchild (2016), PmagPy: Software package for paleomagnetic data analysis and a bridge to the Magnetics Information Consortium (MagIC) Database, Geochem. Geophys. Geosyst., 17, doi:[10.1002/2016GC006307](http://dx.doi.org/10.1002/2016GC006307).
 
@@ -146,7 +146,7 @@ You can find more on [{bdg-primary}`Google Scholar`](https://scholar.google.com/
 :height: 100
 ```
 
-Nature Astronomy: The palaeoinclination of the ancient lunar magnetic field from an Apollo 17 basalt
+Nature Astronomy: The palaeoinclination of the ancient lunar magnetic field from an Apollo 17 basalt {cite:p}`Nichols2021a`
 +++
 Explore this paper {fas}`arrow-right`
 :::
@@ -163,7 +163,7 @@ Explore this paper {fas}`arrow-right`
 :height: 100
 ```
 
-GSAB: Paleomagnetism of the Chuar Group...with implications for the makeup and breakup of Rodinia
+GSAB: Paleomagnetism of the Chuar Group...with implications for the makeup and breakup of Rodinia {cite:p}`Eyster2020a`
 +++
 Explore this paper {fas}`arrow-right`
 :::
@@ -180,7 +180,7 @@ Explore this paper {fas}`arrow-right`
 :height: 100
 ```
 
-G^3: Archeointensity of the Four Corners Region of the American Southwest
+G^3: Archeointensity of the Four Corners Region of the American Southwest {cite:p}`Jones2020b`
 +++
 Explore this paper {fas}`arrow-right`
 :::
@@ -196,7 +196,7 @@ The online textbook [Essentials of Paleomagnetism](https://earthref.org/MagIC/bo
 :::{grid-item}
 :columns: 4
 
-```{image} https://www.nsf.gov/policies/images/NSF_Official_logo_High_Res_1200ppi.png
+```{image} images/logos/NSF_logo.png
 :class: m-auto
 :width: 150px
 ```
@@ -209,3 +209,8 @@ This work is supported by the National Science Foundation through its [support f
 :::
 
 ::::
+
+# References
+
+```{bibliography}
+```

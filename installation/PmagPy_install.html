@@ -177,6 +177,18 @@ const thebe_selector_output = ".output, .cell_output"
   </a>
  </li>
 </ul>
+<p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  Function docstrings
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../api/api.html">
+   API Reference
+  </a>
+ </li>
+</ul>
 
     </div>
 </nav></div>
@@ -354,6 +366,11 @@ title="Print to PDF"
     <nav id="bd-toc-nav" aria-label="Page">
         <ul class="visible nav section-nav flex-column">
  <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#pip-install">
+   pip install
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#standalone-gui-download">
    Standalone GUI download
   </a>
@@ -376,8 +393,8 @@ title="Print to PDF"
   </ul>
  </li>
  <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#full-pmagpy-install-and-update">
-   Full PmagPy install and update
+  <a class="reference internal nav-link" href="#pmagpy-developer-install">
+   PmagPy developer install
   </a>
  </li>
  <li class="toc-h2 nav-item toc-entry">
@@ -432,6 +449,11 @@ title="Print to PDF"
                         <nav aria-label="Page">
                             <ul class="visible nav section-nav flex-column">
  <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#pip-install">
+   pip install
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#standalone-gui-download">
    Standalone GUI download
   </a>
@@ -454,8 +476,8 @@ title="Print to PDF"
   </ul>
  </li>
  <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#full-pmagpy-install-and-update">
-   Full PmagPy install and update
+  <a class="reference internal nav-link" href="#pmagpy-developer-install">
+   PmagPy developer install
   </a>
  </li>
  <li class="toc-h2 nav-item toc-entry">
@@ -532,6 +554,22 @@ instructions.</p></li>
 online class for Earth Scientists:
 <a class="reference external" href="https://github.com/ltauxe/Python-for-Earth-Science-Students">https://github.com/ltauxe/Python-for-Earth-Science-Students</a></p></li>
 </ul>
+<section id="pip-install">
+<h2>pip install<a class="headerlink" href="#pip-install" title="Permalink to this headline">#</a></h2>
+<p>To get going with full <strong>PmagPy</strong> functionality, you can pip install the package
+within your Python environment (e.g. your conda environment):</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">pip</span> <span class="n">install</span> <span class="n">pmagpy</span>
+</pre></div>
+</div>
+<p>to get the associated command line programs, you can pip install pmag-cli</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">pip</span> <span class="n">install</span> <span class="n">pmagpy</span><span class="o">-</span><span class="n">cli</span>
+</pre></div>
+</div>
+<p>You can find more specific pip install instructions for each operating system at these pages:</p>
+<p><a class="reference external" href="https://earthref.org/PmagPy/cookbook/osx_pip.html">OSX pip</a></p>
+<p><a class="reference external" href="https://earthref.org/PmagPy/cookbook/windows_pip.html">Windows pip</a></p>
+<p><a class="reference external" href="https://earthref.org/PmagPy/cookbook/linux_pip.html">Linux pip</a></p>
+</section>
 <section id="standalone-gui-download">
 <h2>Standalone GUI download<a class="headerlink" href="#standalone-gui-download" title="Permalink to this headline">#</a></h2>
 <p>If you do not need the full PmagPy functionality, and you only want to
@@ -555,23 +593,18 @@ and might be buggy on other distributions.</p>
 <a class="reference external" href="https://github.com/PmagPy/PmagPy-Standalone-Linux/releases/latest">https://github.com/PmagPy/PmagPy-Standalone-Linux/releases/latest</a></p>
 </section>
 </section>
-<section id="full-pmagpy-install-and-update">
-<h2>Full PmagPy install and update<a class="headerlink" href="#full-pmagpy-install-and-update" title="Permalink to this headline">#</a></h2>
-<p>If you have previously downloaded Canopy Python, you will need to
-uninstall it following <a class="reference external" href="https://support.enthought.com/hc/en-us/articles/204469700-Uninstalling-and-resetting-Canopy">these
-directions</a>.</p>
-<p>Next, choose whether you want a developer install or a default (pip)
-install. If you want to get into the nitty-gritty of the code, you
-should do a developer install. However, the developer install may be
-buggier. If you just want to use <strong>PmagPy</strong> out of the box, do a regular
+<section id="pmagpy-developer-install">
+<h2>PmagPy developer install<a class="headerlink" href="#pmagpy-developer-install" title="Permalink to this headline">#</a></h2>
+<p>If you want to get into the nitty-gritty of the code such that you are
+directly working from the repository, you
+should do a developer install.</p>
+<p>If you just want to use <strong>PmagPy</strong> out of the box, do a regular
 pip install. *Note*: you cannot have both a developer install and a
-pip install. If you want to do a developer install, make sure you
+pip install within the same environment.
+If you want to do a developer install, make sure you
 uninstall pmagpy/pmagpy-cli first if you have already installed them.</p>
 <p>Next, choose install instructions based on your preferred install method
 (pip/developer) and your operating system (OSX/Windows/Linux).</p>
-<p><a class="reference external" href="https://earthref.org/PmagPy/cookbook/osx_pip.html">OSX pip</a></p>
-<p><a class="reference external" href="https://earthref.org/PmagPy/cookbook/windows_pip.html">Windows pip</a></p>
-<p><a class="reference external" href="https://earthref.org/PmagPy/cookbook/linux_pip.html">Linux pip</a></p>
 <p><a class="reference external" href="https://earthref.org/PmagPy/cookbook/osx_developer.html">OSX developer</a></p>
 <p><a class="reference external" href="https://earthref.org/PmagPy/cookbook/windows_developer.html">Windows
 developer</a></p>
