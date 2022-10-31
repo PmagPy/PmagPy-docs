@@ -18,3 +18,6 @@ parts:
     chapters:
     - file: example_notebooks/example_notebooks
     - file: example_notebooks/Tauxe_etal_2016
+  - caption: Function docstrings
+    chapters:
+    - file: api/api.rst

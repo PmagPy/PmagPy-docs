@@ -196,7 +196,7 @@ The online textbook [Essentials of Paleomagnetism](https://earthref.org/MagIC/bo
 :::{grid-item}
 :columns: 4
 
-```{image} https://www.nsf.gov/policies/images/NSF_Official_logo_High_Res_1200ppi.png
+```{image} images/logos/NSF_logo.png
 :class: m-auto
 :width: 150px
 ```

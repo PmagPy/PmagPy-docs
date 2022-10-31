@@ -34,6 +34,29 @@ should go to the our online option:
     online class for Earth Scientists:
     <https://github.com/ltauxe/Python-for-Earth-Science-Students>
 
+## pip install
+
+To get going with full **PmagPy** functionality, you can pip install the package
+within your Python environment (e.g. your conda environment):
+
+```
+>>> pip install pmagpy
+```
+
+to get the associated command line programs, you can pip install pmag-cli
+
+```
+>>> pip install pmagpy-cli
+```
+
+You can find more specific pip install instructions for each operating system at these pages:
+
+[OSX pip](https://earthref.org/PmagPy/cookbook/osx_pip.html)
+
+[Windows pip](https://earthref.org/PmagPy/cookbook/windows_pip.html)
+
+[Linux pip](https://earthref.org/PmagPy/cookbook/linux_pip.html)
+
 ## Standalone GUI download
 
 If you do not need the full PmagPy functionality, and you only want to
@@ -58,28 +81,20 @@ and might be buggy on other distributions.
 You will find the latest Linux standalone download:
 <https://github.com/PmagPy/PmagPy-Standalone-Linux/releases/latest>
 
-## Full PmagPy install and update
+## PmagPy developer install
 
-If you have previously downloaded Canopy Python, you will need to
-uninstall it following [these
-directions](https://support.enthought.com/hc/en-us/articles/204469700-Uninstalling-and-resetting-Canopy).
+If you want to get into the nitty-gritty of the code such that you are
+directly working from the repository, you
+should do a developer install. 
 
-Next, choose whether you want a developer install or a default (pip)
-install. If you want to get into the nitty-gritty of the code, you
-should do a developer install. However, the developer install may be
-buggier. If you just want to use **PmagPy** out of the box, do a regular
+If you just want to use **PmagPy** out of the box, do a regular
 pip install. \*Note\*: you cannot have both a developer install and a
-pip install. If you want to do a developer install, make sure you
+pip install within the same environment. 
+If you want to do a developer install, make sure you
 uninstall pmagpy/pmagpy-cli first if you have already installed them.
 
 Next, choose install instructions based on your preferred install method
 (pip/developer) and your operating system (OSX/Windows/Linux).
-
-[OSX pip](https://earthref.org/PmagPy/cookbook/osx_pip.html)
-
-[Windows pip](https://earthref.org/PmagPy/cookbook/windows_pip.html)
-
-[Linux pip](https://earthref.org/PmagPy/cookbook/linux_pip.html)
 
 [OSX developer](https://earthref.org/PmagPy/cookbook/osx_developer.html)
 
