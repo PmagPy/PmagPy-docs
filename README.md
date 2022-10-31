@@ -18,7 +18,7 @@ The resulting html after a local build can be published to github pages using th
 
 https://jupyterbook.org/en/stable/publish/gh-pages.html
 
-and specifically this command:
+and specifically this command from within the ```main``` branch:
 
 ```
 ghp-import -n -p -f _build/html
