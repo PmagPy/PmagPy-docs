@@ -51,11 +51,11 @@ to get the associated command line programs, you can pip install pmag-cli
 
 You can find more specific pip install instructions for each operating system at these pages:
 
-[OSX pip](https://earthref.org/PmagPy/cookbook/osx_pip.html)
+[OSX pip](osx_pip)
 
-[Windows pip](https://earthref.org/PmagPy/cookbook/windows_pip.html)
+[Windows pip](windows_pip)
 
-[Linux pip](https://earthref.org/PmagPy/cookbook/linux_pip.html)
+[Linux pip](linux_pip)
 
 ## Standalone GUI download
 
@@ -96,13 +96,13 @@ uninstall pmagpy/pmagpy-cli first if you have already installed them.
 Next, choose install instructions based on your preferred install method
 (pip/developer) and your operating system (OSX/Windows/Linux).
 
-[OSX developer](https://earthref.org/PmagPy/cookbook/osx_developer.html)
+[OSX developer](osx_developer)
 
 [Windows
-developer](https://earthref.org/PmagPy/cookbook/windows_developer.html)
+developer](windows_developer)
 
 [Linux
-developer](https://earthref.org/PmagPy/cookbook/linux_developer.html)
+developer](linux_developer)
 
 ## Install help
 
