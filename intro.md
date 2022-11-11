@@ -83,7 +83,7 @@ More complete documentation of PmagPy than currently available on this site can 
 
 PmagPy is comprised of:
 
-- **Function modules for paleomagnetic data analysis** Function modules include that for paleomagnetic data analysis (pmagpy.pmag) and plotting (pmagpy.pmagplotlib) as well as interactive higher level data analysis (pmagpy.ipmag). The functions within these modules are at the heart of the GUI and command line programs. With pmagpy in the python path (which can be accomplished through pip installation ```pip install pmagpy```), these modules can be imported (e.g. ```import pmagpy.ipmag as ipmag```).
+- **Function modules for paleomagnetic data analysis** Function modules include that for paleomagnetic data analysis (pmagpy.pmag) and plotting (pmagpy.pmagplotlib) as well as interactive higher level data analysis (pmagpy.ipmag). The functions within these modules are at the heart of the GUI and command line programs. With pmagpy in the python path (which can be accomplished through pip installation ```pip install pmagpy```), these modules can be imported (e.g. ```import pmagpy.ipmag as ipmag```). These functions can be used within Jupyter Notebooks (see examples in [](./documentation_notebooks/PmagPy_introduction.ipynb))
 - **A graphical user interface (GUI) program** The PmagPy application enables users to get data into the MagIC database format as well as analyze demagnetization and paleointensity data.
 - **Command line programs** The PmagPy command line programs enable all sorts of  paleomagnetic data analysis and wrangling. They are contained within the programs folder of the PmagPy repository (https://github.com/PmagPy/PmagPy) and can be pip installed (```pip install pmagpy-cli```).
 
