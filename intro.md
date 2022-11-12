@@ -77,13 +77,9 @@ Develop new contributions and analyze existing datasets in the MagIC database.
 
 ::::
 
-```{note}
-More complete documentation of PmagPy than currently available on this site can be found in the PmagPy cookbook: https://earthref.org/PmagPy/cookbook/
-```
-
 PmagPy is comprised of:
 
-- **Function modules for paleomagnetic data analysis** Function modules include that for paleomagnetic data analysis (pmagpy.pmag) and plotting (pmagpy.pmagplotlib) as well as interactive higher level data analysis (pmagpy.ipmag). The functions within these modules are at the heart of the GUI and command line programs. With pmagpy in the python path (which can be accomplished through pip installation ```pip install pmagpy```), these modules can be imported (e.g. ```import pmagpy.ipmag as ipmag```). These functions can be used within Jupyter Notebooks (see examples in [](./documentation_notebooks/PmagPy_introduction.ipynb))
+- **Function modules for paleomagnetic data analysis** Function modules include that for paleomagnetic data analysis (pmagpy.pmag) and plotting (pmagpy.pmagplotlib) as well as interactive higher level data analysis (pmagpy.ipmag). The functions within these modules are at the heart of the GUI and command line programs. With pmagpy in as part of your Python installation (which can be accomplished through pip installation ```pip install pmagpy```), these modules can be imported (e.g. ```import pmagpy.ipmag as ipmag```). These functions can be used within Jupyter Notebooks (see examples in the [documentation notebooks](./documentation_notebooks/PmagPy_introduction.ipynb)) and are all documented within the [API Reference](./api/api).
 - **A graphical user interface (GUI) program** The PmagPy application enables users to get data into the MagIC database format as well as analyze demagnetization and paleointensity data.
 - **Command line programs** The PmagPy command line programs enable all sorts of  paleomagnetic data analysis and wrangling. They are contained within the programs folder of the PmagPy repository (https://github.com/PmagPy/PmagPy) and can be pip installed (```pip install pmagpy-cli```).
 
@@ -108,7 +104,7 @@ We are an open source community that welcomes discussion, feedback, and contribu
 
 ^^^
 
-The code base for the PmagPy project has been built up over the years by Lisa Tauxe (<a href="https://github.com/ltauxe" class="user-mention">@ltauxe</a>; Professor Emrita at the Scripps Institution of Oceanography) and by Nicholas Swanson-Hysell (<a href="https://github.com/swanson-hysell" class="user-mention">@swanson-hysell</a>; Associate Professor at UC Berkeley) supported by grants from the National Science Foundation. Lori Jonestrask (<a href="https://github.com/moonshoes87" class="user-mention">@moonshoes87</a>) and Ron Shaar (<a href="https://github.com/ronshaar" class="user-mention">@ronshaar</a>, Senior Lecturer at the Hebrew University of Jerusalem) have made substantial contributions to the project as have others in the [open community of contributors](https://github.com/pmagpy/pmagpy/graphs/contributors). You too can become a contributor by putting in a pull request.
+The code base for the PmagPy project has been built up over the years by Lisa Tauxe (<a href="https://github.com/ltauxe" class="user-mention">@ltauxe</a>; Professor Emerita at the Scripps Institution of Oceanography). Nick Swanson-Hysell (<a href="https://github.com/swanson-hysell" class="user-mention">@swanson-hysell</a>; Associate Professor at UC Berkeley), Lori Jonestrask (<a href="https://github.com/moonshoes87" class="user-mention">@moonshoes87</a>), and Ron Shaar (<a href="https://github.com/ronshaar" class="user-mention">@ronshaar</a>, Senior Lecturer at the Hebrew University of Jerusalem) have made substantial contributions to the project as have others in the [open community of contributors](https://github.com/pmagpy/pmagpy/graphs/contributors).
 :::
 
 :::{grid-item-card}
@@ -118,11 +114,9 @@ The code base for the PmagPy project has been built up over the years by Lisa Ta
 
 ^^^
 
-We welcome anyone to join us in improving PmagPy and helping one another learn as we conduct reproducible research in rock and paleomagnetism. You can do this be contributing code, improving documentation, or raising issues.
+We welcome anyone to join us in improving PmagPy and helping one another learn as we conduct reproducible research in rock and paleomagnetism. You can do this be [contributing code](https://github.com/PmagPy/PmagPy/pulls), improving documentation, or raising [issues](https://github.com/PmagPy/PmagPy/issues).
 
-You can bring up issues you are having with PmagPy on our issues page (https://github.com/PmagPy/PmagPy/issues)
-
-Check out our [contributing guide](https://github.com/PmagPy/PmagPy/blob/master/CONTRIBUTING.md) and please make contributions large or small.
+Check out our [contributing guide](https://github.com/PmagPy/PmagPy/blob/master/CONTRIBUTING.md).
 :::
 
 ::::
@@ -205,12 +199,8 @@ The online textbook [Essentials of Paleomagnetism](https://earthref.org/MagIC/bo
 
 :::{grid-item}
 :columns: 7
-This work is supported by the National Science Foundation through its [support for the MagIC database and PmagPy](https://www.nsf.gov/awardsearch/showAward?AWD_ID=2148719).
+PmagPy has been developed in the context of research supported by grants from the National Science Foundation awarded to Lisa Tauxe and Nick Swanson-Hysell.
+Current development is supported by the National Science Foundation through its [support for the MagIC database and PmagPy](https://www.nsf.gov/awardsearch/showAward?AWD_ID=2148719).
 :::
 
 ::::
-
-# References
-
-```{bibliography}
-```
