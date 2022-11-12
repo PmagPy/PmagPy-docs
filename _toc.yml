@@ -14,8 +14,11 @@ parts:
       - file: installation/windows_developer.md
       - file: installation/linux_pip.md
       - file: installation/linux_developer.md
+      - file: installation/troubleshooting.md
+    - file: resources/survival_skills.md
   - caption: Documentation notebooks
     chapters:
+    - file: documentation_notebooks/Jupyter.md
     - file: documentation_notebooks/PmagPy_introduction
     - file: documentation_notebooks/PmagPy_calculations
     - file: documentation_notebooks/PmagPy_plots_analysis
@@ -25,6 +28,19 @@ parts:
     - file: example_notebooks/example_notebooks
       sections:
       - file: example_notebooks/Tauxe_etal_2016
+  - caption: Programs
+    chapters:
+    - file: programs/pmag_gui
+      sections:
+      - file: programs/demag_gui
+      - file: programs/thellier_gui
+    - file: programs/command_line_programs
+  - caption: MagIC
+    chapters:
+    - file: MagIC/MagIC
   - caption: Function docstrings
     chapters:
     - file: api/api.rst
+  - caption: References
+    chapters:
+    - file: references.md
