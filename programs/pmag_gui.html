@@ -1,0 +1,1280 @@
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
+    <title>Pmag GUI &#8212; PmagPy Documentation</title>
+    
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../_static/styles/theme.css?digest=1999514e3f237ded88cf" rel="stylesheet">
+<link href="../_static/styles/pydata-sphinx-theme.css?digest=1999514e3f237ded88cf" rel="stylesheet">
+
+    
+  <link rel="stylesheet"
+    href="../_static/vendor/fontawesome/5.13.0/css/all.min.css">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900.woff2">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
+
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css" />
+    <link rel="stylesheet" href="../_static/styles/sphinx-book-theme.css?digest=5115cc725059bd94278eecd172e13a965bf8f5a9" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/mystnb.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/design-style.b7bb847fb20b106c3d81b95245e65545.min.css" />
+    
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=1999514e3f237ded88cf">
+
+    <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
+    <script src="../_static/jquery.js"></script>
+    <script src="../_static/underscore.js"></script>
+    <script src="../_static/doctools.js"></script>
+    <script src="../_static/clipboard.min.js"></script>
+    <script src="../_static/copybutton.js"></script>
+    <script src="../_static/scripts/sphinx-book-theme.js?digest=9c920249402e914e316237a7dbc6769907cce411"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="../_static/togglebutton.js"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
+    <script src="../_static/design-tabs.js"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
+const thebe_selector = ".thebe,.cell"
+const thebe_selector_input = "pre"
+const thebe_selector_output = ".output, .cell_output"
+</script>
+    <script async="async" src="../_static/sphinx-thebe.js"></script>
+    <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
+    <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="Demag GUI" href="demag_gui.html" />
+    <link rel="prev" title="Tauxe et al. 2016 example notebook" href="../example_notebooks/Tauxe_etal_2016.html" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="docsearch:language" content="None">
+    
+
+    <!-- Google Analytics -->
+    
+  </head>
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="60">
+<!-- Checkboxes to toggle the left sidebar -->
+<input type="checkbox" class="sidebar-toggle" name="__navigation" id="__navigation" aria-label="Toggle navigation sidebar">
+<label class="overlay overlay-navbar" for="__navigation">
+    <div class="visually-hidden">Toggle navigation sidebar</div>
+</label>
+<!-- Checkboxes to toggle the in-page toc -->
+<input type="checkbox" class="sidebar-toggle" name="__page-toc" id="__page-toc" aria-label="Toggle in-page Table of Contents">
+<label class="overlay overlay-pagetoc" for="__page-toc">
+    <div class="visually-hidden">Toggle in-page Table of Contents</div>
+</label>
+<!-- Headers at the top -->
+<div class="announcement header-item noprint"></div>
+<div class="header header-item noprint"></div>
+
+    
+    <div class="container-fluid" id="banner"></div>
+
+    
+
+    <div class="container-xl">
+      <div class="row">
+          
+<!-- Sidebar -->
+<div class="bd-sidebar noprint" id="site-navigation">
+    <div class="bd-sidebar__content">
+        <div class="bd-sidebar__top"><div class="navbar-brand-box">
+    <a class="navbar-brand text-wrap" href="../index.html">
+      
+        <!-- `logo` is deprecated in Sphinx 4.0, so remove this when we stop supporting 3 -->
+        
+      
+      
+      <img src="../_static/pmagpy_logo_notext.png" class="logo" alt="logo">
+      
+      
+      <h1 class="site-logo" id="site-title">PmagPy Documentation</h1>
+      
+    </a>
+</div><form class="bd-search d-flex align-items-center" action="../search.html" method="get">
+  <i class="icon fas fa-search"></i>
+  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search this book..." aria-label="Search this book..." autocomplete="off" >
+</form><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item active">
+        
+        <ul class="nav bd-sidenav bd-sidenav__home-link">
+            <li class="toctree-l1">
+                <a class="reference internal" href="../intro.html">
+                    PmagPy: An open source package for paleomagnetic data analysis
+                </a>
+            </li>
+        </ul>
+        <p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  Installation
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="../installation/PmagPy_install.html">
+   Installing
+   <strong>
+    PmagPy
+   </strong>
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" type="checkbox"/>
+  <label for="toctree-checkbox-1">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../installation/osx_pip.html">
+     OSX pip install
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../installation/osx_developer.html">
+     OSX developer install
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../installation/windows_pip.html">
+     Windows pip install
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../installation/windows_developer.html">
+     Windows developer install
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../installation/linux_pip.html">
+     Linux pip install
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../installation/linux_developer.html">
+     Linux developer install
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../installation/troubleshooting.html">
+     Troubleshooting installation issues
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../resources/survival_skills.html">
+   Survival computer skills
+  </a>
+ </li>
+</ul>
+<p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  Documentation notebooks
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../documentation_notebooks/Jupyter.html">
+   Jupyter Notebooks
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../documentation_notebooks/PmagPy_introduction.html">
+   Introduction to PmagPy
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../documentation_notebooks/PmagPy_calculations.html">
+   Calculations with PmagPy
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../documentation_notebooks/PmagPy_plots_analysis.html">
+   Visualizations and more analysis with PmagPy
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../documentation_notebooks/PmagPy_MagIC.html">
+   Working with the MagIC database using PmagPy
+  </a>
+ </li>
+</ul>
+<p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  Example notebooks
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="../example_notebooks/example_notebooks.html">
+   Example notebooks
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" type="checkbox"/>
+  <label for="toctree-checkbox-2">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../example_notebooks/Tauxe_etal_2016.html">
+     Tauxe et al. 2016 example notebook
+    </a>
+   </li>
+  </ul>
+ </li>
+</ul>
+<p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  Programs
+ </span>
+</p>
+<ul class="current nav bd-sidenav">
+ <li class="toctree-l1 current active has-children">
+  <a class="current reference internal" href="#">
+   Pmag GUI
+  </a>
+  <input checked="" class="toctree-checkbox" id="toctree-checkbox-3" name="toctree-checkbox-3" type="checkbox"/>
+  <label for="toctree-checkbox-3">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="demag_gui.html">
+     Demag GUI
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="thellier_gui.html">
+     Thellier GUI
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="command_line_programs.html">
+   PmagPy command line programs
+  </a>
+ </li>
+</ul>
+<p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  MagIC
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../MagIC/MagIC.html">
+   MagIC database and file formats
+  </a>
+ </li>
+</ul>
+<p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  Function docstrings
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../api/api.html">
+   API Reference
+  </a>
+ </li>
+</ul>
+<p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  References
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../references.html">
+   References
+  </a>
+ </li>
+</ul>
+
+    </div>
+</nav></div>
+        <div class="bd-sidebar__bottom">
+             <!-- To handle the deprecated key -->
+            
+            <div class="navbar_extra_footer">
+            Powered by <a href="https://jupyterbook.org">Jupyter Book</a>
+            </div>
+            
+        </div>
+    </div>
+    <div id="rtd-footer-container"></div>
+</div>
+
+
+          
+
+
+          
+<!-- A tiny helper pixel to detect if we've scrolled -->
+<div class="sbt-scroll-pixel-helper"></div>
+<!-- Main content -->
+<div class="col py-0 content-container">
+    
+    <div class="header-article row sticky-top noprint">
+        
+
+
+
+<div class="col py-1 d-flex header-article-main">
+    <div class="header-article__left">
+        
+        <label for="__navigation"
+  class="headerbtn"
+  data-toggle="tooltip"
+data-placement="right"
+title="Toggle navigation"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-bars"></i>
+  </span>
+
+</label>
+
+        
+    </div>
+    <div class="header-article__right">
+<button onclick="toggleFullScreen()"
+  class="headerbtn"
+  data-toggle="tooltip"
+data-placement="bottom"
+title="Fullscreen mode"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+<div class="menu-dropdown menu-dropdown-repository-buttons">
+  <button class="headerbtn menu-dropdown__trigger"
+      aria-label="Source repositories">
+      <i class="fab fa-github"></i>
+  </button>
+  <div class="menu-dropdown__content">
+    <ul>
+      <li>
+        <a href="https://github.com/pmagpy/pmagpy-docs"
+   class="headerbtn"
+   data-toggle="tooltip"
+data-placement="left"
+title="Source repository"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fab fa-github"></i>
+  </span>
+<span class="headerbtn__text-container">repository</span>
+</a>
+
+      </li>
+      
+      <li>
+        <a href="https://github.com/pmagpy/pmagpy-docs/issues/new?title=Issue%20on%20page%20%2Fprograms/pmag_gui.html&body=Your%20issue%20content%20here."
+   class="headerbtn"
+   data-toggle="tooltip"
+data-placement="left"
+title="Open an issue"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-lightbulb"></i>
+  </span>
+<span class="headerbtn__text-container">open issue</span>
+</a>
+
+      </li>
+      
+    </ul>
+  </div>
+</div>
+
+<div class="menu-dropdown menu-dropdown-download-buttons">
+  <button class="headerbtn menu-dropdown__trigger"
+      aria-label="Download this page">
+      <i class="fas fa-download"></i>
+  </button>
+  <div class="menu-dropdown__content">
+    <ul>
+      <li>
+        <a href="../_sources/programs/pmag_gui.md"
+   class="headerbtn"
+   data-toggle="tooltip"
+data-placement="left"
+title="Download source file"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="headerbtn__text-container">.md</span>
+</a>
+
+      </li>
+      
+      <li>
+        
+<button onclick="printPdf(this)"
+  class="headerbtn"
+  data-toggle="tooltip"
+data-placement="left"
+title="Print to PDF"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="headerbtn__text-container">.pdf</span>
+</button>
+
+      </li>
+      
+    </ul>
+  </div>
+</div>
+<label for="__page-toc"
+  class="headerbtn headerbtn-page-toc"
+  
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-list"></i>
+  </span>
+
+</label>
+
+    </div>
+</div>
+
+<!-- Table of contents -->
+<div class="col-md-3 bd-toc show noprint">
+    <div class="tocsection onthispage pt-5 pb-3">
+        <i class="fas fa-list"></i> Contents
+    </div>
+    <nav id="bd-toc-nav" aria-label="Page">
+        <ul class="visible nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#converting-magnetometer-files-to-magic-format">
+   Converting magnetometer files to MagIC format
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#optional-calculate-geographic-tilt-corrected-direction">
+   Optional: Calculate geographic / tilt-corrected direction
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#filling-in-metadata">
+   Filling in metadata
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#demag-gui-quick-start">
+   Demag GUI quick start
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#thellier-gui-quick-start">
+   Thellier GUI quick start
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#upload-to-the-database">
+   Upload to the database
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#downloading-data-from-magic">
+   Downloading data from
+   <strong>
+    MagIC
+   </strong>
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#preparing-for-magic">
+   Preparing for MagIC
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#field-and-sampling-information">
+     Field and sampling information
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#supported-rock-magnetometer-files">
+     Supported Rock Magnetometer files
+    </a>
+    <ul class="nav section-nav flex-column">
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#hysteresis-file-formats">
+       Hysteresis file formats
+      </a>
+     </li>
+    </ul>
+   </li>
+  </ul>
+ </li>
+</ul>
+
+    </nav>
+</div>
+    </div>
+    <div class="article row">
+        <div class="col pl-md-3 pl-lg-5 content-container">
+            <!-- Table of contents that is only displayed when printing the page -->
+            <div id="jb-print-docs-body" class="onlyprint">
+                <h1>Pmag GUI</h1>
+                <!-- Table of contents -->
+                <div id="print-main-content">
+                    <div id="jb-print-toc">
+                        
+                        <div>
+                            <h2> Contents </h2>
+                        </div>
+                        <nav aria-label="Page">
+                            <ul class="visible nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#converting-magnetometer-files-to-magic-format">
+   Converting magnetometer files to MagIC format
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#optional-calculate-geographic-tilt-corrected-direction">
+   Optional: Calculate geographic / tilt-corrected direction
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#filling-in-metadata">
+   Filling in metadata
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#demag-gui-quick-start">
+   Demag GUI quick start
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#thellier-gui-quick-start">
+   Thellier GUI quick start
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#upload-to-the-database">
+   Upload to the database
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#downloading-data-from-magic">
+   Downloading data from
+   <strong>
+    MagIC
+   </strong>
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#preparing-for-magic">
+   Preparing for MagIC
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#field-and-sampling-information">
+     Field and sampling information
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#supported-rock-magnetometer-files">
+     Supported Rock Magnetometer files
+    </a>
+    <ul class="nav section-nav flex-column">
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#hysteresis-file-formats">
+       Hysteresis file formats
+      </a>
+     </li>
+    </ul>
+   </li>
+  </ul>
+ </li>
+</ul>
+
+                        </nav>
+                    </div>
+                </div>
+            </div>
+            <main id="main-content" role="main">
+                
+              <div>
+                
+  <section class="tex2jax_ignore mathjax_ignore" id="pmag-gui">
+<h1>Pmag GUI<a class="headerlink" href="#pmag-gui" title="Permalink to this headline">#</a></h1>
+<p><strong>Pmag GUI</strong> is a Graphical User Interface (GUI) that
+provides a quick path to the some workflows enabled by
+<strong>PmagPy</strong>. The work flow is illustrated schematically here:</p>
+<a class="reference internal image-reference" href="../_images/FigQkMagicFlow.png"><img alt="image" src="../_images/FigQkMagicFlow.png" style="width: 700px;" /></a>
+<p>There are two ways to launch Pmag GUI. The first is to have downloaded
+it as an executable program in which case it can be opened as a typical application
+with a double-click.</p>
+<p><a class="reference external" href="https://github.com/PmagPy/PmagPy-Standalone-OSX/releases/latest/">PmagPy standalone GUI OSX</a></p>
+<p><a class="reference external" href="https://github.com/PmagPy/PmagPy-Standalone-Windows/releases/latest/">PmagPy standalone GUI Windows</a></p>
+<p><a class="reference external" href="https://github.com/PmagPy/PmagPy-Standalone-Linux/releases/latest/">PmagPy standalone GUI Linux</a></p>
+<p>The other is to launch it from the
+command line from your fully PmagPy installation, in which case you want to follow
+these steps:</p>
+<ol class="simple">
+<li><p>Make sure you have followed all of the steps in the <a class="reference internal" href="../installation/PmagPy_install.html"><span class="doc std std-doc">Installing
+PmagPy</span></a> section.</p></li>
+<li><p>Open your command prompt and start <strong>Pmag GUI</strong> with the appropriate
+command (pmag_gui.py, pmag_gui_anaconda, or pmag_gui). If you are
+confused about which command to use, see <a class="reference external" href="#which_command">this
+section</a> for details.</p></li>
+</ol>
+<p>Getting going with Pmag GUI</p>
+<ol>
+<li><p>When you start <strong>Pmag GUI</strong>, the first step is to change directories
+into a ‘Project Directory’. For each study, create a directory with a
+name that relates to that study. Here we will call it <em>ThisProject</em>.
+This is where you will collect and process all the rock and
+paleomagnetic data for a given study, usually a publication. The
+project directory name should have NO SPACES and be placed on the
+hard drive in a place that has NO spaces in the path. Under certain
+Windows versions, this means you should not use your home directory,
+but create a directory called for example:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">D</span><span class="p">:</span>\<span class="n">MyPmagProjects</span>
+</pre></div>
+</div>
+<p>and put <em>ThisProject</em> there.</p>
+</li>
+<li><p><strong>copy example files:</strong> Use <strong>move_data_files.py</strong> to move the
+datafiles to an accessible location. Use:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">move_data_files</span><span class="o">.</span><span class="n">py</span> <span class="o">-</span><span class="n">h</span>
+</pre></div>
+</div>
+<p>on the command line for help). In the <em>PmagPy-data/data_files</em> folder
+you will find a subfolder named <em>Pmag_GUI</em>. Copy the contents of the
+<a class="reference external" href="#Project_Directory">ThisProject</a> directory into your own <a class="reference external" href="#Project_Directory">Project
+Directory</a> folder.</p>
+</li>
+<li><p>Start Pmag GUI either by typing <strong>pmag_gui.py</strong> on your <a class="reference external" href="#command_line">command
+line</a>, or (if you have the
+<a class="reference external" href="#standalone">standalone</a>), by double-clicking the Pmag GUI icon
+on your Desktop.</p></li>
+<li><p>If necessary, change directories by clicking on the “change
+directory” button and select your own <em>ThisProject</em> directory.</p></li>
+</ol>
+<section id="converting-magnetometer-files-to-magic-format">
+<h2>Converting magnetometer files to MagIC format<a class="headerlink" href="#converting-magnetometer-files-to-magic-format" title="Permalink to this headline">#</a></h2>
+<ul>
+<li><p><strong>Pmag GUI</strong> allows for converting many different laboratory formats.
+For more information, see the section on <a class="reference external" href="#magnetometer_files">Supported Rock Magnetometer
+files</a>. In this example, we will use a
+‘generic’ file format. An example of the generic file format is shown
+here:</p>
+<a class="reference internal image-reference" href="../_images/FigGenericFormat.jpg"><img alt="image" src="../_images/FigGenericFormat.jpg" style="width: 30cm;" /></a>
+<p>To learn what all the column headers mean look at the documentation
+for <a class="reference external" href="#generic_magic.py">generic_magic.py</a>.</p>
+</li>
+<li><p>In your <a class="reference external" href="#Project_Directory">ThisProject</a> directory there are
+three files with AF, Thermal, and Thellier measurement data of
+specimens from site sr01 (a lava flow site) of
+<span id="id1">Tauxe <em>et al.</em> [<a class="reference internal" href="../references.html#id6" title="Lisa Tauxe, Casey Luskin, Peter Selkin, Phillip Gans, and Andy Calvert. Paleomagnetic results from the Snake River Plain: Contribution to the time-averaged field global database. Geochemistry, Geophysics, Geosystems, 2004. URL: https://doi.org/10.1029%2F2003gc000661, doi:10.1029/2003gc000661.">2004</a>]</span>. There is also a file with sample
+orientation, location and other metadata typical for a paleomagnetic
+study.</p></li>
+<li><p>Press the [Convert magnetometer files to MagIC format] button. If no
+menu pops up or the window is blank, click on the Python icon (the
+little space ship, pencil and paper, or feather) on your dock. You
+should see a dialog window will appear with different file formats:</p>
+<a class="reference internal image-reference" href="../_images/FigChooseFile.jpg"><img alt="image" src="../_images/FigChooseFile.jpg" style="width: 30cm;" /></a>
+</li>
+<li><p>Click on ‘generic format’ and press the [import file] button. A new
+dialog box will appear. For more details click on the [help] button.</p></li>
+<li><p>In the dialog box, click on the [Add] button and choose one of the
+measurements files.</p></li>
+<li><p>Optional: Insert your EarthRef user name.</p></li>
+<li><p>Choose your experiment type from the dropdown list.</p></li>
+<li><p>Choose specimen-sample naming convention. In this example, specimen
+sr01a1 belongs to sample sr01a so the specimen-sample naming
+convention is ‘no. of terminal characters ’ and the delimiter/number
+field is ‘1’ ).</p></li>
+<li><p>Choose sample-site naming convention. In this example, sample sr01a
+belongs to site sr01 so the sample-site naming convention is ‘no. of
+terminal characters’ with a delimiter/number of ‘1’.</p></li>
+<li><p>Fill in the <a class="reference external" href="#MagICDatabase">EarthRef Location Name</a> for this
+project . For this project, it is “Snake River”.</p></li>
+<li><p>Note: a location is a stratigraphic section, a sampling region, an
+drill core, and so on. MagIC doesn’t really care what your location
+name is, but use the same location name every time you are asked for
+it, because it really ties your dataset together and is required
+within the data model.</p>
+<p>Your dialog boxes should look like this for the AF and thermal data:</p>
+<a class="reference internal image-reference" href="../_images/FigConvertGenericA.jpg"><img alt="image" src="../_images/FigConvertGenericA.jpg" style="width: 30cm;" /></a>
+<p>and like this for the paleointensity data. For paleointensity data,
+you must also supply the lab field in micro tesla (40) and
+orientation relative to sample’s X direction: 0 -90.</p>
+<a class="reference internal image-reference" href="../_images/FigConvertGenericB.jpg"><img alt="image" src="../_images/FigConvertGenericB.jpg" style="width: 30cm;" /></a>
+</li>
+<li><p>Press OK to create a new MagIC measurement file, which is saved in
+your <a class="reference external" href="#Project_Directory">ThisProject</a> directory.</p></li>
+<li><p>After converting all files to MagIC format, press the [Next Step]
+button in the ‘convert magnetometer files’ dialog box. All files with
+the .magic suffix will be added to the list. [You can edit the list
+by deleting unwanted files or adding additional MagIC formatted
+files.] You should see a list of the three magic files:</p>
+<a class="reference internal image-reference" href="../_images/FigCombineMagic.jpg"><img alt="image" src="../_images/FigCombineMagic.jpg" style="width: 30cm;" /></a>
+</li>
+<li><p>Click the OK button. The three files will be combined to a single
+file, named <em>measurements.txt</em> and also stored in your
+<a class="reference external" href="#Project_Directory">ThisProject</a> directory.</p></li>
+<li><p>In the next dialog, you will combine specimen, sample, site, and
+location files.</p></li>
+</ul>
+</section>
+<section id="optional-calculate-geographic-tilt-corrected-direction">
+<h2>Optional: Calculate geographic / tilt-corrected direction<a class="headerlink" href="#optional-calculate-geographic-tilt-corrected-direction" title="Permalink to this headline">#</a></h2>
+<ul>
+<li><p><strong>Pmag GUI</strong> provides an optional tool for calculating geographic and
+tilt-corrected directions if those directions were not part of the
+original data files. To use this tool click on the button labeled
+‘calculate geographic/tilt-corrected directions’.</p></li>
+<li><p>When you open this window, an empty template of a file named
+demag_orient.txt was created in your project directory. This file is
+displayed in a Python window. You can fill in this file manually
+using the GUI window or <a class="reference external" href="#field_info">with with a spreadsheet
+program</a>. The template is pre-filled with sample
+names derived from your measurement files, using the naming rules
+that you chose.</p></li>
+<li><p>To fill in the orientation information, click the button
+<span class="math notranslate nohighlight">\(\rightarrow\)</span> [Import Orientation File] and choose the file
+SrExample_orient.txt from <em>MyFiles</em> folder.</p></li>
+<li><p>Click the button <span class="math notranslate nohighlight">\(\rightarrow\)</span> [Save orientation file].</p></li>
+<li><p>Click the button <span class="math notranslate nohighlight">\(\rightarrow\)</span> [Calculate sample orientations].</p></li>
+<li><p>Fill in the [set orientation convention] dialog box like this:</p>
+<a class="reference internal image-reference" href="../_images/FigDemagOrient.jpg"><img alt="image" src="../_images/FigDemagOrient.jpg" style="width: 25cm;" /></a>
+<ul class="simple">
+<li><p>Orientation convention :Pomeroy.</p></li>
+<li><p>Declination correction: Use the IGRF.</p></li>
+<li><p>Orientation priority: #1.</p></li>
+<li><p>Put in the number of hours to SUBTRACT from the local time to get
+to Greenwich Mean Time: -6. [Local time was 6 hours behind GMT for
+this example.]</p></li>
+<li><p>press the OK button.</p></li>
+</ul>
+</li>
+<li><p>In the [additional required information] dialog window add the
+additional information:</p></li>
+</ul>
+<a class="reference internal image-reference" href="../_images/FigOrientMagicCodes.jpg"><img alt="image" src="../_images/FigOrientMagicCodes.jpg" style="width: 15cm;" /></a>
+</section>
+<section id="filling-in-metadata">
+<h2>Filling in metadata<a class="headerlink" href="#filling-in-metadata" title="Permalink to this headline">#</a></h2>
+<p>Filling in metadata is a critical part of building a MagIC Project
+Directory. The data relevant to this example are arranged in five
+tables: specimens, samples, sites, locations, ages. To complete the
+data, click the button, and follow the directions in the help window in
+order:</p>
+<ul>
+<li><p>Step 0: Choose the appropriate headers for each of your tables.
+Required headers (or headers already present in your tables) show up
+in the top box, optional headers in the bottom. In our example, you
+won’t need to add any additional headers. Once you have added all
+needed headers, click the OK button to proceed to the next step.</p>
+<a class="reference internal image-reference" href="../_images/FigErMagicStep0.jpg"><img alt="image" src="../_images/FigErMagicStep0.jpg" style="width: 30cm;" /></a>
+</li>
+<li><p>The next steps contain editable grids. For many columns, you can edit
+using drop-down menus that provide <a class="reference external" href="http://earthref.org/MAGIC/shortlists.htm">controlled
+vocabularies</a>. For
+others, you must manually enter data into the cell. A single left
+click will bring up a drop-down menu; a double-left click will call
+up the cell editor. With both types of data entry, it is possible to
+select a single value for the entire column. Simply click on the
+column label. If that column has a drop-down menu, you can then click
+on any cell in the column, the appropriate menu will pop up, and the
+value you select will propagate throughout the column. Edits in that
+column will continue to be global until you select another column to
+edit or you de-select the column by clicking on the column label
+again. If you select a column that does not have a drop-down menu, a
+text entry dialog will pop up, and the value you provide will be
+applied to the column.</p></li>
+<li><p>Step 1: Update the specimens table. You may not rename specimens, but
+you may reassign them to a different sample. It is also possible to
+add additional samples, using the ’Add new sample’ button. Note that
+type, lithology, and class columns need not be filled in here. They
+will propagate down automatically when you select values at the
+sample or site level for type, lithology, and class. In this example,
+you can just click [Save and continue].</p>
+<a class="reference internal image-reference" href="../_images/FigErMagicStep1.jpg"><img alt="image" src="../_images/FigErMagicStep1.jpg" style="width: 25cm;" /></a>
+</li>
+<li><p>Step 2: Update the samples table. You may rename samples, or you can
+reassign them to a different site. You can also add additional sites
+using the “Add a new site“ button. In this example, you can just
+click [Save and continue].</p>
+<a class="reference internal image-reference" href="../_images/FigErMagicStep2.jpg"><img alt="image" src="../_images/FigErMagicStep2.jpg" style="width: 20cm;" /></a>
+</li>
+<li><p>Step 3: Update the sites table. You may rename sites, or you can
+reassign them to a different location. You can add additional
+locations using the “Add a new location” button. You must choose a
+legal entry from the <a class="reference external" href="http://earthref.org/MAGIC/shortlists.htm">controlled
+vocabularies</a> for the
+following headers: “class”, “lithology”, “type”. You may combine more
+than one controlled vocabulary by making them a colon delimited list.
+If you select a value in these categories: class, lithology, type,
+longitude, or latitude, the values will propagate to the samples
+table. In this example, geologic_classes=Extrusive:Igneous;
+lithologies=Basaltic Lava; geologic_types=Lava Flow. You should also
+add age data: age=2.3, age_unit=Ma.</p>
+<a class="reference internal image-reference" href="../_images/FigErMagicStep3.jpg"><img alt="image" src="../_images/FigErMagicStep3.jpg" style="width: 32cm;" /></a>
+</li>
+<li><p>Step 4: Update the locations table. If you have provided site
+latitudes and longitudes, the columns for beginning and ending
+latitudes and longitudes should be filled in already. Likewise,
+“age_high”, “age_low”, and “age_unit” will be filled with data from
+the sites table. You must choose a legal entry from the <a class="reference external" href="http://earthref.org/MAGIC/shortlists.htm">controlled
+vocabularies</a> for the
+“location_type”. In this example: location_type = outcrop.</p>
+<a class="reference internal image-reference" href="../_images/FigErMagicStep4.jpg"><img alt="image" src="../_images/FigErMagicStep4.jpg" style="width: 32cm;" /></a>
+</li>
+<li><p>Step 5: Add ages data. For this tutorial, you can skip this step
+(just press [Save and continue]).</p></li>
+</ul>
+</section>
+<section id="demag-gui-quick-start">
+<span id="sect-demag-gui"></span><h2>Demag GUI quick start<a class="headerlink" href="#demag-gui-quick-start" title="Permalink to this headline">#</a></h2>
+<p>Next, click the [Demag GUI] button. This is the main panel of the demag
+GUI:</p>
+<a class="reference internal image-reference" href="../_images/demag_gui.jpg"><img alt="image" src="../_images/demag_gui.jpg" style="width: 30cm;" /></a>
+<p>Use of the Demag GUI is described in more detail in the <a class="reference external" href="#demag_gui.py">Demag
+GUI</a> section below. Here are a few instructions that
+can be used as a quick start for using Demag GUI. <strong>Note</strong>: If at any
+point you require help with a particular aspect of Demag GUI clicking on
+[Help] <span class="math notranslate nohighlight">\(\rightarrow\)</span> [Usage and Tips] (hotkey: ctrl-h) then
+clicking on the item you wish to know more about will provide a pop-up
+box with information for most all aspects of the GUI and Interpretation
+Editor, see <a class="reference external" href="#add-help">additional help</a> for details. (For Mac users,
+all hotkeys use the Command button instead of Ctrl.)</p>
+<p>Before you start your analysis, you can choose your coordinate system.
+From the ‘coordinate system’ drop-down menu you can choose the
+coordinate system in which you wish to view the data (e.g.
+‘geographic’). The coordinate system and the orientation of the
+projection can be switched throughout your analysis which updates the
+view of the data within the Zijderveld vector component plot and the
+equal area directional projections.</p>
+<p>To analyze the data in the example, follow these steps for each
+specimen:</p>
+<ul class="simple">
+<li><p>Click ‘add a fit’ (hotkey: ctrl-n) and choose the temperature/AF
+bounds for the fit by double clicking on the measurement lines, by
+double clicking on the measurement points in the Zijderveld plot, or
+by choosing from the ‘bounds’ dropdown menu.</p></li>
+<li><p>Click the ‘next’ button to analyze the next specimen (hotkey:
+ctrl-right).</p></li>
+<li><p>Note: each fit will be saved in memory when you click ‘next’ or
+‘previous’. To disable this behavior, de-select auto-save.</p></li>
+</ul>
+<p>To calculate Fisher mean for the site: choose from the ‘mean options’
+drop-down menus. First select: component=All, then select: mean=Fisher.</p>
+<p>All of the fits can be viewed and modified using the Interpretation
+Editor which can be selected from the Tools menu in the top menubar.
+(hotkey: ctrl-e)</p>
+<p>To permanently save all of the specimen interpretations, choose from the
+menubar [File] <span class="math notranslate nohighlight">\(\rightarrow\)</span> [Save MagIC tables]. This saves all
+the interpretations in specimen/sample/site tables in your
+<a class="reference external" href="#Project_Directory">ThisProject</a> directory. Fits that are saved this
+way will be loaded into demag_gui the next time it is launched. Click
+through the dialog boxes and fill out choices for generating MagIC
+results.</p>
+<p>If you are partway through your analysis, you may want to save your
+place without outputting to MagIC tables. To save temporary analysis
+data use [File] <span class="math notranslate nohighlight">\(\rightarrow\)</span> [Save interpretations to a redo
+file]. This saves all interpretation data to a redo file which will not
+load immediately when the GUI starts, but preserves aesthetic aspects of
+interpretations such as color as well as the specimen you were on when
+you saved to keep your place in analysis and allows rebooting of session
+without full export of MagIC tables.</p>
+<p>Close the Demag GUI.</p>
+</section>
+<section id="thellier-gui-quick-start">
+<h2>Thellier GUI quick start<a class="headerlink" href="#thellier-gui-quick-start" title="Permalink to this headline">#</a></h2>
+<p>Next, click the [Thellier GUI] button. This is the main panel of the
+thellier GUI:</p>
+<p>This image shows the main panel of <a class="reference external" href="#ThellierGUI">Thellier GUI</a>:</p>
+<a class="reference internal image-reference" href="../_images/FigThellierGui.jpg"><img alt="image" src="../_images/FigThellierGui.jpg" style="width: 30cm;" /></a>
+<p>Use of the Thellier GUI is described in more detail in the <a class="reference external" href="#thellier_GUI.py">Thellier
+GUI</a> section below and in this PDF document:
+<a class="reference external" href="https://github.com/PmagPy/PmagPy-Cookbook/blob/gh-pages/thellier_GUI_full_manual.pdf">Thellier GUI
+manual</a>.
+Here are a few instructions that can be used as a quick start for using
+Thellier GUI.</p>
+<p>You can customize which selection criteria you need under Preferences
+<span class="math notranslate nohighlight">\(=&gt;\)</span> Specimen paleointensity statistics (from SPD list). This uses
+the <span id="id2">Paterson <em>et al.</em> [<a class="reference internal" href="../references.html#id7" title="Greig A. Paterson, Lisa Tauxe, Andrew J. Biggin, Ron Shaar, and Lori C. Jonestrask. On improving the selection of thellier-type paleointensity data. Geochemistry, Geophysics, Geosystems, 15(4):1180–1192, 2014. URL: http://dx.doi.org/10.1002/2013GC005135, doi:10.1002/2013GC005135.">2014</a>]</span> definitions of paleointensity
+statistices. Next, select bounds for the statistics under [Analysis]
+<span class="math notranslate nohighlight">\(=&gt;\)</span>[Acceptance criteria] <span class="math notranslate nohighlight">\(=&gt;\)</span> [Change acceptance
+criteria].</p>
+<p>The default of the program is to calculate sample means. To change it to
+site level mean, choose from the menubar: [Analysis] <span class="math notranslate nohighlight">\(\rightarrow\)</span>
+[Acceptance criteria] <span class="math notranslate nohighlight">\(\rightarrow\)</span> [Change acceptance criteria].
+Find the ‘average by sample/site’ dropdown menu in the third row and
+change it to [site]. Click OK. The site mean will appear in the
+sample/site results box (top right).</p>
+<p>Then, to analyze the data, follow these steps for each specimen:</p>
+<ul class="simple">
+<li><p>Choose temperature bounds from the temperatures dropdown menus.</p></li>
+<li><p>Click the ‘next’ button to analyze the next specimen.</p></li>
+</ul>
+<p>Next, you will save these interpretations to a file. To do so, choose
+from the menubar [File] <span class="math notranslate nohighlight">\(\rightarrow\)</span> [Save MagIC pmag tables].
+This save all the interpretations in the specimens.txt file in your
+MagIC Project Directory. Close the Thellier GUI.</p>
+</section>
+<section id="upload-to-the-database">
+<h2>Upload to the database<a class="headerlink" href="#upload-to-the-database" title="Permalink to this headline">#</a></h2>
+<p>To create a MagIC-format file for upload, you first click on the green
+<em>Create MagIC txt file for upload</em> button on the main page of <strong>Pmag
+GUI</strong>. A file will be created in your
+<a class="reference external" href="#Project_Directory">ThisProject</a> directory. Now, go to the <a class="reference external" href="http://earthref.org/MAGIC/">MagIC
+interface</a>. Click on the ‘Upload Tool’
+button and upload your file by dragging and dropping the <em>upload</em> file
+onto the ‘Drop and drop files here to upload’ window. Congratulations.
+Your data are now in the database under a Private Contribution. But,
+they are not yet activated and cannot be until they are at least
+accepted for publication with an assigned DOI. After you have a suitable
+reference, you can Publish your contribution. Once you publish an
+uploaded dataset (only for published papers), it will be publicly
+available.</p>
+</section>
+<section id="downloading-data-from-magic">
+<h2>Downloading data from <strong>MagIC</strong><a class="headerlink" href="#downloading-data-from-magic" title="Permalink to this headline">#</a></h2>
+<p>Data can be downloaded from the <strong>MagIC</strong> database and examined with
+<strong>PmagPy</strong> tools. The <a class="reference external" href="http://earthref.org/MAGIC/search/">MagIC</a>
+search interface provides a rich variety of search filters available by
+clicking on the ‘Filter the MagIC Search Results’ text box. To locate
+data from a particular reference, simply substitute the digital object
+identifier (DOI) in your browser window:</p>
+<p><a class="reference external" href="http://earthref.org/MAGIC/doi/10.1029/2003GC000661">http://earthref.org/MAGIC/doi/10.1029/2003GC000661</a></p>
+<p>The above DOI will find the data for the paper by
+<span id="id3">Tauxe <em>et al.</em> [<a class="reference internal" href="../references.html#id6" title="Lisa Tauxe, Casey Luskin, Peter Selkin, Phillip Gans, and Andy Calvert. Paleomagnetic results from the Snake River Plain: Contribution to the time-averaged field global database. Geochemistry, Geophysics, Geosystems, 2004. URL: https://doi.org/10.1029%2F2003gc000661, doi:10.1029/2003gc000661.">2004</a>]</span>. [This may fail in Safari; if so, use an
+alternative browser like Firefox or Chrome.] To download the data,
+simply click on the file icon labeled “Download”. This will save a file
+to your downloads folder. To unpack this file after downloading it from
+the database, open <a class="reference external" href="#pmag_gui.py">Pmag GUI</a> and click “unpack
+downloaded txt file“.</p>
+</section>
+<section id="preparing-for-magic">
+<h2>Preparing for MagIC<a class="headerlink" href="#preparing-for-magic" title="Permalink to this headline">#</a></h2>
+<section id="field-and-sampling-information">
+<h3>Field and sampling information<a class="headerlink" href="#field-and-sampling-information" title="Permalink to this headline">#</a></h3>
+<p>There is an astounding number of different ways that paleomagnetists
+document data in the field and in the lab. This variety is met with a
+large number of method codes that describe sampling and orientation
+procedures (see <a class="reference external" href="https://earthref.org/MagIC/method-codes">https://earthref.org/MagIC/method-codes</a> for a complete
+description). The MagIC database expects sample orientations to be the
+azimuth and plunge of the fiducial arrow used for measurement (see
+<a class="reference external" href="http://earthref.org/MAGIC/books/Tauxe/Essentials/WebBook3ch2.html#ch2">[Essentials, Chapter
+9]</a>
+) and the orientation of the bedding to be dip direction and downward
+dip so no matter what your own preference is, it must be translated into
+the standard MagIC convention for use with the PmagPy programs and with
+<a class="reference external" href="#pmag_gui.py">Pmag GUI</a>.</p>
+<p><a class="reference external" href="#pmag_gui.py">Pmag GUI</a> supports two different ways of getting
+orientation and other sampling related information into a MagIC usable
+format. The first way is through <a class="reference external" href="#orient">step 2 on the GUI front
+panel</a> and filling in the data from within the GUI. That way
+will work for many applications, but it may be desirable to fill the
+spreadsheet in separately from the GUI by using a tab delimited file
+(orient.txt format). By clicking on <a class="reference external" href="#orient">step 2 on the GUI front
+panel</a> you create a file named <em>demag_orient.txt</em> which has
+all of your sample names in it. Each <em>orient.txt</em> file should have all
+the information for a single location <em>sensu MagIC</em>.</p>
+<a class="reference internal image-reference" href="../_images/orient.jpg"><img alt="image" src="../_images/orient.jpg" style="width: 15cm;" /></a>
+<p>The next row has the names of the columns. The required columns are:
+sample_name, mag_azimuth, field_dip, date, lat, long, sample_lithology,
+sample_type, sample_class) but there are a number of other possible
+columns (e.g., Optional Fields in orient.txt formatted files are: [date,
+shadow_angle, hhmm], date, stratigraphic_height, [bedding_dip_direction,
+bedding_dip], [image_name, image_look, image_photographer],
+participants, method_codes, site_name, and site_description, GPS_Az]).
+Column names in brackets must be supplied together and the data for
+stratigraphic_height are in meters. Also note that if these are
+unoriented samples, just set mag_azimuth and field_dip to 0.</p>
+<p>It is handy to document the lithology, type and material classification
+information required by MagIC. These are all controlled vocabularies
+listed at <a class="reference external" href="http://earthref.org/MAGIC/shortlists.htm">http://earthref.org/MAGIC/shortlists.htm</a>. For archaeological
+materials, set the lithology to “Not Specified”.</p>
+<p>Put in stratigraphic height, sun compass, differential GPS orientation
+information under the appropriate column headings. You can also flag a
+particular sample orientation as suspect, by having a column
+’sample_flag’ and setting it to either ’g’ for good or ’b’ for bad.
+Other options include documenting digital field photograph names and who
+was involved with the sampling.</p>
+<p>For Sun Compass measurements, supply the shadow_angle, date and time.
+The date must be in mm/dd/yy format. If you enter the time in local
+time, be sure you know the offset to Universal Time as you will have to
+supply that when you import the file. Also, only put data from one time
+zone in a single file. The shadow angle should follow the convention
+shown in this figure (from Tauxe et al., 2010):</p>
+<a class="reference internal image-reference" href="../_images/suncomp.jpg"><img alt="image" src="../_images/suncomp.jpg" style="width: 15cm;" /></a>
+<p><strong>Supported sample orientation schemes:</strong></p>
+<p>There are options for different orientation conventions (drill direction
+with the Pomeroy orientation device [drill azimuth and hade] is the
+default), different naming conventions and a choice of whether to
+automatically calculate the IGRF value for magnetic declination
+correction, supply your own or ignore the correction. The program
+generates or updates <em>samples.txt</em> and <em>sites.txt</em> files.</p>
+<p>All images, for example outcrop photos are supplied as a separate zip
+file. image_name is the name of the picture you will import, image_look
+is the “look direction“ and image_photographer is the person who took
+the picture. This information will be put in a file named <em>images.txt</em>
+and will ultimately be read into the images table.</p>
+<p>Often, paleomagnetists note when a sample orientation is suspect in the
+field. To indicate that a particular sample may have an uncertainty in
+its orientation that is greater than about 5<span class="math notranslate nohighlight">\(^{\circ}\)</span>, enter
+SO-GT5 in the method_codes column and any other special codes pertaining
+to a particular sample from the method codes table. Other general method
+codes can be entered later. Note that unlike date and sample_class, the
+method codes entered in orient.txt pertain only to the sample on the
+same line.</p>
+<p>Samples are oriented in the field with a “field arrow“ and measured in
+the laboratory with a “lab arrow“. The lab arrow is the positive X
+direction of the right handed coordinate system of the specimen
+measurements. The lab and field arrows may not be the same. In the MagIC
+database, we require the orientation (azimuth and plunge) of the X
+direction of the measurements (lab arrow). Here are some popular
+conventions that convert the field arrow azimuth (mag_azimuth in the
+orient.txt file) and dip (field_dip in orient.txt) to the azimuth and
+plunge of the laboratory arrow (sample_azimuth and sample_dip in
+samples.txt). The two angles, mag_azimuth and field_dip are explained
+below.</p>
+<p>[1] Standard Pomeroy convention of azimuth and hade (degrees from
+vertical down) of the drill direction (field arrow). sample_azimuth =
+mag_azimuth; sample_dip =-field_dip.</p>
+<a class="reference internal image-reference" href="../_images/orcon_1.jpg"><img alt="image" src="../_images/orcon_1.jpg" style="width: 15cm;" /></a>
+<p>2] Field arrow is the strike of the plane orthogonal to the drill
+direction, Field dip is the hade of the drill direction. Lab arrow
+azimuth = mag_azimuth-90<span class="math notranslate nohighlight">\(^{\circ}\)</span>; Lab arrow dip = -field_dip</p>
+<a class="reference internal image-reference" href="../_images/orcon_2.jpg"><img alt="image" src="../_images/orcon_2.jpg" style="width: 15cm;" /></a>
+<p>[3] Lab arrow is the same as the drill direction; hade was measured in
+the field. Lab arrow azimuth = mag_azimuth; Lab arrow dip =
+90<span class="math notranslate nohighlight">\(^{\circ}\)</span>-field_dip.</p>
+<a class="reference internal image-reference" href="../_images/orcon_3.jpg"><img alt="image" src="../_images/orcon_3.jpg" style="width: 15cm;" /></a>
+<p>[4] Lab arrow orientation same as mag_azimuth and field_dip.</p>
+<a class="reference internal image-reference" href="../_images/orcon_4.jpg"><img alt="image" src="../_images/orcon_4.jpg" style="width: 15cm;" /></a>
+<p>[5] Lab arrow azimuth is mag_azimuth and lab arrow dip is the
+field_dip-90<span class="math notranslate nohighlight">\(^{\circ}\)</span></p>
+<a class="reference internal image-reference" href="../_images/orcon_5.jpg"><img alt="image" src="../_images/orcon_5.jpg" style="width: 15cm;" /></a>
+<p>[6] Lab arrow azimuth is mag_azimuth-90<span class="math notranslate nohighlight">\(^{\circ}\)</span>, Lab arrow dip
+is 90<span class="math notranslate nohighlight">\(^{\circ}\)</span>-field_dip, i.e., the field arrow was strike and
+dip of orthogonal face:</p>
+<a class="reference internal image-reference" href="../_images/orcon_6.jpg"><img alt="image" src="../_images/orcon_6.jpg" style="width: 15cm;" /></a>
+<p><strong>Structural correction conventions:</strong></p>
+<p>Because of the ambiguity of strike and dip, the MagIC database uses the
+dip direction and dip where dip is positive from 0 <span class="math notranslate nohighlight">\(\rightarrow\)</span>
+180. Dips<span class="math notranslate nohighlight">\(&gt;\)</span>90 are overturned beds.</p>
+<p><strong>Supported sample naming schemes:</strong></p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="n">XXXXY</span><span class="p">:</span> <span class="n">where</span> <span class="n">XXXX</span> <span class="ow">is</span> <span class="n">an</span> <span class="n">arbitrary</span> <span class="n">length</span> <span class="n">site</span> <span class="n">designation</span> <span class="ow">and</span> <span class="n">Y</span>
+    <span class="ow">is</span> <span class="n">the</span> <span class="n">single</span> <span class="n">character</span> <span class="n">sample</span> <span class="n">designation</span><span class="o">.</span>  <span class="n">e</span><span class="o">.</span><span class="n">g</span><span class="o">.</span><span class="p">,</span> <span class="n">TG001a</span> <span class="ow">is</span> <span class="n">the</span>
+    <span class="n">first</span> <span class="n">sample</span> <span class="kn">from</span> <span class="nn">site</span> <span class="n">TG001</span><span class="o">.</span>    <span class="p">[</span><span class="n">default</span><span class="p">]</span>
+<span class="p">[</span><span class="mi">2</span><span class="p">]</span> <span class="n">XXXX</span><span class="o">-</span><span class="n">YY</span><span class="p">:</span> <span class="n">YY</span> <span class="n">sample</span> <span class="kn">from</span> <span class="nn">site</span> <span class="n">XXXX</span> <span class="p">(</span><span class="n">XXX</span><span class="p">,</span> <span class="n">YY</span> <span class="n">of</span> <span class="n">arbitary</span> <span class="n">length</span><span class="p">)</span>
+<span class="p">[</span><span class="mi">3</span><span class="p">]</span> <span class="n">XXXX</span><span class="o">.</span><span class="n">YY</span><span class="p">:</span> <span class="n">YY</span> <span class="n">sample</span> <span class="kn">from</span> <span class="nn">site</span> <span class="n">XXXX</span> <span class="p">(</span><span class="n">XXX</span><span class="p">,</span> <span class="n">YY</span> <span class="n">of</span> <span class="n">arbitary</span> <span class="n">length</span><span class="p">)</span>
+<span class="p">[</span><span class="mi">4</span><span class="o">-</span><span class="n">Z</span><span class="p">]</span> <span class="n">XXXX</span><span class="p">[</span><span class="n">YYY</span><span class="p">]:</span>  <span class="n">YYY</span> <span class="ow">is</span> <span class="n">sample</span> <span class="n">designation</span> <span class="k">with</span> <span class="n">Z</span> <span class="n">characters</span> <span class="kn">from</span> <span class="nn">site</span> <span class="n">XXX</span>
+<span class="p">[</span><span class="mi">5</span><span class="p">]</span> <span class="n">site</span> <span class="n">name</span> <span class="o">=</span> <span class="n">sample</span> <span class="n">name</span>
+<span class="p">[</span><span class="mi">6</span><span class="p">]</span> <span class="n">site</span> <span class="n">name</span> <span class="n">entered</span> <span class="ow">in</span> <span class="n">site_name</span> <span class="n">column</span> <span class="ow">in</span> <span class="n">the</span> <span class="n">orient</span><span class="o">.</span><span class="n">txt</span> <span class="nb">format</span> <span class="nb">input</span> <span class="n">file</span>
+<span class="p">[</span><span class="mi">7</span><span class="o">-</span><span class="n">Z</span><span class="p">]</span> <span class="p">[</span><span class="n">XXX</span><span class="p">]</span><span class="n">YYY</span><span class="p">:</span>  <span class="n">XXX</span> <span class="ow">is</span> <span class="n">site</span> <span class="n">designation</span> <span class="k">with</span> <span class="n">Z</span> <span class="n">characters</span> <span class="kn">from</span> <span class="nn">samples</span>  <span class="n">XXXYYY</span>
+</pre></div>
+</div>
+<p>When you are finished with editing the <em>orient.txt</em> file, return to
+<a class="reference external" href="#orient">step 2 on the GUI front panel</a>.</p>
+</section>
+<section id="supported-rock-magnetometer-files">
+<h3>Supported Rock Magnetometer files<a class="headerlink" href="#supported-rock-magnetometer-files" title="Permalink to this headline">#</a></h3>
+<p>The MagIC database is designed to accept data from a wide variety of
+paleomagnetic and rock magnetic experiments. Because of this the
+magic_measurements table is complicated. Each measurement only makes
+sense in the context of what happened to the specimen before measurement
+and under what conditions the measurement was made (temperature,
+frequency, applied field, specimen orientation, etc). Also, there are
+many different kinds of instruments in common use, including rock
+magnetometers, susceptibility meters, Curie balances, vibrating sample
+and alternating gradient force magnetometers, and so on. We have made an
+effort to write translation programs for the most popular instrument and
+file formats and continue to add new supported formats as the
+opportunity arises. Here we describe the various supported data types
+and tell you how to prepare your files for importing. In general, all
+files for importing should be placed in the MyFiles directory or in
+subdirectories therein as needed. If you don’t see your data type in
+this list, please send an example file and a request to: <a class="reference external" href="mailto:ltauxe&#37;&#52;&#48;ucsd&#46;edu">mailto:ltauxe<span>&#64;</span>ucsd<span>&#46;</span>edu</a>
+and we’ll get it in there for you.</p>
+<p>The supported file formats are:</p>
+<p><strong>Rock Magnetometer Files:</strong></p>
+<ul class="simple">
+<li><p><a class="reference external" href="http://pmagpy.github.io/PmagPy_MagIC.html#_2g_asc_magic">_2g_asc_magic</a>
+: convert the 2G ascii file to MagIC - but no example yet.</p></li>
+<li><p><a class="reference external" href="http://pmagpy.github.io/PmagPy_MagIC.html#_2g_bin_magic">_2g_bin_magic</a>
+: convert 2G binary format to MagIC</p></li>
+<li><p><a class="reference external" href="http://pmagpy.github.io/PmagPy_MagIC.html#agm_magic">agm_magic</a> :
+convert Princeton Measurements alternating gradient force
+magnetization (AGM) output files to the MagIC format.</p></li>
+<li><p><a class="reference external" href="http://pmagpy.github.io/PmagPy_MagIC.html#bgc_magic">bgc_magic</a> :
+convert the Berkeley Geochronology lab format to MagIC.</p></li>
+<li><p><a class="reference external" href="http://pmagpy.github.io/PmagPy_MagIC.html#cit_magic">cit_magic</a> :
+convert the Cal Tech file format.</p></li>
+<li><p><a class="reference external" href="http://pmagpy.github.io/PmagPy_MagIC.html#generic_magic">generic_magic</a>
+: convert the generic file format to MagIC.</p></li>
+<li><p><a class="reference external" href="http://pmagpy.github.io/PmagPy_MagIC.html#huji_magic">huji_magic</a>
+: convert Hebrew University, Jerusalem, Israel file format to MagIC.</p></li>
+<li><p><a class="reference external" href="http://pmagpy.github.io/PmagPy_MagIC.html#huji_sample_magic">huji_sample_magic</a>
+: convert the HUJI sample file to a MagIC format.</p></li>
+<li><p><a class="reference external" href="http://pmagpy.github.io/PmagPy_MagIC.html#jr6_jr6">jr6_jr6_magic</a>
+: convert the AGICO JR6 spinner .jr6 output to MagIC</p></li>
+<li><p><a class="reference external" href="http://pmagpy.github.io/PmagPy_MagIC.html#jr6_txt_magic">jr6_txt_magic</a>
+: convert the AGICO JR6 txt format to MagIC</p></li>
+<li><p><a class="reference external" href="http://pmagpy.github.io/PmagPy_MagIC.html#k15_magic">k15_magic</a> :
+convert 15 measurement anisotropy of magnetic susceptibility file
+format to MagIC.</p></li>
+<li><p><a class="reference external" href="http://pmagpy.github.io/PmagPy_MagIC.html#ldeo_magic">ldeo_magic</a>
+: convert Lamont-Doherty file format to MagIC.</p></li>
+<li><p><a class="reference external" href="http://pmagpy.github.io/PmagPy_MagIC.html#livdb_magic">livdb_magic</a>
+: convert Liverpool file format to MagIC.</p></li>
+<li><p><a class="reference external" href="http://pmagpy.github.io/PmagPy_MagIC.html#mst_magic">mst_magic</a> :
+convert Curie Temperature experimental data to MagIC</p></li>
+<li><p><a class="reference external" href="http://pmagpy.github.io/PmagPy_MagIC.html#sio_magic">sio_magic</a> :
+convert the Scripps Institution of Oceanography data format to MagIC</p></li>
+<li><p><a class="reference external" href="http://pmagpy.github.io/PmagPy_MagIC.html#sufar4_magic">sufar4_magic</a>
+: convert the AGICO SUFAR program (ver.1.2.) ascii file format to
+MagIC</p></li>
+<li><p><a class="reference external" href="http://pmagpy.github.io/PmagPy_MagIC.html#tdt_magic">tdt_magic</a> :
+convert the Thellier Tool format to MagIC 3.0</p></li>
+<li><p><a class="reference external" href="http://pmagpy.github.io/PmagPy_MagIC.html#utrecht_magic">utrecht_magic</a>
+: convert the Fort Hoofddijk, Utrecht University Robot file format to
+MagIC</p></li>
+<li><p><a class="reference external" href="http://pmagpy.github.io/PmagPy_MagIC.html#orientation_magic">orientation_magic</a>
+: convert an “orient.txt” formatted file with field notebook
+information into MagIC formatted files</p></li>
+<li><p><a class="reference external" href="http://pmagpy.github.io/PmagPy_MagIC.html#azdip_magic">azdip_magic</a>
+: convert an “azdip” formatted file to a samples.txt file format</p></li>
+</ul>
+<p><strong>Anisotropy of Magnetic Susceptibility files:</strong></p>
+<ul class="simple">
+<li><p><a class="reference external" href="http://pmagpy.github.io/PmagPy_MagIC.html#s_magic">s_magic</a> :
+convert the 6 tensor element format (.s) to MagIC</p></li>
+<li><p><a class="reference external" href="http://pmagpy.github.io/PmagPy_MagIC.html#kly4s_magic">kly4s_magic</a>
+: convert the AMSSpin format of Gee et al. 2008 to MagIC</p></li>
+<li><p><a class="reference external" href="http://pmagpy.github.io/PmagPy_MagIC.html#k15_magic">k15_magic</a> :
+convert 15 measurement anisotropy of magnetic susceptibility file
+format to MagIC.</p></li>
+<li><p><a class="reference external" href="http://pmagpy.github.io/PmagPy_MagIC.html#sufar4_magic">sufar4_magic</a>
+: convert the AGICO SUFAR program (ver.1.2.) ascii file format to
+MagIC</p></li>
+</ul>
+<section id="hysteresis-file-formats">
+<h4>Hysteresis file formats<a class="headerlink" href="#hysteresis-file-formats" title="Permalink to this headline">#</a></h4>
+<p><strong>Pmag GUI</strong> will import hysteresis data from room temperature Micromag
+alternating gradient magnetometers (AGM) in several different ways. You
+can import either hysteresis loops or backfield curves, or you can
+import whole directories of the same. In the latter case, the file
+endings must be either .agm (.AGM) or .irm (.IRM) and the first part of
+the file must be the specimen name. See the documentation for
+<a class="reference external" href="http://pmagpy.github.io/PmagPy_MagIC.html#agm_magic">agm_magic</a> for
+examples.</p>
+<p>Now you’ve collected together all the files you need, we can start
+importing them into <em>MagIC</em> directory with <a class="reference external" href="#convert2magic">Step 1 in Pmag
+GUI</a>.</p>
+</section>
+</section>
+</section>
+<div class="toctree-wrapper compound">
+</div>
+</section>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            kernelName: "python3",
+            path: "./programs"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+              </div>
+              
+            </main>
+            <footer class="footer-article noprint">
+                
+    <!-- Previous / next buttons -->
+<div class='prev-next-area'>
+    <a class='left-prev' id="prev-link" href="../example_notebooks/Tauxe_etal_2016.html" title="previous page">
+        <i class="fas fa-angle-left"></i>
+        <div class="prev-next-info">
+            <p class="prev-next-subtitle">previous</p>
+            <p class="prev-next-title">Tauxe et al. 2016 example notebook</p>
+        </div>
+    </a>
+    <a class='right-next' id="next-link" href="demag_gui.html" title="next page">
+    <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">Demag GUI</p>
+    </div>
+    <i class="fas fa-angle-right"></i>
+    </a>
+</div>
+            </footer>
+        </div>
+    </div>
+    <div class="footer-content row">
+        <footer class="col footer"><p>
+  
+    By PmagPy Contributors<br/>
+  
+      &copy; Copyright 2022.<br/>
+</p>
+        </footer>
+    </div>
+    
+</div>
+
+
+      </div>
+    </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="../_static/scripts/pydata-sphinx-theme.js?digest=1999514e3f237ded88cf"></script>
+
+
+  </body>
+</html>

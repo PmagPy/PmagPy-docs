@@ -159,7 +159,17 @@ const thebe_selector_output = ".output, .cell_output"
      Linux developer install
     </a>
    </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../installation/troubleshooting.html">
+     Troubleshooting installation issues
+    </a>
+   </li>
   </ul>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../resources/survival_skills.html">
+   Survival computer skills
+  </a>
  </li>
 </ul>
 <p aria-level="2" class="caption" role="heading">
@@ -168,6 +178,11 @@ const thebe_selector_output = ".output, .cell_output"
  </span>
 </p>
 <ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../documentation_notebooks/Jupyter.html">
+   Jupyter Notebooks
+  </a>
+ </li>
  <li class="toctree-l1">
   <a class="reference internal" href="../../documentation_notebooks/PmagPy_introduction.html">
    Introduction to PmagPy
@@ -211,6 +226,52 @@ const thebe_selector_output = ".output, .cell_output"
     </a>
    </li>
   </ul>
+ </li>
+</ul>
+<p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  Programs
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="../../programs/pmag_gui.html">
+   Pmag GUI
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-3" name="toctree-checkbox-3" type="checkbox"/>
+  <label for="toctree-checkbox-3">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../programs/demag_gui.html">
+     Demag GUI
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../programs/thellier_gui.html">
+     Thellier GUI
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../programs/command_line_programs.html">
+   PmagPy command line programs
+  </a>
+ </li>
+</ul>
+<p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  MagIC
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../MagIC/MagIC.html">
+   MagIC database and file formats
+  </a>
  </li>
 </ul>
 <p aria-level="2" class="caption" role="heading">
@@ -496,7 +557,7 @@ title="Open an issue"
         <span class="n">dpi</span> <span class="o">=</span> <span class="mi">240</span>
     <span class="c1"># plt.ion()</span>
     <span class="n">plt_num</span> <span class="o">+=</span> <span class="mi">1</span>
-    <span class="n">fig</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">num</span><span class="o">=</span><span class="n">fignum</span><span class="p">,</span> <span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="n">w</span><span class="p">,</span> <span class="n">h</span><span class="p">),</span> <span class="n">dpi</span><span class="o">=</span><span class="n">dpi</span><span class="p">)</span>
+    <span class="n">fig</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">num</span><span class="o">=</span><span class="n">fignum</span><span class="p">,</span> <span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="n">w</span><span class="p">,</span> <span class="n">h</span><span class="p">),</span> <span class="n">dpi</span><span class="o">=</span><span class="n">dpi</span><span class="p">,</span> <span class="n">clear</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
     <span class="k">if</span> <span class="p">(</span><span class="ow">not</span> <span class="n">isServer</span><span class="p">)</span> <span class="ow">and</span> <span class="p">(</span><span class="ow">not</span> <span class="n">set_env</span><span class="o">.</span><span class="n">IS_NOTEBOOK</span><span class="p">):</span>
         <span class="n">plt</span><span class="o">.</span><span class="n">get_current_fig_manager</span><span class="p">()</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
         <span class="c1"># plt.get_current_fig_manager().window.wm_geometry(&#39;+%d+%d&#39; %</span>
@@ -2130,7 +2191,7 @@ title="Open an issue"
     <span class="k">global</span> <span class="n">fig_y_pos</span>
     <span class="n">dpi</span> <span class="o">=</span> <span class="mi">80</span>
     <span class="c1"># plt.ion()</span>
-    <span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">num</span><span class="o">=</span><span class="n">fignum</span><span class="p">,</span> <span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="n">w</span><span class="p">,</span> <span class="n">h</span><span class="p">),</span> <span class="n">dpi</span><span class="o">=</span><span class="n">dpi</span><span class="p">)</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">num</span><span class="o">=</span><span class="n">fignum</span><span class="p">,</span> <span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="n">w</span><span class="p">,</span> <span class="n">h</span><span class="p">),</span> <span class="n">dpi</span><span class="o">=</span><span class="n">dpi</span><span class="p">,</span> <span class="n">clear</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
 <span class="c1">#    if not isServer:</span>
 <span class="c1">#        plt.get_current_fig_manager().window.wm_geometry(&#39;+%d+%d&#39; % (25,fig_y_pos))</span>
 <span class="c1">#        fig_y_pos = fig_y_pos + dpi*(h) + 25</span>
@@ -3276,45 +3337,26 @@ title="Open an issue"
         <span class="n">fig</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">Figs</span><span class="p">[</span><span class="n">key</span><span class="p">])</span>
         <span class="n">plot_title</span> <span class="o">=</span> <span class="n">split_title</span><span class="p">(</span><span class="n">titles</span><span class="p">[</span><span class="n">key</span><span class="p">])</span><span class="o">.</span><span class="n">strip</span><span class="p">()</span><span class="o">.</span><span class="n">strip</span><span class="p">(</span><span class="s1">&#39;</span><span class="se">\n</span><span class="s1">&#39;</span><span class="p">)</span>
         <span class="n">fig</span><span class="o">.</span><span class="n">set_figheight</span><span class="p">(</span><span class="mf">5.5</span><span class="p">)</span>
-        <span class="c1">#get returns Bbox with x0, y0, x1, y1</span>
-        <span class="n">pos</span> <span class="o">=</span> <span class="n">fig</span><span class="o">.</span><span class="n">gca</span><span class="p">()</span><span class="o">.</span><span class="n">get_position</span><span class="p">()</span>
-        <span class="c1"># tweak some of the default values</span>
-        <span class="n">w</span> <span class="o">=</span> <span class="n">pos</span><span class="o">.</span><span class="n">x1</span> <span class="o">-</span> <span class="n">pos</span><span class="o">.</span><span class="n">x0</span>
-        <span class="n">h</span> <span class="o">=</span> <span class="p">(</span><span class="n">pos</span><span class="o">.</span><span class="n">y1</span> <span class="o">-</span> <span class="n">pos</span><span class="o">.</span><span class="n">y0</span><span class="p">)</span> <span class="o">/</span> <span class="mf">1.1</span>
-        <span class="n">x</span> <span class="o">=</span> <span class="n">pos</span><span class="o">.</span><span class="n">x0</span>
-        <span class="n">y</span> <span class="o">=</span> <span class="n">pos</span><span class="o">.</span><span class="n">y0</span> <span class="o">*</span> <span class="mf">1.3</span>
-        <span class="c1"># set takes: left, bottom, width, height</span>
-        <span class="n">fig</span><span class="o">.</span><span class="n">gca</span><span class="p">()</span><span class="o">.</span><span class="n">set_position</span><span class="p">([</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="n">w</span><span class="p">,</span> <span class="n">h</span><span class="p">])</span>
+        <span class="n">fig</span><span class="o">.</span><span class="n">set_figwidth</span><span class="p">(</span><span class="mf">5.5</span><span class="p">)</span>
+
+        <span class="c1"># make space for the title and borders</span>
+        <span class="c1"># centered with at least 10% on the sides and 20% on the top and bottom</span>
+        <span class="k">for</span> <span class="n">ax</span> <span class="ow">in</span> <span class="n">fig</span><span class="o">.</span><span class="n">axes</span><span class="p">:</span>
+            <span class="n">pos</span> <span class="o">=</span> <span class="n">ax</span><span class="o">.</span><span class="n">get_position</span><span class="p">()</span> <span class="c1"># get returns: Bbox with x0, y0, x1, y1</span>
+            <span class="n">w</span> <span class="o">=</span> <span class="nb">min</span><span class="p">((</span><span class="n">pos</span><span class="o">.</span><span class="n">x1</span> <span class="o">-</span> <span class="n">pos</span><span class="o">.</span><span class="n">x0</span><span class="p">),</span> <span class="mf">0.8</span><span class="p">)</span>
+            <span class="n">h</span> <span class="o">=</span> <span class="nb">min</span><span class="p">((</span><span class="n">pos</span><span class="o">.</span><span class="n">y1</span> <span class="o">-</span> <span class="n">pos</span><span class="o">.</span><span class="n">y0</span><span class="p">),</span> <span class="mf">0.6</span><span class="p">)</span>
+            <span class="n">x</span> <span class="o">=</span> <span class="p">(</span><span class="mi">1</span> <span class="o">-</span> <span class="n">w</span><span class="p">)</span><span class="o">/</span><span class="mi">2</span>
+            <span class="n">y</span> <span class="o">=</span> <span class="p">(</span><span class="mi">1</span> <span class="o">-</span> <span class="n">h</span><span class="p">)</span><span class="o">/</span><span class="mi">2</span>
+            <span class="n">ax</span><span class="o">.</span><span class="n">set_position</span><span class="p">([</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="n">w</span><span class="p">,</span> <span class="n">h</span><span class="p">])</span> <span class="c1"># set takes: left, bottom, width, height</span>
 
         <span class="c1"># add an axis covering the entire figure</span>
         <span class="n">border_ax</span> <span class="o">=</span> <span class="n">fig</span><span class="o">.</span><span class="n">add_axes</span><span class="p">([</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">])</span>
         <span class="n">border_ax</span><span class="o">.</span><span class="n">set_frame_on</span><span class="p">(</span><span class="kc">False</span><span class="p">)</span>
         <span class="n">border_ax</span><span class="o">.</span><span class="n">set_xticks</span><span class="p">([])</span>
         <span class="n">border_ax</span><span class="o">.</span><span class="n">set_yticks</span><span class="p">([])</span>
-        <span class="c1"># add a border</span>
-        <span class="k">if</span> <span class="s2">&quot;</span><span class="se">\n</span><span class="s2">&quot;</span> <span class="ow">in</span> <span class="n">plot_title</span><span class="p">:</span>
-            <span class="n">y_val</span> <span class="o">=</span> <span class="mf">1.0</span>  <span class="c1"># lower border</span>
-            <span class="c1">#fig.set_figheight(6.25)</span>
-        <span class="k">else</span><span class="p">:</span>
-            <span class="n">y_val</span> <span class="o">=</span> <span class="mf">1.04</span>  <span class="c1"># higher border</span>
-        <span class="c1">#border_ax.text(-0.02, y_val, &quot;                                                                                                   #                                                                                      |&quot;,</span>
-        <span class="c1">#               horizontalalignment=&#39;left&#39;,</span>
-        <span class="c1">#               verticalalignment=&#39;top&#39;,</span>
-        <span class="c1">#               color=text_color,</span>
-        <span class="c1">#               bbox=dict(edgecolor=border_color,</span>
-        <span class="c1">#                         facecolor=&#39;#FFFFFF&#39;, linewidth=0.25),</span>
-        <span class="c1">#               size=50)</span>
-        <span class="c1">#border_ax.text(-0.02, 0, &quot;|                                                                                                      #                                                                                   |&quot;,</span>
-        <span class="c1">#               horizontalalignment=&#39;left&#39;,</span>
-        <span class="c1">#               verticalalignment=&#39;bottom&#39;,</span>
-        <span class="c1">#               color=text_color,</span>
-        <span class="c1">#               bbox=dict(edgecolor=border_color,</span>
-        <span class="c1">#                         facecolor=&#39;#FFFFFF&#39;, linewidth=0.25),</span>
-        <span class="c1">#               size=20)#18)</span>
 
         <span class="c1"># add text</span>
-
-        <span class="n">border_ax</span><span class="o">.</span><span class="n">text</span><span class="p">((</span><span class="mf">4.</span> <span class="o">/</span> <span class="n">fig</span><span class="o">.</span><span class="n">get_figwidth</span><span class="p">())</span> <span class="o">*</span> <span class="mf">0.015</span><span class="p">,</span> <span class="mf">0.03</span><span class="p">,</span> <span class="n">now</span><span class="o">.</span><span class="n">strftime</span><span class="p">(</span><span class="s2">&quot;%Y-%m-</span><span class="si">%d</span><span class="s2">, %I:%M:%S </span><span class="si">{}</span><span class="s2">&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="s1">&#39;UT&#39;</span><span class="p">)),</span>
+        <span class="n">border_ax</span><span class="o">.</span><span class="n">text</span><span class="p">(</span><span class="mf">0.03</span><span class="p">,</span> <span class="mf">0.03</span><span class="p">,</span> <span class="n">now</span><span class="o">.</span><span class="n">strftime</span><span class="p">(</span><span class="s2">&quot;%Y-%m-</span><span class="si">%d</span><span class="s2">, %I:%M:%S </span><span class="si">{}</span><span class="s2">&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="s1">&#39;UT&#39;</span><span class="p">)),</span>
                        <span class="n">horizontalalignment</span><span class="o">=</span><span class="s1">&#39;left&#39;</span><span class="p">,</span>
                        <span class="n">verticalalignment</span><span class="o">=</span><span class="s1">&#39;top&#39;</span><span class="p">,</span>
                        <span class="n">color</span><span class="o">=</span><span class="n">text_color</span><span class="p">,</span>
@@ -3324,7 +3366,7 @@ title="Open an issue"
                        <span class="n">verticalalignment</span><span class="o">=</span><span class="s1">&#39;top&#39;</span><span class="p">,</span>
                        <span class="n">color</span><span class="o">=</span><span class="n">text_color</span><span class="p">,</span>
                        <span class="n">size</span><span class="o">=</span><span class="mi">20</span><span class="p">)</span>
-        <span class="n">border_ax</span><span class="o">.</span><span class="n">text</span><span class="p">(</span><span class="mi">1</span> <span class="o">-</span> <span class="p">(</span><span class="mf">4.</span> <span class="o">/</span> <span class="n">fig</span><span class="o">.</span><span class="n">get_figwidth</span><span class="p">())</span> <span class="o">*</span> <span class="mf">0.015</span><span class="p">,</span> <span class="mf">0.03</span><span class="p">,</span> <span class="s1">&#39;earthref.org/MagIC</span><span class="si">{}</span><span class="s1">&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">con_id</span><span class="p">),</span>
+        <span class="n">border_ax</span><span class="o">.</span><span class="n">text</span><span class="p">(</span><span class="mf">0.97</span><span class="p">,</span> <span class="mf">0.03</span><span class="p">,</span> <span class="s1">&#39;earthref.org/MagIC</span><span class="si">{}</span><span class="s1">&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">con_id</span><span class="p">),</span>
                        <span class="n">horizontalalignment</span><span class="o">=</span><span class="s1">&#39;right&#39;</span><span class="p">,</span>
                        <span class="n">verticalalignment</span><span class="o">=</span><span class="s1">&#39;top&#39;</span><span class="p">,</span>
                        <span class="n">color</span><span class="o">=</span><span class="n">text_color</span><span class="p">,</span>

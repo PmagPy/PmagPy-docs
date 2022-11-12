@@ -162,7 +162,17 @@ const thebe_selector_output = ".output, .cell_output"
      Linux developer install
     </a>
    </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="troubleshooting.html">
+     Troubleshooting installation issues
+    </a>
+   </li>
   </ul>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../resources/survival_skills.html">
+   Survival computer skills
+  </a>
  </li>
 </ul>
 <p aria-level="2" class="caption" role="heading">
@@ -171,6 +181,11 @@ const thebe_selector_output = ".output, .cell_output"
  </span>
 </p>
 <ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../documentation_notebooks/Jupyter.html">
+   Jupyter Notebooks
+  </a>
+ </li>
  <li class="toctree-l1">
   <a class="reference internal" href="../documentation_notebooks/PmagPy_introduction.html">
    Introduction to PmagPy
@@ -218,6 +233,52 @@ const thebe_selector_output = ".output, .cell_output"
 </ul>
 <p aria-level="2" class="caption" role="heading">
  <span class="caption-text">
+  Programs
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="../programs/pmag_gui.html">
+   Pmag GUI
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-3" name="toctree-checkbox-3" type="checkbox"/>
+  <label for="toctree-checkbox-3">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../programs/demag_gui.html">
+     Demag GUI
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../programs/thellier_gui.html">
+     Thellier GUI
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../programs/command_line_programs.html">
+   PmagPy command line programs
+  </a>
+ </li>
+</ul>
+<p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  MagIC
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../MagIC/MagIC.html">
+   MagIC database and file formats
+  </a>
+ </li>
+</ul>
+<p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
   Function docstrings
  </span>
 </p>
@@ -225,6 +286,18 @@ const thebe_selector_output = ".output, .cell_output"
  <li class="toctree-l1">
   <a class="reference internal" href="../api/api.html">
    API Reference
+  </a>
+ </li>
+</ul>
+<p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  References
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../references.html">
+   References
   </a>
  </li>
 </ul>
@@ -680,8 +753,7 @@ home directory, your $PATH will point there:</p>
 Mac starting with OSX Catalina), you will need to manually add the same
 $PATH and $PYTHONPATH lines to .zshrc instead of .bashrc. You can
 determine which shell you are using by looking at the text at the top of
-your Terminal window. For example, see below I am using bash:</p>
-<p><img alt="image" src="installation/EPSFiles/FigTerminal.eps" />{width=”30cm”}</p>
+your Terminal window.</p>
 <p>For Windows, $PATH and $PYTHONPATH will be set in your <a class="reference external" href="https://www.java.com/en/download/help/path.xml">Control Panel
 (Environment
 Variables)</a>.</p>
@@ -725,10 +797,6 @@ Type &quot;help&quot;, &quot;copyright&quot;, &quot;credits&quot; or &quot;licen
 &gt;&gt;&gt;
 </pre></div>
 </div>
-<p>(Press control-D to exit)</p>
-<p>If you have Python 2.7 or a non-Anaconda Python, you will need to go
-back and install Anaconda Python. If you installed Canopy Python at
-any point, make sure you uninstall it first.</p>
 </li>
 <li><p>If you try to run a <strong>PmagPy</strong> program and you get an ImportError,
 you are probably missing a required package. Go back and install all
@@ -791,7 +859,7 @@ notebooks from your command line with the following:</p>
 you can then click on the notebook you want to run (we recommend you
 start with PmagPy_introduction.ipynb).</p>
 <p>**Note**: You only have to do the move_data_files.py command once
-after initial installion and then once after each update. You should
+after initial installation and then once after each update. You should
 make a copy of any notebook (see File menu) if you want to make any
 changes as each update will overwrite the standard notebooks.</p>
 </section>

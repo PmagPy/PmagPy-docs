@@ -13,7 +13,7 @@ pip install -U jupyter-book
 
 ## Building the Jupyter Book
 
-With Jupyter book installed, the Jupyter book in this repository can be made with this command:
+With Jupyter book installed, the Jupyter book in this repository can be made with this command. To run this command you need to be not in the directory itself, but in the directory that contains the folder:
 ```
 jupyter-book build PmagPy-docs
 ```

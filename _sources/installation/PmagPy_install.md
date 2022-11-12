@@ -135,9 +135,7 @@ If you are using Z shell instead of bash (which is the new default for
 Mac starting with OSX Catalina), you will need to manually add the same
 \$PATH and \$PYTHONPATH lines to .zshrc instead of .bashrc. You can
 determine which shell you are using by looking at the text at the top of
-your Terminal window. For example, see below I am using bash:
-
-![image](EPSFiles/FigTerminal.eps){width="30cm"}
+your Terminal window.
 
 For Windows, \$PATH and \$PYTHONPATH will be set in your [Control Panel
 (Environment
@@ -183,12 +181,6 @@ and so on.
         [Clang 4.0.1 (tags/RELEASE_401/final)] :: Anaconda, Inc. on darwin
         Type "help", "copyright", "credits" or "license" for more information.
         >>>
-
-    (Press control-D to exit)
-
-    If you have Python 2.7 or a non-Anaconda Python, you will need to go
-    back and install Anaconda Python. If you installed Canopy Python at
-    any point, make sure you uninstall it first.
 
 -   If you try to run a **PmagPy** program and you get an ImportError,
     you are probably missing a required package. Go back and install all
@@ -252,7 +244,7 @@ you can then click on the notebook you want to run (we recommend you
 start with PmagPy_introduction.ipynb).
 
 \*\*Note\*\*: You only have to do the move_data_files.py command once
-after initial installion and then once after each update. You should
+after initial installation and then once after each update. You should
 make a copy of any notebook (see File menu) if you want to make any
 changes as each update will overwrite the standard notebooks.
 

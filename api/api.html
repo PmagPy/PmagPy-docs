@@ -52,7 +52,7 @@ const thebe_selector_output = ".output, .cell_output"
     <script async="async" src="../_static/sphinx-thebe.js"></script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
-    <link rel="prev" title="Tauxe et al. 2016 example notebook" href="../example_notebooks/Tauxe_etal_2016.html" />
+    <link rel="prev" title="MagIC database and file formats" href="../MagIC/MagIC.html" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="docsearch:language" content="None">
     
@@ -161,7 +161,17 @@ const thebe_selector_output = ".output, .cell_output"
      Linux developer install
     </a>
    </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../installation/troubleshooting.html">
+     Troubleshooting installation issues
+    </a>
+   </li>
   </ul>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../resources/survival_skills.html">
+   Survival computer skills
+  </a>
  </li>
 </ul>
 <p aria-level="2" class="caption" role="heading">
@@ -170,6 +180,11 @@ const thebe_selector_output = ".output, .cell_output"
  </span>
 </p>
 <ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../documentation_notebooks/Jupyter.html">
+   Jupyter Notebooks
+  </a>
+ </li>
  <li class="toctree-l1">
   <a class="reference internal" href="../documentation_notebooks/PmagPy_introduction.html">
    Introduction to PmagPy
@@ -213,6 +228,52 @@ const thebe_selector_output = ".output, .cell_output"
     </a>
    </li>
   </ul>
+ </li>
+</ul>
+<p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  Programs
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="../programs/pmag_gui.html">
+   Pmag GUI
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-3" name="toctree-checkbox-3" type="checkbox"/>
+  <label for="toctree-checkbox-3">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../programs/demag_gui.html">
+     Demag GUI
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../programs/thellier_gui.html">
+     Thellier GUI
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../programs/command_line_programs.html">
+   PmagPy command line programs
+  </a>
+ </li>
+</ul>
+<p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  MagIC
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../MagIC/MagIC.html">
+   MagIC database and file formats
+  </a>
  </li>
 </ul>
 <p aria-level="2" class="caption" role="heading">
@@ -500,17 +561,17 @@ to only include data in geographic coordinates - THIS NEEDS TO BE GENERALIZED</p
 </ul>
 </dd>
 <dt class="field-even">Returns</dt>
-<dd class="field-even"><p><ul>
-<li><p><strong>Tuple</strong> (<em>(True or False indicating if conversion was successful, output file name written)</em>)</p></li>
-<li><p><em>Info</em></p></li>
-<li><p><em>———</em> –   Input for is a series of baseline, ARM pairs.
+<dd class="field-even"><p>True or False indicating if conversion was successful and output file name written</p>
+</dd>
+</dl>
+<dl>
+<dt>Info:</dt><dd><p>Input for is a series of baseline, ARM pairs.
 The baseline should be the AF demagnetized state (3 axis demag is
 preferable) for the following ARM acquisition. The order of the
 measurements is:</p>
 <blockquote>
-<div><dl>
-<dt>for 6 positions (AF demag before each step):</dt><dd><blockquote>
-<div><ol class="arabic simple">
+<div><dl class="simple">
+<dt>for 6 positions (AF demag before each step):</dt><dd><ol class="arabic simple">
 <li><p>labfield parallel to X</p></li>
 <li><p>labfield parallel to Y</p></li>
 <li><p>labfield parallel to Z</p></li>
@@ -518,19 +579,13 @@ measurements is:</p>
 <li><p>labfield anti-parallel to Y</p></li>
 <li><p>labfield anti-parallel to Z</p></li>
 </ol>
-</div></blockquote>
-<dl class="simple">
-<dt>for 9 positions (AF demag before each step):</dt><dd><p>positions 1,2,3, 6,7,8, 11,12,13 (from Figure D.2 in Essentials, earthref.org/MagIC/books/Tauxe/Essentials, Appendix D)</p>
+</dd>
+<dt>for 9 positions (AF demag before each step):</dt><dd><p>positions 1,2,3,6,7,8,11,12,13 (from Figure D.2 in Essentials, earthref.org/MagIC/books/Tauxe/Essentials, Appendix D)</p>
 </dd>
 <dt>for 15  positions (AF demag before each step):</dt><dd><p>positions 1-15 (for 15 positions)</p>
 </dd>
 </dl>
-</dd>
-</dl>
 </div></blockquote>
-</li>
-</ul>
-</p>
 </dd>
 </dl>
 </dd></dl>
@@ -547,27 +602,29 @@ measurements is:</p>
 <li><p><strong>input_dir_path</strong> (<em>str</em>) – input file directory IF different from dir_path, default “”</p></li>
 <li><p><strong>spec_file</strong> (<em>str</em>) – input/output specimen file name, default “specimens.txt”</p></li>
 <li><p><strong>samp_file</strong> (<em>str</em>) – input sample file name, default “samples.txt”</p></li>
-<li><p><strong>data_model_num</strong> (<em>number</em>) – MagIC data model [2, 3], default 3</p></li>
+<li><p><strong>data_model_num</strong> (<em>int</em>) – MagIC data model [2, 3], default 3</p></li>
 <li><p><strong>coord</strong> (<em>str</em>) – coordinate system specimen/geographic/tilt-corrected,
 [‘s’, ‘g’, ‘t’], default ‘s’</p></li>
 </ul>
 </dd>
 <dt class="field-even">Returns</dt>
-<dd class="field-even"><p><ul>
-<li><p><strong>Tuple</strong> (<em>(True or False indicating if conversion was successful, output file name written)</em>)</p></li>
-<li><p><em>Info</em></p></li>
-<li><p><em>———</em> –   Input for is a series of baseline, ARM pairs.
+<dd class="field-even"><p><dl class="simple">
+<dt>Tuple</dt><dd><p>True or False indicating if conversion was successful, output file name written</p>
+</dd>
+</dl>
+</p>
+</dd>
+</dl>
+<dl>
+<dt>Info:</dt><dd><p>Input for is a series of baseline, ARM pairs.
 The baseline should be the AF demagnetized state (3 axis demag is
 preferable) for the following ARM acquisition. The order of the
 measurements is:</p>
 <blockquote>
-<div><p>positions 1,2,3, 6,7,8, 11,12,13 (for 9 positions)
-positions 1,2,3,4, 6,7,8,9, 11,12,13,14 (for 12 positions)
-positions 1-15 (for 15 positions)</p>
+<div><p>positions 1,2,3, 6,7,8, 11,12,13 (for 9 positions)</p>
+<p>positions 1,2,3,4, 6,7,8,9, 11,12,13,14 (for 12 positions)</p>
+<p>positions 1-15 (for 15 positions)</p>
 </div></blockquote>
-</li>
-</ul>
-</p>
 </dd>
 </dl>
 </dd></dl>
@@ -582,27 +639,35 @@ You may additionally provide measurements and a summary file (csv).</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
 <dd class="field-odd"><ul class="simple">
-<li><p><strong>spec_file</strong> (<em>str</em><em>, </em><em>default &quot;specimens.txt&quot;</em>) – </p></li>
-<li><p><strong>samp_file</strong> (<em>str</em><em>, </em><em>default &quot;samples.txt&quot;</em>) – </p></li>
-<li><p><strong>meas_file</strong> (<em>str</em><em>, </em><em>default &quot;measurements.txt&quot;</em>) – </p></li>
-<li><p><strong>site_file</strong> (<em>str</em><em>, </em><em>default &quot;sites.txt&quot;</em>) – </p></li>
-<li><p><strong>age_file</strong> (<em>str</em><em>, </em><em>default &quot;&quot;</em>) – </p></li>
-<li><p><strong>sum_file</strong> (<em>str</em><em>, </em><em>default &quot;&quot;</em>) – </p></li>
-<li><p><strong>fmt</strong> (<em>str</em><em>, </em><em>default &quot;svg&quot;</em>) – format for figures, [“svg”, “jpg”, “pdf”, “png”]</p></li>
-<li><p><strong>dmin</strong> (<em>number</em><em>, </em><em>default -1</em>) – minimum depth to plot (if -1, default to plotting all)</p></li>
-<li><p><strong>dmax</strong> (<em>number</em><em>, </em><em>default -1</em>) – maximum depth to plot (if -1, default to plotting all)</p></li>
-<li><p><strong>depth_scale</strong> (<em>str</em><em>, </em><em>default &quot;core_depth&quot;</em>) – scale to plot, [‘composite_depth’, ‘core_depth’, ‘age’].
+<li><p><strong>spec_file</strong> (<em>str</em>) – default “specimens.txt”</p></li>
+<li><p><strong>samp_file</strong> (<em>str</em>) – default “samples.txt”</p></li>
+<li><p><strong>meas_file</strong> (<em>str</em>) – default “measurements.txt”</p></li>
+<li><p><strong>site_file</strong> (<em>str</em>) – default “sites.txt”</p></li>
+<li><p><strong>age_file</strong> (<em>str</em>) – default “”</p></li>
+<li><p><strong>sum_file</strong> (<em>str</em>) – default “”</p></li>
+<li><p><strong>fmt</strong> (<em>str</em>) – str, default “svg”
+format for figures, [“svg”, “jpg”, “pdf”, “png”]</p></li>
+<li><p><strong>dmin</strong> (<em>number</em>) – default -1
+minimum depth to plot (if -1, default to plotting all)</p></li>
+<li><p><strong>dmax</strong> (<em>number</em>) – default -1
+maximum depth to plot (if -1, default to plotting all)</p></li>
+<li><p><strong>depth_scale</strong> (<em>str</em>) – default “core_depth”
+scale to plot, [‘composite_depth’, ‘core_depth’, ‘age’].
 if ‘age’ is selected, you must provide an ages file.</p></li>
-<li><p><strong>dir_path</strong> (<em>str</em><em>, </em><em>default &quot;.&quot;</em>) – directory for input files</p></li>
-<li><p><strong>contribution</strong> (<em>cb.Contribution</em><em>, </em><em>default None</em>) – if provided, use Contribution object instead of reading in
+<li><p><strong>dir_path</strong> (<em>str</em>) – default “.”
+directory for input files</p></li>
+<li><p><strong>contribution</strong> – cb.Contribution, default None
+if provided, use Contribution object instead of reading in
 data from files</p></li>
 </ul>
 </dd>
 <dt class="field-even">Returns</dt>
-<dd class="field-even"><p><ul class="simple">
-<li><p><strong>plot</strong> (<em>matplotlib plot, or False if no plot could be created</em>)</p></li>
-<li><p><strong>name</strong> (<em>figure name, or error message if no plot could be created</em>)</p></li>
-</ul>
+<dd class="field-even"><p><dl class="simple">
+<dt>plot</dt><dd><p>matplotlib plot, or False if no plot could be created</p>
+</dd>
+<dt>name</dt><dd><p>figure name, or error message if no plot could be created</p>
+</dd>
+</dl>
 </p>
 </dd>
 </dl>
@@ -617,36 +682,41 @@ available depth scales: ‘sample_composite_depth’, ‘sample_core_depth’, o
 
 <dl class="py function">
 <dt class="sig sig-object py" id="pmagpy.ipmag.aniso_magic">
-<span class="sig-prename descclassname"><span class="pre">pmagpy.ipmag.</span></span><span class="sig-name descname"><span class="pre">aniso_magic</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">infile</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'specimens.txt'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">samp_file</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'samples.txt'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">site_file</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'sites.txt'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">verbose</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">ipar</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">ihext</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">ivec</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">isite</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">iloc</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">iboot</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">vec</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">Dir</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">[]</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">PDir</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">[]</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">crd</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'s'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">num_bootstraps</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">1000</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">dir_path</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'.'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">fignum</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">1</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">save_plots</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">interactive</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">fmt</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'png'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">contribution</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">image_records</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/pmagpy/ipmag.html#aniso_magic"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pmagpy.ipmag.aniso_magic" title="Permalink to this definition">#</a></dt>
+<span class="sig-prename descclassname"><span class="pre">pmagpy.ipmag.</span></span><span class="sig-name descname"><span class="pre">aniso_magic</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">infile</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'specimens.txt'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">samp_file</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'samples.txt'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">site_file</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'sites.txt'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">verbose</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">ipar</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">ihext</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">ivec</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">isite</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">iboot</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">vec</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">Dir</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">[]</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">PDir</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">[]</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">crd</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'s'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">num_bootstraps</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">1000</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">dir_path</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'.'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">fignum</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">1</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">save_plots</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">interactive</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">fmt</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'png'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">contribution</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">image_records</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/pmagpy/ipmag.html#aniso_magic"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pmagpy.ipmag.aniso_magic" title="Permalink to this definition">#</a></dt>
 <dd><p>Makes plots of anisotropy eigenvectors, eigenvalues and confidence bounds
 All directions are on the lower hemisphere.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
 <dd class="field-odd"><ul class="simple">
-<li><p><strong>infile</strong> (<em>specimens formatted file with aniso_s data</em>) – </p></li>
-<li><p><strong>samp_file</strong> (<em>samples formatted file with sample =&gt; site relationship</em>) – </p></li>
-<li><p><strong>site_file</strong> (<em>sites formatted file with site =&gt; location relationship</em>) – </p></li>
-<li><p><strong>verbose</strong> (<em>if True</em><em>, </em><em>print messages to output</em>) – </p></li>
-<li><p><strong>options</strong> (<em>confidence bounds</em>) – ipar : if True - perform parametric bootstrap - requires non-blank aniso_s_sigma
-ihext : if True - Hext ellipses
-ivec : if True - plot bootstrapped eigenvectors instead of ellipses
-isite : if True plot by site, requires non-blank samp_file
-#iloc : if True plot by location, requires non-blank samp_file, and site_file  NOT IMPLEMENTED
-iboot : if True - bootstrap ellipses</p></li>
-<li><p><strong>vec</strong> (<em>eigenvector for comparison with Dir</em>) – </p></li>
-<li><p><strong>Dir</strong> (<em>[</em><em>Dec</em><em>,</em><em>Inc</em><em>] </em><em>list for comparison direction</em>) – </p></li>
-<li><p><strong>PDir</strong> (<em>[</em><em>Pole_dec</em><em>, </em><em>Pole_Inc</em><em>] </em><em>for pole to plane for comparison</em>) – green dots are on the lower hemisphere, cyan are on the upper hemisphere</p></li>
-<li><p><strong>crd</strong> (<em>[</em><em>'s'</em><em>,</em><em>'g'</em><em>,</em><em>'t'</em><em>]</em><em>, </em><em>coordinate system for plotting whereby:</em>) – s : specimen coordinates, aniso_tile_correction = -1, or unspecified
+<li><p><strong>infile</strong> – specimens formatted file with aniso_s data</p></li>
+<li><p><strong>samp_file</strong> – samples formatted file with sample =&gt; site relationship</p></li>
+<li><p><strong>site_file</strong> – sites formatted file with site =&gt; location relationship</p></li>
+<li><p><strong>verbose</strong> – if True, print messages to output</p></li>
+<li><p><strong>ipar</strong> (<em>confidence bound parameter</em>) – if True - perform parametric bootstrap - requires non-blank aniso_s_sigma</p></li>
+<li><p><strong>ihext</strong> (<em>confidence bound parameter</em>) – if True - Hext ellipses</p></li>
+<li><p><strong>ivec</strong> (<em>confidence bound parameter</em>) – if True - plot bootstrapped eigenvectors instead of ellipses</p></li>
+<li><p><strong>isite</strong> (<em>confidence bound parameter</em>) – if True plot by site, requires non-blank samp_file</p></li>
+<li><p><strong>iboot</strong> (<em>confidence bound parameter</em>) – if True - bootstrap ellipses</p></li>
+<li><p><strong>vec</strong> – eigenvector for comparison with Dir</p></li>
+<li><p><strong>Dir</strong> – [Dec,Inc] list for comparison direction</p></li>
+<li><p><strong>PDir</strong> – [Pole_dec, Pole_Inc] for pole to plane for comparison
+green dots are on the lower hemisphere, cyan are on the upper hemisphere</p></li>
+<li><p><strong>crd</strong> – [‘s’,’g’,’t’], coordinate system for plotting whereby:
+s : specimen coordinates, aniso_tile_correction = -1, or unspecified
 g : geographic coordinates, aniso_tile_correction = 0
 t : tilt corrected coordinates, aniso_tile_correction = 100</p></li>
-<li><p><strong>num_bootstraps</strong> (<em>how many bootstraps to do</em><em>, </em><em>default 1000</em>) – </p></li>
-<li><p><strong>dir_path</strong> (<em>directory path</em>) – </p></li>
-<li><p><strong>fignum</strong> (<em>matplotlib figure number</em><em>, </em><em>default 1</em>) – </p></li>
-<li><p><strong>save_plots</strong> (<em>bool</em><em>, </em><em>default True</em>) – if True, create and save all requested plots</p></li>
-<li><p><strong>interactive</strong> (<em>bool</em><em>, </em><em>default False</em>) – interactively plot and display for each specimen
+<li><p><strong>num_bootstraps</strong> – how many bootstraps to do, default 1000</p></li>
+<li><p><strong>dir_path</strong> – directory path</p></li>
+<li><p><strong>fignum</strong> – matplotlib figure number, default 1</p></li>
+<li><p><strong>save_plots</strong> – bool, default True
+if True, create and save all requested plots</p></li>
+<li><p><strong>interactive</strong> – bool, default False
+interactively plot and display for each specimen
 (this is best used on the command line only)</p></li>
-<li><p><strong>fmt</strong> (<em>str</em><em>, </em><em>default &quot;svg&quot;</em>) – format for figures, [svg, jpg, pdf, png]</p></li>
-<li><p><strong>contribution</strong> (<em>pmagpy contribution_builder.Contribution object</em><em>, </em><em>if not provided will be created</em>) – in directory (default None).  (if provided, infile/samp_file/dir_path may be left blank)</p></li>
+<li><p><strong>fmt</strong> – str, default “svg”
+format for figures, [svg, jpg, pdf, png]</p></li>
+<li><p><strong>contribution</strong> – pmagpy contribution_builder.Contribution object, if not provided will be created
+in directory (default None).  (if provided, infile/samp_file/dir_path may be left blank)</p></li>
 </ul>
 </dd>
 </dl>
@@ -673,26 +743,29 @@ t : tilt corrected coordinates, aniso_tile_correction = 100</p></li>
 </ul>
 </dd>
 <dt class="field-even">Returns</dt>
-<dd class="field-even"><p><ul>
-<li><p><strong>Tuple</strong> (<em>(True or False indicating if conversion was successful, output file name written)</em>)</p></li>
-<li><p><em>Info</em></p></li>
-<li><p><em>———</em> –  Input for is a series of ATRM measurements with optional alteration check
+<dd class="field-even"><p>(True or False indicating if conversion was successful, output file name written)</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p>Tuple</p>
+</dd>
+</dl>
+<dl>
+<dt>Info:</dt><dd><p>Input for is a series of ATRM measurements with optional alteration check
 The order of the measurements is:</p>
 <blockquote>
 <div><dl class="simple">
-<dt>positions:</dt><dd><p>labfield parallel to X
-labfield parallel to Y
-labfield parallel to Z
-labfield anti-parallel to X
-labfield anti-parallel to Y
-labfield anti-parallel to Z
-optional: labfield parallel to X</p>
+<dt>positions:</dt><dd><ul class="simple">
+<li><p>labfield parallel to X</p></li>
+<li><p>labfield parallel to Y</p></li>
+<li><p>labfield parallel to Z</p></li>
+<li><p>labfield anti-parallel to X</p></li>
+<li><p>labfield anti-parallel to Y</p></li>
+<li><p>labfield anti-parallel to Z</p></li>
+<li><p>optional: labfield parallel to X</p></li>
+</ul>
 </dd>
 </dl>
 </div></blockquote>
-</li>
-</ul>
-</p>
 </dd>
 </dl>
 </dd></dl>
@@ -728,49 +801,48 @@ optional: labfield parallel to X</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
 <dd class="field-odd"><ul class="simple">
-<li><p><strong>orient_file</strong> (<em>name of azdip formatted input file</em>) – </p></li>
-<li><p><strong>samp_file</strong> (<em>name of samples.txt formatted output file</em>) – </p></li>
-<li><p><strong>samp_con</strong> (<em>integer of sample orientation convention</em>) – <dl class="simple">
-<dt>[1] XXXXY: where XXXX is an arbitrary length site designation and Y</dt><dd><p>is the single character sample designation.  e.g., TG001a is the
-first sample from site TG001.    [default]</p>
-</dd>
-</dl>
-<p>[2] XXXX-YY: YY sample from site XXXX (XXX, YY of arbitrary length)
-[3] XXXX.YY: YY sample from site XXXX (XXX, YY of arbitrary length)
-[4-Z] XXXX[YYY]:  YYY is sample designation with Z characters from site XXX
-[5] site name same as sample
-[6] site name entered in site_name column in the orient.txt format input file  – NOT CURRENTLY SUPPORTED
-[7-Z] [XXXX]YYY:  XXXX is site designation with Z characters with sample name XXXXYYYY</p>
+<li><p><strong>orient_file</strong> – name of azdip formatted input file</p></li>
+<li><p><strong>samp_file</strong> – name of samples.txt formatted output file</p></li>
+<li><p><strong>samp_con</strong> – <p>integer of sample orientation convention</p>
+<ul>
+<li><p>[1] XXXXY: where XXXX is an arbitrary length site designation and Y is the single character sample designation. e.g., TG001a is the first sample from site TG001.    [default]</p></li>
+<li><p>[2] XXXX-YY: YY sample from site XXXX (XXX, YY of arbitrary length)</p></li>
+<li><p>[3] XXXX.YY: YY sample from site XXXX (XXX, YY of arbitrary length)</p></li>
+<li><p>[4-Z] XXXX[YYY]:  YYY is sample designation with Z characters from site XXX</p></li>
+<li><p>[5] site name same as sample</p></li>
+<li><p>[6] site name entered in site_name column in the orient.txt format input file  – NOT CURRENTLY SUPPORTED</p></li>
+<li><p>[7-Z] [XXXX]YYY:  XXXX is site designation with Z characters with sample name XXXXYYYY</p></li>
+</ul>
 </p></li>
-<li><p><strong>method_codes</strong> (<em>colon delimited string with the following as desired</em>) – FS-FD field sampling done with a drill
-FS-H field sampling done with hand samples
-FS-LOC-GPS  field location done with GPS
-FS-LOC-MAP  field location done with map
-SO-POM   a Pomeroy orientation device was used
-SO-ASC   an ASC orientation device was used
-SO-MAG   orientation with magnetic compass</p></li>
-<li><p><strong>location_name</strong> (<em>location of samples</em>) – </p></li>
-<li><p><strong>append</strong> (<em>boolean.  if True</em><em>, </em><em>append to the output file</em>) – </p></li>
-<li><p><strong>output_dir</strong> (<em>path to output file directory</em>) – </p></li>
-<li><p><strong>input_dir</strong> (<em>path to input file directory</em>) – </p></li>
-<li><p><strong>data_model</strong> (<em>MagIC data model.</em>) – </p></li>
+<li><p><strong>method_codes</strong> – <p>colon delimited string with the following as desired</p>
+<ul>
+<li><p>FS-FD field sampling done with a drill</p></li>
+<li><p>FS-H field sampling done with hand samples</p></li>
+<li><p>FS-LOC-GPS  field location done with GPS</p></li>
+<li><p>FS-LOC-MAP  field location done with map</p></li>
+<li><p>SO-POM   a Pomeroy orientation device was used</p></li>
+<li><p>SO-ASC   an ASC orientation device was used</p></li>
+<li><p>SO-MAG   orientation with magnetic compass</p></li>
+</ul>
+</p></li>
+<li><p><strong>location_name</strong> – location of samples</p></li>
+<li><p><strong>append</strong> – boolean.  if True, append to the output file</p></li>
+<li><p><strong>output_dir</strong> – path to output file directory</p></li>
+<li><p><strong>input_dir</strong> – path to input file directory</p></li>
+<li><p><strong>data_model</strong> – MagIC data model.</p></li>
 </ul>
 </dd>
 </dl>
-<dl>
-<dt>INPUT FORMAT</dt><dd><dl>
+<dl class="simple">
+<dt>INPUT FORMAT</dt><dd><dl class="simple">
 <dt>Input files must be space delimited:</dt><dd><p>Samp  Az Dip Strike Dip</p>
 </dd>
-<dt>Orientation convention:</dt><dd><blockquote>
-<div><dl class="simple">
+<dt>Orientation convention:</dt><dd><dl class="simple">
 <dt>Lab arrow azimuth = mag_azimuth; Lab arrow dip = 90-field_dip</dt><dd><p>e.g. field_dip is degrees from horizontal of drill direction</p>
 </dd>
 </dl>
-</div></blockquote>
-<dl class="simple">
-<dt>Magnetic declination convention:</dt><dd><p>Az is already corrected in file</p>
 </dd>
-</dl>
+<dt>Magnetic declination convention:</dt><dd><p>Az is already corrected in file</p>
 </dd>
 </dl>
 </dd>
@@ -788,9 +860,10 @@ The divisions in longitude is twice that.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
 <dd class="field-odd"><ul class="simple">
-<li><p><strong>lon_samples</strong> (<em>a list of longitudes</em>) – </p></li>
-<li><p><strong>lat_samples</strong> (<em>a list of latitudes</em>) – </p></li>
-<li><p><strong>resolution</strong> (<em>The resolution keyword gives the number of divisions in latitude.</em>) – The divisions in longitude is twice that.</p></li>
+<li><p><strong>lon_samples</strong> – a list of longitudes</p></li>
+<li><p><strong>lat_samples</strong> – a list of latitudes</p></li>
+<li><p><strong>resolution</strong> – The resolution keyword gives the number of divisions in latitude.
+The divisions in longitude is twice that.</p></li>
 </ul>
 </dd>
 </dl>
@@ -806,32 +879,30 @@ Returns a dictionary with the Bingham mean and statistical parameters.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
 <dd class="field-odd"><ul class="simple">
-<li><p><strong>dec</strong> (<em>list of declinations</em>) – </p></li>
-<li><p><strong>inc</strong> (<em>list of inclinations</em>) – </p></li>
-<li><p><strong>or</strong> – </p></li>
-<li><p><strong>di_block</strong> (<em>a nested list of</em><em> [</em><em>dec</em><em>,</em><em>inc</em><em>,</em><em>1.0</em><em>]</em>) – A di_block can be provided instead of dec, inc lists in which case it will
+<li><p><strong>dec</strong> – list of declinations</p></li>
+<li><p><strong>inc</strong> – list of inclinations
+or</p></li>
+<li><p><strong>di_block</strong> – a nested list of [dec,inc,1.0]
+A di_block can be provided instead of dec, inc lists in which case it will
 be used. Either dec, inc lists or a di_block need to passed to the function.</p></li>
 </ul>
 </dd>
 <dt class="field-even">Returns</dt>
-<dd class="field-even"><p><strong>bpars</strong></p>
-</dd>
-<dt class="field-odd">Return type</dt>
-<dd class="field-odd"><p>dictionary containing the Bingham mean and associated statistics.</p>
+<dd class="field-even"><p>dictionary containing the Bingham mean and associated statistics.</p>
 </dd>
 </dl>
 <p class="rubric">Examples</p>
 <p>Use lists of declination and inclination to calculate a Bingham mean:</p>
 <div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">ipmag</span><span class="o">.</span><span class="n">bingham_mean</span><span class="p">(</span><span class="n">dec</span><span class="o">=</span><span class="p">[</span><span class="mi">140</span><span class="p">,</span><span class="mi">127</span><span class="p">,</span><span class="mi">142</span><span class="p">,</span><span class="mi">136</span><span class="p">],</span><span class="n">inc</span><span class="o">=</span><span class="p">[</span><span class="mi">21</span><span class="p">,</span><span class="mi">23</span><span class="p">,</span><span class="mi">19</span><span class="p">,</span><span class="mi">22</span><span class="p">])</span>
 <span class="go">{&#39;Edec&#39;: 220.84075754194598,</span>
-<span class="go"> &#39;Einc&#39;: -13.745780972597291,</span>
-<span class="go"> &#39;Eta&#39;: 9.9111522306938742,</span>
-<span class="go"> &#39;Zdec&#39;: 280.38894136954474,</span>
-<span class="go"> &#39;Zeta&#39;: 9.8653370276451113,</span>
-<span class="go"> &#39;Zinc&#39;: 64.23509410796224,</span>
-<span class="go"> &#39;dec&#39;: 136.32637167111312,</span>
-<span class="go"> &#39;inc&#39;: 21.34518678073179,</span>
-<span class="go"> &#39;n&#39;: 4}</span>
+<span class="go">&#39;Einc&#39;: -13.745780972597291,</span>
+<span class="go">&#39;Eta&#39;: 9.9111522306938742,</span>
+<span class="go">&#39;Zdec&#39;: 280.38894136954474,</span>
+<span class="go">&#39;Zeta&#39;: 9.8653370276451113,</span>
+<span class="go">&#39;Zinc&#39;: 64.23509410796224,</span>
+<span class="go">&#39;dec&#39;: 136.32637167111312,</span>
+<span class="go">&#39;inc&#39;: 21.34518678073179,</span>
+<span class="go">&#39;n&#39;: 4}</span>
 </pre></div>
 </div>
 <p>Use a di_block to calculate a Bingham mean (will give the same output as the
@@ -855,22 +926,24 @@ the fold test.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
 <dd class="field-odd"><ul class="simple">
-<li><p><strong>Data</strong> (<em>a numpy array of directional data</em><em> [</em><em>dec</em><em>, </em><em>inc</em><em>, </em><em>dip_direction</em><em>, </em><em>dip</em><em>]</em>) – dec, inc are the declination and inclination of the paleomagnetic directions
+<li><p><strong>Data</strong> – a numpy array of directional data [dec, inc, dip_direction, dip]
+dec, inc are the declination and inclination of the paleomagnetic directions
 dip_direction, dip are the orientation of the bedding</p></li>
-<li><p><strong>num_sims</strong> (<em>number of bootstrap samples</em><em> (</em><em>default is 1000</em><em>)</em>) – </p></li>
-<li><p><strong>min_untilt</strong> (<em>minimum percent untilting applied to the data</em><em> (</em><em>default is -10%</em><em>)</em>) – </p></li>
-<li><p><strong>max_untilt</strong> (<em>maximum percent untilting applied to the data</em><em> (</em><em>default is 120%</em><em>)</em>) – </p></li>
-<li><p><strong>bedding_error</strong> (<em>(</em><em>circular standard deviation</em><em>) </em><em>for uncertainty on bedding poles</em>) – </p></li>
-<li><p><strong>save</strong> (<em>optional save of plots</em><em> (</em><em>default is False</em><em>)</em>) – </p></li>
-<li><p><strong>save_folder</strong> (<em>path to directory where plots should be saved</em>) – </p></li>
-<li><p><strong>fmt</strong> (<em>format of figures to be saved</em><em> (</em><em>default is 'svg'</em><em>)</em>) – </p></li>
-<li><p><strong>ninety_nine</strong> (<em>changes confidence bounds from 95 percent to 99 if True</em>) – </p></li>
+<li><p><strong>num_sims</strong> – number of bootstrap samples (default is 1000)</p></li>
+<li><p><strong>min_untilt</strong> – minimum percent untilting applied to the data (default is -10%)</p></li>
+<li><p><strong>max_untilt</strong> – maximum percent untilting applied to the data (default is 120%)</p></li>
+<li><p><strong>bedding_error</strong> – (circular standard deviation) for uncertainty on bedding poles</p></li>
+<li><p><strong>save</strong> – optional save of plots (default is False)</p></li>
+<li><p><strong>save_folder</strong> – path to directory where plots should be saved</p></li>
+<li><p><strong>fmt</strong> – format of figures to be saved (default is ‘svg’)</p></li>
+<li><p><strong>ninety_nine</strong> – changes confidence bounds from 95 percent to 99 if True</p></li>
 </ul>
 </dd>
 <dt class="field-even">Returns</dt>
 <dd class="field-even"><p><ul class="simple">
-<li><p><strong>three plots</strong> (<em>uncorrected data equal area plot, tilt-corrected data equal</em>)</p></li>
-<li><p><em>area plot, bootstrap results and CDF of the eigenvalue maximum</em></p></li>
+<li><p>uncorrected data equal area plot</p></li>
+<li><p>tilt-corrected data equal area plot</p></li>
+<li><p>bootstrap results and CDF of the eigenvalue maximum</p></li>
 </ul>
 </p>
 </dd>
@@ -885,10 +958,10 @@ the needed array using the <code class="docutils literal notranslate"><span clas
 <span class="gp">&gt;&gt;&gt; </span><span class="n">data_array</span> <span class="o">=</span> <span class="n">ipmag</span><span class="o">.</span><span class="n">make_diddd_array</span><span class="p">(</span><span class="n">dec</span><span class="p">,</span><span class="n">inc</span><span class="p">,</span><span class="n">dip_direction</span><span class="p">,</span><span class="n">dip</span><span class="p">)</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">data_array</span>
 <span class="go">array([[ 132.5,   12.1,  265. ,   20. ],</span>
-<span class="go">   [ 124.3,   23.2,  265. ,   20. ],</span>
-<span class="go">   [ 142.7,   34.2,  265. ,   20. ],</span>
-<span class="go">   [ 130.3,   37.7,  164. ,   72. ],</span>
-<span class="go">   [ 163.2,   32.6,  164. ,   72. ]])</span>
+<span class="go">[ 124.3,   23.2,  265. ,   20. ],</span>
+<span class="go">[ 142.7,   34.2,  265. ,   20. ],</span>
+<span class="go">[ 130.3,   37.7,  164. ,   72. ],</span>
+<span class="go">[ 163.2,   32.6,  164. ,   72. ]])</span>
 </pre></div>
 </div>
 <p>This array can then be passed to the function:</p>
@@ -900,8 +973,7 @@ the needed array using the <code class="docutils literal notranslate"><span clas
 <dl class="py function">
 <dt class="sig sig-object py" id="pmagpy.ipmag.calculate_aniso_parameters">
 <span class="sig-prename descclassname"><span class="pre">pmagpy.ipmag.</span></span><span class="sig-name descname"><span class="pre">calculate_aniso_parameters</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">K</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">n_pos</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">6</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/pmagpy/ipmag.html#calculate_aniso_parameters"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pmagpy.ipmag.calculate_aniso_parameters" title="Permalink to this definition">#</a></dt>
-<dd><p>calculate anisotropy parameters from n_pos positions plus optional baseline measurements
-ADD DOC STUFF HERE</p>
+<dd><p>calculate anisotropy parameters from n_pos positions plus optional baseline measurements</p>
 </dd></dl>
 
 <dl class="py function">
@@ -910,22 +982,29 @@ ADD DOC STUFF HERE</p>
 <dd><dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
 <dd class="field-odd"><ul class="simple">
-<li><p><strong>infile</strong> (<em>str</em><em>, </em><em>default &quot;measurements.txt&quot;</em>) – measurement infile</p></li>
-<li><p><strong>dir_path</strong> (<em>str</em><em>, </em><em>default &quot;.&quot;</em>) – input directory</p></li>
-<li><p><strong>experiments</strong> (<em>str</em><em>, </em><em>default &quot;&quot;</em>) – experiment name to plot</p></li>
-<li><p><strong>fmt</strong> (<em>str</em><em>, </em><em>default &quot;svg&quot;</em>) – format for figures, [“svg”, “jpg”, “pdf”, “png”]</p></li>
-<li><p><strong>save_plots</strong> (<em>bool</em><em>, </em><em>default True</em>) – save figures</p></li>
-<li><p><strong>interactive</strong> (<em>bool</em><em>, </em><em>default False</em>) – if True, interactively plot and display
+<li><p><strong>infile</strong> – str, default “measurements.txt”
+measurement infile</p></li>
+<li><p><strong>dir_path</strong> – str, default “.”
+input directory</p></li>
+<li><p><strong>experiments</strong> – str, default “”
+experiment name to plot</p></li>
+<li><p><strong>fmt</strong> – str, default “svg”
+format for figures, [“svg”, “jpg”, “pdf”, “png”]</p></li>
+<li><p><strong>save_plots</strong> – bool, default True
+save figures</p></li>
+<li><p><strong>interactive</strong> – bool, default False
+if True, interactively plot and display
 (this is best used on the command line only)</p></li>
-<li><p><strong>contribution</strong> (<em>cb.Contribution</em><em>, </em><em>default None</em>) – if provided, use Contribution object instead of reading in
+<li><p><strong>contribution</strong> – cb.Contribution, default None
+if provided, use Contribution object instead of reading in
 data from files</p></li>
 </ul>
 </dd>
 <dt class="field-even">Returns</dt>
-<dd class="field-even"><p><strong>(status, output_files) - Tuple</strong></p>
+<dd class="field-even"><p>True or False indicating if conversion was successful, file name(s) written</p>
 </dd>
 <dt class="field-odd">Return type</dt>
-<dd class="field-odd"><p>(True or False indicating if conversion was successful, file name(s) written)</p>
+<dd class="field-odd"><p>(status, output_files) - Tuple</p>
 </dd>
 </dl>
 </dd></dl>
@@ -935,10 +1014,17 @@ data from files</p></li>
 <span class="sig-prename descclassname"><span class="pre">pmagpy.ipmag.</span></span><span class="sig-name descname"><span class="pre">chi_magic2</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">path_to_file</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'.'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">file_name</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'magic_measurements.txt'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">save</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">save_folder</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'.'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">fmt</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'svg'</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/pmagpy/ipmag.html#chi_magic2"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pmagpy.ipmag.chi_magic2" title="Permalink to this definition">#</a></dt>
 <dd><p>Generates plots that compare susceptibility to temperature at different
 frequencies.</p>
-<p>path_to_file : path to directory that contains file (default is current directory, ‘.’)
-file_name : name of file to be opened (default is ‘magic_measurements.txt’)
-save : boolean argument to save plots (default is False)
-save_folder : relative directory where plots will be saved (default is current directory, ‘.’)</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>specified</strong><strong>)</strong> (<em>(</em><em>defaults are used if not</em>) – </p></li>
+<li><p><strong>path_to_file</strong> – path to directory that contains file (default is current directory, ‘.’)</p></li>
+<li><p><strong>file_name</strong> – name of file to be opened (default is ‘magic_measurements.txt’)</p></li>
+<li><p><strong>save</strong> – boolean argument to save plots (default is False)</p></li>
+<li><p><strong>save_folder</strong> – relative directory where plots will be saved (default is current directory, ‘.’)</p></li>
+</ul>
+</dd>
+</dl>
 </dd></dl>
 
 <dl class="py function">
@@ -949,15 +1035,17 @@ single file. Returns output filename if the operation was successful.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
 <dd class="field-odd"><ul class="simple">
-<li><p><strong>filenames</strong> (<em>list of MagIC formatted files</em>) – </p></li>
-<li><p><strong>outfile</strong> (<em>name of output file</em><em> [</em><em>e.g.</em><em>, </em><em>measurements.txt</em><em>]</em>) – </p></li>
-<li><p><strong>data_model</strong> (<em>data model number</em><em> (</em><em>2.5</em><em> or </em><em>3</em><em>)</em><em>, </em><em>default 3</em>) – </p></li>
-<li><p><strong>magic_table</strong> (<em>name of magic table</em><em>, </em><em>default 'measurements'</em>) – </p></li>
-<li><p><strong>dir_path</strong> (<em>str</em>) – output directory, default “.”</p></li>
-<li><p><strong>input_dir_path</strong> (<em>str</em>) – input file directory (if different from dir_path), default “”</p></li>
+<li><p><strong>filenames</strong> – list of MagIC formatted files</p></li>
+<li><p><strong>outfile</strong> – name of output file [e.g., measurements.txt]</p></li>
+<li><p><strong>data_model</strong> – data model number (2.5 or 3), default 3</p></li>
+<li><p><strong>magic_table</strong> – name of magic table, default ‘measurements’</p></li>
+<li><p><strong>dir_path</strong> – str
+output directory, default “.”</p></li>
+<li><p><strong>input_dir_path</strong> – str
+input file directory (if different from dir_path), default “”</p></li>
 </ul>
 </dd>
-<dt class="field-even">Return type</dt>
+<dt class="field-even">Returns</dt>
 <dd class="field-even"><p>outfile name if success, False if failure</p>
 </dd>
 </dl>
@@ -973,18 +1061,16 @@ of the test is the one involving distributions with common precision.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
 <dd class="field-odd"><ul class="simple">
-<li><p><strong>Data1</strong> (<em>a nested list of directional data</em><em> [</em><em>dec</em><em>,</em><em>inc</em><em>] </em><em>(</em><em>a di_block</em><em>)</em>) – </p></li>
-<li><p><strong>Data2</strong> (<em>a nested list of directional data</em><em> [</em><em>dec</em><em>,</em><em>inc</em><em>] </em><em>(</em><em>a di_block</em><em>)</em>) – </p></li>
-<li><p><strong>reversal_test</strong> (<em>whether to flip one populations to its antipode</em>) – (default is False)</p></li>
+<li><p><strong>Data1</strong> – a nested list of directional data [dec,inc] (a di_block)</p></li>
+<li><p><strong>Data2</strong> – a nested list of directional data [dec,inc] (a di_block)</p></li>
+<li><p><strong>reversal_test</strong> – whether to flip one populations to its antipode
+(default is False)</p></li>
 </ul>
 </dd>
 <dt class="field-even">Returns</dt>
-<dd class="field-even"><p><ul class="simple">
-<li><p><strong>BF0</strong> (<em>Bayes factor</em>)</p></li>
-<li><p><strong>P</strong> (<em>posterior probability of the hypothesis</em>)</p></li>
-<li><p><strong>support</strong> (<em>category of support based on classification of P</em>)</p></li>
-</ul>
-</p>
+<dd class="field-even"><p><strong>BF0</strong> (Bayes factor),
+<strong>P</strong> (posterior probability of the hypothesis),
+<strong>support</strong> (category of support based on classification of P)</p>
 </dd>
 </dl>
 </dd></dl>
@@ -1001,29 +1087,30 @@ consistent with sharing a common mean.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
 <dd class="field-odd"><ul class="simple">
-<li><p><strong>Data1</strong> (<em>a nested list of directional data</em><em> [</em><em>dec</em><em>,</em><em>inc</em><em>] </em><em>(</em><em>a di_block</em><em>)</em>) – </p></li>
-<li><p><strong>Data2</strong> (<em>a nested list of directional data</em><em> [</em><em>dec</em><em>,</em><em>inc</em><em>] </em><em>(</em><em>a di_block</em><em>)</em>) – if Data2 is length of 1, treat as single direction</p></li>
-<li><p><strong>NumSims</strong> (<em>number of bootstrap samples</em><em> (</em><em>default is 1000</em><em>)</em>) – </p></li>
-<li><p><strong>save</strong> (<em>optional save of plots</em><em> (</em><em>default is False</em><em>)</em>) – </p></li>
-<li><p><strong>save_folder</strong> (<em>path to directory where plots should be saved</em>) – </p></li>
-<li><p><strong>fmt</strong> (<em>format of figures to be saved</em><em> (</em><em>default is 'svg'</em><em>)</em>) – </p></li>
-<li><p><strong>figsize</strong> (<em>optionally adjust figure size</em><em> (</em><em>default is</em><em> (</em><em>7</em><em>, </em><em>2.3</em><em>)</em><em>)</em>) – </p></li>
-<li><p><strong>x_tick_bins</strong> (<em>because they occasionally overlap depending on the data</em><em>, </em><em>this</em>) – argument allows you adjust number of tick marks on the x axis of graphs
+<li><p><strong>Data1</strong> – a nested list of directional data [dec,inc] (a di_block)</p></li>
+<li><p><strong>Data2</strong> – a nested list of directional data [dec,inc] (a di_block)
+if Data2 is length of 1, treat as single direction</p></li>
+<li><p><strong>NumSims</strong> – number of bootstrap samples (default is 1000)</p></li>
+<li><p><strong>save</strong> – optional save of plots (default is False)</p></li>
+<li><p><strong>save_folder</strong> – path to directory where plots should be saved</p></li>
+<li><p><strong>fmt</strong> – format of figures to be saved (default is ‘svg’)</p></li>
+<li><p><strong>figsize</strong> – optionally adjust figure size (default is (7, 2.3))</p></li>
+<li><p><strong>x_tick_bins</strong> – because they occasionally overlap depending on the data, this
+argument allows you adjust number of tick marks on the x axis of graphs
 (default is 4)</p></li>
 </ul>
 </dd>
 <dt class="field-even">Returns</dt>
-<dd class="field-even"><p><ul class="simple">
-<li><p><strong>three plots</strong> (<em>cumulative distributions of the X, Y, Z of bootstrapped means</em>)</p></li>
-<li><p><strong>result</strong> (<em>a boolean where 0 is fail and 1 is pass</em>)</p></li>
-</ul>
-</p>
+<dd class="field-even"><p>cumulative distributions of the X, Y, Z of bootstrapped means
+result : a boolean where 0 is fail and 1 is pass</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p>three plots</p>
 </dd>
 </dl>
 <p class="rubric">Examples</p>
-<p>Develop two populations of directions using <code class="docutils literal notranslate"><span class="pre">ipmag.fishrot</span></code>. Use the
-function to determine if they share a common mean (through visual inspection
-of resulting plots).</p>
+<p>Develop two populations of directions using <code class="docutils literal notranslate"><span class="pre">ipmag.fishrot()</span></code>. Use the
+function to determine if they share a common mean.</p>
 <div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">directions_A</span> <span class="o">=</span> <span class="n">ipmag</span><span class="o">.</span><span class="n">fishrot</span><span class="p">(</span><span class="n">k</span><span class="o">=</span><span class="mi">20</span><span class="p">,</span> <span class="n">n</span><span class="o">=</span><span class="mi">30</span><span class="p">,</span> <span class="n">dec</span><span class="o">=</span><span class="mi">40</span><span class="p">,</span> <span class="n">inc</span><span class="o">=</span><span class="mi">60</span><span class="p">)</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">directions_B</span> <span class="o">=</span> <span class="n">ipmag</span><span class="o">.</span><span class="n">fishrot</span><span class="p">(</span><span class="n">k</span><span class="o">=</span><span class="mi">35</span><span class="p">,</span> <span class="n">n</span><span class="o">=</span><span class="mi">25</span><span class="p">,</span> <span class="n">dec</span><span class="o">=</span><span class="mi">42</span><span class="p">,</span> <span class="n">inc</span><span class="o">=</span><span class="mi">57</span><span class="p">)</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">ipmag</span><span class="o">.</span><span class="n">common_mean_bootstrap</span><span class="p">(</span><span class="n">directions_A</span><span class="p">,</span> <span class="n">directions_B</span><span class="p">)</span>
@@ -1043,25 +1130,26 @@ McFadden and McElhinny (1990) classification is printed.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
 <dd class="field-odd"><ul class="simple">
-<li><p><strong>Data1</strong> (<em>a nested list of directional data</em><em> [</em><em>dec</em><em>,</em><em>inc</em><em>] </em><em>(</em><em>a di_block</em><em>)</em>) – </p></li>
-<li><p><strong>Data2</strong> (<em>a nested list of directional data</em><em> [</em><em>dec</em><em>,</em><em>inc</em><em>] </em><em>(</em><em>a di_block</em><em>)</em>) – </p></li>
-<li><p><strong>NumSims</strong> (<em>number of Monte Carlo simulations</em><em> (</em><em>default is 5000</em><em>)</em>) – </p></li>
-<li><p><strong>print_result</strong> (<em>default is to print the test result</em><em> (</em><em>True</em><em>)</em>) – </p></li>
-<li><p><strong>plot</strong> (<em>the default is no plot</em><em> (</em><em>'no'</em><em>)</em><em>. Putting 'yes' will the plot the CDF</em>) – from the Monte Carlo simulations.</p></li>
-<li><p><strong>save</strong> (<em>optional save of plots</em><em> (</em><em>default is False</em><em>)</em>) – </p></li>
-<li><p><strong>save_folder</strong> (<em>path to where plots will be saved</em><em> (</em><em>default is current</em><em>)</em>) – </p></li>
-<li><p><strong>fmt</strong> (<em>format of figures to be saved</em><em> (</em><em>default is 'svg'</em><em>)</em>) – </p></li>
+<li><p><strong>Data1</strong> – a nested list of directional data [dec,inc] (a di_block)</p></li>
+<li><p><strong>Data2</strong> – a nested list of directional data [dec,inc] (a di_block)</p></li>
+<li><p><strong>NumSims</strong> – number of Monte Carlo simulations (default is 5000)</p></li>
+<li><p><strong>print_result</strong> – default is to print the test result (True)</p></li>
+<li><p><strong>plot</strong> – the default is no plot (‘no’).
+Putting ‘yes’ will the plot the CDF from the Monte Carlo simulations.</p></li>
+<li><p><strong>save</strong> – optional save of plots (default is False)</p></li>
+<li><p><strong>save_folder</strong> – path to where plots will be saved (default is current)</p></li>
+<li><p><strong>fmt</strong> – format of figures to be saved (default is ‘svg’)</p></li>
 </ul>
 </dd>
 <dt class="field-even">Returns</dt>
-<dd class="field-even"><p><ul class="simple">
-<li><p><strong>printed text</strong> (<em>text describing the test result is printed</em>)</p></li>
-<li><p><strong>result</strong> (<em>a boolean where 0 is fail and 1 is pass</em>)</p></li>
-<li><p><strong>angle</strong> (<em>angle between the Fisher means of the two data sets</em>)</p></li>
-<li><p><strong>critical_angle</strong> (<em>critical angle for the test to pass</em>)</p></li>
-<li><p><strong>classification</strong> (<em>MM1990 classification for a positive test</em>)</p></li>
-</ul>
-</p>
+<dd class="field-even"><p>text describing the test result is printed
+result : a boolean where 0 is fail and 1 is pass
+angle : angle between the Fisher means of the two data sets
+critical_angle : critical angle for the test to pass
+classification : MM1990 classification for a positive test</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p>printed text</p>
 </dd>
 </dl>
 <p class="rubric">Examples</p>
@@ -1221,30 +1309,28 @@ typeset with latex on your own computer.</p>
 <dt class="sig sig-object py" id="pmagpy.ipmag.curie">
 <span class="sig-prename descclassname"><span class="pre">pmagpy.ipmag.</span></span><span class="sig-name descname"><span class="pre">curie</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">path_to_file</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'.'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">file_name</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">''</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">magic</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">window_length</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">3</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">save</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">save_folder</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'.'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">fmt</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'svg'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">t_begin</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">''</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">t_end</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">''</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/pmagpy/ipmag.html#curie"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pmagpy.ipmag.curie" title="Permalink to this definition">#</a></dt>
 <dd><p>Plots and interprets curie temperature data.
-<strong>*
 The 1st derivative is calculated from smoothed M-T curve (convolution
-with trianfular window with width= &lt;-w&gt; degrees)
-*</strong>
+with triangular window with width= &lt;-w&gt; degrees)
 The 2nd derivative is calculated from smoothed 1st derivative curve
 (using the same sliding window width)
-<a href="#id1"><span class="problematic" id="id2">**</span></a>*
-The estimated curie temp. is the maximum of the 2nd derivative.
+The estimated curie temperation is the maximum of the 2nd derivative.
 Temperature steps should be in multiples of 1.0 degrees.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
 <dd class="field-odd"><ul class="simple">
-<li><p><strong>file_name</strong> (<em>name of file to be opened</em>) – </p></li>
-<li><p><strong>specified</strong><strong>)</strong> (<em>Optional Parameters</em><em> (</em><em>defaults are used if not</em>) – </p></li>
-<li><p><strong>----------</strong> – </p></li>
-<li><p><strong>path_to_file</strong> (<em>path to directory that contains file</em><em> (</em><em>default is current directory</em><em>, </em><em>'.'</em><em>)</em>) – </p></li>
-<li><p><strong>window_length</strong> (<em>dimension of smoothing window</em><em> (</em><em>input to smooth</em><em>(</em><em>) </em><em>function</em><em>)</em>) – </p></li>
-<li><p><strong>save</strong> (<em>boolean argument to save plots</em><em> (</em><em>default is False</em><em>)</em>) – </p></li>
-<li><p><strong>save_folder</strong> (<em>relative directory where plots will be saved</em><em> (</em><em>default is current directory</em><em>, </em><em>'.'</em><em>)</em>) – </p></li>
-<li><p><strong>fmt</strong> (<em>format of saved figures</em>) – </p></li>
-<li><p><strong>t_begin</strong> (<em>start of truncated window for search</em>) – </p></li>
-<li><p><strong>t_end</strong> (<em>end of truncated window for search</em>) – </p></li>
-<li><p><strong>magic</strong> (<em>True if MagIC formatted measurements.txt file</em>) – </p></li>
+<li><p><strong>file_name</strong> – name of file to be opened</p></li>
+<li><p><strong>path_to_file</strong> – path to directory that contains file (default is current directory, ‘.’)</p></li>
+<li><p><strong>window_length</strong> – dimension of smoothing window (input to smooth() function)</p></li>
+<li><p><strong>save</strong> – boolean argument to save plots (default is False)</p></li>
+<li><p><strong>save_folder</strong> – relative directory where plots will be saved (default is current directory, ‘.’)</p></li>
+<li><p><strong>fmt</strong> – format of saved figures (default is svg)</p></li>
+<li><p><strong>t_begin</strong> – start of truncated window for search (default is beginning of data)</p></li>
+<li><p><strong>t_end</strong> – end of truncated window for search (default is end of data)</p></li>
+<li><p><strong>magic</strong> – True if MagIC formatted measurements.txt file</p></li>
 </ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>A plot is shown and saved if save=True.</p>
 </dd>
 </dl>
 </dd></dl>
@@ -1359,19 +1445,6 @@ a string of the site/sample/specimen name.</p></li>
 </dd></dl>
 
 <dl class="py function">
-<dt class="sig sig-object py" id="pmagpy.ipmag.deriv1">
-<span class="sig-prename descclassname"><span class="pre">pmagpy.ipmag.</span></span><span class="sig-name descname"><span class="pre">deriv1</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">x</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">y</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">i</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">n</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/pmagpy/ipmag.html#deriv1"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pmagpy.ipmag.deriv1" title="Permalink to this definition">#</a></dt>
-<dd><p>Alternative way to smooth the derivative of a noisy signal
-using least square fit. In this method the slope in position
-‘i’ is calculated by least square fit of ‘n’ points before
-and after position.</p>
-<p>x : array of x axis
-y : array of y axis
-n : smoothing factor
-i : position</p>
-</dd></dl>
-
-<dl class="py function">
 <dt class="sig sig-object py" id="pmagpy.ipmag.df_depthplot">
 <span class="sig-prename descclassname"><span class="pre">pmagpy.ipmag.</span></span><span class="sig-name descname"><span class="pre">df_depthplot</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">df</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">d_key</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'core_depth'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">fmt</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'png'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">location</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'unknown'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">save</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/pmagpy/ipmag.html#df_depthplot"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pmagpy.ipmag.df_depthplot" title="Permalink to this definition">#</a></dt>
 <dd><p>Makes depth (or height) plots of various columns in the dataframe</p>
@@ -1433,16 +1506,17 @@ data from files</p></li>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
 <dd class="field-odd"><ul class="simple">
-<li><p><strong>degrees</strong> (<em>degrees of latitude/longitude</em>) – </p></li>
-<li><p><strong>minutes</strong> (<em>minutes of latitude/longitude</em>) – </p></li>
-<li><p><strong>seconds</strong> (<em>seconds of latitude/longitude</em>) – </p></li>
+<li><p><strong>degrees</strong> – degrees of latitude/longitude</p></li>
+<li><p><strong>minutes</strong> – minutes of latitude/longitude</p></li>
+<li><p><strong>seconds</strong> – seconds of latitude/longitude</p></li>
 </ul>
 </dd>
 <dt class="field-even">Returns</dt>
-<dd class="field-even"><p><strong>degrees</strong></p>
+<dd class="field-even"><p><dl class="simple">
+<dt>float</dt><dd><p>decimal degrees of location</p>
 </dd>
-<dt class="field-odd">Return type</dt>
-<dd class="field-odd"><p>decimal degrees of location</p>
+</dl>
+</p>
 </dd>
 </dl>
 <p class="rubric">Examples</p>
@@ -1786,62 +1860,58 @@ Based on all flattening factors from the E/I bootstrap results find the distribu
 Based on all flattening factors from the E/I bootstrap results calculate the correspondant VGP pole positions and their mean poles associated with each factor
 Perform Monte Carlo resample of the mean poles associated with each flattening factor
 Finds the Kent distribution statistics: mean, major and minor axes and their associated angles of dispersion.</p>
-<p>data: a nested list of dec/inc pairs
-site_latitude, site_longitude: location of the paleomagentic site</p>
-<p>kent_color: color of the Kent ellipse to plot
-nb: number of bootstrapped pseudo-samples (default is 1000)
-save: Boolean argument to save plots (default is False)
-save_folder: path to folder in which plots should be saved (default is current directory)
-fmt: specify format of saved plots (default is ‘svg’)
-return_new_dirs: optional return of newly “unflattened” directions as di_block (default is False)
-return_values: optional return of all bootstrap result inclinations, elongations, and</p>
-<blockquote>
-<div><p>f factors (default is False)</p>
-</div></blockquote>
-<dl class="simple">
-<dt>if both return_new_dirs=True and return_values=True, the function will return:</dt><dd><p>di_block of new directions, inclinations, elongations,and f factors</p>
-</dd>
-</dl>
-<p>figprefix: prefix string for the name of the figures to be saved
-num_resample_to_plot: number of bootstrap resamples to plot in the elongation/inclination figure
-EI_color: color of the most elongation/inclination curve corresponding to the most frequent f value
-resample_EI_color: color of all other elongation/inclination curves
-vgp_nb: number of virtual geomagnetic poles to resample for each iteration, the total VGPs resampled will be vgp_nb*nb
-cmap: matplotlib color map used for plotting corrected paleomagnetic directions
-central_longitude, central_latitude: central point of pole projection (defaults are 0)</p>
-<p>Note that many directions (~ 100) are needed for this correction to be reliable.
-return_new_dirs: optional return of newly “unflattened” directions as di_block (default is False)
-return_values: optional return of all bootstrap result inclinations, elongations, and</p>
-<blockquote>
-<div><p>f factors (default is False)</p>
-</div></blockquote>
-<dl class="simple">
-<dt>if both return_new_dirs=True and return_values=True, the function will return:</dt><dd><p>di_block of new directions, inclinations, elongations,and f factors</p>
-</dd>
-</dl>
-<p>num_resample_to_plot: number of bootstrap resample elongation/inclination curves to plot (default to to plot all)
-vgp_nb: number of vgp to resample using a Monte Carlo approach with each f factor
-cmap: matplotlib color map for color-coding the directions and mean poles based on the f factor</p>
-<p>EI_color: the color of the EI curve associated with the most frequent f value (rounded to 2 decimal points, default is red)
-resample_EI_color: the color of the EI curves for all f values except for the most frequent f (default is grey)
-resample_EI_alpha: the transparency of the EI curves for all f values except for the most frequent f (default is grey)</p>
 <dl class="field-list simple">
-<dt class="field-odd">Returns</dt>
-<dd class="field-odd"><p><ul>
-<li><p><strong>four plots</strong> (<em>1) equal area plot of original directions</em>) – 2) Elongation/inclination pairs as a function of f,  data plus 25 bootstrap samples
-3) Cumulative distribution of bootstrapped optimal inclinations plus uncertainties.</p>
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>data</strong> – a nested list of dec/inc pairs</p></li>
+<li><p><strong>site_latitude</strong> – location of the paleomagnetic site</p></li>
+<li><p><strong>site_longitude</strong> – location of the paleomagnetic site</p></li>
+<li><p><strong>kent_color</strong> – color of the Kent ellipse to plot (default is black)</p></li>
+<li><p><strong>nb</strong> – number of bootstrapped pseudo-samples (default is 1000)</p></li>
+<li><p><strong>save</strong> – Boolean argument to save plots (default is False)</p></li>
+<li><p><strong>save_folder</strong> – path to folder in which plots should be saved (default is current directory)</p></li>
+<li><p><strong>fmt</strong> – specify format of saved plots (default is ‘svg’)</p></li>
+<li><p><strong>return_new_dirs</strong> – optional return of newly “unflattened” directions as di_block (default is False)</p></li>
+<li><p><strong>return_values</strong> – <p>optional return of all bootstrap result inclinations, elongations, and
+f factors (default is False)</p>
 <blockquote>
-<div><p>Estimate from original data set plotted as solid line</p>
+<div><p>if both return_new_dirs=True and return_values=True, the function will return
+di_block of new directions, inclinations, elongations,and f factors</p>
 </div></blockquote>
-<ol class="arabic simple" start="4">
+</p></li>
+<li><p><strong>figprefix</strong> – prefix string for the name of the figures to be saved</p></li>
+<li><p><strong>EI_color</strong> – color of the most elongation/inclination curve corresponding to the most frequent f value</p></li>
+<li><p><strong>resample_EI_color</strong> – color of all other elongation/inclination curves</p></li>
+<li><p><strong>vgp_nb</strong> – number of virtual geomagnetic poles to resample for each iteration, the total VGPs resampled will be vgp_nb*nb</p></li>
+<li><p><strong>cmap</strong> – matplotlib color map used for plotting corrected paleomagnetic directions</p></li>
+<li><p><strong>central_longitude</strong> – central point of pole projection (defaults are 0)</p></li>
+<li><p><strong>central_latitude</strong> – central point of pole projection (defaults are 0)</p></li>
+<li><p><strong>num_resample_to_plot</strong> – number of bootstrap resample elongation/inclination curves to plot (default to to plot all)</p></li>
+<li><p><strong>vgp_nb</strong> – number of vgp to resample using a Monte Carlo approach with each f factor</p></li>
+<li><p><strong>cmap</strong> – matplotlib color map for color-coding the directions and mean poles based on the f factor</p></li>
+<li><p><strong>EI_color</strong> – the color of the EI curve associated with the most frequent f value (rounded to 2 decimal points, default is red)</p></li>
+<li><p><strong>resample_EI_color</strong> – the color of the EI curves for all f values except for the most frequent f (default is grey)</p></li>
+<li><p><strong>resample_EI_alpha</strong> – the transparency of the EI curves for all f values except for the most frequent f (default is grey)</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p><ol class="arabic simple">
+<li><p>equal area plot of original directions</p></li>
+<li><p>Elongation/inclination pairs as a function of f,  data plus 25 bootstrap samples</p></li>
+<li><p>Cumulative distribution of bootstrapped optimal inclinations plus uncertainties. Estimate from original data set plotted as solid line</p></li>
 <li><p>Orientation of principle direction through unflattening</p></li>
 </ol>
-</li>
-<li><p><strong>NOTE</strong> (<em>If distribution does not have a solution, plot labeled: Pathological.  Some bootstrap samples may have</em>) – valid solutions and those are plotted in the CDFs and E/I plot.</p></li>
-</ul>
 </p>
 </dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p>four plots</p>
+</dd>
 </dl>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>If distribution does not have a solution, plot labeled: Pathological.  Some bootstrap samples may have
+valid solutions and those are plotted in the CDFs and E/I plot.</p>
+</div>
 </dd></dl>
 
 <dl class="py function">
@@ -1855,19 +1925,22 @@ angular standard deviation.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
 <dd class="field-odd"><ul class="simple">
-<li><p><strong>dec</strong> (<em>list of declinations</em><em> or </em><em>longitudes</em>) – </p></li>
-<li><p><strong>inc</strong> (<em>list of inclinations</em><em> or </em><em>latitudes</em>) – </p></li>
-<li><p><strong>or</strong> – </p></li>
-<li><p><strong>di_block</strong> (<em>a nested list of</em><em> [</em><em>dec</em><em>,</em><em>inc</em><em>,</em><em>1.0</em><em>]</em>) – A di_block can be provided instead of dec, inc lists in which case it
+<li><p><strong>dec</strong> – list of declinations or longitudes</p></li>
+<li><p><strong>inc</strong> – list of inclinations or latitudes
+or</p></li>
+<li><p><strong>di_block</strong> – a nested list of [dec,inc,1.0]
+A di_block can be provided instead of dec, inc lists in which case it
 will be used. Either dec, inc lists or a di_block need to be provided.</p></li>
-<li><p><strong>confidence</strong> (<em>50 percent</em><em>, </em><em>63 percent</em><em> or </em><em>95 percent</em><em> (</em><em>default is 95 percent</em><em>)</em>) – </p></li>
+<li><p><strong>confidence</strong> – 50 percent, 63 percent or 95 percent (default is 95 percent)</p></li>
 </ul>
 </dd>
 <dt class="field-even">Returns</dt>
-<dd class="field-even"><p><strong>theta</strong> – percentage of directions specified by the confidence parameter</p>
+<dd class="field-even"><p><dl class="simple">
+<dt>float</dt><dd><p>theta is returned which is the critical angle of interest from the mean which contains the
+percentage of directions specified by the confidence parameter</p>
 </dd>
-<dt class="field-odd">Return type</dt>
-<dd class="field-odd"><p>critical angle of interest from the mean which contains the</p>
+</dl>
+</p>
 </dd>
 </dl>
 </dd></dl>
@@ -1877,25 +1950,28 @@ will be used. Either dec, inc lists or a di_block need to be provided.</p></li>
 <span class="sig-prename descclassname"><span class="pre">pmagpy.ipmag.</span></span><span class="sig-name descname"><span class="pre">fisher_mean</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">dec</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">inc</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">di_block</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/pmagpy/ipmag.html#fisher_mean"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pmagpy.ipmag.fisher_mean" title="Permalink to this definition">#</a></dt>
 <dd><p>Calculates the Fisher mean and associated parameters from either a list of
 declination values and a separate list of inclination values or from a
-di_block (a nested list of [dec, inc, 1.0]). Returns a dictionary with the
+di_block (a nested list of [dec,inc,1.0]). Returns a dictionary with the
 Fisher mean and statistical parameters.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
 <dd class="field-odd"><ul class="simple">
-<li><p><strong>dec</strong> (<em>list of declinations</em><em> or </em><em>longitudes</em>) – </p></li>
-<li><p><strong>inc</strong> (<em>list of inclinations</em><em> or </em><em>latitudes</em>) – </p></li>
-<li><p><strong>or</strong> – </p></li>
-<li><p><strong>di_block</strong> (<em>a nested list of</em><em> [</em><em>dec</em><em>,</em><em>inc</em><em>,</em><em>1.0</em><em>]</em>) – A di_block can be provided instead of dec, inc lists in which case it
+<li><p><strong>dec</strong> – list of declinations or longitudes</p></li>
+<li><p><strong>inc</strong> – list of inclinations or latitudes
+or</p></li>
+<li><p><strong>di_block</strong> – a nested list of [dec,inc,1.0]
+A di_block can be provided instead of dec, inc lists in which case it
 will be used. Either dec, inc lists or a di_block need to be provided.</p></li>
 </ul>
 </dd>
 <dt class="field-even">Returns</dt>
-<dd class="field-even"><p><strong>fisher_mean</strong> – This dictionary can be printed in a more readable fashion using the
-ipmag.print_direction_mean() if it is a directional mean or
-ipmag.print_pole_mean() if it is a pole mean.</p>
+<dd class="field-even"><p><dl class="simple">
+<dt>dictionary</dt><dd><p>Dictionary containing the Fisher mean parameters.
+This dictionary can be printed in a more readable fashion using the
+<code class="docutils literal notranslate"><span class="pre">ipmag.print_direction_mean()</span></code> function if it is a directional mean or
+<code class="docutils literal notranslate"><span class="pre">ipmag.print_pole_mean()</span></code> function if it is a pole mean.</p>
 </dd>
-<dt class="field-odd">Return type</dt>
-<dd class="field-odd"><p>dictionary containing the Fisher mean parameters</p>
+</dl>
+</p>
 </dd>
 </dl>
 <p class="rubric">Examples</p>
@@ -2066,18 +2142,18 @@ using the pmag.py function pmag.fshdev() and pmag.dodirot() functions.</p>
 #
 #  Anisotropy tensor:
 #
-# <a href="#id3"><span class="problematic" id="id4">|Mx|</span></a>   <a href="#id5"><span class="problematic" id="id6">|s1 s4 s6|</span></a>   <a href="#id7"><span class="problematic" id="id8">|Bx|</span></a>
-# <a href="#id9"><span class="problematic" id="id10">|My|</span></a> = <a href="#id11"><span class="problematic" id="id12">|s4 s2 s5|</span></a> . <a href="#id13"><span class="problematic" id="id14">|By|</span></a>
-# <a href="#id15"><span class="problematic" id="id16">|Mz|</span></a>   <a href="#id17"><span class="problematic" id="id18">|s6 s5 s3|</span></a>   <a href="#id19"><span class="problematic" id="id20">|Bz|</span></a>
+# <a href="#id1"><span class="problematic" id="id2">|Mx|</span></a>   <a href="#id3"><span class="problematic" id="id4">|s1 s4 s6|</span></a>   <a href="#id5"><span class="problematic" id="id6">|Bx|</span></a>
+# <a href="#id7"><span class="problematic" id="id8">|My|</span></a> = <a href="#id9"><span class="problematic" id="id10">|s4 s2 s5|</span></a> . <a href="#id11"><span class="problematic" id="id12">|By|</span></a>
+# <a href="#id13"><span class="problematic" id="id14">|Mz|</span></a>   <a href="#id15"><span class="problematic" id="id16">|s6 s5 s3|</span></a>   <a href="#id17"><span class="problematic" id="id18">|Bz|</span></a>
 #
 # A matrix (measurement matrix):
 # Each mesurement yields three lines in “A” matrix
 #
-# <a href="#id21"><span class="problematic" id="id22">|Mi  |   |Bx 0  0   By  0   Bz|</span></a>   <a href="#id23"><span class="problematic" id="id24">|s1|</span></a>
-# <a href="#id25"><span class="problematic" id="id26">|Mi+1|</span></a> = <a href="#id27"><span class="problematic" id="id28">|0  By 0   Bx  Bz  0 | . |s2|</span></a>
-# <a href="#id29"><span class="problematic" id="id30">|Mi+2|</span></a>   <a href="#id31"><span class="problematic" id="id32">|0  0  Bz  0   By  Bx|</span></a>   <a href="#id33"><span class="problematic" id="id34">|s3|</span></a>
-#                                   <a href="#id35"><span class="problematic" id="id36">|s4|</span></a>
-#                                   <a href="#id37"><span class="problematic" id="id38">|s5|</span></a>
+# <a href="#id19"><span class="problematic" id="id20">|Mi  |   |Bx 0  0   By  0   Bz|</span></a>   <a href="#id21"><span class="problematic" id="id22">|s1|</span></a>
+# <a href="#id23"><span class="problematic" id="id24">|Mi+1|</span></a> = <a href="#id25"><span class="problematic" id="id26">|0  By 0   Bx  Bz  0 | . |s2|</span></a>
+# <a href="#id27"><span class="problematic" id="id28">|Mi+2|</span></a>   <a href="#id29"><span class="problematic" id="id30">|0  0  Bz  0   By  Bx|</span></a>   <a href="#id31"><span class="problematic" id="id32">|s3|</span></a>
+#                                   <a href="#id33"><span class="problematic" id="id34">|s4|</span></a>
+#                                   <a href="#id35"><span class="problematic" id="id36">|s5|</span></a>
 #
 #———————————–</p>
 <p>Returns matrix for n_pos of 6,9, or 15</p>
@@ -2330,32 +2406,33 @@ dictionary with the Kent mean and statistical parameters.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
 <dd class="field-odd"><ul class="simple">
-<li><p><strong>dec</strong> (<em>list of declinations</em>) – </p></li>
-<li><p><strong>inc</strong> (<em>list of inclinations</em>) – </p></li>
-<li><p><strong>or</strong> – </p></li>
-<li><p><strong>di_block</strong> (<em>a nested list of</em><em> [</em><em>dec</em><em>,</em><em>inc</em><em>,</em><em>1.0</em><em>]</em>) – A di_block can be provided instead of dec, inc lists in which case it will
+<li><p><strong>dec</strong> – list of declinations</p></li>
+<li><p><strong>inc</strong> – list of inclinations
+or</p></li>
+<li><p><strong>di_block</strong> – a nested list of [dec,inc,1.0]
+A di_block can be provided instead of dec, inc lists in which case it will
 be used. Either dec, inc lists or a di_block need to passed to the function.</p></li>
 </ul>
 </dd>
 <dt class="field-even">Returns</dt>
-<dd class="field-even"><p><strong>kpars</strong></p>
+<dd class="field-even"><p>dictionary containing Kent mean and associated statistics.</p>
 </dd>
 <dt class="field-odd">Return type</dt>
-<dd class="field-odd"><p>dictionary containing Kent mean and associated statistics.</p>
+<dd class="field-odd"><p>kpars</p>
 </dd>
 </dl>
 <p class="rubric">Examples</p>
 <p>Use lists of declination and inclination to calculate a Kent mean:</p>
 <div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">ipmag</span><span class="o">.</span><span class="n">kent_mean</span><span class="p">(</span><span class="n">dec</span><span class="o">=</span><span class="p">[</span><span class="mi">140</span><span class="p">,</span><span class="mi">127</span><span class="p">,</span><span class="mi">142</span><span class="p">,</span><span class="mi">136</span><span class="p">],</span><span class="n">inc</span><span class="o">=</span><span class="p">[</span><span class="mi">21</span><span class="p">,</span><span class="mi">23</span><span class="p">,</span><span class="mi">19</span><span class="p">,</span><span class="mi">22</span><span class="p">])</span>
 <span class="go">{&#39;Edec&#39;: 280.38683553668795,</span>
-<span class="go"> &#39;Einc&#39;: 64.236598921744289,</span>
-<span class="go"> &#39;Eta&#39;: 0.72982112760919715,</span>
-<span class="go"> &#39;Zdec&#39;: 40.824690028412761,</span>
-<span class="go"> &#39;Zeta&#39;: 6.7896823241008795,</span>
-<span class="go"> &#39;Zinc&#39;: 13.739412321974067,</span>
-<span class="go"> &#39;dec&#39;: 136.30838974272072,</span>
-<span class="go"> &#39;inc&#39;: 21.347784026899987,</span>
-<span class="go"> &#39;n&#39;: 4}</span>
+<span class="go">&#39;Einc&#39;: 64.236598921744289,</span>
+<span class="go">&#39;Eta&#39;: 0.72982112760919715,</span>
+<span class="go">&#39;Zdec&#39;: 40.824690028412761,</span>
+<span class="go">&#39;Zeta&#39;: 6.7896823241008795,</span>
+<span class="go">&#39;Zinc&#39;: 13.739412321974067,</span>
+<span class="go">&#39;dec&#39;: 136.30838974272072,</span>
+<span class="go">&#39;inc&#39;: 21.347784026899987,</span>
+<span class="go">&#39;n&#39;: 4}</span>
 </pre></div>
 </div>
 <p>Use a di_block to calculate a Kent mean (will give the same output as the
@@ -3312,26 +3389,28 @@ the reverse direction to their antipode.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
 <dd class="field-odd"><ul class="simple">
-<li><p><strong>dec</strong> (<em>list of declinations</em>) – </p></li>
-<li><p><strong>inc</strong> (<em>list of inclinations</em>) – or</p></li>
-<li><p><strong>di_block</strong> (<em>a nested list of</em><em> [</em><em>dec</em><em>,</em><em>inc</em><em>]</em>) – A di_block can be provided in which case it will be used instead of
-dec, inc lists.</p></li>
-<li><p><strong>plot_CDF</strong> (<em>plot the CDF accompanying the printed results</em><em> (</em><em>default is False</em><em>)</em>) – </p></li>
-<li><p><strong>plot_stereo</strong> (<em>plot stereonet with the bidirectionally separated data</em>) – (default is False)</p></li>
-<li><p><strong>save</strong> (<em>boolean argument to save plots</em><em> (</em><em>default is False</em><em>)</em>) – </p></li>
-<li><p><strong>save_folder</strong> (<em>relative directory where plots will be saved</em>) – (default is current directory, ‘.’)</p></li>
-<li><p><strong>fmt</strong> (<em>format of saved figures</em><em> (</em><em>default is 'svg'</em><em>)</em>) – </p></li>
+<li><p><strong>dec</strong> – list of declinations</p></li>
+<li><p><strong>inc</strong> – list of inclinations
+or</p></li>
+<li><p><strong>di_block</strong> – a nested list of [dec,inc]
+<em>A di_block can be provided in which case it will be used instead of
+dec, inc lists.</em></p></li>
+<li><p><strong>plot_CDF</strong> – plot the CDF accompanying the printed results (default is False)</p></li>
+<li><p><strong>plot_stereo</strong> – plot stereonet with the bidirectionally separated data
+(default is False)</p></li>
+<li><p><strong>save</strong> – boolean argument to save plots (default is False)</p></li>
+<li><p><strong>save_folder</strong> – relative directory where plots will be saved
+(default is current directory, ‘.’)</p></li>
+<li><p><strong>fmt</strong> – format of saved figures (default is ‘svg’)</p></li>
 </ul>
 </dd>
 <dt class="field-even">Returns</dt>
-<dd class="field-even"><p><ul class="simple">
-<li><p><strong>printed text</strong> (<em>text describing the test result is printed</em>)</p></li>
-<li><p><strong>result</strong> (<em>a boolean where 0 is fail and 1 is pass</em>)</p></li>
-<li><p><strong>angle</strong> (<em>angle between the Fisher means of the two data sets</em>)</p></li>
-<li><p><strong>critical_angle</strong> (<em>critical angle for the test to pass</em>)</p></li>
-<li><p><strong>classification</strong> (<em>MM1990 classification for a positive test</em>)</p></li>
-</ul>
-</p>
+<dd class="field-even"><p><strong>printed text</strong> (text describing the test result is printed),
+<strong>result</strong> (a boolean where 0 is fail and 1 is pass),
+<strong>angle</strong> (angle between the Fisher means of the two data sets),
+<strong>critical_angle</strong> (critical angle for the test to pass),
+<strong>classification</strong> (MM1990 classification for a positive test).
+Plots are shown if plot parameters are set to True.</p>
 </dd>
 </dl>
 <p class="rubric">Examples</p>
@@ -3363,22 +3442,22 @@ common mean.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
 <dd class="field-odd"><ul class="simple">
-<li><p><strong>dec</strong> (<em>list of declinations</em>) – </p></li>
-<li><p><strong>inc</strong> (<em>list of inclinations</em>) – or</p></li>
-<li><p><strong>di_block</strong> (<em>a nested list of</em><em> [</em><em>dec</em><em>,</em><em>inc</em><em>]</em>) – A di_block can be provided in which case it will be used instead of
+<li><p><strong>dec</strong> – list of declinations</p></li>
+<li><p><strong>inc</strong> – list of inclinations</p></li>
+<li><p><strong>di_block</strong> – a nested list of [dec,inc]
+A di_block can be provided in which case it will be used instead of
 dec, inc lists.</p></li>
-<li><p><strong>plot_stereo</strong> (<em>before plotting the CDFs</em><em>, </em><em>plot stereonet with the</em>) – bidirectionally separated data (default is False)</p></li>
-<li><p><strong>save</strong> (<em>boolean argument to save plots</em><em> (</em><em>default is False</em><em>)</em>) – </p></li>
-<li><p><strong>save_folder</strong> (<em>directory where plots will be saved</em><em> (</em><em>default is current directory</em><em>, </em><em>'.'</em><em>)</em>) – </p></li>
-<li><p><strong>fmt</strong> (<em>format of saved figures</em><em> (</em><em>default is 'svg'</em><em>)</em>) – </p></li>
+<li><p><strong>plot_stereo</strong> – before plotting the CDFs, plot stereonet with the
+bidirectionally separated data (default is False)</p></li>
+<li><p><strong>save</strong> – boolean argument to save plots (default is False)</p></li>
+<li><p><strong>save_folder</strong> – directory where plots will be saved (default is current directory, ‘.’)</p></li>
+<li><p><strong>fmt</strong> – format of saved figures (default is ‘svg’)</p></li>
 </ul>
 </dd>
 <dt class="field-even">Returns</dt>
-<dd class="field-even"><p><ul class="simple">
-<li><p><strong>plots</strong> (<em>Plots of the cumulative distribution of Cartesian components are shown</em>) – an equal area plot is plotted if plot_stereo = True</p></li>
-<li><p><strong>result</strong> (<em>a boolean where 0 is fail and 1 is pass</em>)</p></li>
-</ul>
-</p>
+<dd class="field-even"><p>A boolean where 0 is fail and 1 is pass is returned.
+Plots of the cumulative distribution of Cartesian components are shown
+an equal area plot if <cite>plot_stereo = True</cite>.</p>
 </dd>
 </dl>
 <p class="rubric">Examples</p>
@@ -3432,6 +3511,36 @@ a value S_b. The input data needs to be within a pandas Dataframe.</p>
 <dd><p>This function enables A95 error ellipses to be drawn around
 paleomagnetic poles in conjunction with equi
 (from: <a class="reference external" href="http://www.geophysique.be/2011/02/20/matplotlib-basemap-tutorial-09-drawing-circles/">http://www.geophysique.be/2011/02/20/matplotlib-basemap-tutorial-09-drawing-circles/</a>)</p>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="pmagpy.ipmag.simul_correlation_prob">
+<span class="sig-prename descclassname"><span class="pre">pmagpy.ipmag.</span></span><span class="sig-name descname"><span class="pre">simul_correlation_prob</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">alpha</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">k1</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">k2</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">trials</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">10000</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">print_result</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/pmagpy/ipmag.html#simul_correlation_prob"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pmagpy.ipmag.simul_correlation_prob" title="Permalink to this definition">#</a></dt>
+<dd><p>The function runs an algorithm from Bogue and Coe (1981; doi: 10.1029/JB086iB12p11883)
+for probabilistic correlation, evaluating the probability that the similarity between
+two paleomagnetic directions is due to simultaneous sampling of the ancient magnetic
+field. This can be compared with the probability that the two directions were sampled
+at random times with the companion function (ipmag.random_correlation_prob; to come).
+k1 and k2 can be estimated the kappa of the  directions, or one can use the companion
+function (ipmag.full_kappa; to come) as in the original publication.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>alpha</strong> – angle between paleomagnetic directions (site means)</p></li>
+<li><p><strong>k1</strong> (<em>float</em>) – kappa estimate for first direction</p></li>
+<li><p><strong>k2</strong> (<em>float</em>) – kappa estimate for second direction</p></li>
+<li><p><strong>trials</strong> (<em>int</em>) – the number of simulations [default = 10,000]</p></li>
+<li><p><strong>print_result</strong> (<em>boolean</em>) – the probability value returned in a sentence [default = False]</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p><dl class="simple">
+<dt>float</dt><dd><p>number indicating probability value</p>
+</dd>
+</dl>
+</p>
+</dd>
+</dl>
 </dd></dl>
 
 <dl class="py function">
@@ -5607,12 +5716,12 @@ associated with the region containing 95% of the directions.</p></li>
 <dd class="field-even"><p>dec : mean declination
 inc : mean inclination
 n : number of datapoints
-Eta : major ellipse
-Edec : declination of major ellipse axis
-Einc : inclination of major ellipse axis
-Zeta : minor ellipse
-Zdec : declination of minor ellipse axis
-Zinc : inclination of minor ellipse axis</p>
+Zeta : major ellipse
+Zdec : declination of major ellipse axis
+Zinc : inclination of major ellipse axis
+Eta : minor ellipse
+Edec : declination of minor ellipse axis
+Einc : inclination of minor ellipse axis</p>
 </dd>
 <dt class="field-odd">Return type</dt>
 <dd class="field-odd"><p>kpars dictionary keys</p>
@@ -9212,7 +9321,7 @@ quality : [g,b], good or bad measurement; if bad will be marked as such</p></li>
 <span class="sig-prename descclassname"><span class="pre">pmagpy.pmagplotlib.</span></span><span class="sig-name descname"><span class="pre">qsnorm</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">p</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/pmagpy/pmagplotlib.html#qsnorm"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pmagpy.pmagplotlib.qsnorm" title="Permalink to this definition">#</a></dt>
 <dd><p>rational approximation for x where q(x)=d, q being the cumulative
 normal distribution function. taken from Abramowitz &amp; Stegun p. 933
-<a href="#id39"><span class="problematic" id="id40">|error(x)|</span></a> &lt; 4.5*10**-4</p>
+<a href="#id37"><span class="problematic" id="id38">|error(x)|</span></a> &lt; 4.5*10**-4</p>
 </dd></dl>
 
 <dl class="py function">
@@ -9259,11 +9368,11 @@ dict keys should correspond with Figs</p></li>
                 
     <!-- Previous / next buttons -->
 <div class='prev-next-area'>
-    <a class='left-prev' id="prev-link" href="../example_notebooks/Tauxe_etal_2016.html" title="previous page">
+    <a class='left-prev' id="prev-link" href="../MagIC/MagIC.html" title="previous page">
         <i class="fas fa-angle-left"></i>
         <div class="prev-next-info">
             <p class="prev-next-subtitle">previous</p>
-            <p class="prev-next-title">Tauxe et al. 2016 example notebook</p>
+            <p class="prev-next-title">MagIC database and file formats</p>
         </div>
     </a>
 </div>
