@@ -1181,7 +1181,7 @@ azimuth	azimuth_dec_correction	citations	description	dip	geologic_classes	geolog
 <span class="k">try</span><span class="p">:</span>
     <span class="kn">import</span> <span class="nn">wget</span>
 <span class="k">except</span><span class="p">:</span>
-    <span class="o">!</span>pip install wget
+    <span class="o">!</span>pip<span class="w"> </span>install<span class="w"> </span>wget
 
 <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;All modules imported!&#39;</span><span class="p">)</span>
 </pre></div>
@@ -6592,7 +6592,7 @@ chart_maker(Int, Top, start=100, outfile=&#39;chart.txt&#39;)
             mode: "python"
         },
         kernelOptions: {
-            kernelName: "python3",
+            name: "python3",
             path: "./documentation_notebooks"
         },
         predefinedOutput: true

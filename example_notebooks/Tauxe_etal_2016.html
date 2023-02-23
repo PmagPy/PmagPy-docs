@@ -948,7 +948,7 @@ To skip the first header line in a particular file when importing it to a DataFr
 <p>The data can be analyzed and visualized using PmagPy functions. We will first create a directory called ‘Example_Notebook_Output’  from within the notebook (using the initial ! before the command invokes a command as if typed on the command line from within a notebook) so that we have a place to put saved figures.  You can do this outside of the notebook if you prefer.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">!</span>mkdir <span class="s1">&#39;Example_Notebook_Output&#39;</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">!</span>mkdir<span class="w"> </span><span class="s1">&#39;Example_Notebook_Output&#39;</span>
 </pre></div>
 </div>
 </div>
@@ -1100,7 +1100,7 @@ Precision parameter (k) estimate: 40.2
 <p>or executed as shell command within the notebook by using the ! prefix as is done in the cell block below.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">!</span>pmag_results_extract.py -f Example_Data/Halls1974/pmag_results.txt
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">!</span>pmag_results_extract.py<span class="w"> </span>-f<span class="w"> </span>Example_Data/Halls1974/pmag_results.txt
 </pre></div>
 </div>
 </div>
@@ -1827,7 +1827,7 @@ Precision parameter (k) estimate: 25.7
             mode: "python"
         },
         kernelOptions: {
-            kernelName: "python3",
+            name: "python3",
             path: "./example_notebooks"
         },
         predefinedOutput: true

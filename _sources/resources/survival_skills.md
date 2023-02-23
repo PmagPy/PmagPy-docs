@@ -16,14 +16,16 @@ operating systems. For a more complete explanation of the marvelous
 world of UNIX, refer to the website at
 <http://www.tutorialspoint.com/unix/unix-quick-guide.htm>. For handy
 tricks in DOS, try this link: <http://www.c3scripts.com/tutorials/msdos>.
-For an introduction to programming in Python, see the [Python
-Programming Chapter](#Python). For now, we are interested in having
+For resources to get started programming in Python, 
+see the [](section_Python_intro) section. 
+For now, we are interested in having
 the skills to find a command line and navigate the file system in order
 to get started with **PmagPy**.
 
+(sect-command-line)=
 ## Finding your command line
 
-If you are not using a Unix-like computer (NIX), you may never have
+If you don't have experience with Unix-like computer (NIX) interface, you may never have
 encountered a command line. Using any of the command line programs
 requires accessing the command line. If you are using the MacOS
 operating system, look for the Terminal application in the Utilities
@@ -51,14 +53,13 @@ you may have to hunt around a little to find yours. Also, the actual
 “prompt” will vary for different machines.
 
 (sect-file-systems)=
-
 ## File systems
 
 When you first open a terminal window, you are in your “home” directory.
 Fundamental to all operating systems is the concept of directories and
-files. On windows-based operating systems (MacOS or Windows),
+files. On MacOS and Windows,
 directories are depicted as “folders” and moving about is accomplished
-by clicking on the different icons. In the world of terminal windows,
+by clicking on the different icons. In the world of the terminal,
 the directories have names and are arranged in a hierarchical sequence
 with the top directory being the “root” directory, known as “/” (or
 C:`\` in Windows) and the file system looks something like this:
@@ -136,18 +137,16 @@ programs like Word, you will certainly hate it. (And if you are used to
 a decent text editor, you will hate Word!). But you can’t use Word
 because the output is in a weird format that no scripting languages read
 easily. So you have to use text editor that will produce a plain (ascii)
-file, like Notepad, TextWrangler, Sublime Text or Atom.
-[TextWrangler](http://textwrangler.onfreedownload.com) is free
-software available for Macs, Notepad comes standard in the Windows
-operating system and the [Atom](https://atom.io) text editor is a
-free cross-platform option with lots of nice packages available that
-extend its functionality.
+file, like Notepad, BBEdit, Sublime Text or Visual Studio Code. 
+[Visual Studio Code](https://code.visualstudio.com/) is a code editor 
+that has lots of nice packages available that extend its functionality
+such as enabling Jupyter notebooks and interfacing with Github.
 
-(chap-python)=
-
+(section_Python_intro)=
 # Introduction to Python Programming
 
-There are many resources for learning Python, but Lisa Tauxe’s [Python
+There are many resources for learning Python. 
+Lisa Tauxe’s [Python
 For Earth Science
 Students](https://github.com/ltauxe/Python-for-Earth-Science-Students)
 will give you a good foundation in programming Python with
@@ -158,19 +157,19 @@ repository](https://github.com/ltauxe/Python-for-Earth-Science-Students).
 It is composed of an interactive series of lectures in the form of
 Jupyter notebooks.
 
-To get started, you will need to [install Python](#getting_python).
+To get started, you will need to install Python [the Anaconda distribution
+is highly recommended](https://www.anaconda.com/products/distribution).
 Then, [download git](https://git-scm.com/downloads) and follow the
 install instructions. If you don’t know whether you have git installed,
 just type `git` on your command line and see if the help message
-appears.
+appears. You can also use the helpful [Github Desktop application](https://desktop.github.com) to 
+interface with git and sync with Github repositories.
 
-1. [Install Python](#getting_python)
+1. [Install Python](https://www.anaconda.com/products/distribution)
 
 2. [Download git](https://git-scm.com/downloads)
 
-3. Open your [command line](#command_line)
-
-4. Clone the notebook respoitory:
+3. Clone the notebook repository either through Github Desktop or at the command line ([](sect-command-line)) in which case use these commands:
 
    ```
    git clone https://github.com/ltauxe/Python-for-Earth-Science-Students.git
@@ -180,13 +179,7 @@ appears.
    jupyter notebook
    ```
 
-This will open a browser window with a list of Notebooks. Click on
+This command will open a browser window with a list of Notebooks. Click on
 Lecture 1, which overviews the course and teaches you how to run
 Notebooks. From there, you can follow the lectures in order or pick and
 choose based on your interests. Python is a lot of fun - enjoy!
-
-NB: For Anaconda-specific information, see this [handy cheat
-sheet](https://docs.anaconda.com/_downloads/Anaconda-Starter-Guide-Cheat-Sheet.pdf)
-with information about how to install and update Python packages, as
-well as create custom Python environments and more.
-
