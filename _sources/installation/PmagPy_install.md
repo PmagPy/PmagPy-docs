@@ -3,21 +3,23 @@
 You have multiple options for using PmagPy.
 
 -   If you only want to use the graphical user interfaces (GUIs), you
-    can download them as [standalone programs](#standalone). The
-    standalone install doesn't require that you have Python, but is more
-    limited than the full PmagPy install.
+    can download them as standalone programs ([](section_Standalone_GUI)). The
+    standalone install doesn't require that you have Python, but is 
+    limited to [](../programs/pmag_gui.md), [](../programs/demag_gui.md)
+    and [](../programs/thellier_gui.md) without the rest of the functionality
+    of PmagPy.
 
 If you want the full **PmagPy** functionality, you have two options:
 
 -   You can use pip to download and install the **PmagPy** function
-    library and the [**PmagPy** command line](#full_install) programs.
+    library and the **PmagPy** [](../programs/command_line_programs.md).
 
 -   If you want to actively participate in developing and modifying
-    **PmagPy**, you will do a [developer install](#full_install).
+    **PmagPy** or be linked with the most recent commits to the project, 
+    you will do a [](section_developer_install).
 
-Alternatively, if you are familiar with Jupyter Notebooks and Python,
-you may want to use the pmagpy package without downloading anything, you
-should go to the our online option:
+An alternative way to use the pmagpy package without downloading anything, 
+is to go to the Jupyter notebooks that our hosted online at our Jupyterhub:
 
 -   If you do not have an earthref account, go to
     <https://earthref.org/log-in> and create an account with your ORCID.
@@ -34,6 +36,7 @@ should go to the our online option:
     online class for Earth Scientists:
     <https://github.com/ltauxe/Python-for-Earth-Science-Students>
 
+(section_pip_install)=
 ## pip install
 
 To get going with full **PmagPy** functionality, you can pip install the package
@@ -57,6 +60,7 @@ You can find more specific pip install instructions for each operating system at
 
 [Linux pip](linux_pip)
 
+(section_Standalone_GUI)=
 ## Standalone GUI download
 
 If you do not need the full PmagPy functionality, and you only want to
@@ -81,6 +85,7 @@ and might be buggy on other distributions.
 You will find the latest Linux standalone download:
 <https://github.com/PmagPy/PmagPy-Standalone-Linux/releases/latest>
 
+(section_developer_install)=
 ## PmagPy developer install
 
 If you want to get into the nitty-gritty of the code such that you are
@@ -93,16 +98,14 @@ pip install within the same environment.
 If you want to do a developer install, make sure you
 uninstall pmagpy/pmagpy-cli first if you have already installed them.
 
-Next, choose install instructions based on your preferred install method
+Next, choose installation instructions based on your preferred install method
 (pip/developer) and your operating system (OSX/Windows/Linux).
 
 [OSX developer](osx_developer)
 
-[Windows
-developer](windows_developer)
+[Windows developer](windows_developer)
 
-[Linux
-developer](linux_developer)
+[Linux developer](linux_developer)
 
 ## Install help
 
@@ -115,7 +118,7 @@ requests.
 
 Here are the details of what the developer install script actually does.
 For OS X and Linux, it adds these lines editing \$PATH to your .bashrc
-file (on OS X Catalina, you may need to use .zshrc instead, see more
+file (on recent OS X version, you may need to use .zshrc instead, see more
 info below):
 
         export PATH=/Users/***/Desktop/PmagPy/programs:$PATH
@@ -176,7 +179,6 @@ and so on.
 -   Make sure you have the correct version of Python. If you run the
     command "python", you should see a message like this:
 
-
         Python 3.7.0 (default, Jun 28 2018, 07:39:16)
         [Clang 4.0.1 (tags/RELEASE_401/final)] :: Anaconda, Inc. on darwin
         Type "help", "copyright", "credits" or "license" for more information.
@@ -190,7 +192,6 @@ and so on.
 
 -   If you are trying to run PmagPy programs and you run into an issue
     with python vs pythonw, you may need to link your python to pythonw:
-
 
             ln -s ~/anaconda3/bin/python3 ~/anaconda3/bin/pythonw
 
