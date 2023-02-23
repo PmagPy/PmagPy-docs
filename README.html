@@ -496,13 +496,18 @@ title="Print to PDF"
     </a>
    </li>
    <li class="toc-h2 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#deploying-the-jupyter-book">
-     Deploying the Jupyter Book
+    <a class="reference internal nav-link" href="#translating-from-the-pmagpy-cookbook">
+     Translating from the PmagPy Cookbook
     </a>
    </li>
    <li class="toc-h2 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#translating-from-the-pmagpy-cookbook">
-     Translating from the PmagPy Cookbook
+    <a class="reference internal nav-link" href="#manually-building-the-jupyter-book">
+     Manually building the Jupyter Book
+    </a>
+   </li>
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#manually-deploying-the-jupyter-book">
+     Manually deploying the Jupyter Book
     </a>
    </li>
   </ul>
@@ -547,13 +552,18 @@ title="Print to PDF"
     </a>
    </li>
    <li class="toc-h2 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#deploying-the-jupyter-book">
-     Deploying the Jupyter Book
+    <a class="reference internal nav-link" href="#translating-from-the-pmagpy-cookbook">
+     Translating from the PmagPy Cookbook
     </a>
    </li>
    <li class="toc-h2 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#translating-from-the-pmagpy-cookbook">
-     Translating from the PmagPy Cookbook
+    <a class="reference internal nav-link" href="#manually-building-the-jupyter-book">
+     Manually building the Jupyter Book
+    </a>
+   </li>
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#manually-deploying-the-jupyter-book">
+     Manually deploying the Jupyter Book
     </a>
    </li>
   </ul>
@@ -583,20 +593,7 @@ title="Print to PDF"
 </section>
 <section id="building-the-jupyter-book">
 <h2>Building the Jupyter Book<a class="headerlink" href="#building-the-jupyter-book" title="Permalink to this headline">#</a></h2>
-<p>With Jupyter book installed, the Jupyter book in this repository can be made with this command. To run this command you need to be not in the directory itself, but in the directory that contains the folder:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">jupyter</span><span class="o">-</span><span class="n">book</span> <span class="n">build</span> <span class="n">PmagPy</span><span class="o">-</span><span class="n">docs</span>
-</pre></div>
-</div>
-<p>To keep the repository from getting humongous. The current approach is to build the html locally using the above command, but not to push the changes in the resulting <code class="docutils literal notranslate"><span class="pre">_build</span></code> folder.</p>
-</section>
-<section id="deploying-the-jupyter-book">
-<h2>Deploying the Jupyter Book<a class="headerlink" href="#deploying-the-jupyter-book" title="Permalink to this headline">#</a></h2>
-<p>The resulting html after a local build can be published to github pages using these directions:</p>
-<p><a class="reference external" href="https://jupyterbook.org/en/stable/publish/gh-pages.html">https://jupyterbook.org/en/stable/publish/gh-pages.html</a></p>
-<p>and specifically this command from within the <code class="docutils literal notranslate"><span class="pre">main</span></code> branch:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">ghp</span><span class="o">-</span><span class="kn">import</span> <span class="o">-</span><span class="n">n</span> <span class="o">-</span><span class="n">p</span> <span class="o">-</span><span class="n">f</span> <span class="n">_build</span><span class="o">/</span><span class="n">html</span>
-</pre></div>
-</div>
+<p>The Jupyter Book is built automatically using Github Actions when a push is made to the main branch of the repository</p>
 </section>
 <section id="translating-from-the-pmagpy-cookbook">
 <h2>Translating from the PmagPy Cookbook<a class="headerlink" href="#translating-from-the-pmagpy-cookbook" title="Permalink to this headline">#</a></h2>
@@ -606,6 +603,23 @@ title="Print to PDF"
 </pre></div>
 </div>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">rst2myst</span> <span class="n">convert</span> <span class="n">osx_developer</span><span class="o">.</span><span class="n">rst</span>
+</pre></div>
+</div>
+</section>
+<section id="manually-building-the-jupyter-book">
+<h2>Manually building the Jupyter Book<a class="headerlink" href="#manually-building-the-jupyter-book" title="Permalink to this headline">#</a></h2>
+<p>With Jupyter book installed, the Jupyter book in this repository can be made with this command. To run this command you need to be not in the directory itself, but in the directory that contains the folder:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">jupyter</span><span class="o">-</span><span class="n">book</span> <span class="n">build</span> <span class="n">PmagPy</span><span class="o">-</span><span class="n">docs</span>
+</pre></div>
+</div>
+<p>To keep the repository from getting humongous. The current approach is to build the html locally using the above command, but not to push the changes in the resulting <code class="docutils literal notranslate"><span class="pre">_build</span></code> folder.</p>
+</section>
+<section id="manually-deploying-the-jupyter-book">
+<h2>Manually deploying the Jupyter Book<a class="headerlink" href="#manually-deploying-the-jupyter-book" title="Permalink to this headline">#</a></h2>
+<p>The resulting html after a local build can be published to github pages using these directions:</p>
+<p><a class="reference external" href="https://jupyterbook.org/en/stable/publish/gh-pages.html">https://jupyterbook.org/en/stable/publish/gh-pages.html</a></p>
+<p>and specifically this command from within the <code class="docutils literal notranslate"><span class="pre">main</span></code> branch:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">ghp</span><span class="o">-</span><span class="kn">import</span> <span class="o">-</span><span class="n">n</span> <span class="o">-</span><span class="n">p</span> <span class="o">-</span><span class="n">f</span> <span class="n">_build</span><span class="o">/</span><span class="n">html</span>
 </pre></div>
 </div>
 </section>
