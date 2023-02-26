@@ -1,0 +1,1204 @@
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
+    <title>Data reduction for paleomagnetic data aboard the JOIDES Resolution &#8212; PmagPy Documentation</title>
+    
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../_static/styles/theme.css?digest=1999514e3f237ded88cf" rel="stylesheet">
+<link href="../_static/styles/pydata-sphinx-theme.css?digest=1999514e3f237ded88cf" rel="stylesheet">
+
+    
+  <link rel="stylesheet"
+    href="../_static/vendor/fontawesome/5.13.0/css/all.min.css">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900.woff2">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
+
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css" />
+    <link rel="stylesheet" href="../_static/styles/sphinx-book-theme.css?digest=5115cc725059bd94278eecd172e13a965bf8f5a9" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/mystnb.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/design-style.b7bb847fb20b106c3d81b95245e65545.min.css" />
+    
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=1999514e3f237ded88cf">
+
+    <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
+    <script src="../_static/jquery.js"></script>
+    <script src="../_static/underscore.js"></script>
+    <script src="../_static/doctools.js"></script>
+    <script src="../_static/clipboard.min.js"></script>
+    <script src="../_static/copybutton.js"></script>
+    <script src="../_static/scripts/sphinx-book-theme.js?digest=9c920249402e914e316237a7dbc6769907cce411"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="../_static/togglebutton.js"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
+    <script src="../_static/design-tabs.js"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
+const thebe_selector = ".thebe,.cell"
+const thebe_selector_input = "pre"
+const thebe_selector_output = ".output, .cell_output"
+</script>
+    <script async="async" src="../_static/sphinx-thebe.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="docsearch:language" content="None">
+    
+
+    <!-- Google Analytics -->
+    
+  </head>
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="60">
+<!-- Checkboxes to toggle the left sidebar -->
+<input type="checkbox" class="sidebar-toggle" name="__navigation" id="__navigation" aria-label="Toggle navigation sidebar">
+<label class="overlay overlay-navbar" for="__navigation">
+    <div class="visually-hidden">Toggle navigation sidebar</div>
+</label>
+<!-- Checkboxes to toggle the in-page toc -->
+<input type="checkbox" class="sidebar-toggle" name="__page-toc" id="__page-toc" aria-label="Toggle in-page Table of Contents">
+<label class="overlay overlay-pagetoc" for="__page-toc">
+    <div class="visually-hidden">Toggle in-page Table of Contents</div>
+</label>
+<!-- Headers at the top -->
+<div class="announcement header-item noprint"></div>
+<div class="header header-item noprint"></div>
+
+    
+    <div class="container-fluid" id="banner"></div>
+
+    
+
+    <div class="container-xl">
+      <div class="row">
+          
+<!-- Sidebar -->
+<div class="bd-sidebar noprint" id="site-navigation">
+    <div class="bd-sidebar__content">
+        <div class="bd-sidebar__top"><div class="navbar-brand-box">
+    <a class="navbar-brand text-wrap" href="../index.html">
+      
+        <!-- `logo` is deprecated in Sphinx 4.0, so remove this when we stop supporting 3 -->
+        
+      
+      
+      <img src="../_static/pmagpy_logo_notext.png" class="logo" alt="logo">
+      
+      
+      <h1 class="site-logo" id="site-title">PmagPy Documentation</h1>
+      
+    </a>
+</div><form class="bd-search d-flex align-items-center" action="../search.html" method="get">
+  <i class="icon fas fa-search"></i>
+  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search this book..." aria-label="Search this book..." autocomplete="off" >
+</form><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item active">
+        
+        <ul class="nav bd-sidenav bd-sidenav__home-link">
+            <li class="toctree-l1">
+                <a class="reference internal" href="../intro.html">
+                    PmagPy: An open source package for paleomagnetic data analysis
+                </a>
+            </li>
+        </ul>
+        <p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  Installation
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="../installation/PmagPy_install.html">
+   Installing
+   <strong>
+    PmagPy
+   </strong>
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" type="checkbox"/>
+  <label for="toctree-checkbox-1">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../installation/osx_pip.html">
+     OSX pip install
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../installation/osx_developer.html">
+     OSX developer install
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../installation/windows_pip.html">
+     Windows pip install
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../installation/windows_developer.html">
+     Windows developer install
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../installation/linux_pip.html">
+     Linux pip install
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../installation/linux_developer.html">
+     Linux developer install
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../installation/troubleshooting.html">
+     Troubleshooting installation issues
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../programs/command_line_programs.html">
+     Command line programs
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="../programs/pmag_gui.html">
+   Installing and Getting Started with Pmag GUI
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" type="checkbox"/>
+  <label for="toctree-checkbox-2">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../programs/demag_gui.html">
+     Demag GUI
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../programs/thellier_gui.html">
+     Thellier GUI
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../resources/survival_skills.html">
+   Survival computer skills
+  </a>
+ </li>
+</ul>
+<p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  Documentation notebooks
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../documentation_notebooks/Jupyter.html">
+   Jupyter Notebooks
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../documentation_notebooks/PmagPy_introduction.html">
+   Introduction to PmagPy
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../documentation_notebooks/PmagPy_calculations.html">
+   Calculations with PmagPy
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../documentation_notebooks/PmagPy_plots_analysis.html">
+   Visualizations and more analysis with PmagPy
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../documentation_notebooks/PmagPy_MagIC.html">
+   Working with the MagIC database using PmagPy
+  </a>
+ </li>
+</ul>
+<p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  Example notebooks
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="example_notebooks.html">
+   Example notebooks
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-3" name="toctree-checkbox-3" type="checkbox"/>
+  <label for="toctree-checkbox-3">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="Tauxe_etal_2016.html">
+     Tauxe et al. 2016 example notebook
+    </a>
+   </li>
+  </ul>
+ </li>
+</ul>
+<p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  MagIC
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../MagIC/MagIC.html">
+   MagIC database and file formats
+  </a>
+ </li>
+</ul>
+<p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  Function docstrings
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../api/api.html">
+   API Reference
+  </a>
+ </li>
+</ul>
+<p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  References
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../references.html">
+   References
+  </a>
+ </li>
+</ul>
+
+    </div>
+</nav></div>
+        <div class="bd-sidebar__bottom">
+             <!-- To handle the deprecated key -->
+            
+            <div class="navbar_extra_footer">
+            Powered by <a href="https://jupyterbook.org">Jupyter Book</a>
+            </div>
+            
+        </div>
+    </div>
+    <div id="rtd-footer-container"></div>
+</div>
+
+
+          
+
+
+          
+<!-- A tiny helper pixel to detect if we've scrolled -->
+<div class="sbt-scroll-pixel-helper"></div>
+<!-- Main content -->
+<div class="col py-0 content-container">
+    
+    <div class="header-article row sticky-top noprint">
+        
+
+
+
+<div class="col py-1 d-flex header-article-main">
+    <div class="header-article__left">
+        
+        <label for="__navigation"
+  class="headerbtn"
+  data-toggle="tooltip"
+data-placement="right"
+title="Toggle navigation"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-bars"></i>
+  </span>
+
+</label>
+
+        
+    </div>
+    <div class="header-article__right">
+<div class="menu-dropdown menu-dropdown-launch-buttons">
+  <button class="headerbtn menu-dropdown__trigger"
+      aria-label="Launch interactive content">
+      <i class="fas fa-rocket"></i>
+  </button>
+  <div class="menu-dropdown__content">
+    <ul>
+      <li>
+        <a href="https://mybinder.org/v2/gh/pmagpy/pmagpy-docs/master?urlpath=tree/example_notebooks/PmagPy_iodp_HOLE_template.ipynb"
+   class="headerbtn"
+   data-toggle="tooltip"
+data-placement="left"
+title="Launch on Binder"
+>
+  
+
+<span class="headerbtn__icon-container">
+  
+    <img src="../_static/images/logo_binder.svg">
+  </span>
+<span class="headerbtn__text-container">Binder</span>
+</a>
+
+      </li>
+      
+    </ul>
+  </div>
+</div>
+
+<button onclick="toggleFullScreen()"
+  class="headerbtn"
+  data-toggle="tooltip"
+data-placement="bottom"
+title="Fullscreen mode"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+<div class="menu-dropdown menu-dropdown-repository-buttons">
+  <button class="headerbtn menu-dropdown__trigger"
+      aria-label="Source repositories">
+      <i class="fab fa-github"></i>
+  </button>
+  <div class="menu-dropdown__content">
+    <ul>
+      <li>
+        <a href="https://github.com/pmagpy/pmagpy-docs"
+   class="headerbtn"
+   data-toggle="tooltip"
+data-placement="left"
+title="Source repository"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fab fa-github"></i>
+  </span>
+<span class="headerbtn__text-container">repository</span>
+</a>
+
+      </li>
+      
+      <li>
+        <a href="https://github.com/pmagpy/pmagpy-docs/issues/new?title=Issue%20on%20page%20%2Fexample_notebooks/PmagPy_iodp_HOLE_template.html&body=Your%20issue%20content%20here."
+   class="headerbtn"
+   data-toggle="tooltip"
+data-placement="left"
+title="Open an issue"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-lightbulb"></i>
+  </span>
+<span class="headerbtn__text-container">open issue</span>
+</a>
+
+      </li>
+      
+    </ul>
+  </div>
+</div>
+
+<div class="menu-dropdown menu-dropdown-download-buttons">
+  <button class="headerbtn menu-dropdown__trigger"
+      aria-label="Download this page">
+      <i class="fas fa-download"></i>
+  </button>
+  <div class="menu-dropdown__content">
+    <ul>
+      <li>
+        <a href="../_sources/example_notebooks/PmagPy_iodp_HOLE_template.ipynb"
+   class="headerbtn"
+   data-toggle="tooltip"
+data-placement="left"
+title="Download source file"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="headerbtn__text-container">.ipynb</span>
+</a>
+
+      </li>
+      
+      <li>
+        
+<button onclick="printPdf(this)"
+  class="headerbtn"
+  data-toggle="tooltip"
+data-placement="left"
+title="Print to PDF"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="headerbtn__text-container">.pdf</span>
+</button>
+
+      </li>
+      
+    </ul>
+  </div>
+</div>
+<label for="__page-toc"
+  class="headerbtn headerbtn-page-toc"
+  
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-list"></i>
+  </span>
+
+</label>
+
+    </div>
+</div>
+
+<!-- Table of contents -->
+<div class="col-md-3 bd-toc show noprint">
+    <div class="tocsection onthispage pt-5 pb-3">
+        <i class="fas fa-list"></i> Contents
+    </div>
+    <nav id="bd-toc-nav" aria-label="Page">
+        <ul class="visible nav section-nav flex-column">
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#">
+   Data reduction for paleomagnetic data aboard the JOIDES Resolution
+  </a>
+ </li>
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#table-of-contents">
+   Table of Contents
+  </a>
+ </li>
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#preliminaries">
+   Preliminaries
+  </a>
+  <ul class="visible nav section-nav flex-column">
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#make-the-sample-tables">
+     Make the sample tables
+    </a>
+   </li>
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#convert-the-srm-archive-half-data-for-the-hole">
+     Convert the SRM archive half data for the Hole
+    </a>
+   </li>
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#convert-srm-discrete-sample-data-to-magic">
+     Convert SRM discrete sample data to MagIC:
+    </a>
+   </li>
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#import-the-jr6-data">
+     Import the JR6 data.
+    </a>
+   </li>
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#ams-data">
+     AMS data
+    </a>
+   </li>
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#downhole-plots">
+     Downhole Plots
+    </a>
+   </li>
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#tidy-up-for-magc">
+     Tidy up for MagC
+    </a>
+   </li>
+  </ul>
+ </li>
+</ul>
+
+    </nav>
+</div>
+    </div>
+    <div class="article row">
+        <div class="col pl-md-3 pl-lg-5 content-container">
+            <!-- Table of contents that is only displayed when printing the page -->
+            <div id="jb-print-docs-body" class="onlyprint">
+                <h1>Data reduction for paleomagnetic data aboard the JOIDES Resolution</h1>
+                <!-- Table of contents -->
+                <div id="print-main-content">
+                    <div id="jb-print-toc">
+                        
+                        <div>
+                            <h2> Contents </h2>
+                        </div>
+                        <nav aria-label="Page">
+                            <ul class="visible nav section-nav flex-column">
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#">
+   Data reduction for paleomagnetic data aboard the JOIDES Resolution
+  </a>
+ </li>
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#table-of-contents">
+   Table of Contents
+  </a>
+ </li>
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#preliminaries">
+   Preliminaries
+  </a>
+  <ul class="visible nav section-nav flex-column">
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#make-the-sample-tables">
+     Make the sample tables
+    </a>
+   </li>
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#convert-the-srm-archive-half-data-for-the-hole">
+     Convert the SRM archive half data for the Hole
+    </a>
+   </li>
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#convert-srm-discrete-sample-data-to-magic">
+     Convert SRM discrete sample data to MagIC:
+    </a>
+   </li>
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#import-the-jr6-data">
+     Import the JR6 data.
+    </a>
+   </li>
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#ams-data">
+     AMS data
+    </a>
+   </li>
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#downhole-plots">
+     Downhole Plots
+    </a>
+   </li>
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#tidy-up-for-magc">
+     Tidy up for MagC
+    </a>
+   </li>
+  </ul>
+ </li>
+</ul>
+
+                        </nav>
+                    </div>
+                </div>
+            </div>
+            <main id="main-content" role="main">
+                
+              <div>
+                
+  <section id="data-reduction-for-paleomagnetic-data-aboard-the-joides-resolution">
+<h1>Data reduction for paleomagnetic data aboard the JOIDES Resolution<a class="headerlink" href="#data-reduction-for-paleomagnetic-data-aboard-the-joides-resolution" title="Permalink to this headline">#</a></h1>
+<p>This notebook is for people wanting to download and manipulate data from an IODP Expedition using data in the LIMS Online Repository.  The basic procedure is as follows.  This notebook will guide you through the process step-by-step.</p>
+<ul class="simple">
+<li><p>Import the required python packages and set up the desired directory structure for each HOLE.</p></li>
+<li><p>Download the Section Summary table and put the .csv file in the HOLE working directory</p></li>
+<li><p>Download the Sample Report table for any discrete samples taken (select Sample Type - CUBE and Test code PMAG) and put them in the HOLE working directory</p></li>
+<li><p>Download the SRM data for the hole and put them in the SRM working directory in the HOLE working directory</p></li>
+<li><p>Download the SRM discrete measurement data for the hole and put them in the SRM_discrete sample working directory.</p></li>
+<li><p>Download the JR6 data and put them in the JR6 working directory</p></li>
+<li><p>Download the KLY4S data and put them in the KLY4S working directory.</p></li>
+<li><p>If you want to edit the archive half data for coring or lithologic disturbances:</p></li>
+<li><p>Download the core disturbance info from Desklogic</p>
+<ul>
+<li><p>go to the Desklogic computer station and open DeskLogic (little yellow square)</p></li>
+<li><p>select the ‘macroscopic’ template</p></li>
+<li><p>select sample: hole, Archive, section half</p></li>
+<li><p>download</p></li>
+<li><p>export: include classification, Data and save on the Desktop</p></li>
+<li><p>if the network drives are not available, right click on the double square icon on bar</p></li>
+<li><p>switch the login profile to scientist and login with OES credentials (user name/email password)</p></li>
+<li><p>choose scientist and map the drives.  they should be now available to windows explorer</p></li>
+<li><p>copy to your HOLE working directory.</p></li>
+</ul>
+</li>
+<li><p>If you want to use Xray information to edit your archive half data:  fill in  the XRAY disturbance summary file and put it into the HOLE working directory [template is in data_files/iodp_magic]</p></li>
+</ul>
+<p>To start processing data from a single HOLE:</p>
+<ul class="simple">
+<li><p>Duplicate this notebook with the HOLE name (e.g., U999A) by first making a copy, then renaming it under the ‘File’ menu.  Follow the instructions below.</p></li>
+</ul>
+<p>For HELP:<br />
+- for help on options in any python function, you can type:
+help(MODULE.FUNCTION)  in the cell below.    For example click on the cell below for information on how to use convert.iodp_samples_csv.  This works for any python function.<br />
+- email <a class="reference external" href="mailto:ltauxe&#37;&#52;&#48;ucsd&#46;edu">ltauxe<span>&#64;</span>ucsd<span>&#46;</span>edu</a>.  Incluede a description of your problem, a screen shot of the error if appropriate and an example data file that is causing the difficulty (be mindful of embargo issues).</p>
+<p>For a worked example (using FAKE data, see data_files/iodp_magic/U999A.ipynb)</p>
+</section>
+<section id="table-of-contents">
+<h1>Table of Contents<a class="headerlink" href="#table-of-contents" title="Permalink to this headline">#</a></h1>
+<ul class="simple">
+<li><p><a class="reference external" href="#preliminaries">Preliminaries</a> : import required packages, set up directory structure and set file names</p></li>
+<li><p><a class="reference external" href="#sample">Make sample tables</a> : parse downloaded sample table to standard format</p></li>
+<li><p><a class="reference external" href="#archives">Archive measurements</a> : parse downloaded srm archive measurements and perform editing functions</p></li>
+<li><p><a class="reference external" href="#discretes">Discrete sample measurements</a> : parse downloaded discrete sample data</p></li>
+<li><p><a class="reference external" href="#plots">Downhole plots</a> : make downhole plots of remanence</p></li>
+<li><p><a class="reference external" href="#aniso">Anisotropy of magnetic susceptibility</a> : plots of AMS</p></li>
+<li><p><a class="reference external" href="#upload">Prepare files for uploading to MagIC</a> : you can upload data to the MagIC database as a private contribution.  Then when you have published your data, you can activate your contribution with the DOI of your publication.</p></li>
+</ul>
+<p><a id='preliminaries'></a></p>
+</section>
+<section id="preliminaries">
+<h1>Preliminaries<a class="headerlink" href="#preliminaries" title="Permalink to this headline">#</a></h1>
+<ul class="simple">
+<li><p>In the cell below, edit the HOLE name  and set the HOLE latitude and longitude  where HOLE stands for the hole name.  The cell below will do this for you.</p></li>
+<li><p>edit the file names as you download them from LORE</p></li>
+<li><p>Every time you open this notebook, you must click on the cell below and then click ‘Run’ in the menu above to execute it.</p></li>
+</ul>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># import a bunch of packages for use in the notebook</span>
+<span class="kn">import</span> <span class="nn">pmagpy.pmag</span> <span class="k">as</span> <span class="nn">pmag</span> <span class="c1"># a bunch of PmagPy modules</span>
+<span class="kn">import</span> <span class="nn">pmagpy.pmagplotlib</span> <span class="k">as</span> <span class="nn">pmagplotlib</span>
+<span class="kn">import</span> <span class="nn">pmagpy.ipmag</span> <span class="k">as</span> <span class="nn">ipmag</span>
+<span class="kn">import</span> <span class="nn">pmagpy.contribution_builder</span> <span class="k">as</span> <span class="nn">cb</span>
+<span class="kn">from</span> <span class="nn">pmagpy</span> <span class="kn">import</span> <span class="n">convert_2_magic</span> <span class="k">as</span> <span class="n">convert</span> <span class="c1"># conversion scripts for many lab formats</span>
+<span class="kn">from</span> <span class="nn">pmagpy</span> <span class="kn">import</span>  <span class="n">iodp_funcs</span> <span class="k">as</span> <span class="n">iodp_funcs</span> <span class="c1"># functions for dealing with LIMS data</span>
+<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span> <span class="c1"># our plotting buddy</span>
+<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span> <span class="c1"># the fabulous NumPy package</span>
+<span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span> <span class="c1"># and of course Pandas</span>
+<span class="o">%</span><span class="k">matplotlib</span> inline 
+<span class="kn">from</span> <span class="nn">importlib</span> <span class="kn">import</span> <span class="n">reload</span>
+<span class="kn">import</span> <span class="nn">warnings</span> 
+<span class="n">warnings</span><span class="o">.</span><span class="n">filterwarnings</span><span class="p">(</span><span class="s2">&quot;ignore&quot;</span><span class="p">)</span>
+<span class="n">meas_files</span><span class="p">,</span><span class="n">spec_files</span><span class="p">,</span><span class="n">samp_files</span><span class="p">,</span><span class="n">site_files</span><span class="o">=</span><span class="p">[],[],[],[]</span> <span class="c1"># holders for magic file names</span>
+<span class="kn">import</span> <span class="nn">os</span>
+
+
+
+<span class="c1"># Modify these for your expedition</span>
+<span class="n">exp_name</span><span class="p">,</span><span class="n">exp_description</span><span class="o">=</span><span class="s2">&quot;&quot;</span><span class="p">,</span><span class="s2">&quot;&quot;</span> <span class="c1"># e.g., &#39;IODP Expedition 382&#39;,&#39;Iceberg Alley&#39;</span>
+
+<span class="c1"># Edit these for each hole.  In the following, HOLE refers to the current hole. </span>
+<span class="n">hole</span><span class="o">=</span><span class="s2">&quot;&quot;</span> <span class="c1"># e.g., U999A</span>
+
+<span class="c1"># edit these for the current hole - get it from Hole summary on LORE</span>
+<span class="n">hole_lat</span><span class="p">,</span><span class="n">hole_lon</span><span class="o">=</span><span class="mi">0</span><span class="o">+</span><span class="mi">0</span><span class="o">/</span><span class="mi">60</span><span class="p">,</span><span class="mi">0</span><span class="o">+</span><span class="mi">0</span><span class="o">/</span><span class="mi">60</span> <span class="c1"># e.g., -57+26.5335/60,-43+21.4723/60 </span>
+<span class="n">gad_inc</span><span class="o">=</span><span class="n">pmag</span><span class="o">.</span><span class="n">pinc</span><span class="p">(</span><span class="n">hole_lat</span><span class="p">)</span> <span class="c1"># geocentric axial dipole inclination for hole</span>
+
+<span class="n">demag_step</span><span class="o">=</span><span class="mf">0.015</span> <span class="c1"># choose the demagnetization step (in tesla) for downhole plots </span>
+
+
+<span class="c1"># set up the directory structure for this hole</span>
+<span class="c1"># these are default locations and variables - do not change them. </span>
+<span class="n">jr6_dir</span><span class="o">=</span><span class="n">hole</span><span class="o">+</span><span class="s1">&#39;/JR6_data&#39;</span>
+<span class="n">kly4s_dir</span><span class="o">=</span><span class="n">hole</span><span class="o">+</span><span class="s1">&#39;/KLY4S_data&#39;</span>
+<span class="n">srm_archive_dir</span><span class="o">=</span><span class="n">hole</span><span class="o">+</span><span class="s1">&#39;/SRM_archive_data&#39;</span>
+<span class="n">srm_discrete_dir</span><span class="o">=</span><span class="n">hole</span><span class="o">+</span><span class="s1">&#39;/SRM_discrete_data&#39;</span>
+<span class="n">magic_dir</span><span class="o">=</span><span class="n">hole</span><span class="o">+</span><span class="s1">&#39;/&#39;</span><span class="o">+</span><span class="n">hole</span><span class="o">+</span><span class="s1">&#39;_MagIC&#39;</span>
+<span class="n">dscr_file</span><span class="o">=</span><span class="s2">&quot;&quot;</span> <span class="c1"># if no discrete samples, this stays blank</span>
+
+
+
+<span class="c1"># set up the directory structure</span>
+<span class="k">if</span> <span class="n">hole</span><span class="p">:</span>          <span class="c1"># checks if the hole name has been set. </span>
+    <span class="k">if</span> <span class="n">hole</span> <span class="ow">not</span> <span class="ow">in</span> <span class="n">os</span><span class="o">.</span><span class="n">listdir</span><span class="p">():</span> <span class="c1"># checks if the directory structure exists, otherwise this will create it</span>
+        <span class="n">os</span><span class="o">.</span><span class="n">mkdir</span><span class="p">(</span><span class="n">hole</span><span class="p">)</span>
+        <span class="n">os</span><span class="o">.</span><span class="n">mkdir</span><span class="p">(</span><span class="n">jr6_dir</span><span class="p">)</span>
+        <span class="n">os</span><span class="o">.</span><span class="n">mkdir</span><span class="p">(</span><span class="n">kly4s_dir</span><span class="p">)</span>
+        <span class="n">os</span><span class="o">.</span><span class="n">mkdir</span><span class="p">(</span><span class="n">srm_archive_dir</span><span class="p">)</span>
+        <span class="n">os</span><span class="o">.</span><span class="n">mkdir</span><span class="p">(</span><span class="n">srm_discrete_dir</span><span class="p">)</span>
+        <span class="n">os</span><span class="o">.</span><span class="n">mkdir</span><span class="p">(</span><span class="n">magic_dir</span><span class="p">)</span>
+        <span class="n">os</span><span class="o">.</span><span class="n">mkdir</span><span class="p">(</span><span class="s1">&#39;Figures&#39;</span><span class="p">)</span>
+
+<span class="c1">#After mkdir has been run,  you can </span>
+<span class="c1"># 1) download all the files you need  </span>
+<span class="c1"># 2) put them in the correct folders as instructed below.  Set the file names here:</span>
+<span class="c1"># 3) edit the file names for the downloaded files. </span>
+
+
+<span class="c1"># Put these downloaded file into the HOLE directory (after mkdir has been executed)</span>
+
+<span class="c1"># required for downhole direction plot.  Put the file in the HOLE directory</span>
+<span class="n">section_summary_file</span><span class="o">=</span><span class="s2">&quot;&quot;</span> <span class="c1"># set this to the downloaded summary file (e.g., &quot;Section Summary_15_5_2019.csv&quot;)</span>
+<span class="k">if</span> <span class="n">section_summary_file</span><span class="p">:</span> <span class="c1"># add the path to the summary file, if set.  </span>
+    <span class="n">summary_file</span><span class="o">=</span><span class="n">hole</span><span class="o">+</span><span class="s1">&#39;/&#39;</span><span class="o">+</span><span class="n">section_summary_file</span> 
+<span class="c1"># required for downhole AMS plot.   Put the file in the HOLE directory</span>
+<span class="n">core_summary_file</span><span class="o">=</span><span class="s2">&quot;&quot;</span> <span class="c1"># set this to the downloaded Core summary file (e.g., &quot;Core Summary_15_4_2019.csv&quot;)</span>
+<span class="c1"># required for unpacking LIMS discrete sample data. Put the file in the HOLE directory</span>
+<span class="n">samp_file</span><span class="o">=</span><span class="s2">&quot;&quot;</span> <span class="c1"># set this to   your sample file (e.g., samp_file=&#39;samples_5_4_2019.csv&#39; )</span>
+
+
+<span class="c1"># Put these files into the designated subdirectories in the HOLE directory:</span>
+<span class="c1"># required for unpacking SRM archive measurements file.  It should be in HOLE/SRM_archive_data/</span>
+<span class="n">srm_archive_file</span><span class="o">=</span><span class="s2">&quot;&quot;</span>   <span class="c1"># set this to your srm archive file from LIMS (e.g., &quot;srmsection_1_4_2019.csv&quot;)</span>
+
+<span class="c1"># required for unpacking SRM discrete measurements file.  It should be in HOLE/SRM_discrete_data/</span>
+<span class="n">srm_discrete_file</span><span class="o">=</span> <span class="s1">&#39;&#39;</span> <span class="c1"># SRM discrete measurements file (e.g., &quot;srmdiscrete_7_4_2019.csv&quot;)</span>
+<span class="c1"># required for unpacking SRM discrete measurements with OFFLINE TREATMENTS.  Put in:  HOLE/SRM_archive_data/</span>
+<span class="c1"># NB: you also need the srm_discrete_file set</span>
+<span class="n">dscr_ex_file</span><span class="o">=</span><span class="s1">&#39;&#39;</span> <span class="c1"># SRM discrete extended file (e.g., &quot;ex-srm_26_4_2019.csv&quot;)</span>
+
+<span class="c1"># needed for unpacking JR-6 measurement data. Put the file in HOLE/JR6_data/ directory</span>
+<span class="n">jr6_file</span><span class="o">=</span><span class="s1">&#39;&#39;</span> <span class="c1"># JR6 data file from LORE (e.g., &quot;spinner_1_4_2019.csv&quot;)</span>
+
+<span class="c1"># required for unpackying Kappabridge data.  be sure to download the expanded file from LORE.  </span>
+<span class="c1"># Put it in HOLE/KLY4S_data/   </span>
+<span class="n">kly4s_file</span><span class="o">=</span><span class="s1">&#39;&#39;</span> <span class="c1"># set this to the downloaded file (e.g., &quot;ex-kappa_15_4_2019.csv&quot;)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p><a id='sample'></a></p>
+<section id="make-the-sample-tables">
+<h2>Make the sample tables<a class="headerlink" href="#make-the-sample-tables" title="Permalink to this headline">#</a></h2>
+<ul class="simple">
+<li><p>Download the Sample Report and Section Summary tables (when available) for the HOLE from the LIMS online repository at <a class="reference external" href="http://web.ship.iodp.tamu.edu/LORE/">http://web.ship.iodp.tamu.edu/LORE/</a> and save them as csv files.</p></li>
+<li><p>Put the two .csv files in the HOLE directory created above.</p></li>
+<li><p>Edit the name of the sample .csv  file in prelimaries cell and the ‘secondary depth’ column that you selected when downloading (the default is CSF-B as below) in the cell below.</p></li>
+<li><p>Execute the cell to  populate the MagIC meta-data tables.  The depth information ends up in the lims_sites.txt table in the HOLE_MagIC directory, for example and gets used to create downhole plots.</p></li>
+</ul>
+<p>Run the following cell to create the samples, sites, and locations tables for the hole.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Make sure the sample file is in your HOLE directory and the filename set in the Preliminaries </span>
+<span class="c1"># Note:  this program will not run if the file is in use</span>
+
+<span class="k">if</span> <span class="n">samp_file</span><span class="p">:</span>
+    
+    <span class="n">comp_depth_key</span><span class="o">=</span><span class="s1">&#39;Top depth CSF-B (m)&#39;</span>
+<span class="c1"># do the heavy lifting: </span>
+    <span class="n">convert</span><span class="o">.</span><span class="n">iodp_samples_csv</span><span class="p">(</span><span class="n">samp_file</span><span class="p">,</span><span class="n">input_dir_path</span><span class="o">=</span><span class="n">hole</span><span class="p">,</span><span class="n">spec_file</span><span class="o">=</span><span class="s1">&#39;lims_specimens.txt&#39;</span><span class="p">,</span>\
+                         <span class="n">samp_file</span><span class="o">=</span><span class="s1">&#39;lims_samples.txt&#39;</span><span class="p">,</span><span class="n">site_file</span><span class="o">=</span><span class="s1">&#39;lims_sites.txt&#39;</span><span class="p">,</span>\
+                         <span class="n">dir_path</span><span class="o">=</span><span class="n">magic_dir</span><span class="p">,</span><span class="n">comp_depth_key</span><span class="o">=</span><span class="n">comp_depth_key</span><span class="p">,</span>\
+                <span class="n">exp_name</span><span class="o">=</span><span class="n">exp_name</span><span class="p">,</span><span class="n">exp_desc</span><span class="o">=</span><span class="n">exp_description</span><span class="p">,</span><span class="n">lat</span><span class="o">=</span><span class="n">hole_lat</span><span class="p">,</span>\
+                <span class="n">lon</span><span class="o">=</span><span class="n">hole_lon</span><span class="p">)</span>
+<span class="c1"># this collects the file names that were created so they can be combined with others, e.g., those</span>
+<span class="c1"># from the archive half measurements which are not in the sample table. </span>
+    <span class="k">if</span> <span class="s1">&#39;lims_specimens.txt&#39;</span> <span class="ow">not</span> <span class="ow">in</span> <span class="n">spec_files</span><span class="p">:</span><span class="n">spec_files</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="s1">&#39;lims_specimens.txt&#39;</span><span class="p">)</span>
+    <span class="k">if</span> <span class="s1">&#39;lims_samples.txt&#39;</span> <span class="ow">not</span> <span class="ow">in</span> <span class="n">samp_files</span><span class="p">:</span><span class="n">samp_files</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="s1">&#39;lims_samples.txt&#39;</span><span class="p">)</span>
+    <span class="k">if</span> <span class="s1">&#39;lims_sites.txt&#39;</span> <span class="ow">not</span> <span class="ow">in</span> <span class="n">site_files</span><span class="p">:</span><span class="n">site_files</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="s1">&#39;lims_sites.txt&#39;</span><span class="p">)</span>
+<span class="c1"># do it again to make copies for use with demag_gui</span>
+    <span class="n">convert</span><span class="o">.</span><span class="n">iodp_samples_csv</span><span class="p">(</span><span class="n">samp_file</span><span class="p">,</span><span class="n">input_dir_path</span><span class="o">=</span><span class="n">hole</span><span class="p">,</span>\
+                         <span class="n">dir_path</span><span class="o">=</span><span class="n">magic_dir</span><span class="p">,</span><span class="n">comp_depth_key</span><span class="o">=</span><span class="n">comp_depth_key</span><span class="p">,</span>\
+                <span class="n">exp_name</span><span class="o">=</span><span class="n">exp_name</span><span class="p">,</span><span class="n">exp_desc</span><span class="o">=</span><span class="n">exp_description</span><span class="p">,</span><span class="n">lat</span><span class="o">=</span><span class="n">hole_lat</span><span class="p">,</span>\
+                <span class="n">lon</span><span class="o">=</span><span class="n">hole_lon</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p><a id='archives'></a></p>
+</section>
+<section id="convert-the-srm-archive-half-data-for-the-hole">
+<h2>Convert the SRM archive half data for the Hole<a class="headerlink" href="#convert-the-srm-archive-half-data-for-the-hole" title="Permalink to this headline">#</a></h2>
+<ul class="simple">
+<li><p>download data for a single hole from LORE as a csv file. edit the file name in the preliminaries cell</p></li>
+<li><p>put the file into the HOLE/SRM_archive_data directory in the HOLE directory</p></li>
+<li><p>edit the composite depth column header (comp_depth_key) if desired.</p></li>
+<li><p>if you have been busy measuring archives, writing the measurement files can take awhile so be patient.</p></li>
+</ul>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span> 
+<span class="c1"># Fill in the name of your srm archive half measruement file (e.g., samp_file=&#39;samples_5_4_2019.csv&#39; )</span>
+<span class="c1"># Make sure the archive measurement file is in your HOLE directory. </span>
+<span class="c1"># Note:  this program will not run if the file is in use</span>
+
+<span class="k">if</span> <span class="n">srm_archive_file</span><span class="p">:</span>
+ 
+    <span class="n">comp_depth_key</span><span class="o">=</span><span class="s1">&#39;Depth CSF-B (m)&#39;</span>
+
+    <span class="n">convert</span><span class="o">.</span><span class="n">iodp_srm_lore</span><span class="p">(</span><span class="n">srm_archive_file</span><span class="p">,</span><span class="n">meas_file</span><span class="o">=</span><span class="s1">&#39;srm_arch_measurements.txt&#39;</span><span class="p">,</span> <span class="n">comp_depth_key</span><span class="o">=</span><span class="n">comp_depth_key</span><span class="p">,</span>\
+                  <span class="n">dir_path</span><span class="o">=</span><span class="n">magic_dir</span><span class="p">,</span><span class="n">input_dir_path</span><span class="o">=</span><span class="n">srm_archive_dir</span><span class="p">,</span><span class="n">lat</span><span class="o">=</span><span class="n">hole_lat</span><span class="p">,</span><span class="n">lon</span><span class="o">=</span><span class="n">hole_lon</span><span class="p">)</span>
+    <span class="k">if</span> <span class="s1">&#39;srm_arch_measurements.txt&#39;</span> <span class="ow">not</span> <span class="ow">in</span> <span class="n">meas_files</span><span class="p">:</span><span class="n">meas_files</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="s1">&#39;srm_arch_measurements.txt&#39;</span><span class="p">)</span>
+    <span class="k">if</span> <span class="s1">&#39;srm_arch_specimens.txt&#39;</span> <span class="ow">not</span> <span class="ow">in</span> <span class="n">spec_files</span><span class="p">:</span><span class="n">spec_files</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="s1">&#39;srm_arch_specimens.txt&#39;</span><span class="p">)</span>
+    <span class="k">if</span> <span class="s1">&#39;srm_arch_samples.txt&#39;</span> <span class="ow">not</span> <span class="ow">in</span> <span class="n">samp_files</span><span class="p">:</span><span class="n">samp_files</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="s1">&#39;srm_arch_samples.txt&#39;</span><span class="p">)</span>
+    <span class="k">if</span> <span class="s1">&#39;srm_arch_sites.txt&#39;</span> <span class="ow">not</span> <span class="ow">in</span> <span class="n">site_files</span><span class="p">:</span><span class="n">site_files</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="s1">&#39;srm_arch_sites.txt&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>Editing of SRM archive data.</p>
+<ul class="simple">
+<li><p>filter for desired demag step (set in the preliminaries cell).</p></li>
+<li><p>remove data from within 80 cm of core tops and 10 cm from section ends.</p></li>
+<li><p>if desired: (set nodist=True), remove from “disturbed” intervals labled “high” from DescLogic.</p>
+<ul>
+<li><p>go to DescLogic and export the list of disturbances for the hole.</p></li>
+<li><p>put this in HOLE_disturbances.xlsx in the HOLE directory. note that HOLE is your hole name, set in the “preliminaries” cell.</p></li>
+</ul>
+</li>
+<li><p>remove data from disturbed intervals based on the Xrays. You have to create the Xray data file yourself. There is a template for this that must be followed in PmagPy/data_files/iodp_magic</p></li>
+<li><p>adjust the data to average normal dec=90</p></li>
+</ul>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># to execute this cell, set False to True. turn it back to False so you don&#39;t rerun this by accident. </span>
+
+<span class="n">remove_ends</span><span class="o">=</span><span class="kc">True</span>
+<span class="n">remove_desclogic_disturbance</span><span class="o">=</span><span class="kc">False</span>
+<span class="n">remove_xray_disturbance</span><span class="o">=</span><span class="kc">False</span>
+<span class="n">core_top</span><span class="o">=</span><span class="mi">80</span> <span class="c1"># remove top 80 cm of core top - change as desired</span>
+<span class="n">section_ends</span><span class="o">=</span><span class="mi">10</span> <span class="c1"># remove 10 cm from either end of the section - change as desired</span>
+
+<span class="k">if</span> <span class="kc">False</span><span class="p">:</span>
+    <span class="n">arch_demag_step</span><span class="o">=</span><span class="n">iodp_funcs</span><span class="o">.</span><span class="n">demag_step</span><span class="p">(</span><span class="n">magic_dir</span><span class="p">,</span><span class="n">hole</span><span class="p">,</span><span class="n">demag_step</span><span class="p">)</span>    <span class="c1"># pick the demag step</span>
+    <span class="k">if</span> <span class="n">remove_ends</span><span class="p">:</span>
+        <span class="n">noends</span><span class="o">=</span><span class="n">iodp_funcs</span><span class="o">.</span><span class="n">remove_ends</span><span class="p">(</span><span class="n">arch_demag_step</span><span class="p">,</span><span class="n">hole</span><span class="p">,</span>\
+                                      <span class="n">core_top</span><span class="o">=</span><span class="n">core_top</span><span class="p">,</span><span class="n">section_ends</span><span class="o">=</span><span class="n">section_ends</span><span class="p">)</span> <span class="c1"># remove the ends</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="n">noends</span><span class="o">=</span><span class="n">arch_demag_step</span>
+    <span class="k">if</span> <span class="n">remove_desclogic_disturbance</span><span class="p">:</span>
+        <span class="n">nodist</span><span class="o">=</span><span class="n">iodp_funcs</span><span class="o">.</span><span class="n">remove_disturbance</span><span class="p">(</span><span class="n">noends</span><span class="p">,</span><span class="n">hole</span><span class="p">)</span> <span class="c1"># remove coring disturbances</span>
+    <span class="k">else</span><span class="p">:</span> 
+        <span class="n">nodist</span><span class="o">=</span><span class="n">noends</span>
+    <span class="k">if</span> <span class="n">remove_xray_disturbance</span><span class="p">:</span> 
+        <span class="n">no_xray_df</span><span class="o">=</span><span class="n">iodp_funcs</span><span class="o">.</span><span class="n">no_xray_disturbance</span><span class="p">(</span><span class="n">nodist</span><span class="p">,</span><span class="n">hole</span><span class="p">)</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="n">no_xray_df</span><span class="o">=</span><span class="n">nodist</span>
+    <span class="n">adj_dec_df</span><span class="p">,</span><span class="n">core_dec_adj</span><span class="o">=</span><span class="n">iodp_funcs</span><span class="o">.</span><span class="n">adj_dec</span><span class="p">(</span><span class="n">no_xray_df</span><span class="p">,</span><span class="n">hole</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p><a id='discretes'></a></p>
+</section>
+<section id="convert-srm-discrete-sample-data-to-magic">
+<h2>Convert SRM discrete sample data to MagIC:<a class="headerlink" href="#convert-srm-discrete-sample-data-to-magic" title="Permalink to this headline">#</a></h2>
+<ul class="simple">
+<li><p>download data for a single hole from LORE as a csv file.</p>
+<ul>
+<li><p>for OFFLINE treatments (ARM,IRM, DTECH AF, thermal), download both the
+“standard” and the extended file names</p></li>
+</ul>
+</li>
+<li><p>put the file into the HOLE/SRM_discrete_data directory in the HOLE directory</p></li>
+<li><p>for “regular” SRM files (no offline treaments) edit the file name and execute the cell below:</p></li>
+<li><p>filenames are set in the preliminaries cell</p></li>
+</ul>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">if</span> <span class="n">srm_discrete_file</span><span class="p">:</span>
+
+    <span class="n">convert</span><span class="o">.</span><span class="n">iodp_dscr_lore</span><span class="p">(</span><span class="n">srm_discrete_file</span><span class="p">,</span><span class="n">meas_file</span><span class="o">=</span><span class="s1">&#39;srm_dscr_measurements.txt&#39;</span><span class="p">,</span> \
+                  <span class="n">dir_path</span><span class="o">=</span><span class="n">magic_dir</span><span class="p">,</span><span class="n">input_dir_path</span><span class="o">=</span><span class="n">srm_discrete_dir</span><span class="p">,</span><span class="n">spec_file</span><span class="o">=</span><span class="s1">&#39;lims_specimens.txt&#39;</span><span class="p">)</span>
+    <span class="k">if</span> <span class="s1">&#39;srm_dscr_measurements.txt&#39;</span> <span class="ow">not</span> <span class="ow">in</span> <span class="n">meas_files</span><span class="p">:</span><span class="n">meas_files</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="s1">&#39;srm_dscr_measurements.txt&#39;</span><span class="p">)</span>
+    <span class="n">dscr_file</span><span class="o">=</span><span class="s1">&#39;srm_dscr_measurements.txt&#39;</span>
+</pre></div>
+</div>
+</div>
+</div>
+<ul class="simple">
+<li><p>for OFFLINE treatments: specify the extended discrete srm file name.</p></li>
+</ul>
+<p>NB:  for this to work properly, you must follow these conventions when running the SRM in
+Offline mode:</p>
+<p>put these in you comment field in the IMS-10 program for discrete samples:</p>
+<ul class="simple">
+<li><p>for NRMs:
+NRM</p></li>
+<li><p>for AF demag at 10 mT (for example)
+AF:10</p></li>
+<li><p>for thermal at 200 C
+T:200</p></li>
+<li><p>for ARM with 100mT AC and 50 uT DC:
+ARM:100:.05</p></li>
+<li><p>for IRM in 1000 mT
+IRM:1000</p></li>
+</ul>
+<p>set the filenames in the prelimaries cell</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">if</span> <span class="n">dscr_ex_file</span> <span class="ow">and</span> <span class="n">srm_discrete_file</span><span class="p">:</span>
+
+
+    <span class="n">convert</span><span class="o">.</span><span class="n">iodp_dscr_lore</span><span class="p">(</span><span class="n">srm_discrete_file</span><span class="p">,</span><span class="n">dscr_ex_file</span><span class="o">=</span><span class="n">dscr_ex_file</span><span class="p">,</span><span class="n">meas_file</span><span class="o">=</span><span class="s1">&#39;srm_dscr_measurements.txt&#39;</span><span class="p">,</span> \
+                  <span class="n">dir_path</span><span class="o">=</span><span class="n">magic_dir</span><span class="p">,</span><span class="n">input_dir_path</span><span class="o">=</span><span class="n">srm_discrete_dir</span><span class="p">,</span><span class="n">spec_file</span><span class="o">=</span><span class="s1">&#39;lims_specimens.txt&#39;</span><span class="p">,</span>\
+                      <span class="n">offline_meas_file</span><span class="o">=</span><span class="s1">&#39;srm_dscr_offline_measurements.txt&#39;</span><span class="p">)</span>
+    <span class="k">if</span> <span class="s1">&#39;srm_dscr_measurements.txt&#39;</span> <span class="ow">not</span> <span class="ow">in</span> <span class="n">meas_files</span><span class="p">:</span><span class="n">meas_files</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="s1">&#39;srm_dscr_measurements.txt&#39;</span><span class="p">)</span>
+    <span class="k">if</span> <span class="s1">&#39;srm_dscr_offline_measurements.txt&#39;</span> <span class="ow">not</span> <span class="ow">in</span> <span class="n">meas_files</span><span class="p">:</span><span class="n">meas_files</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="s1">&#39;srm_dscr_offline_measurments.txt&#39;</span><span class="p">)</span>
+    <span class="n">ipmag</span><span class="o">.</span><span class="n">combine_magic</span><span class="p">([</span><span class="s1">&#39;srm_dscr_measurements.txt&#39;</span><span class="p">,</span><span class="s1">&#39;srm_dscr_offline_measurements.txt&#39;</span><span class="p">],</span>
+                        <span class="n">outfile</span><span class="o">=</span><span class="s1">&#39;dscr_measurements.txt&#39;</span><span class="p">,</span><span class="n">dir_path</span><span class="o">=</span><span class="n">magic_dir</span><span class="p">)</span>
+    <span class="n">dscr_file</span><span class="o">=</span><span class="s1">&#39;dscr_measurements.txt&#39;</span>    
+</pre></div>
+</div>
+</div>
+</div>
+<p>To make some quickie zijderveld plots in the notebook set the following the True.  To save all the plots, set save_plots to True</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">if</span> <span class="n">dscr_file</span><span class="p">:</span>
+    <span class="n">ipmag</span><span class="o">.</span><span class="n">zeq_magic</span><span class="p">(</span><span class="n">meas_file</span><span class="o">=</span><span class="n">dscr_file</span><span class="p">,</span>\
+                <span class="n">spec_file</span><span class="o">=</span><span class="s1">&#39;lims_specimens.txt&#39;</span><span class="p">,</span><span class="n">input_dir_path</span><span class="o">=</span><span class="n">magic_dir</span><span class="p">,</span><span class="n">n_plots</span><span class="o">=</span><span class="s2">&quot;all&quot;</span><span class="p">,</span><span class="n">save_plots</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>If you did a bunch of full demagnetizations, set max_field to your maximum af field.  To save your plots, set save_plots to True.  To change the output format, change ‘svg’ to whatever you want (‘pdf’,’eps’,’png’).</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">cnt</span><span class="o">=</span><span class="mi">1</span>
+<span class="n">max_field</span><span class="o">=</span><span class="mi">0</span> <span class="c1"># set this to your peak field (in tesla) to execute this</span>
+
+<span class="k">if</span> <span class="n">max_field</span><span class="p">:</span>
+    <span class="n">srm_dscr_df</span><span class="o">=</span><span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="n">magic_dir</span><span class="o">+</span><span class="s1">&#39;/&#39;</span><span class="o">+</span><span class="n">dscr_file</span><span class="p">,</span><span class="n">sep</span><span class="o">=</span><span class="s1">&#39;</span><span class="se">\t</span><span class="s1">&#39;</span><span class="p">,</span><span class="n">header</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+    <span class="n">srm_dmag</span><span class="o">=</span><span class="n">srm_dscr_df</span><span class="p">[</span><span class="n">srm_dscr_df</span><span class="o">.</span><span class="n">treat_ac_field</span><span class="o">&gt;=</span><span class="n">max_field</span><span class="p">]</span> <span class="c1"># find all the demag specimens</span>
+    <span class="n">spc_list</span><span class="o">=</span><span class="n">srm_dmag</span><span class="o">.</span><span class="n">specimen</span><span class="o">.</span><span class="n">unique</span><span class="p">()</span>
+
+    <span class="k">for</span> <span class="n">spc</span> <span class="ow">in</span> <span class="n">spc_list</span><span class="p">:</span>
+        <span class="n">ipmag</span><span class="o">.</span><span class="n">zeq_magic</span><span class="p">(</span><span class="n">meas_file</span><span class="o">=</span><span class="n">dscr_file</span><span class="p">,</span><span class="n">specimen</span><span class="o">=</span><span class="n">spc</span><span class="p">,</span><span class="n">fignum</span><span class="o">=</span><span class="n">cnt</span><span class="p">,</span>\
+                <span class="n">spec_file</span><span class="o">=</span><span class="s1">&#39;lims_specimens.txt&#39;</span><span class="p">,</span><span class="n">input_dir_path</span><span class="o">=</span><span class="n">magic_dir</span><span class="p">,</span><span class="n">save_plots</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span>
+                       <span class="n">fmt</span><span class="o">=</span><span class="s1">&#39;svg&#39;</span><span class="p">)</span>
+        <span class="n">cnt</span><span class="o">+=</span><span class="mi">3</span><span class="p">;</span>
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="import-the-jr6-data">
+<h2>Import the JR6 data.<a class="headerlink" href="#import-the-jr6-data" title="Permalink to this headline">#</a></h2>
+<ul class="simple">
+<li><p>download the JR6 data from LIMS and put it in the JR6_data folder in your working directory.</p></li>
+<li><p>edit the file name in the preliminaries cell to reflect the actual file name.</p></li>
+<li><p>execute the two cells in order.</p></li>
+</ul>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">if</span> <span class="n">jr6_file</span><span class="p">:</span>
+    <span class="n">convert</span><span class="o">.</span><span class="n">iodp_jr6_lore</span><span class="p">(</span><span class="n">jr6_file</span><span class="p">,</span><span class="n">meas_file</span><span class="o">=</span><span class="s1">&#39;jr6_measurements.txt&#39;</span><span class="p">,</span><span class="n">dir_path</span><span class="o">=</span><span class="n">magic_dir</span><span class="p">,</span>\
+                     <span class="n">input_dir_path</span><span class="o">=</span><span class="n">jr6_dir</span><span class="p">,</span><span class="n">spec_file</span><span class="o">=</span><span class="s1">&#39;lims_specimens.txt&#39;</span><span class="p">,</span><span class="n">noave</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+    <span class="k">if</span> <span class="s1">&#39;jr6_measurements.txt&#39;</span> <span class="ow">not</span> <span class="ow">in</span> <span class="n">meas_files</span><span class="p">:</span><span class="n">meas_files</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="s1">&#39;jr6_measurements.txt&#39;</span><span class="p">)</span>
+    <span class="n">dscr_file</span><span class="o">=</span><span class="s1">&#39;jr6_measurements.txt&#39;</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># combine srm and jr6 data, we can combine the data here:</span>
+<span class="k">if</span> <span class="n">jr6_file</span> <span class="ow">and</span> <span class="n">srm_discrete_file</span><span class="p">:</span>
+    <span class="n">ipmag</span><span class="o">.</span><span class="n">combine_magic</span><span class="p">([</span><span class="s1">&#39;srm_dscr_measurements.txt&#39;</span><span class="p">,</span><span class="s1">&#39;jr6_measurements.txt&#39;</span><span class="p">],</span>
+                        <span class="n">outfile</span><span class="o">=</span><span class="s1">&#39;dscr_measurements.txt&#39;</span><span class="p">,</span><span class="n">dir_path</span><span class="o">=</span><span class="n">magic_dir</span><span class="p">)</span>
+    <span class="n">dscr_file</span><span class="o">=</span><span class="s1">&#39;dscr_measurements.txt&#39;</span>
+<span class="n">max_field</span><span class="o">=</span><span class="mi">0</span> <span class="c1"># set this to your peak field (in tesla) to execute this</span>
+<span class="k">if</span> <span class="n">max_field</span><span class="p">:</span>
+    <span class="n">cnt</span><span class="o">=</span><span class="mi">1</span>
+    <span class="n">dscr_df</span><span class="o">=</span><span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="n">magic_dir</span><span class="o">+</span><span class="s1">&#39;/dscr_measurements.txt&#39;</span><span class="p">,</span><span class="n">sep</span><span class="o">=</span><span class="s1">&#39;</span><span class="se">\t</span><span class="s1">&#39;</span><span class="p">,</span><span class="n">header</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+    <span class="n">dmag_df</span><span class="o">=</span><span class="n">dscr_df</span><span class="p">[</span><span class="n">dscr_df</span><span class="o">.</span><span class="n">treat_ac_field</span><span class="o">&gt;=</span><span class="n">max_field</span><span class="p">]</span> <span class="c1"># find all the demag specimens</span>
+    <span class="n">spc_list</span><span class="o">=</span><span class="n">dmag_df</span><span class="o">.</span><span class="n">specimen</span><span class="o">.</span><span class="n">unique</span><span class="p">()</span>
+
+    <span class="k">for</span> <span class="n">spc</span> <span class="ow">in</span> <span class="n">spc_list</span><span class="p">:</span>
+        <span class="n">ipmag</span><span class="o">.</span><span class="n">zeq_magic</span><span class="p">(</span><span class="n">meas_file</span><span class="o">=</span><span class="s1">&#39;dscr_measurements.txt&#39;</span><span class="p">,</span><span class="n">specimen</span><span class="o">=</span><span class="n">spc</span><span class="p">,</span><span class="n">fignum</span><span class="o">=</span><span class="n">cnt</span><span class="p">,</span>\
+                <span class="n">spec_file</span><span class="o">=</span><span class="s1">&#39;lims_specimens.txt&#39;</span><span class="p">,</span><span class="n">input_dir_path</span><span class="o">=</span><span class="n">magic_dir</span><span class="p">,</span><span class="n">save_plots</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+        <span class="n">cnt</span><span class="o">+=</span><span class="mi">3</span><span class="p">;</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p><a id='aniso'></a></p>
+</section>
+<section id="ams-data">
+<h2>AMS data<a class="headerlink" href="#ams-data" title="Permalink to this headline">#</a></h2>
+<p>Convert AMS data to MagIC</p>
+<ul class="simple">
+<li><p>Download KAPPABRIDGE expanded magnetic susceptibility data from the Lims Online Repository</p></li>
+<li><p>place the downloaded .csv file in the KLY4S_data in the HOLE directory.</p></li>
+<li><p>change kly4s_file to the correct file name in the preliminaries cell</p></li>
+</ul>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">if</span> <span class="n">kly4s_file</span><span class="p">:</span>
+    <span class="n">convert</span><span class="o">.</span><span class="n">iodp_kly4s_lore</span><span class="p">(</span><span class="n">kly4s_file</span><span class="p">,</span> <span class="n">meas_out</span><span class="o">=</span><span class="s1">&#39;kly4s_measurements.txt&#39;</span><span class="p">,</span> 
+           <span class="n">spec_infile</span><span class="o">=</span><span class="s1">&#39;lims_specimens.txt&#39;</span><span class="p">,</span> <span class="n">spec_out</span><span class="o">=</span><span class="s1">&#39;kly4s_specimens.txt&#39;</span><span class="p">,</span>
+           <span class="n">dir_path</span><span class="o">=</span><span class="n">magic_dir</span><span class="p">,</span> <span class="n">input_dir_path</span><span class="o">=</span><span class="n">kly4s_dir</span><span class="p">,</span><span class="n">actual_volume</span><span class="o">=</span><span class="mi">7</span><span class="p">)</span>
+    <span class="k">if</span> <span class="s1">&#39;kly4s_measurements.txt&#39;</span> <span class="ow">not</span> <span class="ow">in</span> <span class="n">meas_files</span><span class="p">:</span><span class="n">meas_files</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="s1">&#39;kly4s_measurements.txt&#39;</span><span class="p">)</span>
+    <span class="k">if</span> <span class="s1">&#39;kly4s_specimens.txt&#39;</span> <span class="ow">not</span> <span class="ow">in</span> <span class="n">meas_files</span><span class="p">:</span><span class="n">meas_files</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="s1">&#39;kly4s_specimens.txt&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>To make a depth plot of your AMS data, change the False to True in the cell below and run it.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">if</span> <span class="kc">False</span><span class="p">:</span>
+    <span class="n">ipmag</span><span class="o">.</span><span class="n">ani_depthplot</span><span class="p">(</span><span class="n">spec_file</span><span class="o">=</span><span class="s1">&#39;kly4s_specimens.txt&#39;</span><span class="p">,</span> <span class="n">dir_path</span><span class="o">=</span><span class="n">magic_dir</span><span class="p">,</span> 
+                    <span class="n">samp_file</span><span class="o">=</span><span class="s1">&#39;lims_samples.txt&#39;</span><span class="p">,</span><span class="n">site_file</span><span class="o">=</span><span class="s1">&#39;lims_sites.txt&#39;</span><span class="p">,</span>
+                   <span class="n">dmin</span><span class="o">=-</span><span class="mi">1</span><span class="p">,</span><span class="n">dmax</span><span class="o">=-</span><span class="mi">1</span><span class="p">,</span><span class="n">meas_file</span><span class="o">=</span><span class="s1">&#39;kly4s_measurements.txt&#39;</span><span class="p">,</span>
+                   <span class="n">sum_file</span><span class="o">=</span><span class="n">core_summary_file</span><span class="p">)</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">savefig</span><span class="p">(</span><span class="s1">&#39;Figures/&#39;</span><span class="o">+</span><span class="n">hole</span><span class="o">+</span><span class="s1">&#39;_anisotropy_xmastree.pdf&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>This way makes equal area plots in core coordinates…. To run it, set the False to True.
+To save the plots, sset save_plots to True.  for different options, try (help(ipmag.aniso_magic_nb)).</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">if</span> <span class="kc">False</span><span class="p">:</span>
+    <span class="n">ipmag</span><span class="o">.</span><span class="n">aniso_magic_nb</span><span class="p">(</span><span class="n">infile</span><span class="o">=</span><span class="n">magic_dir</span><span class="o">+</span><span class="s1">&#39;/kly4s_specimens.txt&#39;</span><span class="p">,</span>\
+                     <span class="n">verbose</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span><span class="n">save_plots</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span><span class="n">ihext</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span><span class="n">iboot</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span><span class="n">ivec</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p><a id='plots'></a></p>
+</section>
+<section id="downhole-plots">
+<h2>Downhole Plots<a class="headerlink" href="#downhole-plots" title="Permalink to this headline">#</a></h2>
+<ul class="simple">
+<li><p>Fill in the section summary file in the preliminaries folder and run  the cells below</p></li>
+</ul>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">if</span> <span class="n">dscr_file</span><span class="p">:</span> <span class="c1"># checks for discrete measurements, adds depths, etc. </span>
+    <span class="n">srm_dscr_df</span><span class="o">=</span><span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="n">magic_dir</span><span class="o">+</span><span class="s1">&#39;/&#39;</span><span class="o">+</span><span class="n">dscr_file</span><span class="p">,</span><span class="n">sep</span><span class="o">=</span><span class="s1">&#39;</span><span class="se">\t</span><span class="s1">&#39;</span><span class="p">,</span><span class="n">header</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+    <span class="n">dscr_df</span><span class="o">=</span><span class="n">srm_dscr_df</span><span class="o">.</span><span class="n">copy</span><span class="p">(</span><span class="n">deep</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+    <span class="n">dscr_df</span><span class="o">=</span><span class="n">dscr_df</span><span class="p">[</span><span class="n">srm_dscr_df</span><span class="p">[</span><span class="s1">&#39;treat_ac_field&#39;</span><span class="p">]</span><span class="o">==</span><span class="n">demag_step</span><span class="p">]</span>
+    <span class="n">depth_data</span><span class="o">=</span><span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="n">magic_dir</span><span class="o">+</span><span class="s1">&#39;/lims_sites.txt&#39;</span><span class="p">,</span><span class="n">sep</span><span class="o">=</span><span class="s1">&#39;</span><span class="se">\t</span><span class="s1">&#39;</span><span class="p">,</span><span class="n">header</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+    <span class="n">depth_data</span><span class="p">[</span><span class="s1">&#39;specimen&#39;</span><span class="p">]</span><span class="o">=</span><span class="n">depth_data</span><span class="p">[</span><span class="s1">&#39;site&#39;</span><span class="p">]</span>
+    <span class="n">depth_data</span><span class="o">=</span><span class="n">depth_data</span><span class="p">[[</span><span class="s1">&#39;specimen&#39;</span><span class="p">,</span><span class="s1">&#39;core_depth&#39;</span><span class="p">]]</span>
+    <span class="n">depth_data</span><span class="o">.</span><span class="n">sort_values</span><span class="p">(</span><span class="n">by</span><span class="o">=</span><span class="s1">&#39;specimen&#39;</span><span class="p">)</span>
+    <span class="n">dscr_df</span><span class="o">=</span><span class="n">pd</span><span class="o">.</span><span class="n">merge</span><span class="p">(</span><span class="n">dscr_df</span><span class="p">,</span><span class="n">depth_data</span><span class="p">,</span><span class="n">on</span><span class="o">=</span><span class="s1">&#39;specimen&#39;</span><span class="p">)</span>
+<span class="k">else</span><span class="p">:</span>
+    <span class="n">dscr_df</span><span class="o">=</span><span class="s2">&quot;&quot;</span> <span class="c1"># if no discrete samples.  </span>
+
+<span class="k">if</span> <span class="n">section_summary_file</span><span class="p">:</span>
+    <span class="n">arch_demag_step</span><span class="o">=</span><span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="n">hole</span><span class="o">+</span><span class="s1">&#39;/&#39;</span><span class="o">+</span><span class="n">hole</span><span class="o">+</span><span class="s1">&#39;_arch_demag_step.csv&#39;</span><span class="p">)</span>
+    <span class="n">adj_dec_df</span><span class="o">=</span><span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="n">hole</span><span class="o">+</span><span class="s1">&#39;/&#39;</span><span class="o">+</span><span class="n">hole</span><span class="o">+</span><span class="s1">&#39;_dec_adjusted.csv&#39;</span><span class="p">)</span>
+<span class="c1">#Let&#39;s get the section boundaries.  </span>
+<span class="c1"># edit the file name for the Section Summary table downloaded from LIMS</span>
+
+
+    <span class="n">summary_df</span><span class="o">=</span><span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="n">summary_file</span><span class="p">)</span>
+    <span class="n">summary_df</span><span class="o">.</span><span class="n">dropna</span><span class="p">(</span><span class="n">subset</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;Sect&#39;</span><span class="p">],</span><span class="n">inplace</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+    <span class="k">if</span> <span class="nb">type</span><span class="p">(</span><span class="n">summary_df</span><span class="o">.</span><span class="n">Sect</span><span class="p">)</span><span class="o">!=</span><span class="s1">&#39;str&#39;</span><span class="p">:</span>
+        <span class="n">summary_df</span><span class="o">.</span><span class="n">Sect</span><span class="o">=</span><span class="n">summary_df</span><span class="o">.</span><span class="n">Sect</span><span class="o">.</span><span class="n">astype</span><span class="p">(</span><span class="s1">&#39;int64&#39;</span><span class="p">)</span>
+        <span class="n">summary_df</span><span class="o">.</span><span class="n">Sect</span><span class="o">=</span><span class="n">summary_df</span><span class="o">.</span><span class="n">Sect</span><span class="o">.</span><span class="n">astype</span><span class="p">(</span><span class="s1">&#39;str&#39;</span><span class="p">)</span>
+
+    <span class="n">summary_df</span><span class="o">=</span><span class="n">summary_df</span><span class="p">[</span><span class="n">summary_df</span><span class="p">[</span><span class="s1">&#39;Sect&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">str</span><span class="o">.</span><span class="n">contains</span><span class="p">(</span><span class="s1">&#39;CC&#39;</span><span class="p">)</span><span class="o">==</span><span class="kc">False</span><span class="p">]</span>
+    <span class="n">max_depth</span><span class="o">=</span><span class="n">arch_demag_step</span><span class="p">[</span><span class="s1">&#39;core_depth&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">max</span><span class="p">()</span>
+
+    <span class="n">summary_df</span><span class="o">=</span><span class="n">summary_df</span><span class="p">[</span><span class="n">summary_df</span><span class="p">[</span><span class="s1">&#39;Top depth CSF-A (m)&#39;</span><span class="p">]</span><span class="o">&lt;</span><span class="n">max_depth</span><span class="p">]</span>
+    <span class="n">sect_depths</span><span class="o">=</span><span class="n">summary_df</span><span class="p">[</span><span class="s1">&#39;Top depth CSF-A (m)&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">values</span>
+    <span class="n">summary_df</span><span class="p">[</span><span class="s1">&#39;Core&#39;</span><span class="p">]</span><span class="o">=</span><span class="n">summary_df</span><span class="p">[</span><span class="s1">&#39;Core&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">astype</span><span class="p">(</span><span class="s1">&#39;int&#39;</span><span class="p">)</span>
+    <span class="n">labels</span><span class="o">=</span><span class="n">summary_df</span><span class="p">[</span><span class="s1">&#39;Core&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">astype</span><span class="p">(</span><span class="s1">&#39;str&#39;</span><span class="p">)</span><span class="o">+</span><span class="n">summary_df</span><span class="p">[</span><span class="s1">&#39;Type&#39;</span><span class="p">]</span><span class="o">+</span><span class="s1">&#39;-&#39;</span><span class="o">+</span><span class="n">summary_df</span><span class="p">[</span><span class="s1">&#39;Sect&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">astype</span><span class="p">(</span><span class="s1">&#39;str&#39;</span><span class="p">)</span>
+
+    <span class="n">arch_demag_step</span><span class="o">=</span><span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="n">hole</span><span class="o">+</span><span class="s1">&#39;/&#39;</span><span class="o">+</span><span class="n">hole</span><span class="o">+</span><span class="s1">&#39;_arch_demag_step.csv&#39;</span><span class="p">)</span>
+    <span class="n">interval</span><span class="o">=</span><span class="mi">100</span> <span class="c1"># how to divide up the plots</span>
+    <span class="n">depth_min</span><span class="p">,</span><span class="n">depth_max</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span><span class="n">interval</span>
+    <span class="n">fignum</span><span class="o">=</span><span class="mi">1</span>
+    <span class="k">while</span> <span class="n">depth_min</span><span class="o">&lt;</span><span class="n">arch_demag_step</span><span class="o">.</span><span class="n">core_depth</span><span class="o">.</span><span class="n">max</span><span class="p">():</span>
+        <span class="n">iodp_funcs</span><span class="o">.</span><span class="n">make_plot</span><span class="p">(</span><span class="n">arch_demag_step</span><span class="p">,</span><span class="n">adj_dec_df</span><span class="p">,</span><span class="n">sect_depths</span><span class="p">,</span><span class="n">hole</span><span class="p">,</span>\
+                         <span class="n">gad_inc</span><span class="p">,</span><span class="n">depth_min</span><span class="p">,</span><span class="n">depth_max</span><span class="p">,</span><span class="n">labels</span><span class="p">,</span><span class="n">spec_df</span><span class="o">=</span><span class="n">dscr_df</span><span class="p">,</span><span class="n">fignum</span><span class="o">=</span><span class="n">fignum</span><span class="p">)</span>
+        <span class="n">depth_min</span><span class="o">+=</span><span class="n">interval</span>
+        <span class="n">depth_max</span><span class="o">+=</span><span class="n">interval</span>
+        <span class="n">fignum</span><span class="o">+=</span><span class="mi">1</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p><a id='upload'></a></p>
+</section>
+<section id="tidy-up-for-magc">
+<h2>Tidy up for MagC<a class="headerlink" href="#tidy-up-for-magc" title="Permalink to this headline">#</a></h2>
+<p>Combine all the MagIC files for uploading to MagIC (<a class="reference external" href="http://earthref.org/MagIC">http://earthref.org/MagIC</a>).</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">if</span> <span class="kc">False</span><span class="p">:</span> <span class="c1"># when ready to upload, you can set this to true to make upload file. </span>
+    <span class="n">ipmag</span><span class="o">.</span><span class="n">combine_magic</span><span class="p">(</span><span class="n">spec_files</span><span class="p">,</span><span class="n">outfile</span><span class="o">=</span><span class="s1">&#39;specimens.txt&#39;</span><span class="p">,</span><span class="n">dir_path</span><span class="o">=</span><span class="n">magic_dir</span><span class="p">)</span>
+    <span class="n">ipmag</span><span class="o">.</span><span class="n">combine_magic</span><span class="p">(</span><span class="n">samp_files</span><span class="p">,</span><span class="n">outfile</span><span class="o">=</span><span class="s1">&#39;samples.txt&#39;</span><span class="p">,</span><span class="n">dir_path</span><span class="o">=</span><span class="n">magic_dir</span><span class="p">)</span>
+    <span class="n">ipmag</span><span class="o">.</span><span class="n">combine_magic</span><span class="p">(</span><span class="n">site_files</span><span class="p">,</span><span class="n">outfile</span><span class="o">=</span><span class="s1">&#39;sites.txt&#39;</span><span class="p">,</span><span class="n">dir_path</span><span class="o">=</span><span class="n">magic_dir</span><span class="p">)</span>
+    <span class="n">ipmag</span><span class="o">.</span><span class="n">combine_magic</span><span class="p">(</span><span class="n">meas_files</span><span class="p">,</span><span class="n">outfile</span><span class="o">=</span><span class="s1">&#39;measurements.txt&#39;</span><span class="p">,</span><span class="n">dir_path</span><span class="o">=</span><span class="n">magic_dir</span><span class="p">)</span>
+    <span class="n">ipmag</span><span class="o">.</span><span class="n">upload_magic</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+</section>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            name: "python3",
+            path: "./example_notebooks"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+              </div>
+              
+            </main>
+            <footer class="footer-article noprint">
+                
+    <!-- Previous / next buttons -->
+<div class='prev-next-area'>
+</div>
+            </footer>
+        </div>
+    </div>
+    <div class="footer-content row">
+        <footer class="col footer"><p>
+  
+    By PmagPy Contributors<br/>
+  
+      &copy; Copyright 2022.<br/>
+</p>
+        </footer>
+    </div>
+    
+</div>
+
+
+      </div>
+    </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="../_static/scripts/pydata-sphinx-theme.js?digest=1999514e3f237ded88cf"></script>
+
+
+  </body>
+</html>
