@@ -1,4 +1,4 @@
-# PmagPy command line programs
+# Command line programs
 
 **PmagPy** can also be used on the command line through the command line 
 programs.

@@ -1,4 +1,4 @@
-# Pmag GUI
+# Installing and Getting Started with Pmag GUI
 
 **Pmag GUI** is a Graphical User Interface (GUI) that 
 provides a quick path to the some workflows enabled by
