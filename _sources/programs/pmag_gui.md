@@ -13,11 +13,21 @@ There are two ways to launch Pmag GUI. The first is to have downloaded
 it as an executable program in which case it can be opened as a typical application
 with a double-click. 
 
+## Standalone executable program
+
 [PmagPy standalone GUI OSX](https://github.com/PmagPy/PmagPy-Standalone-OSX/releases/latest/)
+
+*The first time you open the Mac version, you need to right-click and select open. You may need to right-click and select open twice.*
 
 [PmagPy standalone GUI Windows](https://github.com/PmagPy/PmagPy-Standalone-Windows/releases/latest/)
 
+*You may need to click through a warning about unidentified developers.*
+
 [PmagPy standalone GUI Linux](https://github.com/PmagPy/PmagPy-Standalone-Linux/releases/latest/)
+
+**Note that these applications take a long time to load. When you open the application, it can look like nothing is happening for a while before opening. Please be patient.**
+
+## Launching PmagPy for the command line
 
 The other is to launch it from the
 command line from your fully PmagPy installation, in which case you want to follow
