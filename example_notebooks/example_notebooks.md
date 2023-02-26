@@ -23,8 +23,7 @@ This notebook published with the paper on PmagPy illustrates some of the capabil
 :link-type: doc
 :class-header: bg-light
 
-Tauxe et al. 2016 📓
-PmagPy Examples
+IODP Template 🌊
 ^^^
 
 This notebook is for people wanting to download and manipulate data from an IODP Expedition using data in the LIMS Online Repository.
