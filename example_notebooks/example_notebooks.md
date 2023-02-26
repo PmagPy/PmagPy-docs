@@ -19,6 +19,18 @@ This notebook published with the paper on PmagPy illustrates some of the capabil
 :::
 
 :::{grid-item-card}
+:link: PmagPy_iodp_HOLE_template
+:link-type: doc
+:class-header: bg-light
+
+Tauxe et al. 2016 📓
+PmagPy Examples
+^^^
+
+This notebook is for people wanting to download and manipulate data from an IODP Expedition using data in the LIMS Online Repository.
+:::
+
+:::{grid-item-card}
 :link: https://github.com/Swanson-Hysell-Group/Inclination_Shallowing/blob/main/code/Cutface_pmag.ipynb
 :class-header: bg-light
 
