@@ -30,7 +30,7 @@ Instructions for how to install PmagPy for your use case.
 Documentation notebooks ✏️
 ^^^
 
-See capabilities of PmagPy functions within these documentation Jupyter notebooks
+See capabilities of PmagPy functions within these documentation Jupyter notebooks.
 :::
 
 :::{grid-item-card}
