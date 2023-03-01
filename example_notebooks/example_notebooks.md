@@ -1,5 +1,11 @@
 # Example notebooks
 
+`````{admonition} Useful tutorial materials
+:class: tip
+Example notebooks and materials for getting going working with the MagIC database using PmagPy can be found in materials associated with the 2023 MagIC Workshop here:
+https://github.com/PmagPy/2023_MagIC_Tutorial
+`````
+
 These notebooks are examples of studies that have utilized PmagPy for data analysis.
 
 ::::{grid} 1 1 2 3
@@ -16,6 +22,17 @@ PmagPy Examples
 ^^^
 
 This notebook published with the paper on PmagPy illustrates some of the capabilities of PmagPy to analyze paleodirectional data, conduct statistical tests, and calculate paleomagnetic poles.
+:::
+
+:::{grid-item-card}
+:link: PmagPy_iodp_HOLE_template
+:link-type: doc
+:class-header: bg-light
+
+IODP Template 🌊
+^^^
+
+This notebook is for people wanting to download and manipulate data from an IODP Expedition using data in the LIMS Online Repository.
 :::
 
 :::{grid-item-card}
