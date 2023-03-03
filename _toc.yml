@@ -31,8 +31,6 @@ parts:
   - caption: Example notebooks
     chapters:
     - file: example_notebooks/example_notebooks
-      sections:
-      - file: example_notebooks/Tauxe_etal_2016
   - caption: MagIC
     chapters:
     - file: MagIC/MagIC
