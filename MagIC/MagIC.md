@@ -150,10 +150,8 @@ flavor for how the codes work:
 |             |               | measurement                          |
 +-------------+---------------+--------------------------------------+
 | LT-NRM-APAR | Lab Treatment | Specimen heating and cooling:        |
-|             |               | Laboratory                           |
-+-------------+---------------+--------------------------------------+
-|             |               | field anti-parallel to the NRM       |
-|             |               | vector                               |
+|             |               | Laboratory field anti-parallel to the|
+|             |               | NRM vector                           |
 +-------------+---------------+--------------------------------------+
 | LT-NRM-PAR  | Lab Treatment | Specimen heating and cooling:        |
 |             |               | Laboratory                           |
