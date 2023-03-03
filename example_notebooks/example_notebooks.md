@@ -54,5 +54,8 @@ Tauxe et al. 2022 🌍
 Pleistocene paleointensity
 ^^^
 
-This notebook examines Pleistocene paleointensity data from Isreal, Antarctica, Iceland, and Hawaii to interrogate the geomagnetic field (*external link to Github*).
+This notebook examines Pleistocene paleointensity data from Israel, Antarctica, Iceland, and Hawaii to interrogate the geomagnetic field (*external link to Github*).
 :::
+
+::::
+Here are the citations to the above notebooks: {cite}`Pierce2022a`, {cite}`Tauxe2022a`
