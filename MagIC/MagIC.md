@@ -1,35 +1,34 @@
 # MagIC database and file formats
 
 A number of the programs in **PmagPy** were developed to take advantage
-of the MagIC database and aid getting data in and out of it. So, we need
-some basic understanding of what MagIC is and how it is structured.
-MagIC is part of the EarthRef.org collection of databases and digital
-reference material. Anyone interested in the MagIC database should first
-become a registered EarthRef.org user. To do this, go to
-<http://earthref.org> and click on the **Register** link in the
-**Topmenu**. Registration is not required for access to data or browsing
-around, but is required for uploading of data into the MagIC database,
-something which we sincerely hope you will have a chance to do. After
-you register, go to <http://earthref.org/MAGIC/search>.
+of the [Magnetics Information Consortium (MagIC)](https://www.earthref.org/MagIC) 
+database and aid the process of getting data in and out of it. The MagIC database is focused on improving research 
+capacity in Earth, ocean, and planetary science by maintaining an open community 
+digital data repository for rock and paleomagnetic data with portals that 
+allow users to archive, search, visualize, download, and combine these 
+versioned datasets.
 
-You can [download data](#magic_download) using the [MagIC
-search](http://earthref.org/MAGIC/search) website. After downloading,
-the data can be unpacked and examined using various tools in the
-**PmagPy** package, for example using [Pmag GUI](#pmag_gui.py).
+Data can be browsed, accessed, and downloaded without registration using 
+[MagIC search](http://earthref.org/MAGIC/search). To upload data, which we 
+sincerely hope you will have a chance to do, you can register and log-in 
+with an [ORCID iD](https://orcid.org) here: [https://www2.earthref.org/log-in](https://www2.earthref.org/log-in).
 
-Paleomagnetic and rock magnetic data are collected and analyzed in a
-wide variety of ways with different objectives. Data sets can be
-extremely large or can be the barest boned data summaries published in
+After downloading,
+MagIC data can be unpacked and examined using various tools in the
+**PmagPy** package, for example using 
+[Pmag GUI](https://pmagpy.github.io/PmagPy-docs/programs/demag_gui.html)
+or [Jupyter Notebooks](https://pmagpy.github.io/PmagPy-docs/documentation_notebooks/PmagPy_MagIC.html)
+
+Paleomagnetic and rock magnetic data are collected and analyzed in a variety of 
+ways for different research purposes. Data sets can be
+extremely large or can be bare bones data summaries published in
 legacy data tables. The goal of MagIC has been to have the flexibility
 to allow a whole range of data including legacy data from publications
 or other databases to new studies which include all the measurements,
-field photos, methodology, and so on. The general procedure for the
-future will be to archive the data at the same time that they are
+field photos, methodology, and so on. At present and into the future, 
+the general procedure is to archive the data at the same time that they are
 published. So, to smooth the path, it is advisable to put your data into
-the MagIC format as early in the process as possible. All data that
-enters the database must be converted to the standard MagIC format
-either as a set of MagIC tables, or as one combined text file. These can
-then be uploaded into the MagIC database.
+the MagIC format as early in the process as possible. All data that enters the database must be converted to the standard MagIC format. This can be done either as a set of MagIC tables, or as one combined text file. These can then be uploaded into the MagIC database.
 
 ## Structure of the database tables
 
@@ -74,11 +73,9 @@ AZ01              Azores   basalt      lava flow      37.80 -25.80
 Although data can be entered directly into Excel spreadsheets by hand,
 it is easier to generate the necessary tables as a by-product of
 ordinary data processing without having to know details of the meta-data
-and method codes. The section on [PmagPy](#PmagPy) describes how to
-use the **PmagPy** software for data analysis and generate the MagIC
-data tables automatically for the most common paleomagnetic studies
-involving directions and/or paleointensities. See also [Pmag
-GUI](#pmag_gui.py).
+and method codes. Aspects of the **PmagPy** software seek to generate MagIC
+data tables automatically for many aspects of common paleomagnetic studies
+involving directions and/or paleointensities.
 
 ## A word about method codes
 
@@ -90,7 +87,7 @@ need to know what these are (there are over a hundred!), but it is
 helpful to know something about them. These are divided into several
 general categories like ‘geochronology methods’ and ‘field sampling
 methods’. Method codes start with a few letters which designate the
-category (e.g., GM or FS for geochronogy and field sampling
+category (e.g., GM or FS for geochronology and field sampling
 respectively). Then there is a second part and possibly also a third
 part to describe methods with lesser or greater detail. This table lists
 method codes describing various lab treatment methods to give you a
@@ -220,15 +217,5 @@ This study   Submarine Basaltic Glass   17r1026 17r1026 Lava Flow   Igneous: Ext
 .
 ```
 
-Correctly formatted MagIC data tables can be assembled into a suitable
-upload text file by using the program
-[upload_magic.py](#upload_magic.py) which reads in all MagIC tables
-in a given directory and puts them together as in the above example. You
-can invoke [upload_magic.py](#upload_magic.py) on the [command
-line](#command_line) or call it within [Pmag GUI](#pmag_gui.py).
-[upload_magic.py](#upload_magic.py) creates a contribution file which
-can be [uploaded into the MagIC database](#magic_upload). If using
-PmagPy to generate your upload file,
-[upload_magic.py](#upload_magic.py) has some nifty tricks with
-propagating data from one table to another, deleting unneeded columns,
-and so on.
+MagIC data tables can be assembled into a suitable
+upload text file using **PmagPy** functions such as [`upload_magic`](https://pmagpy.github.io/PmagPy-docs/documentation_notebooks/PmagPy_MagIC.html#upload-magic) within a Jupyter notebook, invoking the program `upload_magic.py` on the command line, or by using [Pmag GUI](https://pmagpy.github.io/PmagPy-docs/programs/pmag_gui.html). The generated contribution can be validated and missing fields can be provided through the upload process on the [MagIC database website](https://www.earthref.org/MagIC).
