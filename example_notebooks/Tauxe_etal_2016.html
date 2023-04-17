@@ -1,48 +1,59 @@
 
+
 <!DOCTYPE html>
 
-<html>
+
+<html lang="en" >
+
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
 
     <title>Tauxe et al. 2016 example notebook &#8212; PmagPy Documentation</title>
-    
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "light";
+  </script>
+  
   <!-- Loaded before other Sphinx assets -->
-  <link href="../_static/styles/theme.css?digest=1999514e3f237ded88cf" rel="stylesheet">
-<link href="../_static/styles/pydata-sphinx-theme.css?digest=1999514e3f237ded88cf" rel="stylesheet">
+  <link href="../_static/styles/theme.css?digest=e353d410970836974a52" rel="stylesheet" />
+<link href="../_static/styles/bootstrap.css?digest=e353d410970836974a52" rel="stylesheet" />
+<link href="../_static/styles/pydata-sphinx-theme.css?digest=e353d410970836974a52" rel="stylesheet" />
 
-    
-  <link rel="stylesheet"
-    href="../_static/vendor/fontawesome/5.13.0/css/all.min.css">
-  <link rel="preload" as="font" type="font/woff2" crossorigin
-    href="../_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900.woff2">
-  <link rel="preload" as="font" type="font/woff2" crossorigin
-    href="../_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
+  
+  <link href="../_static/vendor/fontawesome/6.1.2/css/all.min.css?digest=e353d410970836974a52" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.1.2/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.1.2/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.1.2/webfonts/fa-regular-400.woff2" />
 
     <link rel="stylesheet" type="text/css" href="../_static/pygments.css" />
-    <link rel="stylesheet" href="../_static/styles/sphinx-book-theme.css?digest=5115cc725059bd94278eecd172e13a965bf8f5a9" type="text/css" />
+    <link rel="stylesheet" href="../_static/styles/sphinx-book-theme.css?digest=14f4ca6b54d191a8c7657f6c759bf11a5fb86285" type="text/css" />
     <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css" />
     <link rel="stylesheet" type="text/css" href="../_static/copybutton.css" />
-    <link rel="stylesheet" type="text/css" href="../_static/mystnb.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
     <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css" />
-    <link rel="stylesheet" type="text/css" href="../_static/design-style.b7bb847fb20b106c3d81b95245e65545.min.css" />
-    
+    <link rel="stylesheet" type="text/css" href="../_static/design-style.4045f2051d55cab465a707391d5b2007.min.css" />
+  
   <!-- Pre-loaded scripts that we'll load fully later -->
-  <link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=1999514e3f237ded88cf">
+  <link rel="preload" as="script" href="../_static/scripts/bootstrap.js?digest=e353d410970836974a52" />
+<link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=e353d410970836974a52" />
 
     <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
     <script src="../_static/jquery.js"></script>
     <script src="../_static/underscore.js"></script>
+    <script src="../_static/_sphinx_javascript_frameworks_compat.js"></script>
     <script src="../_static/doctools.js"></script>
     <script src="../_static/clipboard.min.js"></script>
     <script src="../_static/copybutton.js"></script>
-    <script src="../_static/scripts/sphinx-book-theme.js?digest=9c920249402e914e316237a7dbc6769907cce411"></script>
+    <script src="../_static/scripts/sphinx-book-theme.js?digest=5a5c038af52cf7bc1a1ec88eea08e6366ee68824"></script>
     <script>let toggleHintShow = 'Click to show';</script>
     <script>let toggleHintHide = 'Click to hide';</script>
     <script>let toggleOpenOnPrint = 'true';</script>
     <script src="../_static/togglebutton.js"></script>
-    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
     <script src="../_static/design-tabs.js"></script>
     <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
 const thebe_selector = ".thebe,.cell"
@@ -52,61 +63,91 @@ const thebe_selector_output = ".output, .cell_output"
     <script async="async" src="../_static/sphinx-thebe.js"></script>
     <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
     <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'example_notebooks/Tauxe_etal_2016';</script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
-    <link rel="next" title="MagIC database and file formats" href="../MagIC/MagIC.html" />
-    <link rel="prev" title="Example notebooks" href="example_notebooks.html" />
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <meta name="docsearch:language" content="None">
-    
-
-    <!-- Google Analytics -->
-    
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
   </head>
-  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="60">
-<!-- Checkboxes to toggle the left sidebar -->
-<input type="checkbox" class="sidebar-toggle" name="__navigation" id="__navigation" aria-label="Toggle navigation sidebar">
-<label class="overlay overlay-navbar" for="__navigation">
-    <div class="visually-hidden">Toggle navigation sidebar</div>
-</label>
-<!-- Checkboxes to toggle the in-page toc -->
-<input type="checkbox" class="sidebar-toggle" name="__page-toc" id="__page-toc" aria-label="Toggle in-page Table of Contents">
-<label class="overlay overlay-pagetoc" for="__page-toc">
-    <div class="visually-hidden">Toggle in-page Table of Contents</div>
-</label>
-<!-- Headers at the top -->
-<div class="announcement header-item noprint"></div>
-<div class="header header-item noprint"></div>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
 
-    
-    <div class="container-fluid" id="banner"></div>
-
-    
-
-    <div class="container-xl">
-      <div class="row">
-          
-<!-- Sidebar -->
-<div class="bd-sidebar noprint" id="site-navigation">
-    <div class="bd-sidebar__content">
-        <div class="bd-sidebar__top"><div class="navbar-brand-box">
-    <a class="navbar-brand text-wrap" href="../index.html">
+  
+  
+  <a class="skip-link" href="#main-content">Skip to main content</a>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          name="__primary"
+          id="__primary"/>
+  <label class="overlay overlay-primary" for="__primary"></label>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          name="__secondary"
+          id="__secondary"/>
+  <label class="overlay overlay-secondary" for="__secondary"></label>
+  
+  <div class="search-button__wrapper">
+    <div class="search-button__overlay"></div>
+    <div class="search-button__search-container">
+<form class="bd-search d-flex align-items-center"
+      action="../search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         id="search-input"
+         placeholder="Search this book..."
+         aria-label="Search this book..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form></div>
+  </div>
+  
+    <nav class="bd-header navbar navbar-expand-lg bd-navbar">
+    </nav>
+  
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
       
-        <!-- `logo` is deprecated in Sphinx 4.0, so remove this when we stop supporting 3 -->
+      <div class="bd-sidebar-primary bd-sidebar">
         
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+  
+
+<a class="navbar-brand logo" href="../intro.html">
+  
+  
+  
+  
+    
+    
       
-      
-      <img src="../_static/pmagpy_logo_notext.png" class="logo" alt="logo">
-      
-      
-      <h1 class="site-logo" id="site-title">PmagPy Documentation</h1>
-      
-    </a>
-</div><form class="bd-search d-flex align-items-center" action="../search.html" method="get">
-  <i class="icon fas fa-search"></i>
-  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search this book..." aria-label="Search this book..." autocomplete="off" >
-</form><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
-    <div class="bd-toc-item active">
+    
+    
+    <img src="../_static/pmagpy_logo_notext.png" class="logo__image only-light" alt="Logo image"/>
+    <script>document.write(`<img src="../_static/pmagpy_logo_notext.png" class="logo__image only-dark" alt="Logo image"/>`);</script>
+  
+  
+</a></div>
+        <div class="sidebar-primary-item"><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
         
         <ul class="nav bd-sidenav bd-sidenav__home-link">
             <li class="toctree-l1">
@@ -115,644 +156,295 @@ const thebe_selector_output = ".output, .cell_output"
                 </a>
             </li>
         </ul>
-        <p aria-level="2" class="caption" role="heading">
- <span class="caption-text">
-  Installation
- </span>
-</p>
+        <p aria-level="2" class="caption" role="heading"><span class="caption-text">Installation</span></p>
 <ul class="nav bd-sidenav">
- <li class="toctree-l1 has-children">
-  <a class="reference internal" href="../installation/PmagPy_install.html">
-   Installing
-   <strong>
-    PmagPy
-   </strong>
-  </a>
-  <input class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" type="checkbox"/>
-  <label for="toctree-checkbox-1">
-   <i class="fas fa-chevron-down">
-   </i>
-  </label>
-  <ul>
-   <li class="toctree-l2">
-    <a class="reference internal" href="../installation/osx_pip.html">
-     OSX pip install
-    </a>
-   </li>
-   <li class="toctree-l2">
-    <a class="reference internal" href="../installation/osx_developer.html">
-     OSX developer install
-    </a>
-   </li>
-   <li class="toctree-l2">
-    <a class="reference internal" href="../installation/windows_pip.html">
-     Windows pip install
-    </a>
-   </li>
-   <li class="toctree-l2">
-    <a class="reference internal" href="../installation/windows_developer.html">
-     Windows developer install
-    </a>
-   </li>
-   <li class="toctree-l2">
-    <a class="reference internal" href="../installation/linux_pip.html">
-     Linux pip install
-    </a>
-   </li>
-   <li class="toctree-l2">
-    <a class="reference internal" href="../installation/linux_developer.html">
-     Linux developer install
-    </a>
-   </li>
-   <li class="toctree-l2">
-    <a class="reference internal" href="../installation/troubleshooting.html">
-     Troubleshooting installation issues
-    </a>
-   </li>
-   <li class="toctree-l2">
-    <a class="reference internal" href="../programs/command_line_programs.html">
-     Command line programs
-    </a>
-   </li>
-  </ul>
- </li>
- <li class="toctree-l1 has-children">
-  <a class="reference internal" href="../programs/pmag_gui.html">
-   Installing and Getting Started with Pmag GUI
-  </a>
-  <input class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" type="checkbox"/>
-  <label for="toctree-checkbox-2">
-   <i class="fas fa-chevron-down">
-   </i>
-  </label>
-  <ul>
-   <li class="toctree-l2">
-    <a class="reference internal" href="../programs/demag_gui.html">
-     Demag GUI
-    </a>
-   </li>
-   <li class="toctree-l2">
-    <a class="reference internal" href="../programs/thellier_gui.html">
-     Thellier GUI
-    </a>
-   </li>
-  </ul>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="../resources/survival_skills.html">
-   Survival computer skills
-  </a>
- </li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../installation/PmagPy_install.html">Installing <strong>PmagPy</strong></a><input class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-1"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../installation/osx_pip.html">OSX pip install</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../installation/osx_developer.html">OSX developer install</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../installation/windows_pip.html">Windows pip install</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../installation/windows_developer.html">Windows developer install</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../installation/linux_pip.html">Linux pip install</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../installation/linux_developer.html">Linux developer install</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../installation/troubleshooting.html">Troubleshooting installation issues</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../programs/command_line_programs.html">Command line programs</a></li>
 </ul>
-<p aria-level="2" class="caption" role="heading">
- <span class="caption-text">
-  Documentation notebooks
- </span>
-</p>
+</li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../programs/pmag_gui.html">Installing and Getting Started with Pmag GUI</a><input class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-2"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../programs/demag_gui.html">Demag GUI</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../programs/thellier_gui.html">Thellier GUI</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../resources/survival_skills.html">Survival computer skills</a></li>
+
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Documentation notebooks</span></p>
 <ul class="nav bd-sidenav">
- <li class="toctree-l1">
-  <a class="reference internal" href="../documentation_notebooks/Jupyter.html">
-   Jupyter Notebooks
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="../documentation_notebooks/PmagPy_introduction.html">
-   Introduction to PmagPy
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="../documentation_notebooks/PmagPy_calculations.html">
-   Calculations with PmagPy
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="../documentation_notebooks/PmagPy_plots_analysis.html">
-   Visualizations and more analysis with PmagPy
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="../documentation_notebooks/PmagPy_MagIC.html">
-   Working with the MagIC database using PmagPy
-  </a>
- </li>
+<li class="toctree-l1"><a class="reference internal" href="../documentation_notebooks/Jupyter.html">Jupyter Notebooks</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../documentation_notebooks/PmagPy_introduction.html">Introduction to PmagPy</a></li>
+
+<li class="toctree-l1"><a class="reference internal" href="../documentation_notebooks/PmagPy_calculations.html">Calculations with PmagPy</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../documentation_notebooks/PmagPy_plots_analysis.html">Visualizations and more analysis with PmagPy</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../documentation_notebooks/PmagPy_MagIC.html">Working with the MagIC database using PmagPy</a></li>
+
+
 </ul>
-<p aria-level="2" class="caption" role="heading">
- <span class="caption-text">
-  Example notebooks
- </span>
-</p>
-<ul class="current nav bd-sidenav">
- <li class="toctree-l1 current active has-children">
-  <a class="reference internal" href="example_notebooks.html">
-   Example notebooks
-  </a>
-  <input checked="" class="toctree-checkbox" id="toctree-checkbox-3" name="toctree-checkbox-3" type="checkbox"/>
-  <label for="toctree-checkbox-3">
-   <i class="fas fa-chevron-down">
-   </i>
-  </label>
-  <ul class="current">
-   <li class="toctree-l2 current active">
-    <a class="current reference internal" href="#">
-     Tauxe et al. 2016 example notebook
-    </a>
-   </li>
-  </ul>
- </li>
-</ul>
-<p aria-level="2" class="caption" role="heading">
- <span class="caption-text">
-  MagIC
- </span>
-</p>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Example notebooks</span></p>
 <ul class="nav bd-sidenav">
- <li class="toctree-l1">
-  <a class="reference internal" href="../MagIC/MagIC.html">
-   MagIC database and file formats
-  </a>
- </li>
+<li class="toctree-l1"><a class="reference internal" href="example_notebooks.html">Example notebooks</a></li>
 </ul>
-<p aria-level="2" class="caption" role="heading">
- <span class="caption-text">
-  Function docstrings
- </span>
-</p>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">MagIC</span></p>
 <ul class="nav bd-sidenav">
- <li class="toctree-l1">
-  <a class="reference internal" href="../api/api.html">
-   API Reference
-  </a>
- </li>
+<li class="toctree-l1"><a class="reference internal" href="../MagIC/MagIC.html">MagIC database and file formats</a></li>
 </ul>
-<p aria-level="2" class="caption" role="heading">
- <span class="caption-text">
-  References
- </span>
-</p>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Function docstrings</span></p>
 <ul class="nav bd-sidenav">
- <li class="toctree-l1">
-  <a class="reference internal" href="../references.html">
-   References
-  </a>
- </li>
+<li class="toctree-l1"><a class="reference internal" href="../api/api.html">API Reference</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">References</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../references.html">References</a></li>
 </ul>
 
     </div>
 </nav></div>
-        <div class="bd-sidebar__bottom">
-             <!-- To handle the deprecated key -->
-            
-            <div class="navbar_extra_footer">
-            Powered by <a href="https://jupyterbook.org">Jupyter Book</a>
-            </div>
-            
-        </div>
     </div>
-    <div id="rtd-footer-container"></div>
-</div>
-
-
-          
-
-
-          
-<!-- A tiny helper pixel to detect if we've scrolled -->
-<div class="sbt-scroll-pixel-helper"></div>
-<!-- Main content -->
-<div class="col py-0 content-container">
-    
-    <div class="header-article row sticky-top noprint">
-        
-
-
-
-<div class="col py-1 d-flex header-article-main">
-    <div class="header-article__left">
-        
-        <label for="__navigation"
-  class="headerbtn"
-  data-toggle="tooltip"
-data-placement="right"
-title="Toggle navigation"
->
   
-
-<span class="headerbtn__icon-container">
-  <i class="fas fa-bars"></i>
-  </span>
-
-</label>
-
-        
-    </div>
-    <div class="header-article__right">
-<div class="menu-dropdown menu-dropdown-launch-buttons">
-  <button class="headerbtn menu-dropdown__trigger"
-      aria-label="Launch interactive content">
-      <i class="fas fa-rocket"></i>
-  </button>
-  <div class="menu-dropdown__content">
-    <ul>
-      <li>
-        <a href="https://mybinder.org/v2/gh/pmagpy/pmagpy-docs/master?urlpath=tree/example_notebooks/Tauxe_etal_2016.ipynb"
-   class="headerbtn"
-   data-toggle="tooltip"
-data-placement="left"
-title="Launch on Binder"
->
   
-
-<span class="headerbtn__icon-container">
-  
-    <img src="../_static/images/logo_binder.svg">
-  </span>
-<span class="headerbtn__text-container">Binder</span>
-</a>
-
-      </li>
-      
-    </ul>
+  <div class="sidebar-primary-items__end sidebar-primary__section">
   </div>
+  
+  <div id="rtd-footer-container"></div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><label class="sidebar-toggle primary-toggle btn btn-sm" for="__primary" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</label></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+
+
+
+<div class="dropdown dropdown-source-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Source repositories">
+    <i class="fab fa-github"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="https://github.com/pmagpy/pmagpy-docs" target="_blank"
+   class="btn btn-sm btn-source-repository-button dropdown-item"
+   title="Source repository"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fab fa-github"></i>
+  </span>
+<span class="btn__text-container">Repository</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li><a href="https://github.com/pmagpy/pmagpy-docs/issues/new?title=Issue%20on%20page%20%2Fexample_notebooks/Tauxe_etal_2016.html&body=Your%20issue%20content%20here." target="_blank"
+   class="btn btn-sm btn-source-issues-button dropdown-item"
+   title="Open an issue"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-lightbulb"></i>
+  </span>
+<span class="btn__text-container">Open issue</span>
+</a>
+</li>
+      
+  </ul>
 </div>
+
+
+
+
+
+
+<div class="dropdown dropdown-download-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Download this page">
+    <i class="fas fa-download"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="../_sources/example_notebooks/Tauxe_etal_2016.ipynb" target="_blank"
+   class="btn btn-sm btn-download-source-button dropdown-item"
+   title="Download source file"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="btn__text-container">.ipynb</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="window.print()"
+  class="btn btn-sm btn-download-pdf-button dropdown-item"
+  title="Print to PDF"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="btn__text-container">.pdf</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
 
 <button onclick="toggleFullScreen()"
-  class="headerbtn"
-  data-toggle="tooltip"
-data-placement="bottom"
-title="Fullscreen mode"
+  class="btn btn-sm btn-fullscreen-button"
+  title="Fullscreen mode"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
 >
   
 
-<span class="headerbtn__icon-container">
+<span class="btn__icon-container">
   <i class="fas fa-expand"></i>
   </span>
 
 </button>
 
-<div class="menu-dropdown menu-dropdown-repository-buttons">
-  <button class="headerbtn menu-dropdown__trigger"
-      aria-label="Source repositories">
-      <i class="fab fa-github"></i>
+
+<script>
+document.write(`
+  <button class="theme-switch-button btn btn-sm btn-outline-primary navbar-btn rounded-circle" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="theme-switch" data-mode="light"><i class="fa-solid fa-sun"></i></span>
+    <span class="theme-switch" data-mode="dark"><i class="fa-solid fa-moon"></i></span>
+    <span class="theme-switch" data-mode="auto"><i class="fa-solid fa-circle-half-stroke"></i></span>
   </button>
-  <div class="menu-dropdown__content">
-    <ul>
-      <li>
-        <a href="https://github.com/pmagpy/pmagpy-docs"
-   class="headerbtn"
-   data-toggle="tooltip"
-data-placement="left"
-title="Source repository"
->
-  
+`);
+</script>
 
-<span class="headerbtn__icon-container">
-  <i class="fab fa-github"></i>
-  </span>
-<span class="headerbtn__text-container">repository</span>
-</a>
-
-      </li>
-      
-      <li>
-        <a href="https://github.com/pmagpy/pmagpy-docs/issues/new?title=Issue%20on%20page%20%2Fexample_notebooks/Tauxe_etal_2016.html&body=Your%20issue%20content%20here."
-   class="headerbtn"
-   data-toggle="tooltip"
-data-placement="left"
-title="Open an issue"
->
-  
-
-<span class="headerbtn__icon-container">
-  <i class="fas fa-lightbulb"></i>
-  </span>
-<span class="headerbtn__text-container">open issue</span>
-</a>
-
-      </li>
-      
-    </ul>
-  </div>
-</div>
-
-<div class="menu-dropdown menu-dropdown-download-buttons">
-  <button class="headerbtn menu-dropdown__trigger"
-      aria-label="Download this page">
-      <i class="fas fa-download"></i>
+<script>
+document.write(`
+  <button class="btn btn-sm navbar-btn search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass"></i>
   </button>
-  <div class="menu-dropdown__content">
-    <ul>
-      <li>
-        <a href="../_sources/example_notebooks/Tauxe_etal_2016.ipynb"
-   class="headerbtn"
-   data-toggle="tooltip"
-data-placement="left"
-title="Download source file"
->
-  
-
-<span class="headerbtn__icon-container">
-  <i class="fas fa-file"></i>
-  </span>
-<span class="headerbtn__text-container">.ipynb</span>
-</a>
-
-      </li>
-      
-      <li>
-        
-<button onclick="printPdf(this)"
-  class="headerbtn"
-  data-toggle="tooltip"
-data-placement="left"
-title="Print to PDF"
->
-  
-
-<span class="headerbtn__icon-container">
-  <i class="fas fa-file-pdf"></i>
-  </span>
-<span class="headerbtn__text-container">.pdf</span>
-</button>
-
-      </li>
-      
-    </ul>
-  </div>
-</div>
-<label for="__page-toc"
-  class="headerbtn headerbtn-page-toc"
-  
->
-  
-
-<span class="headerbtn__icon-container">
-  <i class="fas fa-list"></i>
-  </span>
-
+`);
+</script>
+<label class="sidebar-toggle secondary-toggle btn btn-sm" for="__secondary"title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
 </label>
-
+</div></div>
+      
     </div>
+  
 </div>
-
-<!-- Table of contents -->
-<div class="col-md-3 bd-toc show noprint">
-    <div class="tocsection onthispage pt-5 pb-3">
-        <i class="fas fa-list"></i> Contents
-    </div>
-    <nav id="bd-toc-nav" aria-label="Page">
-        <ul class="visible nav section-nav flex-column">
- <li class="toc-h1 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#">
-   Tauxe et al. 2016 example notebook
-  </a>
- </li>
- <li class="toc-h1 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#before-you-begin">
-   Before you begin
-  </a>
- </li>
- <li class="toc-h1 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#introduction">
-   Introduction
-  </a>
- </li>
- <li class="toc-h1 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#import-necessary-function-libraries-for-data-analysis">
-   Import necessary function libraries for data analysis
-  </a>
- </li>
- <li class="toc-h1 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#background-on-the-osler-volcanic-group">
-   Background on the Osler Volcanic Group
-  </a>
- </li>
- <li class="toc-h1 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#import-data-into-the-notebook">
-   Import data into the notebook
-  </a>
-  <ul class="visible nav section-nav flex-column">
-   <li class="toc-h2 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#unpack-files-downloaded-from-the-magic-database">
-     Unpack files downloaded from the MagIC database
-    </a>
-   </li>
-   <li class="toc-h2 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#loading-the-unpacked-data-into-pandas-dataframes">
-     Loading the unpacked data into Pandas Dataframes
-    </a>
-   </li>
-   <li class="toc-h2 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#filtering-by-polarity-and-tilt-correction">
-     Filtering by polarity and tilt-correction
-    </a>
-   </li>
-  </ul>
- </li>
- <li class="toc-h1 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#data-analysis-and-visualization">
-   Data analysis and visualization
-  </a>
-  <ul class="visible nav section-nav flex-column">
-   <li class="toc-h2 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#calculating-fisher-means">
-     Calculating Fisher means
-    </a>
-   </li>
-   <li class="toc-h2 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#plotting-the-halls-1974-results">
-     Plotting the Halls (1974) results
-    </a>
-   </li>
-   <li class="toc-h2 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#combining-and-plotting-the-halls-1974-and-swanson-hysell-et-al-2014-data">
-     Combining and plotting the Halls (1974) and Swanson-Hysell et al. (2014) data
-    </a>
-   </li>
-   <li class="toc-h2 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#fold-test-on-the-site-mean-directions">
-     Fold test on the site mean directions
-    </a>
-   </li>
-  </ul>
- </li>
- <li class="toc-h1 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#developing-a-mean-paleomagnetic-pole">
-   Developing a mean paleomagnetic pole
-  </a>
-  <ul class="visible nav section-nav flex-column">
-   <li class="toc-h2 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#conducting-a-common-mean-test">
-     Conducting a common mean test
-    </a>
-   </li>
-   <li class="toc-h2 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#calculating-a-mean-paleomagnetic-pole">
-     Calculating a mean paleomagnetic pole
-    </a>
-   </li>
-   <li class="toc-h2 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#plotting-vgps-and-the-mean-pole">
-     Plotting VGPs and the mean pole
-    </a>
-   </li>
-  </ul>
- </li>
- <li class="toc-h1 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#concluding-thoughts">
-   Concluding thoughts
-  </a>
- </li>
- <li class="toc-h1 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#works-cited">
-   Works cited
-  </a>
- </li>
-</ul>
-
-    </nav>
 </div>
-    </div>
-    <div class="article row">
-        <div class="col pl-md-3 pl-lg-5 content-container">
-            <!-- Table of contents that is only displayed when printing the page -->
-            <div id="jb-print-docs-body" class="onlyprint">
-                <h1>Tauxe et al. 2016 example notebook</h1>
-                <!-- Table of contents -->
-                <div id="print-main-content">
-                    <div id="jb-print-toc">
-                        
-                        <div>
-                            <h2> Contents </h2>
-                        </div>
-                        <nav aria-label="Page">
-                            <ul class="visible nav section-nav flex-column">
- <li class="toc-h1 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#">
-   Tauxe et al. 2016 example notebook
-  </a>
- </li>
- <li class="toc-h1 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#before-you-begin">
-   Before you begin
-  </a>
- </li>
- <li class="toc-h1 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#introduction">
-   Introduction
-  </a>
- </li>
- <li class="toc-h1 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#import-necessary-function-libraries-for-data-analysis">
-   Import necessary function libraries for data analysis
-  </a>
- </li>
- <li class="toc-h1 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#background-on-the-osler-volcanic-group">
-   Background on the Osler Volcanic Group
-  </a>
- </li>
- <li class="toc-h1 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#import-data-into-the-notebook">
-   Import data into the notebook
-  </a>
-  <ul class="visible nav section-nav flex-column">
-   <li class="toc-h2 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#unpack-files-downloaded-from-the-magic-database">
-     Unpack files downloaded from the MagIC database
-    </a>
-   </li>
-   <li class="toc-h2 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#loading-the-unpacked-data-into-pandas-dataframes">
-     Loading the unpacked data into Pandas Dataframes
-    </a>
-   </li>
-   <li class="toc-h2 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#filtering-by-polarity-and-tilt-correction">
-     Filtering by polarity and tilt-correction
-    </a>
-   </li>
-  </ul>
- </li>
- <li class="toc-h1 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#data-analysis-and-visualization">
-   Data analysis and visualization
-  </a>
-  <ul class="visible nav section-nav flex-column">
-   <li class="toc-h2 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#calculating-fisher-means">
-     Calculating Fisher means
-    </a>
-   </li>
-   <li class="toc-h2 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#plotting-the-halls-1974-results">
-     Plotting the Halls (1974) results
-    </a>
-   </li>
-   <li class="toc-h2 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#combining-and-plotting-the-halls-1974-and-swanson-hysell-et-al-2014-data">
-     Combining and plotting the Halls (1974) and Swanson-Hysell et al. (2014) data
-    </a>
-   </li>
-   <li class="toc-h2 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#fold-test-on-the-site-mean-directions">
-     Fold test on the site mean directions
-    </a>
-   </li>
-  </ul>
- </li>
- <li class="toc-h1 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#developing-a-mean-paleomagnetic-pole">
-   Developing a mean paleomagnetic pole
-  </a>
-  <ul class="visible nav section-nav flex-column">
-   <li class="toc-h2 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#conducting-a-common-mean-test">
-     Conducting a common mean test
-    </a>
-   </li>
-   <li class="toc-h2 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#calculating-a-mean-paleomagnetic-pole">
-     Calculating a mean paleomagnetic pole
-    </a>
-   </li>
-   <li class="toc-h2 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#plotting-vgps-and-the-mean-pole">
-     Plotting VGPs and the mean pole
-    </a>
-   </li>
-  </ul>
- </li>
- <li class="toc-h1 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#concluding-thoughts">
-   Concluding thoughts
-  </a>
- </li>
- <li class="toc-h1 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#works-cited">
-   Works cited
-  </a>
- </li>
-</ul>
+              
+              
 
-                        </nav>
-                    </div>
-                </div>
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1>Tauxe et al. 2016 example notebook</h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+            <div>
+                <h2> Contents </h2>
             </div>
-            <main id="main-content" role="main">
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#">Tauxe et al. 2016 example notebook</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#before-you-begin">Before you begin</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#introduction">Introduction</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#import-necessary-function-libraries-for-data-analysis">Import necessary function libraries for data analysis</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#background-on-the-osler-volcanic-group">Background on the Osler Volcanic Group</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#import-data-into-the-notebook">Import data into the notebook</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#unpack-files-downloaded-from-the-magic-database">Unpack files downloaded from the MagIC database</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#loading-the-unpacked-data-into-pandas-dataframes">Loading the unpacked data into Pandas Dataframes</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#filtering-by-polarity-and-tilt-correction">Filtering by polarity and tilt-correction</a></li>
+</ul>
+</li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#data-analysis-and-visualization">Data analysis and visualization</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#calculating-fisher-means">Calculating Fisher means</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#plotting-the-halls-1974-results">Plotting the Halls (1974) results</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#combining-and-plotting-the-halls-1974-and-swanson-hysell-et-al-2014-data">Combining and plotting the Halls (1974) and Swanson-Hysell et al. (2014) data</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#fold-test-on-the-site-mean-directions">Fold test on the site mean directions</a></li>
+</ul>
+</li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#developing-a-mean-paleomagnetic-pole">Developing a mean paleomagnetic pole</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#conducting-a-common-mean-test">Conducting a common mean test</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#calculating-a-mean-paleomagnetic-pole">Calculating a mean paleomagnetic pole</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#plotting-vgps-and-the-mean-pole">Plotting VGPs and the mean pole</a></li>
+</ul>
+</li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#concluding-thoughts">Concluding thoughts</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#works-cited">Works cited</a></li>
+</ul>
+
+            </nav>
+        </div>
+    </div>
+</div>
+
+              
                 
-              <div>
-                
+<div id="searchbox"></div>
+                <article class="bd-article" role="main">
+                  
   <section class="tex2jax_ignore mathjax_ignore" id="tauxe-et-al-2016-example-notebook">
-<h1>Tauxe et al. 2016 example notebook<a class="headerlink" href="#tauxe-et-al-2016-example-notebook" title="Permalink to this headline">#</a></h1>
+<h1>Tauxe et al. 2016 example notebook<a class="headerlink" href="#tauxe-et-al-2016-example-notebook" title="Permalink to this heading">#</a></h1>
 </section>
 <section class="tex2jax_ignore mathjax_ignore" id="before-you-begin">
-<h1>Before you begin<a class="headerlink" href="#before-you-begin" title="Permalink to this headline">#</a></h1>
-<p>You may be viewing this notebook as a rendered html webpage (which can be seen at this link: <a class="reference external" href="http://pmagpy.github.io/Example_PmagPy_Notebook.html">http://pmagpy.github.io/Example_PmagPy_Notebook.html</a>) or PDF in which case you can go ahead and simply have a look at it. However, if you wish to execute the code within a downloaded version of this notebook (which can be found here: <a class="reference external" href="https://github.com/PmagPy/2016_Tauxe-et-al_PmagPy_Notebooks">https://github.com/PmagPy/2016_Tauxe-et-al_PmagPy_Notebooks</a>), it is necessary to have an installed distribution of Python and to have installed the PmagPy software distribution. The instructions in the PmagPy Cookbook can help get you started in this regard:</p>
+<h1>Before you begin<a class="headerlink" href="#before-you-begin" title="Permalink to this heading">#</a></h1>
+<p>You may be viewing this notebook as a rendered html webpage (which can be seen at this link: <a class="reference external" href="http://pmagpy.github.io/Example_PmagPy_Notebook.html">http://pmagpy.github.io/Example_PmagPy_Notebook.html</a>) or PDF in which case you can go ahead and simply have a look at it. However, if you wish to execute the code within a downloaded version of this notebook (which can be found here: <a class="github reference external" href="https://github.com/PmagPy/2016_Tauxe-et-al_PmagPy_Notebooks">PmagPy/2016_Tauxe-et-al_PmagPy_Notebooks</a>), it is necessary to have an installed distribution of Python and to have installed the PmagPy software distribution. The instructions in the PmagPy Cookbook can help get you started in this regard:</p>
 <p><a class="reference external" href="http://earthref.org/PmagPy/cookbook">http://earthref.org/PmagPy/cookbook</a></p>
 <p>The user may also benefit from perusing the ‘Survival computer skills’ and ‘Introduction to Python Programming’ chapters of the cookbook if they are new to programming in Python.</p>
 </section>
 <section class="tex2jax_ignore mathjax_ignore" id="introduction">
-<h1>Introduction<a class="headerlink" href="#introduction" title="Permalink to this headline">#</a></h1>
+<h1>Introduction<a class="headerlink" href="#introduction" title="Permalink to this heading">#</a></h1>
 <p>This notebook was created by Nicholas Swanson-Hysell, Lisa Tauxe and Luke Fairchild. It accompanies a paper entitled:</p>
 <p><strong>PmagPy: Software package for paleomagnetic data analysis and a bridge to the Magnetics Information Consortium (MagIC) Database</strong></p>
 <p><em>L. Tauxe, R. Shaar, L. Jonestrask, N.L. Swanson-Hysell, R. Minnett, A.A.P., Koppers, C.G. Constable, N. Jarboe, K. Gaastra, and L. Fairchild</em></p>
@@ -775,7 +467,7 @@ doi:10.1139/e74-113. Link to MagIC contribution:
 </ul>
 </section>
 <section class="tex2jax_ignore mathjax_ignore" id="import-necessary-function-libraries-for-data-analysis">
-<h1>Import necessary function libraries for data analysis<a class="headerlink" href="#import-necessary-function-libraries-for-data-analysis" title="Permalink to this headline">#</a></h1>
+<h1>Import necessary function libraries for data analysis<a class="headerlink" href="#import-necessary-function-libraries-for-data-analysis" title="Permalink to this heading">#</a></h1>
 <p>This Jupyter notebook works using a Python 3.4 kernel. The code block below imports the pmagpy module from PmagPy that provides functions that will be used in the data analysis. At present, the most straight-forward way to do so is to install the pmagpy module using the pip package manager by executing this command at the command line:</p>
 <p><code class="docutils literal notranslate"><span class="pre">pip</span> <span class="pre">install</span> <span class="pre">pmagpy</span></code></p>
 <p>Approachs not using pip can also work. One way would be to download the pmagpy folder from the main PmagPy repository and either put it in the same directory as the notebook or put it anywhere on your local machine and add a statement such as <code class="docutils literal notranslate"><span class="pre">export</span> <span class="pre">PYTHONPATH=$PYTHONPATH:~/PmagPy</span></code> in your .profile or .bash_profile file that points to where PmagPy is on your local machine (in this example in the home directory).</p>
@@ -803,13 +495,13 @@ doi:10.1139/e74-113. Link to MagIC contribution:
 </div>
 </section>
 <section class="tex2jax_ignore mathjax_ignore" id="background-on-the-osler-volcanic-group">
-<h1>Background on the Osler Volcanic Group<a class="headerlink" href="#background-on-the-osler-volcanic-group" title="Permalink to this headline">#</a></h1>
+<h1>Background on the Osler Volcanic Group<a class="headerlink" href="#background-on-the-osler-volcanic-group" title="Permalink to this heading">#</a></h1>
 <p>The data being analyzed in this notebook come from lava flows of the Osler Volcanic Group which is a sequence of Midcontinent Rift lava flows exposed on Black Bay Peninsula and the Lake Superior Archipelago in northern Lake Superior. Halls (1974; doi:10.1139/e74-113) conducted the first paleomagnetic study of these flows and determined that they were of dominantly reversed polarity with a paleomagnetic reversal very near to the top of the exposed stratigraphy. This reversal is associated with the deposition of a conglomerate unit and an angular unconformity. The data presented in Halls (1974) from the reversed polarity lavas were from flows high in the succession in close stratigraphic proximity to a sequence of felsic flows at Agate Point—one of which was dated by Davis and Green (1997; doi:10.1139/e17-039) with a resulting <span class="math notranslate nohighlight">\(^{207}\)</span>Pb/<span class="math notranslate nohighlight">\(^{206}\)</span>Pb date on zircon of 1105.3 ± 2.1 Ma. Swanson-Hysell et al. (2014; doi:10.1002/2013GC005180) conducted a paleomagnetic study that spanned more of the Osler Group flows from their base up to the upper portions of the exposed reversed polarity flows. The analysis of these data determined that there was a significant change in direction between the data from flows in the lower third of the reversed polarity stratigraphy and those in the upper third stratigraphy. This change was interpreted to be caused by a progression along the apparent polar wander path associated with equatorward motion of Laurentia.</p>
 </section>
 <section class="tex2jax_ignore mathjax_ignore" id="import-data-into-the-notebook">
-<h1>Import data into the notebook<a class="headerlink" href="#import-data-into-the-notebook" title="Permalink to this headline">#</a></h1>
+<h1>Import data into the notebook<a class="headerlink" href="#import-data-into-the-notebook" title="Permalink to this heading">#</a></h1>
 <section id="unpack-files-downloaded-from-the-magic-database">
-<h2>Unpack files downloaded from the MagIC database<a class="headerlink" href="#unpack-files-downloaded-from-the-magic-database" title="Permalink to this headline">#</a></h2>
+<h2>Unpack files downloaded from the MagIC database<a class="headerlink" href="#unpack-files-downloaded-from-the-magic-database" title="Permalink to this heading">#</a></h2>
 <p>Data within the MagIC database can be downloaded as a single .txt file. This file can be split into its constituent EarthRef and pmag tables either within the Pmag GUI, using a command line PmagPy program or using the function <strong>ipmag.download_magic</strong> within the notebook as is done here. The code block below uses this function by giving the file name, specifying where it is and telling it where to unpack the data set into the magic tables. Once these tables are unpacked, we can use them for subsequent data analysis. The <code class="docutils literal notranslate"><span class="pre">%%capture</span></code> line blocks annoying messages printed by the <strong>ipmag.download_magic</strong> function.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -833,7 +525,7 @@ doi:10.1139/e74-113. Link to MagIC contribution:
 </div>
 </section>
 <section id="loading-the-unpacked-data-into-pandas-dataframes">
-<h2>Loading the unpacked data into Pandas Dataframes<a class="headerlink" href="#loading-the-unpacked-data-into-pandas-dataframes" title="Permalink to this headline">#</a></h2>
+<h2>Loading the unpacked data into Pandas Dataframes<a class="headerlink" href="#loading-the-unpacked-data-into-pandas-dataframes" title="Permalink to this heading">#</a></h2>
 <p>With the results unpacked from MagIC, the data can now be analyzed within the notebook. The data from the Halls1974/pmag_sites.txt table can be imported in order to look at the directions from each site. A nice way to deal with data within Python is using the dataframe structure of the pandas package. The code block below uses the pd.read_csv function to create a dataframe from the pmag_sites.txt file. All MagIC formatted files are tab delimited (<code class="docutils literal notranslate"><span class="pre">sep='\t'</span></code>) with two header lines, one with the type of delimiter and MagIC table and one with the MagIC database column names. To see the formats for MagIC tables, go to <a class="reference external" href="http://earthref.org/MAGIC/metadata.htm">http://earthref.org/MAGIC/metadata.htm</a>.
 To skip the first header line in a particular file when importing it to a DataFrame, set skiprows=1.  The <code class="docutils literal notranslate"><span class="pre">data_frame_name.head(X)</span></code> function allows us to inspect the first <code class="docutils literal notranslate"><span class="pre">X</span></code> rows of the dataframe (in this case 4).</p>
 <div class="cell docutils container">
@@ -921,7 +613,7 @@ To skip the first header line in a particular file when importing it to a DataFr
 </div>
 </section>
 <section id="filtering-by-polarity-and-tilt-correction">
-<h2>Filtering by polarity and tilt-correction<a class="headerlink" href="#filtering-by-polarity-and-tilt-correction" title="Permalink to this headline">#</a></h2>
+<h2>Filtering by polarity and tilt-correction<a class="headerlink" href="#filtering-by-polarity-and-tilt-correction" title="Permalink to this heading">#</a></h2>
 <p>Let’s start our analysis on the reversed polarity sites that are below an angular unconformity in the Halls (1974) data set. A nice thing about dataframes is that there is built-in functionality to filter them based on column values. The code block below creates a new dataframe of sites that have the site_polarity value of ‘r’ in the pmag_sites table. It then creates one dataframe for tilt-corrected sites (value of 100 in site_tilt_correction) and sites that have not been tilt-corrected (value of 0 in site_tilt_correction).</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -937,11 +629,11 @@ To skip the first header line in a particular file when importing it to a DataFr
 </section>
 </section>
 <section class="tex2jax_ignore mathjax_ignore" id="data-analysis-and-visualization">
-<h1>Data analysis and visualization<a class="headerlink" href="#data-analysis-and-visualization" title="Permalink to this headline">#</a></h1>
+<h1>Data analysis and visualization<a class="headerlink" href="#data-analysis-and-visualization" title="Permalink to this heading">#</a></h1>
 <p>The data can be analyzed and visualized using PmagPy functions. We will first create a directory called ‘Example_Notebook_Output’  from within the notebook (using the initial ! before the command invokes a command as if typed on the command line from within a notebook) so that we have a place to put saved figures.  You can do this outside of the notebook if you prefer.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">!</span>mkdir <span class="s1">&#39;Example_Notebook_Output&#39;</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">!</span>mkdir<span class="w"> </span><span class="s1">&#39;Example_Notebook_Output&#39;</span>
 </pre></div>
 </div>
 </div>
@@ -952,7 +644,7 @@ To skip the first header line in a particular file when importing it to a DataFr
 </div>
 </div>
 <section id="calculating-fisher-means">
-<h2>Calculating Fisher means<a class="headerlink" href="#calculating-fisher-means" title="Permalink to this headline">#</a></h2>
+<h2>Calculating Fisher means<a class="headerlink" href="#calculating-fisher-means" title="Permalink to this heading">#</a></h2>
 <p>Fisher means for the data can be calculated with the function <strong>ipmag.fisher_mean</strong>. This function takes in a list of declination values, a list of inclination values and returns a dictionary that gives the Fisher mean and associated statistical parameters. This dictionary is printed out for the mean of the tilt-corrected data within the first code block. These dictionary objects are given names such that we can subsequently access the values. The second code block uses the <strong>ipmag.print_direction_mean</strong> to print out a formatted version of these same results.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -989,7 +681,7 @@ Precision parameter (k) estimate: 40.2
 </div>
 </section>
 <section id="plotting-the-halls-1974-results">
-<h2>Plotting the Halls (1974) results<a class="headerlink" href="#plotting-the-halls-1974-results" title="Permalink to this headline">#</a></h2>
+<h2>Plotting the Halls (1974) results<a class="headerlink" href="#plotting-the-halls-1974-results" title="Permalink to this heading">#</a></h2>
 <p>The code block below creates a figure with an equal area stereonet and uses the <strong>ipmag.plot_di</strong> function to plot the data both in tilt-corrected and <em>in situ</em> coordinates. The figure can be saved out of the notebook using the <code class="docutils literal notranslate"><span class="pre">plt.savefig()</span></code> function. The saved figure file type can be .png, .eps, .svg among others. Saved figures can be used as is for publication or, if necessary, exported vector graphics (e.g. .eps and .svg files) can be edited with software such as Adobe Illustrator or Inkscape.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -1007,7 +699,7 @@ Precision parameter (k) estimate: 40.2
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../_images/Tauxe_etal_2016_18_0.svg" src="../_images/Tauxe_etal_2016_18_0.svg" /></div>
+<img alt="../_images/4e158e8d93613dd7c7149d758df0d0679d784cf9f20f64f358f0b7cccb35a4e4.svg" src="../_images/4e158e8d93613dd7c7149d758df0d0679d784cf9f20f64f358f0b7cccb35a4e4.svg" /></div>
 </div>
 <p>A similar plot showing the Fisher means of the site means calculated above and their associated <span class="math notranslate nohighlight">\(\alpha_{95}\)</span> confidence ellipses can be generated using the <strong>ipmag.plot_di_mean</strong> function.</p>
 <div class="cell docutils container">
@@ -1028,7 +720,7 @@ Precision parameter (k) estimate: 40.2
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../_images/Tauxe_etal_2016_20_0.svg" src="../_images/Tauxe_etal_2016_20_0.svg" /></div>
+<img alt="../_images/3ff8cf8f30e1972e38bbad596330f26861ee26d8871df14780dcea93495c15c0.svg" src="../_images/3ff8cf8f30e1972e38bbad596330f26861ee26d8871df14780dcea93495c15c0.svg" /></div>
 </div>
 <p>The means that have been calculated are now dictionaries that can be made into a new dataframe to present the results. A table like this can be exported into a variety of formats (e.g. LaTeX, html, csv) for inclusion in a publication.</p>
 <div class="cell docutils container">
@@ -1093,7 +785,7 @@ Precision parameter (k) estimate: 40.2
 <p>or executed as shell command within the notebook by using the ! prefix as is done in the cell block below.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">!</span>pmag_results_extract.py -f Example_Data/Halls1974/pmag_results.txt
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">!</span>pmag_results_extract.py<span class="w"> </span>-f<span class="w"> </span>Example_Data/Halls1974/pmag_results.txt
 </pre></div>
 </div>
 </div>
@@ -1105,7 +797,7 @@ Precision parameter (k) estimate: 40.2
 </div>
 </section>
 <section id="combining-and-plotting-the-halls-1974-and-swanson-hysell-et-al-2014-data">
-<h2>Combining and plotting the Halls (1974) and Swanson-Hysell et al. (2014) data<a class="headerlink" href="#combining-and-plotting-the-halls-1974-and-swanson-hysell-et-al-2014-data" title="Permalink to this headline">#</a></h2>
+<h2>Combining and plotting the Halls (1974) and Swanson-Hysell et al. (2014) data<a class="headerlink" href="#combining-and-plotting-the-halls-1974-and-swanson-hysell-et-al-2014-data" title="Permalink to this heading">#</a></h2>
 <p>First, let’s read in the data from the pmag_results.txt table from the Swanson-Hysell et al., (2014) study into a Pandas dataframe.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -1397,7 +1089,7 @@ Precision parameter (k) estimate: 40.2
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../_images/Tauxe_etal_2016_37_0.svg" src="../_images/Tauxe_etal_2016_37_0.svg" /></div>
+<img alt="../_images/bf2d56ef3c45c795b66fbab4f164a5fc8c917bc0c17df365248557cac0f5dd77.svg" src="../_images/bf2d56ef3c45c795b66fbab4f164a5fc8c917bc0c17df365248557cac0f5dd77.svg" /></div>
 </div>
 <p>The combined means can be calculated with the <strong>ipmag.fisher_mean</strong> function and printed out with some formatting with the <strong>ipmag.print_direction_mean</strong> function.</p>
 <div class="cell docutils container">
@@ -1438,7 +1130,7 @@ The k_2/k_1 ratio is:
 </div>
 </section>
 <section id="fold-test-on-the-site-mean-directions">
-<h2>Fold test on the site mean directions<a class="headerlink" href="#fold-test-on-the-site-mean-directions" title="Permalink to this headline">#</a></h2>
+<h2>Fold test on the site mean directions<a class="headerlink" href="#fold-test-on-the-site-mean-directions" title="Permalink to this heading">#</a></h2>
 <p>In the above plot, the blue directions that have been corrected for tilting have a higher precision than the red values that are uncorrected for tilting. The ratio of the precision parameter from before and after tilt-correction (<span class="math notranslate nohighlight">\(k_2\)</span>/<span class="math notranslate nohighlight">\(k_1\)</span>) is 2.2 (see output of code above). Calculating this ratio provides a way to qualitatively assess whether there is improvement in the precision of the data such that the magnetization was likely acquired prior to tilting. This ratio was at the heart of the McElhinny (1964; doi:10.1111/j.1365-246X.1964.tb06300.x) fold test (in which this would constitute of a positive test). However, that test has been shown to not be meaningful as summarized by McFadden (1990; doi:10.1111/j.1365-246X.1990.tb01761.x).</p>
 <p>Halls (1974) noted that the precision increases with structural correction in the Osler dataset, but did not report the values of a statistical fold test. Swanson-Hysell et al. (2014) included all of these data, but did not report the results of the fold test. Here we conduct a Tauxe and Watson (1994; doi:10.1016/0012-821X(94)90006-X) bootstrap fold test on these data that reveals that the tightest grouping of vectors is achieved upon correction for bedding tilt thereby constituting a positive fold test.</p>
 <p>Before we can do that, we must wrangle the data into the format expected by the fold test program.  We can start with the in situ directions from the pmag_results.txt files and pair them with the bedding orientations in the er_sites.txt files for each of the studies.</p>
@@ -1506,18 +1198,18 @@ The k_2/k_1 ratio is:
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>doing  100  iterations...please be patient.....
 </pre></div>
 </div>
-<img alt="../_images/Tauxe_etal_2016_49_1.svg" src="../_images/Tauxe_etal_2016_49_1.svg" /><img alt="../_images/Tauxe_etal_2016_49_2.svg" src="../_images/Tauxe_etal_2016_49_2.svg" /><div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>tightest grouping of vectors obtained at (95% confidence bounds):
+<img alt="../_images/ad785ed085d99cd93ed9140cc156e890351c789b18b3d26240d255822c8a9c53.svg" src="../_images/ad785ed085d99cd93ed9140cc156e890351c789b18b3d26240d255822c8a9c53.svg" /><img alt="../_images/26a3d2b6cfb820565ca819d084be3b0d09f8f801d1316d75b8601462f819087b.svg" src="../_images/26a3d2b6cfb820565ca819d084be3b0d09f8f801d1316d75b8601462f819087b.svg" /><div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>tightest grouping of vectors obtained at (95% confidence bounds):
 100 - 138 percent unfolding
 range of all bootstrap samples: 
 96  -  139 percent unfolding
 </pre></div>
 </div>
-<img alt="../_images/Tauxe_etal_2016_49_4.svg" src="../_images/Tauxe_etal_2016_49_4.svg" /></div>
+<img alt="../_images/c14e17e299e60aeede0a96079af7fbdb3953a386251f735d463167fd4644040e.svg" src="../_images/c14e17e299e60aeede0a96079af7fbdb3953a386251f735d463167fd4644040e.svg" /></div>
 </div>
 </section>
 </section>
 <section class="tex2jax_ignore mathjax_ignore" id="developing-a-mean-paleomagnetic-pole">
-<h1>Developing a mean paleomagnetic pole<a class="headerlink" href="#developing-a-mean-paleomagnetic-pole" title="Permalink to this headline">#</a></h1>
+<h1>Developing a mean paleomagnetic pole<a class="headerlink" href="#developing-a-mean-paleomagnetic-pole" title="Permalink to this heading">#</a></h1>
 <p>The virtual geomagnetic poles (VGPs) calculated from the Halls (1974) and Swanson-Hysell (2014) site means can be combined into a single paleomagnetic pole for the upper portion of the reversed polarity Osler Volcanic Group flows. Developing such a combined pole makes sense from a stratigraphic perspective given that the data come from a similar portion of the Osler Volcanic Group stratigraphy. We can test whether or not this combination makes sense from the data themselves by posing the question: are the data sets consistent with being drawn from a common mean?</p>
 <p>First, the VGP longitudes and latitudes for the Halls (1974) data can be accessed from the pmag_results table. The results need to be filtered so that individual VGPs are being used (rather than mean poles) and that the reversed poles are being used (rather than the normal ones).</p>
 <div class="cell docutils container">
@@ -1701,7 +1393,7 @@ range of all bootstrap samples:
 </div>
 </div>
 <section id="conducting-a-common-mean-test">
-<h2>Conducting a common mean test<a class="headerlink" href="#conducting-a-common-mean-test" title="Permalink to this headline">#</a></h2>
+<h2>Conducting a common mean test<a class="headerlink" href="#conducting-a-common-mean-test" title="Permalink to this heading">#</a></h2>
 <p>The question “are the data sets consistent with being drawn from a common mean?” can be addressed utilizing the <strong>ipmag.watson_common_mean</strong> function. This function calculates Watson’s V statistic from input data through Monte Carlo simulation in order to test whether two populations of directional data could have been drawn from a common mean. The critical angle between the two sample mean directions and the corresponding McFadden and McElhinny (1990) classification is also printed. A plot can be shown of the cumulative distribution of the Watson V statistic as calculated during the Monte Carlo simulations, as suggested by Tauxe et al. (2010).</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -1726,11 +1418,11 @@ The McFadden and McElhinny (1990) classification for
 this test is: &#39;B&#39;
 </pre></div>
 </div>
-<img alt="../_images/Tauxe_etal_2016_55_1.svg" src="../_images/Tauxe_etal_2016_55_1.svg" /></div>
+<img alt="../_images/9c268b7aa6c7a92e72260850141b1ae76de810ce106fae6be77e6f0c284ed2dc.svg" src="../_images/9c268b7aa6c7a92e72260850141b1ae76de810ce106fae6be77e6f0c284ed2dc.svg" /></div>
 </div>
 </section>
 <section id="calculating-a-mean-paleomagnetic-pole">
-<h2>Calculating a mean paleomagnetic pole<a class="headerlink" href="#calculating-a-mean-paleomagnetic-pole" title="Permalink to this headline">#</a></h2>
+<h2>Calculating a mean paleomagnetic pole<a class="headerlink" href="#calculating-a-mean-paleomagnetic-pole" title="Permalink to this heading">#</a></h2>
 <p>We can go ahead and calculate a mean paleomagnetic pole combining the VGPs from both studies. This mean pole was published in Swanson-Hysell et al. (2014).</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -1750,7 +1442,7 @@ Precision parameter (k) estimate: 25.7
 </div>
 </section>
 <section id="plotting-vgps-and-the-mean-pole">
-<h2>Plotting VGPs and the mean pole<a class="headerlink" href="#plotting-vgps-and-the-mean-pole" title="Permalink to this headline">#</a></h2>
+<h2>Plotting VGPs and the mean pole<a class="headerlink" href="#plotting-vgps-and-the-mean-pole" title="Permalink to this heading">#</a></h2>
 <p>The code below uses the <strong>ipmag.plot_vgp</strong> function to plot the virtual geomagnetic poles and the <strong>ipmag.plot_pole</strong> function to plot the calculated mean pole along with its <span class="math notranslate nohighlight">\(A_{95}\)</span> confidence ellipse.</p>
 <p>The plot is developed using the <strong>Basemap</strong> package which enables the plotting of data on a variety of geographic projections. <strong>Basemap</strong> is not a standard part of most scientific python distributions so you may need to take extra steps to install it. If using the Anaconda distribution, you can type <code class="docutils literal notranslate"><span class="pre">conda</span> <span class="pre">install</span> <span class="pre">basemap</span></code> at the command line. The Enthought Canopy distribution has a GUI package manager that you can use for installing the package although a Canopy subscription (free for academic users) may be necessary for installation.</p>
 <p>The plot is saved to the Example_Notebook_Output folder as an .svg file.</p>
@@ -1785,19 +1477,19 @@ Precision parameter (k) estimate: 25.7
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../_images/Tauxe_etal_2016_59_0.svg" src="../_images/Tauxe_etal_2016_59_0.svg" /></div>
+<img alt="../_images/feb71b47204b584bff5b867c0fb15db7dc35db8753e3a047fb486e07509b899f.svg" src="../_images/feb71b47204b584bff5b867c0fb15db7dc35db8753e3a047fb486e07509b899f.svg" /></div>
 </div>
 </section>
 </section>
 <section class="tex2jax_ignore mathjax_ignore" id="concluding-thoughts">
-<h1>Concluding thoughts<a class="headerlink" href="#concluding-thoughts" title="Permalink to this headline">#</a></h1>
+<h1>Concluding thoughts<a class="headerlink" href="#concluding-thoughts" title="Permalink to this heading">#</a></h1>
 <p>This notebook is intended to be an illustrative case study of some of the types of data analysis that can be accomplished using PmagPy within a Jupyter notebook. All the capabilities of PmagPy can be utilized within notebooks, although continued work is needed for the functionality within some of the command line programs to be made into functions that work well within the environment.</p>
 <p>An advantage of this type of workflow is that it is well-documented and reproducible. The decisions that went into the data analysis and the implementation of the statistical tests are fully transparent (as is the underlying code). Additionally, if one were to seek to add more data to the mean pole, all of the data analysis could be quickly redone by executing all of the code in the notebook.</p>
 <p>Smaller snippets of code that demonstrate additional PmagPy functionality within the notebook environment can be seen in this notebook:</p>
 <p><a class="reference external" href="http://pmagpy.github.io/Additional_PmagPy_Examples.html">http://pmagpy.github.io/Additional_PmagPy_Examples.html</a></p>
 </section>
 <section class="tex2jax_ignore mathjax_ignore" id="works-cited">
-<h1>Works cited<a class="headerlink" href="#works-cited" title="Permalink to this headline">#</a></h1>
+<h1>Works cited<a class="headerlink" href="#works-cited" title="Permalink to this heading">#</a></h1>
 <p>Davis, D., and J. Green (1997), Geochronology of the North American Midcontinent rift in western Lake Superior and implications for its geodynamic evolution, Can. J. Earth Sci., 34, 476–488, doi:10.1139/e17–039.</p>
 <p>Halls, H. (1974), A paleomagnetic reversal in the Osler Volcanic Group, northern Lake Superior, Can. J. Earth Sci., 11, 1200–1207, doi:10.1139/e74–113.</p>
 <p>McElhinny, M. W. (1964), Statistical Significance of the Fold Test in Palaeomagnetism. Geophysical Journal of the Royal Astronomical Society, 8: 338–340. doi: 10.1111/j.1365-246X.1964.tb06300.x</p>
@@ -1820,7 +1512,7 @@ Precision parameter (k) estimate: 25.7
             mode: "python"
         },
         kernelOptions: {
-            kernelName: "python3",
+            name: "python3",
             path: "./example_notebooks"
         },
         predefinedOutput: true
@@ -1828,50 +1520,113 @@ Precision parameter (k) estimate: 25.7
     </script>
     <script>kernelName = 'python3'</script>
 
-              </div>
+                </article>
               
-            </main>
-            <footer class="footer-article noprint">
-                
-    <!-- Previous / next buttons -->
-<div class='prev-next-area'>
-    <a class='left-prev' id="prev-link" href="example_notebooks.html" title="previous page">
-        <i class="fas fa-angle-left"></i>
-        <div class="prev-next-info">
-            <p class="prev-next-subtitle">previous</p>
-            <p class="prev-next-title">Example notebooks</p>
-        </div>
-    </a>
-    <a class='right-next' id="next-link" href="../MagIC/MagIC.html" title="next page">
-    <div class="prev-next-info">
-        <p class="prev-next-subtitle">next</p>
-        <p class="prev-next-title">MagIC database and file formats</p>
-    </div>
-    <i class="fas fa-angle-right"></i>
-    </a>
+
+              
+              
+                <footer class="bd-footer-article">
+                  
+<div class="footer-article-items footer-article__inner">
+  
+    <div class="footer-article-item"><!-- Previous / next buttons -->
+<div class="prev-next-area">
+</div></div>
+  
 </div>
-            </footer>
-        </div>
-    </div>
-    <div class="footer-content row">
-        <footer class="col footer"><p>
+
+                </footer>
+              
+            </div>
+            
+            
+              
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#">Tauxe et al. 2016 example notebook</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#before-you-begin">Before you begin</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#introduction">Introduction</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#import-necessary-function-libraries-for-data-analysis">Import necessary function libraries for data analysis</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#background-on-the-osler-volcanic-group">Background on the Osler Volcanic Group</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#import-data-into-the-notebook">Import data into the notebook</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#unpack-files-downloaded-from-the-magic-database">Unpack files downloaded from the MagIC database</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#loading-the-unpacked-data-into-pandas-dataframes">Loading the unpacked data into Pandas Dataframes</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#filtering-by-polarity-and-tilt-correction">Filtering by polarity and tilt-correction</a></li>
+</ul>
+</li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#data-analysis-and-visualization">Data analysis and visualization</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#calculating-fisher-means">Calculating Fisher means</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#plotting-the-halls-1974-results">Plotting the Halls (1974) results</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#combining-and-plotting-the-halls-1974-and-swanson-hysell-et-al-2014-data">Combining and plotting the Halls (1974) and Swanson-Hysell et al. (2014) data</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#fold-test-on-the-site-mean-directions">Fold test on the site mean directions</a></li>
+</ul>
+</li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#developing-a-mean-paleomagnetic-pole">Developing a mean paleomagnetic pole</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#conducting-a-common-mean-test">Conducting a common mean test</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#calculating-a-mean-paleomagnetic-pole">Calculating a mean paleomagnetic pole</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#plotting-vgps-and-the-mean-pole">Plotting VGPs and the mean pole</a></li>
+</ul>
+</li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#concluding-thoughts">Concluding thoughts</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#works-cited">Works cited</a></li>
+</ul>
+
+  </nav></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
   
-    By PmagPy Contributors<br/>
-  
-      &copy; Copyright 2022.<br/>
-</p>
-        </footer>
-    </div>
+  <div class="footer-item">
     
+<p class="component-author">
+By PmagPy Contributors
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  <p class="copyright">
+    
+      © Copyright 2022.
+      <br/>
+    
+  </p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
 </div>
+          </footer>
+        
 
-
-      </div>
+      </main>
     </div>
+  </div>
   
   <!-- Scripts loaded after <body> so the DOM is not blocked -->
-  <script src="../_static/scripts/pydata-sphinx-theme.js?digest=1999514e3f237ded88cf"></script>
+  <script src="../_static/scripts/bootstrap.js?digest=e353d410970836974a52"></script>
+<script src="../_static/scripts/pydata-sphinx-theme.js?digest=e353d410970836974a52"></script>
 
-
+  <footer class="bd-footer">
+  </footer>
   </body>
 </html>

@@ -1,48 +1,59 @@
 
+
 <!DOCTYPE html>
 
-<html>
+
+<html lang="en" >
+
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
 
     <title>Working with the MagIC database using PmagPy &#8212; PmagPy Documentation</title>
-    
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "light";
+  </script>
+  
   <!-- Loaded before other Sphinx assets -->
-  <link href="../_static/styles/theme.css?digest=1999514e3f237ded88cf" rel="stylesheet">
-<link href="../_static/styles/pydata-sphinx-theme.css?digest=1999514e3f237ded88cf" rel="stylesheet">
+  <link href="../_static/styles/theme.css?digest=e353d410970836974a52" rel="stylesheet" />
+<link href="../_static/styles/bootstrap.css?digest=e353d410970836974a52" rel="stylesheet" />
+<link href="../_static/styles/pydata-sphinx-theme.css?digest=e353d410970836974a52" rel="stylesheet" />
 
-    
-  <link rel="stylesheet"
-    href="../_static/vendor/fontawesome/5.13.0/css/all.min.css">
-  <link rel="preload" as="font" type="font/woff2" crossorigin
-    href="../_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900.woff2">
-  <link rel="preload" as="font" type="font/woff2" crossorigin
-    href="../_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
+  
+  <link href="../_static/vendor/fontawesome/6.1.2/css/all.min.css?digest=e353d410970836974a52" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.1.2/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.1.2/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.1.2/webfonts/fa-regular-400.woff2" />
 
     <link rel="stylesheet" type="text/css" href="../_static/pygments.css" />
-    <link rel="stylesheet" href="../_static/styles/sphinx-book-theme.css?digest=5115cc725059bd94278eecd172e13a965bf8f5a9" type="text/css" />
+    <link rel="stylesheet" href="../_static/styles/sphinx-book-theme.css?digest=14f4ca6b54d191a8c7657f6c759bf11a5fb86285" type="text/css" />
     <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css" />
     <link rel="stylesheet" type="text/css" href="../_static/copybutton.css" />
-    <link rel="stylesheet" type="text/css" href="../_static/mystnb.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
     <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css" />
-    <link rel="stylesheet" type="text/css" href="../_static/design-style.b7bb847fb20b106c3d81b95245e65545.min.css" />
-    
+    <link rel="stylesheet" type="text/css" href="../_static/design-style.4045f2051d55cab465a707391d5b2007.min.css" />
+  
   <!-- Pre-loaded scripts that we'll load fully later -->
-  <link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=1999514e3f237ded88cf">
+  <link rel="preload" as="script" href="../_static/scripts/bootstrap.js?digest=e353d410970836974a52" />
+<link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=e353d410970836974a52" />
 
     <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
     <script src="../_static/jquery.js"></script>
     <script src="../_static/underscore.js"></script>
+    <script src="../_static/_sphinx_javascript_frameworks_compat.js"></script>
     <script src="../_static/doctools.js"></script>
     <script src="../_static/clipboard.min.js"></script>
     <script src="../_static/copybutton.js"></script>
-    <script src="../_static/scripts/sphinx-book-theme.js?digest=9c920249402e914e316237a7dbc6769907cce411"></script>
+    <script src="../_static/scripts/sphinx-book-theme.js?digest=5a5c038af52cf7bc1a1ec88eea08e6366ee68824"></script>
     <script>let toggleHintShow = 'Click to show';</script>
     <script>let toggleHintHide = 'Click to hide';</script>
     <script>let toggleOpenOnPrint = 'true';</script>
     <script src="../_static/togglebutton.js"></script>
-    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
     <script src="../_static/design-tabs.js"></script>
     <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
 const thebe_selector = ".thebe,.cell"
@@ -52,61 +63,93 @@ const thebe_selector_output = ".output, .cell_output"
     <script async="async" src="../_static/sphinx-thebe.js"></script>
     <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
     <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'documentation_notebooks/PmagPy_MagIC';</script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
     <link rel="next" title="Example notebooks" href="../example_notebooks/example_notebooks.html" />
     <link rel="prev" title="Visualizations and more analysis with PmagPy" href="PmagPy_plots_analysis.html" />
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <meta name="docsearch:language" content="None">
-    
-
-    <!-- Google Analytics -->
-    
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
   </head>
-  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="60">
-<!-- Checkboxes to toggle the left sidebar -->
-<input type="checkbox" class="sidebar-toggle" name="__navigation" id="__navigation" aria-label="Toggle navigation sidebar">
-<label class="overlay overlay-navbar" for="__navigation">
-    <div class="visually-hidden">Toggle navigation sidebar</div>
-</label>
-<!-- Checkboxes to toggle the in-page toc -->
-<input type="checkbox" class="sidebar-toggle" name="__page-toc" id="__page-toc" aria-label="Toggle in-page Table of Contents">
-<label class="overlay overlay-pagetoc" for="__page-toc">
-    <div class="visually-hidden">Toggle in-page Table of Contents</div>
-</label>
-<!-- Headers at the top -->
-<div class="announcement header-item noprint"></div>
-<div class="header header-item noprint"></div>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
 
-    
-    <div class="container-fluid" id="banner"></div>
-
-    
-
-    <div class="container-xl">
-      <div class="row">
-          
-<!-- Sidebar -->
-<div class="bd-sidebar noprint" id="site-navigation">
-    <div class="bd-sidebar__content">
-        <div class="bd-sidebar__top"><div class="navbar-brand-box">
-    <a class="navbar-brand text-wrap" href="../index.html">
+  
+  
+  <a class="skip-link" href="#main-content">Skip to main content</a>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          name="__primary"
+          id="__primary"/>
+  <label class="overlay overlay-primary" for="__primary"></label>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          name="__secondary"
+          id="__secondary"/>
+  <label class="overlay overlay-secondary" for="__secondary"></label>
+  
+  <div class="search-button__wrapper">
+    <div class="search-button__overlay"></div>
+    <div class="search-button__search-container">
+<form class="bd-search d-flex align-items-center"
+      action="../search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         id="search-input"
+         placeholder="Search this book..."
+         aria-label="Search this book..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form></div>
+  </div>
+  
+    <nav class="bd-header navbar navbar-expand-lg bd-navbar">
+    </nav>
+  
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
       
-        <!-- `logo` is deprecated in Sphinx 4.0, so remove this when we stop supporting 3 -->
+      <div class="bd-sidebar-primary bd-sidebar">
         
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+  
+
+<a class="navbar-brand logo" href="../intro.html">
+  
+  
+  
+  
+    
+    
       
-      
-      <img src="../_static/pmagpy_logo_notext.png" class="logo" alt="logo">
-      
-      
-      <h1 class="site-logo" id="site-title">PmagPy Documentation</h1>
-      
-    </a>
-</div><form class="bd-search d-flex align-items-center" action="../search.html" method="get">
-  <i class="icon fas fa-search"></i>
-  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search this book..." aria-label="Search this book..." autocomplete="off" >
-</form><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
-    <div class="bd-toc-item active">
+    
+    
+    <img src="../_static/pmagpy_logo_notext.png" class="logo__image only-light" alt="Logo image"/>
+    <script>document.write(`<img src="../_static/pmagpy_logo_notext.png" class="logo__image only-dark" alt="Logo image"/>`);</script>
+  
+  
+</a></div>
+        <div class="sidebar-primary-item"><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
         
         <ul class="nav bd-sidenav bd-sidenav__home-link">
             <li class="toctree-l1">
@@ -115,985 +158,331 @@ const thebe_selector_output = ".output, .cell_output"
                 </a>
             </li>
         </ul>
-        <p aria-level="2" class="caption" role="heading">
- <span class="caption-text">
-  Installation
- </span>
-</p>
+        <p aria-level="2" class="caption" role="heading"><span class="caption-text">Installation</span></p>
 <ul class="nav bd-sidenav">
- <li class="toctree-l1 has-children">
-  <a class="reference internal" href="../installation/PmagPy_install.html">
-   Installing
-   <strong>
-    PmagPy
-   </strong>
-  </a>
-  <input class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" type="checkbox"/>
-  <label for="toctree-checkbox-1">
-   <i class="fas fa-chevron-down">
-   </i>
-  </label>
-  <ul>
-   <li class="toctree-l2">
-    <a class="reference internal" href="../installation/osx_pip.html">
-     OSX pip install
-    </a>
-   </li>
-   <li class="toctree-l2">
-    <a class="reference internal" href="../installation/osx_developer.html">
-     OSX developer install
-    </a>
-   </li>
-   <li class="toctree-l2">
-    <a class="reference internal" href="../installation/windows_pip.html">
-     Windows pip install
-    </a>
-   </li>
-   <li class="toctree-l2">
-    <a class="reference internal" href="../installation/windows_developer.html">
-     Windows developer install
-    </a>
-   </li>
-   <li class="toctree-l2">
-    <a class="reference internal" href="../installation/linux_pip.html">
-     Linux pip install
-    </a>
-   </li>
-   <li class="toctree-l2">
-    <a class="reference internal" href="../installation/linux_developer.html">
-     Linux developer install
-    </a>
-   </li>
-   <li class="toctree-l2">
-    <a class="reference internal" href="../installation/troubleshooting.html">
-     Troubleshooting installation issues
-    </a>
-   </li>
-   <li class="toctree-l2">
-    <a class="reference internal" href="../programs/command_line_programs.html">
-     Command line programs
-    </a>
-   </li>
-  </ul>
- </li>
- <li class="toctree-l1 has-children">
-  <a class="reference internal" href="../programs/pmag_gui.html">
-   Installing and Getting Started with Pmag GUI
-  </a>
-  <input class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" type="checkbox"/>
-  <label for="toctree-checkbox-2">
-   <i class="fas fa-chevron-down">
-   </i>
-  </label>
-  <ul>
-   <li class="toctree-l2">
-    <a class="reference internal" href="../programs/demag_gui.html">
-     Demag GUI
-    </a>
-   </li>
-   <li class="toctree-l2">
-    <a class="reference internal" href="../programs/thellier_gui.html">
-     Thellier GUI
-    </a>
-   </li>
-  </ul>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="../resources/survival_skills.html">
-   Survival computer skills
-  </a>
- </li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../installation/PmagPy_install.html">Installing <strong>PmagPy</strong></a><input class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-1"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../installation/osx_pip.html">OSX pip install</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../installation/osx_developer.html">OSX developer install</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../installation/windows_pip.html">Windows pip install</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../installation/windows_developer.html">Windows developer install</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../installation/linux_pip.html">Linux pip install</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../installation/linux_developer.html">Linux developer install</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../installation/troubleshooting.html">Troubleshooting installation issues</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../programs/command_line_programs.html">Command line programs</a></li>
 </ul>
-<p aria-level="2" class="caption" role="heading">
- <span class="caption-text">
-  Documentation notebooks
- </span>
-</p>
+</li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../programs/pmag_gui.html">Installing and Getting Started with Pmag GUI</a><input class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-2"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../programs/demag_gui.html">Demag GUI</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../programs/thellier_gui.html">Thellier GUI</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../resources/survival_skills.html">Survival computer skills</a></li>
+
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Documentation notebooks</span></p>
 <ul class="current nav bd-sidenav">
- <li class="toctree-l1">
-  <a class="reference internal" href="Jupyter.html">
-   Jupyter Notebooks
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="PmagPy_introduction.html">
-   Introduction to PmagPy
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="PmagPy_calculations.html">
-   Calculations with PmagPy
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="PmagPy_plots_analysis.html">
-   Visualizations and more analysis with PmagPy
-  </a>
- </li>
- <li class="toctree-l1 current active">
-  <a class="current reference internal" href="#">
-   Working with the MagIC database using PmagPy
-  </a>
- </li>
+<li class="toctree-l1"><a class="reference internal" href="Jupyter.html">Jupyter Notebooks</a></li>
+<li class="toctree-l1"><a class="reference internal" href="PmagPy_introduction.html">Introduction to PmagPy</a></li>
+
+<li class="toctree-l1"><a class="reference internal" href="PmagPy_calculations.html">Calculations with PmagPy</a></li>
+<li class="toctree-l1"><a class="reference internal" href="PmagPy_plots_analysis.html">Visualizations and more analysis with PmagPy</a></li>
+<li class="toctree-l1 current active"><a class="current reference internal" href="#">Working with the MagIC database using PmagPy</a></li>
+
+
 </ul>
-<p aria-level="2" class="caption" role="heading">
- <span class="caption-text">
-  Example notebooks
- </span>
-</p>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Example notebooks</span></p>
 <ul class="nav bd-sidenav">
- <li class="toctree-l1 has-children">
-  <a class="reference internal" href="../example_notebooks/example_notebooks.html">
-   Example notebooks
-  </a>
-  <input class="toctree-checkbox" id="toctree-checkbox-3" name="toctree-checkbox-3" type="checkbox"/>
-  <label for="toctree-checkbox-3">
-   <i class="fas fa-chevron-down">
-   </i>
-  </label>
-  <ul>
-   <li class="toctree-l2">
-    <a class="reference internal" href="../example_notebooks/Tauxe_etal_2016.html">
-     Tauxe et al. 2016 example notebook
-    </a>
-   </li>
-  </ul>
- </li>
+<li class="toctree-l1"><a class="reference internal" href="../example_notebooks/example_notebooks.html">Example notebooks</a></li>
 </ul>
-<p aria-level="2" class="caption" role="heading">
- <span class="caption-text">
-  MagIC
- </span>
-</p>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">MagIC</span></p>
 <ul class="nav bd-sidenav">
- <li class="toctree-l1">
-  <a class="reference internal" href="../MagIC/MagIC.html">
-   MagIC database and file formats
-  </a>
- </li>
+<li class="toctree-l1"><a class="reference internal" href="../MagIC/MagIC.html">MagIC database and file formats</a></li>
 </ul>
-<p aria-level="2" class="caption" role="heading">
- <span class="caption-text">
-  Function docstrings
- </span>
-</p>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Function docstrings</span></p>
 <ul class="nav bd-sidenav">
- <li class="toctree-l1">
-  <a class="reference internal" href="../api/api.html">
-   API Reference
-  </a>
- </li>
+<li class="toctree-l1"><a class="reference internal" href="../api/api.html">API Reference</a></li>
 </ul>
-<p aria-level="2" class="caption" role="heading">
- <span class="caption-text">
-  References
- </span>
-</p>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">References</span></p>
 <ul class="nav bd-sidenav">
- <li class="toctree-l1">
-  <a class="reference internal" href="../references.html">
-   References
-  </a>
- </li>
+<li class="toctree-l1"><a class="reference internal" href="../references.html">References</a></li>
 </ul>
 
     </div>
 </nav></div>
-        <div class="bd-sidebar__bottom">
-             <!-- To handle the deprecated key -->
-            
-            <div class="navbar_extra_footer">
-            Powered by <a href="https://jupyterbook.org">Jupyter Book</a>
-            </div>
-            
-        </div>
     </div>
-    <div id="rtd-footer-container"></div>
-</div>
-
-
-          
-
-
-          
-<!-- A tiny helper pixel to detect if we've scrolled -->
-<div class="sbt-scroll-pixel-helper"></div>
-<!-- Main content -->
-<div class="col py-0 content-container">
-    
-    <div class="header-article row sticky-top noprint">
-        
-
-
-
-<div class="col py-1 d-flex header-article-main">
-    <div class="header-article__left">
-        
-        <label for="__navigation"
-  class="headerbtn"
-  data-toggle="tooltip"
-data-placement="right"
-title="Toggle navigation"
->
   
-
-<span class="headerbtn__icon-container">
-  <i class="fas fa-bars"></i>
-  </span>
-
-</label>
-
-        
-    </div>
-    <div class="header-article__right">
-<div class="menu-dropdown menu-dropdown-launch-buttons">
-  <button class="headerbtn menu-dropdown__trigger"
-      aria-label="Launch interactive content">
-      <i class="fas fa-rocket"></i>
-  </button>
-  <div class="menu-dropdown__content">
-    <ul>
-      <li>
-        <a href="https://mybinder.org/v2/gh/pmagpy/pmagpy-docs/master?urlpath=tree/documentation_notebooks/PmagPy_MagIC.ipynb"
-   class="headerbtn"
-   data-toggle="tooltip"
-data-placement="left"
-title="Launch on Binder"
->
   
-
-<span class="headerbtn__icon-container">
-  
-    <img src="../_static/images/logo_binder.svg">
-  </span>
-<span class="headerbtn__text-container">Binder</span>
-</a>
-
-      </li>
-      
-    </ul>
+  <div class="sidebar-primary-items__end sidebar-primary__section">
   </div>
+  
+  <div id="rtd-footer-container"></div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><label class="sidebar-toggle primary-toggle btn btn-sm" for="__primary" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</label></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+
+
+
+<div class="dropdown dropdown-source-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Source repositories">
+    <i class="fab fa-github"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="https://github.com/pmagpy/pmagpy-docs" target="_blank"
+   class="btn btn-sm btn-source-repository-button dropdown-item"
+   title="Source repository"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fab fa-github"></i>
+  </span>
+<span class="btn__text-container">Repository</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li><a href="https://github.com/pmagpy/pmagpy-docs/issues/new?title=Issue%20on%20page%20%2Fdocumentation_notebooks/PmagPy_MagIC.html&body=Your%20issue%20content%20here." target="_blank"
+   class="btn btn-sm btn-source-issues-button dropdown-item"
+   title="Open an issue"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-lightbulb"></i>
+  </span>
+<span class="btn__text-container">Open issue</span>
+</a>
+</li>
+      
+  </ul>
 </div>
+
+
+
+
+
+
+<div class="dropdown dropdown-download-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Download this page">
+    <i class="fas fa-download"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="../_sources/documentation_notebooks/PmagPy_MagIC.ipynb" target="_blank"
+   class="btn btn-sm btn-download-source-button dropdown-item"
+   title="Download source file"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="btn__text-container">.ipynb</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="window.print()"
+  class="btn btn-sm btn-download-pdf-button dropdown-item"
+  title="Print to PDF"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="btn__text-container">.pdf</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
 
 <button onclick="toggleFullScreen()"
-  class="headerbtn"
-  data-toggle="tooltip"
-data-placement="bottom"
-title="Fullscreen mode"
+  class="btn btn-sm btn-fullscreen-button"
+  title="Fullscreen mode"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
 >
   
 
-<span class="headerbtn__icon-container">
+<span class="btn__icon-container">
   <i class="fas fa-expand"></i>
   </span>
 
 </button>
 
-<div class="menu-dropdown menu-dropdown-repository-buttons">
-  <button class="headerbtn menu-dropdown__trigger"
-      aria-label="Source repositories">
-      <i class="fab fa-github"></i>
+
+<script>
+document.write(`
+  <button class="theme-switch-button btn btn-sm btn-outline-primary navbar-btn rounded-circle" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="theme-switch" data-mode="light"><i class="fa-solid fa-sun"></i></span>
+    <span class="theme-switch" data-mode="dark"><i class="fa-solid fa-moon"></i></span>
+    <span class="theme-switch" data-mode="auto"><i class="fa-solid fa-circle-half-stroke"></i></span>
   </button>
-  <div class="menu-dropdown__content">
-    <ul>
-      <li>
-        <a href="https://github.com/pmagpy/pmagpy-docs"
-   class="headerbtn"
-   data-toggle="tooltip"
-data-placement="left"
-title="Source repository"
->
-  
+`);
+</script>
 
-<span class="headerbtn__icon-container">
-  <i class="fab fa-github"></i>
-  </span>
-<span class="headerbtn__text-container">repository</span>
-</a>
-
-      </li>
-      
-      <li>
-        <a href="https://github.com/pmagpy/pmagpy-docs/issues/new?title=Issue%20on%20page%20%2Fdocumentation_notebooks/PmagPy_MagIC.html&body=Your%20issue%20content%20here."
-   class="headerbtn"
-   data-toggle="tooltip"
-data-placement="left"
-title="Open an issue"
->
-  
-
-<span class="headerbtn__icon-container">
-  <i class="fas fa-lightbulb"></i>
-  </span>
-<span class="headerbtn__text-container">open issue</span>
-</a>
-
-      </li>
-      
-    </ul>
-  </div>
-</div>
-
-<div class="menu-dropdown menu-dropdown-download-buttons">
-  <button class="headerbtn menu-dropdown__trigger"
-      aria-label="Download this page">
-      <i class="fas fa-download"></i>
+<script>
+document.write(`
+  <button class="btn btn-sm navbar-btn search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass"></i>
   </button>
-  <div class="menu-dropdown__content">
-    <ul>
-      <li>
-        <a href="../_sources/documentation_notebooks/PmagPy_MagIC.ipynb"
-   class="headerbtn"
-   data-toggle="tooltip"
-data-placement="left"
-title="Download source file"
->
-  
-
-<span class="headerbtn__icon-container">
-  <i class="fas fa-file"></i>
-  </span>
-<span class="headerbtn__text-container">.ipynb</span>
-</a>
-
-      </li>
-      
-      <li>
-        
-<button onclick="printPdf(this)"
-  class="headerbtn"
-  data-toggle="tooltip"
-data-placement="left"
-title="Print to PDF"
->
-  
-
-<span class="headerbtn__icon-container">
-  <i class="fas fa-file-pdf"></i>
-  </span>
-<span class="headerbtn__text-container">.pdf</span>
-</button>
-
-      </li>
-      
-    </ul>
-  </div>
-</div>
-<label for="__page-toc"
-  class="headerbtn headerbtn-page-toc"
-  
->
-  
-
-<span class="headerbtn__icon-container">
-  <i class="fas fa-list"></i>
-  </span>
-
+`);
+</script>
+<label class="sidebar-toggle secondary-toggle btn btn-sm" for="__secondary"title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
 </label>
-
+</div></div>
+      
     </div>
+  
 </div>
-
-<!-- Table of contents -->
-<div class="col-md-3 bd-toc show noprint">
-    <div class="tocsection onthispage pt-5 pb-3">
-        <i class="fas fa-list"></i> Contents
-    </div>
-    <nav id="bd-toc-nav" aria-label="Page">
-        <ul class="visible nav section-nav flex-column">
- <li class="toc-h1 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#">
-   Working with the MagIC database using PmagPy
-  </a>
-  <ul class="visible nav section-nav flex-column">
-   <li class="toc-h2 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#overview-of-magic">
-     Overview of   MagIC
-    </a>
-   </li>
-   <li class="toc-h2 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#guide-to-pmagpy">
-     Guide to PmagPy
-    </a>
-   </li>
-   <li class="toc-h2 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#customizing-this-notebook">
-     Customizing this notebook
-    </a>
-   </li>
-   <li class="toc-h2 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#get-started">
-     Get started
-    </a>
-   </li>
-  </ul>
- </li>
- <li class="toc-h1 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#table-of-contents">
-   Table of contents
-  </a>
-  <ul class="visible nav section-nav flex-column">
-   <li class="toc-h2 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#magic-read">
-     magic_read
-    </a>
-   </li>
-   <li class="toc-h2 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#pmag-magic-write">
-     pmag.magic_write
-    </a>
-   </li>
-   <li class="toc-h2 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#combine-magic">
-     combine_magic
-    </a>
-   </li>
-   <li class="toc-h2 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#convert-ages">
-     convert_ages
-    </a>
-   </li>
-   <li class="toc-h2 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#grab-magic-key">
-     grab_magic_key
-    </a>
-   </li>
-   <li class="toc-h2 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#magic-select">
-     magic_select
-    </a>
-   </li>
-   <li class="toc-h2 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#sites-extract">
-     sites_extract
-    </a>
-   </li>
-   <li class="toc-h2 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#criteria-extract">
-     criteria_extract
-    </a>
-   </li>
-   <li class="toc-h2 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#specimens-extract">
-     specimens_extract
-    </a>
-   </li>
-   <li class="toc-h2 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#contributions">
-     Contributions
-    </a>
-    <ul class="nav section-nav flex-column">
-     <li class="toc-h3 nav-item toc-entry">
-      <a class="reference internal nav-link" href="#download-magic">
-       download_magic
-      </a>
-      <ul class="nav section-nav flex-column">
-       <li class="toc-h4 nav-item toc-entry">
-        <a class="reference internal nav-link" href="#working-with-a-public-contribution">
-         Working with a public contribution:
-        </a>
-       </li>
-       <li class="toc-h4 nav-item toc-entry">
-        <a class="reference internal nav-link" href="#working-with-a-private-contribution">
-         Working with a private contribution
-        </a>
-       </li>
-      </ul>
-     </li>
-     <li class="toc-h3 nav-item toc-entry">
-      <a class="reference internal nav-link" href="#upload-magic">
-       upload_magic
-      </a>
-     </li>
-     <li class="toc-h3 nav-item toc-entry">
-      <a class="reference internal nav-link" href="#cb-add-sites-to-meas-table">
-       cb.add_sites_to_meas_table
-      </a>
-     </li>
-     <li class="toc-h3 nav-item toc-entry">
-      <a class="reference internal nav-link" href="#cb-get-intensity-col">
-       cb.get_intensity_col
-      </a>
-     </li>
-    </ul>
-   </li>
-   <li class="toc-h2 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#interacting-with-the-magic-database">
-     Interacting with the MagIC database
-    </a>
-   </li>
-  </ul>
- </li>
- <li class="toc-h1 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#conversion-scripts">
-   Conversion Scripts
-  </a>
-  <ul class="visible nav section-nav flex-column">
-   <li class="toc-h2 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#convert-2-magic">
-     convert_2_magic
-    </a>
-    <ul class="nav section-nav flex-column">
-     <li class="toc-h3 nav-item toc-entry">
-      <a class="reference internal nav-link" href="#g-asc-magic">
-       _2g_asc_magic
-      </a>
-     </li>
-     <li class="toc-h3 nav-item toc-entry">
-      <a class="reference internal nav-link" href="#g-bin-magic">
-       _2g_bin_magic
-      </a>
-     </li>
-     <li class="toc-h3 nav-item toc-entry">
-      <a class="reference internal nav-link" href="#agm-magic">
-       agm_magic
-      </a>
-     </li>
-     <li class="toc-h3 nav-item toc-entry">
-      <a class="reference internal nav-link" href="#bgc-magic">
-       bgc_magic
-      </a>
-     </li>
-     <li class="toc-h3 nav-item toc-entry">
-      <a class="reference internal nav-link" href="#cit-magic">
-       cit_magic
-      </a>
-     </li>
-     <li class="toc-h3 nav-item toc-entry">
-      <a class="reference internal nav-link" href="#generic-magic">
-       generic_magic
-      </a>
-     </li>
-     <li class="toc-h3 nav-item toc-entry">
-      <a class="reference internal nav-link" href="#huji-magic">
-       huji_magic
-      </a>
-     </li>
-     <li class="toc-h3 nav-item toc-entry">
-      <a class="reference internal nav-link" href="#huji-sample-magic">
-       huji_sample_magic
-      </a>
-     </li>
-     <li class="toc-h3 nav-item toc-entry">
-      <a class="reference internal nav-link" href="#iodp-dscr-lore">
-       iodp_dscr_lore
-      </a>
-     </li>
-     <li class="toc-h3 nav-item toc-entry">
-      <a class="reference internal nav-link" href="#iodp-jr6-lore">
-       iodp_jr6_lore
-      </a>
-     </li>
-     <li class="toc-h3 nav-item toc-entry">
-      <a class="reference internal nav-link" href="#iodp-srm-lore">
-       iodp_srm_lore
-      </a>
-     </li>
-     <li class="toc-h3 nav-item toc-entry">
-      <a class="reference internal nav-link" href="#jr6-jr6-magic">
-       jr6_jr6_magic
-      </a>
-     </li>
-     <li class="toc-h3 nav-item toc-entry">
-      <a class="reference internal nav-link" href="#jr6-txt-magic">
-       jr6_txt_magic
-      </a>
-     </li>
-     <li class="toc-h3 nav-item toc-entry">
-      <a class="reference internal nav-link" href="#k15-magic">
-       k15_magic
-      </a>
-     </li>
-     <li class="toc-h3 nav-item toc-entry">
-      <a class="reference internal nav-link" href="#kly4s-magic">
-       kly4s_magic
-      </a>
-     </li>
-     <li class="toc-h3 nav-item toc-entry">
-      <a class="reference internal nav-link" href="#ldeo-magic">
-       ldeo_magic
-      </a>
-     </li>
-     <li class="toc-h3 nav-item toc-entry">
-      <a class="reference internal nav-link" href="#livdb-magic">
-       livdb_magic
-      </a>
-     </li>
-     <li class="toc-h3 nav-item toc-entry">
-      <a class="reference internal nav-link" href="#mst-magic">
-       mst_magic
-      </a>
-     </li>
-     <li class="toc-h3 nav-item toc-entry">
-      <a class="reference internal nav-link" href="#pmd-magic">
-       pmd_magic
-      </a>
-     </li>
-     <li class="toc-h3 nav-item toc-entry">
-      <a class="reference internal nav-link" href="#sio-magic">
-       sio_magic
-      </a>
-     </li>
-     <li class="toc-h3 nav-item toc-entry">
-      <a class="reference internal nav-link" href="#sufar4-magic">
-       sufar4_magic
-      </a>
-     </li>
-     <li class="toc-h3 nav-item toc-entry">
-      <a class="reference internal nav-link" href="#tdt-magic">
-       tdt_magic
-      </a>
-     </li>
-     <li class="toc-h3 nav-item toc-entry">
-      <a class="reference internal nav-link" href="#utrecht-magic">
-       utrecht_magic
-      </a>
-     </li>
-     <li class="toc-h3 nav-item toc-entry">
-      <a class="reference internal nav-link" href="#orientation-magic">
-       orientation_magic
-      </a>
-     </li>
-     <li class="toc-h3 nav-item toc-entry">
-      <a class="reference internal nav-link" href="#azdip-magic">
-       azdip_magic
-      </a>
-     </li>
-    </ul>
-   </li>
-   <li class="toc-h2 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#other-handy-scripts">
-     Other handy scripts
-    </a>
-    <ul class="nav section-nav flex-column">
-     <li class="toc-h3 nav-item toc-entry">
-      <a class="reference internal nav-link" href="#chartmaker">
-       chartmaker
-      </a>
-     </li>
-    </ul>
-   </li>
-   <li class="toc-h2 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#clean-up">
-     Clean up
-    </a>
-   </li>
-  </ul>
- </li>
-</ul>
-
-    </nav>
 </div>
-    </div>
-    <div class="article row">
-        <div class="col pl-md-3 pl-lg-5 content-container">
-            <!-- Table of contents that is only displayed when printing the page -->
-            <div id="jb-print-docs-body" class="onlyprint">
-                <h1>Working with the MagIC database using PmagPy</h1>
-                <!-- Table of contents -->
-                <div id="print-main-content">
-                    <div id="jb-print-toc">
-                        
-                        <div>
-                            <h2> Contents </h2>
-                        </div>
-                        <nav aria-label="Page">
-                            <ul class="visible nav section-nav flex-column">
- <li class="toc-h1 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#">
-   Working with the MagIC database using PmagPy
-  </a>
-  <ul class="visible nav section-nav flex-column">
-   <li class="toc-h2 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#overview-of-magic">
-     Overview of   MagIC
-    </a>
-   </li>
-   <li class="toc-h2 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#guide-to-pmagpy">
-     Guide to PmagPy
-    </a>
-   </li>
-   <li class="toc-h2 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#customizing-this-notebook">
-     Customizing this notebook
-    </a>
-   </li>
-   <li class="toc-h2 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#get-started">
-     Get started
-    </a>
-   </li>
-  </ul>
- </li>
- <li class="toc-h1 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#table-of-contents">
-   Table of contents
-  </a>
-  <ul class="visible nav section-nav flex-column">
-   <li class="toc-h2 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#magic-read">
-     magic_read
-    </a>
-   </li>
-   <li class="toc-h2 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#pmag-magic-write">
-     pmag.magic_write
-    </a>
-   </li>
-   <li class="toc-h2 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#combine-magic">
-     combine_magic
-    </a>
-   </li>
-   <li class="toc-h2 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#convert-ages">
-     convert_ages
-    </a>
-   </li>
-   <li class="toc-h2 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#grab-magic-key">
-     grab_magic_key
-    </a>
-   </li>
-   <li class="toc-h2 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#magic-select">
-     magic_select
-    </a>
-   </li>
-   <li class="toc-h2 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#sites-extract">
-     sites_extract
-    </a>
-   </li>
-   <li class="toc-h2 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#criteria-extract">
-     criteria_extract
-    </a>
-   </li>
-   <li class="toc-h2 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#specimens-extract">
-     specimens_extract
-    </a>
-   </li>
-   <li class="toc-h2 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#contributions">
-     Contributions
-    </a>
-    <ul class="nav section-nav flex-column">
-     <li class="toc-h3 nav-item toc-entry">
-      <a class="reference internal nav-link" href="#download-magic">
-       download_magic
-      </a>
-      <ul class="nav section-nav flex-column">
-       <li class="toc-h4 nav-item toc-entry">
-        <a class="reference internal nav-link" href="#working-with-a-public-contribution">
-         Working with a public contribution:
-        </a>
-       </li>
-       <li class="toc-h4 nav-item toc-entry">
-        <a class="reference internal nav-link" href="#working-with-a-private-contribution">
-         Working with a private contribution
-        </a>
-       </li>
-      </ul>
-     </li>
-     <li class="toc-h3 nav-item toc-entry">
-      <a class="reference internal nav-link" href="#upload-magic">
-       upload_magic
-      </a>
-     </li>
-     <li class="toc-h3 nav-item toc-entry">
-      <a class="reference internal nav-link" href="#cb-add-sites-to-meas-table">
-       cb.add_sites_to_meas_table
-      </a>
-     </li>
-     <li class="toc-h3 nav-item toc-entry">
-      <a class="reference internal nav-link" href="#cb-get-intensity-col">
-       cb.get_intensity_col
-      </a>
-     </li>
-    </ul>
-   </li>
-   <li class="toc-h2 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#interacting-with-the-magic-database">
-     Interacting with the MagIC database
-    </a>
-   </li>
-  </ul>
- </li>
- <li class="toc-h1 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#conversion-scripts">
-   Conversion Scripts
-  </a>
-  <ul class="visible nav section-nav flex-column">
-   <li class="toc-h2 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#convert-2-magic">
-     convert_2_magic
-    </a>
-    <ul class="nav section-nav flex-column">
-     <li class="toc-h3 nav-item toc-entry">
-      <a class="reference internal nav-link" href="#g-asc-magic">
-       _2g_asc_magic
-      </a>
-     </li>
-     <li class="toc-h3 nav-item toc-entry">
-      <a class="reference internal nav-link" href="#g-bin-magic">
-       _2g_bin_magic
-      </a>
-     </li>
-     <li class="toc-h3 nav-item toc-entry">
-      <a class="reference internal nav-link" href="#agm-magic">
-       agm_magic
-      </a>
-     </li>
-     <li class="toc-h3 nav-item toc-entry">
-      <a class="reference internal nav-link" href="#bgc-magic">
-       bgc_magic
-      </a>
-     </li>
-     <li class="toc-h3 nav-item toc-entry">
-      <a class="reference internal nav-link" href="#cit-magic">
-       cit_magic
-      </a>
-     </li>
-     <li class="toc-h3 nav-item toc-entry">
-      <a class="reference internal nav-link" href="#generic-magic">
-       generic_magic
-      </a>
-     </li>
-     <li class="toc-h3 nav-item toc-entry">
-      <a class="reference internal nav-link" href="#huji-magic">
-       huji_magic
-      </a>
-     </li>
-     <li class="toc-h3 nav-item toc-entry">
-      <a class="reference internal nav-link" href="#huji-sample-magic">
-       huji_sample_magic
-      </a>
-     </li>
-     <li class="toc-h3 nav-item toc-entry">
-      <a class="reference internal nav-link" href="#iodp-dscr-lore">
-       iodp_dscr_lore
-      </a>
-     </li>
-     <li class="toc-h3 nav-item toc-entry">
-      <a class="reference internal nav-link" href="#iodp-jr6-lore">
-       iodp_jr6_lore
-      </a>
-     </li>
-     <li class="toc-h3 nav-item toc-entry">
-      <a class="reference internal nav-link" href="#iodp-srm-lore">
-       iodp_srm_lore
-      </a>
-     </li>
-     <li class="toc-h3 nav-item toc-entry">
-      <a class="reference internal nav-link" href="#jr6-jr6-magic">
-       jr6_jr6_magic
-      </a>
-     </li>
-     <li class="toc-h3 nav-item toc-entry">
-      <a class="reference internal nav-link" href="#jr6-txt-magic">
-       jr6_txt_magic
-      </a>
-     </li>
-     <li class="toc-h3 nav-item toc-entry">
-      <a class="reference internal nav-link" href="#k15-magic">
-       k15_magic
-      </a>
-     </li>
-     <li class="toc-h3 nav-item toc-entry">
-      <a class="reference internal nav-link" href="#kly4s-magic">
-       kly4s_magic
-      </a>
-     </li>
-     <li class="toc-h3 nav-item toc-entry">
-      <a class="reference internal nav-link" href="#ldeo-magic">
-       ldeo_magic
-      </a>
-     </li>
-     <li class="toc-h3 nav-item toc-entry">
-      <a class="reference internal nav-link" href="#livdb-magic">
-       livdb_magic
-      </a>
-     </li>
-     <li class="toc-h3 nav-item toc-entry">
-      <a class="reference internal nav-link" href="#mst-magic">
-       mst_magic
-      </a>
-     </li>
-     <li class="toc-h3 nav-item toc-entry">
-      <a class="reference internal nav-link" href="#pmd-magic">
-       pmd_magic
-      </a>
-     </li>
-     <li class="toc-h3 nav-item toc-entry">
-      <a class="reference internal nav-link" href="#sio-magic">
-       sio_magic
-      </a>
-     </li>
-     <li class="toc-h3 nav-item toc-entry">
-      <a class="reference internal nav-link" href="#sufar4-magic">
-       sufar4_magic
-      </a>
-     </li>
-     <li class="toc-h3 nav-item toc-entry">
-      <a class="reference internal nav-link" href="#tdt-magic">
-       tdt_magic
-      </a>
-     </li>
-     <li class="toc-h3 nav-item toc-entry">
-      <a class="reference internal nav-link" href="#utrecht-magic">
-       utrecht_magic
-      </a>
-     </li>
-     <li class="toc-h3 nav-item toc-entry">
-      <a class="reference internal nav-link" href="#orientation-magic">
-       orientation_magic
-      </a>
-     </li>
-     <li class="toc-h3 nav-item toc-entry">
-      <a class="reference internal nav-link" href="#azdip-magic">
-       azdip_magic
-      </a>
-     </li>
-    </ul>
-   </li>
-   <li class="toc-h2 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#other-handy-scripts">
-     Other handy scripts
-    </a>
-    <ul class="nav section-nav flex-column">
-     <li class="toc-h3 nav-item toc-entry">
-      <a class="reference internal nav-link" href="#chartmaker">
-       chartmaker
-      </a>
-     </li>
-    </ul>
-   </li>
-   <li class="toc-h2 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#clean-up">
-     Clean up
-    </a>
-   </li>
-  </ul>
- </li>
-</ul>
+              
+              
 
-                        </nav>
-                    </div>
-                </div>
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1>Working with the MagIC database using PmagPy</h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+            <div>
+                <h2> Contents </h2>
             </div>
-            <main id="main-content" role="main">
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#">Working with the MagIC database using PmagPy</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#overview-of-magic">Overview of   MagIC</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#guide-to-pmagpy">Guide to PmagPy</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#customizing-this-notebook">Customizing this notebook</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#get-started">Get started</a></li>
+</ul>
+</li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#table-of-contents">Table of contents</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#magic-read">magic_read</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#pmag-magic-write">pmag.magic_write</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#combine-magic">combine_magic</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#convert-ages">convert_ages</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#grab-magic-key">grab_magic_key</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#magic-select">magic_select</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#sites-extract">sites_extract</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#criteria-extract">criteria_extract</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#specimens-extract">specimens_extract</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#contributions">Contributions</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#download-magic">download_magic</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#working-with-a-public-contribution">Working with a public contribution:</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#working-with-a-private-contribution">Working with a private contribution</a></li>
+</ul>
+</li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#upload-magic">upload_magic</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#cb-add-sites-to-meas-table">cb.add_sites_to_meas_table</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#cb-get-intensity-col">cb.get_intensity_col</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#interacting-with-the-magic-database">Interacting with the MagIC database</a></li>
+</ul>
+</li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#conversion-scripts">Conversion Scripts</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#convert-2-magic">convert_2_magic</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#g-asc-magic">_2g_asc_magic</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#g-bin-magic">_2g_bin_magic</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#agm-magic">agm_magic</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#bgc-magic">bgc_magic</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#cit-magic">cit_magic</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#generic-magic">generic_magic</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#huji-magic">huji_magic</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#huji-sample-magic">huji_sample_magic</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#iodp-dscr-lore">iodp_dscr_lore</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#iodp-jr6-lore">iodp_jr6_lore</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#iodp-srm-lore">iodp_srm_lore</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#jr6-jr6-magic">jr6_jr6_magic</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#jr6-txt-magic">jr6_txt_magic</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#k15-magic">k15_magic</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#kly4s-magic">kly4s_magic</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#ldeo-magic">ldeo_magic</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#livdb-magic">livdb_magic</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#mst-magic">mst_magic</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#pmd-magic">pmd_magic</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#sio-magic">sio_magic</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#sufar4-magic">sufar4_magic</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#tdt-magic">tdt_magic</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#utrecht-magic">utrecht_magic</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#orientation-magic">orientation_magic</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#azdip-magic">azdip_magic</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#other-handy-scripts">Other handy scripts</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#chartmaker">chartmaker</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#clean-up">Clean up</a></li>
+</ul>
+</li>
+</ul>
+
+            </nav>
+        </div>
+    </div>
+</div>
+
+              
                 
-              <div>
-                
+<div id="searchbox"></div>
+                <article class="bd-article" role="main">
+                  
   <section class="tex2jax_ignore mathjax_ignore" id="working-with-the-magic-database-using-pmagpy">
-<h1>Working with the MagIC database using PmagPy<a class="headerlink" href="#working-with-the-magic-database-using-pmagpy" title="Permalink to this headline">#</a></h1>
+<h1>Working with the MagIC database using PmagPy<a class="headerlink" href="#working-with-the-magic-database-using-pmagpy" title="Permalink to this heading">#</a></h1>
 <p>The Magnetics Information Consortium (MagIC) maintains a database of published rock and paleomagnetic data: <a class="reference external" href="https://www.earthref.org/MagIC">https://www.earthref.org/MagIC</a></p>
 <p>Many <strong>PmagPy</strong> scripts are designed to work with data in the MagIC format.  This notebook uses Data Model 3.0: <a class="reference external" href="https://www.earthref.org/MagIC/data-models/3.0">https://www.earthref.org/MagIC/data-models/3.0</a></p>
 <section id="overview-of-magic">
-<h2>Overview of   MagIC<a class="headerlink" href="#overview-of-magic" title="Permalink to this headline">#</a></h2>
+<h2>Overview of   MagIC<a class="headerlink" href="#overview-of-magic" title="Permalink to this heading">#</a></h2>
 <p>The Magnetics Information Consortium (MagIC), hosted at <a class="reference external" href="http://earthref.org/MagIC">http://earthref.org/MagIC</a> is a database that serves as a Findable, Accessible, Interoperable, Reusable (FAIR) archive for paleomagnetic and rock magnetic data. Its data model is fully described here: <a class="reference external" href="https://www2.earthref.org/MagIC/data-models/3.0">https://www2.earthref.org/MagIC/data-models/3.0</a>. Each contribution is associated with a publication via the DOI.  There are nine data tables:</p>
 <ul class="simple">
 <li><p>contribution: metadata of the associated publication.</p></li>
@@ -1125,7 +514,7 @@ azimuth	azimuth_dec_correction	citations	description	dip	geologic_classes	geolog
 </div>
 </section>
 <section id="guide-to-pmagpy">
-<h2>Guide to PmagPy<a class="headerlink" href="#guide-to-pmagpy" title="Permalink to this headline">#</a></h2>
+<h2>Guide to PmagPy<a class="headerlink" href="#guide-to-pmagpy" title="Permalink to this heading">#</a></h2>
 <p>The notebook is one of a series of notebooks that demonstrate the functionality of PmagPy. The other notebooks are:</p>
 <ul class="simple">
 <li><p><a class="reference internal" href="PmagPy_introduction.html"><span class="doc std std-doc">PmagPy_introduction.ipynb</span></a> This notebook introduces PmagPy and lists the functions that are demonstrated in the other notebooks.</p></li>
@@ -1134,11 +523,11 @@ azimuth	azimuth_dec_correction	citations	description	dip	geologic_classes	geolog
 </ul>
 </section>
 <section id="customizing-this-notebook">
-<h2>Customizing this notebook<a class="headerlink" href="#customizing-this-notebook" title="Permalink to this headline">#</a></h2>
+<h2>Customizing this notebook<a class="headerlink" href="#customizing-this-notebook" title="Permalink to this heading">#</a></h2>
 <p>If you want to make changes to this notebook, you should make a copy (see File menu).  Otherwise each time you update <strong>PmagPy</strong>, your changes will be overwritten.</p>
 </section>
 <section id="get-started">
-<h2>Get started<a class="headerlink" href="#get-started" title="Permalink to this headline">#</a></h2>
+<h2>Get started<a class="headerlink" href="#get-started" title="Permalink to this heading">#</a></h2>
 <p>To use the functions in this notebook, we have to   import the <strong>PmagPy</strong> modules <strong>pmagplotlib</strong>, <strong>pmag</strong> and <strong>ipmag</strong> and some other handy functions for use in the notebook.  This is done in the following code block which must be executed before running any other code block. To execute, click on the code block and then click on the “Run” button in the menu.</p>
 <p>In order to access the example data, this notebook is meant to be run in the PmagPy-data directory (PmagPy directory for developers).</p>
 <p>Try it!  Run the code block below (click on the cell and then click ‘Run’):</p>
@@ -1174,7 +563,7 @@ azimuth	azimuth_dec_correction	citations	description	dip	geologic_classes	geolog
 <span class="k">try</span><span class="p">:</span>
     <span class="kn">import</span> <span class="nn">wget</span>
 <span class="k">except</span><span class="p">:</span>
-    <span class="o">!</span>pip install wget
+    <span class="o">!</span>pip<span class="w"> </span>install<span class="w"> </span>wget
 
 <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;All modules imported!&#39;</span><span class="p">)</span>
 </pre></div>
@@ -1189,67 +578,67 @@ azimuth	azimuth_dec_correction	citations	description	dip	geologic_classes	geolog
 </section>
 </section>
 <section class="tex2jax_ignore mathjax_ignore" id="table-of-contents">
-<h1>Table of contents<a class="headerlink" href="#table-of-contents" title="Permalink to this headline">#</a></h1>
+<h1>Table of contents<a class="headerlink" href="#table-of-contents" title="Permalink to this heading">#</a></h1>
 <ul class="simple">
 <li><p>Functions in <strong>PmagPy_MagIC.ipynb</strong></p>
 <ul>
-<li><p><a class="reference external" href="#magic_read">reading MagIC files</a> : reading in MagIC formatted files</p></li>
-<li><p><a class="reference external" href="#magic_write">writing MagIC files</a> : outputing MagIC formatted files</p></li>
-<li><p><a class="reference external" href="#combine_magic">combine_magic</a> : combines two MagIC formatted files of same type</p></li>
-<li><p><a class="reference external" href="#convert_ages">convert_ages</a> : convert ages in downloaded MagIC file to Ma</p></li>
-<li><p><a class="reference external" href="#grab_magic_key">grab_magic_key</a> : prints out a single column from a MagIC format file</p></li>
-<li><p><a class="reference external" href="#magic_select">magic_select</a> : selects data from MagIC format file given conditions (e.g., method_codes contain string)</p></li>
-<li><p><a class="reference external" href="#sites_extract">sites_extract</a> : makes excel or latex files from sites.txt for publications</p></li>
-<li><p><a class="reference external" href="#criteria_extract">criteria_extract</a> : makes excel or latex files from criteria.txt for publications</p></li>
-<li><p><a class="reference external" href="#specimens_extract">specimens_extract</a> : makes excel or latex files from specimens.txt for publications</p></li>
-<li><p><a class="reference external" href="#Contributions">contributions</a> work with data model 3.0 MagIC contributions</p>
+<li><p><span class="xref myst">reading MagIC files</span> : reading in MagIC formatted files</p></li>
+<li><p><span class="xref myst">writing MagIC files</span> : outputing MagIC formatted files</p></li>
+<li><p><span class="xref myst">combine_magic</span> : combines two MagIC formatted files of same type</p></li>
+<li><p><span class="xref myst">convert_ages</span> : convert ages in downloaded MagIC file to Ma</p></li>
+<li><p><span class="xref myst">grab_magic_key</span> : prints out a single column from a MagIC format file</p></li>
+<li><p><span class="xref myst">magic_select</span> : selects data from MagIC format file given conditions (e.g., method_codes contain string)</p></li>
+<li><p><span class="xref myst">sites_extract</span> : makes excel or latex files from sites.txt for publications</p></li>
+<li><p><span class="xref myst">criteria_extract</span> : makes excel or latex files from criteria.txt for publications</p></li>
+<li><p><span class="xref myst">specimens_extract</span> : makes excel or latex files from specimens.txt for publications</p></li>
+<li><p><span class="xref myst">contributions</span> work with data model 3.0 MagIC contributions</p>
 <ul>
-<li><p><a class="reference external" href="#download_magic">download_magic</a> : how to download and unpack a contribution text file from the MagIC website</p></li>
-<li><p><a class="reference external" href="#upload_magic">upload_magic</a> : prepares a directory with a MagIC contribution for uploading to MagIC</p></li>
-<li><p><a class="reference external" href="#cb.add_sites_to_meas_table">cb.add_sites_to_meas_table</a> : completes a measurements data frame with the information required for plotting by site.</p></li>
-<li><p><a class="reference external" href="#cb.get_intensity_col">cb.get_intensity_col</a> : finds the first non-zero type of intensity data in a measurements dataframe.</p></li>
+<li><p><span class="xref myst">download_magic</span> : how to download and unpack a contribution text file from the MagIC website</p></li>
+<li><p><span class="xref myst">upload_magic</span> : prepares a directory with a MagIC contribution for uploading to MagIC</p></li>
+<li><p><span class="xref myst">cb.add_sites_to_meas_table</span> : completes a measurements data frame with the information required for plotting by site.</p></li>
+<li><p><span class="xref myst">cb.get_intensity_col</span> : finds the first non-zero type of intensity data in a measurements dataframe.</p></li>
 </ul>
 </li>
-<li><p><a class="reference external" href="#Interacting-with-the-MagIC-database">Interacting with the MagIC database</a>: downloads and uploads MagIC contributions.</p></li>
-<li><p><a class="reference external" href="#Conversion-Scripts">conversion scripts</a> : convert many laboratory measurement formats to the MagIC data model 3 format</p>
+<li><p><span class="xref myst">Interacting with the MagIC database</span>: downloads and uploads MagIC contributions.</p></li>
+<li><p><span class="xref myst">conversion scripts</span> : convert many laboratory measurement formats to the MagIC data model 3 format</p>
 <ul>
-<li><p><a class="reference external" href="#_2g_asc_magic">_2g_asc_magic</a> : converts 2G ascii files to MagIC</p></li>
-<li><p><a class="reference external" href="#_2g_bin_magic">_2g_bin_magic</a> : converts 2G binary files to MagIC</p></li>
-<li><p><a class="reference external" href="#agm_magic">agm_magic</a> : converts Princeton Measurements alternating gradient force magnetization (AGM) files to MagIC.</p></li>
-<li><p><a class="reference external" href="#bgc_magic">bgc_magic</a> : convert Berkeley Geochronology Center files to MagIC.</p></li>
-<li><p><a class="reference external" href="#cit_magic">cit_magic</a> : convert Cal Tech format files to MagIC.</p></li>
-<li><p><a class="reference external" href="#generic_magic">generic_magic</a> : converts generic files to MagIC.</p></li>
-<li><p><a class="reference external" href="#huji_magic">huji_magic</a> : converts Hebrew University, Jerusalem, Israel files to MagIC.</p></li>
-<li><p><a class="reference external" href="#huji_sample_magic">huji_sample_magic</a> : converts HUJI files to a MagIC format.</p></li>
-<li><p><a class="reference external" href="#iodp_dscr_lore">iodp_dscr_lore</a> : converts IODP discrete measurement files to MagIC</p></li>
-<li><p><a class="reference external" href="#iodp_jr6_lore">iodp_jr6_lore</a> : converts IODP JR6 measurement files to MagIC</p></li>
-<li><p><a class="reference external" href="#iodp_dscr_lore">iodp_samples_csv</a> : converts IODP samples file to MagIC</p></li>
-<li><p><a class="reference external" href="#iodp_srm_lore">iodp_srm_lore</a> : converts IODP archive half measurement files to MagIC</p></li>
-<li><p><a class="reference external" href="#jr6_jr6_magic">jr6_jr6_magic</a> : converts the AGICO JR6 spinner .jr6 files to MagIC</p></li>
-<li><p><a class="reference external" href="#jr6_txt_magic">jr6_txt_magic</a> : converts the AGICO JR6 .txt files to MagIC</p></li>
-<li><p><a class="reference external" href="#k15_magic">k15_magic</a> : converts 15 measurement anisotropy of magnetic susceptibility files to MagIC.</p></li>
-<li><p><a class="reference external" href="#kly4s_magic">kly4s_magic</a> : converts SIO KLY4S formatted files to MagIC.</p></li>
-<li><p><a class="reference external" href="#ldeo_magic">ldeo_magic</a> : converts Lamont-Doherty files to MagIC.</p></li>
-<li><p><a class="reference external" href="#livdb_magic">livdb_magic</a> : converts Liverpool files to MagIC.</p></li>
-<li><p><a class="reference external" href="#mst_magic">mst_magic</a> : converts Curie Temperature experimental data to MagIC</p></li>
-<li><p><a class="reference external" href="#sio_magic">sio_magic</a> : converts Scripps Institution of Oceanography data files to MagIC</p></li>
-<li><p><a class="reference external" href="#sufar4_magic">sufar4_magic</a> : converts AGICO SUFAR program (ver.1.2.) ascii files to MagIC</p></li>
-<li><p><a class="reference external" href="#tdt_magic">tdt_magic</a> : converts Thellier Tool files to MagIC</p></li>
-<li><p><a class="reference external" href="#utrecht_magic">utrecht_magic</a> : converts Fort Hoofddijk, Utrecht University Robot files to MagIC</p></li>
-<li><p><a class="reference external" href="#orientation_magic">orientation_magic</a> : converts an “orient.txt” formatted file with field notebook information into MagIC formatted files</p></li>
-<li><p><a class="reference external" href="#azdip_magic">azdip_magic</a> : converts an “azdip” formatted file to a samples.txt file format</p></li>
+<li><p><span class="xref myst">_2g_asc_magic</span> : converts 2G ascii files to MagIC</p></li>
+<li><p><span class="xref myst">_2g_bin_magic</span> : converts 2G binary files to MagIC</p></li>
+<li><p><span class="xref myst">agm_magic</span> : converts Princeton Measurements alternating gradient force magnetization (AGM) files to MagIC.</p></li>
+<li><p><span class="xref myst">bgc_magic</span> : convert Berkeley Geochronology Center files to MagIC.</p></li>
+<li><p><span class="xref myst">cit_magic</span> : convert Cal Tech format files to MagIC.</p></li>
+<li><p><span class="xref myst">generic_magic</span> : converts generic files to MagIC.</p></li>
+<li><p><span class="xref myst">huji_magic</span> : converts Hebrew University, Jerusalem, Israel files to MagIC.</p></li>
+<li><p><span class="xref myst">huji_sample_magic</span> : converts HUJI files to a MagIC format.</p></li>
+<li><p><span class="xref myst">iodp_dscr_lore</span> : converts IODP discrete measurement files to MagIC</p></li>
+<li><p><span class="xref myst">iodp_jr6_lore</span> : converts IODP JR6 measurement files to MagIC</p></li>
+<li><p><span class="xref myst">iodp_samples_csv</span> : converts IODP samples file to MagIC</p></li>
+<li><p><span class="xref myst">iodp_srm_lore</span> : converts IODP archive half measurement files to MagIC</p></li>
+<li><p><span class="xref myst">jr6_jr6_magic</span> : converts the AGICO JR6 spinner .jr6 files to MagIC</p></li>
+<li><p><span class="xref myst">jr6_txt_magic</span> : converts the AGICO JR6 .txt files to MagIC</p></li>
+<li><p><span class="xref myst">k15_magic</span> : converts 15 measurement anisotropy of magnetic susceptibility files to MagIC.</p></li>
+<li><p><span class="xref myst">kly4s_magic</span> : converts SIO KLY4S formatted files to MagIC.</p></li>
+<li><p><span class="xref myst">ldeo_magic</span> : converts Lamont-Doherty files to MagIC.</p></li>
+<li><p><span class="xref myst">livdb_magic</span> : converts Liverpool files to MagIC.</p></li>
+<li><p><span class="xref myst">mst_magic</span> : converts Curie Temperature experimental data to MagIC</p></li>
+<li><p><span class="xref myst">sio_magic</span> : converts Scripps Institution of Oceanography data files to MagIC</p></li>
+<li><p><span class="xref myst">sufar4_magic</span> : converts AGICO SUFAR program (ver.1.2.) ascii files to MagIC</p></li>
+<li><p><span class="xref myst">tdt_magic</span> : converts Thellier Tool files to MagIC</p></li>
+<li><p><span class="xref myst">utrecht_magic</span> : converts Fort Hoofddijk, Utrecht University Robot files to MagIC</p></li>
+<li><p><span class="xref myst">orientation_magic</span> : converts an “orient.txt” formatted file with field notebook information into MagIC formatted files</p></li>
+<li><p><span class="xref myst">azdip_magic</span> : converts an “azdip” formatted file to a samples.txt file format</p></li>
 </ul>
 </li>
 </ul>
 </li>
 <li><p>other handy scripts</p>
 <ul>
-<li><p><a class="reference external" href="#chartmaker">chartmaker</a> : script for making chart to guide IZZI lab experiment</p></li>
+<li><p><span class="xref myst">chartmaker</span> : script for making chart to guide IZZI lab experiment</p></li>
 </ul>
 </li>
 </ul>
 <section id="magic-read">
-<h2>magic_read<a class="headerlink" href="#magic-read" title="Permalink to this headline">#</a></h2>
+<h2>magic_read<a class="headerlink" href="#magic-read" title="Permalink to this heading">#</a></h2>
 <ul>
 <li><p>MagIC formatted data files can be imported to a notebook in one of two ways: a</p>
 <ul class="simple">
@@ -1480,7 +869,7 @@ magic_read(infile, data=None, return_keys=False, verbose=False)
 </div>
 </section>
 <section id="pmag-magic-write">
-<h2>pmag.magic_write<a class="headerlink" href="#pmag-magic-write" title="Permalink to this headline">#</a></h2>
+<h2>pmag.magic_write<a class="headerlink" href="#pmag-magic-write" title="Permalink to this heading">#</a></h2>
 <ul class="simple">
 <li><p>to write a dataframe out as a MagIC table, just set dataframe=True</p></li>
 </ul>
@@ -1548,7 +937,7 @@ magic_write(ofile, Recs, file_type, dataframe=False)
 </div>
 </section>
 <section id="combine-magic">
-<h2>combine_magic<a class="headerlink" href="#combine-magic" title="Permalink to this headline">#</a></h2>
+<h2>combine_magic<a class="headerlink" href="#combine-magic" title="Permalink to this heading">#</a></h2>
 <p><a class="reference external" href="https://earthref.org/MagIC">[MagIC Database]</a>  <a class="reference external" href="https://pmagpy.github.io/PmagPy-cli.html#combine_magic.py">[command line version]</a></p>
 <p>MagIC tables have many columns only some of which are used in a particular instance. So combining files of the same type must be done carefully to ensure that the right data come under the right headings. The program <strong>combine_magic</strong> can be used to combine any number of MagIC files from a given type.<br />
 It  reads in MagIC formatted files of a common type (e.g., sites.txt) and combines them into a single file, taking care that all the columns are preserved. For example, if there are both AF and thermal data from a study and we created a measurements.txt formatted file for each, we could use <strong>combine_magic.py</strong> on the command line to combine them together into a single measurements.txt file.   In a notebook, we use  <strong>ipmag.combine_magic()</strong>.</p>
@@ -1608,9 +997,9 @@ combine_magic(filenames, outfile=&#39;measurements.txt&#39;, data_model=3, magic
 </div>
 </section>
 <section id="convert-ages">
-<h2>convert_ages<a class="headerlink" href="#convert-ages" title="Permalink to this headline">#</a></h2>
+<h2>convert_ages<a class="headerlink" href="#convert-ages" title="Permalink to this heading">#</a></h2>
 <p>Files downloaded from the MagIC search interface have ages that are in the original units, but what is often desired is for them to be in a single unit.  For example, if we searched the MagIC database for all absolute paleointensity data (records with method codes of ‘LP-PI-TRM’) from the last five million years, the data sets have a variety of age units.  We can use <strong>pmag.convert_ages()</strong>    to convert them all to millions of years.</p>
-<p>First we follow the instructions for unpacking downloaded files in <a class="reference external" href="#download_magic">download_magic</a>.</p>
+<p>First we follow the instructions for unpacking downloaded files in <span class="xref myst">download_magic</span>.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">ipmag</span><span class="o">.</span><span class="n">download_magic</span><span class="p">(</span><span class="s1">&#39;magic_downloaded_rows.txt&#39;</span><span class="p">,</span><span class="n">dir_path</span><span class="o">=</span><span class="s1">&#39;data_files/convert_ages/&#39;</span><span class="p">,</span>
@@ -1633,7 +1022,7 @@ sites  data put in  /Users/nebula/Python/PmagPy/data_files/convert_ages/sites.tx
 </div>
 </div>
 <p>After some minimal filtering using Pandas, we can convert a DataFrame to a list of dictionaries required by most PmagPy functions and use <strong>pmag.convert_ages()</strong> to convert all the ages.  The converted list of dictionaries can then be turned back into a Pandas DataFrame and either plotted or filtered further as desired.</p>
-<p>In this example, we filter for data older than the Brunhes (0.78 Ma) and younger than 5 Ma, then plot them against latitude.  We can also use <a class="reference external" href="#vdm_b">vdm_b</a> to plot the intensities expected from the present dipole moment (~80 ZAm<span class="math notranslate nohighlight">\(^2\)</span>).</p>
+<p>In this example, we filter for data older than the Brunhes (0.78 Ma) and younger than 5 Ma, then plot them against latitude.  We can also use <span class="xref myst">vdm_b</span> to plot the intensities expected from the present dipole moment (~80 ZAm<span class="math notranslate nohighlight">\(^2\)</span>).</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">help</span><span class="p">(</span><span class="n">pmag</span><span class="o">.</span><span class="n">convert_ages</span><span class="p">)</span>
@@ -1701,13 +1090,13 @@ convert_ages(Recs, data_model=3)
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../_images/PmagPy_MagIC_26_0.png" src="../_images/PmagPy_MagIC_26_0.png" />
+<img alt="../_images/fbd55f33e52d82e1efbac034b54af5de17120d95cc8c11ade90076c4ff8fbab7.png" src="../_images/fbd55f33e52d82e1efbac034b54af5de17120d95cc8c11ade90076c4ff8fbab7.png" />
 </div>
 </div>
 <p>That is pretty awful agreement.  Someday we need to figure out what is wrong with the data or  our GAD hypothesis.</p>
 </section>
 <section id="grab-magic-key">
-<h2>grab_magic_key<a class="headerlink" href="#grab-magic-key" title="Permalink to this headline">#</a></h2>
+<h2>grab_magic_key<a class="headerlink" href="#grab-magic-key" title="Permalink to this heading">#</a></h2>
 <p><a class="reference external" href="https://earthref.org/MagIC">[MagIC Database]</a> <a class="reference external" href="https://pmagpy.github.io/PmagPy-cli.html#grab_magic_key.py">[command line version]</a></p>
 <p>Sometimes you want to read in a MagIC file and print out the desired key. <strong>Pandas</strong> makes this easy!  In this example, we will print out latitudes for each site record.</p>
 <div class="cell docutils container">
@@ -1736,7 +1125,7 @@ Name: lat, Length: 91, dtype: float64
 </div>
 </section>
 <section id="magic-select">
-<h2>magic_select<a class="headerlink" href="#magic-select" title="Permalink to this headline">#</a></h2>
+<h2>magic_select<a class="headerlink" href="#magic-select" title="Permalink to this heading">#</a></h2>
 <p><a class="reference external" href="https://earthref.org/MagIC">[MagIC Database]</a> <a class="reference external" href="https://pmagpy.github.io/PmagPy-cli.html#magic_select.py">[command line version]</a></p>
 <p>This example demonstrates how to select MagIC records that meet a certain criterion, like having a particular method code.</p>
 <p>Note:  to output into a MagIC formatted file, we can change the DataFrame to a list of dictionaries (with df.to_dict(“records”)) and
@@ -1787,7 +1176,7 @@ magic_write(ofile, Recs, file_type)
 </div>
 </section>
 <section id="sites-extract">
-<h2>sites_extract<a class="headerlink" href="#sites-extract" title="Permalink to this headline">#</a></h2>
+<h2>sites_extract<a class="headerlink" href="#sites-extract" title="Permalink to this heading">#</a></h2>
 <p>It is frequently desirable to format tables for publications from the MagIC formatted files.  This example is for the sites.txt formatted file.  It will create a site information table with the location and age information,  and directions and/or intenisty summary tables.  The function to call is <strong>ipmag.sites_extract()</strong>.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -1865,7 +1254,7 @@ sites_extract(site_file=&#39;sites.txt&#39;, directions_file=&#39;directions.xls
 </div>
 </section>
 <section id="criteria-extract">
-<h2>criteria_extract<a class="headerlink" href="#criteria-extract" title="Permalink to this headline">#</a></h2>
+<h2>criteria_extract<a class="headerlink" href="#criteria-extract" title="Permalink to this heading">#</a></h2>
 <p>This example is for the criteria.txt formatted file.  It will create a criteria  table suitable for publication in either LaTex or .csv format.  The function to call is <strong>ipmag.criteria_extract()</strong>.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -1933,7 +1322,7 @@ criteria_extract(crit_file=&#39;criteria.txt&#39;, output_file=&#39;criteria.xls
 </div>
 </section>
 <section id="specimens-extract">
-<h2>specimens_extract<a class="headerlink" href="#specimens-extract" title="Permalink to this headline">#</a></h2>
+<h2>specimens_extract<a class="headerlink" href="#specimens-extract" title="Permalink to this heading">#</a></h2>
 <p>Similarly, it is useful to make tables for specimen (intensity) data to include in publications.  Here are examples using a specimens.txt file.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -2005,13 +1394,13 @@ specimens_extract(spec_file=&#39;specimens.txt&#39;, output_file=&#39;specimens.
 </div>
 </section>
 <section id="contributions">
-<h2>Contributions<a class="headerlink" href="#contributions" title="Permalink to this headline">#</a></h2>
+<h2>Contributions<a class="headerlink" href="#contributions" title="Permalink to this heading">#</a></h2>
 <p>Here are some useful functions for working with MagIC data model 3.0 contributions.</p>
 <section id="download-magic">
-<h3>download_magic<a class="headerlink" href="#download-magic" title="Permalink to this headline">#</a></h3>
+<h3>download_magic<a class="headerlink" href="#download-magic" title="Permalink to this heading">#</a></h3>
 <p><a class="reference external" href="https://earthref.org/MagIC">[MagIC Database]</a>  <a class="reference external" href="https://pmagpy.github.io/PmagPy-cli.html#download_magic.py">[command line version]</a></p>
 <section id="working-with-a-public-contribution">
-<h4>Working with a public contribution:<a class="headerlink" href="#working-with-a-public-contribution" title="Permalink to this headline">#</a></h4>
+<h4>Working with a public contribution:<a class="headerlink" href="#working-with-a-public-contribution" title="Permalink to this heading">#</a></h4>
 <p>The programs ipmag.download_magic_from_id() and ipmag.download_magic_from_doi() download files from the MagIC website and ipmag.download_magic( ) unpacks the downloaded .txt file  into individual text files. This program has an option to also separate the contribution into separate folders for each location.</p>
 <p>As an example, download the cotribution with the DOI of 10.1029/2019GC008479.    Make a folder into which you should put the downloaded txt file (called “magic_contribution.txt”)  into it. Then use <strong>ipmag.download_magic</strong> to unpack the .txt file (magic_contribution.txt).</p>
 <div class="cell docutils container">
@@ -2171,7 +1560,7 @@ download_magic_from_id(con_id)
 <p>You could look at these data with <strong>dmag_magic</strong> for example… (see the <strong>PmagPy_plots_analysis</strong> notebook).</p>
 </section>
 <section id="working-with-a-private-contribution">
-<h4>Working with a private contribution<a class="headerlink" href="#working-with-a-private-contribution" title="Permalink to this headline">#</a></h4>
+<h4>Working with a private contribution<a class="headerlink" href="#working-with-a-private-contribution" title="Permalink to this heading">#</a></h4>
 <ul class="simple">
 <li><p>private contributions are data sets within MagIC that have been uploaded but are not yet attached to a peer reviewed publication.  The purpose is to allow reviewers and publishers to ensure the data quality.</p></li>
 <li><p>Once in the private contribution it is possible to download it with a ‘private key’ associated with a MagIC contribution ID number.</p></li>
@@ -2227,9 +1616,9 @@ location	location_ty
 </section>
 </section>
 <section id="upload-magic">
-<h3>upload_magic<a class="headerlink" href="#upload-magic" title="Permalink to this headline">#</a></h3>
+<h3>upload_magic<a class="headerlink" href="#upload-magic" title="Permalink to this heading">#</a></h3>
 <p><a class="reference external" href="https://earthref.org/MagIC">[MagIC Database]</a>  <a class="reference external" href="https://pmagpy.github.io/PmagPy-cli.html#upload_magic.py">[command line version]</a></p>
-<p>We can just turn around and try to upload the file downloaded in <a class="reference external" href="#download_magic">download_magic</a>.  For this we use <strong>ipmag.upload_magic()</strong> in the same directory as for the download.   You can try to upload the file you create to the MagIC data base as a private contribution here: <a class="reference external" href="https://www2.earthref.org/MagIC/upload">https://www2.earthref.org/MagIC/upload</a></p>
+<p>We can just turn around and try to upload the file downloaded in <span class="xref myst">download_magic</span>.  For this we use <strong>ipmag.upload_magic()</strong> in the same directory as for the download.   You can try to upload the file you create to the MagIC data base as a private contribution here: <a class="reference external" href="https://www2.earthref.org/MagIC/upload">https://www2.earthref.org/MagIC/upload</a></p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">help</span><span class="p">(</span><span class="n">ipmag</span><span class="o">.</span><span class="n">upload_magic</span><span class="p">)</span>
@@ -2339,7 +1728,7 @@ Finished preparing upload file: /Users/ltauxe/PmagPy/data_files/download_magic/G
 <p>If this were your own study, you could now go to <a class="reference external" href="https://earthref.org/MagIC">https://earthref.org/MagIC</a> and upload your contribution to a Private Workspace, validate, assign a DOI and activate!</p>
 </section>
 <section id="cb-add-sites-to-meas-table">
-<h3>cb.add_sites_to_meas_table<a class="headerlink" href="#cb-add-sites-to-meas-table" title="Permalink to this headline">#</a></h3>
+<h3>cb.add_sites_to_meas_table<a class="headerlink" href="#cb-add-sites-to-meas-table" title="Permalink to this heading">#</a></h3>
 <p>MagIC data model 3 took out redundant columns in the MagIC tables so the hierarchy of specimens (in the measurements and specimens tables) up to samples, sites and locations is lost.  To put these back into the measurement table, we have the function <strong>cb.add_sites_to_meas_table()</strong>, which is super handy when data analysis requires it.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -2402,7 +1791,7 @@ add_sites_to_meas_table(dir_path)
 </div>
 </section>
 <section id="cb-get-intensity-col">
-<h3>cb.get_intensity_col<a class="headerlink" href="#cb-get-intensity-col" title="Permalink to this headline">#</a></h3>
+<h3>cb.get_intensity_col<a class="headerlink" href="#cb-get-intensity-col" title="Permalink to this heading">#</a></h3>
 <p>The MagIC data model has several different forms of magnetization with different normalizations (moment, volume, or mass).  So to find the one used in a particular measurements table we can use this handy function.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -2445,7 +1834,7 @@ get_intensity_col(data)
 </section>
 </section>
 <section id="interacting-with-the-magic-database">
-<h2>Interacting with the MagIC database<a class="headerlink" href="#interacting-with-the-magic-database" title="Permalink to this headline">#</a></h2>
+<h2>Interacting with the MagIC database<a class="headerlink" href="#interacting-with-the-magic-database" title="Permalink to this heading">#</a></h2>
 <ul class="simple">
 <li><p>Downloading contributions from the MagIC database
 Contributions can be downloaded from the MagIC database in two ways, using either the contribution ID or the publication’s DOI.</p>
@@ -2733,12 +2122,12 @@ magic_contribution.txt no such file
 </section>
 </section>
 <section class="tex2jax_ignore mathjax_ignore" id="conversion-scripts">
-<h1>Conversion Scripts<a class="headerlink" href="#conversion-scripts" title="Permalink to this headline">#</a></h1>
+<h1>Conversion Scripts<a class="headerlink" href="#conversion-scripts" title="Permalink to this heading">#</a></h1>
 <section id="convert-2-magic">
-<h2>convert_2_magic<a class="headerlink" href="#convert-2-magic" title="Permalink to this headline">#</a></h2>
+<h2>convert_2_magic<a class="headerlink" href="#convert-2-magic" title="Permalink to this heading">#</a></h2>
 <p>We imported this module as <strong>convert</strong>.  It provides many functions for creating MagIC format files from non-MagIC formats. The MagIC formatted files can then be used with PmagPy programs and uploaded to the MagIC database. Let’s take a look at the options:</p>
 <section id="g-asc-magic">
-<h3>_2g_asc_magic<a class="headerlink" href="#g-asc-magic" title="Permalink to this headline">#</a></h3>
+<h3>_2g_asc_magic<a class="headerlink" href="#g-asc-magic" title="Permalink to this heading">#</a></h3>
 <p>To convert the ascii file exported from 2G Enterprises measurement files we use convert._2g_asc() function in the <strong>convert_2_magic</strong> module (inported as <strong>convert</strong>).</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -2917,7 +2306,7 @@ importing  OK3_15af
 </div>
 </section>
 <section id="g-bin-magic">
-<h3>_2g_bin_magic<a class="headerlink" href="#g-bin-magic" title="Permalink to this headline">#</a></h3>
+<h3>_2g_bin_magic<a class="headerlink" href="#g-bin-magic" title="Permalink to this heading">#</a></h3>
 <p><a class="reference external" href="https://earthref.org/MagIC">[MagIC Database]</a>  <a class="reference external" href="https://pmagpy.github.io/PmagPy-cli.html#_2g_bin_magic.py">[command line version]</a></p>
 <p>To convert the binary formatted 2G Enterprises measurement files, we  can use the function <strong>convert._2g_bin()</strong> in the <strong>convert_2_magic</strong> module (imported as <strong>convert</strong>).</p>
 <div class="cell docutils container">
@@ -3096,15 +2485,15 @@ plot_di(dec=None, inc=None, di_block=None, color=&#39;k&#39;, marker=&#39;o&#39;
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../_images/PmagPy_MagIC_100_0.png" src="../_images/PmagPy_MagIC_100_0.png" />
+<img alt="../_images/bf8bfebd08c2ea92eba929925e74ffa556dba7aec96c265c1617f082a23c39e6.png" src="../_images/bf8bfebd08c2ea92eba929925e74ffa556dba7aec96c265c1617f082a23c39e6.png" />
 </div>
 </div>
 </section>
 <section id="agm-magic">
-<h3>agm_magic<a class="headerlink" href="#agm-magic" title="Permalink to this headline">#</a></h3>
+<h3>agm_magic<a class="headerlink" href="#agm-magic" title="Permalink to this heading">#</a></h3>
 <p><a class="reference external" href="https://earthref.org/MagIC">[MagIC Database]</a>  <a class="reference external" href="https://pmagpy.github.io/PmagPy-cli.html#agm_magic.py">[command line version]</a></p>
 <p>This program converts Micromag hysteresis files into MagIC formatted files. Because this program creates files for uploading to the MagIC database, specimens should also have sample/site/location information, which can be provided on the command line. If this information is not available, for example if this is a synthetic specimen, specify syn= True for synthetic name.</p>
-<p>Someone named Lima Tango has measured a synthetic specimen named myspec for hysteresis and saved the data in a file named agm_magic_example.agm in the agm_magic/agm_directory folder. The backfield IRM curve for the same specimen was saved in same directory as agm_magic_example.irm. Use the function <strong>convert.agm()</strong> to convert the data into a measurements.txt output file. For the backfield IRM file, set the keyword “bak” to True.  These were measured using cgs units, so be sure to set the units key word argument properly. Combine the two output files together using the instructions for <a class="reference external" href="#combine_magic">combine_magic</a>.  The agm files can be plotted using <a class="reference external" href="#hysteresis_magic">hysteresis_magic</a> but the back-field plots are broken.</p>
+<p>Someone named Lima Tango has measured a synthetic specimen named myspec for hysteresis and saved the data in a file named agm_magic_example.agm in the agm_magic/agm_directory folder. The backfield IRM curve for the same specimen was saved in same directory as agm_magic_example.irm. Use the function <strong>convert.agm()</strong> to convert the data into a measurements.txt output file. For the backfield IRM file, set the keyword “bak” to True.  These were measured using cgs units, so be sure to set the units key word argument properly. Combine the two output files together using the instructions for <span class="xref myst">combine_magic</span>.  The agm files can be plotted using <span class="xref myst">hysteresis_magic</span> but the back-field plots are broken.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">help</span><span class="p">(</span><span class="n">convert</span><span class="o">.</span><span class="n">agm</span><span class="p">)</span>
@@ -3290,14 +2679,14 @@ agm(agm_file, dir_path=&#39;.&#39;, input_dir_path=&#39;&#39;, meas_outfile=&#39
  {&#39;hysteresis_xhf&#39;: &#39;1.77e-05&#39;, &#39;hysteresis_ms_moment&#39;: &#39;2.914e+01&#39;, &#39;hysteresis_mr_moment&#39;: &#39;5.493e+00&#39;, &#39;hysteresis_bc&#39;: &#39;2.195e-02&#39;, &#39;hysteresis_bcr&#39;: &#39;6.702e-02&#39;, &#39;magic_method_codes&#39;: &#39;LP-BCR-HDM&#39;, &#39;specimen&#39;: &#39;myspec&#39;}
 </pre></div>
 </div>
-<img alt="../_images/PmagPy_MagIC_107_1.png" src="../_images/PmagPy_MagIC_107_1.png" />
-<img alt="../_images/PmagPy_MagIC_107_2.png" src="../_images/PmagPy_MagIC_107_2.png" />
-<img alt="../_images/PmagPy_MagIC_107_3.png" src="../_images/PmagPy_MagIC_107_3.png" />
+<img alt="../_images/fa916beada4436b9e236c76435e7749d4614b611c6abc3d34f48ad8959034b94.png" src="../_images/fa916beada4436b9e236c76435e7749d4614b611c6abc3d34f48ad8959034b94.png" />
+<img alt="../_images/c00ff0ff594b6760ff12f61c95d7ca940854671e1085cf9eca2bb9e66c232e74.png" src="../_images/c00ff0ff594b6760ff12f61c95d7ca940854671e1085cf9eca2bb9e66c232e74.png" />
+<img alt="../_images/abffaddd30867d164a6bad91116c872ffdf6b60122347eb383206bd7454d54aa.png" src="../_images/abffaddd30867d164a6bad91116c872ffdf6b60122347eb383206bd7454d54aa.png" />
 </div>
 </div>
 </section>
 <section id="bgc-magic">
-<h3>bgc_magic<a class="headerlink" href="#bgc-magic" title="Permalink to this headline">#</a></h3>
+<h3>bgc_magic<a class="headerlink" href="#bgc-magic" title="Permalink to this heading">#</a></h3>
 <p><a class="reference external" href="https://earthref.org/MagIC">[MagIC Database]</a>  <a class="reference external" href="https://pmagpy.github.io/PmagPy-cli.html#bgc_magic.py">[command line version]</a></p>
 <p>Here we convert the Berkeley Geochronology Center’s AutoCore format to MagIC use <strong>convert.bgc()</strong>.</p>
 <div class="cell docutils container">
@@ -3410,12 +2799,12 @@ bgc(mag_file, dir_path=&#39;.&#39;, input_dir_path=&#39;&#39;, meas_file=&#39;me
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../_images/PmagPy_MagIC_112_0.png" src="../_images/PmagPy_MagIC_112_0.png" />
+<img alt="../_images/bbffbabb1f6621e4bb8d174e143efd3aea14eb33cd58de3542f9ea8c0ee2bf74.png" src="../_images/bbffbabb1f6621e4bb8d174e143efd3aea14eb33cd58de3542f9ea8c0ee2bf74.png" />
 </div>
 </div>
 </section>
 <section id="cit-magic">
-<h3>cit_magic<a class="headerlink" href="#cit-magic" title="Permalink to this headline">#</a></h3>
+<h3>cit_magic<a class="headerlink" href="#cit-magic" title="Permalink to this heading">#</a></h3>
 <p><a class="reference external" href="https://earthref.org/MagIC">[MagIC Database]</a>  <a class="reference external" href="https://pmagpy.github.io/PmagPy-cli.html#cit_magic.py">[command line version]</a></p>
 <p>To convert the CalTech format to MagIC, use <strong>convert.cit()</strong>.</p>
 <p>Craig Jones’ PaleoMag software package (<a class="reference external" href="http://cires.colorado.edu/people/jones.craig/PMag3.html">http://cires.colorado.edu/people/jones.craig/PMag3.html</a>) imports various file formats, including the ’CIT’ format developed for the Caltech lab and now used in magnetometer control software that ships with 2G magnetometers that utilized a vertical sample changer system. The documentation for the CIT sample format is here: <a class="reference external" href="http://cires.colorado.edu/people/jones.craig/PMag_Formats.html#SAM_format">http://cires.colorado.edu/people/jones.craig/PMag_Formats.html#SAM_format</a>. Demagnetization data for each specimen are in their own file in a directory with all the data for a site or study. These files are strictly formatted with fields determined by the character number in the line. There must be a file with the suffix ‘.sam’ in the same directory as the specimen data files which gives details about the specimens and a list of the specimen measurementfiles in the directory.</p>
@@ -3541,21 +2930,21 @@ Warning: specimen method code LP-NOMAG set.
 <div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>(True, [])
 </pre></div>
 </div>
-<img alt="../_images/PmagPy_MagIC_118_1.png" src="../_images/PmagPy_MagIC_118_1.png" />
-<img alt="../_images/PmagPy_MagIC_118_2.png" src="../_images/PmagPy_MagIC_118_2.png" />
-<img alt="../_images/PmagPy_MagIC_118_3.png" src="../_images/PmagPy_MagIC_118_3.png" />
-<img alt="../_images/PmagPy_MagIC_118_4.png" src="../_images/PmagPy_MagIC_118_4.png" />
-<img alt="../_images/PmagPy_MagIC_118_5.png" src="../_images/PmagPy_MagIC_118_5.png" />
-<img alt="../_images/PmagPy_MagIC_118_6.png" src="../_images/PmagPy_MagIC_118_6.png" />
-<img alt="../_images/PmagPy_MagIC_118_7.png" src="../_images/PmagPy_MagIC_118_7.png" />
-<img alt="../_images/PmagPy_MagIC_118_8.png" src="../_images/PmagPy_MagIC_118_8.png" />
-<img alt="../_images/PmagPy_MagIC_118_9.png" src="../_images/PmagPy_MagIC_118_9.png" />
-<img alt="../_images/PmagPy_MagIC_118_10.png" src="../_images/PmagPy_MagIC_118_10.png" />
-<img alt="../_images/PmagPy_MagIC_118_11.png" src="../_images/PmagPy_MagIC_118_11.png" />
-<img alt="../_images/PmagPy_MagIC_118_12.png" src="../_images/PmagPy_MagIC_118_12.png" />
-<img alt="../_images/PmagPy_MagIC_118_13.png" src="../_images/PmagPy_MagIC_118_13.png" />
-<img alt="../_images/PmagPy_MagIC_118_14.png" src="../_images/PmagPy_MagIC_118_14.png" />
-<img alt="../_images/PmagPy_MagIC_118_15.png" src="../_images/PmagPy_MagIC_118_15.png" />
+<img alt="../_images/49811352440fd11f55a61bef2ded0bbc07ae013f97a18ca0b7253b9eda8bcea7.png" src="../_images/49811352440fd11f55a61bef2ded0bbc07ae013f97a18ca0b7253b9eda8bcea7.png" />
+<img alt="../_images/1c175172b137b35ae02a5f4409806289ae29b0e547a735372d5dcc09a112375d.png" src="../_images/1c175172b137b35ae02a5f4409806289ae29b0e547a735372d5dcc09a112375d.png" />
+<img alt="../_images/1c6a5f73e20dc98653da4aacbd88f9c8505c445c5d9f512fead08f63578d39d6.png" src="../_images/1c6a5f73e20dc98653da4aacbd88f9c8505c445c5d9f512fead08f63578d39d6.png" />
+<img alt="../_images/04d02788cad8d95f3175634e9a0bd08cafc619f5d425ae0c5e7bc700332f4e49.png" src="../_images/04d02788cad8d95f3175634e9a0bd08cafc619f5d425ae0c5e7bc700332f4e49.png" />
+<img alt="../_images/f4d72683a1f8a90e0a1b8685f9f92612fb6bef5c33eb1d966285980f14181275.png" src="../_images/f4d72683a1f8a90e0a1b8685f9f92612fb6bef5c33eb1d966285980f14181275.png" />
+<img alt="../_images/2ed023df35264de035211b9a7bb9f665a9fdbb4100d2c5453c65ba006e6a08e4.png" src="../_images/2ed023df35264de035211b9a7bb9f665a9fdbb4100d2c5453c65ba006e6a08e4.png" />
+<img alt="../_images/e9b4aa45512d969cf385a0ab674aa313231c9fcc28c9c1d5a96c8a21fe0a9ed5.png" src="../_images/e9b4aa45512d969cf385a0ab674aa313231c9fcc28c9c1d5a96c8a21fe0a9ed5.png" />
+<img alt="../_images/0421e8977f32ba7e85211d99042ec4ff190b2d313eb1f6a0622d21e5dbb1dcf9.png" src="../_images/0421e8977f32ba7e85211d99042ec4ff190b2d313eb1f6a0622d21e5dbb1dcf9.png" />
+<img alt="../_images/0671a73dfa297b9ae8822c5e3501e83f6f1854b24710519f2fb6c507d75eeabd.png" src="../_images/0671a73dfa297b9ae8822c5e3501e83f6f1854b24710519f2fb6c507d75eeabd.png" />
+<img alt="../_images/9b563352b7eb528549905e08b3c14c625a9220a7dca55ac9fce7a9b16132c82c.png" src="../_images/9b563352b7eb528549905e08b3c14c625a9220a7dca55ac9fce7a9b16132c82c.png" />
+<img alt="../_images/5d28233e25856e483aec9b884cc3d6b4b0f62cab441160002cc6f71e01f15b5f.png" src="../_images/5d28233e25856e483aec9b884cc3d6b4b0f62cab441160002cc6f71e01f15b5f.png" />
+<img alt="../_images/2aecfc751eea7b92265b387ef24bd99bb11b897b5b90b401a2ba318818b8b020.png" src="../_images/2aecfc751eea7b92265b387ef24bd99bb11b897b5b90b401a2ba318818b8b020.png" />
+<img alt="../_images/19ee32aebaff6580a6fcfedbb8b686e4e0db802daa0231008fdd521550894b86.png" src="../_images/19ee32aebaff6580a6fcfedbb8b686e4e0db802daa0231008fdd521550894b86.png" />
+<img alt="../_images/f7f50b70c6340543a2f30581122fcb46e611523ae65a1bf8de4190680e2d462f.png" src="../_images/f7f50b70c6340543a2f30581122fcb46e611523ae65a1bf8de4190680e2d462f.png" />
+<img alt="../_images/cb65e1aafa2513e9ebbe6afdd92b38548bffa4b16c57b773f71cc66dcefb1984.png" src="../_images/cb65e1aafa2513e9ebbe6afdd92b38548bffa4b16c57b773f71cc66dcefb1984.png" />
 </div>
 </div>
 <p>Use the function convert.cit() to covert the CIT data files from the USGS lab at Menlo Park. The data file is in the data_files/convert_2_magic/cit_magic/USGS/bl9-1 directory, the file name is bl9-1.sam, and the analyst was Hagstrum. The location name was “Boring volcanic field”, and this site name was set by Hagstrum to BL9001 because the site name cannot be determined from the sample name with the current available options. The samples were collected by drilling and with a magnetic compass and sun compass (”FS-FD”,and “SO-MAG”), the measurement are in Oersted instead of the standard milliTesla, and we don’t wish to average replicate measurements.</p>
@@ -3616,7 +3005,7 @@ Warning: specimen method code LP-NOMAG set.
 </div>
 </div>
 </div>
-<p>We can look at the Zijderveld, etc.  Diagrams with <a class="reference external" href="#zeq_magic">zeq_magic</a>.</p>
+<p>We can look at the Zijderveld, etc.  Diagrams with <span class="xref myst">zeq_magic</span>.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">ipmag</span><span class="o">.</span><span class="n">zeq_magic</span><span class="p">(</span><span class="n">input_dir_path</span><span class="o">=</span><span class="n">dir_path</span><span class="p">,</span> <span class="n">save_plots</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
@@ -3627,21 +3016,21 @@ Warning: specimen method code LP-NOMAG set.
 <div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>(True, [])
 </pre></div>
 </div>
-<img alt="../_images/PmagPy_MagIC_122_1.png" src="../_images/PmagPy_MagIC_122_1.png" />
-<img alt="../_images/PmagPy_MagIC_122_2.png" src="../_images/PmagPy_MagIC_122_2.png" />
-<img alt="../_images/PmagPy_MagIC_122_3.png" src="../_images/PmagPy_MagIC_122_3.png" />
-<img alt="../_images/PmagPy_MagIC_122_4.png" src="../_images/PmagPy_MagIC_122_4.png" />
-<img alt="../_images/PmagPy_MagIC_122_5.png" src="../_images/PmagPy_MagIC_122_5.png" />
-<img alt="../_images/PmagPy_MagIC_122_6.png" src="../_images/PmagPy_MagIC_122_6.png" />
-<img alt="../_images/PmagPy_MagIC_122_7.png" src="../_images/PmagPy_MagIC_122_7.png" />
-<img alt="../_images/PmagPy_MagIC_122_8.png" src="../_images/PmagPy_MagIC_122_8.png" />
-<img alt="../_images/PmagPy_MagIC_122_9.png" src="../_images/PmagPy_MagIC_122_9.png" />
-<img alt="../_images/PmagPy_MagIC_122_10.png" src="../_images/PmagPy_MagIC_122_10.png" />
-<img alt="../_images/PmagPy_MagIC_122_11.png" src="../_images/PmagPy_MagIC_122_11.png" />
-<img alt="../_images/PmagPy_MagIC_122_12.png" src="../_images/PmagPy_MagIC_122_12.png" />
-<img alt="../_images/PmagPy_MagIC_122_13.png" src="../_images/PmagPy_MagIC_122_13.png" />
-<img alt="../_images/PmagPy_MagIC_122_14.png" src="../_images/PmagPy_MagIC_122_14.png" />
-<img alt="../_images/PmagPy_MagIC_122_15.png" src="../_images/PmagPy_MagIC_122_15.png" />
+<img alt="../_images/3dfdaf8ab170d2e5fbf40d685e9185f971a8fdf852d7c29c839de088ca8a3e87.png" src="../_images/3dfdaf8ab170d2e5fbf40d685e9185f971a8fdf852d7c29c839de088ca8a3e87.png" />
+<img alt="../_images/8c0d6f6afe28eb3e70b88a41e588c47542922f290efee2ccacdcb6c215a1f8cf.png" src="../_images/8c0d6f6afe28eb3e70b88a41e588c47542922f290efee2ccacdcb6c215a1f8cf.png" />
+<img alt="../_images/3d22c8ca468bc72f4a4b8582f64a3687759179c4be3402f8fea2601b8f5003ff.png" src="../_images/3d22c8ca468bc72f4a4b8582f64a3687759179c4be3402f8fea2601b8f5003ff.png" />
+<img alt="../_images/3db013e0a38961c2da5fe6d4243769939cdb352ed88d2eb370c98adb864141f8.png" src="../_images/3db013e0a38961c2da5fe6d4243769939cdb352ed88d2eb370c98adb864141f8.png" />
+<img alt="../_images/f16a4aa5dd85efb1cad0cdc4fc3ca0008f12364d378faa7b5dfb2a5bfb393c62.png" src="../_images/f16a4aa5dd85efb1cad0cdc4fc3ca0008f12364d378faa7b5dfb2a5bfb393c62.png" />
+<img alt="../_images/3c891502f12370d1e8d17a315bdfeb472558d5a5ea2bd03e1548cce4a339015b.png" src="../_images/3c891502f12370d1e8d17a315bdfeb472558d5a5ea2bd03e1548cce4a339015b.png" />
+<img alt="../_images/e0c4b296d245f1ccde014f3869abf544d92635297c040a96732a4295b8a60561.png" src="../_images/e0c4b296d245f1ccde014f3869abf544d92635297c040a96732a4295b8a60561.png" />
+<img alt="../_images/26014d0ccb4d45ba216a68f1f9db3fa789986db980ac473cecb3080f6a095b72.png" src="../_images/26014d0ccb4d45ba216a68f1f9db3fa789986db980ac473cecb3080f6a095b72.png" />
+<img alt="../_images/a37b866762866471b04af514aa0fcb16468fb0822c0136a334b2d0fd0c29cccf.png" src="../_images/a37b866762866471b04af514aa0fcb16468fb0822c0136a334b2d0fd0c29cccf.png" />
+<img alt="../_images/08b8d4f9d610b5824622d54e7663c4013126706fad5c54d9b834a136d80f1446.png" src="../_images/08b8d4f9d610b5824622d54e7663c4013126706fad5c54d9b834a136d80f1446.png" />
+<img alt="../_images/65da5bd9dbcd65cb38ec51927f8a61db80ae4e52dd11b0944c8c67371aafac5e.png" src="../_images/65da5bd9dbcd65cb38ec51927f8a61db80ae4e52dd11b0944c8c67371aafac5e.png" />
+<img alt="../_images/cdcc24011f029513faa66b634ecd8f4753adcec59663d8a00c465da006dcc3e3.png" src="../_images/cdcc24011f029513faa66b634ecd8f4753adcec59663d8a00c465da006dcc3e3.png" />
+<img alt="../_images/fc6dd02a8c2ab5cabee2efdd836ee14ca32af35ab8aa0e9f50beb865d22cc8b8.png" src="../_images/fc6dd02a8c2ab5cabee2efdd836ee14ca32af35ab8aa0e9f50beb865d22cc8b8.png" />
+<img alt="../_images/c6eaba763d8f1fd45c626fb432fea5daed4d0de48cc908cf1ce7d706834bf76d.png" src="../_images/c6eaba763d8f1fd45c626fb432fea5daed4d0de48cc908cf1ce7d706834bf76d.png" />
+<img alt="../_images/d9cc6498c062ee98dafcc01a55c871f65c2de98ed341d0953016a82a37b8ddfd.png" src="../_images/d9cc6498c062ee98dafcc01a55c871f65c2de98ed341d0953016a82a37b8ddfd.png" />
 </div>
 </div>
 <p>Use the function convert.cit() to convert the CIT data files from Ben Wiess’s lab at MIT. This data was part of a set published in ESPL. “A nonmagnetic differentiated early planetary body”,
@@ -3714,26 +3103,26 @@ Warning: specimen method code LP-NOMAG set.
 <div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>(True, [])
 </pre></div>
 </div>
-<img alt="../_images/PmagPy_MagIC_126_1.png" src="../_images/PmagPy_MagIC_126_1.png" />
-<img alt="../_images/PmagPy_MagIC_126_2.png" src="../_images/PmagPy_MagIC_126_2.png" />
-<img alt="../_images/PmagPy_MagIC_126_3.png" src="../_images/PmagPy_MagIC_126_3.png" />
-<img alt="../_images/PmagPy_MagIC_126_4.png" src="../_images/PmagPy_MagIC_126_4.png" />
-<img alt="../_images/PmagPy_MagIC_126_5.png" src="../_images/PmagPy_MagIC_126_5.png" />
-<img alt="../_images/PmagPy_MagIC_126_6.png" src="../_images/PmagPy_MagIC_126_6.png" />
-<img alt="../_images/PmagPy_MagIC_126_7.png" src="../_images/PmagPy_MagIC_126_7.png" />
-<img alt="../_images/PmagPy_MagIC_126_8.png" src="../_images/PmagPy_MagIC_126_8.png" />
-<img alt="../_images/PmagPy_MagIC_126_9.png" src="../_images/PmagPy_MagIC_126_9.png" />
-<img alt="../_images/PmagPy_MagIC_126_10.png" src="../_images/PmagPy_MagIC_126_10.png" />
-<img alt="../_images/PmagPy_MagIC_126_11.png" src="../_images/PmagPy_MagIC_126_11.png" />
-<img alt="../_images/PmagPy_MagIC_126_12.png" src="../_images/PmagPy_MagIC_126_12.png" />
-<img alt="../_images/PmagPy_MagIC_126_13.png" src="../_images/PmagPy_MagIC_126_13.png" />
-<img alt="../_images/PmagPy_MagIC_126_14.png" src="../_images/PmagPy_MagIC_126_14.png" />
-<img alt="../_images/PmagPy_MagIC_126_15.png" src="../_images/PmagPy_MagIC_126_15.png" />
+<img alt="../_images/3dfdaf8ab170d2e5fbf40d685e9185f971a8fdf852d7c29c839de088ca8a3e87.png" src="../_images/3dfdaf8ab170d2e5fbf40d685e9185f971a8fdf852d7c29c839de088ca8a3e87.png" />
+<img alt="../_images/8c0d6f6afe28eb3e70b88a41e588c47542922f290efee2ccacdcb6c215a1f8cf.png" src="../_images/8c0d6f6afe28eb3e70b88a41e588c47542922f290efee2ccacdcb6c215a1f8cf.png" />
+<img alt="../_images/3d22c8ca468bc72f4a4b8582f64a3687759179c4be3402f8fea2601b8f5003ff.png" src="../_images/3d22c8ca468bc72f4a4b8582f64a3687759179c4be3402f8fea2601b8f5003ff.png" />
+<img alt="../_images/3db013e0a38961c2da5fe6d4243769939cdb352ed88d2eb370c98adb864141f8.png" src="../_images/3db013e0a38961c2da5fe6d4243769939cdb352ed88d2eb370c98adb864141f8.png" />
+<img alt="../_images/f16a4aa5dd85efb1cad0cdc4fc3ca0008f12364d378faa7b5dfb2a5bfb393c62.png" src="../_images/f16a4aa5dd85efb1cad0cdc4fc3ca0008f12364d378faa7b5dfb2a5bfb393c62.png" />
+<img alt="../_images/3c891502f12370d1e8d17a315bdfeb472558d5a5ea2bd03e1548cce4a339015b.png" src="../_images/3c891502f12370d1e8d17a315bdfeb472558d5a5ea2bd03e1548cce4a339015b.png" />
+<img alt="../_images/e0c4b296d245f1ccde014f3869abf544d92635297c040a96732a4295b8a60561.png" src="../_images/e0c4b296d245f1ccde014f3869abf544d92635297c040a96732a4295b8a60561.png" />
+<img alt="../_images/26014d0ccb4d45ba216a68f1f9db3fa789986db980ac473cecb3080f6a095b72.png" src="../_images/26014d0ccb4d45ba216a68f1f9db3fa789986db980ac473cecb3080f6a095b72.png" />
+<img alt="../_images/a37b866762866471b04af514aa0fcb16468fb0822c0136a334b2d0fd0c29cccf.png" src="../_images/a37b866762866471b04af514aa0fcb16468fb0822c0136a334b2d0fd0c29cccf.png" />
+<img alt="../_images/08b8d4f9d610b5824622d54e7663c4013126706fad5c54d9b834a136d80f1446.png" src="../_images/08b8d4f9d610b5824622d54e7663c4013126706fad5c54d9b834a136d80f1446.png" />
+<img alt="../_images/65da5bd9dbcd65cb38ec51927f8a61db80ae4e52dd11b0944c8c67371aafac5e.png" src="../_images/65da5bd9dbcd65cb38ec51927f8a61db80ae4e52dd11b0944c8c67371aafac5e.png" />
+<img alt="../_images/cdcc24011f029513faa66b634ecd8f4753adcec59663d8a00c465da006dcc3e3.png" src="../_images/cdcc24011f029513faa66b634ecd8f4753adcec59663d8a00c465da006dcc3e3.png" />
+<img alt="../_images/fc6dd02a8c2ab5cabee2efdd836ee14ca32af35ab8aa0e9f50beb865d22cc8b8.png" src="../_images/fc6dd02a8c2ab5cabee2efdd836ee14ca32af35ab8aa0e9f50beb865d22cc8b8.png" />
+<img alt="../_images/c6eaba763d8f1fd45c626fb432fea5daed4d0de48cc908cf1ce7d706834bf76d.png" src="../_images/c6eaba763d8f1fd45c626fb432fea5daed4d0de48cc908cf1ce7d706834bf76d.png" />
+<img alt="../_images/d9cc6498c062ee98dafcc01a55c871f65c2de98ed341d0953016a82a37b8ddfd.png" src="../_images/d9cc6498c062ee98dafcc01a55c871f65c2de98ed341d0953016a82a37b8ddfd.png" />
 </div>
 </div>
 </section>
 <section id="generic-magic">
-<h3>generic_magic<a class="headerlink" href="#generic-magic" title="Permalink to this headline">#</a></h3>
+<h3>generic_magic<a class="headerlink" href="#generic-magic" title="Permalink to this heading">#</a></h3>
 <p><a class="reference external" href="https://earthref.org/MagIC">[MagIC Database]</a>  <a class="reference external" href="https://pmagpy.github.io/PmagPy-cli.html#generic_magic.py">[command line version]</a></p>
 <p>If you have a data file format that is not supported, you can relabel column headers to fit the generic format as in the generic_magic example data file.</p>
 <p>To import the generic file format, use <strong>convert.generic()</strong>.</p>
@@ -3889,17 +3278,17 @@ generic(magfile=&#39;&#39;, dir_path=&#39;.&#39;, meas_file=&#39;measurements.tx
 <div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>(True, [])
 </pre></div>
 </div>
-<img alt="../_images/PmagPy_MagIC_130_1.png" src="../_images/PmagPy_MagIC_130_1.png" />
-<img alt="../_images/PmagPy_MagIC_130_2.png" src="../_images/PmagPy_MagIC_130_2.png" />
-<img alt="../_images/PmagPy_MagIC_130_3.png" src="../_images/PmagPy_MagIC_130_3.png" />
-<img alt="../_images/PmagPy_MagIC_130_4.png" src="../_images/PmagPy_MagIC_130_4.png" />
-<img alt="../_images/PmagPy_MagIC_130_5.png" src="../_images/PmagPy_MagIC_130_5.png" />
-<img alt="../_images/PmagPy_MagIC_130_6.png" src="../_images/PmagPy_MagIC_130_6.png" />
+<img alt="../_images/c25e067780179dbbfb736a51f2d5cce676371aadf4c112768c8fbbc99c5e8e72.png" src="../_images/c25e067780179dbbfb736a51f2d5cce676371aadf4c112768c8fbbc99c5e8e72.png" />
+<img alt="../_images/d2e218bee8793bace505b05b4949ae0461f970b2ff8a64265c7ec833770926f0.png" src="../_images/d2e218bee8793bace505b05b4949ae0461f970b2ff8a64265c7ec833770926f0.png" />
+<img alt="../_images/2ebf8297614f4ae49a1399183b4463989b1e3939acfd0724c28182f289ccd3b6.png" src="../_images/2ebf8297614f4ae49a1399183b4463989b1e3939acfd0724c28182f289ccd3b6.png" />
+<img alt="../_images/4dd7b8712686a79f7773985600c7322139f6b3972acca6ac93d17a09d73cd9c5.png" src="../_images/4dd7b8712686a79f7773985600c7322139f6b3972acca6ac93d17a09d73cd9c5.png" />
+<img alt="../_images/9e52429e5723f1a38fbbed6e74295018a2db1cf44ff0ce07aa971a7e3ce064a7.png" src="../_images/9e52429e5723f1a38fbbed6e74295018a2db1cf44ff0ce07aa971a7e3ce064a7.png" />
+<img alt="../_images/8293b90f14aa671687673a7ed2191f8e4a0bce52dfff29fc7b3975816bbf6af9.png" src="../_images/8293b90f14aa671687673a7ed2191f8e4a0bce52dfff29fc7b3975816bbf6af9.png" />
 </div>
 </div>
 </section>
 <section id="huji-magic">
-<h3>huji_magic<a class="headerlink" href="#huji-magic" title="Permalink to this headline">#</a></h3>
+<h3>huji_magic<a class="headerlink" href="#huji-magic" title="Permalink to this heading">#</a></h3>
 <p><a class="reference external" href="https://earthref.org/MagIC">[MagIC Database]</a>  <a class="reference external" href="https://pmagpy.github.io/PmagPy-cli.html#huji_magic.py">[command line version]</a></p>
 <p>To import the Hebrew University, Jerusalem, Israel file format to MagIC, use <strong>convert.huji()</strong>.</p>
 <div class="cell docutils container">
@@ -4026,41 +3415,41 @@ huji(magfile=&#39;&#39;, dir_path=&#39;.&#39;, input_dir_path=&#39;&#39;, datafi
 <div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>(True, [])
 </pre></div>
 </div>
-<img alt="../_images/PmagPy_MagIC_134_1.png" src="../_images/PmagPy_MagIC_134_1.png" />
-<img alt="../_images/PmagPy_MagIC_134_2.png" src="../_images/PmagPy_MagIC_134_2.png" />
-<img alt="../_images/PmagPy_MagIC_134_3.png" src="../_images/PmagPy_MagIC_134_3.png" />
-<img alt="../_images/PmagPy_MagIC_134_4.png" src="../_images/PmagPy_MagIC_134_4.png" />
-<img alt="../_images/PmagPy_MagIC_134_5.png" src="../_images/PmagPy_MagIC_134_5.png" />
-<img alt="../_images/PmagPy_MagIC_134_6.png" src="../_images/PmagPy_MagIC_134_6.png" />
-<img alt="../_images/PmagPy_MagIC_134_7.png" src="../_images/PmagPy_MagIC_134_7.png" />
-<img alt="../_images/PmagPy_MagIC_134_8.png" src="../_images/PmagPy_MagIC_134_8.png" />
-<img alt="../_images/PmagPy_MagIC_134_9.png" src="../_images/PmagPy_MagIC_134_9.png" />
-<img alt="../_images/PmagPy_MagIC_134_10.png" src="../_images/PmagPy_MagIC_134_10.png" />
-<img alt="../_images/PmagPy_MagIC_134_11.png" src="../_images/PmagPy_MagIC_134_11.png" />
-<img alt="../_images/PmagPy_MagIC_134_12.png" src="../_images/PmagPy_MagIC_134_12.png" />
-<img alt="../_images/PmagPy_MagIC_134_13.png" src="../_images/PmagPy_MagIC_134_13.png" />
-<img alt="../_images/PmagPy_MagIC_134_14.png" src="../_images/PmagPy_MagIC_134_14.png" />
-<img alt="../_images/PmagPy_MagIC_134_15.png" src="../_images/PmagPy_MagIC_134_15.png" />
-<img alt="../_images/PmagPy_MagIC_134_16.png" src="../_images/PmagPy_MagIC_134_16.png" />
-<img alt="../_images/PmagPy_MagIC_134_17.png" src="../_images/PmagPy_MagIC_134_17.png" />
-<img alt="../_images/PmagPy_MagIC_134_18.png" src="../_images/PmagPy_MagIC_134_18.png" />
-<img alt="../_images/PmagPy_MagIC_134_19.png" src="../_images/PmagPy_MagIC_134_19.png" />
-<img alt="../_images/PmagPy_MagIC_134_20.png" src="../_images/PmagPy_MagIC_134_20.png" />
-<img alt="../_images/PmagPy_MagIC_134_21.png" src="../_images/PmagPy_MagIC_134_21.png" />
-<img alt="../_images/PmagPy_MagIC_134_22.png" src="../_images/PmagPy_MagIC_134_22.png" />
-<img alt="../_images/PmagPy_MagIC_134_23.png" src="../_images/PmagPy_MagIC_134_23.png" />
-<img alt="../_images/PmagPy_MagIC_134_24.png" src="../_images/PmagPy_MagIC_134_24.png" />
-<img alt="../_images/PmagPy_MagIC_134_25.png" src="../_images/PmagPy_MagIC_134_25.png" />
-<img alt="../_images/PmagPy_MagIC_134_26.png" src="../_images/PmagPy_MagIC_134_26.png" />
-<img alt="../_images/PmagPy_MagIC_134_27.png" src="../_images/PmagPy_MagIC_134_27.png" />
-<img alt="../_images/PmagPy_MagIC_134_28.png" src="../_images/PmagPy_MagIC_134_28.png" />
-<img alt="../_images/PmagPy_MagIC_134_29.png" src="../_images/PmagPy_MagIC_134_29.png" />
-<img alt="../_images/PmagPy_MagIC_134_30.png" src="../_images/PmagPy_MagIC_134_30.png" />
+<img alt="../_images/0f6cedae6c65aafce61edf1257661f0c454f7c5e475aac3bb0f7dd4ec67ef645.png" src="../_images/0f6cedae6c65aafce61edf1257661f0c454f7c5e475aac3bb0f7dd4ec67ef645.png" />
+<img alt="../_images/2dffa651543731485fd87d34f1859ca9b64feb25999a5938e34a17e3c1748057.png" src="../_images/2dffa651543731485fd87d34f1859ca9b64feb25999a5938e34a17e3c1748057.png" />
+<img alt="../_images/57037b7b6023400fea600e6431e9710b27cc923b57afb3f3017680c4f210ffbc.png" src="../_images/57037b7b6023400fea600e6431e9710b27cc923b57afb3f3017680c4f210ffbc.png" />
+<img alt="../_images/22ee13bb182422ce28bcad4af98f3581e65ddbd6589d5f384a9b76e75b1b87b1.png" src="../_images/22ee13bb182422ce28bcad4af98f3581e65ddbd6589d5f384a9b76e75b1b87b1.png" />
+<img alt="../_images/f5db2336fdc19cfe66571e2664faa91067bb02249fa38fca885929ce248f2f83.png" src="../_images/f5db2336fdc19cfe66571e2664faa91067bb02249fa38fca885929ce248f2f83.png" />
+<img alt="../_images/275abb38def6894a9d19a45f883ddc9177c5aaf2756aa637046f9238befc25b1.png" src="../_images/275abb38def6894a9d19a45f883ddc9177c5aaf2756aa637046f9238befc25b1.png" />
+<img alt="../_images/9c45538816f4155347623847aa1185c7680ca5633af90fcb335d48aa3ea0fd2a.png" src="../_images/9c45538816f4155347623847aa1185c7680ca5633af90fcb335d48aa3ea0fd2a.png" />
+<img alt="../_images/9a7275aa381f517d78e6d8b963af8f9d5a18993746c9152d682bbe4526731c8b.png" src="../_images/9a7275aa381f517d78e6d8b963af8f9d5a18993746c9152d682bbe4526731c8b.png" />
+<img alt="../_images/de1534c81f68852f934c36fa739a241e7c00cdf5743e98eb5ff1226f593a1df7.png" src="../_images/de1534c81f68852f934c36fa739a241e7c00cdf5743e98eb5ff1226f593a1df7.png" />
+<img alt="../_images/1738d303cff88d75e83aad0b084bbab7152943611b556643dcf2880ace0c3076.png" src="../_images/1738d303cff88d75e83aad0b084bbab7152943611b556643dcf2880ace0c3076.png" />
+<img alt="../_images/b054bbd9ad80afacbe2d8057eefca83edceb291b74fc2af34871389808678577.png" src="../_images/b054bbd9ad80afacbe2d8057eefca83edceb291b74fc2af34871389808678577.png" />
+<img alt="../_images/e0e66139cab572ecb8d14da9a6e5feacdac571229dac50bb4bd2c53d52a79172.png" src="../_images/e0e66139cab572ecb8d14da9a6e5feacdac571229dac50bb4bd2c53d52a79172.png" />
+<img alt="../_images/46d760606fdea55c00ea4c2d117f8f3e608e09ba4671864322ebc0a94c2ace37.png" src="../_images/46d760606fdea55c00ea4c2d117f8f3e608e09ba4671864322ebc0a94c2ace37.png" />
+<img alt="../_images/4b0bcf3d696e56a19ddaf9fa2c8ca126669c24d7760a0a62f27c5cce910bc67c.png" src="../_images/4b0bcf3d696e56a19ddaf9fa2c8ca126669c24d7760a0a62f27c5cce910bc67c.png" />
+<img alt="../_images/85bce2840c2b88f0e30bc4ac92158dfd9e2b8a472d1b7709c214996195ef297b.png" src="../_images/85bce2840c2b88f0e30bc4ac92158dfd9e2b8a472d1b7709c214996195ef297b.png" />
+<img alt="../_images/03673333c54476512520da72c244d0c0feb7839a07708011e3192c4e7246bf11.png" src="../_images/03673333c54476512520da72c244d0c0feb7839a07708011e3192c4e7246bf11.png" />
+<img alt="../_images/ca15121e58f46e3a90f03bcc52bb935eef2a1d319699e393740789fa5d40fb3c.png" src="../_images/ca15121e58f46e3a90f03bcc52bb935eef2a1d319699e393740789fa5d40fb3c.png" />
+<img alt="../_images/516b7829220263095a4342483e8defd7eff4a5afacf801307cffb3b486775f03.png" src="../_images/516b7829220263095a4342483e8defd7eff4a5afacf801307cffb3b486775f03.png" />
+<img alt="../_images/28ff944b2b8d4da3941c4a33b89ff5726a04e0bd73ef33031e27a44b55dea9ea.png" src="../_images/28ff944b2b8d4da3941c4a33b89ff5726a04e0bd73ef33031e27a44b55dea9ea.png" />
+<img alt="../_images/274a78e4be8bc275e4ac13dee23a40f813d0fc0a87ca95107ae6e30d4c84a820.png" src="../_images/274a78e4be8bc275e4ac13dee23a40f813d0fc0a87ca95107ae6e30d4c84a820.png" />
+<img alt="../_images/97ece22e318d05468429df1a3c13cc725d25f5ac95dd406279c51de7569da2e8.png" src="../_images/97ece22e318d05468429df1a3c13cc725d25f5ac95dd406279c51de7569da2e8.png" />
+<img alt="../_images/f5d57581dce434636c98833adca5b2640c9b989c31a7a809e8dd4db8d42ef16d.png" src="../_images/f5d57581dce434636c98833adca5b2640c9b989c31a7a809e8dd4db8d42ef16d.png" />
+<img alt="../_images/fc92686d7bcec52a9ea8ff7052a705732775872e81749d39e9084d08e5cde8f6.png" src="../_images/fc92686d7bcec52a9ea8ff7052a705732775872e81749d39e9084d08e5cde8f6.png" />
+<img alt="../_images/252dd0d074efcaae394dc27e2246d43c3e0b5b138c9605afd76c05283816a94d.png" src="../_images/252dd0d074efcaae394dc27e2246d43c3e0b5b138c9605afd76c05283816a94d.png" />
+<img alt="../_images/9f215a948ffc9491e6ee62ce61330d97a898871e6548a94695f7524300f148cd.png" src="../_images/9f215a948ffc9491e6ee62ce61330d97a898871e6548a94695f7524300f148cd.png" />
+<img alt="../_images/e6bed2a069b408e5092fa189fef156245fcab585be46e7cb726350a68684c775.png" src="../_images/e6bed2a069b408e5092fa189fef156245fcab585be46e7cb726350a68684c775.png" />
+<img alt="../_images/6848c424d0624327d9f1139ac8985b82adfad92196cce04592f873d28c43d06b.png" src="../_images/6848c424d0624327d9f1139ac8985b82adfad92196cce04592f873d28c43d06b.png" />
+<img alt="../_images/b8d85e608e27bdb4f98afea6b34b157e946a5354022f6060eb6a8f43a9a4c2ff.png" src="../_images/b8d85e608e27bdb4f98afea6b34b157e946a5354022f6060eb6a8f43a9a4c2ff.png" />
+<img alt="../_images/10500195b12404eae889bb3fe89ba9055baf5448ada54ab57334cbf6f8c0bf6a.png" src="../_images/10500195b12404eae889bb3fe89ba9055baf5448ada54ab57334cbf6f8c0bf6a.png" />
+<img alt="../_images/91098b818a88ab774dd114f7ef10c7813d6ffc62a01c077a65aa30cb6d210e0b.png" src="../_images/91098b818a88ab774dd114f7ef10c7813d6ffc62a01c077a65aa30cb6d210e0b.png" />
 </div>
 </div>
 </section>
 <section id="huji-sample-magic">
-<h3>huji_sample_magic<a class="headerlink" href="#huji-sample-magic" title="Permalink to this headline">#</a></h3>
+<h3>huji_sample_magic<a class="headerlink" href="#huji-sample-magic" title="Permalink to this heading">#</a></h3>
 <p><a class="reference external" href="https://earthref.org/MagIC">[MagIC Database]</a>  <a class="reference external" href="https://pmagpy.github.io/PmagPy-cli.html#huji_sample_magic.py">[command line version]</a></p>
 <p>To convert a Hebrew University Jersalem, Israel sample format to MagIC, use <strong>convert.huji_sample()</strong>.</p>
 <div class="cell docutils container">
@@ -4183,7 +3572,7 @@ combine_magic(filenames, outfile=&#39;measurements.txt&#39;, data_model=3, magic
 </div>
 </section>
 <section id="iodp-dscr-lore">
-<h3>iodp_dscr_lore<a class="headerlink" href="#iodp-dscr-lore" title="Permalink to this headline">#</a></h3>
+<h3>iodp_dscr_lore<a class="headerlink" href="#iodp-dscr-lore" title="Permalink to this heading">#</a></h3>
 <p><a class="reference external" href="https://earthref.org/MagIC">[MagIC Database]</a>  <a class="reference external" href="https://pmagpy.github.io/PmagPy-cli.html#iodp_dscr_magic.py">[command line version]</a></p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -4211,7 +3600,7 @@ check your sample name or add to specimens table by hand
 </div>
 </section>
 <section id="iodp-jr6-lore">
-<h3>iodp_jr6_lore<a class="headerlink" href="#iodp-jr6-lore" title="Permalink to this headline">#</a></h3>
+<h3>iodp_jr6_lore<a class="headerlink" href="#iodp-jr6-lore" title="Permalink to this heading">#</a></h3>
 <p><a class="reference external" href="https://earthref.org/MagIC">[MagIC Database]</a>  <a class="reference external" href="https://pmagpy.github.io/PmagPy-cli.html#iodp_jr6_magic.py">[command line version]</a></p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -4236,7 +3625,7 @@ check your sample name or add to specimens table by hand
 </div>
 </section>
 <section id="iodp-srm-lore">
-<h3>iodp_srm_lore<a class="headerlink" href="#iodp-srm-lore" title="Permalink to this headline">#</a></h3>
+<h3>iodp_srm_lore<a class="headerlink" href="#iodp-srm-lore" title="Permalink to this heading">#</a></h3>
 <p><a class="reference external" href="https://earthref.org/MagIC">[MagIC Database]</a>  <a class="reference external" href="https://pmagpy.github.io/PmagPy-cli.html#iodp_srm_magic.py">[command line version]</a></p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -4258,9 +3647,9 @@ check your sample name or add to specimens table by hand
 </div>
 </section>
 <section id="jr6-jr6-magic">
-<h3>jr6_jr6_magic<a class="headerlink" href="#jr6-jr6-magic" title="Permalink to this headline">#</a></h3>
+<h3>jr6_jr6_magic<a class="headerlink" href="#jr6-jr6-magic" title="Permalink to this heading">#</a></h3>
 <p><a class="reference external" href="https://earthref.org/MagIC">[MagIC Database]</a>  <a class="reference external" href="https://pmagpy.github.io/PmagPy-cli.html#jr6_jr6_magic.py">[command line version]</a></p>
-<p>The AGICO JR6 spinner magnetometer has two output formats, the .jr6 and the .txt.  Here we illustrate the conversion of the .jr6 format.  There are data from two different studies in the example folder.  One (from Anita di Chiara) has the suffix ‘.JR6’ and the other (from Roi Granot) are lower case (.jr6’). Each file has the data from a single specimen’s experiment.  So, we can convert Anita’s data to a series of MagIC formatted measurement files, combine them with <a class="reference external" href="#ipmag.combine_magic">ipmag.combine_magic</a> and look at them with Demag GUI (on the command line) or <a class="reference external" href="#zeq_magic">zeq_magic</a> within the notebook.</p>
+<p>The AGICO JR6 spinner magnetometer has two output formats, the .jr6 and the .txt.  Here we illustrate the conversion of the .jr6 format.  There are data from two different studies in the example folder.  One (from Anita di Chiara) has the suffix ‘.JR6’ and the other (from Roi Granot) are lower case (.jr6’). Each file has the data from a single specimen’s experiment.  So, we can convert Anita’s data to a series of MagIC formatted measurement files, combine them with <span class="xref myst">ipmag.combine_magic</span> and look at them with Demag GUI (on the command line) or <span class="xref myst">zeq_magic</span> within the notebook.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">help</span><span class="p">(</span><span class="n">convert</span><span class="o">.</span><span class="n">jr6_jr6</span><span class="p">)</span>
@@ -4465,21 +3854,21 @@ SML06.JR6
 <div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>(True, [])
 </pre></div>
 </div>
-<img alt="../_images/PmagPy_MagIC_149_1.png" src="../_images/PmagPy_MagIC_149_1.png" />
-<img alt="../_images/PmagPy_MagIC_149_2.png" src="../_images/PmagPy_MagIC_149_2.png" />
-<img alt="../_images/PmagPy_MagIC_149_3.png" src="../_images/PmagPy_MagIC_149_3.png" />
-<img alt="../_images/PmagPy_MagIC_149_4.png" src="../_images/PmagPy_MagIC_149_4.png" />
-<img alt="../_images/PmagPy_MagIC_149_5.png" src="../_images/PmagPy_MagIC_149_5.png" />
-<img alt="../_images/PmagPy_MagIC_149_6.png" src="../_images/PmagPy_MagIC_149_6.png" />
-<img alt="../_images/PmagPy_MagIC_149_7.png" src="../_images/PmagPy_MagIC_149_7.png" />
-<img alt="../_images/PmagPy_MagIC_149_8.png" src="../_images/PmagPy_MagIC_149_8.png" />
-<img alt="../_images/PmagPy_MagIC_149_9.png" src="../_images/PmagPy_MagIC_149_9.png" />
-<img alt="../_images/PmagPy_MagIC_149_10.png" src="../_images/PmagPy_MagIC_149_10.png" />
-<img alt="../_images/PmagPy_MagIC_149_11.png" src="../_images/PmagPy_MagIC_149_11.png" />
-<img alt="../_images/PmagPy_MagIC_149_12.png" src="../_images/PmagPy_MagIC_149_12.png" />
-<img alt="../_images/PmagPy_MagIC_149_13.png" src="../_images/PmagPy_MagIC_149_13.png" />
-<img alt="../_images/PmagPy_MagIC_149_14.png" src="../_images/PmagPy_MagIC_149_14.png" />
-<img alt="../_images/PmagPy_MagIC_149_15.png" src="../_images/PmagPy_MagIC_149_15.png" />
+<img alt="../_images/28ec79223fda46680e30859889e1b86c80c7eff0210183eabbd1235a4bca2b37.png" src="../_images/28ec79223fda46680e30859889e1b86c80c7eff0210183eabbd1235a4bca2b37.png" />
+<img alt="../_images/b96c3e505a751e2996e5d8f9b79694e7d93941be94b2a75aae3d94421dfa942f.png" src="../_images/b96c3e505a751e2996e5d8f9b79694e7d93941be94b2a75aae3d94421dfa942f.png" />
+<img alt="../_images/61d185ddde9e7d8f61c90abcf931620ebe76939790d799852ae4d2a0ea6054c6.png" src="../_images/61d185ddde9e7d8f61c90abcf931620ebe76939790d799852ae4d2a0ea6054c6.png" />
+<img alt="../_images/48eba22c8f772b92f81361b7226c6c328a858e058be63ee0bee3af8e88f52855.png" src="../_images/48eba22c8f772b92f81361b7226c6c328a858e058be63ee0bee3af8e88f52855.png" />
+<img alt="../_images/39295e3f0d19b6b49ad66f63d5bb53e4acd895e5d7c95be539e4bd9498f5a4d3.png" src="../_images/39295e3f0d19b6b49ad66f63d5bb53e4acd895e5d7c95be539e4bd9498f5a4d3.png" />
+<img alt="../_images/33371547320898c513a33a15504f58faa5c171f8425ced42bdce9c22afd38611.png" src="../_images/33371547320898c513a33a15504f58faa5c171f8425ced42bdce9c22afd38611.png" />
+<img alt="../_images/2e170b2d1a74ecaca985e8677328f14053c4366b8cb2a5a80c79ad00c7dbbe36.png" src="../_images/2e170b2d1a74ecaca985e8677328f14053c4366b8cb2a5a80c79ad00c7dbbe36.png" />
+<img alt="../_images/a6007d716152caa98712274fdaa8fa01959042c313f55318419c93dc6bc1ae76.png" src="../_images/a6007d716152caa98712274fdaa8fa01959042c313f55318419c93dc6bc1ae76.png" />
+<img alt="../_images/22419f050b5b6d46baa2c8d49e699cc24f56c667f73fec52424fcc7c0288213c.png" src="../_images/22419f050b5b6d46baa2c8d49e699cc24f56c667f73fec52424fcc7c0288213c.png" />
+<img alt="../_images/148abd522b67e074675be2eb181592ba8e8b144c552e49bb58f9b165a6e7edf0.png" src="../_images/148abd522b67e074675be2eb181592ba8e8b144c552e49bb58f9b165a6e7edf0.png" />
+<img alt="../_images/5cc2cb62ac3da832a05dd8a1ddbef3128f4017d41aab8812a5000b6e7d2c8fc2.png" src="../_images/5cc2cb62ac3da832a05dd8a1ddbef3128f4017d41aab8812a5000b6e7d2c8fc2.png" />
+<img alt="../_images/d522dca85d966d64bcc0c40f8f19d6ec7244d56ee47f9cd56abde00f579c154c.png" src="../_images/d522dca85d966d64bcc0c40f8f19d6ec7244d56ee47f9cd56abde00f579c154c.png" />
+<img alt="../_images/89d190aeec8a4964c96ecc6d05e4c67a9e6a995bc592591a91826d5d58626b7b.png" src="../_images/89d190aeec8a4964c96ecc6d05e4c67a9e6a995bc592591a91826d5d58626b7b.png" />
+<img alt="../_images/bcaf953751239b59fc8b99e9cf9703cb1ca6356322913d8fbbe281be11839965.png" src="../_images/bcaf953751239b59fc8b99e9cf9703cb1ca6356322913d8fbbe281be11839965.png" />
+<img alt="../_images/89410381f38ce22e445f3e051d163a60a409b2404edaef1c7751aca49f578da3.png" src="../_images/89410381f38ce22e445f3e051d163a60a409b2404edaef1c7751aca49f578da3.png" />
 </div>
 </div>
 <p>Now we can do Roi’s files</p>
@@ -4558,26 +3947,26 @@ measurement type unknown -01A
 <div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>(True, [])
 </pre></div>
 </div>
-<img alt="../_images/PmagPy_MagIC_152_1.png" src="../_images/PmagPy_MagIC_152_1.png" />
-<img alt="../_images/PmagPy_MagIC_152_2.png" src="../_images/PmagPy_MagIC_152_2.png" />
-<img alt="../_images/PmagPy_MagIC_152_3.png" src="../_images/PmagPy_MagIC_152_3.png" />
-<img alt="../_images/PmagPy_MagIC_152_4.png" src="../_images/PmagPy_MagIC_152_4.png" />
-<img alt="../_images/PmagPy_MagIC_152_5.png" src="../_images/PmagPy_MagIC_152_5.png" />
-<img alt="../_images/PmagPy_MagIC_152_6.png" src="../_images/PmagPy_MagIC_152_6.png" />
-<img alt="../_images/PmagPy_MagIC_152_7.png" src="../_images/PmagPy_MagIC_152_7.png" />
-<img alt="../_images/PmagPy_MagIC_152_8.png" src="../_images/PmagPy_MagIC_152_8.png" />
-<img alt="../_images/PmagPy_MagIC_152_9.png" src="../_images/PmagPy_MagIC_152_9.png" />
-<img alt="../_images/PmagPy_MagIC_152_10.png" src="../_images/PmagPy_MagIC_152_10.png" />
-<img alt="../_images/PmagPy_MagIC_152_11.png" src="../_images/PmagPy_MagIC_152_11.png" />
-<img alt="../_images/PmagPy_MagIC_152_12.png" src="../_images/PmagPy_MagIC_152_12.png" />
-<img alt="../_images/PmagPy_MagIC_152_13.png" src="../_images/PmagPy_MagIC_152_13.png" />
-<img alt="../_images/PmagPy_MagIC_152_14.png" src="../_images/PmagPy_MagIC_152_14.png" />
-<img alt="../_images/PmagPy_MagIC_152_15.png" src="../_images/PmagPy_MagIC_152_15.png" />
+<img alt="../_images/c4105faa3ebfef7286d7ce19f6296a859bc795ca5166fe6b6fc184fbd8a2f356.png" src="../_images/c4105faa3ebfef7286d7ce19f6296a859bc795ca5166fe6b6fc184fbd8a2f356.png" />
+<img alt="../_images/6e9317d49b1268d7d87c7d2ef7aec7897f751939caa1f2481721c46aec7b6acf.png" src="../_images/6e9317d49b1268d7d87c7d2ef7aec7897f751939caa1f2481721c46aec7b6acf.png" />
+<img alt="../_images/09d8b4eb438fdf4a870e095cba6afe6f63fdb66500c9834769c3454e09544ac3.png" src="../_images/09d8b4eb438fdf4a870e095cba6afe6f63fdb66500c9834769c3454e09544ac3.png" />
+<img alt="../_images/eaf243dc48391b0c73d39a4b8b98264e8f66a34a16e6f11abdb44fa4eeb1ffcb.png" src="../_images/eaf243dc48391b0c73d39a4b8b98264e8f66a34a16e6f11abdb44fa4eeb1ffcb.png" />
+<img alt="../_images/8e1a35ceb08e13585bbef86a23ee21616d75c197b9c2460a2aca6de952439fde.png" src="../_images/8e1a35ceb08e13585bbef86a23ee21616d75c197b9c2460a2aca6de952439fde.png" />
+<img alt="../_images/4c1427e3b360a73d9a61cd83fec19b9d40f848b392e6b7e5e2053f3e1bfd5030.png" src="../_images/4c1427e3b360a73d9a61cd83fec19b9d40f848b392e6b7e5e2053f3e1bfd5030.png" />
+<img alt="../_images/f0a2324f9ad50ac98f5078582093d3d2a5ea181a1f53f4caeb156618fc845561.png" src="../_images/f0a2324f9ad50ac98f5078582093d3d2a5ea181a1f53f4caeb156618fc845561.png" />
+<img alt="../_images/ce1d900c3c7fea87f5c4074d9638332c3318a59b6a8cee732853b89374fe14e6.png" src="../_images/ce1d900c3c7fea87f5c4074d9638332c3318a59b6a8cee732853b89374fe14e6.png" />
+<img alt="../_images/cda855c6c24c1a4e9321455a37aa731d08a2d5faa783717a029c588ec7d2b68e.png" src="../_images/cda855c6c24c1a4e9321455a37aa731d08a2d5faa783717a029c588ec7d2b68e.png" />
+<img alt="../_images/8344a05109714b8abd9003232ee070312b25f53721379d600624f20dbfb3f385.png" src="../_images/8344a05109714b8abd9003232ee070312b25f53721379d600624f20dbfb3f385.png" />
+<img alt="../_images/984e085cf0608117c41c4fec6df44131eb8cb7b8d7f5376ee0af2a1c21ba388f.png" src="../_images/984e085cf0608117c41c4fec6df44131eb8cb7b8d7f5376ee0af2a1c21ba388f.png" />
+<img alt="../_images/1de5230f0d3ae9201430dade4614d2f8c2ab2f98c9a83fa503eeb8e317954d10.png" src="../_images/1de5230f0d3ae9201430dade4614d2f8c2ab2f98c9a83fa503eeb8e317954d10.png" />
+<img alt="../_images/b6863106380f276f3732592d586978d34c8febb7ca6c624b93fc9b5a86a025d4.png" src="../_images/b6863106380f276f3732592d586978d34c8febb7ca6c624b93fc9b5a86a025d4.png" />
+<img alt="../_images/6427013e296e7a03f2b27fa42330c3128ff95772aa8afcc6192652e8f004b9a4.png" src="../_images/6427013e296e7a03f2b27fa42330c3128ff95772aa8afcc6192652e8f004b9a4.png" />
+<img alt="../_images/b77edd8ca0930e8a6f2450280fcb5674a6151413819388c348466a568169cf69.png" src="../_images/b77edd8ca0930e8a6f2450280fcb5674a6151413819388c348466a568169cf69.png" />
 </div>
 </div>
 </section>
 <section id="jr6-txt-magic">
-<h3>jr6_txt_magic<a class="headerlink" href="#jr6-txt-magic" title="Permalink to this headline">#</a></h3>
+<h3>jr6_txt_magic<a class="headerlink" href="#jr6-txt-magic" title="Permalink to this heading">#</a></h3>
 <p><a class="reference external" href="https://earthref.org/MagIC">[MagIC Database]</a>  <a class="reference external" href="https://pmagpy.github.io/PmagPy-cli.html#jr6_txt_magic.py">[command line version]</a></p>
 <p>We can repeat the exercise for the JR6 .txt format using <strong>convert.jr6_txt()</strong>.</p>
 <div class="cell docutils container">
@@ -4733,17 +4122,17 @@ No plots could be created for specimen: AP12-03A
 <div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>(True, [])
 </pre></div>
 </div>
-<img alt="../_images/PmagPy_MagIC_157_2.png" src="../_images/PmagPy_MagIC_157_2.png" />
-<img alt="../_images/PmagPy_MagIC_157_3.png" src="../_images/PmagPy_MagIC_157_3.png" />
-<img alt="../_images/PmagPy_MagIC_157_4.png" src="../_images/PmagPy_MagIC_157_4.png" />
-<img alt="../_images/PmagPy_MagIC_157_5.png" src="../_images/PmagPy_MagIC_157_5.png" />
-<img alt="../_images/PmagPy_MagIC_157_6.png" src="../_images/PmagPy_MagIC_157_6.png" />
-<img alt="../_images/PmagPy_MagIC_157_7.png" src="../_images/PmagPy_MagIC_157_7.png" />
+<img alt="../_images/71e50326dcfe4911cab91ef697d8a5bac7165517c8bf7c2568f62da00c371d7d.png" src="../_images/71e50326dcfe4911cab91ef697d8a5bac7165517c8bf7c2568f62da00c371d7d.png" />
+<img alt="../_images/12c2ffbeebfa8752452f79b60742f38fd1fe66c6ac31bf2ff944ff7840ebf734.png" src="../_images/12c2ffbeebfa8752452f79b60742f38fd1fe66c6ac31bf2ff944ff7840ebf734.png" />
+<img alt="../_images/54bcfe45632919fe185babea15ab251bb0b4bfe5f5e04ce7960e15a160d97603.png" src="../_images/54bcfe45632919fe185babea15ab251bb0b4bfe5f5e04ce7960e15a160d97603.png" />
+<img alt="../_images/ee4cc18948c9cda30a455a4edd34555dbb831bd6742da60f8107b8bf891ff9e8.png" src="../_images/ee4cc18948c9cda30a455a4edd34555dbb831bd6742da60f8107b8bf891ff9e8.png" />
+<img alt="../_images/ce002ce1900a5a26e86811c8aed512b3019d91c484a303e12d6b117f9ffa5087.png" src="../_images/ce002ce1900a5a26e86811c8aed512b3019d91c484a303e12d6b117f9ffa5087.png" />
+<img alt="../_images/2265d1fa427190be873c1990c526f16c8d7134a910c7afb983107f1caf99279b.png" src="../_images/2265d1fa427190be873c1990c526f16c8d7134a910c7afb983107f1caf99279b.png" />
 </div>
 </div>
 </section>
 <section id="k15-magic">
-<h3>k15_magic<a class="headerlink" href="#k15-magic" title="Permalink to this headline">#</a></h3>
+<h3>k15_magic<a class="headerlink" href="#k15-magic" title="Permalink to this heading">#</a></h3>
 <p><a class="reference external" href="https://earthref.org/MagIC">[MagIC Database]</a>  <a class="reference external" href="https://pmagpy.github.io/PmagPy-cli.html#k15_magic.py">[command line version]</a></p>
 <p>Someone took a set of samples from a dike margin in the Troodos Ophiolite and measured their anisotropy of magnetic susceptibility on an a Kappabridge KLY 2.0 instrument in the SIO laboratory.  An example of the  data file format is in k15_magic.</p>
 <p>The first line of each set of four has the specimen name, azimuth, plunge, and bedding strike and dip the next three lines are sets of five measurements in the 15 positions recommended by Jelinek (1977):</p>
@@ -4754,7 +4143,7 @@ No plots could be created for specimen: AP12-03A
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../_images/PmagPy_MagIC_159_0.png" src="../_images/PmagPy_MagIC_159_0.png" />
+<img alt="../_images/fc253db8a072896e9b48916289873c14fe8d4321a8ed68700c94e04ce0024056.png" src="../_images/fc253db8a072896e9b48916289873c14fe8d4321a8ed68700c94e04ce0024056.png" />
 </div>
 </div>
 <p>The 15 measurements for each specimen, along with orientation information and the specimen name were saved in the file data_files/k15_magic/k15_example.dat.</p>
@@ -4863,14 +4252,14 @@ Data saved to: /Users/nebula/Python/PmagPy/data_files/convert_2_magic/k15_magic/
 </div>
 </section>
 <section id="kly4s-magic">
-<h3>kly4s_magic<a class="headerlink" href="#kly4s-magic" title="Permalink to this headline">#</a></h3>
+<h3>kly4s_magic<a class="headerlink" href="#kly4s-magic" title="Permalink to this heading">#</a></h3>
 <p><a class="reference external" href="https://earthref.org/MagIC">[MagIC Database]</a>  <a class="reference external" href="https://pmagpy.github.io/PmagPy-cli.html#kly4s_magic.py">[command line version]</a></p>
 <p>The program AMSSpin available for downloading from <a class="reference external" href="http://earthref.org/ERDA/940/">http://earthref.org/ERDA/940/</a> generates data for the Kappabridge KLY4S spinning magnetic susceptibility instrument as described by Gee et al. (2008).</p>
 <p>Output files are in the format of the file KLY4S_magic_example.dat (found in the measurement_import/kly4s_magic folder).</p>
 <p>The columns in the example file are:</p>
 <p>Specimen S_1 S_2 S_3 S_4 S_5 S_6 χb(μSI) date time user</p>
 <p>To convert the Agico Kappabridge KLY4S files generated by the SIO labview program (written by Jeff Gee), use <strong>convert.kly4s()</strong>.
-This function will create the files needed by the MagIC database and the data can be plotted using <a class="reference external" href="#aniso_magic">aniso_magic</a>.   If you were to import the sample files from the LIMS data base for these samples, you could plot them versus depth, or as equal area projections using <strong>ani_depthplot</strong> and <strong>aniso_magic</strong> respectively.</p>
+This function will create the files needed by the MagIC database and the data can be plotted using <span class="xref myst">aniso_magic</span>.   If you were to import the sample files from the LIMS data base for these samples, you could plot them versus depth, or as equal area projections using <strong>ani_depthplot</strong> and <strong>aniso_magic</strong> respectively.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">help</span><span class="p">(</span><span class="n">convert</span><span class="o">.</span><span class="n">kly4s</span><span class="p">)</span>
@@ -4987,13 +4376,13 @@ measurement data saved in  /Users/nebula/Python/PmagPy/data_files/convert_2_magi
 <div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>(True, [])
 </pre></div>
 </div>
-<img alt="../_images/PmagPy_MagIC_167_1.png" src="../_images/PmagPy_MagIC_167_1.png" />
-<img alt="../_images/PmagPy_MagIC_167_2.png" src="../_images/PmagPy_MagIC_167_2.png" />
+<img alt="../_images/4a5bccb2c060151450a74ee405e1239322e54eb770d679782303bcad04ba84f4.png" src="../_images/4a5bccb2c060151450a74ee405e1239322e54eb770d679782303bcad04ba84f4.png" />
+<img alt="../_images/97e784ed250eaf1e7d3d9ac2b07343f385e98c49cd77ec9a40e39ddc37e830ff.png" src="../_images/97e784ed250eaf1e7d3d9ac2b07343f385e98c49cd77ec9a40e39ddc37e830ff.png" />
 </div>
 </div>
 </section>
 <section id="ldeo-magic">
-<h3>ldeo_magic<a class="headerlink" href="#ldeo-magic" title="Permalink to this headline">#</a></h3>
+<h3>ldeo_magic<a class="headerlink" href="#ldeo-magic" title="Permalink to this heading">#</a></h3>
 <p><a class="reference external" href="https://earthref.org/MagIC">[MagIC Database]</a>  <a class="reference external" href="https://pmagpy.github.io/PmagPy-cli.html#ldeo_magic.py">[command line version]</a></p>
 <p>To convert Lamont-Doherty Earth Observatory data files to MagIC, use <strong>convert.ldeo()</strong>.</p>
 <p>NB:  this doesn’t seem to work properly at all.</p>
@@ -5102,26 +4491,26 @@ ldeo(magfile, dir_path=&#39;.&#39;, input_dir_path=&#39;&#39;, meas_file=&#39;me
 <div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>(True, [])
 </pre></div>
 </div>
-<img alt="../_images/PmagPy_MagIC_171_1.png" src="../_images/PmagPy_MagIC_171_1.png" />
-<img alt="../_images/PmagPy_MagIC_171_2.png" src="../_images/PmagPy_MagIC_171_2.png" />
-<img alt="../_images/PmagPy_MagIC_171_3.png" src="../_images/PmagPy_MagIC_171_3.png" />
-<img alt="../_images/PmagPy_MagIC_171_4.png" src="../_images/PmagPy_MagIC_171_4.png" />
-<img alt="../_images/PmagPy_MagIC_171_5.png" src="../_images/PmagPy_MagIC_171_5.png" />
-<img alt="../_images/PmagPy_MagIC_171_6.png" src="../_images/PmagPy_MagIC_171_6.png" />
-<img alt="../_images/PmagPy_MagIC_171_7.png" src="../_images/PmagPy_MagIC_171_7.png" />
-<img alt="../_images/PmagPy_MagIC_171_8.png" src="../_images/PmagPy_MagIC_171_8.png" />
-<img alt="../_images/PmagPy_MagIC_171_9.png" src="../_images/PmagPy_MagIC_171_9.png" />
-<img alt="../_images/PmagPy_MagIC_171_10.png" src="../_images/PmagPy_MagIC_171_10.png" />
-<img alt="../_images/PmagPy_MagIC_171_11.png" src="../_images/PmagPy_MagIC_171_11.png" />
-<img alt="../_images/PmagPy_MagIC_171_12.png" src="../_images/PmagPy_MagIC_171_12.png" />
-<img alt="../_images/PmagPy_MagIC_171_13.png" src="../_images/PmagPy_MagIC_171_13.png" />
-<img alt="../_images/PmagPy_MagIC_171_14.png" src="../_images/PmagPy_MagIC_171_14.png" />
-<img alt="../_images/PmagPy_MagIC_171_15.png" src="../_images/PmagPy_MagIC_171_15.png" />
+<img alt="../_images/e557f462a44d8f2ea5206f147b7ee97a0b0822d7da95162253a82ad5ae7adbe5.png" src="../_images/e557f462a44d8f2ea5206f147b7ee97a0b0822d7da95162253a82ad5ae7adbe5.png" />
+<img alt="../_images/5d4cc69273f37623aedec2da026a30d397a030698ea8aa776f5673b964a3f97b.png" src="../_images/5d4cc69273f37623aedec2da026a30d397a030698ea8aa776f5673b964a3f97b.png" />
+<img alt="../_images/8fac54d93ff76f80cb6afb0ef88007a505d761da57f1f7a865836b6a139e97ab.png" src="../_images/8fac54d93ff76f80cb6afb0ef88007a505d761da57f1f7a865836b6a139e97ab.png" />
+<img alt="../_images/41f14f7633b3d3a3f10d72af773151086e35ec5cde4100b7decbd6d1c02b7698.png" src="../_images/41f14f7633b3d3a3f10d72af773151086e35ec5cde4100b7decbd6d1c02b7698.png" />
+<img alt="../_images/3a92e5e3c949a152e20ff5322dc5d08cd8d96f97bcd9b71f1debb110c0132e64.png" src="../_images/3a92e5e3c949a152e20ff5322dc5d08cd8d96f97bcd9b71f1debb110c0132e64.png" />
+<img alt="../_images/bf9b36bfeba6fd24f2b21cbd8f29eb197ea06c7f5166853b6e8c0d1d4f3d4981.png" src="../_images/bf9b36bfeba6fd24f2b21cbd8f29eb197ea06c7f5166853b6e8c0d1d4f3d4981.png" />
+<img alt="../_images/cebca12810302878271879aab7e10b86890a2d1d3354368a7761946cfb751fed.png" src="../_images/cebca12810302878271879aab7e10b86890a2d1d3354368a7761946cfb751fed.png" />
+<img alt="../_images/ee19e2a9f4980c6f9e9010cadf3b99863efe2a5a875695f2bb3cddcba9ca268d.png" src="../_images/ee19e2a9f4980c6f9e9010cadf3b99863efe2a5a875695f2bb3cddcba9ca268d.png" />
+<img alt="../_images/1dc5133d4b008155651c90db06362bb45ae54cf7d60d51430aaee1892e7bd62e.png" src="../_images/1dc5133d4b008155651c90db06362bb45ae54cf7d60d51430aaee1892e7bd62e.png" />
+<img alt="../_images/11c0cf6295689a54c03c4b943d1d2177acfdf2aefa33611d4e33092823fcc3fd.png" src="../_images/11c0cf6295689a54c03c4b943d1d2177acfdf2aefa33611d4e33092823fcc3fd.png" />
+<img alt="../_images/176d479747f1c6bafe4c5a98a838186e2e0721cbf7d7eaa40194b381bdd1ee24.png" src="../_images/176d479747f1c6bafe4c5a98a838186e2e0721cbf7d7eaa40194b381bdd1ee24.png" />
+<img alt="../_images/2a21b44e4949228313a213405224bdc76a05015b5dde398ae8c9cd5b763be756.png" src="../_images/2a21b44e4949228313a213405224bdc76a05015b5dde398ae8c9cd5b763be756.png" />
+<img alt="../_images/e193c980ddbe3e73ddfa884958c7b7b5b593bb88387aeee0ba3b25eadedd9a53.png" src="../_images/e193c980ddbe3e73ddfa884958c7b7b5b593bb88387aeee0ba3b25eadedd9a53.png" />
+<img alt="../_images/27ad4645c754162673350cf21c5f460472f39dbdb043b00315f1c7ed9dd3cb27.png" src="../_images/27ad4645c754162673350cf21c5f460472f39dbdb043b00315f1c7ed9dd3cb27.png" />
+<img alt="../_images/bea0f68e4622c00e3e3c5296c43906543be3331c1e1d19ef4fc8c196e2e392a1.png" src="../_images/bea0f68e4622c00e3e3c5296c43906543be3331c1e1d19ef4fc8c196e2e392a1.png" />
 </div>
 </div>
 </section>
 <section id="livdb-magic">
-<h3>livdb_magic<a class="headerlink" href="#livdb-magic" title="Permalink to this headline">#</a></h3>
+<h3>livdb_magic<a class="headerlink" href="#livdb-magic" title="Permalink to this heading">#</a></h3>
 <p><a class="reference external" href="https://earthref.org/MagIC">[MagIC Database]</a>  <a class="reference external" href="https://pmagpy.github.io/PmagPy-cli.html#livdb_magic.py">[command line version]</a></p>
 <p>To convert the Liverpool university database  format to MagIC use <strong>convert.livdb()</strong>.</p>
 <p>Here we have several experiment types as examples as examples.</p>
@@ -5332,26 +4721,26 @@ ATPIPV14-2A
 <div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>(True, [])
 </pre></div>
 </div>
-<img alt="../_images/PmagPy_MagIC_176_2.png" src="../_images/PmagPy_MagIC_176_2.png" />
-<img alt="../_images/PmagPy_MagIC_176_3.png" src="../_images/PmagPy_MagIC_176_3.png" />
-<img alt="../_images/PmagPy_MagIC_176_4.png" src="../_images/PmagPy_MagIC_176_4.png" />
-<img alt="../_images/PmagPy_MagIC_176_5.png" src="../_images/PmagPy_MagIC_176_5.png" />
-<img alt="../_images/PmagPy_MagIC_176_6.png" src="../_images/PmagPy_MagIC_176_6.png" />
-<img alt="../_images/PmagPy_MagIC_176_7.png" src="../_images/PmagPy_MagIC_176_7.png" />
-<img alt="../_images/PmagPy_MagIC_176_8.png" src="../_images/PmagPy_MagIC_176_8.png" />
-<img alt="../_images/PmagPy_MagIC_176_9.png" src="../_images/PmagPy_MagIC_176_9.png" />
-<img alt="../_images/PmagPy_MagIC_176_10.png" src="../_images/PmagPy_MagIC_176_10.png" />
-<img alt="../_images/PmagPy_MagIC_176_11.png" src="../_images/PmagPy_MagIC_176_11.png" />
-<img alt="../_images/PmagPy_MagIC_176_12.png" src="../_images/PmagPy_MagIC_176_12.png" />
-<img alt="../_images/PmagPy_MagIC_176_13.png" src="../_images/PmagPy_MagIC_176_13.png" />
-<img alt="../_images/PmagPy_MagIC_176_14.png" src="../_images/PmagPy_MagIC_176_14.png" />
-<img alt="../_images/PmagPy_MagIC_176_15.png" src="../_images/PmagPy_MagIC_176_15.png" />
-<img alt="../_images/PmagPy_MagIC_176_16.png" src="../_images/PmagPy_MagIC_176_16.png" />
-<img alt="../_images/PmagPy_MagIC_176_17.png" src="../_images/PmagPy_MagIC_176_17.png" />
-<img alt="../_images/PmagPy_MagIC_176_18.png" src="../_images/PmagPy_MagIC_176_18.png" />
-<img alt="../_images/PmagPy_MagIC_176_19.png" src="../_images/PmagPy_MagIC_176_19.png" />
-<img alt="../_images/PmagPy_MagIC_176_20.png" src="../_images/PmagPy_MagIC_176_20.png" />
-<img alt="../_images/PmagPy_MagIC_176_21.png" src="../_images/PmagPy_MagIC_176_21.png" />
+<img alt="../_images/3b53e703f99dd9cac6e9a6e582f315742b1dcfab714a9da395981245150bbf11.png" src="../_images/3b53e703f99dd9cac6e9a6e582f315742b1dcfab714a9da395981245150bbf11.png" />
+<img alt="../_images/2f17bb307f242ab460a483de5d0d02362156054ddd6ed568d8faa7324c07a69f.png" src="../_images/2f17bb307f242ab460a483de5d0d02362156054ddd6ed568d8faa7324c07a69f.png" />
+<img alt="../_images/b51184788ca18f3c570f08e4d28a54045aec4d406065b8fb88fa6ae5d6bdbd21.png" src="../_images/b51184788ca18f3c570f08e4d28a54045aec4d406065b8fb88fa6ae5d6bdbd21.png" />
+<img alt="../_images/e672a515cde6c6184da4387ce03228c2e4edad81c76f11a18bafc480bdc3e0e7.png" src="../_images/e672a515cde6c6184da4387ce03228c2e4edad81c76f11a18bafc480bdc3e0e7.png" />
+<img alt="../_images/ba9451ab68762b33e239406034e59407045f3efd912ca3dc141caf199da0056f.png" src="../_images/ba9451ab68762b33e239406034e59407045f3efd912ca3dc141caf199da0056f.png" />
+<img alt="../_images/6ac4fd8249007f30d0dec45b9f8c76c6859b25de0fc4926db7f97bb86a31422e.png" src="../_images/6ac4fd8249007f30d0dec45b9f8c76c6859b25de0fc4926db7f97bb86a31422e.png" />
+<img alt="../_images/6ce0fa218fee6b5464f54b95c57e61e3a2afb0cf8258d5bc4d3db3e056bf5683.png" src="../_images/6ce0fa218fee6b5464f54b95c57e61e3a2afb0cf8258d5bc4d3db3e056bf5683.png" />
+<img alt="../_images/2bfe1830b4e031e9a2ab610f2ff8828e0bc3d2f86c0462204164f8ca1ba1fe1b.png" src="../_images/2bfe1830b4e031e9a2ab610f2ff8828e0bc3d2f86c0462204164f8ca1ba1fe1b.png" />
+<img alt="../_images/c66a9953d97e71cf8b1829bfee4c9493cdd84340de53074043ae0561daaf33fb.png" src="../_images/c66a9953d97e71cf8b1829bfee4c9493cdd84340de53074043ae0561daaf33fb.png" />
+<img alt="../_images/da0003115604ac4ad037107a3ca2b09bb1744a5353c5476e98f95f9a605486ad.png" src="../_images/da0003115604ac4ad037107a3ca2b09bb1744a5353c5476e98f95f9a605486ad.png" />
+<img alt="../_images/68d2f02d44217da8d1e7c8e02903e19f28f668139f99a18b8ab3f517f963e755.png" src="../_images/68d2f02d44217da8d1e7c8e02903e19f28f668139f99a18b8ab3f517f963e755.png" />
+<img alt="../_images/79b3fe77daacf7a88b06104ffc5eba91753e7e12771dcad0b4c5d2b662bb345c.png" src="../_images/79b3fe77daacf7a88b06104ffc5eba91753e7e12771dcad0b4c5d2b662bb345c.png" />
+<img alt="../_images/615c473f54b25fe3ad6588503c83987706d39f32fe4d2ddaf672a16ff0afe78c.png" src="../_images/615c473f54b25fe3ad6588503c83987706d39f32fe4d2ddaf672a16ff0afe78c.png" />
+<img alt="../_images/ea1a91e0dc3382827ccc728bb26ccae808b2dc74f8e730bf7287ec5eb4ba8285.png" src="../_images/ea1a91e0dc3382827ccc728bb26ccae808b2dc74f8e730bf7287ec5eb4ba8285.png" />
+<img alt="../_images/e8bb63e74a5a55d50ee0288130f17e0a78b500780aed5517c9a0a057eaa95060.png" src="../_images/e8bb63e74a5a55d50ee0288130f17e0a78b500780aed5517c9a0a057eaa95060.png" />
+<img alt="../_images/96ab9db1661678033275adbc9773a468b81bc88772a6b774caf4eb88717677eb.png" src="../_images/96ab9db1661678033275adbc9773a468b81bc88772a6b774caf4eb88717677eb.png" />
+<img alt="../_images/703f227fb4d1b1c68c32e12b06e182b50173400afd6db8f367999cff8771fc6a.png" src="../_images/703f227fb4d1b1c68c32e12b06e182b50173400afd6db8f367999cff8771fc6a.png" />
+<img alt="../_images/8bfa0882d5797d95fcac9976ea29af30fb093b9cdd7d613e46132bf03c6d7d48.png" src="../_images/8bfa0882d5797d95fcac9976ea29af30fb093b9cdd7d613e46132bf03c6d7d48.png" />
+<img alt="../_images/7b6fc56829e4b8c69d3336187e384f3fe89594c5be749646f82f5620dc05d39d.png" src="../_images/7b6fc56829e4b8c69d3336187e384f3fe89594c5be749646f82f5620dc05d39d.png" />
+<img alt="../_images/b75cd62f625a1d1662d112716f25b1e5735f03fe4a66fff0b22eeb0abf0fdae9.png" src="../_images/b75cd62f625a1d1662d112716f25b1e5735f03fe4a66fff0b22eeb0abf0fdae9.png" />
 </div>
 </div>
 <p>here’s one for microwave “C+” experiment</p>
@@ -5507,10 +4896,10 @@ ATPIPV14-2A
 </div>
 </div>
 </div>
-<p>Now you can look at these data (except for MW_P) with thellier_gui or <a class="reference external" href="#thellier_magic">thellier_magic</a>.</p>
+<p>Now you can look at these data (except for MW_P) with thellier_gui or <span class="xref myst">thellier_magic</span>.</p>
 </section>
 <section id="mst-magic">
-<h3>mst_magic<a class="headerlink" href="#mst-magic" title="Permalink to this headline">#</a></h3>
+<h3>mst_magic<a class="headerlink" href="#mst-magic" title="Permalink to this heading">#</a></h3>
 <p><a class="reference external" href="https://earthref.org/MagIC">[MagIC Database]</a>  <a class="reference external" href="https://pmagpy.github.io/PmagPy-cli.html#mst_magic.py">[command line version]</a></p>
 <p>To convert a Curie Temperature experiment to MagIC, use <strong>convert.mst()</strong>.  The data file format should be a space delimited file with temperature and magnetization couplets.</p>
 <div class="cell docutils container">
@@ -5607,7 +4996,7 @@ results put in  /Users/nebula/Python/PmagPy/data_files/convert_2_magic/mst_magic
 </div>
 </div>
 </div>
-<p>We can now use <a class="reference external" href="#curie">curie</a> to plot the data.</p>
+<p>We can now use <span class="xref myst">curie</span> to plot the data.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">ipmag</span><span class="o">.</span><span class="n">curie</span><span class="p">(</span><span class="n">path_to_file</span><span class="o">=</span><span class="s1">&#39;data_files/convert_2_magic/mst_magic/&#39;</span><span class="p">,</span><span class="n">file_name</span><span class="o">=</span><span class="s1">&#39;measurements.txt&#39;</span><span class="p">,</span><span class="n">magic</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
@@ -5618,15 +5007,15 @@ results put in  /Users/nebula/Python/PmagPy/data_files/convert_2_magic/mst_magic
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>second derivative maximum is at T=205
 </pre></div>
 </div>
-<img alt="../_images/PmagPy_MagIC_190_1.png" src="../_images/PmagPy_MagIC_190_1.png" />
-<img alt="../_images/PmagPy_MagIC_190_2.png" src="../_images/PmagPy_MagIC_190_2.png" />
-<img alt="../_images/PmagPy_MagIC_190_3.png" src="../_images/PmagPy_MagIC_190_3.png" />
-<img alt="../_images/PmagPy_MagIC_190_4.png" src="../_images/PmagPy_MagIC_190_4.png" />
+<img alt="../_images/a3369824bf1f2ab0b4e515795ab3feaf4cae83b63dc84dde961d55bb932fad2b.png" src="../_images/a3369824bf1f2ab0b4e515795ab3feaf4cae83b63dc84dde961d55bb932fad2b.png" />
+<img alt="../_images/e0f365621d4db9f1d683e497b7a743965b86139182b1c709105bf5a1dd7ed74f.png" src="../_images/e0f365621d4db9f1d683e497b7a743965b86139182b1c709105bf5a1dd7ed74f.png" />
+<img alt="../_images/eea1679f027732736d123dfc6d83ed0a1e57583fd8da11a3a5cc01f4d0a7fd04.png" src="../_images/eea1679f027732736d123dfc6d83ed0a1e57583fd8da11a3a5cc01f4d0a7fd04.png" />
+<img alt="../_images/7748f4a82e534e9a98a0f55fb9e114c7e3883c0e560f0ce4ebf06062074f94d0.png" src="../_images/7748f4a82e534e9a98a0f55fb9e114c7e3883c0e560f0ce4ebf06062074f94d0.png" />
 </div>
 </div>
 </section>
 <section id="pmd-magic">
-<h3>pmd_magic<a class="headerlink" href="#pmd-magic" title="Permalink to this headline">#</a></h3>
+<h3>pmd_magic<a class="headerlink" href="#pmd-magic" title="Permalink to this heading">#</a></h3>
 <p><a class="reference external" href="https://earthref.org/MagIC">[MagIC Database]</a>  <a class="reference external" href="https://pmagpy.github.io/PmagPy-cli.html#pmd_magic.py">[command line version]</a></p>
 <p>This format is the one used to import .PMD formatted magnetometer files (used for example in the PaleoMac software of Cogné, 2003) into the MagIC format. (See <a class="reference external" href="http://www.ipgp.fr/~cogne/pub/paleomac/PMhome.html">http://www.ipgp.fr/~cogne/pub/paleomac/PMhome.html</a> for the PaleoMac home page. The version of these files that <strong>pmd_magic</strong> expects (UCSC version) contains demagnetization data for a single specimen and has a format as in the example file in ../measurement_import/pmd_magic/PMD/ss0207a.pmd</p>
 <p>The first line is a comment line. The second line has the specimen name, the core azimuth (a=) and plunge (b=) which are assumed to be the lab arrow azimuth and plunge (Orientation scheme #4)D. The third line is a header explaining the columns in the file.</p>
@@ -5724,7 +5113,7 @@ pmd(mag_file, dir_path=&#39;.&#39;, input_dir_path=&#39;&#39;, meas_file=&#39;me
 </div>
 </section>
 <section id="sio-magic">
-<h3>sio_magic<a class="headerlink" href="#sio-magic" title="Permalink to this headline">#</a></h3>
+<h3>sio_magic<a class="headerlink" href="#sio-magic" title="Permalink to this heading">#</a></h3>
 <p><a class="reference external" href="https://earthref.org/MagIC">[MagIC Database]</a>  <a class="reference external" href="https://pmagpy.github.io/PmagPy-cli.html#sio_magic.py">[command line version]</a></p>
 <p>This program allows conversion of the SIO format magnetometer files to the MagIC common measurements format. The columns in the example data file are:</p>
 <p>Specimen treatment intensity declination inclination optional_string</p>
@@ -5736,11 +5125,11 @@ pmd(mag_file, dir_path=&#39;.&#39;, input_dir_path=&#39;&#39;, meas_file=&#39;me
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../_images/PmagPy_MagIC_195_0.png" src="../_images/PmagPy_MagIC_195_0.png" />
+<img alt="../_images/3f7b30c61e28f485a1aefe2c345e3c23b10807d5000514c113bc72a0611a2d76.png" src="../_images/3f7b30c61e28f485a1aefe2c345e3c23b10807d5000514c113bc72a0611a2d76.png" />
 </div>
 </div>
 <p>As an example, we use data from Sbarbori et al. (2009) done on a set of samples from the location “Socorro”, including AF, thermal, and thellier experimental data. These were saved in sio_af_example.dat, sio_thermal_example.dat, and sio_thellier_example.dat respectively. The lab field for the thellier experiment was 25 μT and was applied along the specimen’s Z axis (phi=0,theta=90).]</p>
-<p>We can convert the example files into measurement formatted files with names like af_measurements.txt, etc. using the function <strong>convert.sio()</strong>.   Then combine them together following the instructions for  <a class="reference external" href="#combine_magic">combine_magic</a>.</p>
+<p>We can convert the example files into measurement formatted files with names like af_measurements.txt, etc. using the function <strong>convert.sio()</strong>.   Then combine them together following the instructions for  <span class="xref myst">combine_magic</span>.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">help</span><span class="p">(</span><span class="n">convert</span><span class="o">.</span><span class="n">sio</span><span class="p">)</span>
@@ -5913,7 +5302,7 @@ sio(mag_file, dir_path=&#39;.&#39;, input_dir_path=&#39;&#39;, meas_file=&#39;me
 </div>
 </section>
 <section id="sufar4-magic">
-<h3>sufar4_magic<a class="headerlink" href="#sufar4-magic" title="Permalink to this headline">#</a></h3>
+<h3>sufar4_magic<a class="headerlink" href="#sufar4-magic" title="Permalink to this heading">#</a></h3>
 <p><a class="reference external" href="https://earthref.org/MagIC">[MagIC Database]</a>  <a class="reference external" href="https://pmagpy.github.io/PmagPy-cli.html#sufar4_asc_magic.py">[command line version]</a></p>
 <p>The AGICO program SUFAR creates ascii txt files as output.  <strong>convert.sufar4()</strong> will convert these to the MagIC format.</p>
 <div class="cell docutils container">
@@ -6007,7 +5396,7 @@ site info put in  /Users/nebula/Python/PmagPy/data_files/convert_2_magic/sufar_a
 </div>
 </div>
 </div>
-<p>Now we can test it out with, for example, <a class="reference external" href="#aniso_magic">ipmag.aniso_magic_nb()</a></p>
+<p>Now we can test it out with, for example, <span class="xref myst">ipmag.aniso_magic_nb()</span></p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">ipmag</span><span class="o">.</span><span class="n">aniso_magic_nb</span><span class="p">(</span><span class="n">infile</span><span class="o">=</span><span class="s1">&#39;data_files/convert_2_magic/sufar_asc_magic/specimens.txt&#39;</span><span class="p">)</span>
@@ -6026,7 +5415,7 @@ site info put in  /Users/nebula/Python/PmagPy/data_files/convert_2_magic/sufar_a
 </div>
 </section>
 <section id="tdt-magic">
-<h3>tdt_magic<a class="headerlink" href="#tdt-magic" title="Permalink to this headline">#</a></h3>
+<h3>tdt_magic<a class="headerlink" href="#tdt-magic" title="Permalink to this heading">#</a></h3>
 <p><a class="reference external" href="https://earthref.org/MagIC">[MagIC Database]</a>  <a class="reference external" href="https://pmagpy.github.io/PmagPy-cli.html#tdt_magic.py">[command line version]</a></p>
 <p>Convertions of the Thellier Tool format of Leonhardt et al., 2004 can be done with <strong>convert.tdt()</strong>.  THERE IS A PROBLEM WITH THE XXX.4 TREATMENT STEP CONVERSION.</p>
 <div class="cell docutils container">
@@ -6120,7 +5509,7 @@ Open file:  data_files/convert_2_magic/tdt_magic/Krasa_MGH1_noAC.tdt
 </div>
 </section>
 <section id="utrecht-magic">
-<h3>utrecht_magic<a class="headerlink" href="#utrecht-magic" title="Permalink to this headline">#</a></h3>
+<h3>utrecht_magic<a class="headerlink" href="#utrecht-magic" title="Permalink to this heading">#</a></h3>
 <p><a class="reference external" href="https://earthref.org/MagIC">[MagIC Database]</a>  <a class="reference external" href="https://pmagpy.github.io/PmagPy-cli.html#utrecht_magic.py">[command line version]</a></p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -6226,7 +5615,7 @@ utrecht(mag_file, dir_path=&#39;.&#39;, input_dir_path=&#39;&#39;, meas_file=&#3
 </div>
 </section>
 <section id="orientation-magic">
-<h3>orientation_magic<a class="headerlink" href="#orientation-magic" title="Permalink to this headline">#</a></h3>
+<h3>orientation_magic<a class="headerlink" href="#orientation-magic" title="Permalink to this heading">#</a></h3>
 <p><a class="reference external" href="https://earthref.org/PmagPy/cookbook/#QQ2-1-25">[Preparing for MagIC]</a> <a class="reference external" href="https://pmagpy.github.io/PmagPy-cli.html#orientation_magic.py">[command line version]</a></p>
 <p><strong>orientation_magic</strong> is meant to import the field book data as entered into the format like in  orientation_example.txt into the MagIC format samples, sites and location tables.<br />
 Click <a class="reference external" href="https://earthref.org/PmagPy/cookbook/#field_info">here</a>  for details about the orient.txt file format. The example file used here has field information for a few sites. The samples were oriented with a Pomeroy orientation device (the default) and it is desirable to calculate the magnetic declination from the IGRF at the time of sampling (also the default). Sample names follow the rule that the sample is designated by a letter at the end of the site name (convention #1 - which is also the default). We can do this from within a notebook by calling  <strong>ipmag.orientation_magic()</strong>.</p>
@@ -6337,7 +5726,7 @@ Data saved in  /Users/nebula/Python/PmagPy/data_files/orientation_magic/samples.
 </div>
 </section>
 <section id="azdip-magic">
-<h3>azdip_magic<a class="headerlink" href="#azdip-magic" title="Permalink to this headline">#</a></h3>
+<h3>azdip_magic<a class="headerlink" href="#azdip-magic" title="Permalink to this heading">#</a></h3>
 <p><a class="reference external" href="https://earthref.org/MagIC">[MagIC Database]</a>  <a class="reference external" href="https://pmagpy.github.io/PmagPy-cli.html#azdip_magic.py">[command line version]</a></p>
 <p>Many paleomagnetists save orientation information in files in this format: Sample Azimuth Plunge Strike Dip (AZDIP format), where the Azimuth and Plunge are the declination and inclination of the drill direction and the strike and dip are the attitude of the sampled unit (with dip to the right of strike). Of course there are many ways to think about sample orientation and the MagIC database convention is to store the direction of the X coordinate of the specimen measurements. To convert an AzDip formatted file (example in data_files/azdip_magic/azdip_magic_example.dat), we can use <strong>ipmag.azdip_magic()</strong>.</p>
 <div class="cell docutils container">
@@ -6414,9 +5803,9 @@ Data saved in  /Users/nebula/Python/PmagPy/data_files/azdip_magic/samples.txt
 </section>
 </section>
 <section id="other-handy-scripts">
-<h2>Other handy scripts<a class="headerlink" href="#other-handy-scripts" title="Permalink to this headline">#</a></h2>
+<h2>Other handy scripts<a class="headerlink" href="#other-handy-scripts" title="Permalink to this heading">#</a></h2>
 <section id="chartmaker">
-<h3>chartmaker<a class="headerlink" href="#chartmaker" title="Permalink to this headline">#</a></h3>
+<h3>chartmaker<a class="headerlink" href="#chartmaker" title="Permalink to this heading">#</a></h3>
 <p><a class="reference external" href="https://pmagpy.github.io/PmagPy-cli.html#chartmaker.py">[command line version]</a></p>
 <p>Chartmaker makes a chart like this:</p>
 <div class="cell docutils container">
@@ -6426,7 +5815,7 @@ Data saved in  /Users/nebula/Python/PmagPy/data_files/azdip_magic/samples.txt
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../_images/PmagPy_MagIC_223_0.png" src="../_images/PmagPy_MagIC_223_0.png" />
+<img alt="../_images/2b8b43c4b3ec1ef799be919edf879923a1a3f414284e9a281517f3a4467d29b3.png" src="../_images/2b8b43c4b3ec1ef799be919edf879923a1a3f414284e9a281517f3a4467d29b3.png" />
 </div>
 </div>
 <p>You can print it out and tape it to the oven in the lab to help keep track of this annoyingly complicated experiment.  :)</p>
@@ -6501,7 +5890,7 @@ chart_maker(Int, Top, start=100, outfile=&#39;chart.txt&#39;)
 </section>
 </section>
 <section id="clean-up">
-<h2>Clean up<a class="headerlink" href="#clean-up" title="Permalink to this headline">#</a></h2>
+<h2>Clean up<a class="headerlink" href="#clean-up" title="Permalink to this heading">#</a></h2>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">glob</span>
@@ -6585,7 +5974,7 @@ chart_maker(Int, Top, start=100, outfile=&#39;chart.txt&#39;)
             mode: "python"
         },
         kernelOptions: {
-            kernelName: "python3",
+            name: "python3",
             path: "./documentation_notebooks"
         },
         predefinedOutput: true
@@ -6593,50 +5982,172 @@ chart_maker(Int, Top, start=100, outfile=&#39;chart.txt&#39;)
     </script>
     <script>kernelName = 'python3'</script>
 
-              </div>
+                </article>
               
-            </main>
-            <footer class="footer-article noprint">
-                
-    <!-- Previous / next buttons -->
-<div class='prev-next-area'>
-    <a class='left-prev' id="prev-link" href="PmagPy_plots_analysis.html" title="previous page">
-        <i class="fas fa-angle-left"></i>
-        <div class="prev-next-info">
-            <p class="prev-next-subtitle">previous</p>
-            <p class="prev-next-title">Visualizations and more analysis with PmagPy</p>
-        </div>
+
+              
+              
+                <footer class="bd-footer-article">
+                  
+<div class="footer-article-items footer-article__inner">
+  
+    <div class="footer-article-item"><!-- Previous / next buttons -->
+<div class="prev-next-area">
+    <a class="left-prev"
+       href="PmagPy_plots_analysis.html"
+       title="previous page">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">previous</p>
+        <p class="prev-next-title">Visualizations and more analysis with PmagPy</p>
+      </div>
     </a>
-    <a class='right-next' id="next-link" href="../example_notebooks/example_notebooks.html" title="next page">
-    <div class="prev-next-info">
+    <a class="right-next"
+       href="../example_notebooks/example_notebooks.html"
+       title="next page">
+      <div class="prev-next-info">
         <p class="prev-next-subtitle">next</p>
         <p class="prev-next-title">Example notebooks</p>
-    </div>
-    <i class="fas fa-angle-right"></i>
-    </a>
-</div>
-            </footer>
-        </div>
-    </div>
-    <div class="footer-content row">
-        <footer class="col footer"><p>
-  
-    By PmagPy Contributors<br/>
-  
-      &copy; Copyright 2022.<br/>
-</p>
-        </footer>
-    </div>
-    
-</div>
-
-
       </div>
+      <i class="fa-solid fa-angle-right"></i>
+    </a>
+</div></div>
+  
+</div>
+
+                </footer>
+              
+            </div>
+            
+            
+              
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#">Working with the MagIC database using PmagPy</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#overview-of-magic">Overview of   MagIC</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#guide-to-pmagpy">Guide to PmagPy</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#customizing-this-notebook">Customizing this notebook</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#get-started">Get started</a></li>
+</ul>
+</li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#table-of-contents">Table of contents</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#magic-read">magic_read</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#pmag-magic-write">pmag.magic_write</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#combine-magic">combine_magic</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#convert-ages">convert_ages</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#grab-magic-key">grab_magic_key</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#magic-select">magic_select</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#sites-extract">sites_extract</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#criteria-extract">criteria_extract</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#specimens-extract">specimens_extract</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#contributions">Contributions</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#download-magic">download_magic</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#working-with-a-public-contribution">Working with a public contribution:</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#working-with-a-private-contribution">Working with a private contribution</a></li>
+</ul>
+</li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#upload-magic">upload_magic</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#cb-add-sites-to-meas-table">cb.add_sites_to_meas_table</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#cb-get-intensity-col">cb.get_intensity_col</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#interacting-with-the-magic-database">Interacting with the MagIC database</a></li>
+</ul>
+</li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#conversion-scripts">Conversion Scripts</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#convert-2-magic">convert_2_magic</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#g-asc-magic">_2g_asc_magic</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#g-bin-magic">_2g_bin_magic</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#agm-magic">agm_magic</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#bgc-magic">bgc_magic</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#cit-magic">cit_magic</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#generic-magic">generic_magic</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#huji-magic">huji_magic</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#huji-sample-magic">huji_sample_magic</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#iodp-dscr-lore">iodp_dscr_lore</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#iodp-jr6-lore">iodp_jr6_lore</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#iodp-srm-lore">iodp_srm_lore</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#jr6-jr6-magic">jr6_jr6_magic</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#jr6-txt-magic">jr6_txt_magic</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#k15-magic">k15_magic</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#kly4s-magic">kly4s_magic</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#ldeo-magic">ldeo_magic</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#livdb-magic">livdb_magic</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#mst-magic">mst_magic</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#pmd-magic">pmd_magic</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#sio-magic">sio_magic</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#sufar4-magic">sufar4_magic</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#tdt-magic">tdt_magic</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#utrecht-magic">utrecht_magic</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#orientation-magic">orientation_magic</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#azdip-magic">azdip_magic</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#other-handy-scripts">Other handy scripts</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#chartmaker">chartmaker</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#clean-up">Clean up</a></li>
+</ul>
+</li>
+</ul>
+
+  </nav></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
+  
+  <div class="footer-item">
+    
+<p class="component-author">
+By PmagPy Contributors
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  <p class="copyright">
+    
+      © Copyright 2022.
+      <br/>
+    
+  </p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+</div>
+          </footer>
+        
+
+      </main>
     </div>
+  </div>
   
   <!-- Scripts loaded after <body> so the DOM is not blocked -->
-  <script src="../_static/scripts/pydata-sphinx-theme.js?digest=1999514e3f237ded88cf"></script>
+  <script src="../_static/scripts/bootstrap.js?digest=e353d410970836974a52"></script>
+<script src="../_static/scripts/pydata-sphinx-theme.js?digest=e353d410970836974a52"></script>
 
-
+  <footer class="bd-footer">
+  </footer>
   </body>
 </html>

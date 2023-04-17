@@ -1,10 +1,10 @@
 ---
-title: Books with Jupyter
+title: PmagPy
 ---
 
 # PmagPy: An open source package for paleomagnetic data analysis
 
-PmagPy is a set of tools written in Python for the analysis of paleomagnetic data. It facilitates interpretation of demagnetization data, paleointensity data, and data from other types of rock magnetic experiments. The package is hosted on Github (https://github.com/PmagPy/PmagPy) and can be pip installed via PyPi (https://pypi.org/project/pmagpy/). PmagPy can be used to create a wide variety of useful plots. It is designed to work with the MagIC database (https://earthref.org/MagIC), allowing manipulation of downloaded data sets as well as preparation of new contributions for uploading to the MagIC database. Utilizing PmagPy within Jupyter notebooks enables fully documented and nicely illustrated data analysis.
+PmagPy is a set of tools written in Python for the analysis of paleomagnetic data. It facilitates interpretation of demagnetization data, paleointensity data, and data from other types of rock magnetic experiments. The package is hosted on Github (https://github.com/PmagPy/PmagPy) and can be pip installed via PyPi (https://pypi.org/project/pmagpy/). PmagPy can be used to create a wide variety of useful plots. It is designed to work with the MagIC database (https://earthref.org/MagIC) and enables manipulation of downloaded MagIC data sets as well as preparation of new contributions for uploading to the MagIC database. Utilizing PmagPy within Jupyter notebooks enables fully documented and nicely illustrated data analysis.
 
 ::::{grid} 1 1 2 3
 :class-container: text-center
@@ -30,7 +30,7 @@ Instructions for how to install PmagPy for your use case.
 Documentation notebooks ✏️
 ^^^
 
-See capabilities of PmagPy functions within these documentation Jupyter notebooks
+See capabilities of PmagPy functions within these documentation Jupyter notebooks.
 :::
 
 :::{grid-item-card}
@@ -52,7 +52,7 @@ See example notebooks that analyze specific datasets using PmagPy.
 Live notebooks 🚀
 ^^^
 
-Launch PmagPy notebooks on the Earthref JupyterHub.
+Launch PmagPy notebooks on the Earthref JupyterHub
 :::
 
 :::{grid-item-card}
@@ -62,7 +62,7 @@ Launch PmagPy notebooks on the Earthref JupyterHub.
 GUIs 🎁
 ^^^
 
-Download and use Pmag GUI to analyze data and prepare data for MagIC
+Download and use Pmag GUI to analyze data and prepare data for MagIC.
 :::
 
 :::{grid-item-card}
@@ -79,9 +79,9 @@ Develop new contributions and analyze existing datasets in the MagIC database.
 
 PmagPy is comprised of:
 
-- **Function modules for paleomagnetic data analysis** Function modules include that for paleomagnetic data analysis (pmagpy.pmag) and plotting (pmagpy.pmagplotlib) as well as interactive higher level data analysis (pmagpy.ipmag). The functions within these modules are at the heart of the GUI and command line programs. With pmagpy in as part of your Python installation (which can be accomplished through pip installation ```pip install pmagpy```), these modules can be imported (e.g. ```import pmagpy.ipmag as ipmag```). These functions can be used within Jupyter Notebooks (see examples in the [documentation notebooks](./documentation_notebooks/PmagPy_introduction.ipynb)) and are all documented within the [API Reference](./api/api).
+- **Function modules for paleomagnetic data analysis** These function modules enable paleomagnetic data analysis (pmagpy.pmag) and plotting (pmagpy.pmagplotlib) as well as interactive higher level data analysis (pmagpy.ipmag). The functions within these modules are at the heart of the GUI and command line programs. With pmagpy as part of your Python installation (which can be accomplished through pip installation ```pip install pmagpy```), these modules can be imported (e.g. ```import pmagpy.ipmag as ipmag```). These functions can be used within Jupyter Notebooks (see examples in the [documentation notebooks](./documentation_notebooks/PmagPy_introduction.ipynb)) and are documented within the [API Reference](./api/api).
 - **A graphical user interface (GUI) program** The [PmagPy application](./programs/pmag_gui.md) enables users to get data into the MagIC database format as well as analyze demagnetization and paleointensity data.
-- **Command line programs** The PmagPy command line programs enable all sorts of  paleomagnetic data analysis and wrangling. They are contained within the programs folder of the PmagPy repository (https://github.com/PmagPy/PmagPy) and can be pip installed (```pip install pmagpy-cli```).
+- **Command line programs** The PmagPy command line programs enable all sorts of paleomagnetic data analysis and wrangling. They are contained within the programs folder of the PmagPy repository (https://github.com/PmagPy/PmagPy) and can be pip installed (```pip install pmagpy-cli```).
 
 # Citing PmagPy
 
@@ -114,7 +114,7 @@ The code base for the PmagPy project has been built up over the years by Lisa Ta
 
 ^^^
 
-We welcome anyone to join us in improving PmagPy and helping one another learn as we conduct reproducible research in rock and paleomagnetism. You can do this be [contributing code](https://github.com/PmagPy/PmagPy/pulls), improving documentation, or raising [issues](https://github.com/PmagPy/PmagPy/issues).
+We welcome anyone to join us in improving PmagPy and helping one another learn as we conduct reproducible research in rock magnetism and paleomagnetism. You can do this be [contributing code](https://github.com/PmagPy/PmagPy/pulls), improving documentation, or raising [issues](https://github.com/PmagPy/PmagPy/issues).
 
 Check out our [contributing guide](https://github.com/PmagPy/PmagPy/blob/master/CONTRIBUTING.md).
 :::
@@ -123,7 +123,7 @@ Check out our [contributing guide](https://github.com/PmagPy/PmagPy/blob/master/
 
 # Analyzed with PmagPy
 
-Below are just a few of the hundreds of papers that have been conducted analysis with PmagPy.
+Below are just a few of the hundreds of papers that have conducted analysis with PmagPy.
 You can find more on [{bdg-primary}`Google Scholar`](https://scholar.google.com/scholar?cites=16152229079597538403).
 
 
@@ -179,9 +179,11 @@ G^3: Archeointensity of the Four Corners Region of the American Southwest {cite:
 Explore this paper {fas}`arrow-right`
 :::
 
+::::
+
 # Learn more about paleomagnetism 📖
 
-The online textbook [Essentials of Paleomagnetism](https://earthref.org/MagIC/books/Tauxe/Essentials/) is a place to learn more about Earth's geomagnetic field, rock magnetism, paleomagnetism, statistics associated with paleomagnetic data and more. The problems within the book call upon the reader to use PmagPy functions.
+The online textbook [Essentials of Paleomagnetism](https://earthref.org/MagIC/books/Tauxe/Essentials/) is a place to learn more about Earth's geomagnetic field, rock magnetism, paleomagnetism, statistics associated with paleomagnetic data, and more. The problems within the book call upon the reader to use PmagPy functions.
 
 # Acknowledgements
 
