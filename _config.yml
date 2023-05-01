@@ -3,6 +3,7 @@
 
 title: PmagPy Documentation
 author: PmagPy Contributors
+copyright: "2023"  # Copyright year to be placed in the footer
 logo: images/logos/pmagpy_logo_notext.png
 
 # Force re-execution of notebooks on each build.
