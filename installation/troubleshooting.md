@@ -10,13 +10,13 @@ Windows users) and type `python`. You should see something like this:
 
 ```
 $ python
-Python 3.6.0 |Anaconda 4.3.1 (x86_64)| (default, Dec 23 2016, 13:19:00)
-[GCC 4.2.1 Compatible Apple LLVM 6.0 (clang-600.0.57)] on darwin
+Python 3.9.13 (main, Aug 25 2022, 18:29:29) 
+[Clang 12.0.0 ] :: Anaconda, Inc. on darwin
 Type "help", "copyright", "credits" or "license" for more information.
 ```
 
 If you get an error message, or you don’t see “Anaconda” in the initial
-message, you should go back to the [installing
+message, you should go to the [installing
 Python](#getting_python) section and follow the instructions there.
 
 ## wxPython is not installed
@@ -37,7 +37,7 @@ pip install --upgrade -f https://wxpython.org/Phoenix/snapshot-builds/ wxPython
 
 ## Troubleshooting a pip install
 
-If you installed with pip but you have this error message or similar
+If you installed with pip, but you have this error message or similar
 when you try to run a program:
 
 ```
