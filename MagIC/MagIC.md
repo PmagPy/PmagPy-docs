@@ -17,7 +17,7 @@ with an [ORCID iD](https://orcid.org) here: [https://www2.earthref.org/log-in](h
 After downloading,
 MagIC data can be unpacked and examined using various tools in the
 **PmagPy** package, for example using 
-[Pmag GUI](https://pmagpy.github.io/PmagPy-docs/programs/demag_gui.html)
+[Pmag GUI](../programs/pmag_gui.md)
 or [Jupyter Notebooks](https://pmagpy.github.io/PmagPy-docs/documentation_notebooks/PmagPy_MagIC.html)
 
 Paleomagnetic and rock magnetic data are collected and analyzed in a variety of 
