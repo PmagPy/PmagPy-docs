@@ -5,8 +5,9 @@ You have multiple options for using PmagPy.
 -   If you only want to use the graphical user interfaces (GUIs), you
     can download them as standalone programs ([](section_Standalone_GUI)). The
     standalone install doesn't require that you have Python, but is 
-    limited to [](../programs/pmag_gui.md), [](../programs/demag_gui.md)
-    and [](../programs/thellier_gui.md) without the rest of the functionality
+    limited to the functionality that is available in [Pmag GUI](../programs/pmag_gui.md) 
+    (which includes [Demag Gui](../programs/demag_gui.md)
+    and [Thellier GUI](../programs/thellier_gui.md)) without the rest of the functionality
     of PmagPy.
 
 If you want the full **PmagPy** functionality, you have two options:
@@ -16,7 +17,7 @@ If you want the full **PmagPy** functionality, you have two options:
 
 -   If you want to actively participate in developing and modifying
     **PmagPy** or be linked with the most recent commits to the project, 
-    you will do a [](section_developer_install).
+    you will want to do a [](section_developer_install).
 
 An alternative way to use the pmagpy package without downloading anything, 
 is to go to the Jupyter notebooks that our hosted online at our Jupyterhub:
@@ -64,17 +65,18 @@ You can find more specific pip install instructions for each operating system at
 ## Standalone GUI download
 
 If you do not need the full PmagPy functionality, and you only want to
-use Pmag GUI, MagIC GUI, Thellier GUI, and Demag GUI, there is now a
-standalone download for you. You won't need to install Python for this.
+use Pmag GUI, MagIC GUI, Thellier GUI, and Demag GUI you can download
+a standalone program. You won't need to install Python to use these
+programs.
 
 ### OSX Standalone download
 
-You will find the latest OS X standalone download here:
+You can find the latest OS X standalone download here:
 <https://github.com/PmagPy/PmagPy-Standalone-OSX/releases/latest>
 
 ### Windows Standalone download
 
-You will find the latest Windows standalone download here:
+You can find the latest Windows standalone download here:
 <https://github.com/PmagPy/PmagPy-Standalone-Windows/releases/latest>
 
 ### Linux Standalone download
@@ -82,14 +84,14 @@ You will find the latest Windows standalone download here:
 This binary has only been tested on a Ubuntu 14.04 (Trusty) distribution
 and might be buggy on other distributions.
 
-You will find the latest Linux standalone download:
+You can find the latest Linux standalone download here:
 <https://github.com/PmagPy/PmagPy-Standalone-Linux/releases/latest>
 
 (section_developer_install)=
 ## PmagPy developer install
 
 If you want to get into the nitty-gritty of the code such that you are
-directly working from the repository, you
+directly working from the current version of the code in the repository, you
 should do a developer install. 
 
 If you just want to use **PmagPy** out of the box, do a regular
@@ -174,7 +176,7 @@ path would read:
 
 and so on.
 
-### Common install problems
+### Common installation problems
 
 -   Make sure you have the correct version of Python. If you run the
     command "python", you should see a message like this:
@@ -184,7 +186,7 @@ and so on.
         Type "help", "copyright", "credits" or "license" for more information.
         >>>
 
--   If you try to run a **PmagPy** program and you get an ImportError,
+-   If you try to run a **PmagPy** program and you get an ```ImportError```,
     you are probably missing a required package. Go back and install all
     required, non-default packages. If the ImportError is for a
     **PmagPy** package, go back and make sure you installed pmagpy and
@@ -195,7 +197,7 @@ and so on.
 
             ln -s ~/anaconda3/bin/python3 ~/anaconda3/bin/pythonw
 
-For more help, see the [troubleshooting section](#trouble).
+For more help, see the [troubleshooting section](./troubleshooting.md).
 
 ### OS-specific differences
 
@@ -253,17 +255,15 @@ changes as each update will overwrite the standard notebooks.
 
 Where do you want to go from here?
 
--   [Download data from the **MagIC** database.](#magic_download)
+-   [Learn more about the **MagIC** database and download data.](../MagIC/MagIC.md)
 
--   [Analyze and/or upload demagnetization](#pmag_gui.py) and/or
+-   [Analyze and/or upload demagnetization](../programs/demag_gui.md) and/or
     paleointensity measurement data to the **MagIC** database.
 
--   [Learn more about particular programs in the **PmagPy** software
-    package.](#PmagPy)
-
--   [Learn about the MagIC Database.](#MagICDatabase)
-
--   [Learn how to write your own programs in Python.](#Python)
+-   [Learn how to write your own programs in Python.](../resources/survival_skills.md)
 
 -   [Learn how to use Jupyter notebooks for managing your data analysis
-    workflow.](#Notebooks)
+    workflow.](../documentation_notebooks/PmagPy_introduction.ipynb)
+
+-   [Learn more about command line programs in the **PmagPy** software
+    package.](../programs/command_line_programs.md)
