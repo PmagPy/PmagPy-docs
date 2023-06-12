@@ -2,7 +2,8 @@
 
 A number of the programs in **PmagPy** were developed to take advantage
 of the [Magnetics Information Consortium (MagIC)](https://www.earthref.org/MagIC) 
-database and aid the process of getting data in and out of it. The MagIC database is focused on improving research 
+database and aid the process of getting data in and out of it. 
+The MagIC database is focused on improving research 
 capacity in Earth, ocean, and planetary science by maintaining an open community 
 digital data repository for rock and paleomagnetic data with portals that 
 allow users to archive, search, visualize, download, and combine these 
@@ -21,14 +22,16 @@ or [Jupyter Notebooks](https://pmagpy.github.io/PmagPy-docs/documentation_notebo
 
 Paleomagnetic and rock magnetic data are collected and analyzed in a variety of 
 ways for different research purposes. Data sets can be
-extremely large or can be bare bones data summaries published in
+extremely large or can be bare bones data summaries that have been published in
 legacy data tables. The goal of MagIC has been to have the flexibility
 to allow a whole range of data including legacy data from publications
 or other databases to new studies which include all the measurements,
-field photos, methodology, and so on. At present and into the future, 
+field photos, methodology, and more. At present and into the future, 
 the general procedure is to archive the data at the same time that they are
-published. So, to smooth the path, it is advisable to put your data into
-the MagIC format as early in the process as possible. All data that enters the database must be converted to the standard MagIC format. This can be done either as a set of MagIC tables, or as one combined text file. These can then be uploaded into the MagIC database.
+published. To smooth this path, it is advisable to put your data into
+the MagIC format as early in the process as possible. All data that enters the database 
+must be in the standard MagIC format. The data can be assembled as a set of MagIC tables
+that are combined into a single file for upload into the MagIC database.
 
 ## Structure of the database tables
 
@@ -72,8 +75,9 @@ AZ01              Azores   basalt      lava flow      37.80 -25.80
 
 Although data can be entered directly into Excel spreadsheets by hand,
 it is easier to generate the necessary tables as a by-product of
-ordinary data processing without having to know details of the meta-data
-and method codes. Aspects of the **PmagPy** software seek to generate MagIC
+ordinary data processing where meta-data
+and method codes are populated into tables along the way. 
+Aspects of the **PmagPy** software seek to generate MagIC
 data tables automatically for many aspects of common paleomagnetic studies
 involving directions and/or paleointensities.
 
@@ -96,20 +100,14 @@ flavor for how the codes work:
 ```{eval-rst}
 +-------------+---------------+--------------------------------------+
 | LT-AF-D     | Lab Treatment | Alternating field: Double            |
-|             |               | demagnetization                      |
-+-------------+---------------+--------------------------------------+
-|             |               | with AF along X,Y,Z measurement      |
-+-------------+---------------+--------------------------------------+
-|             |               | followed by AF along -X,-Y,-Z        |
-|             |               | measurement                          |
+|             |               | demagnetization with AF along X,Y,Z  |
+|             |               | measurement followed by AF along     |
+|             |               | -X,-Y,-Z  measurement                |
 +-------------+---------------+--------------------------------------+
 | LT-AF-G     | Lab Treatment | Alternating field: Triple            |
-|             |               | demagnetization                      |
-+-------------+---------------+--------------------------------------+
-|             |               | with AF along Y,Z,X measurement      |
-+-------------+---------------+--------------------------------------+
-|             |               | followed by AF along Y and AF along  |
-|             |               | Z measurement                        |
+|             |               | demagnetization with AF along        |
+|             |               | Y,Z,X measurement followed by AF     |
+|             |               | along Y and AF along Z measurement   |
 +-------------+---------------+--------------------------------------+
 | LT-AF-I     | Lab Treatment | Alternating field: In laboratory     |
 |             |               | field                                |
@@ -151,31 +149,23 @@ flavor for how the codes work:
 |             |               | NRM vector                           |
 +-------------+---------------+--------------------------------------+
 | LT-NRM-PAR  | Lab Treatment | Specimen heating and cooling:        |
-|             |               | Laboratory                           |
-+-------------+---------------+--------------------------------------+
-|             |               | field parallel to the NRM vector     |
+|             |               | Laboratory field parallel to the     |
+|             |               | the NRM vector                       |
 +-------------+---------------+--------------------------------------+
 | LT-NRM-PERP | Lab Treatment | Specimen heating and cooling:        |
-+-------------+---------------+--------------------------------------+
 |             |               | Laboratory field perpendicular to    |
 |             |               | the NRM vector                       |
 +-------------+---------------+--------------------------------------+
 | LT-PTRM-I   | Lab Treatment | pTRM tail check: After zero field    |
-|             |               | step,                                |
-+-------------+---------------+--------------------------------------+
-|             |               | perform an in field cooling          |
+|             |               | step, perform an in field cooling    |
 +-------------+---------------+--------------------------------------+
 | LT-PTRM-MD  | Lab Treatment | pTRM tail check: After in laboratory |
-|             |               | field step,                          |
-+-------------+---------------+--------------------------------------+
-|             |               | perform a zero field cooling at same |
-|             |               | temperature                          |
+|             |               | field step, perform a zero field     |
+|             |               | cooling at same temperature          |
 +-------------+---------------+--------------------------------------+
 | LT-PTRM-Z   | Lab Treatment | pTRM tail check: After in laboratory |
-|             |               | field step,                          |
-+-------------+---------------+--------------------------------------+
-|             |               | perform a zero field cooling at a    |
-|             |               | lower temperature                    |
+|             |               | field step, perform a zero field     |
+|             |               | cooling at a lower temperature       |
 +-------------+---------------+--------------------------------------+
 | LT-T-I      | Lab Treatment | Specimen cooling: In laboratory      |
 |             |               | field                                |
