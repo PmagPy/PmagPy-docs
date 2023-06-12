@@ -416,7 +416,8 @@ document.write(`
 <h1>MagIC database and file formats<a class="headerlink" href="#magic-database-and-file-formats" title="Permalink to this heading">#</a></h1>
 <p>A number of the programs in <strong>PmagPy</strong> were developed to take advantage
 of the <a class="reference external" href="https://www.earthref.org/MagIC">Magnetics Information Consortium (MagIC)</a>
-database and aid the process of getting data in and out of it. The MagIC database is focused on improving research
+database and aid the process of getting data in and out of it.
+The MagIC database is focused on improving research
 capacity in Earth, ocean, and planetary science by maintaining an open community
 digital data repository for rock and paleomagnetic data with portals that
 allow users to archive, search, visualize, download, and combine these
@@ -428,18 +429,20 @@ with an <a class="reference external" href="https://orcid.org">ORCID iD</a> here
 <p>After downloading,
 MagIC data can be unpacked and examined using various tools in the
 <strong>PmagPy</strong> package, for example using
-<a class="reference external" href="https://pmagpy.github.io/PmagPy-docs/programs/demag_gui.html">Pmag GUI</a>
+<a class="reference internal" href="../programs/pmag_gui.html"><span class="doc std std-doc">Pmag GUI</span></a>
 or <a class="reference external" href="https://pmagpy.github.io/PmagPy-docs/documentation_notebooks/PmagPy_MagIC.html">Jupyter Notebooks</a></p>
 <p>Paleomagnetic and rock magnetic data are collected and analyzed in a variety of
 ways for different research purposes. Data sets can be
-extremely large or can be bare bones data summaries published in
+extremely large or can be bare bones data summaries that have been published in
 legacy data tables. The goal of MagIC has been to have the flexibility
 to allow a whole range of data including legacy data from publications
 or other databases to new studies which include all the measurements,
-field photos, methodology, and so on. At present and into the future,
+field photos, methodology, and more. At present and into the future,
 the general procedure is to archive the data at the same time that they are
-published. So, to smooth the path, it is advisable to put your data into
-the MagIC format as early in the process as possible. All data that enters the database must be converted to the standard MagIC format. This can be done either as a set of MagIC tables, or as one combined text file. These can then be uploaded into the MagIC database.</p>
+published. To smooth this path, it is advisable to put your data into
+the MagIC format as early in the process as possible. All data that enters the database
+must be in the standard MagIC format. The data can be assembled as a set of MagIC tables
+that are combined into a single file for upload into the MagIC database.</p>
 <section id="structure-of-the-database-tables">
 <h2>Structure of the database tables<a class="headerlink" href="#structure-of-the-database-tables" title="Permalink to this heading">#</a></h2>
 <p>The MagIC database is organized around a series of data tables. The
@@ -524,8 +527,9 @@ might look like this:</p>
 </table>
 <p>Although data can be entered directly into Excel spreadsheets by hand,
 it is easier to generate the necessary tables as a by-product of
-ordinary data processing without having to know details of the meta-data
-and method codes. Aspects of the <strong>PmagPy</strong> software seek to generate MagIC
+ordinary data processing where meta-data
+and method codes are populated into tables along the way.
+Aspects of the <strong>PmagPy</strong> software seek to generate MagIC
 data tables automatically for many aspects of common paleomagnetic studies
 involving directions and/or paleointensities.</p>
 </section>
@@ -549,30 +553,16 @@ flavor for how the codes work:</p>
 <tr class="row-odd"><td><p>LT-AF-D</p></td>
 <td><p>Lab Treatment</p></td>
 <td><p>Alternating field: Double
-demagnetization</p></td>
-</tr>
-<tr class="row-even"><td></td>
-<td></td>
-<td><p>with AF along X,Y,Z measurement</p></td>
-</tr>
-<tr class="row-odd"><td></td>
-<td></td>
-<td><p>followed by AF along -X,-Y,-Z
-measurement</p></td>
+demagnetization with AF along X,Y,Z
+measurement followed by AF along
+-X,-Y,-Z  measurement</p></td>
 </tr>
 <tr class="row-even"><td><p>LT-AF-G</p></td>
 <td><p>Lab Treatment</p></td>
 <td><p>Alternating field: Triple
-demagnetization</p></td>
-</tr>
-<tr class="row-odd"><td></td>
-<td></td>
-<td><p>with AF along Y,Z,X measurement</p></td>
-</tr>
-<tr class="row-even"><td></td>
-<td></td>
-<td><p>followed by AF along Y and AF along
-Z measurement</p></td>
+demagnetization with AF along
+Y,Z,X measurement followed by AF
+along Y and AF along Z measurement</p></td>
 </tr>
 <tr class="row-odd"><td><p>LT-AF-I</p></td>
 <td><p>Lab Treatment</p></td>
@@ -642,74 +632,56 @@ NRM vector</p></td>
 <tr class="row-even"><td><p>LT-NRM-PAR</p></td>
 <td><p>Lab Treatment</p></td>
 <td><p>Specimen heating and cooling:
-Laboratory</p></td>
+Laboratory field parallel to the
+the NRM vector</p></td>
 </tr>
-<tr class="row-odd"><td></td>
-<td></td>
-<td><p>field parallel to the NRM vector</p></td>
-</tr>
-<tr class="row-even"><td><p>LT-NRM-PERP</p></td>
+<tr class="row-odd"><td><p>LT-NRM-PERP</p></td>
 <td><p>Lab Treatment</p></td>
-<td><p>Specimen heating and cooling:</p></td>
-</tr>
-<tr class="row-odd"><td></td>
-<td></td>
-<td><p>Laboratory field perpendicular to
+<td><p>Specimen heating and cooling:
+Laboratory field perpendicular to
 the NRM vector</p></td>
 </tr>
 <tr class="row-even"><td><p>LT-PTRM-I</p></td>
 <td><p>Lab Treatment</p></td>
 <td><p>pTRM tail check: After zero field
-step,</p></td>
+step, perform an in field cooling</p></td>
 </tr>
-<tr class="row-odd"><td></td>
-<td></td>
-<td><p>perform an in field cooling</p></td>
-</tr>
-<tr class="row-even"><td><p>LT-PTRM-MD</p></td>
+<tr class="row-odd"><td><p>LT-PTRM-MD</p></td>
 <td><p>Lab Treatment</p></td>
 <td><p>pTRM tail check: After in laboratory
-field step,</p></td>
-</tr>
-<tr class="row-odd"><td></td>
-<td></td>
-<td><p>perform a zero field cooling at same
-temperature</p></td>
+field step, perform a zero field
+cooling at same temperature</p></td>
 </tr>
 <tr class="row-even"><td><p>LT-PTRM-Z</p></td>
 <td><p>Lab Treatment</p></td>
 <td><p>pTRM tail check: After in laboratory
-field step,</p></td>
+field step, perform a zero field
+cooling at a lower temperature</p></td>
 </tr>
-<tr class="row-odd"><td></td>
-<td></td>
-<td><p>perform a zero field cooling at a
-lower temperature</p></td>
-</tr>
-<tr class="row-even"><td><p>LT-T-I</p></td>
+<tr class="row-odd"><td><p>LT-T-I</p></td>
 <td><p>Lab Treatment</p></td>
 <td><p>Specimen cooling: In laboratory
 field</p></td>
 </tr>
-<tr class="row-odd"><td><p>LT-T-Z</p></td>
+<tr class="row-even"><td><p>LT-T-Z</p></td>
 <td><p>Lab Treatment</p></td>
 <td><p>Specimen cooling: In zero field</p></td>
 </tr>
-<tr class="row-even"><td><p>LT-VD</p></td>
+<tr class="row-odd"><td><p>LT-VD</p></td>
 <td><p>Lab Treatment</p></td>
 <td><p>Viscous demagnetization by applying
 MU-metal screening</p></td>
 </tr>
-<tr class="row-odd"><td><p>LP-X</p></td>
+<tr class="row-even"><td><p>LP-X</p></td>
 <td><p>Lab Treatment</p></td>
 <td><p>Susceptibility</p></td>
 </tr>
-<tr class="row-even"><td><p>LT-ZF-C</p></td>
+<tr class="row-odd"><td><p>LT-ZF-C</p></td>
 <td><p>Lab Treatment</p></td>
 <td><p>Zero field cooled, low temperature
 IRM imparted</p></td>
 </tr>
-<tr class="row-odd"><td><p>LT-ZF-CI</p></td>
+<tr class="row-even"><td><p>LT-ZF-CI</p></td>
 <td><p>Lab Treatment</p></td>
 <td><p>Zero field cooled, induced M
 measured on warming</p></td>

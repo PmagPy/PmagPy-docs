@@ -406,7 +406,7 @@ document.write(`
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#pmagpy-developer-install">PmagPy developer install</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#install-help">Install help</a><ul class="nav section-nav flex-column">
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#details-of-setting-your-path">Details of setting your PATH</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#common-install-problems">Common install problems</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#common-installation-problems">Common installation problems</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#os-specific-differences">OS-specific differences</a></li>
 </ul>
 </li>
@@ -430,8 +430,9 @@ document.write(`
 <li><p>If you only want to use the graphical user interfaces (GUIs), you
 can download them as standalone programs (<a class="reference internal" href="#section-standalone-gui"><span class="std std-ref">Standalone GUI download</span></a>). The
 standalone install doesn’t require that you have Python, but is
-limited to <a class="reference internal" href="../programs/pmag_gui.html"><span class="doc std std-doc">Installing and Getting Started with Pmag GUI</span></a>, <a class="reference internal" href="../programs/demag_gui.html"><span class="doc std std-doc">Demag GUI</span></a>
-and <a class="reference internal" href="../programs/thellier_gui.html"><span class="doc std std-doc">Thellier GUI</span></a> without the rest of the functionality
+limited to the functionality that is available in <a class="reference internal" href="../programs/pmag_gui.html"><span class="doc std std-doc">Pmag GUI</span></a>
+(which includes <a class="reference internal" href="../programs/demag_gui.html"><span class="doc std std-doc">Demag Gui</span></a>
+and <a class="reference internal" href="../programs/thellier_gui.html"><span class="doc std std-doc">Thellier GUI</span></a>) without the rest of the functionality
 of PmagPy.</p></li>
 </ul>
 <p>If you want the full <strong>PmagPy</strong> functionality, you have two options:</p>
@@ -440,7 +441,7 @@ of PmagPy.</p></li>
 library and the <strong>PmagPy</strong> <a class="reference internal" href="../programs/command_line_programs.html"><span class="doc std std-doc">Command line programs</span></a>.</p></li>
 <li><p>If you want to actively participate in developing and modifying
 <strong>PmagPy</strong> or be linked with the most recent commits to the project,
-you will do a <a class="reference internal" href="#section-developer-install"><span class="std std-ref">PmagPy developer install</span></a>.</p></li>
+you will want to do a <a class="reference internal" href="#section-developer-install"><span class="std std-ref">PmagPy developer install</span></a>.</p></li>
 </ul>
 <p>An alternative way to use the pmagpy package without downloading anything,
 is to go to the Jupyter notebooks that our hosted online at our Jupyterhub:</p>
@@ -476,30 +477,31 @@ within your Python environment (e.g. your conda environment):</p>
 <section id="standalone-gui-download">
 <span id="section-standalone-gui"></span><h2>Standalone GUI download<a class="headerlink" href="#standalone-gui-download" title="Permalink to this heading">#</a></h2>
 <p>If you do not need the full PmagPy functionality, and you only want to
-use Pmag GUI, MagIC GUI, Thellier GUI, and Demag GUI, there is now a
-standalone download for you. You won’t need to install Python for this.</p>
+use Pmag GUI, MagIC GUI, Thellier GUI, and Demag GUI you can download
+a standalone program. You won’t need to install Python to use these
+programs.</p>
 <section id="osx-standalone-download">
 <h3>OSX Standalone download<a class="headerlink" href="#osx-standalone-download" title="Permalink to this heading">#</a></h3>
-<p>You will find the latest OS X standalone download here:
+<p>You can find the latest OS X standalone download here:
 <a class="github reference external" href="https://github.com/PmagPy/PmagPy-Standalone-OSX/releases/latest">PmagPy/PmagPy-Standalone-OSX</a></p>
 </section>
 <section id="windows-standalone-download">
 <h3>Windows Standalone download<a class="headerlink" href="#windows-standalone-download" title="Permalink to this heading">#</a></h3>
-<p>You will find the latest Windows standalone download here:
+<p>You can find the latest Windows standalone download here:
 <a class="github reference external" href="https://github.com/PmagPy/PmagPy-Standalone-Windows/releases/latest">PmagPy/PmagPy-Standalone-Windows</a></p>
 </section>
 <section id="linux-standalone-download">
 <h3>Linux Standalone download<a class="headerlink" href="#linux-standalone-download" title="Permalink to this heading">#</a></h3>
 <p>This binary has only been tested on a Ubuntu 14.04 (Trusty) distribution
 and might be buggy on other distributions.</p>
-<p>You will find the latest Linux standalone download:
+<p>You can find the latest Linux standalone download here:
 <a class="github reference external" href="https://github.com/PmagPy/PmagPy-Standalone-Linux/releases/latest">PmagPy/PmagPy-Standalone-Linux</a></p>
 </section>
 </section>
 <section id="pmagpy-developer-install">
 <span id="section-developer-install"></span><h2>PmagPy developer install<a class="headerlink" href="#pmagpy-developer-install" title="Permalink to this heading">#</a></h2>
 <p>If you want to get into the nitty-gritty of the code such that you are
-directly working from the repository, you
+directly working from the current version of the code in the repository, you
 should do a developer install.</p>
 <p>If you just want to use <strong>PmagPy</strong> out of the box, do a regular
 pip install. *Note*: you cannot have both a developer install and a
@@ -575,8 +577,8 @@ path would read:</p>
 </div>
 <p>and so on.</p>
 </section>
-<section id="common-install-problems">
-<h3>Common install problems<a class="headerlink" href="#common-install-problems" title="Permalink to this heading">#</a></h3>
+<section id="common-installation-problems">
+<h3>Common installation problems<a class="headerlink" href="#common-installation-problems" title="Permalink to this heading">#</a></h3>
 <ul>
 <li><p>Make sure you have the correct version of Python. If you run the
 command “python”, you should see a message like this:</p>
@@ -587,7 +589,7 @@ Type &quot;help&quot;, &quot;copyright&quot;, &quot;credits&quot; or &quot;licen
 </pre></div>
 </div>
 </li>
-<li><p>If you try to run a <strong>PmagPy</strong> program and you get an ImportError,
+<li><p>If you try to run a <strong>PmagPy</strong> program and you get an <code class="docutils literal notranslate"><span class="pre">ImportError</span></code>,
 you are probably missing a required package. Go back and install all
 required, non-default packages. If the ImportError is for a
 <strong>PmagPy</strong> package, go back and make sure you installed pmagpy and
@@ -599,7 +601,7 @@ with python vs pythonw, you may need to link your python to pythonw:</p>
 </div>
 </li>
 </ul>
-<p>For more help, see the <span class="xref myst">troubleshooting section</span>.</p>
+<p>For more help, see the <a class="reference internal" href="troubleshooting.html"><span class="doc std std-doc">troubleshooting section</span></a>.</p>
 </section>
 <section id="os-specific-differences">
 <h3>OS-specific differences<a class="headerlink" href="#os-specific-differences" title="Permalink to this heading">#</a></h3>
@@ -656,15 +658,14 @@ changes as each update will overwrite the standard notebooks.</p>
 <h2>Next steps<a class="headerlink" href="#next-steps" title="Permalink to this heading">#</a></h2>
 <p>Where do you want to go from here?</p>
 <ul class="simple">
-<li><p><span class="xref myst">Download data from the <strong>MagIC</strong> database.</span></p></li>
-<li><p><span class="xref myst">Analyze and/or upload demagnetization</span> and/or
+<li><p><a class="reference internal" href="../MagIC/MagIC.html"><span class="doc std std-doc">Learn more about the <strong>MagIC</strong> database and download data.</span></a></p></li>
+<li><p><a class="reference internal" href="../programs/demag_gui.html"><span class="doc std std-doc">Analyze and/or upload demagnetization</span></a> and/or
 paleointensity measurement data to the <strong>MagIC</strong> database.</p></li>
-<li><p><span class="xref myst">Learn more about particular programs in the <strong>PmagPy</strong> software
-package.</span></p></li>
-<li><p><span class="xref myst">Learn about the MagIC Database.</span></p></li>
-<li><p><span class="xref myst">Learn how to write your own programs in Python.</span></p></li>
-<li><p><span class="xref myst">Learn how to use Jupyter notebooks for managing your data analysis
-workflow.</span></p></li>
+<li><p><a class="reference internal" href="../resources/survival_skills.html"><span class="doc std std-doc">Learn how to write your own programs in Python.</span></a></p></li>
+<li><p><a class="reference internal" href="../documentation_notebooks/PmagPy_introduction.html"><span class="doc std std-doc">Learn how to use Jupyter notebooks for managing your data analysis
+workflow.</span></a></p></li>
+<li><p><a class="reference internal" href="../programs/command_line_programs.html"><span class="doc std std-doc">Learn more about command line programs in the <strong>PmagPy</strong> software
+package.</span></a></p></li>
 </ul>
 </section>
 <div class="toctree-wrapper compound">
@@ -748,7 +749,7 @@ workflow.</span></p></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#pmagpy-developer-install">PmagPy developer install</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#install-help">Install help</a><ul class="nav section-nav flex-column">
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#details-of-setting-your-path">Details of setting your PATH</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#common-install-problems">Common install problems</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#common-installation-problems">Common installation problems</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#os-specific-differences">OS-specific differences</a></li>
 </ul>
 </li>

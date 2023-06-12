@@ -3,15 +3,16 @@
 The ‘Py’ part of ‘PmagPy’ stands for Python, the language in which all
 the code is written. It is not essential, but it is helpful, to
 understand a bit about computer operating systems and the Python
-language when using PmagPy because no one should be using programs as
-black boxes without understanding what they are doing. As all the
+language when using PmagPy because scientists should seek to
+understand what the programs they are using are doing rather than
+treating them as black boxes. As all the
 programs are open source, you have the opportunity to look into them. If
 you understand a bit about how computers work yourself, you will be able
 to follow along what the programs are doing and even modify them to work
 better for you. In this chapter, you will find a brief introduction to
 the computer skills necessary for using the programs properly. We have
 tried to make this tutorial operating system independent. All the
-examples should work equally well on Mac OS, Windows and Unix-type
+examples should work equally well on Mac OS, Windows, and Unix-type
 operating systems. For a more complete explanation of the marvelous
 world of UNIX, refer to the website at
 <http://www.tutorialspoint.com/unix/unix-quick-guide.htm>. For handy
@@ -31,9 +32,7 @@ requires accessing the command line. If you are using the MacOS
 operating system, look for the Terminal application in the Utilities
 folder within the Applications folder. When the Terminal application is
 launched, you will get a terminal window. The Unix (and MacOS) Bash
-shell has a \$ sign as a prompt. Other shells have other command line
-prompts, such as the antiquated ‘C-shell’ used by Lisa Tauxe (don’t ask)
-which has a % prompt which is used in the examples here.
+shell has a \$ sign as a prompt.
 
 ```{image} ../images/resources/terminal.png
 :alt: image
@@ -62,7 +61,7 @@ directories are depicted as “folders” and moving about is accomplished
 by clicking on the different icons. In the world of the terminal,
 the directories have names and are arranged in a hierarchical sequence
 with the top directory being the “root” directory, known as “/” (or
-C:`\` in Windows) and the file system looks something like this:
+`C:\` in Windows) and the file system looks something like this:
 
 ```{image} ../images/resources/filesys.jpg
 :alt: image
@@ -76,7 +75,7 @@ directories, the operating system relies on what is called a “pathname”.
 Every object has an “absolute” pathname which is valid from anywhere on
 the computer. The absolute pathname in \*NIX always begins from the root
 directory **/** and in DOS (the operating system working in the Windows
-command line window), it is C:`\`.
+command line window), it is `C:\`.
 
 The absolute pathname to the home directory **lisa** in the figure is
 **/Users/lisa**. Similarly, the absolute pathname to the directory
@@ -88,8 +87,8 @@ her home directory, the relative pathname for the file
 *data_files/dir_cart/dir_cart_example.dat*. When using relative
 pathnames, it is useful to remember that **./** refers to the current
 directory and **../** refers to the directory “above”. Also, lisa’s home
-directory would be $\sim$lisa, or if you are logged in as lisa
-yourself, then it is just $\sim$.
+directory would be ~lisa, or if you are logged in as lisa
+yourself, then it is just ~.
 
 ## Moving around in the file system
 
@@ -109,10 +108,10 @@ into your new directory with the command
 % cd NEW_DIRECTORY_NAME
 ```
 
-To move back up into the home directory, just type **cd ..** remembering
+To move back up into the home directory, type **cd ..** remembering
 that **..** refers to the directory above. Also, **cd** by itself will
-transport you home from where ever you are (there’s no place like
-home....). You can also change to any arbitrary directory by specifying
+transport you home from whereever you are (*there’s no place like
+home...*). You can also change to any arbitrary directory by specifying
 the full path of the destination directory.
 
 ## Redirecting input and output
@@ -124,9 +123,9 @@ working at the command line level is the ability to redirect input and
 output. For example, instead of typing input to a program with the
 keyboard, it can be read from a file using the symbol **:math:\`\<\`**.
 Output can either be printed to the screen (standard output), redirected
-into a file using the symbol **:math:\`>\`**, appended to the end of a
-file with **:math:\`>>\`** or used as input to another program with the
-pipe operator (**:math:\`|\`**).
+into a file using the symbol `>`, appended to the end of a
+file with `>>` or used as input to another program with the
+pipe operator `|`.
 
 ## Text editors
 
@@ -137,7 +136,7 @@ programs like Word, you will certainly hate it. (And if you are used to
 a decent text editor, you will hate Word!). But you can’t use Word
 because the output is in a weird format that no scripting languages read
 easily. So you have to use text editor that will produce a plain (ascii)
-file, like Notepad, BBEdit, Sublime Text or Visual Studio Code. 
+file, like Notepad, BBEdit, Sublime Text, or Visual Studio Code. 
 [Visual Studio Code](https://code.visualstudio.com/) is a code editor 
 that has lots of nice packages available that extend its functionality
 such as enabling Jupyter notebooks and interfacing with Github.
@@ -160,7 +159,7 @@ Jupyter notebooks.
 To get started, you will need to install Python [the Anaconda distribution
 is highly recommended](https://www.anaconda.com/products/distribution).
 Then, [download git](https://git-scm.com/downloads) and follow the
-install instructions. If you don’t know whether you have git installed,
+installation instructions. If you don’t know whether you have git installed,
 just type `git` on your command line and see if the help message
 appears. You can also use the helpful [Github Desktop application](https://desktop.github.com) to 
 interface with git and sync with Github repositories.
