@@ -6,7 +6,7 @@ These Jupyter notebooks contain code associated with example workflows associate
 :class-container: text-left
 :gutter: 3
 
-🧭:::{grid-item-card}
+:::{grid-item-card}
 :link: template_notebooks/Inspecting_MagIC_directional_data
 :link-type: doc
 :class-header: bg-light
@@ -44,7 +44,7 @@ This notebook is for people wanting to download and manipulate data from an IODP
 :link-type: doc
 :class-header: bg-light
 
-Tsunakawa-Shaw paleointensity template 🏋️
+Tsunakawa-Shaw paleointensity template 🧭🏋️
 ^^^
 
 This template enables data from Tsunakawa-Shaw method paleointensity experiments to be analyzed using PmagPy (see Yamamoto et al. 2022 for examples; https://doi.org/10.1029/2022GC010391). 
