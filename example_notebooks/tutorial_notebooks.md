@@ -8,8 +8,8 @@ https://github.com/PmagPy/2023_MagIC_Tutorial
 
 These notebooks are examples of studies that have utilized PmagPy for data analysis.
 
-::::{grid} 1 1 2 3
-:class-container: text-center
+::::{grid} 1 1 2 2
+:class-container: text-left
 :gutter: 3
 
 :::{grid-item-card}
