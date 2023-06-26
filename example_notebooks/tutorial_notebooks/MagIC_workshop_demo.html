@@ -1,0 +1,1744 @@
+
+
+<!DOCTYPE html>
+
+
+<html lang="en" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
+
+    <title>2020 MagIC Workshop PmagPy notebook demo &#8212; PmagPy Documentation</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "light";
+  </script>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../../_static/styles/theme.css?digest=e353d410970836974a52" rel="stylesheet" />
+<link href="../../_static/styles/bootstrap.css?digest=e353d410970836974a52" rel="stylesheet" />
+<link href="../../_static/styles/pydata-sphinx-theme.css?digest=e353d410970836974a52" rel="stylesheet" />
+
+  
+  <link href="../../_static/vendor/fontawesome/6.1.2/css/all.min.css?digest=e353d410970836974a52" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="../../_static/vendor/fontawesome/6.1.2/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../../_static/vendor/fontawesome/6.1.2/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../../_static/vendor/fontawesome/6.1.2/webfonts/fa-regular-400.woff2" />
+
+    <link rel="stylesheet" type="text/css" href="../../_static/pygments.css" />
+    <link rel="stylesheet" href="../../_static/styles/sphinx-book-theme.css?digest=14f4ca6b54d191a8c7657f6c759bf11a5fb86285" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/design-style.4045f2051d55cab465a707391d5b2007.min.css" />
+  
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../../_static/scripts/bootstrap.js?digest=e353d410970836974a52" />
+<link rel="preload" as="script" href="../../_static/scripts/pydata-sphinx-theme.js?digest=e353d410970836974a52" />
+
+    <script data-url_root="../../" id="documentation_options" src="../../_static/documentation_options.js"></script>
+    <script src="../../_static/jquery.js"></script>
+    <script src="../../_static/underscore.js"></script>
+    <script src="../../_static/_sphinx_javascript_frameworks_compat.js"></script>
+    <script src="../../_static/doctools.js"></script>
+    <script src="../../_static/clipboard.min.js"></script>
+    <script src="../../_static/copybutton.js"></script>
+    <script src="../../_static/scripts/sphinx-book-theme.js?digest=5a5c038af52cf7bc1a1ec88eea08e6366ee68824"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="../../_static/togglebutton.js"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script src="../../_static/design-tabs.js"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
+const thebe_selector = ".thebe,.cell"
+const thebe_selector_input = "pre"
+const thebe_selector_output = ".output, .cell_output"
+</script>
+    <script async="async" src="../../_static/sphinx-thebe.js"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'example_notebooks/tutorial_notebooks/MagIC_workshop_demo';</script>
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <a class="skip-link" href="#main-content">Skip to main content</a>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          name="__primary"
+          id="__primary"/>
+  <label class="overlay overlay-primary" for="__primary"></label>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          name="__secondary"
+          id="__secondary"/>
+  <label class="overlay overlay-secondary" for="__secondary"></label>
+  
+  <div class="search-button__wrapper">
+    <div class="search-button__overlay"></div>
+    <div class="search-button__search-container">
+<form class="bd-search d-flex align-items-center"
+      action="../../search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         id="search-input"
+         placeholder="Search this book..."
+         aria-label="Search this book..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form></div>
+  </div>
+  
+    <nav class="bd-header navbar navbar-expand-lg bd-navbar">
+    </nav>
+  
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      <div class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+  
+
+<a class="navbar-brand logo" href="../../intro.html">
+  
+  
+  
+  
+    
+    
+      
+    
+    
+    <img src="../../_static/pmagpy_logo_notext.png" class="logo__image only-light" alt="Logo image"/>
+    <script>document.write(`<img src="../../_static/pmagpy_logo_notext.png" class="logo__image only-dark" alt="Logo image"/>`);</script>
+  
+  
+</a></div>
+        <div class="sidebar-primary-item"><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        
+        <ul class="nav bd-sidenav bd-sidenav__home-link">
+            <li class="toctree-l1">
+                <a class="reference internal" href="../../intro.html">
+                    PmagPy: An open source package for paleomagnetic data analysis
+                </a>
+            </li>
+        </ul>
+        <p aria-level="2" class="caption" role="heading"><span class="caption-text">Installation</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../installation/PmagPy_install.html">Installing <strong>PmagPy</strong></a><input class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-1"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../installation/osx_pip.html">OSX pip install</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../installation/osx_developer.html">OSX developer install</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../installation/windows_pip.html">Windows pip install</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../installation/windows_developer.html">Windows developer install</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../installation/linux_pip.html">Linux pip install</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../installation/linux_developer.html">Linux developer install</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../installation/troubleshooting.html">Troubleshooting installation issues</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../programs/command_line_programs.html">Command line programs</a></li>
+</ul>
+</li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../programs/pmag_gui.html">Installing and Getting Started with Pmag GUI</a><input class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-2"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../programs/demag_gui.html">Demag GUI</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../programs/thellier_gui.html">Thellier GUI</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../resources/survival_skills.html">Survival computer skills</a></li>
+
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Documentation notebooks</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../../documentation_notebooks/Jupyter.html">Jupyter Notebooks</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../documentation_notebooks/PmagPy_introduction.html">Introduction to PmagPy</a></li>
+
+<li class="toctree-l1"><a class="reference internal" href="../../documentation_notebooks/PmagPy_calculations.html">Calculations with PmagPy</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../documentation_notebooks/PmagPy_plots_analysis.html">Visualizations and more analysis with PmagPy</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../documentation_notebooks/PmagPy_MagIC.html">Working with the MagIC database using PmagPy</a></li>
+
+
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Example notebooks</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../tutorial_notebooks.html">Tutorial notebooks</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../template_notebooks.html">Template notebooks</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../published_notebooks.html">Published studies notebooks</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">MagIC</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../../MagIC/MagIC.html">MagIC database and file formats</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Function docstrings</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../../api/api.html">API Reference</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">References</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../../references.html">References</a></li>
+</ul>
+
+    </div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+  </div>
+  
+  <div id="rtd-footer-container"></div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><label class="sidebar-toggle primary-toggle btn btn-sm" for="__primary" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</label></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+
+
+
+<div class="dropdown dropdown-source-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Source repositories">
+    <i class="fab fa-github"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="https://github.com/pmagpy/pmagpy-docs" target="_blank"
+   class="btn btn-sm btn-source-repository-button dropdown-item"
+   title="Source repository"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fab fa-github"></i>
+  </span>
+<span class="btn__text-container">Repository</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li><a href="https://github.com/pmagpy/pmagpy-docs/issues/new?title=Issue%20on%20page%20%2Fexample_notebooks/tutorial_notebooks/MagIC_workshop_demo.html&body=Your%20issue%20content%20here." target="_blank"
+   class="btn btn-sm btn-source-issues-button dropdown-item"
+   title="Open an issue"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-lightbulb"></i>
+  </span>
+<span class="btn__text-container">Open issue</span>
+</a>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+
+
+<div class="dropdown dropdown-download-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Download this page">
+    <i class="fas fa-download"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="../../_sources/example_notebooks/tutorial_notebooks/MagIC_workshop_demo.ipynb" target="_blank"
+   class="btn btn-sm btn-download-source-button dropdown-item"
+   title="Download source file"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="btn__text-container">.ipynb</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="window.print()"
+  class="btn btn-sm btn-download-pdf-button dropdown-item"
+  title="Print to PDF"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="btn__text-container">.pdf</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button"
+  title="Fullscreen mode"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+
+<script>
+document.write(`
+  <button class="theme-switch-button btn btn-sm btn-outline-primary navbar-btn rounded-circle" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="theme-switch" data-mode="light"><i class="fa-solid fa-sun"></i></span>
+    <span class="theme-switch" data-mode="dark"><i class="fa-solid fa-moon"></i></span>
+    <span class="theme-switch" data-mode="auto"><i class="fa-solid fa-circle-half-stroke"></i></span>
+  </button>
+`);
+</script>
+
+<script>
+document.write(`
+  <button class="btn btn-sm navbar-btn search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass"></i>
+  </button>
+`);
+</script>
+<label class="sidebar-toggle secondary-toggle btn btn-sm" for="__secondary"title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</label>
+</div></div>
+      
+    </div>
+  
+</div>
+</div>
+              
+              
+
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1>2020 MagIC Workshop PmagPy notebook demo</h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+            <div>
+                <h2> Contents </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#">2020 MagIC Workshop PmagPy notebook demo</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#overview-of-demonstration">Overview of demonstration</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#exercise-1">Exercise 1</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#equal-area-net-example">Equal area net example</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#map-of-vgps">Map of VGPs</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#bootstrap-reversals-test">Bootstrap reversals test</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#make-a-site-map">Make a site map</a></li>
+</ul>
+</li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#exercise-2">Exercise 2:</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#exercise-3">Exercise 3</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#download-and-unpack-the-data">Download and unpack the data</a></li>
+</ul>
+</li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#magstrat-figure">Magstrat figure</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#christmas-tree-of-anisotropy">“Christmas tree” of anisotropy</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#plotting-external-results">Plotting External Results</a></li>
+</ul>
+</li>
+</ul>
+
+            </nav>
+        </div>
+    </div>
+</div>
+
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article" role="main">
+                  
+  <section id="magic-workshop-pmagpy-notebook-demo">
+<h1>2020 MagIC Workshop PmagPy notebook demo<a class="headerlink" href="#magic-workshop-pmagpy-notebook-demo" title="Permalink to this heading">#</a></h1>
+<ul class="simple">
+<li><p>Go to the jupyter-hub website at <a class="reference external" href="https://jupyterhub.earthref.org/">https://jupyterhub.earthref.org/</a> to run this online.  You will have to log in to the earthref website with your ORCID, but then you will have a workspace to use this and the other PmagPy jupyter notebooks.</p></li>
+<li><p>Alternatively, you can  put this notebook in a working directory on your own laptop.  You would then have to install Python and the  PmagPy software package on your computer (if you have not already done so).  The instructions for that are here: <a class="reference external" href="https://earthref.org/PmagPy/cookbook/">https://earthref.org/PmagPy/cookbook/</a>.  Follow  the instructions for  “Full PmagPy install and update” through section 1.4 (Quickstart with PmagPy notebooks).  This notebook is in  the collection of PmagPy notebooks.</p></li>
+<li><p>Click on the cell below and then click on ‘Run’ from the menu above to import the desired functionality</p></li>
+</ul>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Import PmagPy modules</span>
+<span class="kn">import</span> <span class="nn">pmagpy.pmag</span> <span class="k">as</span> <span class="nn">pmag</span>
+<span class="kn">import</span> <span class="nn">pmagpy.pmagplotlib</span> <span class="k">as</span> <span class="nn">pmagplotlib</span>
+<span class="kn">import</span> <span class="nn">pmagpy.ipmag</span> <span class="k">as</span> <span class="nn">ipmag</span>
+
+<span class="c1"># Import plotting modules</span>
+<span class="n">has_cartopy</span><span class="p">,</span> <span class="n">Cartopy</span> <span class="o">=</span> <span class="n">pmag</span><span class="o">.</span><span class="n">import_cartopy</span><span class="p">()</span> <span class="c1"># import mapping module, if it is available</span>
+<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span> <span class="c1"># our plotting buddy</span>
+<span class="c1"># This allows you to make matplotlib plots inside the notebook.  </span>
+<span class="o">%</span><span class="k">matplotlib</span> inline 
+
+<span class="c1"># Import more useful modules</span>
+<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span> <span class="c1"># the fabulous NumPy package</span>
+<span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span> <span class="c1"># and  Pandas for data wrangling</span>
+<span class="kn">import</span> <span class="nn">os</span> <span class="c1"># some useful operating system functions</span>
+<span class="kn">from</span> <span class="nn">importlib</span> <span class="kn">import</span> <span class="n">reload</span> <span class="c1"># for reloading module if they get changed after initial import</span>
+<span class="kn">from</span> <span class="nn">IPython.display</span> <span class="kn">import</span> <span class="n">Image</span>
+<span class="kn">import</span> <span class="nn">imageio</span> <span class="c1"># for making animations</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># set up the directory structure for this notebook, if not already present:</span>
+<span class="n">dirs</span><span class="o">=</span><span class="n">os</span><span class="o">.</span><span class="n">listdir</span><span class="p">()</span> <span class="c1"># get a list of directories in this one</span>
+<span class="k">if</span> <span class="s1">&#39;MagIC_example_1&#39;</span> <span class="ow">not</span> <span class="ow">in</span> <span class="n">dirs</span><span class="p">:</span>
+    <span class="n">os</span><span class="o">.</span><span class="n">mkdir</span><span class="p">(</span><span class="s2">&quot;MagIC_example_1&quot;</span><span class="p">)</span>
+<span class="k">if</span> <span class="s1">&#39;MagIC_example_2&#39;</span> <span class="ow">not</span> <span class="ow">in</span> <span class="n">dirs</span><span class="p">:</span>
+    <span class="n">os</span><span class="o">.</span><span class="n">mkdir</span><span class="p">(</span><span class="s2">&quot;MagIC_example_2&quot;</span><span class="p">)</span>
+<span class="k">if</span> <span class="s1">&#39;MagIC_example_3&#39;</span> <span class="ow">not</span> <span class="ow">in</span> <span class="n">dirs</span><span class="p">:</span>
+    <span class="n">os</span><span class="o">.</span><span class="n">mkdir</span><span class="p">(</span><span class="s2">&quot;MagIC_example_3&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="overview-of-demonstration">
+<h1>Overview of demonstration<a class="headerlink" href="#overview-of-demonstration" title="Permalink to this heading">#</a></h1>
+<p>This notebook has three exercises that demonstrate various aspects of the PmagPy software.</p>
+<ul class="simple">
+<li><p>Exercise 1 looks at a typical “directional” data set and shows how to make useful plots like the equal area projection, maps of VGPs and basemaps of site locations.</p></li>
+<li><p>Exercise 2 shows how to get geomagnetic vectors from IGRF-like tables and several ways of looking at the data through time and space.</p></li>
+<li><p>Exercise 3 considers directional (polarity), anisotropy data and natural gamma radiation (NGR), a measure of the dominance of clay versus diatomaceous ooze in this core, as a function of depth in an IODP core.</p></li>
+</ul>
+<p>When you have worked through these examples, check out the other PmagPy notebooks in the PmagPy software distribution.</p>
+</section>
+<section id="exercise-1">
+<h1>Exercise 1<a class="headerlink" href="#exercise-1" title="Permalink to this heading">#</a></h1>
+<ul class="simple">
+<li><p>Hunt around the <a class="reference external" href="http://earthref.org/MagIC/search">earthref.org/MagIC/search</a> page for a data set you would like to look at. We will use the data of Behar et al., 2019,  DOI: 10.1029/2019GC008479 for this exercise.</p></li>
+<li><p>Once you have the DOI or the MagIC ID number (which in this case is 16676, there are two ways to download the contribution file: 1) with the MagIC ID (id=16676) using ipmag.download_magic_from_id() and with the DOI using ipmag.download_magic_from_doi().</p></li>
+<li><p>download the magic contribution file, move it to the directory Example_1, and unpack it with ipmag.download_magic().</p></li>
+<li><p>Use PmagPy functions to make the following plots:</p>
+<ul>
+<li><p>use <em>ipmag.eqarea_magic()</em> to make an equal area plot</p></li>
+<li><p>use <em>ipmag.vgpmap_magic()</em> to make a map of VGPs</p></li>
+<li><p>use <em>ipmag.reversal_test_bootstrap()</em> for a bootstrap reversals test</p></li>
+<li><p>use <em>pmagplotlib.plot_map()</em> to make a site map</p></li>
+</ul>
+</li>
+</ul>
+<p>First we need to learn a trick:
+To understand what a particular PmagPy function expects as input and delivers, use the Python <em>help</em> function</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">help</span><span class="p">(</span><span class="n">ipmag</span><span class="o">.</span><span class="n">download_magic_from_id</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Help on function download_magic_from_id in module pmagpy.ipmag:
+
+download_magic_from_id(con_id)
+    Download a public contribution matching the provided
+    contribution ID from earthref.org/MagIC.
+    
+    Parameters
+    ----------
+    doi : str
+        DOI for a MagIC
+    
+    Returns
+    ---------
+    result : bool
+    message : str
+        Error message if download didn&#39;t succeed
+</pre></div>
+</div>
+</div>
+</div>
+<p>Let’s try the contribution ID way first:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">dir_path</span><span class="o">=</span><span class="s1">&#39;MagIC_example_1&#39;</span> <span class="c1"># set the path to the correct working directory</span>
+<span class="n">magic_id</span><span class="o">=</span><span class="s1">&#39;16676&#39;</span> <span class="c1"># set the magic ID number</span>
+<span class="n">magic_contribution</span><span class="o">=</span><span class="s1">&#39;magic_contribution_&#39;</span><span class="o">+</span><span class="n">magic_id</span><span class="o">+</span><span class="s1">&#39;.txt&#39;</span> <span class="c1"># set the file name string</span>
+<span class="n">ipmag</span><span class="o">.</span><span class="n">download_magic_from_id</span><span class="p">(</span><span class="n">magic_id</span><span class="p">)</span> <span class="c1"># download the contribution from MagIC</span>
+<span class="n">os</span><span class="o">.</span><span class="n">rename</span><span class="p">(</span><span class="n">magic_contribution</span><span class="p">,</span> <span class="n">dir_path</span><span class="o">+</span><span class="s1">&#39;/&#39;</span><span class="o">+</span><span class="n">magic_contribution</span><span class="p">)</span> <span class="c1"># move the contribution to the directory</span>
+<span class="n">ipmag</span><span class="o">.</span><span class="n">download_magic</span><span class="p">(</span><span class="n">magic_contribution</span><span class="p">,</span><span class="n">dir_path</span><span class="o">=</span><span class="n">dir_path</span><span class="p">,</span><span class="n">print_progress</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span> <span class="c1"># unpack the file</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>1  records written to file  /Users/ltauxe/Meetings_2020/MagIC_Workshop/MagIC_example_1/contribution.txt
+1  records written to file  /Users/ltauxe/Meetings_2020/MagIC_Workshop/MagIC_example_1/locations.txt
+91  records written to file  /Users/ltauxe/Meetings_2020/MagIC_Workshop/MagIC_example_1/sites.txt
+611  records written to file  /Users/ltauxe/Meetings_2020/MagIC_Workshop/MagIC_example_1/samples.txt
+676  records written to file  /Users/ltauxe/Meetings_2020/MagIC_Workshop/MagIC_example_1/specimens.txt
+6297  records written to file  /Users/ltauxe/Meetings_2020/MagIC_Workshop/MagIC_example_1/measurements.txt
+1  records written to file  /Users/ltauxe/Meetings_2020/MagIC_Workshop/MagIC_example_1/criteria.txt
+91  records written to file  /Users/ltauxe/Meetings_2020/MagIC_Workshop/MagIC_example_1/ages.txt
+</pre></div>
+</div>
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>True
+</pre></div>
+</div>
+</div>
+</div>
+<p>Now let’s try to do this with the API for DOIs:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">dir_path</span><span class="o">=</span><span class="s1">&#39;MagIC_example_1&#39;</span> <span class="c1"># set the path to the correct working directory</span>
+<span class="n">reference_doi</span><span class="o">=</span><span class="s1">&#39;10.1029/2019GC008479&#39;</span>
+<span class="n">magic_contribution</span><span class="o">=</span><span class="s1">&#39;magic_contribution.txt&#39;</span>
+<span class="n">ipmag</span><span class="o">.</span><span class="n">download_magic_from_doi</span><span class="p">(</span><span class="n">reference_doi</span><span class="p">)</span>
+<span class="n">os</span><span class="o">.</span><span class="n">rename</span><span class="p">(</span><span class="n">magic_contribution</span><span class="p">,</span> <span class="n">dir_path</span><span class="o">+</span><span class="s1">&#39;/&#39;</span><span class="o">+</span><span class="n">magic_contribution</span><span class="p">)</span>
+<span class="n">ipmag</span><span class="o">.</span><span class="n">download_magic</span><span class="p">(</span><span class="n">magic_contribution</span><span class="p">,</span><span class="n">dir_path</span><span class="o">=</span><span class="n">dir_path</span><span class="p">,</span><span class="n">print_progress</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>16676/magic_contribution_16676.txt extracted to magic_contribution.txt 
+
+1  records written to file  /Users/ltauxe/Meetings_2020/MagIC_Workshop/MagIC_example_1/contribution.txt
+1  records written to file  /Users/ltauxe/Meetings_2020/MagIC_Workshop/MagIC_example_1/locations.txt
+91  records written to file  /Users/ltauxe/Meetings_2020/MagIC_Workshop/MagIC_example_1/sites.txt
+611  records written to file  /Users/ltauxe/Meetings_2020/MagIC_Workshop/MagIC_example_1/samples.txt
+676  records written to file  /Users/ltauxe/Meetings_2020/MagIC_Workshop/MagIC_example_1/specimens.txt
+6297  records written to file  /Users/ltauxe/Meetings_2020/MagIC_Workshop/MagIC_example_1/measurements.txt
+1  records written to file  /Users/ltauxe/Meetings_2020/MagIC_Workshop/MagIC_example_1/criteria.txt
+91  records written to file  /Users/ltauxe/Meetings_2020/MagIC_Workshop/MagIC_example_1/ages.txt
+</pre></div>
+</div>
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>True
+</pre></div>
+</div>
+</div>
+</div>
+<p>Now we can get to the fun stuff of making plots.</p>
+<section id="equal-area-net-example">
+<h2>Equal area net example<a class="headerlink" href="#equal-area-net-example" title="Permalink to this heading">#</a></h2>
+<ul class="simple">
+<li><p>use ipmag.eqarea_magic()</p></li>
+</ul>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># first get help on how to use it:</span>
+<span class="n">help</span><span class="p">(</span><span class="n">ipmag</span><span class="o">.</span><span class="n">eqarea_magic</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Help on function eqarea_magic in module pmagpy.ipmag:
+
+eqarea_magic(in_file=&#39;sites.txt&#39;, dir_path=&#39;.&#39;, input_dir_path=&#39;&#39;, spec_file=&#39;specimens.txt&#39;, samp_file=&#39;samples.txt&#39;, site_file=&#39;sites.txt&#39;, loc_file=&#39;locations.txt&#39;, plot_by=&#39;all&#39;, crd=&#39;g&#39;, ignore_tilt=False, save_plots=True, fmt=&#39;svg&#39;, contour=False, color_map=&#39;coolwarm&#39;, plot_ell=&#39;&#39;, n_plots=5, interactive=False, contribution=None, source_table=&#39;sites&#39;, image_records=False)
+    makes equal area projections from declination/inclination data
+    
+    Parameters
+    ----------
+    in_file : str, default &quot;sites.txt&quot;
+    dir_path : str
+        output directory, default &quot;.&quot;
+    input_dir_path : str
+        input file directory (if different from dir_path), default &quot;&quot;
+    spec_file : str
+        input specimen file name, default &quot;specimens.txt&quot;
+    samp_file: str
+        input sample file name, default &quot;samples.txt&quot;
+    site_file : str
+        input site file name, default &quot;sites.txt&quot;
+    loc_file : str
+        input location file name, default &quot;locations.txt&quot;
+    plot_by : str
+        [spc, sam, sit, loc, all] (specimen, sample, site, location, all), default &quot;all&quot;
+    crd : [&#39;s&#39;,&#39;g&#39;,&#39;t&#39;], coordinate system for plotting whereby:
+        s : specimen coordinates, aniso_tile_correction = -1
+        g : geographic coordinates, aniso_tile_correction = 0 (default)
+        t : tilt corrected coordinates, aniso_tile_correction = 100
+    ignore_tilt : bool
+        default False.  If True, data are unoriented (allows plotting of measurement dec/inc)
+    save_plots : bool
+        plot and save non-interactively, default True
+    fmt : str
+        [&quot;png&quot;, &quot;svg&quot;, &quot;pdf&quot;, &quot;jpg&quot;], default &quot;svg&quot;
+    contour : bool
+        plot as color contour
+    colormap : str
+        color map for contour plotting, default &quot;coolwarm&quot;
+        see cartopy documentation for more options
+    plot_ell : str
+        [F,K,B,Be,Bv] plot Fisher, Kent, Bingham, Bootstrap ellipses or Bootstrap eigenvectors
+        default &quot;&quot; plots none
+    n_plots : int
+        maximum number of plots to make, default 5
+        if you want to make all possible plots, specify &quot;all&quot;
+    interactive : bool, default False
+        interactively plot and display for each specimen
+        (this is best used on the command line or in the Python interpreter)
+    contribution : cb.Contribution, default None
+        if provided, use Contribution object instead of reading in
+        data from files
+    source_table : table to get plot data from (only needed with contribution argument)
+        for example, you could specify source_table=&quot;measurements&quot; and plot_by=&quot;sites&quot;
+        to plot measurement data by site.
+        default &quot;sites&quot;
+    image_records : generate and return a record for each image in a list of dicts
+        which can be ingested by pmag.magic_write
+        bool, default False
+    
+    
+    Returns
+    ---------
+    if image_records == False:
+        type - Tuple : (True or False indicating if conversion was successful, file name(s) written)
+    if image_records == True:
+       Tuple : (True or False indicating if conversion was successful, output file name written, list of image recs)
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># now we do it for real:</span>
+<span class="n">ipmag</span><span class="o">.</span><span class="n">eqarea_magic</span><span class="p">(</span><span class="n">dir_path</span><span class="o">=</span><span class="n">dir_path</span><span class="p">,</span><span class="n">save_plots</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>-I- Using online data model
+-I- Getting method codes from earthref.org
+-I- Importing controlled vocabularies from https://earthref.org
+-W- File /Users/ltauxe/Meetings_2020/MagIC_Workshop/MagIC_example_1/criteria.txt is incomplete and will be ignored
+91  sites records read in
+All
+</pre></div>
+</div>
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>(True, [])
+</pre></div>
+</div>
+<img alt="../../_images/da01bbc9c9ec226ab461e3d2c584cf3698f5a6e940f39b6c0c6867aa47a69436.png" src="../../_images/da01bbc9c9ec226ab461e3d2c584cf3698f5a6e940f39b6c0c6867aa47a69436.png" />
+</div>
+</div>
+</section>
+<section id="map-of-vgps">
+<h2>Map of VGPs<a class="headerlink" href="#map-of-vgps" title="Permalink to this heading">#</a></h2>
+<ul class="simple">
+<li><p>use ipmag.vgpmap_magic() to plot the VGPs from the same data</p></li>
+</ul>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># get help message for vgpmap_magic</span>
+<span class="n">help</span><span class="p">(</span><span class="n">ipmag</span><span class="o">.</span><span class="n">vgpmap_magic</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Help on function vgpmap_magic in module pmagpy.ipmag:
+
+vgpmap_magic(dir_path=&#39;.&#39;, results_file=&#39;sites.txt&#39;, crd=&#39;&#39;, sym=&#39;ro&#39;, size=8, rsym=&#39;g^&#39;, rsize=8, fmt=&#39;pdf&#39;, res=&#39;c&#39;, proj=&#39;ortho&#39;, flip=False, anti=False, fancy=False, ell=False, ages=False, lat_0=0, lon_0=0, save_plots=True, interactive=False, contribution=None, image_records=False)
+    makes a map of vgps and a95/dp,dm for site means in a sites table
+    
+    Parameters
+    ----------
+    dir_path : str, default &quot;.&quot;
+        input directory path
+    results_file : str, default &quot;sites.txt&quot;
+        name of MagIC format sites file
+    crd : str, default &quot;&quot;
+       coordinate system [g, t] (geographic, tilt_corrected)
+    sym : str, default &quot;ro&quot;
+        symbol color and shape, default red circles
+        (see matplotlib documentation for more color/shape options)
+    size : int, default 8
+        symbol size
+    rsym : str, default &quot;g^&quot;
+        symbol for plotting reverse poles
+        (see matplotlib documentation for more color/shape options)
+    rsize : int, default 8
+        symbol size for reverse poles
+    fmt : str, default &quot;pdf&quot;
+        format for figures, [&quot;svg&quot;, &quot;jpg&quot;, &quot;pdf&quot;, &quot;png&quot;]
+    res : str, default &quot;c&quot;
+        resolution [c, l, i, h] (crude, low, intermediate, high)
+    proj : str, default &quot;ortho&quot;
+        ortho = orthographic
+        lcc = lambert conformal
+        moll = molweide
+        merc = mercator
+    flip : bool, default False
+        if True, flip reverse poles to normal antipode
+    anti : bool, default False
+        if True, plot antipodes for each pole
+    fancy : bool, default False
+        if True, plot topography (not yet implemented)
+    ell : bool, default False
+        if True, plot ellipses
+    ages : bool, default False
+        if True, plot ages
+    lat_0 : float, default 0.
+        eyeball latitude
+    lon_0 : float, default 0.
+        eyeball longitude
+    save_plots : bool, default True
+        if True, create and save all requested plots
+    interactive : bool, default False
+       if True, interactively plot and display
+        (this is best used on the command line only)
+    image_records : bool, default False
+        if True, return a list of created images
+    
+    Returns
+    ---------
+    if image_records == False:
+        type - Tuple : (True or False indicating if conversion was successful, file name(s) written)
+    if image_records == True:
+       Tuple : (True or False indicating if conversion was successful, output file name written, list of image recs)
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">dir_path</span><span class="o">=</span><span class="s1">&#39;MagIC_example_1&#39;</span> <span class="c1"># set the path to your working directory</span>
+<span class="n">ipmag</span><span class="o">.</span><span class="n">vgpmap_magic</span><span class="p">(</span><span class="n">dir_path</span><span class="o">=</span><span class="n">dir_path</span><span class="p">,</span><span class="n">size</span><span class="o">=</span><span class="mi">50</span><span class="p">,</span><span class="n">flip</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span><span class="n">save_plots</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span><span class="n">lat_0</span><span class="o">=</span><span class="mi">60</span><span class="p">,</span><span class="n">rsym</span><span class="o">=</span><span class="s1">&#39;b^&#39;</span><span class="p">,</span><span class="n">rsize</span><span class="o">=</span><span class="mi">50</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&#39;table_column&#39; &lt;class &#39;KeyError&#39;&gt;
+-W- File /Users/ltauxe/Meetings_2020/MagIC_Workshop/MagIC_example_1/criteria.txt is missing required information
+</pre></div>
+</div>
+<img alt="../../_images/52392b2c3a48d61c9c48f966b4d4743d9bdfff9308799fa26c87cf606554efd3.png" src="../../_images/52392b2c3a48d61c9c48f966b4d4743d9bdfff9308799fa26c87cf606554efd3.png" />
+</div>
+</div>
+</section>
+<section id="bootstrap-reversals-test">
+<h2>Bootstrap reversals test<a class="headerlink" href="#bootstrap-reversals-test" title="Permalink to this heading">#</a></h2>
+<ul class="simple">
+<li><p>use ipmag.reversal_test_bootstrap() to do the reversals test</p></li>
+</ul>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">help</span><span class="p">(</span><span class="n">ipmag</span><span class="o">.</span><span class="n">reversal_test_bootstrap</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Help on function reversal_test_bootstrap in module pmagpy.ipmag:
+
+reversal_test_bootstrap(dec=None, inc=None, di_block=None, plot_stereo=False, save=False, save_folder=&#39;.&#39;, fmt=&#39;svg&#39;)
+    Conduct a reversal test using bootstrap statistics (Tauxe, 2010) to
+    determine whether two populations of directions could be from an antipodal
+    common mean.
+    
+    Parameters
+    ----------
+    dec: list of declinations
+    inc: list of inclinations
+        or
+    di_block: a nested list of [dec,inc]
+        A di_block can be provided in which case it will be used instead of
+        dec, inc lists.
+    
+    plot_stereo : before plotting the CDFs, plot stereonet with the
+        bidirectionally separated data (default is False)
+    save : boolean argument to save plots (default is False)
+    save_folder : directory where plots will be saved (default is current directory, &#39;.&#39;)
+    fmt : format of saved figures (default is &#39;svg&#39;)
+    
+    Returns
+    -------
+    plots : Plots of the cumulative distribution of Cartesian components are
+        shown as is an equal area plot if plot_stereo = True
+    
+    Examples
+    --------
+    Populations of roughly antipodal directions are developed here using
+    ``ipmag.fishrot``. These directions are combined into a single di_block
+    given that the function determines the principal component and splits the
+    data accordingly by polarity.
+    
+    &gt;&gt;&gt; directions_n = ipmag.fishrot(k=20, n=30, dec=5, inc=-60)
+    &gt;&gt;&gt; directions_r = ipmag.fishrot(k=35, n=25, dec=182, inc=57)
+    &gt;&gt;&gt; directions = directions_n + directions_r
+    &gt;&gt;&gt; ipmag.reversal_test_bootstrap(di_block=directions, plot_stereo = True)
+    
+    Data can also be input to the function as separate lists of dec and inc.
+    In this example, the di_block from above is split into lists of dec and inc
+    which are then used in the function:
+    
+    &gt;&gt;&gt; direction_dec, direction_inc, direction_moment = ipmag.unpack_di_block(directions)
+    &gt;&gt;&gt; ipmag.reversal_test_bootstrap(dec=direction_dec,inc=direction_inc, plot_stereo = True)
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># read in the data into a Pandas DataFrame</span>
+<span class="n">dir_path</span><span class="o">=</span><span class="s1">&#39;MagIC_example_1&#39;</span> <span class="c1"># set the path to your working directory</span>
+<span class="n">sites_df</span><span class="o">=</span><span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="n">dir_path</span><span class="o">+</span><span class="s1">&#39;/sites.txt&#39;</span><span class="p">,</span><span class="n">sep</span><span class="o">=</span><span class="s1">&#39;</span><span class="se">\t</span><span class="s1">&#39;</span><span class="p">,</span><span class="n">header</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+<span class="c1"># pick out the declinations and inclinations</span>
+<span class="n">decs</span><span class="o">=</span><span class="n">sites_df</span><span class="o">.</span><span class="n">dir_dec</span><span class="o">.</span><span class="n">values</span>
+<span class="n">incs</span><span class="o">=</span><span class="n">sites_df</span><span class="o">.</span><span class="n">dir_inc</span><span class="o">.</span><span class="n">values</span>
+<span class="c1"># call the function</span>
+<span class="n">ipmag</span><span class="o">.</span><span class="n">reversal_test_bootstrap</span><span class="p">(</span><span class="n">dec</span><span class="o">=</span><span class="n">decs</span><span class="p">,</span><span class="n">inc</span><span class="o">=</span><span class="n">incs</span><span class="p">,</span><span class="n">plot_stereo</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../../_images/cdaa0a4c9fd1ee0998eefad8f652533b0ea4af34825afc93c6b8bfb01c390cb3.png" src="../../_images/cdaa0a4c9fd1ee0998eefad8f652533b0ea4af34825afc93c6b8bfb01c390cb3.png" />
+</div>
+</div>
+</section>
+<section id="make-a-site-map">
+<h2>Make a site map<a class="headerlink" href="#make-a-site-map" title="Permalink to this heading">#</a></h2>
+<ul class="simple">
+<li><p>use pmagplotlib.plot_map() to make a site map</p></li>
+</ul>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">help</span><span class="p">(</span><span class="n">pmagplotlib</span><span class="o">.</span><span class="n">plot_map</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Help on function plot_map in module pmagpy.pmagplotlib:
+
+plot_map(fignum, lats, lons, Opts)
+    makes a cartopy map  with lats/lons
+    Requires installation of cartopy
+    
+    Parameters:
+    _______________
+    fignum : matplotlib figure number
+    lats : array or list of latitudes
+    lons : array or list of longitudes
+    Opts : dictionary of plotting options:
+        Opts.keys=
+            proj : projection [supported cartopy projections:
+                pc = Plate Carree
+                aea = Albers Equal Area
+                aeqd = Azimuthal Equidistant
+                lcc = Lambert Conformal
+                lcyl = Lambert Cylindrical
+                merc = Mercator
+                mill = Miller Cylindrical
+                moll = Mollweide [default]
+                ortho = Orthographic
+                robin = Robinson
+                sinu = Sinusoidal
+                stere = Stereographic
+                tmerc = Transverse Mercator
+                utm = UTM [set zone and south keys in Opts]
+                laea = Lambert Azimuthal Equal Area
+                geos = Geostationary
+                npstere = North-Polar Stereographic
+                spstere = South-Polar Stereographic
+            latmin : minimum latitude for plot
+            latmax : maximum latitude for plot
+            lonmin : minimum longitude for plot
+            lonmax : maximum longitude
+            lat_0 : central latitude
+            lon_0 : central longitude
+            sym : matplotlib symbol
+            symsize : symbol size in pts
+            edge : markeredgecolor
+            cmap : matplotlib color map
+            res :  resolution [c,l,i,h] for low/crude, intermediate, high
+            boundinglat : bounding latitude
+            sym : matplotlib symbol for plotting
+            symsize : matplotlib symbol size for plotting
+            names : list of names for lats/lons (if empty, none will be plotted)
+            pltgrd : if True, put on grid lines
+            padlat : padding of latitudes
+            padlon : padding of longitudes
+            gridspace : grid line spacing
+            global : global projection [default is True]
+            oceancolor : &#39;azure&#39;
+            landcolor : &#39;bisque&#39; [choose any of the valid color names for matplotlib
+              see https://matplotlib.org/examples/color/named_colors.html
+            details : dictionary with keys:
+                coasts : if True, plot coastlines
+                rivers : if True, plot rivers
+                states : if True, plot states
+                countries : if True, plot countries
+                ocean : if True, plot ocean
+                lakes : if True, plot lakes
+                fancy : if True, plot etopo 20 grid
+                    NB:  etopo must be installed
+        if Opts keys not set :these are the defaults:
+           Opts={&#39;latmin&#39;:-90,&#39;latmax&#39;:90,&#39;lonmin&#39;:0,&#39;lonmax&#39;:360,&#39;lat_0&#39;:0,&#39;lon_0&#39;:0,&#39;proj&#39;:&#39;moll&#39;,&#39;sym&#39;:&#39;ro,&#39;symsize&#39;:5,&#39;edge&#39;:&#39;black&#39;,&#39;pltgrid&#39;:1,&#39;res&#39;:&#39;c&#39;,&#39;boundinglat&#39;:0.,&#39;padlon&#39;:0,&#39;padlat&#39;:0,&#39;gridspace&#39;:30,&#39;details&#39;:all False,&#39;edge&#39;:None,&#39;cmap&#39;:&#39;jet&#39;,&#39;fancy&#39;:0,&#39;zone&#39;:&#39;&#39;,&#39;south&#39;:False,&#39;oceancolor&#39;:&#39;azure&#39;,&#39;landcolor&#39;:&#39;bisque&#39;}
+</pre></div>
+</div>
+</div>
+</div>
+<p>NB: the most recent PmagPy version fixes the scale issue - but it is SLOW at high resolution… so set Opts[‘res’] to ‘c’ for crude for a quick look.  if you want to be dazzled - set it to ‘h’ but be prepared to wait for a while…  ‘i’ for intermediate is probably good enough for most purposes (50m resolution)</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">dir_path</span><span class="o">=</span><span class="s1">&#39;MagIC_example_1&#39;</span> <span class="c1"># set the path to your working directory</span>
+<span class="c1"># read in the data file:</span>
+<span class="n">site_df</span><span class="o">=</span><span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="n">dir_path</span><span class="o">+</span><span class="s1">&#39;/sites.txt&#39;</span><span class="p">,</span><span class="n">sep</span><span class="o">=</span><span class="s1">&#39;</span><span class="se">\t</span><span class="s1">&#39;</span><span class="p">,</span><span class="n">header</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+<span class="c1"># pick out the longitudes and latitudes</span>
+<span class="n">lons</span><span class="o">=</span><span class="n">site_df</span><span class="p">[</span><span class="s1">&#39;lon&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">values</span>
+<span class="n">lats</span><span class="o">=</span><span class="n">site_df</span><span class="p">[</span><span class="s1">&#39;lat&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">values</span>
+<span class="c1"># set some options</span>
+<span class="n">Opts</span><span class="o">=</span><span class="p">{}</span>
+<span class="n">Opts</span><span class="p">[</span><span class="s1">&#39;sym&#39;</span><span class="p">]</span><span class="o">=</span><span class="s1">&#39;r*&#39;</span> <span class="c1"># sets the symbol to white dots</span>
+<span class="n">Opts</span><span class="p">[</span><span class="s1">&#39;symsize&#39;</span><span class="p">]</span><span class="o">=</span><span class="mi">100</span> <span class="c1"># sets symbol size to 3 pts</span>
+<span class="n">Opts</span><span class="p">[</span><span class="s1">&#39;proj&#39;</span><span class="p">]</span><span class="o">=</span><span class="s1">&#39;lcc&#39;</span> <span class="c1"># Lambert Conformal projection</span>
+<span class="n">Opts</span><span class="p">[</span><span class="s1">&#39;pltgrid&#39;</span><span class="p">]</span><span class="o">=</span><span class="kc">True</span>
+<span class="n">Opts</span><span class="p">[</span><span class="s1">&#39;lat_0&#39;</span><span class="p">]</span><span class="o">=</span><span class="mi">33</span>
+<span class="n">Opts</span><span class="p">[</span><span class="s1">&#39;lon_0&#39;</span><span class="p">]</span><span class="o">=</span><span class="mi">35</span>
+<span class="n">Opts</span><span class="p">[</span><span class="s1">&#39;latmin&#39;</span><span class="p">]</span><span class="o">=</span><span class="mi">29</span>
+<span class="n">Opts</span><span class="p">[</span><span class="s1">&#39;latmax&#39;</span><span class="p">]</span><span class="o">=</span><span class="mi">35</span>
+<span class="n">Opts</span><span class="p">[</span><span class="s1">&#39;lonmin&#39;</span><span class="p">]</span><span class="o">=</span><span class="mi">32</span>
+<span class="n">Opts</span><span class="p">[</span><span class="s1">&#39;lonmax&#39;</span><span class="p">]</span><span class="o">=</span><span class="mi">37</span>
+<span class="n">Opts</span><span class="p">[</span><span class="s1">&#39;gridspace&#39;</span><span class="p">]</span><span class="o">=</span><span class="mi">1</span>
+<span class="n">Opts</span><span class="p">[</span><span class="s1">&#39;details&#39;</span><span class="p">]</span><span class="o">=</span><span class="p">{}</span>
+<span class="n">Opts</span><span class="p">[</span><span class="s1">&#39;details&#39;</span><span class="p">][</span><span class="s1">&#39;coasts&#39;</span><span class="p">]</span><span class="o">=</span><span class="kc">True</span>
+<span class="n">Opts</span><span class="p">[</span><span class="s1">&#39;details&#39;</span><span class="p">][</span><span class="s1">&#39;ocean&#39;</span><span class="p">]</span><span class="o">=</span><span class="kc">True</span>
+<span class="n">Opts</span><span class="p">[</span><span class="s1">&#39;details&#39;</span><span class="p">][</span><span class="s1">&#39;countries&#39;</span><span class="p">]</span><span class="o">=</span><span class="kc">True</span>
+<span class="n">Opts</span><span class="p">[</span><span class="s1">&#39;global&#39;</span><span class="p">]</span><span class="o">=</span><span class="kc">False</span>
+<span class="n">Opts</span><span class="p">[</span><span class="s1">&#39;res&#39;</span><span class="p">]</span><span class="o">=</span><span class="s1">&#39;i&#39;</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="mi">1</span><span class="p">,(</span><span class="mi">10</span><span class="p">,</span><span class="mi">10</span><span class="p">))</span> <span class="c1"># optional - make a map</span>
+
+<span class="n">pmagplotlib</span><span class="o">.</span><span class="n">plot_map</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="n">lats</span><span class="p">,</span> <span class="n">lons</span><span class="p">,</span> <span class="n">Opts</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../../_images/9832c8c7bcaa60f8d31884a06c42653fcdbad8ef2dacfe6857fa54e57d378905.png" src="../../_images/9832c8c7bcaa60f8d31884a06c42653fcdbad8ef2dacfe6857fa54e57d378905.png" />
+</div>
+</div>
+</section>
+</section>
+<section id="exercise-2">
+<h1>Exercise 2:<a class="headerlink" href="#exercise-2" title="Permalink to this heading">#</a></h1>
+<ul class="simple">
+<li><p>use pmag.pinc() to calculate the GAD inclination for a  particular latitude (e.g., 33)</p></li>
+<li><p>use ipmag.igrf() and ipmag.igrf_print() to get values of the field for a specific place (e.g., San Diego at lon=-117,lat=33,alt=0) and date (2019)</p></li>
+<li><p>make a plot of declination, inclination, B for a specific place and range of dates</p></li>
+<li><p>use pmag.do_mag_map() and pmagplotlib.plot_mag_map() to make a map of the field at a specific date (2019)</p></li>
+<li><p>make a movie of the field for the last 1000 years using the cals10k.2 model of Constable et al. (2016)</p></li>
+</ul>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">help</span><span class="p">(</span><span class="n">pmag</span><span class="o">.</span><span class="n">pinc</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Help on function pinc in module pmagpy.pmag:
+
+pinc(lat)
+    calculate paleoinclination from latitude using dipole formula: tan(I) = 2tan(lat)
+    Parameters
+    ________________
+    
+    lat : either a single value or an array of latitudes
+    
+    Returns
+    -------
+    
+    array of inclinations
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">gad_inc</span><span class="o">=</span><span class="n">pmag</span><span class="o">.</span><span class="n">pinc</span><span class="p">(</span><span class="mi">33</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">gad_inc</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>52.406157522519074
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">help</span><span class="p">(</span><span class="n">ipmag</span><span class="o">.</span><span class="n">igrf</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Help on function igrf in module pmagpy.ipmag:
+
+igrf(input_list, mod=&#39;&#39;, ghfile=&#39;&#39;)
+    Determine Declination, Inclination and Intensity from the IGRF model.
+    (http://www.ngdc.noaa.gov/IAGA/vmod/igrf.html)
+    
+    Parameters
+    ----------
+    input_list : list with format [Date, Altitude, Latitude, Longitude]
+        date must be in decimal year format XXXX.XXXX (Common Era)
+        altitude is in kilometers
+    mod :  desired model
+        &quot;&quot; : Use the IGRF
+        custom : use values supplied in ghfile
+        or choose from this list
+        [&#39;arch3k&#39;,&#39;cals3k&#39;,&#39;pfm9k&#39;,&#39;hfm10k&#39;,&#39;cals10k.2&#39;,&#39;cals10k.1b&#39;]
+        where:
+            arch3k (Korte et al., 2009)
+            cals3k (Korte and Constable, 2011)
+            cals10k.1b (Korte et al., 2011)
+            pfm9k  (Nilsson et al., 2014)
+            hfm10k is the hfm.OL1.A1 of Constable et al. (2016)
+            cals10k.2 (Constable et al., 2016)
+            the first four of these models, are constrained to agree
+            with gufm1 (Jackson et al., 2000) for the past four centuries
+    
+    
+    gh : path to file with l m g h data
+    
+    Returns
+    -------
+    igrf_array : array of IGRF values (0: dec; 1: inc; 2: intensity (in nT))
+    
+    Examples
+    --------
+    &gt;&gt;&gt; local_field = ipmag.igrf([2013.6544, .052, 37.87, -122.27])
+    &gt;&gt;&gt; local_field
+    array([  1.39489916e+01,   6.13532008e+01,   4.87452644e+04])
+    &gt;&gt;&gt; ipmag.igrf_print(local_field)
+    Declination: 13.949
+    Inclination: 61.353
+    Intensity: 48745.264 nT
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">date</span><span class="p">,</span><span class="n">lat</span><span class="p">,</span><span class="n">lon</span><span class="p">,</span><span class="n">alt</span><span class="o">=</span><span class="mf">2019.9</span><span class="p">,</span><span class="mi">33</span><span class="p">,</span><span class="o">-</span><span class="mi">117</span><span class="p">,</span><span class="mi">0</span> <span class="c1"># set variables for ipmag.igrf</span>
+<span class="n">local</span><span class="o">=</span><span class="n">ipmag</span><span class="o">.</span><span class="n">igrf</span><span class="p">([</span><span class="n">date</span><span class="p">,</span> <span class="n">alt</span><span class="p">,</span> <span class="n">lat</span><span class="p">,</span> <span class="n">lon</span><span class="p">])</span> <span class="c1"># get the local field vector</span>
+<span class="n">ipmag</span><span class="o">.</span><span class="n">igrf_print</span><span class="p">(</span><span class="n">local</span><span class="p">)</span> <span class="c1"># format for nice printing</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Declination: 11.376
+Inclination: 58.140
+Intensity: 46239.890 nT
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">mod</span><span class="o">=</span><span class="s1">&#39;cals10k.2&#39;</span> <span class="c1"># set model to Constable et al. (2016) cals10k.2</span>
+<span class="n">lat</span><span class="p">,</span><span class="n">lon</span><span class="p">,</span><span class="n">alt</span><span class="o">=</span><span class="mi">33</span><span class="p">,</span><span class="o">-</span><span class="mi">117</span><span class="p">,</span><span class="mi">0</span>  <span class="c1"># set location information</span>
+<span class="n">gad_inc</span><span class="o">=</span><span class="n">pmag</span><span class="o">.</span><span class="n">pinc</span><span class="p">(</span><span class="n">lat</span><span class="p">)</span> <span class="c1"># get the GAD inclination at the latitude</span>
+<span class="n">dates</span><span class="o">=</span><span class="nb">range</span><span class="p">(</span><span class="o">-</span><span class="mi">8000</span><span class="p">,</span><span class="mi">2050</span><span class="p">,</span><span class="mi">50</span><span class="p">)</span> <span class="c1"># get a list of desired dates</span>
+<span class="n">local_vectors</span><span class="o">=</span><span class="p">[]</span> <span class="c1"># make a container to put the vectors in</span>
+<span class="k">for</span> <span class="n">d</span> <span class="ow">in</span> <span class="n">dates</span><span class="p">:</span> <span class="c1"># step through the date list</span>
+    <span class="n">local</span><span class="o">=</span><span class="n">ipmag</span><span class="o">.</span><span class="n">igrf</span><span class="p">([</span><span class="n">d</span><span class="p">,</span> <span class="n">alt</span><span class="p">,</span> <span class="n">lat</span><span class="p">,</span> <span class="n">lon</span><span class="p">],</span><span class="n">mod</span><span class="o">=</span><span class="n">mod</span><span class="p">)</span> <span class="c1"># get the vector at that place and time</span>
+    <span class="n">local_vectors</span><span class="o">.</span><span class="n">append</span><span class="p">([</span><span class="n">d</span><span class="p">,</span><span class="n">local</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span><span class="n">local</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span><span class="n">local</span><span class="p">[</span><span class="mi">2</span><span class="p">]])</span> <span class="c1"># append it to the container of field vectors</span>
+<span class="n">df</span><span class="o">=</span><span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">local_vectors</span><span class="p">,</span><span class="n">columns</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;Date&#39;</span><span class="p">,</span><span class="s1">&#39;Dec&#39;</span><span class="p">,</span><span class="s1">&#39;Inc&#39;</span><span class="p">,</span><span class="s1">&#39;B_nT&#39;</span><span class="p">])</span> <span class="c1"># make a Pandas DataFrame</span>
+<span class="n">df</span><span class="p">[</span><span class="s1">&#39;B_uT&#39;</span><span class="p">]</span><span class="o">=</span><span class="n">df</span><span class="p">[</span><span class="s1">&#39;B_nT&#39;</span><span class="p">]</span><span class="o">*</span><span class="mf">1e-3</span> <span class="c1"># convert from nanotesla to microtesla</span>
+<span class="n">df</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="n">df</span><span class="p">[</span><span class="s1">&#39;Dec&#39;</span><span class="p">]</span><span class="o">&gt;</span><span class="mi">180</span><span class="p">,</span><span class="s1">&#39;Dec&#39;</span><span class="p">]</span><span class="o">=</span><span class="n">df</span><span class="p">[</span><span class="s1">&#39;Dec&#39;</span><span class="p">]</span><span class="o">-</span><span class="mf">360.</span> <span class="c1"># make declinations centered around 0 </span>
+<span class="n">fig</span><span class="o">=</span><span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="mi">1</span><span class="p">,(</span><span class="mi">8</span><span class="p">,</span><span class="mi">8</span><span class="p">))</span> <span class="c1"># make a figure object</span>
+<span class="n">ax1</span><span class="o">=</span><span class="n">fig</span><span class="o">.</span><span class="n">add_subplot</span><span class="p">(</span><span class="mi">311</span><span class="p">)</span> <span class="c1"># add subplots (3 rows, one column, plot 1)</span>
+<span class="n">ax2</span><span class="o">=</span><span class="n">fig</span><span class="o">.</span><span class="n">add_subplot</span><span class="p">(</span><span class="mi">312</span><span class="p">)</span> <span class="c1"># plot 2</span>
+<span class="n">ax3</span><span class="o">=</span><span class="n">fig</span><span class="o">.</span><span class="n">add_subplot</span><span class="p">(</span><span class="mi">313</span><span class="p">)</span> <span class="c1"># plot 3</span>
+<span class="n">ax1</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">df</span><span class="p">[</span><span class="s1">&#39;Date&#39;</span><span class="p">],</span><span class="n">df</span><span class="p">[</span><span class="s1">&#39;Dec&#39;</span><span class="p">])</span> <span class="c1"># plot declination against date</span>
+<span class="n">ax1</span><span class="o">.</span><span class="n">axhline</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="n">color</span><span class="o">=</span><span class="s1">&#39;black&#39;</span><span class="p">,</span><span class="n">linestyle</span><span class="o">=</span><span class="s1">&#39;dotted&#39;</span><span class="p">)</span> <span class="c1"># make a horizontal black line at 0</span>
+<span class="n">ax2</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">df</span><span class="p">[</span><span class="s1">&#39;Date&#39;</span><span class="p">],</span><span class="n">df</span><span class="p">[</span><span class="s1">&#39;Inc&#39;</span><span class="p">])</span> <span class="c1"># plot inclination against date</span>
+<span class="n">ax2</span><span class="o">.</span><span class="n">axhline</span><span class="p">(</span><span class="n">gad_inc</span><span class="p">,</span><span class="n">color</span><span class="o">=</span><span class="s1">&#39;black&#39;</span><span class="p">,</span><span class="n">linestyle</span><span class="o">=</span><span class="s1">&#39;dotted&#39;</span><span class="p">)</span>
+<span class="n">ax3</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">df</span><span class="p">[</span><span class="s1">&#39;Date&#39;</span><span class="p">],</span><span class="n">df</span><span class="p">[</span><span class="s1">&#39;B_uT&#39;</span><span class="p">])</span> <span class="c1"># plot microtesla against date</span>
+<span class="n">ax1</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="sa">r</span><span class="s1">&#39;Declination ($^{\circ}$)&#39;</span><span class="p">)</span> <span class="c1"># y label on plot 1</span>
+<span class="n">ax2</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="s1">&#39;Inclination&#39;</span><span class="p">)</span><span class="c1"># y label on plot 2</span>
+<span class="n">ax3</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="s1">&#39;Intensity&#39;</span><span class="p">)</span><span class="c1"># y label on plot 3</span>
+<span class="n">ax3</span><span class="o">.</span><span class="n">set_xlabel</span><span class="p">(</span><span class="s1">&#39;Age (+/- AD)&#39;</span><span class="p">);</span> <span class="c1"># x label on bottom plot (3)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../../_images/b846d81b9e4821f583eb9445943a5521469909adf7a3e2fd11c3f4d9fdc82eff.png" src="../../_images/b846d81b9e4821f583eb9445943a5521469909adf7a3e2fd11c3f4d9fdc82eff.png" />
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">help</span><span class="p">(</span><span class="n">pmag</span><span class="o">.</span><span class="n">do_mag_map</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Help on function do_mag_map in module pmagpy.pmag:
+
+do_mag_map(date, lon_0=0, alt=0, file=&#39;&#39;, mod=&#39;cals10k&#39;, resolution=&#39;low&#39;)
+    returns lists of declination, inclination and intensities for lat/lon grid for
+    desired model and date.
+    
+    Parameters:
+    _________________
+    date = Required date in decimal years (Common Era, negative for Before Common Era)
+    
+    Optional Parameters:
+    ______________
+    mod  = model to use (&#39;arch3k&#39;,&#39;cals3k&#39;,&#39;pfm9k&#39;,&#39;hfm10k&#39;,&#39;cals10k.2&#39;,&#39;shadif14k&#39;,&#39;cals10k.1b&#39;,&#39;custom&#39;)
+    file = l m g h formatted filefor custom model
+    lon_0 : central longitude for Hammer projection
+    alt  = altitude
+    resolution = [&#39;low&#39;,&#39;high&#39;] default is low
+    
+    Returns:
+    ______________
+    Bdec=list of declinations
+    Binc=list of inclinations
+    B = list of total field intensities in nT
+    Br = list of radial field intensities
+    lons = list of longitudes evaluated
+    lats = list of latitudes evaluated
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">help</span><span class="p">(</span><span class="n">pmagplotlib</span><span class="o">.</span><span class="n">plot_mag_map</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Help on function plot_mag_map in module pmagpy.pmagplotlib:
+
+plot_mag_map(fignum, element, lons, lats, element_type, cmap=&#39;coolwarm&#39;, lon_0=0, date=&#39;&#39;, contours=False, proj=&#39;PlateCarree&#39;)
+    makes a color contour map of geomagnetic field element
+    
+    Parameters
+    ____________
+    fignum : matplotlib figure number
+    element : field element array from pmag.do_mag_map for plotting
+    lons : longitude array from pmag.do_mag_map for plotting
+    lats : latitude array from pmag.do_mag_map for plotting
+    element_type : [B,Br,I,D] geomagnetic element type
+        B : field intensity
+        Br : radial field intensity
+        I : inclinations
+        D : declinations
+    Optional
+    _________
+    contours : plot the contour lines on top of the heat map if True
+    proj : cartopy projection [&#39;PlateCarree&#39;,&#39;Mollweide&#39;]
+           NB: The Mollweide projection can only be reliably with cartopy=0.17.0; otherwise use lon_0=0.  Also, for declinations, PlateCarree is recommended.
+    cmap : matplotlib color map - see https://matplotlib.org/examples/color/colormaps_reference.html for options
+    lon_0 : central longitude of the Mollweide projection
+    date : date used for field evaluation,
+           if custom ghfile was used, supply filename
+    
+    Effects
+    ______________
+    plots a color contour map with  the desired field element
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># define some useful parameters</span>
+<span class="n">date</span><span class="p">,</span><span class="n">mod</span><span class="p">,</span><span class="n">lon_0</span><span class="p">,</span><span class="n">alt</span><span class="p">,</span><span class="n">ghfile</span><span class="o">=</span><span class="mi">2019</span><span class="p">,</span><span class="s1">&#39;cals10k.2&#39;</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="s2">&quot;&quot;</span> <span class="c1"># only date is required</span>
+<span class="n">Ds</span><span class="p">,</span><span class="n">Is</span><span class="p">,</span><span class="n">Bs</span><span class="p">,</span><span class="n">Brs</span><span class="p">,</span><span class="n">lons</span><span class="p">,</span><span class="n">lats</span><span class="o">=</span><span class="n">pmag</span><span class="o">.</span><span class="n">do_mag_map</span><span class="p">(</span><span class="n">date</span><span class="p">,</span><span class="n">mod</span><span class="o">=</span><span class="n">mod</span><span class="p">,</span><span class="n">lon_0</span><span class="o">=</span><span class="n">lon_0</span><span class="p">,</span><span class="n">alt</span><span class="o">=</span><span class="n">alt</span><span class="p">,</span><span class="n">file</span><span class="o">=</span><span class="n">ghfile</span><span class="p">)</span> <span class="c1"># get the global data</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">help</span><span class="p">(</span><span class="n">pmagplotlib</span><span class="o">.</span><span class="n">plot_mag_map</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Help on function plot_mag_map in module pmagpy.pmagplotlib:
+
+plot_mag_map(fignum, element, lons, lats, element_type, cmap=&#39;coolwarm&#39;, lon_0=0, date=&#39;&#39;, contours=False, proj=&#39;PlateCarree&#39;, min=20, max=80)
+    makes a color contour map of geomagnetic field element
+    
+    Parameters
+    ____________
+    fignum : matplotlib figure number
+    element : field element array from pmag.do_mag_map for plotting
+    lons : longitude array from pmag.do_mag_map for plotting
+    lats : latitude array from pmag.do_mag_map for plotting
+    element_type : [B,Br,I,D] geomagnetic element type
+        B : field intensity
+        Br : radial field intensity
+        I : inclinations
+        D : declinations
+    Optional
+    _________
+    contours : plot the contour lines on top of the heat map if True
+    proj : cartopy projection [&#39;PlateCarree&#39;,&#39;Mollweide&#39;]
+           NB: The Mollweide projection can only be reliably with cartopy=0.17.0; otherwise use lon_0=0.  Also, for declinations, PlateCarree is recommended.
+    cmap : matplotlib color map - see https://matplotlib.org/examples/color/colormaps_reference.html for options
+    lon_0 : central longitude of the Mollweide projection
+    date : date used for field evaluation,
+           if custom ghfile was used, supply filename
+    min : float or int
+        minimum value for the color bar
+    max : float or int
+        maximum value for the color bar
+    
+    Effects
+    ______________
+    plots a color contour map with  the desired field element
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">cmap</span><span class="o">=</span><span class="s1">&#39;jet&#39;</span> <span class="c1"># nice color map for contourf</span>
+<span class="n">pmagplotlib</span><span class="o">.</span><span class="n">plot_mag_map</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="n">Bs</span><span class="p">,</span><span class="n">lons</span><span class="p">,</span><span class="n">lats</span><span class="p">,</span><span class="s1">&#39;B&#39;</span><span class="p">,</span><span class="n">cmap</span><span class="o">=</span><span class="n">cmap</span><span class="p">,</span><span class="n">date</span><span class="o">=</span><span class="n">date</span><span class="p">,</span><span class="n">proj</span><span class="o">=</span><span class="s1">&#39;Mollweide&#39;</span><span class="p">,</span><span class="n">contours</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span> <span class="c1"># plot the field strength</span>
+<span class="n">pmagplotlib</span><span class="o">.</span><span class="n">plot_mag_map</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span><span class="n">Is</span><span class="p">,</span><span class="n">lons</span><span class="p">,</span><span class="n">lats</span><span class="p">,</span><span class="s1">&#39;I&#39;</span><span class="p">,</span><span class="n">cmap</span><span class="o">=</span><span class="n">cmap</span><span class="p">,</span><span class="n">date</span><span class="o">=</span><span class="n">date</span><span class="p">,</span><span class="n">proj</span><span class="o">=</span><span class="s1">&#39;Mollweide&#39;</span><span class="p">,</span><span class="n">contours</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span><span class="c1"># plot the inclination</span>
+<span class="n">pmagplotlib</span><span class="o">.</span><span class="n">plot_mag_map</span><span class="p">(</span><span class="mi">3</span><span class="p">,</span><span class="n">Ds</span><span class="p">,</span><span class="n">lons</span><span class="p">,</span><span class="n">lats</span><span class="p">,</span><span class="s1">&#39;D&#39;</span><span class="p">,</span><span class="n">cmap</span><span class="o">=</span><span class="n">cmap</span><span class="p">,</span><span class="n">date</span><span class="o">=</span><span class="n">date</span><span class="p">,</span><span class="n">contours</span><span class="o">=</span><span class="kc">True</span><span class="p">);</span><span class="c1"># plot the declination    </span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../../_images/a904c712dfff9eb26bd0834a943156d3ba73c5d48bba21d260ebd90356f1dbf1.png" src="../../_images/a904c712dfff9eb26bd0834a943156d3ba73c5d48bba21d260ebd90356f1dbf1.png" />
+<img alt="../../_images/188b271ee140bb22aa5335f7332bea3c136aaca048984ff0498a96b035d087f1.png" src="../../_images/188b271ee140bb22aa5335f7332bea3c136aaca048984ff0498a96b035d087f1.png" />
+<img alt="../../_images/a3c3e873ccbe526f25e0d619b58cda4cf8a0b962f91b83068dfb27a879a3877f.png" src="../../_images/a3c3e873ccbe526f25e0d619b58cda4cf8a0b962f91b83068dfb27a879a3877f.png" />
+</div>
+</div>
+<p>This part of the exercise will create a movie from a bunch of .png files.  To do a high resolution movie
+takes too much time, especially when there are many people logged onto the jupyter-hub web site.  So we will just illustrate how it is done, then tantalize you with a higher resolution movie that you are free to make as you will.  on your own computer or after the workshop.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">dir_path</span><span class="o">=</span><span class="s1">&#39;MagIC_example_2&#39;</span> <span class="c1"># set the directory path name</span>
+<span class="n">files</span><span class="o">=</span><span class="n">os</span><span class="o">.</span><span class="n">listdir</span><span class="p">(</span><span class="n">dir_path</span><span class="p">)</span> <span class="c1"># get a list of the directory</span>
+<span class="k">for</span> <span class="n">f</span> <span class="ow">in</span> <span class="n">files</span><span class="p">:</span>
+    <span class="k">if</span> <span class="s1">&#39;.png&#39;</span> <span class="ow">in</span> <span class="n">f</span><span class="p">:</span><span class="n">os</span><span class="o">.</span><span class="n">remove</span><span class="p">(</span><span class="n">dir_path</span><span class="o">+</span><span class="s1">&#39;/&#39;</span><span class="o">+</span><span class="n">f</span><span class="p">)</span> <span class="c1"># delete all the existing .png files in that directory</span>
+<span class="n">mod</span><span class="p">,</span><span class="n">lon_0</span><span class="p">,</span><span class="n">alt</span><span class="p">,</span><span class="n">ghfile</span><span class="o">=</span><span class="s1">&#39;cals10k.2&#39;</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="s2">&quot;&quot;</span> <span class="c1"># define the variables </span>
+<span class="n">cmap</span><span class="p">,</span><span class="n">title</span><span class="o">=</span><span class="s1">&#39;jet&#39;</span><span class="p">,</span><span class="s1">&#39;Intensity&#39;</span> <span class="c1"># nice color map for contourf</span>
+<span class="n">fignum</span><span class="o">=</span><span class="mi">1</span>
+<span class="n">dates</span><span class="o">=</span><span class="nb">range</span><span class="p">(</span><span class="o">-</span><span class="mi">1000</span><span class="p">,</span><span class="mi">2100</span><span class="p">,</span><span class="mi">500</span><span class="p">)</span> <span class="c1"># make maps for these years.  </span>
+<span class="c1"># to make a high resolution, smooth movie, uncomment this line</span>
+<span class="c1">#dates=range(-1000,2100,50) # make maps for these years.  </span>
+<span class="n">lon_0</span><span class="o">=</span><span class="mi">0</span> <span class="c1"># center the maps at the Greenwich meridian</span>
+<span class="n">element</span><span class="o">=</span><span class="s1">&#39;B&#39;</span> <span class="c1"># let&#39;s do field strength</span>
+<span class="k">for</span> <span class="n">date</span> <span class="ow">in</span> <span class="n">dates</span><span class="p">:</span>  <span class="c1"># step through the loop</span>
+
+    <span class="n">Ds</span><span class="p">,</span><span class="n">Is</span><span class="p">,</span><span class="n">Bs</span><span class="p">,</span><span class="n">Brs</span><span class="p">,</span><span class="n">lons</span><span class="p">,</span><span class="n">lats</span><span class="o">=</span><span class="n">pmag</span><span class="o">.</span><span class="n">do_mag_map</span><span class="p">(</span><span class="n">date</span><span class="p">,</span><span class="n">mod</span><span class="o">=</span><span class="n">mod</span><span class="p">,</span><span class="n">lon_0</span><span class="o">=</span><span class="n">lon_0</span><span class="p">,</span><span class="n">alt</span><span class="o">=</span><span class="n">alt</span><span class="p">,</span><span class="n">file</span><span class="o">=</span><span class="n">ghfile</span><span class="p">)</span>
+    <span class="n">pmagplotlib</span><span class="o">.</span><span class="n">plot_mag_map</span><span class="p">(</span><span class="n">fignum</span><span class="p">,</span><span class="n">Bs</span><span class="p">,</span><span class="n">lons</span><span class="p">,</span><span class="n">lats</span><span class="p">,</span><span class="s1">&#39;B&#39;</span><span class="p">,</span><span class="n">cmap</span><span class="o">=</span><span class="n">cmap</span><span class="p">,</span><span class="n">date</span><span class="o">=</span><span class="n">date</span><span class="p">,</span><span class="n">proj</span><span class="o">=</span><span class="s1">&#39;Mollweide&#39;</span><span class="p">,</span>
+                             <span class="nb">min</span><span class="o">=</span><span class="mi">15</span><span class="p">,</span><span class="nb">max</span><span class="o">=</span><span class="mi">100</span><span class="p">,</span><span class="n">contours</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span> <span class="c1"># plot the field strength</span>
+    <span class="n">figstr</span><span class="o">=</span><span class="nb">str</span><span class="p">(</span><span class="n">fignum</span><span class="p">)</span>
+    <span class="k">while</span> <span class="nb">len</span><span class="p">(</span><span class="n">figstr</span><span class="p">)</span><span class="o">&lt;</span><span class="mi">4</span><span class="p">:</span><span class="n">figstr</span><span class="o">=</span><span class="s1">&#39;0&#39;</span><span class="o">+</span><span class="n">figstr</span>
+    
+    <span class="n">plt</span><span class="o">.</span><span class="n">savefig</span><span class="p">(</span><span class="n">dir_path</span><span class="o">+</span><span class="s1">&#39;/&#39;</span> <span class="o">+</span><span class="n">title</span><span class="o">.</span><span class="n">strip</span><span class="p">()</span><span class="o">+</span><span class="s1">&#39;_&#39;</span><span class="o">+</span><span class="n">figstr</span><span class="o">+</span><span class="s1">&#39;.png&#39;</span><span class="p">)</span> <span class="c1"># saves the  figure. to a folder</span>
+    <span class="n">fignum</span><span class="o">+=</span><span class="mi">1</span>
+    <span class="nb">print</span> <span class="p">(</span><span class="s1">&#39;figure saved as: &#39;</span><span class="p">,</span><span class="n">title</span><span class="o">.</span><span class="n">strip</span><span class="p">()</span><span class="o">+</span><span class="s1">&#39;_&#39;</span><span class="o">+</span><span class="n">figstr</span><span class="o">+</span><span class="s1">&#39;.png&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>figure saved as:  Intensity_0001.png
+figure saved as:  Intensity_0002.png
+figure saved as:  Intensity_0003.png
+figure saved as:  Intensity_0004.png
+figure saved as:  Intensity_0005.png
+figure saved as:  Intensity_0006.png
+figure saved as:  Intensity_0007.png
+</pre></div>
+</div>
+<img alt="../../_images/f3a2f749cee4c4f35f66e007a932e9339d804f02eecfcb594501c7d11bec87b9.png" src="../../_images/f3a2f749cee4c4f35f66e007a932e9339d804f02eecfcb594501c7d11bec87b9.png" />
+<img alt="../../_images/fc42b8e61365d312d6897d79dd72e08fb7fff54665780ff213f16fae8d3dd1eb.png" src="../../_images/fc42b8e61365d312d6897d79dd72e08fb7fff54665780ff213f16fae8d3dd1eb.png" />
+<img alt="../../_images/674fa36bdc74f0e359af3d0480fd30355a3ece1fd87096ed12306d64527b2ccd.png" src="../../_images/674fa36bdc74f0e359af3d0480fd30355a3ece1fd87096ed12306d64527b2ccd.png" />
+<img alt="../../_images/620a67aa4abdb6e1bd9d5ac4ad8556572f96fbf152855540339bdb39cf1c33d3.png" src="../../_images/620a67aa4abdb6e1bd9d5ac4ad8556572f96fbf152855540339bdb39cf1c33d3.png" />
+<img alt="../../_images/17240607efe3d1930234eea6b35ea2b2dea8256e3442ef18d490933fb7896aea.png" src="../../_images/17240607efe3d1930234eea6b35ea2b2dea8256e3442ef18d490933fb7896aea.png" />
+<img alt="../../_images/013e7ed8055554ac01432dd91b4d473e59014db2c3d5ecb01fd907ff5137b641.png" src="../../_images/013e7ed8055554ac01432dd91b4d473e59014db2c3d5ecb01fd907ff5137b641.png" />
+<img alt="../../_images/aaead8055f623803b95f57455b16439edf92a8fab3f3f9593401bbff999140d1.png" src="../../_images/aaead8055f623803b95f57455b16439edf92a8fab3f3f9593401bbff999140d1.png" />
+</div>
+</div>
+<p>Now we can make the animated gif from these png files</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">filenames</span><span class="o">=</span><span class="nb">sorted</span><span class="p">(</span><span class="n">os</span><span class="o">.</span><span class="n">listdir</span><span class="p">(</span><span class="s1">&#39;MagIC_example_2/&#39;</span><span class="p">))</span> <span class="c1"># listing of the directory</span>
+<span class="n">images</span> <span class="o">=</span> <span class="p">[]</span> <span class="c1"># make a container to put the image files in</span>
+<span class="k">for</span> <span class="n">file</span> <span class="ow">in</span> <span class="n">filenames</span><span class="p">:</span> <span class="c1"># step through all the maps</span>
+    <span class="k">if</span> <span class="s1">&#39;.png&#39;</span> <span class="ow">in</span> <span class="n">file</span><span class="p">:</span> <span class="c1"># skip some of the nasty hidden files</span>
+        <span class="n">filename</span><span class="o">=</span><span class="s1">&#39;MagIC_example_2/&#39;</span><span class="o">+</span><span class="n">file</span> <span class="c1"># make filename from the folder name and the file name</span>
+        <span class="n">images</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">imageio</span><span class="o">.</span><span class="n">imread</span><span class="p">(</span><span class="n">filename</span><span class="p">))</span> <span class="c1"># read it in and stuff in the container</span>
+<span class="n">kargs</span><span class="o">=</span><span class="p">{</span> <span class="s1">&#39;duration&#39;</span><span class="p">:</span><span class="mf">.3</span><span class="p">}</span> <span class="c1"># .2 second delay between frames</span>
+<span class="n">imageio</span><span class="o">.</span><span class="n">mimsave</span><span class="p">(</span><span class="s1">&#39;MagIC_example_2/Bmovie.gif&#39;</span><span class="p">,</span> <span class="n">images</span><span class="p">,</span><span class="s1">&#39;GIF&#39;</span><span class="p">,</span><span class="o">**</span><span class="n">kargs</span><span class="p">)</span> <span class="c1"># save to an animated gif.  </span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">Image</span><span class="p">(</span><span class="n">filename</span><span class="o">=</span><span class="s2">&quot;MagIC_example_2/Bmovie.gif&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../../_images/8e527527e01bab08e8d812fe90a3bdbb27367af216a0f6f2956363fa6d2ef669.gif" src="../../_images/8e527527e01bab08e8d812fe90a3bdbb27367af216a0f6f2956363fa6d2ef669.gif" />
+</div>
+</div>
+<p>Here is an example of one done  at higher temporal resolution.
+You can do this too if you have the patience (perhaps not when dozens of other folks are using the jupyter-hub at the same time!</p>
+<p>just uncomment this line in the map making code cell above:</p>
+<p>dates=range(-1000,2100,50) # make maps for these years.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">Image</span><span class="p">(</span><span class="n">filename</span><span class="o">=</span><span class="s2">&quot;MagIC_example_2/BigMovie.gif&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../../_images/5d4f11fe92571b0b9d75f8dbc8c9d0031cf244303791eed2fc99732a2f12f918.gif" src="../../_images/5d4f11fe92571b0b9d75f8dbc8c9d0031cf244303791eed2fc99732a2f12f918.gif" />
+</div>
+</div>
+</section>
+<section id="exercise-3">
+<h1>Exercise 3<a class="headerlink" href="#exercise-3" title="Permalink to this heading">#</a></h1>
+<ul class="simple">
+<li><p>download the data from Tauxe et al. (2015; DOI: 10.1016/J.EPSL.2014.12.034; MagIC id:16749) using the wget.download command as in Exercise 1.</p></li>
+<li><p>Move the downloaded data file to a directory called ‘MagIC_example_3’</p></li>
+<li><p>Unpack it with ipmag.download_magic()</p></li>
+<li><p>make a figure with these elements for the interval 40 m to 160 m:</p>
+<ul>
+<li><p>magstrat time scale plot from 2 to 7 Ma</p></li>
+<li><p>inclinations (dir_inc) from the 20mT step in the measurements table  against composite_depth as blue dots</p></li>
+<li><p>inclinations (dir_inc) from the specimens table against composite depth as red triangles.</p></li>
+<li><p>put on dotted lines for the GAD inclination</p></li>
+</ul>
+</li>
+<li><p>use ipmag.ani_depthplot to plot the anisotropy data against depth in the Hole.</p></li>
+</ul>
+<section id="download-and-unpack-the-data">
+<h2>Download and unpack the data<a class="headerlink" href="#download-and-unpack-the-data" title="Permalink to this heading">#</a></h2>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">dir_path</span><span class="o">=</span><span class="s1">&#39;MagIC_example_3&#39;</span> <span class="c1"># set the path to your working directory</span>
+<span class="n">depth_min</span><span class="p">,</span> <span class="n">depth_max</span><span class="o">=</span> <span class="mi">40</span><span class="p">,</span> <span class="mi">160</span> <span class="c1"># set the core depth bounds as required</span>
+<span class="c1"># First get the file from MagIC into your working directory:</span>
+<span class="n">magic_id</span><span class="o">=</span><span class="s1">&#39;16761&#39;</span>
+<span class="n">magic_contribution</span><span class="o">=</span><span class="s1">&#39;magic_contribution_&#39;</span><span class="o">+</span><span class="n">magic_id</span><span class="o">+</span><span class="s1">&#39;.txt&#39;</span> <span class="c1"># set the file name string</span>
+<span class="n">ipmag</span><span class="o">.</span><span class="n">download_magic_from_id</span><span class="p">(</span><span class="n">magic_id</span><span class="p">)</span> <span class="c1"># download the contribution from MagIC</span>
+<span class="n">os</span><span class="o">.</span><span class="n">rename</span><span class="p">(</span><span class="n">magic_contribution</span><span class="p">,</span> <span class="n">dir_path</span><span class="o">+</span><span class="s1">&#39;/&#39;</span><span class="o">+</span><span class="n">magic_contribution</span><span class="p">)</span> <span class="c1"># move the contribution to the directory</span>
+<span class="n">ipmag</span><span class="o">.</span><span class="n">download_magic</span><span class="p">(</span><span class="n">magic_contribution</span><span class="p">,</span><span class="n">dir_path</span><span class="o">=</span><span class="n">dir_path</span><span class="p">,</span><span class="n">print_progress</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span> <span class="c1"># unpack the file</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>1  records written to file  /Users/ltauxe/PmagPy/MagIC_example_3/contribution.txt
+1  records written to file  /Users/ltauxe/PmagPy/MagIC_example_3/locations.txt
+5943  records written to file  /Users/ltauxe/PmagPy/MagIC_example_3/sites.txt
+2436  records written to file  /Users/ltauxe/PmagPy/MagIC_example_3/samples.txt
+2573  records written to file  /Users/ltauxe/PmagPy/MagIC_example_3/specimens.txt
+4697  records written to file  /Users/ltauxe/PmagPy/MagIC_example_3/measurements.txt
+60  records written to file  /Users/ltauxe/PmagPy/MagIC_example_3/ages.txt
+</pre></div>
+</div>
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>True
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+</section>
+<section id="magstrat-figure">
+<h1>Magstrat figure<a class="headerlink" href="#magstrat-figure" title="Permalink to this heading">#</a></h1>
+<ul class="simple">
+<li><p>read in the data file as a Pandas DataFrame with pd.read_csv().</p>
+<ul>
+<li><p>All MagIC .txt files are tab delimited.  This is indicated with a sep=’\t’ keywork.</p></li>
+<li><p>The column headers in the second row, hence (because Python counts from zero), header=1</p></li>
+</ul>
+</li>
+<li><p>the depth of a particular specimen/site in MagIC is stored in the sites.txt table.  You will have to merge the data from that table into the specimens/measurements tables.  To do that you need to do a few things:</p>
+<ul>
+<li><p>you need a common key.  Because the specimen/sample/site names are the same for an IODP record, make a column in the specimen/measurements dataframes labled ‘site’ that is the same as the specimen.</p></li>
+<li><p>merge the two dataframes (sites and specimens/measurements) with pd.merge()</p></li>
+</ul>
+</li>
+</ul>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">dir_path</span><span class="o">=</span><span class="s1">&#39;MagIC_example_3&#39;</span> <span class="c1"># set the path to your working directory</span>
+<span class="n">depth_min</span><span class="p">,</span> <span class="n">depth_max</span><span class="o">=</span> <span class="mi">40</span><span class="p">,</span> <span class="mi">160</span> <span class="c1"># set the core depth bounds as required</span>
+<span class="c1"># read in the required data tables:</span>
+<span class="n">meas_df</span><span class="o">=</span><span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="n">dir_path</span><span class="o">+</span><span class="s1">&#39;/measurements.txt&#39;</span><span class="p">,</span><span class="n">sep</span><span class="o">=</span><span class="s1">&#39;</span><span class="se">\t</span><span class="s1">&#39;</span><span class="p">,</span><span class="n">header</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+<span class="n">site_df</span><span class="o">=</span><span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="n">dir_path</span><span class="o">+</span><span class="s1">&#39;/sites.txt&#39;</span><span class="p">,</span><span class="n">sep</span><span class="o">=</span><span class="s1">&#39;</span><span class="se">\t</span><span class="s1">&#39;</span><span class="p">,</span><span class="n">header</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+<span class="n">spec_df</span><span class="o">=</span><span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="n">dir_path</span><span class="o">+</span><span class="s1">&#39;/specimens.txt&#39;</span><span class="p">,</span><span class="n">sep</span><span class="o">=</span><span class="s1">&#39;</span><span class="se">\t</span><span class="s1">&#39;</span><span class="p">,</span><span class="n">header</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+<span class="n">ages_df</span><span class="o">=</span><span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="n">dir_path</span><span class="o">+</span><span class="s1">&#39;/ages.txt&#39;</span><span class="p">,</span><span class="n">sep</span><span class="o">=</span><span class="s1">&#39;</span><span class="se">\t</span><span class="s1">&#39;</span><span class="p">,</span><span class="n">header</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+<span class="c1"># filter the ages table for method codes that indicate paleomagnetic reversals:</span>
+<span class="n">ages_df</span><span class="o">=</span><span class="n">ages_df</span><span class="p">[</span><span class="n">ages_df</span><span class="p">[</span><span class="s1">&#39;method_codes&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">str</span><span class="o">.</span><span class="n">contains</span><span class="p">(</span><span class="s1">&#39;PMAG&#39;</span><span class="p">)]</span>
+<span class="c1"># filter the measurements for the 20 mT (.02 T) step</span>
+<span class="n">meas_df</span><span class="o">.</span><span class="n">dropna</span><span class="p">(</span><span class="n">subset</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;treat_ac_field&#39;</span><span class="p">],</span><span class="n">inplace</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+<span class="n">meas_20mT</span><span class="o">=</span><span class="n">meas_df</span><span class="p">[</span><span class="n">meas_df</span><span class="p">[</span><span class="s1">&#39;treat_ac_field&#39;</span><span class="p">]</span><span class="o">==</span><span class="mf">0.02</span><span class="p">]</span> 
+<span class="c1"># make the site key in the measurements and specimens dataframes</span>
+<span class="n">meas_20mT</span><span class="p">[</span><span class="s1">&#39;site&#39;</span><span class="p">]</span><span class="o">=</span><span class="n">meas_20mT</span><span class="p">[</span><span class="s1">&#39;specimen&#39;</span><span class="p">]</span>
+<span class="n">spec_df</span><span class="p">[</span><span class="s1">&#39;site&#39;</span><span class="p">]</span><span class="o">=</span><span class="n">spec_df</span><span class="p">[</span><span class="s1">&#39;specimen&#39;</span><span class="p">]</span>
+<span class="c1"># we only want the core depth out of the sites dataframe, so we can pare it down like this:</span>
+<span class="n">depth_df</span><span class="o">=</span><span class="n">site_df</span><span class="p">[[</span><span class="s1">&#39;site&#39;</span><span class="p">,</span><span class="s1">&#39;core_depth&#39;</span><span class="p">]]</span>
+<span class="c1"># merge the specimen, depth dataframes</span>
+<span class="n">spec_df</span><span class="o">=</span><span class="n">pd</span><span class="o">.</span><span class="n">merge</span><span class="p">(</span><span class="n">spec_df</span><span class="p">,</span><span class="n">depth_df</span><span class="p">,</span><span class="n">on</span><span class="o">=</span><span class="s1">&#39;site&#39;</span><span class="p">)</span>
+<span class="c1"># merge the measurements, depth dataframes</span>
+<span class="n">meas_20mT</span><span class="o">=</span><span class="n">pd</span><span class="o">.</span><span class="n">merge</span><span class="p">(</span><span class="n">meas_20mT</span><span class="p">,</span><span class="n">depth_df</span><span class="p">,</span><span class="n">on</span><span class="o">=</span><span class="s1">&#39;site&#39;</span><span class="p">)</span>
+<span class="c1"># filter for the desired depth range: </span>
+<span class="n">spec_df</span><span class="o">=</span><span class="n">spec_df</span><span class="p">[(</span><span class="n">spec_df</span><span class="p">[</span><span class="s1">&#39;core_depth&#39;</span><span class="p">]</span><span class="o">&gt;</span><span class="n">depth_min</span><span class="p">)</span><span class="o">&amp;</span><span class="p">(</span><span class="n">spec_df</span><span class="p">[</span><span class="s1">&#39;core_depth&#39;</span><span class="p">]</span><span class="o">&lt;</span><span class="n">depth_max</span><span class="p">)]</span>
+<span class="n">meas_20mT</span><span class="o">=</span><span class="n">meas_20mT</span><span class="p">[(</span><span class="n">meas_20mT</span><span class="p">[</span><span class="s1">&#39;core_depth&#39;</span><span class="p">]</span><span class="o">&gt;</span><span class="n">depth_min</span><span class="p">)</span><span class="o">&amp;</span><span class="p">(</span><span class="n">meas_20mT</span><span class="p">[</span><span class="s1">&#39;core_depth&#39;</span><span class="p">]</span><span class="o">&lt;</span><span class="n">depth_max</span><span class="p">)]</span>
+<span class="c1"># note that the age table has only height (not depth), so these numbers are the opposite</span>
+<span class="n">ages_df</span><span class="o">=</span><span class="n">ages_df</span><span class="p">[(</span><span class="n">ages_df</span><span class="p">[</span><span class="s1">&#39;tiepoint_height&#39;</span><span class="p">]</span><span class="o">&lt;-</span><span class="n">depth_min</span><span class="p">)</span><span class="o">&amp;</span><span class="p">(</span><span class="n">ages_df</span><span class="p">[</span><span class="s1">&#39;tiepoint_height&#39;</span><span class="p">]</span><span class="o">&gt;-</span><span class="n">depth_max</span><span class="p">)]</span>
+<span class="c1"># get the site latitude (there is only one)</span>
+<span class="n">lat</span><span class="o">=</span><span class="n">site_df</span><span class="p">[</span><span class="s1">&#39;lat&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">unique</span><span class="p">()[</span><span class="mi">0</span><span class="p">]</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">fig</span><span class="o">=</span><span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="mi">1</span><span class="p">,(</span><span class="mi">9</span><span class="p">,</span><span class="mi">12</span><span class="p">))</span> <span class="c1"># make the figure</span>
+<span class="n">ax1</span><span class="o">=</span><span class="n">fig</span><span class="o">.</span><span class="n">add_subplot</span><span class="p">(</span><span class="mi">131</span><span class="p">)</span> <span class="c1"># make the first of three subplots</span>
+<span class="n">pmagplotlib</span><span class="o">.</span><span class="n">plot_ts</span><span class="p">(</span><span class="n">ax1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">7</span><span class="p">,</span><span class="n">timescale</span><span class="o">=</span><span class="s1">&#39;gts12&#39;</span><span class="p">)</span> <span class="c1"># plot on the time scale</span>
+<span class="n">ax2</span><span class="o">=</span><span class="n">fig</span><span class="o">.</span><span class="n">add_subplot</span><span class="p">(</span><span class="mi">132</span><span class="p">)</span> <span class="c1"># make the second of three subplots</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">meas_20mT</span><span class="o">.</span><span class="n">dir_inc</span><span class="p">,</span><span class="n">meas_20mT</span><span class="o">.</span><span class="n">core_depth</span><span class="p">,</span><span class="s1">&#39;bo&#39;</span><span class="p">,</span><span class="n">markeredgecolor</span><span class="o">=</span><span class="s1">&#39;black&#39;</span><span class="p">,</span><span class="n">alpha</span><span class="o">=</span><span class="mf">.5</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">spec_df</span><span class="o">.</span><span class="n">dir_inc</span><span class="p">,</span><span class="n">spec_df</span><span class="o">.</span><span class="n">core_depth</span><span class="p">,</span><span class="s1">&#39;r^&#39;</span><span class="p">,</span><span class="n">markeredgecolor</span><span class="o">=</span><span class="s1">&#39;black&#39;</span><span class="p">)</span>
+
+<span class="n">plt</span><span class="o">.</span><span class="n">ylim</span><span class="p">(</span><span class="n">depth_max</span><span class="p">,</span><span class="n">depth_min</span><span class="p">)</span>
+<span class="c1"># calculate the geocentric axial dipole field for the site latitude</span>
+<span class="n">gad</span><span class="o">=</span><span class="n">pmag</span><span class="o">.</span><span class="n">pinc</span><span class="p">(</span><span class="n">lat</span><span class="p">)</span> <span class="c1"># tan (I) = 2 tan (lat)</span>
+<span class="c1"># put it on the plot as a green dashed line</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">axvline</span><span class="p">(</span><span class="n">gad</span><span class="p">,</span><span class="n">color</span><span class="o">=</span><span class="s1">&#39;green&#39;</span><span class="p">,</span><span class="n">linestyle</span><span class="o">=</span><span class="s1">&#39;dashed&#39;</span><span class="p">,</span><span class="n">linewidth</span><span class="o">=</span><span class="mi">2</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">axvline</span><span class="p">(</span><span class="o">-</span><span class="n">gad</span><span class="p">,</span><span class="n">color</span><span class="o">=</span><span class="s1">&#39;green&#39;</span><span class="p">,</span><span class="n">linestyle</span><span class="o">=</span><span class="s1">&#39;dashed&#39;</span><span class="p">,</span><span class="n">linewidth</span><span class="o">=</span><span class="mi">2</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s1">&#39;Inclinations&#39;</span><span class="p">)</span>
+<span class="n">pmagplotlib</span><span class="o">.</span><span class="n">label_tiepoints</span><span class="p">(</span><span class="n">ax2</span><span class="p">,</span><span class="mi">100</span><span class="p">,</span><span class="n">ages_df</span><span class="o">.</span><span class="n">tiepoint</span><span class="o">.</span><span class="n">values</span><span class="p">,</span><span class="o">-</span><span class="mi">1</span><span class="o">*</span><span class="n">ages_df</span><span class="o">.</span><span class="n">tiepoint_height</span><span class="o">.</span><span class="n">values</span><span class="p">,</span><span class="n">lines</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+<span class="c1">#</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../../_images/56f4b73458a64657a8e34045818d5549e1309c11853961f09ec322f58cafbe74.png" src="../../_images/56f4b73458a64657a8e34045818d5549e1309c11853961f09ec322f58cafbe74.png" />
+</div>
+</div>
+<section id="christmas-tree-of-anisotropy">
+<h2>“Christmas tree” of anisotropy<a class="headerlink" href="#christmas-tree-of-anisotropy" title="Permalink to this heading">#</a></h2>
+<ul class="simple">
+<li><p>use ipmag.ani_depthplot()</p></li>
+</ul>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">help</span><span class="p">(</span><span class="n">ipmag</span><span class="o">.</span><span class="n">ani_depthplot</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Help on function ani_depthplot in module pmagpy.ipmag:
+
+ani_depthplot(spec_file=&#39;specimens.txt&#39;, samp_file=&#39;samples.txt&#39;, meas_file=&#39;measurements.txt&#39;, site_file=&#39;sites.txt&#39;, age_file=&#39;&#39;, sum_file=&#39;&#39;, fmt=&#39;svg&#39;, dmin=-1, dmax=-1, depth_scale=&#39;core_depth&#39;, dir_path=&#39;.&#39;, contribution=None)
+    returns matplotlib figure with anisotropy data plotted against depth
+    available depth scales: &#39;composite_depth&#39;, &#39;core_depth&#39; or &#39;age&#39; (you must provide an age file to use this option).
+    You must provide valid specimens and sites files, and either a samples or an ages file.
+    You may additionally provide measurements and a summary file (csv).
+    
+    Parameters
+    ----------
+    spec_file : str, default &quot;specimens.txt&quot;
+    samp_file : str, default &quot;samples.txt&quot;
+    meas_file : str, default &quot;measurements.txt&quot;
+    site_file : str, default &quot;sites.txt&quot;
+    age_file : str, default &quot;&quot;
+    sum_file : str, default &quot;&quot;
+    fmt : str, default &quot;svg&quot;
+        format for figures, [&quot;svg&quot;, &quot;jpg&quot;, &quot;pdf&quot;, &quot;png&quot;]
+    dmin : number, default -1
+        minimum depth to plot (if -1, default to plotting all)
+    dmax : number, default -1
+        maximum depth to plot (if -1, default to plotting all)
+    depth_scale : str, default &quot;core_depth&quot;
+        scale to plot, [&#39;composite_depth&#39;, &#39;core_depth&#39;, &#39;age&#39;].
+        if &#39;age&#39; is selected, you must provide an ages file.
+    dir_path : str, default &quot;.&quot;
+        directory for input files
+    contribution : cb.Contribution, default None
+        if provided, use Contribution object instead of reading in
+        data from files
+    
+    Returns
+    ---------
+    plot : matplotlib plot, or False if no plot could be created
+    name : figure name, or error message if no plot could be created
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">ipmag</span><span class="o">.</span><span class="n">ani_depthplot</span><span class="p">(</span><span class="n">dir_path</span><span class="o">=</span><span class="n">dir_path</span><span class="p">,</span><span class="n">dmin</span><span class="o">=</span><span class="mi">40</span><span class="p">,</span><span class="n">dmax</span><span class="o">=</span><span class="mi">160</span><span class="p">);</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>-I- Using online data model
+-I- Getting method codes from earthref.org
+-I- Importing controlled vocabularies from https://earthref.org
+</pre></div>
+</div>
+<img alt="../../_images/5cfab69e2f3254827db813960d9a1a7ee980cd7741d9520dc46b0f106e369b4e.png" src="../../_images/5cfab69e2f3254827db813960d9a1a7ee980cd7741d9520dc46b0f106e369b4e.png" />
+</div>
+</div>
+</section>
+<section id="plotting-external-results">
+<h2>Plotting External Results<a class="headerlink" href="#plotting-external-results" title="Permalink to this heading">#</a></h2>
+<ul class="simple">
+<li><p>ipmag.ani_depthplot() reads in a specimen file with the column aniso_s filled in and calculates the eigenvalues for you. in this exercise, you learn to calculate anisotropy eigenvalues from the aniso_s column in the specimens table yourself,</p></li>
+<li><p>plot anisotropy eigenvalues and the natural gamma radiation values from U1361A between 40 and 160 meters below sea floor</p></li>
+</ul>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">dir_path</span><span class="o">=</span><span class="s1">&#39;MagIC_example_3&#39;</span> <span class="c1"># set the path to your working directory</span>
+<span class="n">depth_min</span><span class="p">,</span> <span class="n">depth_max</span><span class="o">=</span> <span class="mi">40</span><span class="p">,</span> <span class="mi">160</span> <span class="c1"># set the core depth bounds as required</span>
+<span class="c1"># read in the data files and filter for desired columns</span>
+<span class="n">site_df</span><span class="o">=</span><span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="n">dir_path</span><span class="o">+</span><span class="s1">&#39;/sites.txt&#39;</span><span class="p">,</span><span class="n">sep</span><span class="o">=</span><span class="s1">&#39;</span><span class="se">\t</span><span class="s1">&#39;</span><span class="p">,</span><span class="n">header</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+<span class="n">site_df</span><span class="o">=</span><span class="n">site_df</span><span class="p">[[</span><span class="s1">&#39;site&#39;</span><span class="p">,</span><span class="s1">&#39;core_depth&#39;</span><span class="p">,</span><span class="s1">&#39;external_results&#39;</span><span class="p">]]</span>
+
+<span class="n">anis_df</span><span class="o">=</span><span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="n">dir_path</span><span class="o">+</span><span class="s1">&#39;/specimens.txt&#39;</span><span class="p">,</span><span class="n">sep</span><span class="o">=</span><span class="s1">&#39;</span><span class="se">\t</span><span class="s1">&#39;</span><span class="p">,</span><span class="n">header</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+<span class="n">anis_df</span><span class="p">[</span><span class="s1">&#39;site&#39;</span><span class="p">]</span><span class="o">=</span><span class="n">anis_df</span><span class="p">[</span><span class="s1">&#39;specimen&#39;</span><span class="p">]</span>
+<span class="n">anis_df</span><span class="o">.</span><span class="n">dropna</span><span class="p">(</span><span class="n">subset</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;aniso_v1&#39;</span><span class="p">],</span><span class="n">inplace</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+<span class="c1"># merge with sites and filter for the depth</span>
+<span class="n">anis_df</span><span class="o">=</span><span class="n">pd</span><span class="o">.</span><span class="n">merge</span><span class="p">(</span><span class="n">anis_df</span><span class="p">,</span><span class="n">site_df</span><span class="p">,</span><span class="n">on</span><span class="o">=</span><span class="s1">&#39;site&#39;</span><span class="p">)</span>
+<span class="n">anis_df</span><span class="o">=</span><span class="n">anis_df</span><span class="p">[(</span><span class="n">anis_df</span><span class="o">.</span><span class="n">core_depth</span><span class="o">&gt;</span><span class="n">depth_min</span><span class="p">)</span><span class="o">&amp;</span><span class="p">(</span><span class="n">anis_df</span><span class="o">.</span><span class="n">core_depth</span><span class="o">&lt;</span><span class="n">depth_max</span><span class="p">)]</span>
+
+
+<span class="c1"># unpack the eigenparameters from aniso_v1,aniso_v2 and aniso_v3 and pick out the eigenvalues</span>
+<span class="n">anis_df</span><span class="p">[</span><span class="s1">&#39;tau1&#39;</span><span class="p">]</span><span class="o">=</span><span class="n">anis_df</span><span class="p">[</span><span class="s1">&#39;aniso_v1&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">str</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s1">&#39;:&#39;</span><span class="p">,</span><span class="n">expand</span><span class="o">=</span><span class="kc">True</span><span class="p">)[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">astype</span><span class="p">(</span><span class="s1">&#39;float&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">values</span>
+<span class="n">anis_df</span><span class="p">[</span><span class="s1">&#39;tau2&#39;</span><span class="p">]</span><span class="o">=</span><span class="n">anis_df</span><span class="p">[</span><span class="s1">&#39;aniso_v2&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">str</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s1">&#39;:&#39;</span><span class="p">,</span><span class="n">expand</span><span class="o">=</span><span class="kc">True</span><span class="p">)[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">astype</span><span class="p">(</span><span class="s1">&#39;float&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">values</span>
+<span class="n">anis_df</span><span class="p">[</span><span class="s1">&#39;tau3&#39;</span><span class="p">]</span><span class="o">=</span><span class="n">anis_df</span><span class="p">[</span><span class="s1">&#39;aniso_v3&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">str</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s1">&#39;:&#39;</span><span class="p">,</span><span class="n">expand</span><span class="o">=</span><span class="kc">True</span><span class="p">)[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">astype</span><span class="p">(</span><span class="s1">&#39;float&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">values</span>
+
+<span class="c1"># unpack external results data</span>
+<span class="n">site_df</span><span class="p">[</span><span class="s1">&#39;ngr&#39;</span><span class="p">]</span><span class="o">=</span><span class="n">site_df</span><span class="p">[</span><span class="s1">&#39;external_results&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">str</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s1">&#39;:&#39;</span><span class="p">,</span><span class="n">expand</span><span class="o">=</span><span class="kc">True</span><span class="p">)[</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">astype</span><span class="p">(</span><span class="s1">&#39;float&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">values</span>
+
+<span class="c1"># make the plots</span>
+
+
+<span class="n">fig</span><span class="o">=</span><span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="mi">1</span><span class="p">,(</span><span class="mi">6</span><span class="p">,</span><span class="mi">12</span><span class="p">))</span> <span class="c1"># make the figure</span>
+<span class="n">ax1</span><span class="o">=</span><span class="n">fig</span><span class="o">.</span><span class="n">add_subplot</span><span class="p">(</span><span class="mi">121</span><span class="p">)</span> <span class="c1"># make the first of two subplots</span>
+<span class="n">ax2</span><span class="o">=</span><span class="n">fig</span><span class="o">.</span><span class="n">add_subplot</span><span class="p">(</span><span class="mi">122</span><span class="p">)</span> <span class="c1"># make the second of two subplots</span>
+
+<span class="c1"># plot the eigenvalues with the usual symbols</span>
+<span class="n">ax1</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">anis_df</span><span class="p">[</span><span class="s1">&#39;tau1&#39;</span><span class="p">],</span><span class="n">anis_df</span><span class="p">[</span><span class="s1">&#39;core_depth&#39;</span><span class="p">],</span><span class="s1">&#39;rs&#39;</span><span class="p">)</span> <span class="c1"># red square</span>
+<span class="n">ax1</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">anis_df</span><span class="p">[</span><span class="s1">&#39;tau2&#39;</span><span class="p">],</span><span class="n">anis_df</span><span class="p">[</span><span class="s1">&#39;core_depth&#39;</span><span class="p">],</span><span class="s1">&#39;b^&#39;</span><span class="p">)</span> <span class="c1"># blue triangle</span>
+<span class="n">ax1</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">anis_df</span><span class="p">[</span><span class="s1">&#39;tau3&#39;</span><span class="p">],</span><span class="n">anis_df</span><span class="p">[</span><span class="s1">&#39;core_depth&#39;</span><span class="p">],</span><span class="s1">&#39;ko&#39;</span><span class="p">)</span> <span class="c1"># black circle</span>
+<span class="n">ax1</span><span class="o">.</span><span class="n">set_ylim</span><span class="p">(</span><span class="n">depth_max</span><span class="p">,</span><span class="n">depth_min</span><span class="p">)</span> <span class="c1"># set the y axis limits</span>
+<span class="n">ax1</span><span class="o">.</span><span class="n">set_xlabel</span><span class="p">(</span><span class="s1">&#39;Eigenvalues&#39;</span><span class="p">)</span>
+
+<span class="c1"># plot the ngr data as a black line</span>
+<span class="n">ax2</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">site_df</span><span class="p">[</span><span class="s1">&#39;ngr&#39;</span><span class="p">],</span><span class="n">site_df</span><span class="p">[</span><span class="s1">&#39;core_depth&#39;</span><span class="p">],</span><span class="s1">&#39;k-&#39;</span><span class="p">)</span>
+<span class="n">ax2</span><span class="o">.</span><span class="n">set_ylim</span><span class="p">(</span><span class="n">depth_max</span><span class="p">,</span><span class="n">depth_min</span><span class="p">)</span> <span class="c1"># set the y axis limits</span>
+<span class="c1"># shade in the high NGR regions - these are the clay dominated layers with higher anisotropy</span>
+<span class="n">y2</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">ones</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">site_df</span><span class="p">[</span><span class="s1">&#39;ngr&#39;</span><span class="p">]))</span><span class="o">*</span><span class="n">site_df</span><span class="p">[</span><span class="s1">&#39;ngr&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">median</span><span class="p">()</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">fill_betweenx</span><span class="p">(</span><span class="n">site_df</span><span class="p">[</span><span class="s1">&#39;core_depth&#39;</span><span class="p">],</span><span class="n">site_df</span><span class="p">[</span><span class="s1">&#39;ngr&#39;</span><span class="p">],</span> <span class="n">y2</span><span class="p">,</span>\
+                  <span class="n">where</span> <span class="o">=</span> <span class="n">site_df</span><span class="p">[</span><span class="s1">&#39;ngr&#39;</span><span class="p">]</span><span class="o">&gt;=</span><span class="n">y2</span><span class="p">,</span> <span class="n">facecolor</span><span class="o">=</span><span class="s1">&#39;grey&#39;</span><span class="p">)</span>
+<span class="n">ax2</span><span class="o">.</span><span class="n">axvline</span><span class="p">(</span><span class="n">site_df</span><span class="p">[</span><span class="s1">&#39;ngr&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">median</span><span class="p">())</span> <span class="c1"># draw a vertical line up the median values</span>
+<span class="n">ax2</span><span class="o">.</span><span class="n">set_xlabel</span><span class="p">(</span><span class="s1">&#39;NGR&#39;</span><span class="p">);</span> <span class="c1"># label the X axis</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../../_images/334cdfe5ebd772f2783daa41522c3e9f788d2e926b3a9b2f9d246f02bbba9f94.png" src="../../_images/334cdfe5ebd772f2783daa41522c3e9f788d2e926b3a9b2f9d246f02bbba9f94.png" />
+</div>
+</div>
+</section>
+</section>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            name: "python3",
+            path: "./example_notebooks/tutorial_notebooks"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+                </article>
+              
+
+              
+              
+                <footer class="bd-footer-article">
+                  
+<div class="footer-article-items footer-article__inner">
+  
+    <div class="footer-article-item"><!-- Previous / next buttons -->
+<div class="prev-next-area">
+</div></div>
+  
+</div>
+
+                </footer>
+              
+            </div>
+            
+            
+              
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#">2020 MagIC Workshop PmagPy notebook demo</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#overview-of-demonstration">Overview of demonstration</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#exercise-1">Exercise 1</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#equal-area-net-example">Equal area net example</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#map-of-vgps">Map of VGPs</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#bootstrap-reversals-test">Bootstrap reversals test</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#make-a-site-map">Make a site map</a></li>
+</ul>
+</li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#exercise-2">Exercise 2:</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#exercise-3">Exercise 3</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#download-and-unpack-the-data">Download and unpack the data</a></li>
+</ul>
+</li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#magstrat-figure">Magstrat figure</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#christmas-tree-of-anisotropy">“Christmas tree” of anisotropy</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#plotting-external-results">Plotting External Results</a></li>
+</ul>
+</li>
+</ul>
+
+  </nav></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
+  
+  <div class="footer-item">
+    
+<p class="component-author">
+By PmagPy Contributors
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  <p class="copyright">
+    
+      © Copyright 2023.
+      <br/>
+    
+  </p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+</div>
+          </footer>
+        
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="../../_static/scripts/bootstrap.js?digest=e353d410970836974a52"></script>
+<script src="../../_static/scripts/pydata-sphinx-theme.js?digest=e353d410970836974a52"></script>
+
+  <footer class="bd-footer">
+  </footer>
+  </body>
+</html>

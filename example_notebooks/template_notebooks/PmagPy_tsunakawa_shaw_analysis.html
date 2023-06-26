@@ -1,0 +1,1447 @@
+
+
+<!DOCTYPE html>
+
+
+<html lang="en" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
+
+    <title>How to use &#8212; PmagPy Documentation</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "light";
+  </script>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../../_static/styles/theme.css?digest=e353d410970836974a52" rel="stylesheet" />
+<link href="../../_static/styles/bootstrap.css?digest=e353d410970836974a52" rel="stylesheet" />
+<link href="../../_static/styles/pydata-sphinx-theme.css?digest=e353d410970836974a52" rel="stylesheet" />
+
+  
+  <link href="../../_static/vendor/fontawesome/6.1.2/css/all.min.css?digest=e353d410970836974a52" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="../../_static/vendor/fontawesome/6.1.2/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../../_static/vendor/fontawesome/6.1.2/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../../_static/vendor/fontawesome/6.1.2/webfonts/fa-regular-400.woff2" />
+
+    <link rel="stylesheet" type="text/css" href="../../_static/pygments.css" />
+    <link rel="stylesheet" href="../../_static/styles/sphinx-book-theme.css?digest=14f4ca6b54d191a8c7657f6c759bf11a5fb86285" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/design-style.4045f2051d55cab465a707391d5b2007.min.css" />
+  
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../../_static/scripts/bootstrap.js?digest=e353d410970836974a52" />
+<link rel="preload" as="script" href="../../_static/scripts/pydata-sphinx-theme.js?digest=e353d410970836974a52" />
+
+    <script data-url_root="../../" id="documentation_options" src="../../_static/documentation_options.js"></script>
+    <script src="../../_static/jquery.js"></script>
+    <script src="../../_static/underscore.js"></script>
+    <script src="../../_static/_sphinx_javascript_frameworks_compat.js"></script>
+    <script src="../../_static/doctools.js"></script>
+    <script src="../../_static/clipboard.min.js"></script>
+    <script src="../../_static/copybutton.js"></script>
+    <script src="../../_static/scripts/sphinx-book-theme.js?digest=5a5c038af52cf7bc1a1ec88eea08e6366ee68824"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="../../_static/togglebutton.js"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script src="../../_static/design-tabs.js"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
+const thebe_selector = ".thebe,.cell"
+const thebe_selector_input = "pre"
+const thebe_selector_output = ".output, .cell_output"
+</script>
+    <script async="async" src="../../_static/sphinx-thebe.js"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'example_notebooks/template_notebooks/PmagPy_tsunakawa_shaw_analysis';</script>
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <a class="skip-link" href="#main-content">Skip to main content</a>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          name="__primary"
+          id="__primary"/>
+  <label class="overlay overlay-primary" for="__primary"></label>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          name="__secondary"
+          id="__secondary"/>
+  <label class="overlay overlay-secondary" for="__secondary"></label>
+  
+  <div class="search-button__wrapper">
+    <div class="search-button__overlay"></div>
+    <div class="search-button__search-container">
+<form class="bd-search d-flex align-items-center"
+      action="../../search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         id="search-input"
+         placeholder="Search this book..."
+         aria-label="Search this book..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form></div>
+  </div>
+  
+    <nav class="bd-header navbar navbar-expand-lg bd-navbar">
+    </nav>
+  
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      <div class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+  
+
+<a class="navbar-brand logo" href="../../intro.html">
+  
+  
+  
+  
+    
+    
+      
+    
+    
+    <img src="../../_static/pmagpy_logo_notext.png" class="logo__image only-light" alt="Logo image"/>
+    <script>document.write(`<img src="../../_static/pmagpy_logo_notext.png" class="logo__image only-dark" alt="Logo image"/>`);</script>
+  
+  
+</a></div>
+        <div class="sidebar-primary-item"><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        
+        <ul class="nav bd-sidenav bd-sidenav__home-link">
+            <li class="toctree-l1">
+                <a class="reference internal" href="../../intro.html">
+                    PmagPy: An open source package for paleomagnetic data analysis
+                </a>
+            </li>
+        </ul>
+        <p aria-level="2" class="caption" role="heading"><span class="caption-text">Installation</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../installation/PmagPy_install.html">Installing <strong>PmagPy</strong></a><input class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-1"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../installation/osx_pip.html">OSX pip install</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../installation/osx_developer.html">OSX developer install</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../installation/windows_pip.html">Windows pip install</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../installation/windows_developer.html">Windows developer install</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../installation/linux_pip.html">Linux pip install</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../installation/linux_developer.html">Linux developer install</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../installation/troubleshooting.html">Troubleshooting installation issues</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../programs/command_line_programs.html">Command line programs</a></li>
+</ul>
+</li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../programs/pmag_gui.html">Installing and Getting Started with Pmag GUI</a><input class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-2"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../programs/demag_gui.html">Demag GUI</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../programs/thellier_gui.html">Thellier GUI</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../resources/survival_skills.html">Survival computer skills</a></li>
+
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Documentation notebooks</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../../documentation_notebooks/Jupyter.html">Jupyter Notebooks</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../documentation_notebooks/PmagPy_introduction.html">Introduction to PmagPy</a></li>
+
+<li class="toctree-l1"><a class="reference internal" href="../../documentation_notebooks/PmagPy_calculations.html">Calculations with PmagPy</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../documentation_notebooks/PmagPy_plots_analysis.html">Visualizations and more analysis with PmagPy</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../documentation_notebooks/PmagPy_MagIC.html">Working with the MagIC database using PmagPy</a></li>
+
+
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Example notebooks</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../tutorial_notebooks.html">Tutorial notebooks</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../template_notebooks.html">Template notebooks</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../published_notebooks.html">Published studies notebooks</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">MagIC</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../../MagIC/MagIC.html">MagIC database and file formats</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Function docstrings</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../../api/api.html">API Reference</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">References</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../../references.html">References</a></li>
+</ul>
+
+    </div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+  </div>
+  
+  <div id="rtd-footer-container"></div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><label class="sidebar-toggle primary-toggle btn btn-sm" for="__primary" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</label></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+
+
+
+<div class="dropdown dropdown-source-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Source repositories">
+    <i class="fab fa-github"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="https://github.com/pmagpy/pmagpy-docs" target="_blank"
+   class="btn btn-sm btn-source-repository-button dropdown-item"
+   title="Source repository"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fab fa-github"></i>
+  </span>
+<span class="btn__text-container">Repository</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li><a href="https://github.com/pmagpy/pmagpy-docs/issues/new?title=Issue%20on%20page%20%2Fexample_notebooks/template_notebooks/PmagPy_tsunakawa_shaw_analysis.html&body=Your%20issue%20content%20here." target="_blank"
+   class="btn btn-sm btn-source-issues-button dropdown-item"
+   title="Open an issue"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-lightbulb"></i>
+  </span>
+<span class="btn__text-container">Open issue</span>
+</a>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+
+
+<div class="dropdown dropdown-download-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Download this page">
+    <i class="fas fa-download"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="../../_sources/example_notebooks/template_notebooks/PmagPy_tsunakawa_shaw_analysis.ipynb" target="_blank"
+   class="btn btn-sm btn-download-source-button dropdown-item"
+   title="Download source file"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="btn__text-container">.ipynb</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="window.print()"
+  class="btn btn-sm btn-download-pdf-button dropdown-item"
+  title="Print to PDF"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="btn__text-container">.pdf</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button"
+  title="Fullscreen mode"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+
+<script>
+document.write(`
+  <button class="theme-switch-button btn btn-sm btn-outline-primary navbar-btn rounded-circle" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="theme-switch" data-mode="light"><i class="fa-solid fa-sun"></i></span>
+    <span class="theme-switch" data-mode="dark"><i class="fa-solid fa-moon"></i></span>
+    <span class="theme-switch" data-mode="auto"><i class="fa-solid fa-circle-half-stroke"></i></span>
+  </button>
+`);
+</script>
+
+<script>
+document.write(`
+  <button class="btn btn-sm navbar-btn search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass"></i>
+  </button>
+`);
+</script>
+<label class="sidebar-toggle secondary-toggle btn btn-sm" for="__secondary"title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</label>
+</div></div>
+      
+    </div>
+  
+</div>
+</div>
+              
+              
+
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1>How to use</h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+            <div>
+                <h2> Contents </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#">How to use</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#check-pmagpy-version">Check PmagPy version</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#choose-the-analysis-method-for-tsunakawa-shaw-api-estimation">Choose the analysis method for Tsunakawa-Shaw API estimation</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#ordinary-find-the-reasonable-portion-by-criteria-of-yamamoto-et-al-2003-using-r-since-2003">ordinary: find the reasonable portion, by criteria of Yamamoto et al. (2003) using r, since 2003</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#best-reg-find-the-best-portion-by-criteria-of-yamamoto-et-al-2003-using-r-since-2022">best_reg: find the best portion, by criteria of Yamamoto et al. (2003) using r, since 2022</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#best-krv-find-the-best-portion-output-best-files-by-criteria-of-lloyd-et-al-2021-using-k">best_krv - find the best portion, output “best” files, by criteria of Lloyd et al. (2021) using k’</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#threshold-values-for-criteria-yamamoto-et-al-2003-and-lloyd-et-al-2021">threshold values for criteria: Yamamoto et al. (2003) and Lloyd et al.(2021)</a></li>
+</ul>
+</li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#set-variables">Set variables</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#file-paths-directories">file paths (directories)</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#sample-description-for-magic">sample description for MagIC</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#experimental-condition">experimental condition</a></li>
+</ul>
+</li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#read-raw-data-convert-to-magic-format">Read raw data; convert to MAGIC format</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#create-the-template-files">Create the template files</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#siteinfo-template-csv-template-file-for-sample-data-age-lat-long">1) siteinfo_template.csv: template file for sample data &lt;age, lat, long&gt;</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#steps-template-csv-template-file-for-step-wishes-to-use-for-main-analyses">2) steps_template.csv: template file for step wishes to use for main analyses</a></li>
+</ul>
+</li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#main-analysis">Main Analysis</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#remove-existing-plots">remove existing plots</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#read-in-measurements-data">read in measurements data</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#set-specimen-ids">set specimen ids</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#read-in-the-specimen-treatment-step-wishes-from-steps-csv">read in the specimen treatment step wishes from “steps.csv”</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#main-loop">main loop</a></li>
+</ul>
+</li>
+</ul>
+
+            </nav>
+        </div>
+    </div>
+</div>
+
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article" role="main">
+                  
+  <div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">matplotlib</span> <span class="k">as</span> <span class="nn">mpl</span>
+<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
+<span class="kn">import</span> <span class="nn">multiprocessing</span> <span class="k">as</span> <span class="nn">multi</span>
+<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="kn">import</span> <span class="nn">os</span> 
+<span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
+<span class="kn">import</span> <span class="nn">pmagpy</span>
+<span class="kn">import</span> <span class="nn">pmagpy.pmag</span> <span class="k">as</span> <span class="nn">pmag</span>
+<span class="kn">import</span> <span class="nn">pmagpy.ipmag</span> <span class="k">as</span> <span class="nn">ipmag</span>
+<span class="kn">import</span> <span class="nn">pmagpy.pmagplotlib</span> <span class="k">as</span> <span class="nn">pmagplotlib</span>
+<span class="kn">import</span> <span class="nn">re</span>
+<span class="kn">import</span> <span class="nn">scipy.integrate</span> <span class="k">as</span> <span class="nn">integrate</span>
+<span class="kn">import</span> <span class="nn">scipy.stats</span> <span class="k">as</span> <span class="nn">stats</span>
+<span class="kn">import</span> <span class="nn">seaborn</span> <span class="k">as</span> <span class="nn">sns</span>
+<span class="c1">#print(sns.__version__)</span>
+<span class="kn">import</span> <span class="nn">SPD.lib.leastsq_jacobian</span> <span class="k">as</span> <span class="nn">lib_k</span>
+<span class="kn">import</span> <span class="nn">sys</span>
+
+<span class="kn">from</span> <span class="nn">datetime</span> <span class="kn">import</span> <span class="n">datetime</span> <span class="k">as</span> <span class="n">dt</span>
+<span class="kn">from</span> <span class="nn">importlib</span> <span class="kn">import</span> <span class="n">reload</span>
+<span class="kn">from</span> <span class="nn">multiprocessing</span> <span class="kn">import</span> <span class="n">Pool</span>
+
+<span class="kn">import</span> <span class="nn">pmagpy.tsunashawfuncs</span> <span class="k">as</span> <span class="nn">ts</span>
+<span class="c1">#import tsunashawfuncs as ts</span>
+<span class="kn">import</span> <span class="nn">importlib</span>
+</pre></div>
+</div>
+</div>
+</div>
+<section id="how-to-use">
+<h1>How to use<a class="headerlink" href="#how-to-use" title="Permalink to this heading">#</a></h1>
+<ol class="arabic simple">
+<li><p>Make a directory and put this notebook to the directory, then also make following sub-directories: ‘data/’, ‘MagIC/’, ‘plots/’, ‘csv/’, ‘Figures/’  - in this example notebook, however, the data and files are in the data_files/tsunakawa_shaw</p></li>
+<li><p>Put a raw measurement data file in the sub-directory of ‘data/’. An example data file “mc120c-SA4.d” is provided with this notebook.</p></li>
+<li><p>Choose and set proper setting/variables at the beginning of this notebook.</p></li>
+<li><p>Once run the notebook thoroughly. A file “steps_template.csv” is created in the sub-directory of ‘csv/’. If you prefer to select a specific coercivity interval for a specific specimen, you can edit the file and rename it to “steps.csv” and save it. When you run the notebook again, an analyis will be made according to the “steps.csv”.</p></li>
+<li><p>All analytical results will be created in the sub-directories.</p></li>
+</ol>
+</section>
+<section id="check-pmagpy-version">
+<h1>Check PmagPy version<a class="headerlink" href="#check-pmagpy-version" title="Permalink to this heading">#</a></h1>
+<p>anaconda3/lib/python3.6/site-packages/pmagpy (to update : pip install -U pmagpy);
+or
+cd /home/pmag/PmagPy; git pull</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">pmag</span><span class="o">.</span><span class="n">get_version</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&#39;pmagpy-4.2.96&#39;
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="choose-the-analysis-method-for-tsunakawa-shaw-api-estimation">
+<h1>Choose the analysis method for Tsunakawa-Shaw API estimation<a class="headerlink" href="#choose-the-analysis-method-for-tsunakawa-shaw-api-estimation" title="Permalink to this heading">#</a></h1>
+<section id="ordinary-find-the-reasonable-portion-by-criteria-of-yamamoto-et-al-2003-using-r-since-2003">
+<h2>ordinary: find the reasonable portion, by criteria of Yamamoto et al. (2003) using r, since 2003<a class="headerlink" href="#ordinary-find-the-reasonable-portion-by-criteria-of-yamamoto-et-al-2003-using-r-since-2003" title="Permalink to this heading">#</a></h2>
+</section>
+<section id="best-reg-find-the-best-portion-by-criteria-of-yamamoto-et-al-2003-using-r-since-2022">
+<h2>best_reg: find the best portion, by criteria of Yamamoto et al. (2003) using r, since 2022<a class="headerlink" href="#best-reg-find-the-best-portion-by-criteria-of-yamamoto-et-al-2003-using-r-since-2022" title="Permalink to this heading">#</a></h2>
+<p>(1) calculate API statistics for all possible coercivity intervals
+(2) discard the statistics not satisfying the usual selection criteria (when applicable)
+(3 omitted) sort the statistics by dAPI (rel. departure from the expected API), and select the best 10 statistics
+(4) sort the statistics by frac_n, and select the best one
+Curvature (k) calculation is made by the code for Arai plot by Lisa. This is done for inverterd-X (e.g. -TRM1, -ARM1, ..) and original-Y (e.g. NRM, ARM0, ..). The inverted-X is offset (positive) to zero as a minimum.</p>
+</section>
+<section id="best-krv-find-the-best-portion-output-best-files-by-criteria-of-lloyd-et-al-2021-using-k">
+<h2>best_krv - find the best portion, output “best” files, by criteria of Lloyd et al. (2021) using k’<a class="headerlink" href="#best-krv-find-the-best-portion-output-best-files-by-criteria-of-lloyd-et-al-2021-using-k" title="Permalink to this heading">#</a></h2>
+<p>(1) calculate API statistics for all possible coercivity intervals
+(2) discard the statistics not satisfying the Beta criterion (0.1) and the k’ criterion (0.2)
+(3 omitted) sort the statistics by dAPI (rel. departure from the expected API), and select the best 10 statistics
+(4) sort the statistics by frac_n, and select the best one</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">#analysis=&#39;ordinary&#39;</span>
+<span class="n">analysis</span><span class="o">=</span><span class="s1">&#39;best_reg&#39;</span>
+<span class="c1">#analysis=&#39;best_krv&#39;</span>
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="threshold-values-for-criteria-yamamoto-et-al-2003-and-lloyd-et-al-2021">
+<h2>threshold values for criteria: Yamamoto et al. (2003) and Lloyd et al.(2021)<a class="headerlink" href="#threshold-values-for-criteria-yamamoto-et-al-2003-and-lloyd-et-al-2021" title="Permalink to this heading">#</a></h2>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">minN</span><span class="o">=</span><span class="mi">4</span> <span class="c1"># minimum number of data points</span>
+<span class="n">minR</span><span class="o">=</span><span class="mf">0.995</span> <span class="c1"># minimum correlation coefficient of a slope</span>
+<span class="c1">#minR=0.90 # minimum correlation coefficient of a slope</span>
+<span class="n">minSlopeT</span><span class="o">=</span><span class="mf">0.95</span> <span class="c1"># minimum slope of TRM1-TRM2* plot</span>
+<span class="c1">#minSlopeT=0.9 # minimum slope of TRM1-TRM2* plot</span>
+<span class="n">maxSlopeT</span><span class="o">=</span><span class="mf">1.05</span> <span class="c1"># minimum slope of TRM1-TRM2* plot</span>
+<span class="c1">#maxSlopeT=1.1 # minimum slope of TRM1-TRM2* plot</span>
+<span class="n">minFrac</span><span class="o">=</span><span class="mf">0.15</span> <span class="c1"># minimum frac of NRM-TRM1* and TRM1-TRM2* plots</span>
+<span class="c1">#minFrac=0.30 # minimum frac of NRM-TRM1* and TRM1-TRM2* plots</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">maxKrv</span><span class="o">=</span><span class="mf">0.20</span> <span class="c1"># consideration for Lloyd et al.(2021)</span>
+<span class="n">maxBeta</span><span class="o">=</span><span class="mf">0.10</span> <span class="c1"># consideration for Lloyd et al.(2021)</span>
+<span class="n">maxFresid</span><span class="o">=</span><span class="mf">0.10</span> <span class="c1"># consideration for Lloyd et al.(2021)</span>
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+</section>
+<section id="set-variables">
+<h1>Set variables<a class="headerlink" href="#set-variables" title="Permalink to this heading">#</a></h1>
+<section id="file-paths-directories">
+<h2>file paths (directories)<a class="headerlink" href="#file-paths-directories" title="Permalink to this heading">#</a></h2>
+<ul class="simple">
+<li><p>replace these with the directories you will be using</p></li>
+</ul>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">source_directory</span><span class="o">=</span><span class="s1">&#39;data_files/tsunakawa_shaw/raw_data/&#39;</span>
+<span class="n">MagIC_directory</span><span class="o">=</span><span class="s1">&#39;data_files/tsunakawa_shaw/MagIC/&#39;</span>
+<span class="n">Plot_directory</span><span class="o">=</span><span class="s1">&#39;data_files/tsunakawa_shaw/plots/&#39;</span>
+<span class="n">csv_directory</span><span class="o">=</span><span class="s1">&#39;data_files/tsunakawa_shaw/csv/&#39;</span>
+<span class="n">dir_path</span><span class="o">=</span><span class="s1">&#39;data_files/tsunakawa_shaw/Figures&#39;</span>
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="sample-description-for-magic">
+<h2>sample description for MagIC<a class="headerlink" href="#sample-description-for-magic" title="Permalink to this heading">#</a></h2>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">lat</span><span class="p">,</span><span class="n">lon</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span>
+<span class="n">height</span><span class="o">=</span><span class="s1">&#39;&#39;</span>
+<span class="n">location</span><span class="o">=</span><span class="s1">&#39;na&#39;</span>
+<span class="n">location_type</span><span class="o">=</span><span class="s1">&#39;outcrop&#39;</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">age</span><span class="o">=</span><span class="s2">&quot;0&quot;</span>
+<span class="n">age_min</span><span class="p">,</span><span class="n">age_max</span><span class="o">=</span><span class="s2">&quot;0&quot;</span><span class="p">,</span><span class="s2">&quot;0&quot;</span>
+<span class="n">age_unit</span><span class="o">=</span><span class="s1">&#39;Ma&#39;</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">classes</span><span class="o">=</span><span class="s1">&#39;intrusive:igneous&#39;</span>
+<span class="n">geologic_types</span><span class="o">=</span><span class="s1">&#39;Intrusives&#39;</span>
+<span class="n">lithologies</span><span class="o">=</span><span class="s1">&#39;basalt&#39;</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">sample_methods</span><span class="o">=</span><span class="s1">&#39;FS-FD:SO-SM&#39;</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">citations</span><span class="o">=</span><span class="s1">&#39;This study&#39;</span>
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="experimental-condition">
+<h2>experimental condition<a class="headerlink" href="#experimental-condition" title="Permalink to this heading">#</a></h2>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">method_codes_first</span><span class="o">=</span><span class="s1">&#39;LT-NRM-PAR:LP-PI-TRM:IE-SH:LP-LT:DA-ALT-RS:DA-AC-AARM&#39;</span>
+<span class="n">method_codes_second</span><span class="o">=</span><span class="s1">&#39;LT-TRM-PAR:LP-PI-TRM:IE-SH:LP-LT:DA-ALT-RS:DA-AC-AARM&#39;</span>
+<span class="n">instrument</span><span class="o">=</span><span class="s2">&quot;KCC-DSPIN&quot;</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">ARM_DC_field</span><span class="o">=</span><span class="mf">50e-6</span> <span class="c1"># DC field values for ARMs, 50uT</span>
+<span class="n">True_API</span><span class="o">=</span><span class="mf">70e-6</span> <span class="c1"># expected API values for NRMs (LabTRMs)</span>
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+</section>
+<section id="read-raw-data-convert-to-magic-format">
+<h1>Read raw data; convert to MAGIC format<a class="headerlink" href="#read-raw-data-convert-to-magic-format" title="Permalink to this heading">#</a></h1>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">files</span><span class="o">=</span><span class="n">os</span><span class="o">.</span><span class="n">listdir</span><span class="p">(</span><span class="n">MagIC_directory</span><span class="p">)</span>
+<span class="k">for</span> <span class="n">file</span> <span class="ow">in</span> <span class="n">files</span><span class="p">:</span>
+    <span class="k">if</span> <span class="s1">&#39;.magic&#39;</span> <span class="ow">in</span> <span class="n">file</span><span class="p">:</span>
+        <span class="n">os</span><span class="o">.</span><span class="n">remove</span><span class="p">(</span><span class="n">MagIC_directory</span><span class="o">+</span><span class="n">file</span><span class="p">)</span>
+    <span class="k">elif</span> <span class="s1">&#39;.specimens&#39;</span> <span class="ow">in</span> <span class="n">file</span><span class="p">:</span>
+        <span class="n">os</span><span class="o">.</span><span class="n">remove</span><span class="p">(</span><span class="n">MagIC_directory</span><span class="o">+</span><span class="n">file</span><span class="p">)</span>
+    <span class="k">elif</span> <span class="s1">&#39;.samples&#39;</span> <span class="ow">in</span> <span class="n">file</span><span class="p">:</span>
+        <span class="n">os</span><span class="o">.</span><span class="n">remove</span><span class="p">(</span><span class="n">MagIC_directory</span><span class="o">+</span><span class="n">file</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">files</span><span class="o">=</span><span class="n">os</span><span class="o">.</span><span class="n">listdir</span><span class="p">(</span><span class="n">source_directory</span><span class="p">)</span>
+<span class="k">for</span> <span class="n">infile</span> <span class="ow">in</span> <span class="n">files</span><span class="p">:</span>
+    <span class="n">file</span><span class="o">=</span><span class="n">source_directory</span><span class="o">+</span><span class="n">infile</span>
+    <span class="n">meas_data</span><span class="p">,</span><span class="n">spec_data</span><span class="p">,</span><span class="n">samp_data</span><span class="o">=</span>\
+        <span class="n">ts</span><span class="o">.</span><span class="n">convert_ts_dspin</span><span class="p">(</span><span class="n">file</span><span class="p">,</span> <span class="n">citations</span><span class="p">,</span> <span class="n">instrument</span><span class="p">,</span> <span class="n">ARM_DC_field</span><span class="p">)</span>
+    <span class="c1"># save measurements file</span>
+    <span class="n">meas_file</span><span class="o">=</span><span class="n">MagIC_directory</span><span class="o">+</span><span class="n">infile</span><span class="o">+</span><span class="s1">&#39;.magic&#39;</span>
+    <span class="n">meas_out</span><span class="o">=</span><span class="n">meas_data</span><span class="o">.</span><span class="n">to_dict</span><span class="p">(</span><span class="s1">&#39;records&#39;</span><span class="p">)</span>
+    <span class="n">pmag</span><span class="o">.</span><span class="n">magic_write</span><span class="p">(</span><span class="n">meas_file</span><span class="p">,</span><span class="n">meas_out</span><span class="p">,</span><span class="s1">&#39;measurements&#39;</span><span class="p">)</span>
+    <span class="c1"># save specimens file</span>
+    <span class="n">spec_file</span><span class="o">=</span><span class="n">MagIC_directory</span><span class="o">+</span><span class="n">infile</span><span class="o">+</span><span class="s1">&#39;.specimens&#39;</span>
+    <span class="n">spec_out</span><span class="o">=</span><span class="n">spec_data</span><span class="o">.</span><span class="n">to_dict</span><span class="p">(</span><span class="s1">&#39;records&#39;</span><span class="p">)</span>
+    <span class="n">pmag</span><span class="o">.</span><span class="n">magic_write</span><span class="p">(</span><span class="n">spec_file</span><span class="p">,</span><span class="n">spec_out</span><span class="p">,</span><span class="s1">&#39;specimens&#39;</span><span class="p">)</span>
+    <span class="n">samp_data</span><span class="p">[</span><span class="s1">&#39;lat&#39;</span><span class="p">]</span><span class="o">=</span><span class="n">lat</span>
+    <span class="n">samp_data</span><span class="p">[</span><span class="s1">&#39;lon&#39;</span><span class="p">]</span><span class="o">=</span><span class="n">lon</span>
+    <span class="n">samp_data</span><span class="p">[</span><span class="s1">&#39;method_codes&#39;</span><span class="p">]</span><span class="o">=</span><span class="n">sample_methods</span>
+    <span class="n">samp_data</span><span class="p">[</span><span class="s1">&#39;result_type&#39;</span><span class="p">]</span><span class="o">=</span><span class="s1">&#39;i&#39;</span>
+    <span class="n">samp_data</span><span class="p">[</span><span class="s1">&#39;result_quality&#39;</span><span class="p">]</span><span class="o">=</span><span class="s1">&#39;g&#39;</span>
+    <span class="n">samp_data</span><span class="p">[</span><span class="s1">&#39;citations&#39;</span><span class="p">]</span><span class="o">=</span><span class="n">citations</span>
+    <span class="c1"># save sample file</span>
+    <span class="n">samp_file</span><span class="o">=</span><span class="n">MagIC_directory</span><span class="o">+</span><span class="n">infile</span><span class="o">+</span><span class="s1">&#39;.samples&#39;</span>
+    <span class="n">samp_out</span><span class="o">=</span><span class="n">samp_data</span><span class="o">.</span><span class="n">to_dict</span><span class="p">(</span><span class="s1">&#39;records&#39;</span><span class="p">)</span>
+    <span class="n">pmag</span><span class="o">.</span><span class="n">magic_write</span><span class="p">(</span><span class="n">samp_file</span><span class="p">,</span><span class="n">samp_out</span><span class="p">,</span><span class="s1">&#39;samples&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>150  records written to file  data_files/tsunakawa_shaw/MagIC/mc120c-SA4.d.magic
+1  records written to file  data_files/tsunakawa_shaw/MagIC/mc120c-SA4.d.specimens
+1  records written to file  data_files/tsunakawa_shaw/MagIC/mc120c-SA4.d.samples
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">magic_files</span><span class="o">=</span><span class="n">os</span><span class="o">.</span><span class="n">listdir</span><span class="p">(</span><span class="n">MagIC_directory</span><span class="p">)</span>
+<span class="n">magic_list</span><span class="p">,</span><span class="n">specimens_list</span><span class="p">,</span><span class="n">sample_list</span><span class="o">=</span><span class="p">[],[],[]</span>
+<span class="k">for</span> <span class="n">f</span> <span class="ow">in</span> <span class="n">magic_files</span><span class="p">:</span> 
+    <span class="k">if</span> <span class="s1">&#39;.magic&#39;</span> <span class="ow">in</span> <span class="n">f</span><span class="p">:</span>
+        <span class="n">magic_list</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">MagIC_directory</span><span class="o">+</span><span class="n">f</span><span class="p">)</span>
+    <span class="k">elif</span> <span class="s1">&#39;.specimens&#39;</span> <span class="ow">in</span> <span class="n">f</span><span class="p">:</span>
+        <span class="n">specimens_list</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">MagIC_directory</span><span class="o">+</span><span class="n">f</span><span class="p">)</span>
+    <span class="k">elif</span> <span class="s1">&#39;.samples&#39;</span> <span class="ow">in</span> <span class="n">f</span><span class="p">:</span>
+        <span class="n">sample_list</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">MagIC_directory</span><span class="o">+</span><span class="n">f</span><span class="p">)</span>
+
+<span class="n">magic_list</span><span class="o">.</span><span class="n">sort</span><span class="p">()</span>
+<span class="n">specimens_list</span><span class="o">.</span><span class="n">sort</span><span class="p">()</span>
+<span class="n">sample_list</span><span class="o">.</span><span class="n">sort</span><span class="p">()</span>
+
+<span class="n">ipmag</span><span class="o">.</span><span class="n">combine_magic</span><span class="p">(</span><span class="n">magic_list</span><span class="p">,</span><span class="n">MagIC_directory</span><span class="o">+</span><span class="s1">&#39;measurements.txt&#39;</span><span class="p">,</span>\
+                    <span class="n">data_model</span><span class="o">=</span><span class="mi">3</span><span class="p">,</span><span class="n">magic_table</span><span class="o">=</span><span class="s1">&#39;measurements&#39;</span><span class="p">)</span>
+<span class="n">ipmag</span><span class="o">.</span><span class="n">combine_magic</span><span class="p">(</span><span class="n">specimens_list</span><span class="p">,</span><span class="n">MagIC_directory</span><span class="o">+</span><span class="s1">&#39;specimens.txt&#39;</span><span class="p">,</span>\
+                    <span class="n">data_model</span><span class="o">=</span><span class="mi">3</span><span class="p">,</span><span class="n">magic_table</span><span class="o">=</span><span class="s1">&#39;specimens&#39;</span><span class="p">)</span>
+<span class="n">ipmag</span><span class="o">.</span><span class="n">combine_magic</span><span class="p">(</span><span class="n">sample_list</span><span class="p">,</span><span class="n">MagIC_directory</span><span class="o">+</span><span class="s1">&#39;samples.txt&#39;</span><span class="p">,</span>\
+                    <span class="n">data_model</span><span class="o">=</span><span class="mi">3</span><span class="p">,</span><span class="n">magic_table</span><span class="o">=</span><span class="s1">&#39;samples&#39;</span><span class="p">)</span>
+<span class="c1"># make a backup! </span>
+<span class="c1">#copyfile(MagIC_directory+&#39;specimens.txt&#39;,MagIC_directory+&#39;specimens_orig.txt&#39;)</span>
+<span class="c1">#copyfile(MagIC_directory+&#39;samples.txt&#39;,MagIC_directory+&#39;samples_orig.txt&#39;)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>-I- Using online data model
+-I- Getting method codes from earthref.org
+-I- Importing controlled vocabularies from https://earthref.org
+adding measurement column to measurements table!
+-I- overwriting /Users/ltauxe/PmagPy/measurements.txt
+-I- 150 records written to measurements file
+-I- overwriting /Users/ltauxe/PmagPy/data_files/tsunakawa_shaw/MagIC/measurements.txt
+-I- 150 records written to measurements file
+-I- overwriting /Users/ltauxe/PmagPy/data_files/tsunakawa_shaw/MagIC/specimens.txt
+-I- 1 records written to specimens file
+-I- overwriting /Users/ltauxe/PmagPy/data_files/tsunakawa_shaw/MagIC/samples.txt
+-I- 1 records written to samples file
+</pre></div>
+</div>
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&#39;/Users/ltauxe/PmagPy/data_files/tsunakawa_shaw/MagIC/samples.txt&#39;
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="create-the-template-files">
+<h1>Create the template files<a class="headerlink" href="#create-the-template-files" title="Permalink to this heading">#</a></h1>
+<section id="siteinfo-template-csv-template-file-for-sample-data-age-lat-long">
+<h2>1) siteinfo_template.csv: template file for sample data &lt;age, lat, long&gt;<a class="headerlink" href="#siteinfo-template-csv-template-file-for-sample-data-age-lat-long" title="Permalink to this heading">#</a></h2>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">sample_df</span><span class="o">=</span><span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="n">MagIC_directory</span><span class="o">+</span><span class="s1">&#39;samples.txt&#39;</span><span class="p">,</span><span class="n">sep</span><span class="o">=</span><span class="s1">&#39;</span><span class="se">\t</span><span class="s1">&#39;</span><span class="p">,</span><span class="n">header</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+<span class="n">sample_df</span><span class="o">=</span><span class="n">sample_df</span><span class="o">.</span><span class="n">rename</span><span class="p">(</span><span class="n">columns</span><span class="o">=</span><span class="p">{</span><span class="s1">&#39;sample&#39;</span><span class="p">:</span> <span class="s1">&#39;sample_name&#39;</span><span class="p">})</span>
+<span class="n">sample_df</span><span class="o">=</span><span class="n">sample_df</span><span class="o">.</span><span class="n">sort_values</span><span class="p">(</span><span class="s1">&#39;sample_name&#39;</span><span class="p">)</span>
+
+<span class="n">sids</span><span class="o">=</span><span class="n">sample_df</span><span class="o">.</span><span class="n">site</span><span class="o">.</span><span class="n">unique</span><span class="p">()</span>
+<span class="n">siteinfo_df</span><span class="o">=</span><span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">sids</span><span class="p">)</span>
+<span class="n">siteinfo_df</span><span class="o">.</span><span class="n">columns</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;site&#39;</span><span class="p">]</span>
+
+<span class="n">siteinfo_df</span><span class="p">[</span><span class="s1">&#39;age&#39;</span><span class="p">]</span><span class="o">=</span><span class="n">age</span>
+<span class="n">siteinfo_df</span><span class="p">[</span><span class="s1">&#39;age_high&#39;</span><span class="p">]</span><span class="o">=</span><span class="n">age_max</span>
+<span class="n">siteinfo_df</span><span class="p">[</span><span class="s1">&#39;age_low&#39;</span><span class="p">]</span><span class="o">=</span><span class="n">age_min</span>
+<span class="n">siteinfo_df</span><span class="p">[</span><span class="s1">&#39;age_unit&#39;</span><span class="p">]</span><span class="o">=</span><span class="n">age_unit</span>
+
+<span class="n">siteinfo_df</span><span class="p">[</span><span class="s1">&#39;lat&#39;</span><span class="p">]</span><span class="o">=</span><span class="n">lat</span>
+<span class="n">siteinfo_df</span><span class="p">[</span><span class="s1">&#39;lon&#39;</span><span class="p">]</span><span class="o">=</span><span class="n">lon</span>
+<span class="n">siteinfo_df</span><span class="p">[</span><span class="s1">&#39;height&#39;</span><span class="p">]</span><span class="o">=</span><span class="n">height</span>
+
+<span class="n">siteinfo_df</span><span class="p">[</span><span class="s1">&#39;geologic_classes&#39;</span><span class="p">]</span><span class="o">=</span><span class="n">classes</span>
+<span class="n">siteinfo_df</span><span class="p">[</span><span class="s1">&#39;geologic_types&#39;</span><span class="p">]</span><span class="o">=</span><span class="n">geologic_types</span>
+<span class="n">siteinfo_df</span><span class="p">[</span><span class="s1">&#39;lithologies&#39;</span><span class="p">]</span><span class="o">=</span><span class="n">lithologies</span>
+<span class="n">siteinfo_df</span><span class="p">[</span><span class="s1">&#39;location&#39;</span><span class="p">]</span><span class="o">=</span><span class="n">location</span>
+<span class="n">siteinfo_df</span><span class="p">[</span><span class="s1">&#39;location_type&#39;</span><span class="p">]</span><span class="o">=</span><span class="n">location_type</span>
+
+<span class="n">siteinfo_df</span><span class="p">[</span><span class="s1">&#39;citations&#39;</span><span class="p">]</span><span class="o">=</span><span class="n">citations</span>
+
+<span class="n">siteinfo_df</span><span class="o">.</span><span class="n">to_csv</span><span class="p">(</span><span class="n">csv_directory</span><span class="o">+</span><span class="s1">&#39;siteinfo_template.csv&#39;</span><span class="p">,</span><span class="n">index</span><span class="o">=</span><span class="kc">None</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="steps-template-csv-template-file-for-step-wishes-to-use-for-main-analyses">
+<h2>2) steps_template.csv: template file for step wishes to use for main analyses<a class="headerlink" href="#steps-template-csv-template-file-for-step-wishes-to-use-for-main-analyses" title="Permalink to this heading">#</a></h2>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">spec_df</span><span class="o">=</span><span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="n">MagIC_directory</span><span class="o">+</span><span class="s1">&#39;specimens.txt&#39;</span><span class="p">,</span><span class="n">sep</span><span class="o">=</span><span class="s1">&#39;</span><span class="se">\t</span><span class="s1">&#39;</span><span class="p">,</span><span class="n">header</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+<span class="n">spec_df</span><span class="o">=</span><span class="n">spec_df</span><span class="o">.</span><span class="n">sort_values</span><span class="p">(</span><span class="s1">&#39;specimen&#39;</span><span class="p">)</span>
+<span class="n">sids</span><span class="o">=</span><span class="n">spec_df</span><span class="o">.</span><span class="n">specimen</span><span class="o">.</span><span class="n">unique</span><span class="p">()</span>
+<span class="n">step_df</span><span class="o">=</span><span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">sids</span><span class="p">)</span>
+<span class="n">step_df</span><span class="o">.</span><span class="n">columns</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;specimen&#39;</span><span class="p">]</span>
+
+<span class="n">step_df</span><span class="p">[</span><span class="s1">&#39;zijd_min&#39;</span><span class="p">]</span><span class="o">=</span><span class="mi">0</span>
+<span class="n">step_df</span><span class="p">[</span><span class="s1">&#39;zijd_max&#39;</span><span class="p">]</span><span class="o">=</span><span class="mf">180.</span>
+<span class="n">step_df</span><span class="p">[</span><span class="s1">&#39;trm1_star_min&#39;</span><span class="p">]</span><span class="o">=</span><span class="mi">0</span>
+<span class="n">step_df</span><span class="p">[</span><span class="s1">&#39;trm1_star_max&#39;</span><span class="p">]</span><span class="o">=</span><span class="mf">180.</span>
+<span class="n">step_df</span><span class="p">[</span><span class="s1">&#39;trm2_star_min&#39;</span><span class="p">]</span><span class="o">=</span><span class="mi">0</span>
+<span class="n">step_df</span><span class="p">[</span><span class="s1">&#39;trm2_star_max&#39;</span><span class="p">]</span><span class="o">=</span><span class="mf">180.</span>
+
+<span class="n">step_df</span><span class="o">.</span><span class="n">to_csv</span><span class="p">(</span><span class="n">csv_directory</span><span class="o">+</span><span class="s1">&#39;steps_template.csv&#39;</span><span class="p">,</span><span class="n">index</span><span class="o">=</span><span class="kc">None</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+</section>
+<section id="main-analysis">
+<h1>Main Analysis<a class="headerlink" href="#main-analysis" title="Permalink to this heading">#</a></h1>
+<p>If “steps.csv” exists, step wishes are read from the file.
+Otherwise, optimization process is done to find a reasonble step interval to estimate an API, then it is saved to “steps_optimum.csv”.
+Final specimen-level results are saved to “specimen_results.csv”</p>
+<section id="remove-existing-plots">
+<h2>remove existing plots<a class="headerlink" href="#remove-existing-plots" title="Permalink to this heading">#</a></h2>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">plot_files</span><span class="o">=</span><span class="n">os</span><span class="o">.</span><span class="n">listdir</span><span class="p">(</span><span class="n">Plot_directory</span><span class="p">)</span>
+<span class="k">for</span> <span class="n">file</span> <span class="ow">in</span> <span class="n">plot_files</span><span class="p">:</span>
+    <span class="k">if</span> <span class="s1">&#39;.pdf&#39;</span> <span class="ow">in</span> <span class="n">file</span><span class="p">:</span>
+        <span class="n">os</span><span class="o">.</span><span class="n">remove</span><span class="p">(</span><span class="n">Plot_directory</span><span class="o">+</span><span class="n">file</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="read-in-measurements-data">
+<h2>read in measurements data<a class="headerlink" href="#read-in-measurements-data" title="Permalink to this heading">#</a></h2>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">meas</span><span class="o">=</span><span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="n">MagIC_directory</span><span class="o">+</span><span class="s1">&#39;measurements.txt&#39;</span><span class="p">,</span><span class="n">sep</span><span class="o">=</span><span class="s1">&#39;</span><span class="se">\t</span><span class="s1">&#39;</span><span class="p">,</span><span class="n">header</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+<span class="c1">#print(meas)</span>
+<span class="c1">#meas=meas.sort_values(&#39;specimen&#39;)</span>
+<span class="n">meas</span><span class="p">[</span><span class="s1">&#39;dir_dec_diff&#39;</span><span class="p">]</span><span class="o">=</span><span class="s2">&quot;&quot;</span>
+<span class="n">meas</span><span class="p">[</span><span class="s1">&#39;dir_inc_diff&#39;</span><span class="p">]</span><span class="o">=</span><span class="s2">&quot;&quot;</span>
+<span class="n">meas</span><span class="p">[</span><span class="s1">&#39;magn_mass_diff&#39;</span><span class="p">]</span><span class="o">=</span><span class="s2">&quot;&quot;</span>
+<span class="n">meas</span><span class="p">[</span><span class="s1">&#39;treat_ac_field_mT&#39;</span><span class="p">]</span><span class="o">=</span><span class="n">meas</span><span class="p">[</span><span class="s1">&#39;treat_ac_field&#39;</span><span class="p">]</span><span class="o">*</span><span class="mf">1e3</span> <span class="c1"># for convenience</span>
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="set-specimen-ids">
+<h2>set specimen ids<a class="headerlink" href="#set-specimen-ids" title="Permalink to this heading">#</a></h2>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">sids</span><span class="o">=</span><span class="n">meas</span><span class="o">.</span><span class="n">specimen</span><span class="o">.</span><span class="n">unique</span><span class="p">()</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">sids</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[&#39;mc120c-SA4&#39;]
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="read-in-the-specimen-treatment-step-wishes-from-steps-csv">
+<h2>read in the specimen treatment step wishes from “steps.csv”<a class="headerlink" href="#read-in-the-specimen-treatment-step-wishes-from-steps-csv" title="Permalink to this heading">#</a></h2>
+<p>If the file “steps.csv” does not exist in the csv directory, set the maximum intervals. If exists, Zijderveld intervals are applied for all the three analyses, while the NRM-TRM1* and TRM1-TRM2* intervals are not applied for the best_reg and best_krv analyses</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">step_wishes</span><span class="o">=</span><span class="kc">True</span>
+<span class="k">try</span><span class="p">:</span>
+    <span class="n">steps_df</span><span class="o">=</span><span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="n">csv_directory</span><span class="o">+</span><span class="s1">&#39;steps.csv&#39;</span><span class="p">)</span>
+<span class="k">except</span> <span class="ne">IOError</span><span class="p">:</span>
+    <span class="n">step_wishes</span><span class="o">=</span><span class="kc">False</span>
+    <span class="n">steps_df</span><span class="o">=</span><span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">sids</span><span class="p">)</span>
+    <span class="n">steps_df</span><span class="o">.</span><span class="n">columns</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;specimen&#39;</span><span class="p">]</span>
+    <span class="n">steps_df</span><span class="o">=</span><span class="n">steps_df</span><span class="o">.</span><span class="n">set_index</span><span class="p">(</span><span class="s1">&#39;specimen&#39;</span><span class="p">)</span>
+    <span class="c1">#meas=meas.set_index([&#39;specimen&#39;,&#39;description&#39;])</span>
+    <span class="k">for</span> <span class="n">sid</span> <span class="ow">in</span> <span class="n">sids</span><span class="p">:</span>
+        <span class="n">meas_n</span><span class="o">=</span><span class="n">meas</span><span class="p">[</span> <span class="p">(</span><span class="n">meas</span><span class="o">.</span><span class="n">description</span><span class="o">.</span><span class="n">str</span><span class="o">.</span><span class="n">contains</span><span class="p">(</span><span class="s1">&#39;NRM&#39;</span><span class="p">)</span><span class="o">==</span><span class="kc">True</span><span class="p">)</span>
+                 <span class="o">&amp;</span> <span class="p">(</span><span class="n">meas</span><span class="o">.</span><span class="n">specimen</span><span class="o">.</span><span class="n">str</span><span class="o">.</span><span class="n">contains</span><span class="p">(</span><span class="n">sid</span><span class="p">)</span><span class="o">==</span><span class="kc">True</span><span class="p">)]</span>
+        <span class="n">meas_t1</span><span class="o">=</span><span class="n">meas</span><span class="p">[</span> <span class="p">(</span><span class="n">meas</span><span class="o">.</span><span class="n">description</span><span class="o">.</span><span class="n">str</span><span class="o">.</span><span class="n">contains</span><span class="p">(</span><span class="s1">&#39;TRM1&#39;</span><span class="p">)</span><span class="o">==</span><span class="kc">True</span><span class="p">)</span>
+                 <span class="o">&amp;</span> <span class="p">(</span><span class="n">meas</span><span class="o">.</span><span class="n">specimen</span><span class="o">.</span><span class="n">str</span><span class="o">.</span><span class="n">contains</span><span class="p">(</span><span class="n">sid</span><span class="p">)</span><span class="o">==</span><span class="kc">True</span><span class="p">)]</span>
+        <span class="n">meas_t2</span><span class="o">=</span><span class="n">meas</span><span class="p">[</span> <span class="p">(</span><span class="n">meas</span><span class="o">.</span><span class="n">description</span><span class="o">.</span><span class="n">str</span><span class="o">.</span><span class="n">contains</span><span class="p">(</span><span class="s1">&#39;TRM2&#39;</span><span class="p">)</span><span class="o">==</span><span class="kc">True</span><span class="p">)</span>
+                 <span class="o">&amp;</span> <span class="p">(</span><span class="n">meas</span><span class="o">.</span><span class="n">specimen</span><span class="o">.</span><span class="n">str</span><span class="o">.</span><span class="n">contains</span><span class="p">(</span><span class="n">sid</span><span class="p">)</span><span class="o">==</span><span class="kc">True</span><span class="p">)]</span>
+        <span class="k">if</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">meas_n</span><span class="p">)</span><span class="o">&gt;</span><span class="mi">0</span><span class="p">):</span>
+            <span class="n">meas_n</span><span class="o">=</span><span class="n">meas_n</span><span class="o">.</span><span class="n">set_index</span><span class="p">([</span><span class="s1">&#39;specimen&#39;</span><span class="p">,</span><span class="s1">&#39;description&#39;</span><span class="p">])</span>
+            <span class="n">steps_df</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="n">sid</span><span class="p">,</span><span class="s1">&#39;zijd_min&#39;</span><span class="p">]</span><span class="o">=</span><span class="n">meas_n</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="n">sid</span><span class="p">,</span><span class="s1">&#39;NRM&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">treat_ac_field_mT</span><span class="o">.</span><span class="n">min</span><span class="p">()</span>
+            <span class="n">steps_df</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="n">sid</span><span class="p">,</span><span class="s1">&#39;zijd_max&#39;</span><span class="p">]</span><span class="o">=</span><span class="n">meas_n</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="n">sid</span><span class="p">,</span><span class="s1">&#39;NRM&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">treat_ac_field_mT</span><span class="o">.</span><span class="n">max</span><span class="p">()</span>
+        <span class="k">if</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">meas_t1</span><span class="p">)</span><span class="o">&gt;</span><span class="mi">0</span><span class="p">):</span>
+            <span class="n">meas_t1</span><span class="o">=</span><span class="n">meas_t1</span><span class="o">.</span><span class="n">set_index</span><span class="p">([</span><span class="s1">&#39;specimen&#39;</span><span class="p">,</span><span class="s1">&#39;description&#39;</span><span class="p">])</span>
+            <span class="n">steps_df</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="n">sid</span><span class="p">,</span><span class="s1">&#39;trm1_star_min&#39;</span><span class="p">]</span><span class="o">=</span><span class="n">meas_t1</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="n">sid</span><span class="p">,</span><span class="s1">&#39;TRM1&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">treat_ac_field_mT</span><span class="o">.</span><span class="n">min</span><span class="p">()</span>
+            <span class="n">steps_df</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="n">sid</span><span class="p">,</span><span class="s1">&#39;trm1_star_max&#39;</span><span class="p">]</span><span class="o">=</span><span class="n">meas_t1</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="n">sid</span><span class="p">,</span><span class="s1">&#39;TRM1&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">treat_ac_field_mT</span><span class="o">.</span><span class="n">max</span><span class="p">()</span>
+        <span class="k">if</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">meas_t2</span><span class="p">)</span><span class="o">&gt;</span><span class="mi">0</span><span class="p">):</span>
+            <span class="n">meas_t2</span><span class="o">=</span><span class="n">meas_t2</span><span class="o">.</span><span class="n">set_index</span><span class="p">([</span><span class="s1">&#39;specimen&#39;</span><span class="p">,</span><span class="s1">&#39;description&#39;</span><span class="p">])</span>
+            <span class="n">steps_df</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="n">sid</span><span class="p">,</span><span class="s1">&#39;trm2_star_min&#39;</span><span class="p">]</span><span class="o">=</span><span class="n">meas_t2</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="n">sid</span><span class="p">,</span><span class="s1">&#39;TRM2&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">treat_ac_field_mT</span><span class="o">.</span><span class="n">min</span><span class="p">()</span>
+            <span class="n">steps_df</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="n">sid</span><span class="p">,</span><span class="s1">&#39;trm2_star_max&#39;</span><span class="p">]</span><span class="o">=</span><span class="n">meas_t2</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="n">sid</span><span class="p">,</span><span class="s1">&#39;TRM2&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">treat_ac_field_mT</span><span class="o">.</span><span class="n">max</span><span class="p">()</span>
+    <span class="n">steps_df</span><span class="o">=</span><span class="n">steps_df</span><span class="o">.</span><span class="n">reset_index</span><span class="p">()</span>
+    <span class="n">meas</span><span class="o">=</span><span class="n">meas</span><span class="o">.</span><span class="n">reset_index</span><span class="p">()</span>
+<span class="k">if</span> <span class="p">(</span><span class="n">step_wishes</span> <span class="o">==</span> <span class="kc">True</span><span class="p">):</span> <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;step wishes: successfully read from &#39;steps.csv&#39;&quot;</span><span class="p">)</span>
+<span class="k">if</span> <span class="p">(</span><span class="n">step_wishes</span> <span class="o">==</span> <span class="kc">False</span><span class="p">):</span> <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;step wishes: &#39;steps.csv&#39; does not exist, set maximum intervals&quot;</span><span class="p">)</span>
+<span class="c1">#print(steps_df)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>step wishes: &#39;steps.csv&#39; does not exist, set maximum intervals
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="main-loop">
+<h2>main loop<a class="headerlink" href="#main-loop" title="Permalink to this heading">#</a></h2>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">importlib</span><span class="o">.</span><span class="n">reload</span><span class="p">(</span><span class="n">ts</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;module &#39;pmagpy.tsunashawfuncs&#39; from &#39;/Users/ltauxe/PmagPy/pmagpy/tsunashawfuncs.py&#39;&gt;
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">## remanence type</span>
+<span class="n">ntrm_types</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;NRM&#39;</span><span class="p">,</span><span class="s1">&#39;TRM1&#39;</span><span class="p">,</span><span class="s1">&#39;TRM2&#39;</span><span class="p">]</span>
+<span class="n">arm_types</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;ARM0&#39;</span><span class="p">,</span><span class="s1">&#39;ARM1&#39;</span><span class="p">,</span><span class="s1">&#39;ARM2&#39;</span><span class="p">]</span>
+
+<span class="c1">## prepare dataframe for this specimen for private data output</span>
+<span class="n">spec_prv_df</span><span class="o">=</span><span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">sids</span><span class="p">)</span>
+<span class="n">spec_prv_df</span><span class="o">.</span><span class="n">columns</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;specimen&#39;</span><span class="p">]</span>
+<span class="n">spec_prv_df</span><span class="o">=</span><span class="n">spec_prv_df</span><span class="o">.</span><span class="n">set_index</span><span class="p">(</span><span class="s1">&#39;specimen&#39;</span><span class="p">)</span>
+
+<span class="c1">## prepare for main loop</span>
+<span class="n">cnt</span><span class="o">=</span><span class="mi">1</span> <span class="c1"># plot counter</span>
+<span class="n">sidPars</span><span class="o">=</span><span class="p">[]</span> <span class="c1"># list of dictionaries for specimen intensity statistics</span>
+<span class="n">stepRecs</span><span class="o">=</span><span class="p">[]</span> <span class="c1"># list of step wishes after optimization </span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">## step through the specimens</span>
+<span class="c1">## for sid in [&#39;SW01-01A-1_sun&#39;,&#39;SW01-02A-1_sun&#39;, &#39;SW01-03A-1_sun&#39;]:</span>
+<span class="k">for</span> <span class="n">sid</span> <span class="ow">in</span> <span class="n">sids</span><span class="p">:</span>
+    <span class="nb">print</span> <span class="p">(</span><span class="s1">&#39;--------------&#39;</span><span class="p">)</span>
+    <span class="nb">print</span> <span class="p">(</span><span class="s1">&#39;[working on: &#39;</span><span class="p">,</span> <span class="n">sid</span><span class="p">,</span> <span class="s1">&#39;]&#39;</span><span class="p">)</span>
+
+    <span class="c1">## make a dictionary for this specimen&#39;s statistics</span>
+    <span class="n">sidpars_nrm</span><span class="o">=</span><span class="p">{}</span>
+    <span class="n">sidpars_nrm</span><span class="p">[</span><span class="s1">&#39;specimen&#39;</span><span class="p">]</span><span class="o">=</span><span class="n">sid</span>
+    <span class="n">sidpars_nrm</span><span class="p">[</span><span class="s1">&#39;int_corr&#39;</span><span class="p">]</span><span class="o">=</span><span class="s1">&#39;c&#39;</span>
+    <span class="n">sidpars_nrm</span><span class="p">[</span><span class="s1">&#39;citations&#39;</span><span class="p">]</span><span class="o">=</span><span class="n">citations</span>
+    <span class="n">sidpars_nrm</span><span class="p">[</span><span class="s1">&#39;method_codes&#39;</span><span class="p">]</span><span class="o">=</span><span class="n">method_codes_first</span>
+    <span class="c1">#</span>
+    <span class="n">sidpars_trm</span><span class="o">=</span><span class="p">{}</span>
+    <span class="n">sidpars_trm</span><span class="p">[</span><span class="s1">&#39;specimen&#39;</span><span class="p">]</span><span class="o">=</span><span class="n">sid</span>
+    <span class="n">sidpars_trm</span><span class="p">[</span><span class="s1">&#39;int_corr&#39;</span><span class="p">]</span><span class="o">=</span><span class="s1">&#39;c&#39;</span>
+    <span class="n">sidpars_trm</span><span class="p">[</span><span class="s1">&#39;citations&#39;</span><span class="p">]</span><span class="o">=</span><span class="n">citations</span>
+    <span class="n">sidpars_trm</span><span class="p">[</span><span class="s1">&#39;method_codes&#39;</span><span class="p">]</span><span class="o">=</span><span class="n">method_codes_second</span>
+    <span class="c1">#</span>
+    <span class="n">steprec</span><span class="o">=</span><span class="p">{}</span>
+    <span class="n">steprec</span><span class="p">[</span><span class="s1">&#39;specimen&#39;</span><span class="p">]</span><span class="o">=</span><span class="n">sid</span>
+    
+    <span class="c1">## select the measurement data for this specimen</span>
+    <span class="n">sid_data</span><span class="o">=</span><span class="n">meas</span><span class="p">[</span><span class="n">meas</span><span class="o">.</span><span class="n">specimen</span><span class="o">==</span><span class="n">sid</span><span class="p">]</span>
+
+    <span class="c1">## substitute lab_field</span>
+    <span class="n">aftrm10</span><span class="o">=</span><span class="n">sid_data</span><span class="p">[</span><span class="n">sid_data</span><span class="o">.</span><span class="n">description</span><span class="o">.</span><span class="n">str</span><span class="o">.</span><span class="n">contains</span><span class="p">(</span><span class="s1">&#39;TRM10&#39;</span><span class="p">)]</span>
+    <span class="k">if</span> <span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">aftrm10</span><span class="p">)</span><span class="o">&gt;</span><span class="mi">0</span><span class="p">):</span> <span class="n">lab_field</span><span class="o">=</span><span class="n">aftrm10</span><span class="o">.</span><span class="n">treat_dc_field</span><span class="o">.</span><span class="n">tolist</span><span class="p">()[</span><span class="mi">0</span><span class="p">]</span>
+
+    <span class="c1">## preparation of data</span>
+    <span class="n">sid_data</span><span class="p">,</span><span class="n">sid_df</span><span class="p">,</span><span class="n">afnrm</span><span class="p">,</span><span class="n">aftrm1</span><span class="p">,</span><span class="n">aftrm2</span><span class="p">,</span><span class="n">afarm0</span><span class="p">,</span><span class="n">afarm1</span><span class="p">,</span><span class="n">afarm2</span> \
+        <span class="o">=</span><span class="n">ts</span><span class="o">.</span><span class="n">prep_sid_df</span><span class="p">(</span><span class="n">ntrm_types</span><span class="o">+</span><span class="n">arm_types</span><span class="p">,</span><span class="n">sid_data</span><span class="p">)</span>
+
+    <span class="c1">## data output: AF vs XRM intensity</span>
+    <span class="n">sid_df</span><span class="o">.</span><span class="n">to_csv</span><span class="p">(</span><span class="n">csv_directory</span><span class="o">+</span><span class="n">sid</span><span class="o">+</span><span class="s1">&#39;_af_vs_xrms.csv&#39;</span><span class="p">,</span><span class="n">index</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+
+    <span class="c1">## get the treatment steps for this specimen</span>
+    <span class="c1">#print(steps_df)</span>
+    <span class="n">sid_steps</span><span class="o">=</span><span class="n">steps_df</span><span class="p">[</span><span class="n">steps_df</span><span class="o">.</span><span class="n">specimen</span><span class="o">==</span><span class="n">sid</span><span class="p">]</span><span class="o">.</span><span class="n">head</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
+    <span class="c1">#print(sid_steps)</span>
+    <span class="k">if</span> <span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">afnrm</span><span class="p">)</span><span class="o">&gt;</span><span class="mi">0</span><span class="p">):</span>
+        <span class="n">zijd_min</span><span class="p">,</span><span class="n">zijd_max</span><span class="o">=</span><span class="n">sid_steps</span><span class="o">.</span><span class="n">zijd_min</span><span class="o">.</span><span class="n">values</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span><span class="n">sid_steps</span><span class="o">.</span><span class="n">zijd_max</span><span class="o">.</span><span class="n">values</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+    <span class="k">if</span> <span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">aftrm1</span><span class="p">)</span><span class="o">&gt;</span><span class="mi">0</span><span class="p">)</span> <span class="o">&amp;</span> <span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">afarm1</span><span class="p">)</span><span class="o">&gt;</span><span class="mi">0</span><span class="p">):</span>
+        <span class="n">trm1_star_min</span><span class="p">,</span><span class="n">trm1_star_max</span><span class="o">=</span><span class="n">sid_steps</span><span class="o">.</span><span class="n">trm1_star_min</span><span class="o">.</span><span class="n">values</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span><span class="n">sid_steps</span><span class="o">.</span><span class="n">trm1_star_max</span><span class="o">.</span><span class="n">values</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+    <span class="k">if</span> <span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">aftrm2</span><span class="p">)</span><span class="o">&gt;</span><span class="mi">0</span><span class="p">)</span> <span class="o">&amp;</span> <span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">afarm2</span><span class="p">)</span><span class="o">&gt;</span><span class="mi">0</span><span class="p">):</span>
+        <span class="n">trm2_star_min</span><span class="p">,</span><span class="n">trm2_star_max</span><span class="o">=</span><span class="n">sid_steps</span><span class="o">.</span><span class="n">trm2_star_min</span><span class="o">.</span><span class="n">values</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span><span class="n">sid_steps</span><span class="o">.</span><span class="n">trm2_star_max</span><span class="o">.</span><span class="n">values</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+    
+    <span class="c1">## Fig1: AF vs XRM intensity</span>
+    <span class="c1">##       with output of relevant data </span>
+    <span class="n">fig1</span><span class="o">=</span><span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">cnt</span><span class="p">,</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">15</span><span class="p">,</span><span class="mi">22</span><span class="p">))</span>
+    <span class="n">fig1</span><span class="o">.</span><span class="n">clf</span><span class="p">()</span>
+    <span class="n">ax1</span><span class="p">,</span><span class="n">ax2</span><span class="p">,</span><span class="n">ax3</span><span class="p">,</span><span class="n">ax4</span><span class="p">,</span><span class="n">ax5</span><span class="p">,</span><span class="n">ax6</span> <span class="o">=</span>\
+        <span class="n">fig1</span><span class="o">.</span><span class="n">add_subplot</span><span class="p">(</span><span class="mi">321</span><span class="p">),</span><span class="n">fig1</span><span class="o">.</span><span class="n">add_subplot</span><span class="p">(</span><span class="mi">322</span><span class="p">),</span><span class="n">fig1</span><span class="o">.</span><span class="n">add_subplot</span><span class="p">(</span><span class="mi">323</span><span class="p">),</span>\
+        <span class="n">fig1</span><span class="o">.</span><span class="n">add_subplot</span><span class="p">(</span><span class="mi">324</span><span class="p">),</span><span class="n">fig1</span><span class="o">.</span><span class="n">add_subplot</span><span class="p">(</span><span class="mi">325</span><span class="p">),</span><span class="n">fig1</span><span class="o">.</span><span class="n">add_subplot</span><span class="p">(</span><span class="mi">326</span><span class="p">)</span>
+    <span class="k">for</span> <span class="n">t</span> <span class="ow">in</span> <span class="p">(</span><span class="n">ntrm_types</span><span class="o">+</span><span class="n">arm_types</span><span class="p">):</span>
+        <span class="p">[</span><span class="n">x1</span><span class="p">,</span><span class="n">x2</span><span class="p">,</span><span class="n">x3</span><span class="p">,</span><span class="n">x4</span><span class="p">,</span><span class="n">x5</span><span class="p">]</span><span class="o">=</span><span class="p">[</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">]</span>
+        <span class="k">if</span> <span class="p">(</span><span class="n">t</span><span class="o">==</span><span class="s1">&#39;NRM&#39;</span><span class="p">)</span>  <span class="o">&amp;</span> <span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">afnrm</span><span class="p">)</span><span class="o">&gt;</span><span class="mi">0</span><span class="p">):</span>
+            <span class="n">x1</span><span class="p">,</span><span class="n">x2</span><span class="p">,</span><span class="n">x3</span><span class="p">,</span><span class="n">x4</span><span class="p">,</span><span class="n">x5</span><span class="o">=</span><span class="n">ts</span><span class="o">.</span><span class="n">plot_af_xrm</span><span class="p">(</span><span class="n">sid</span><span class="p">,</span><span class="n">sid_data</span><span class="p">,</span><span class="n">ax1</span><span class="p">,</span><span class="n">afnrm</span><span class="p">,</span><span class="n">t</span><span class="p">)</span>
+        <span class="k">if</span> <span class="p">(</span><span class="n">t</span><span class="o">==</span><span class="s1">&#39;TRM1&#39;</span><span class="p">)</span> <span class="o">&amp;</span> <span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">aftrm1</span><span class="p">)</span><span class="o">&gt;</span><span class="mi">0</span><span class="p">):</span>
+            <span class="n">x1</span><span class="p">,</span><span class="n">x2</span><span class="p">,</span><span class="n">x3</span><span class="p">,</span><span class="n">x4</span><span class="p">,</span><span class="n">x5</span><span class="o">=</span><span class="n">ts</span><span class="o">.</span><span class="n">plot_af_xrm</span><span class="p">(</span><span class="n">sid</span><span class="p">,</span><span class="n">sid_data</span><span class="p">,</span><span class="n">ax3</span><span class="p">,</span><span class="n">aftrm1</span><span class="p">,</span><span class="n">t</span><span class="p">)</span>
+        <span class="k">if</span> <span class="p">(</span><span class="n">t</span><span class="o">==</span><span class="s1">&#39;TRM2&#39;</span><span class="p">)</span> <span class="o">&amp;</span> <span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">aftrm2</span><span class="p">)</span><span class="o">&gt;</span><span class="mi">0</span><span class="p">):</span>
+            <span class="n">x1</span><span class="p">,</span><span class="n">x2</span><span class="p">,</span><span class="n">x3</span><span class="p">,</span><span class="n">x4</span><span class="p">,</span><span class="n">x5</span><span class="o">=</span><span class="n">ts</span><span class="o">.</span><span class="n">plot_af_xrm</span><span class="p">(</span><span class="n">sid</span><span class="p">,</span><span class="n">sid_data</span><span class="p">,</span><span class="n">ax5</span><span class="p">,</span><span class="n">aftrm2</span><span class="p">,</span><span class="n">t</span><span class="p">)</span>
+        <span class="k">if</span> <span class="p">(</span><span class="n">t</span><span class="o">==</span><span class="s1">&#39;ARM0&#39;</span><span class="p">)</span> <span class="o">&amp;</span> <span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">afarm0</span><span class="p">)</span><span class="o">&gt;</span><span class="mi">0</span><span class="p">):</span>
+            <span class="n">x1</span><span class="p">,</span><span class="n">x2</span><span class="p">,</span><span class="n">x3</span><span class="p">,</span><span class="n">x4</span><span class="p">,</span><span class="n">x5</span><span class="o">=</span><span class="n">ts</span><span class="o">.</span><span class="n">plot_af_xrm</span><span class="p">(</span><span class="n">sid</span><span class="p">,</span><span class="n">sid_data</span><span class="p">,</span><span class="n">ax2</span><span class="p">,</span><span class="n">afarm0</span><span class="p">,</span><span class="n">t</span><span class="p">)</span>
+            <span class="n">rem_ltd_perc</span><span class="o">=</span><span class="mf">100.</span><span class="o">*</span> <span class="p">(</span><span class="n">x4</span> <span class="o">-</span> <span class="mf">1.0</span><span class="p">)</span><span class="o">/</span><span class="n">x4</span>
+            <span class="n">spec_prv_df</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="n">sid</span><span class="p">,</span><span class="s1">&#39;ltd%_ARM0&#39;</span><span class="p">]</span><span class="o">=</span><span class="s1">&#39;</span><span class="si">%7.1f</span><span class="s1">&#39;</span><span class="o">%</span><span class="p">(</span><span class="n">rem_ltd_perc</span><span class="p">)</span>
+            <span class="n">sidpars_nrm</span><span class="p">[</span><span class="s1">&#39;rem_ltd_perc&#39;</span><span class="p">]</span><span class="o">=</span><span class="s1">&#39;</span><span class="si">%7.1f</span><span class="s1">&#39;</span><span class="o">%</span><span class="p">(</span><span class="n">rem_ltd_perc</span><span class="p">)</span>
+        <span class="k">if</span> <span class="p">(</span><span class="n">t</span><span class="o">==</span><span class="s1">&#39;ARM1&#39;</span><span class="p">)</span> <span class="o">&amp;</span> <span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">afarm1</span><span class="p">)</span><span class="o">&gt;</span><span class="mi">0</span><span class="p">):</span>
+            <span class="n">x1</span><span class="p">,</span><span class="n">x2</span><span class="p">,</span><span class="n">x3</span><span class="p">,</span><span class="n">x4</span><span class="p">,</span><span class="n">x5</span><span class="o">=</span><span class="n">ts</span><span class="o">.</span><span class="n">plot_af_xrm</span><span class="p">(</span><span class="n">sid</span><span class="p">,</span><span class="n">sid_data</span><span class="p">,</span><span class="n">ax4</span><span class="p">,</span><span class="n">afarm1</span><span class="p">,</span><span class="n">t</span><span class="p">)</span>
+            <span class="n">rem_ltd_perc_1</span><span class="o">=</span><span class="mf">100.</span><span class="o">*</span> <span class="p">(</span><span class="n">x4</span> <span class="o">-</span> <span class="mf">1.0</span><span class="p">)</span><span class="o">/</span><span class="n">x4</span>
+            <span class="n">spec_prv_df</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="n">sid</span><span class="p">,</span><span class="s1">&#39;ltd%_ARM1&#39;</span><span class="p">]</span><span class="o">=</span><span class="s1">&#39;</span><span class="si">%7.1f</span><span class="s1">&#39;</span><span class="o">%</span><span class="p">(</span><span class="n">rem_ltd_perc_1</span><span class="p">)</span>
+        <span class="k">if</span> <span class="p">(</span><span class="n">t</span><span class="o">==</span><span class="s1">&#39;ARM2&#39;</span><span class="p">)</span> <span class="o">&amp;</span> <span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">afarm2</span><span class="p">)</span><span class="o">&gt;</span><span class="mi">0</span><span class="p">):</span>
+            <span class="n">x1</span><span class="p">,</span><span class="n">x2</span><span class="p">,</span><span class="n">x3</span><span class="p">,</span><span class="n">x4</span><span class="p">,</span><span class="n">x5</span><span class="o">=</span><span class="n">ts</span><span class="o">.</span><span class="n">plot_af_xrm</span><span class="p">(</span><span class="n">sid</span><span class="p">,</span><span class="n">sid_data</span><span class="p">,</span><span class="n">ax6</span><span class="p">,</span><span class="n">afarm2</span><span class="p">,</span><span class="n">t</span><span class="p">)</span>
+            <span class="n">rem_ltd_perc_2</span><span class="o">=</span><span class="mf">100.</span><span class="o">*</span> <span class="p">(</span><span class="n">x4</span> <span class="o">-</span> <span class="mf">1.0</span><span class="p">)</span><span class="o">/</span><span class="n">x4</span>
+            <span class="n">spec_prv_df</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="n">sid</span><span class="p">,</span><span class="s1">&#39;ltd%_ARM2&#39;</span><span class="p">]</span><span class="o">=</span><span class="s1">&#39;</span><span class="si">%7.1f</span><span class="s1">&#39;</span><span class="o">%</span><span class="p">(</span><span class="n">rem_ltd_perc_2</span><span class="p">)</span>
+        <span class="k">if</span> <span class="p">(</span><span class="nb">abs</span><span class="p">(</span><span class="n">x1</span><span class="o">+</span><span class="n">x2</span><span class="o">+</span><span class="n">x3</span><span class="o">+</span><span class="n">x4</span><span class="o">+</span><span class="n">x5</span><span class="p">)</span><span class="o">&gt;</span><span class="mi">0</span><span class="p">):</span>
+            <span class="n">afdmax</span><span class="o">=</span><span class="n">x1</span>
+            <span class="n">s1</span><span class="o">=</span><span class="s1">&#39;MDF_&#39;</span><span class="o">+</span><span class="nb">str</span><span class="p">(</span><span class="n">t</span><span class="p">)</span>
+            <span class="n">s2</span><span class="o">=</span><span class="nb">str</span><span class="p">(</span><span class="n">t</span><span class="p">)</span><span class="o">+</span><span class="s1">&#39;_0mT(uAm2/kg)&#39;</span>
+            <span class="n">s3</span><span class="o">=</span><span class="nb">str</span><span class="p">(</span><span class="n">t</span><span class="p">)</span><span class="o">+</span><span class="s1">&#39;0/&#39;</span><span class="o">+</span><span class="nb">str</span><span class="p">(</span><span class="n">t</span><span class="p">)</span><span class="o">+</span><span class="s1">&#39;_0mT&#39;</span>
+            <span class="n">s4</span><span class="o">=</span><span class="nb">str</span><span class="p">(</span><span class="n">t</span><span class="p">)</span><span class="o">+</span><span class="s1">&#39;_&#39;</span><span class="o">+</span><span class="nb">str</span><span class="p">(</span><span class="nb">int</span><span class="p">(</span><span class="n">afdmax</span><span class="p">))</span><span class="o">+</span><span class="s1">&#39;mT/&#39;</span><span class="o">+</span><span class="nb">str</span><span class="p">(</span><span class="n">t</span><span class="p">)</span><span class="o">+</span><span class="s1">&#39;_0mT&#39;</span>
+            <span class="c1">#print(s1, s2, s3, s4)</span>
+            <span class="n">spec_prv_df</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="n">sid</span><span class="p">,</span><span class="n">s1</span><span class="p">],</span><span class="n">spec_prv_df</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="n">sid</span><span class="p">,</span><span class="n">s2</span><span class="p">],</span>\
+            <span class="n">spec_prv_df</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="n">sid</span><span class="p">,</span><span class="n">s3</span><span class="p">],</span><span class="n">spec_prv_df</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="n">sid</span><span class="p">,</span><span class="n">s4</span><span class="p">]</span>\
+                <span class="o">=</span><span class="nb">float</span><span class="p">(</span><span class="s1">&#39;</span><span class="si">{:.4e}</span><span class="s1">&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">x2</span><span class="p">)),</span><span class="nb">float</span><span class="p">(</span><span class="s1">&#39;</span><span class="si">{:.4e}</span><span class="s1">&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">x3</span><span class="p">)),</span>\
+                    <span class="nb">float</span><span class="p">(</span><span class="s1">&#39;</span><span class="si">{:.4e}</span><span class="s1">&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">x4</span><span class="p">)),</span><span class="nb">float</span><span class="p">(</span><span class="s1">&#39;</span><span class="si">{:.4e}</span><span class="s1">&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">x5</span><span class="p">))</span>
+            <span class="c1">#print(spec_prv_df)</span>
+    <span class="n">fig1</span><span class="o">.</span><span class="n">savefig</span><span class="p">(</span><span class="n">Plot_directory</span><span class="o">+</span><span class="n">sid</span><span class="o">+</span><span class="s1">&#39;_afdemag.pdf&#39;</span><span class="p">)</span>
+    <span class="n">cnt</span><span class="o">=</span><span class="n">cnt</span><span class="o">+</span><span class="mi">1</span>
+    
+    <span class="c1">## opt interval search (min MAD, DANG) for Zijderveld</span>
+    <span class="k">if</span> <span class="p">(</span><span class="n">step_wishes</span> <span class="o">==</span> <span class="kc">False</span><span class="p">)</span> <span class="o">&amp;</span> <span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">afnrm</span><span class="p">)</span><span class="o">&gt;</span><span class="mi">0</span><span class="p">):</span>
+        <span class="n">zijd_max</span><span class="o">=</span><span class="n">afnrm</span><span class="p">[</span><span class="s1">&#39;treat_ac_field_mT&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">tolist</span><span class="p">()[</span><span class="nb">len</span><span class="p">(</span><span class="n">afnrm</span><span class="p">)</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span>
+        <span class="n">zijd_min</span><span class="p">,</span> <span class="n">zijd_max</span> <span class="o">=</span> <span class="n">ts</span><span class="o">.</span><span class="n">opt_interval_zij</span><span class="p">(</span><span class="n">afnrm</span><span class="p">,</span> <span class="n">minN</span><span class="p">)</span>
+        <span class="n">steprec</span><span class="p">[</span><span class="s1">&#39;zijd_min&#39;</span><span class="p">],</span><span class="n">steprec</span><span class="p">[</span><span class="s1">&#39;zijd_max&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">zijd_min</span><span class="p">,</span> <span class="n">zijd_max</span>
+
+    <span class="c1">## Fig2: Zijderveld plot for the NRM demag directions</span>
+    <span class="c1">##       with output of relevant data </span>
+    <span class="n">fig2</span><span class="o">=</span><span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">cnt</span><span class="p">,</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span><span class="mi">5</span><span class="p">))</span>
+    <span class="n">fig2</span><span class="o">.</span><span class="n">clf</span><span class="p">()</span>
+    <span class="n">ax1</span><span class="p">,</span> <span class="n">ax2</span> <span class="o">=</span><span class="n">fig2</span><span class="o">.</span><span class="n">add_subplot</span><span class="p">(</span><span class="mi">121</span><span class="p">),</span> <span class="n">fig2</span><span class="o">.</span><span class="n">add_subplot</span><span class="p">(</span><span class="mi">122</span><span class="p">)</span>
+    <span class="k">if</span> <span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">afnrm</span><span class="p">)</span><span class="o">&gt;</span><span class="mi">0</span><span class="p">):</span>
+        <span class="n">x1</span><span class="p">,</span><span class="n">x2</span><span class="p">,</span><span class="n">x3</span><span class="p">,</span><span class="n">x4</span><span class="o">=</span><span class="n">ts</span><span class="o">.</span><span class="n">plot_zijd</span><span class="p">(</span><span class="n">sid</span><span class="p">,</span> <span class="n">sid_data</span><span class="p">,</span> <span class="n">ax1</span><span class="p">,</span> <span class="n">ax2</span><span class="p">,</span> <span class="n">afnrm</span><span class="p">,</span> <span class="n">zijd_min</span><span class="p">,</span> <span class="n">zijd_max</span><span class="p">)</span>
+        <span class="n">sidpars_nrm</span><span class="p">[</span><span class="s1">&#39;dir_dec&#39;</span><span class="p">]</span><span class="o">=</span><span class="s1">&#39;</span><span class="si">%7.1f</span><span class="s1">&#39;</span><span class="o">%</span><span class="p">(</span><span class="n">x1</span><span class="p">)</span>
+        <span class="n">sidpars_nrm</span><span class="p">[</span><span class="s1">&#39;dir_inc&#39;</span><span class="p">]</span><span class="o">=</span><span class="s1">&#39;</span><span class="si">%7.1f</span><span class="s1">&#39;</span><span class="o">%</span><span class="p">(</span><span class="n">x2</span><span class="p">)</span>
+        <span class="n">sidpars_nrm</span><span class="p">[</span><span class="s1">&#39;dir_mad_free&#39;</span><span class="p">]</span><span class="o">=</span><span class="s1">&#39;</span><span class="si">%7.1f</span><span class="s1">&#39;</span><span class="o">%</span><span class="p">(</span><span class="n">x3</span><span class="p">)</span>
+        <span class="n">spec_prv_df</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="n">sid</span><span class="p">,</span><span class="s1">&#39;from_zijd&#39;</span><span class="p">]</span><span class="o">=</span><span class="s1">&#39;</span><span class="si">%7.1f</span><span class="s1">&#39;</span><span class="o">%</span><span class="p">(</span><span class="n">zijd_min</span><span class="p">)</span>
+        <span class="n">spec_prv_df</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="n">sid</span><span class="p">,</span><span class="s1">&#39;to_zijd&#39;</span><span class="p">]</span><span class="o">=</span><span class="s1">&#39;</span><span class="si">%7.1f</span><span class="s1">&#39;</span><span class="o">%</span><span class="p">(</span><span class="n">zijd_max</span><span class="p">)</span>
+        <span class="n">spec_prv_df</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="n">sid</span><span class="p">,</span><span class="s1">&#39;PCA_Dec&#39;</span><span class="p">]</span><span class="o">=</span><span class="s1">&#39;</span><span class="si">%7.1f</span><span class="s1">&#39;</span><span class="o">%</span><span class="p">(</span><span class="n">x1</span><span class="p">)</span>
+        <span class="n">spec_prv_df</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="n">sid</span><span class="p">,</span><span class="s1">&#39;PCA_Inc&#39;</span><span class="p">]</span><span class="o">=</span><span class="s1">&#39;</span><span class="si">%7.1f</span><span class="s1">&#39;</span><span class="o">%</span><span class="p">(</span><span class="n">x2</span><span class="p">)</span>
+        <span class="n">spec_prv_df</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="n">sid</span><span class="p">,</span><span class="s1">&#39;PCA_MAD&#39;</span><span class="p">]</span><span class="o">=</span><span class="s1">&#39;</span><span class="si">%7.1f</span><span class="s1">&#39;</span><span class="o">%</span><span class="p">(</span><span class="n">x3</span><span class="p">)</span>
+        <span class="n">spec_prv_df</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="n">sid</span><span class="p">,</span><span class="s1">&#39;PCA_N&#39;</span><span class="p">]</span><span class="o">=</span><span class="s1">&#39;</span><span class="si">%2d</span><span class="s1">&#39;</span><span class="o">%</span><span class="p">(</span><span class="n">x4</span><span class="p">)</span>
+    <span class="n">fig2</span><span class="o">.</span><span class="n">savefig</span><span class="p">(</span><span class="n">Plot_directory</span><span class="o">+</span><span class="n">sid</span><span class="o">+</span><span class="s1">&#39;_zijd.pdf&#39;</span><span class="p">)</span>  
+    <span class="n">cnt</span><span class="o">=</span><span class="n">cnt</span><span class="o">+</span><span class="mi">1</span>
+
+    <span class="c1">## Fig3: basic plots (NRM-ARM0, TRM1-ARM1, TRM2-ARM2)</span>
+    <span class="c1">##       with output of relevant data </span>
+    <span class="n">fig3</span><span class="o">=</span><span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">cnt</span><span class="p">,</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span><span class="mi">10</span><span class="p">))</span>
+    <span class="n">fig3</span><span class="o">.</span><span class="n">clf</span><span class="p">()</span>
+    <span class="n">ax1</span><span class="p">,</span><span class="n">ax2</span><span class="p">,</span><span class="n">ax3</span> <span class="o">=</span> <span class="n">fig3</span><span class="o">.</span><span class="n">add_subplot</span><span class="p">(</span><span class="mi">221</span><span class="p">),</span><span class="n">fig3</span><span class="o">.</span><span class="n">add_subplot</span><span class="p">(</span><span class="mi">222</span><span class="p">),</span><span class="n">fig3</span><span class="o">.</span><span class="n">add_subplot</span><span class="p">(</span><span class="mi">223</span><span class="p">)</span>
+    <span class="k">for</span> <span class="p">(</span><span class="n">t1</span><span class="p">,</span><span class="n">t2</span><span class="p">)</span> <span class="ow">in</span> <span class="nb">zip</span><span class="p">(</span><span class="n">ntrm_types</span><span class="p">,</span><span class="n">arm_types</span><span class="p">):</span>
+        <span class="p">[</span><span class="n">x1</span><span class="p">,</span><span class="n">x2</span><span class="p">,</span><span class="n">x3</span><span class="p">,</span><span class="n">x4</span><span class="p">,</span><span class="n">x5</span><span class="p">]</span><span class="o">=</span><span class="p">[</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">]</span>
+        <span class="k">if</span> <span class="p">(</span><span class="n">t1</span><span class="o">==</span><span class="s1">&#39;NRM&#39;</span><span class="p">)</span> <span class="o">&amp;</span> <span class="p">(</span><span class="n">t2</span><span class="o">==</span><span class="s1">&#39;ARM0&#39;</span><span class="p">)</span> <span class="o">&amp;</span> <span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">afnrm</span><span class="p">)</span><span class="o">&gt;</span><span class="mi">0</span><span class="p">)</span> <span class="o">&amp;</span> <span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">afarm0</span><span class="p">)</span><span class="o">&gt;</span><span class="mi">0</span><span class="p">):</span>
+            <span class="n">x1</span><span class="p">,</span><span class="n">x2</span><span class="p">,</span><span class="n">x3</span><span class="p">,</span><span class="n">x4</span><span class="p">,</span><span class="n">x5</span><span class="o">=</span>\
+                <span class="n">ts</span><span class="o">.</span><span class="n">plot_ntrm_arm</span><span class="p">(</span><span class="n">sid</span><span class="p">,</span><span class="n">ax1</span><span class="p">,</span><span class="n">sid_df</span><span class="p">,</span><span class="n">afnrm</span><span class="p">,</span><span class="n">zijd_min</span><span class="p">,</span><span class="n">zijd_max</span><span class="p">,</span><span class="s1">&#39;arm0&#39;</span><span class="p">,</span><span class="s1">&#39;nrm&#39;</span><span class="p">)</span>
+        <span class="k">if</span> <span class="p">(</span><span class="n">t1</span><span class="o">==</span><span class="s1">&#39;TRM1&#39;</span><span class="p">)</span> <span class="o">&amp;</span> <span class="p">(</span><span class="n">t2</span><span class="o">==</span><span class="s1">&#39;ARM1&#39;</span><span class="p">)</span> <span class="o">&amp;</span> <span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">aftrm1</span><span class="p">)</span><span class="o">&gt;</span><span class="mi">0</span><span class="p">)</span> <span class="o">&amp;</span> <span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">afarm1</span><span class="p">)</span><span class="o">&gt;</span><span class="mi">0</span><span class="p">):</span>
+            <span class="n">x1</span><span class="p">,</span><span class="n">x2</span><span class="p">,</span><span class="n">x3</span><span class="p">,</span><span class="n">x4</span><span class="p">,</span><span class="n">x5</span><span class="o">=</span>\
+                <span class="n">ts</span><span class="o">.</span><span class="n">plot_ntrm_arm</span><span class="p">(</span><span class="n">sid</span><span class="p">,</span><span class="n">ax2</span><span class="p">,</span><span class="n">sid_df</span><span class="p">,</span><span class="n">aftrm1</span><span class="p">,</span><span class="n">zijd_min</span><span class="p">,</span><span class="n">zijd_max</span><span class="p">,</span><span class="s1">&#39;arm1&#39;</span><span class="p">,</span><span class="s1">&#39;trm1&#39;</span><span class="p">)</span>
+        <span class="k">if</span> <span class="p">(</span><span class="n">t1</span><span class="o">==</span><span class="s1">&#39;TRM2&#39;</span><span class="p">)</span> <span class="o">&amp;</span> <span class="p">(</span><span class="n">t2</span><span class="o">==</span><span class="s1">&#39;ARM2&#39;</span><span class="p">)</span> <span class="o">&amp;</span> <span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">aftrm2</span><span class="p">)</span><span class="o">&gt;</span><span class="mi">0</span><span class="p">)</span> <span class="o">&amp;</span> <span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">afarm2</span><span class="p">)</span><span class="o">&gt;</span><span class="mi">0</span><span class="p">):</span>
+            <span class="n">x1</span><span class="p">,</span><span class="n">x2</span><span class="p">,</span><span class="n">x3</span><span class="p">,</span><span class="n">x4</span><span class="p">,</span><span class="n">x5</span><span class="o">=</span>\
+                <span class="n">ts</span><span class="o">.</span><span class="n">plot_ntrm_arm</span><span class="p">(</span><span class="n">sid</span><span class="p">,</span><span class="n">ax3</span><span class="p">,</span><span class="n">sid_df</span><span class="p">,</span><span class="n">aftrm2</span><span class="p">,</span><span class="n">zijd_min</span><span class="p">,</span><span class="n">zijd_max</span><span class="p">,</span><span class="s1">&#39;arm2&#39;</span><span class="p">,</span><span class="s1">&#39;trm2&#39;</span><span class="p">)</span>
+        <span class="k">if</span> <span class="p">(</span><span class="nb">abs</span><span class="p">(</span><span class="n">x1</span><span class="o">+</span><span class="n">x2</span><span class="o">+</span><span class="n">x3</span><span class="o">+</span><span class="n">x4</span><span class="o">+</span><span class="n">x5</span><span class="p">)</span><span class="o">&gt;</span><span class="mi">0</span><span class="p">):</span>
+            <span class="n">ss</span><span class="o">=</span><span class="nb">str</span><span class="p">(</span><span class="n">t1</span><span class="p">)</span><span class="o">+</span><span class="s1">&#39;-&#39;</span><span class="o">+</span><span class="nb">str</span><span class="p">(</span><span class="n">t2</span><span class="p">)</span>
+            <span class="p">[</span><span class="n">s1</span><span class="p">,</span><span class="n">s2</span><span class="p">,</span><span class="n">s3</span><span class="p">,</span><span class="n">s4</span><span class="p">,</span><span class="n">s5</span><span class="p">]</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;slope_&#39;</span><span class="o">+</span><span class="n">ss</span><span class="p">,</span> <span class="s1">&#39;r_&#39;</span><span class="o">+</span><span class="n">ss</span><span class="p">,</span> <span class="s1">&#39;N_&#39;</span><span class="o">+</span><span class="n">ss</span><span class="p">,</span> <span class="s1">&#39;k_&#39;</span><span class="o">+</span><span class="n">ss</span><span class="p">,</span> <span class="s1">&#39;k</span><span class="se">\&#39;</span><span class="s1">_&#39;</span><span class="o">+</span><span class="n">ss</span><span class="p">,</span> <span class="p">]</span>
+            <span class="n">spec_prv_df</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="n">sid</span><span class="p">,</span><span class="n">s1</span><span class="p">]</span><span class="o">=</span><span class="s1">&#39;</span><span class="si">%7.3f</span><span class="s1">&#39;</span><span class="o">%</span><span class="p">(</span><span class="n">x1</span><span class="p">)</span>
+            <span class="n">spec_prv_df</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="n">sid</span><span class="p">,</span><span class="n">s2</span><span class="p">]</span><span class="o">=</span><span class="s1">&#39;</span><span class="si">%7.3f</span><span class="s1">&#39;</span><span class="o">%</span><span class="p">(</span><span class="n">x2</span><span class="p">)</span>
+            <span class="n">spec_prv_df</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="n">sid</span><span class="p">,</span><span class="n">s3</span><span class="p">]</span><span class="o">=</span><span class="s1">&#39;</span><span class="si">%2d</span><span class="s1">&#39;</span><span class="o">%</span><span class="p">(</span><span class="n">x3</span><span class="p">)</span>
+            <span class="n">spec_prv_df</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="n">sid</span><span class="p">,</span><span class="n">s4</span><span class="p">]</span><span class="o">=</span><span class="s1">&#39;</span><span class="si">%7.3f</span><span class="s1">&#39;</span><span class="o">%</span><span class="p">(</span><span class="n">x4</span><span class="p">)</span>
+            <span class="n">spec_prv_df</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="n">sid</span><span class="p">,</span><span class="n">s5</span><span class="p">]</span><span class="o">=</span><span class="s1">&#39;</span><span class="si">%7.3f</span><span class="s1">&#39;</span><span class="o">%</span><span class="p">(</span><span class="n">x5</span><span class="p">)</span>
+    <span class="n">fig3</span><span class="o">.</span><span class="n">savefig</span><span class="p">(</span><span class="n">Plot_directory</span><span class="o">+</span><span class="n">sid</span><span class="o">+</span><span class="s1">&#39;_ratios1.pdf&#39;</span><span class="p">)</span>
+    <span class="n">cnt</span><span class="o">=</span><span class="n">cnt</span><span class="o">+</span><span class="mi">1</span>
+    
+    <span class="c1">## set the interval for NRM-TRM1* and TRM1-TRM2*</span>
+    <span class="k">if</span> <span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">afnrm</span><span class="p">)</span><span class="o">&gt;</span><span class="mi">0</span><span class="p">)</span> <span class="o">&amp;</span> <span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">aftrm1</span><span class="p">)</span><span class="o">&gt;</span><span class="mi">0</span><span class="p">)</span> <span class="o">&amp;</span> <span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">afarm0</span><span class="p">)</span><span class="o">&gt;</span><span class="mi">0</span><span class="p">)</span> <span class="o">&amp;</span> <span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">afarm1</span><span class="p">)</span><span class="o">&gt;</span><span class="mi">0</span><span class="p">):</span>
+        <span class="k">if</span> <span class="p">(</span><span class="n">step_wishes</span> <span class="o">==</span> <span class="kc">False</span><span class="p">)</span> <span class="o">&amp;</span> <span class="p">(</span><span class="n">analysis</span> <span class="o">==</span> <span class="s1">&#39;ordinary&#39;</span><span class="p">):</span>
+            <span class="n">trm1_star_min</span><span class="p">,</span> <span class="n">trm1_star_max</span> <span class="o">=</span>\
+                <span class="n">ts</span><span class="o">.</span><span class="n">opt_interval_first_heating</span><span class="p">(</span><span class="n">zijd_min</span><span class="p">,</span><span class="n">sid_df</span><span class="p">,</span><span class="n">afnrm</span><span class="p">,</span><span class="n">minN</span><span class="p">,</span><span class="n">minFrac</span><span class="p">,</span><span class="n">minR</span><span class="p">)</span>
+        <span class="k">if</span> <span class="p">(</span><span class="n">analysis</span> <span class="o">==</span> <span class="s1">&#39;best_reg&#39;</span><span class="p">)</span> <span class="ow">or</span> <span class="p">(</span><span class="n">analysis</span> <span class="o">==</span> <span class="s1">&#39;best_krv&#39;</span><span class="p">):</span>
+            <span class="n">combinedRegs1</span><span class="o">=</span><span class="n">ts</span><span class="o">.</span><span class="n">API_param_combine</span><span class="p">(</span><span class="n">sid_df</span><span class="p">,</span><span class="n">afnrm</span><span class="p">,</span><span class="n">aftrm1</span><span class="p">,</span><span class="n">zijd_min</span><span class="p">,</span><span class="n">minN</span><span class="p">)</span> 
+            <span class="k">if</span> <span class="p">(</span><span class="n">analysis</span> <span class="o">==</span> <span class="s1">&#39;best_reg&#39;</span><span class="p">):</span>
+                <span class="n">trm1_star_min</span><span class="p">,</span><span class="n">trm1_star_max</span><span class="p">,</span><span class="n">trm2_star_min</span><span class="p">,</span><span class="n">trm2_star_max</span><span class="p">,</span><span class="n">allrst</span> <span class="o">=</span>\
+                    <span class="n">ts</span><span class="o">.</span><span class="n">find_best_API_portion_r</span><span class="p">(</span><span class="n">combinedRegs1</span><span class="p">,</span><span class="n">minFrac</span><span class="p">,</span><span class="n">minR</span><span class="p">,</span>\
+                                               <span class="n">minSlopeT</span><span class="p">,</span><span class="n">maxSlopeT</span><span class="p">)</span>
+            <span class="k">if</span> <span class="p">(</span><span class="n">analysis</span> <span class="o">==</span> <span class="s1">&#39;best_krv&#39;</span><span class="p">):</span>
+                <span class="n">trm1_star_min</span><span class="p">,</span><span class="n">trm1_star_max</span><span class="p">,</span><span class="n">trm2_star_min</span><span class="p">,</span><span class="n">trm2_star_max</span><span class="p">,</span><span class="n">allrst</span> <span class="o">=</span>\
+                    <span class="n">ts</span><span class="o">.</span><span class="n">find_best_API_portion_k</span><span class="p">(</span><span class="n">combinedRegs1</span><span class="p">,</span><span class="n">maxBeta</span><span class="p">,</span><span class="n">maxFresid</span><span class="p">,</span><span class="n">maxKrv</span><span class="p">)</span>
+        <span class="n">steprec</span><span class="p">[</span><span class="s1">&#39;trm1_star_min&#39;</span><span class="p">],</span><span class="n">steprec</span><span class="p">[</span><span class="s1">&#39;trm1_star_max&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">trm1_star_min</span><span class="p">,</span> <span class="n">trm1_star_max</span>
+    <span class="k">if</span> <span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">aftrm1</span><span class="p">)</span><span class="o">&gt;</span><span class="mi">0</span><span class="p">)</span> <span class="o">&amp;</span> <span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">aftrm2</span><span class="p">)</span><span class="o">&gt;</span><span class="mi">0</span><span class="p">)</span> <span class="o">&amp;</span> <span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">afarm1</span><span class="p">)</span><span class="o">&gt;</span><span class="mi">0</span><span class="p">)</span> <span class="o">&amp;</span> <span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">afarm2</span><span class="p">)</span><span class="o">&gt;</span><span class="mi">0</span><span class="p">):</span>
+        <span class="k">if</span> <span class="p">(</span><span class="n">step_wishes</span> <span class="o">==</span> <span class="kc">False</span><span class="p">)</span> <span class="o">&amp;</span> <span class="p">(</span><span class="n">analysis</span> <span class="o">==</span> <span class="s1">&#39;ordinary&#39;</span><span class="p">):</span>
+            <span class="n">trm2_star_min</span><span class="p">,</span> <span class="n">trm2_star_max</span> <span class="o">=</span>\
+                <span class="n">ts</span><span class="o">.</span><span class="n">opt_interval_second_heating</span><span class="p">(</span><span class="n">sid_df</span><span class="p">,</span><span class="n">aftrm1</span><span class="p">,</span>\
+                                               <span class="n">minN</span><span class="p">,</span><span class="n">minFrac</span><span class="p">,</span><span class="n">minR</span><span class="p">,</span><span class="n">minSlopeT</span><span class="p">,</span><span class="n">maxSlopeT</span><span class="p">)</span>
+        <span class="n">steprec</span><span class="p">[</span><span class="s1">&#39;trm2_star_min&#39;</span><span class="p">],</span><span class="n">steprec</span><span class="p">[</span><span class="s1">&#39;trm2_star_max&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">trm2_star_min</span><span class="p">,</span> <span class="n">trm2_star_max</span>
+    
+    <span class="c1">## Fig4: main plots (NRM-TRM1*, TRM1-TRM2*)</span>
+    <span class="n">fig4</span><span class="o">=</span><span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">cnt</span><span class="p">,</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span><span class="mi">5</span><span class="p">))</span>
+    <span class="n">fig4</span><span class="o">.</span><span class="n">clf</span><span class="p">()</span>
+    <span class="n">ax1</span><span class="p">,</span> <span class="n">ax2</span> <span class="o">=</span><span class="n">fig4</span><span class="o">.</span><span class="n">add_subplot</span><span class="p">(</span><span class="mi">121</span><span class="p">),</span> <span class="n">fig4</span><span class="o">.</span><span class="n">add_subplot</span><span class="p">(</span><span class="mi">122</span><span class="p">)</span>
+    <span class="c1"># TRM1 on TRM2*</span>
+    <span class="p">[</span><span class="n">x1</span><span class="p">,</span><span class="n">x2</span><span class="p">,</span><span class="n">x3</span><span class="p">,</span><span class="n">x4</span><span class="p">,</span><span class="n">x5</span><span class="p">,</span><span class="n">x6</span><span class="p">,</span><span class="n">x7</span><span class="p">,</span><span class="n">x8</span><span class="p">]</span><span class="o">=</span><span class="p">[</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">]</span>
+    <span class="k">if</span> <span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">aftrm1</span><span class="p">)</span><span class="o">&gt;</span><span class="mi">0</span><span class="p">)</span> <span class="o">&amp;</span> <span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">aftrm2</span><span class="p">)</span><span class="o">&gt;</span><span class="mi">0</span><span class="p">)</span> <span class="o">&amp;</span> <span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">afarm1</span><span class="p">)</span><span class="o">&gt;</span><span class="mi">0</span><span class="p">)</span> <span class="o">&amp;</span> <span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">afarm2</span><span class="p">)</span><span class="o">&gt;</span><span class="mi">0</span><span class="p">):</span>
+        <span class="k">if</span> <span class="p">(</span><span class="n">analysis</span> <span class="o">==</span> <span class="s1">&#39;ordinary&#39;</span><span class="p">)</span> <span class="ow">or</span> <span class="p">(</span><span class="n">analysis</span> <span class="o">==</span> <span class="s1">&#39;best_reg&#39;</span><span class="p">):</span>
+            <span class="n">x1</span><span class="p">,</span><span class="n">x2</span><span class="p">,</span><span class="n">x3</span><span class="p">,</span><span class="n">x4</span><span class="p">,</span><span class="n">x5</span><span class="p">,</span><span class="n">x6</span><span class="p">,</span><span class="n">x7</span><span class="p">,</span><span class="n">x8</span><span class="p">,</span><span class="n">ss1</span> <span class="o">=</span>\
+                <span class="n">ts</span><span class="o">.</span><span class="n">plot_pint_main</span><span class="p">(</span><span class="n">sid</span><span class="p">,</span><span class="n">ax2</span><span class="p">,</span><span class="n">sid_df</span><span class="p">,</span><span class="n">aftrm1</span><span class="p">,</span><span class="s1">&#39;trm2_star&#39;</span><span class="p">,</span><span class="s1">&#39;trm1&#39;</span><span class="p">,</span>\
+                                  <span class="n">trm2_star_min</span><span class="p">,</span><span class="n">trm2_star_max</span><span class="p">,</span><span class="n">aftrm1</span><span class="p">,</span><span class="n">aftrm2</span><span class="p">,</span><span class="n">spec_prv_df</span><span class="p">,</span>\
+                                  <span class="s1">&#39;reg&#39;</span><span class="p">,</span><span class="n">minR</span><span class="p">,</span><span class="n">minFrac</span><span class="p">,</span><span class="n">minSlopeT</span><span class="p">,</span><span class="n">maxSlopeT</span><span class="p">,</span><span class="n">maxBeta</span><span class="p">,</span><span class="n">maxFresid</span><span class="p">,</span>\
+                                  <span class="n">maxKrv</span><span class="p">,</span><span class="n">lab_field</span><span class="p">)</span>
+        <span class="k">if</span> <span class="p">(</span><span class="n">analysis</span> <span class="o">==</span> <span class="s1">&#39;best_krv&#39;</span><span class="p">):</span>
+            <span class="n">x1</span><span class="p">,</span><span class="n">x2</span><span class="p">,</span><span class="n">x3</span><span class="p">,</span><span class="n">x4</span><span class="p">,</span><span class="n">x5</span><span class="p">,</span><span class="n">x6</span><span class="p">,</span><span class="n">x7</span><span class="p">,</span><span class="n">x8</span><span class="p">,</span><span class="n">ss1</span> <span class="o">=</span>\
+                <span class="n">ts</span><span class="o">.</span><span class="n">plot_pint_main</span><span class="p">(</span><span class="n">sid</span><span class="p">,</span><span class="n">ax2</span><span class="p">,</span><span class="n">sid_df</span><span class="p">,</span><span class="n">aftrm1</span><span class="p">,</span><span class="s1">&#39;trm2_star&#39;</span><span class="p">,</span><span class="s1">&#39;trm1&#39;</span><span class="p">,</span>\
+                                  <span class="n">trm2_star_min</span><span class="p">,</span><span class="n">trm2_star_max</span><span class="p">,</span>\
+                                  <span class="n">aftrm1</span><span class="p">,</span><span class="n">aftrm2</span><span class="p">,</span><span class="n">spec_prv_df</span><span class="p">,</span><span class="s1">&#39;krv&#39;</span><span class="p">,</span>\
+                                  <span class="n">minR</span><span class="p">,</span><span class="n">minFrac</span><span class="p">,</span><span class="n">minSlopeT</span><span class="p">,</span><span class="n">maxSlopeT</span><span class="p">,</span>\
+                                  <span class="n">maxBeta</span><span class="p">,</span><span class="n">maxFresid</span><span class="p">,</span><span class="n">maxKrv</span><span class="p">,</span><span class="n">lab_field</span><span class="p">)</span>
+    <span class="k">if</span> <span class="p">(</span><span class="nb">abs</span><span class="p">(</span><span class="n">x1</span><span class="o">+</span><span class="n">x2</span><span class="o">+</span><span class="n">x3</span><span class="o">+</span><span class="n">x4</span><span class="o">+</span><span class="n">x5</span><span class="o">+</span><span class="n">x6</span><span class="o">+</span><span class="n">x7</span><span class="o">+</span><span class="n">x8</span><span class="p">)</span><span class="o">&gt;</span><span class="mi">0</span><span class="p">):</span>
+        <span class="n">ss</span><span class="o">=</span><span class="s1">&#39;TRM1-TRM2*&#39;</span>
+        <span class="p">[</span><span class="n">s1</span><span class="p">,</span><span class="n">s2</span><span class="p">]</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;from_&#39;</span><span class="o">+</span><span class="n">ss</span><span class="p">,</span> <span class="s1">&#39;to_&#39;</span><span class="o">+</span><span class="n">ss</span><span class="p">]</span>
+        <span class="n">spec_prv_df</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="n">sid</span><span class="p">,</span><span class="n">s1</span><span class="p">]</span><span class="o">=</span><span class="s1">&#39;</span><span class="si">%7.1f</span><span class="s1">&#39;</span><span class="o">%</span><span class="p">(</span><span class="n">trm2_star_min</span><span class="p">)</span>
+        <span class="n">spec_prv_df</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="n">sid</span><span class="p">,</span><span class="n">s2</span><span class="p">]</span><span class="o">=</span><span class="s1">&#39;</span><span class="si">%7.1f</span><span class="s1">&#39;</span><span class="o">%</span><span class="p">(</span><span class="n">trm2_star_max</span><span class="p">)</span>
+        <span class="p">[</span><span class="n">s1</span><span class="p">,</span><span class="n">s2</span><span class="p">,</span><span class="n">s3</span><span class="p">,</span><span class="n">s4</span><span class="p">,</span><span class="n">s5</span><span class="p">,</span><span class="n">s6</span><span class="p">,</span><span class="n">s7</span><span class="p">,</span><span class="n">s8</span><span class="p">]</span> <span class="o">=</span>\
+            <span class="p">[</span><span class="s1">&#39;slope_&#39;</span><span class="o">+</span><span class="n">ss</span><span class="p">,</span> <span class="s1">&#39;r_&#39;</span><span class="o">+</span><span class="n">ss</span><span class="p">,</span> <span class="s1">&#39;N_&#39;</span><span class="o">+</span><span class="n">ss</span><span class="p">,</span> <span class="s1">&#39;frac_&#39;</span><span class="o">+</span><span class="n">ss</span><span class="p">,</span> <span class="s1">&#39;dAIC_&#39;</span><span class="o">+</span><span class="n">ss</span><span class="p">,</span> <span class="s1">&#39;k_&#39;</span><span class="o">+</span><span class="n">ss</span><span class="p">,</span> <span class="s1">&#39;k</span><span class="se">\&#39;</span><span class="s1">_&#39;</span><span class="o">+</span><span class="n">ss</span><span class="p">,</span> <span class="s1">&#39;f_resid_&#39;</span><span class="o">+</span><span class="n">ss</span><span class="p">]</span>
+        <span class="n">spec_prv_df</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="n">sid</span><span class="p">,</span><span class="n">s1</span><span class="p">]</span><span class="o">=</span><span class="s1">&#39;</span><span class="si">%7.3f</span><span class="s1">&#39;</span><span class="o">%</span><span class="p">(</span><span class="n">x1</span><span class="p">)</span>
+        <span class="n">spec_prv_df</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="n">sid</span><span class="p">,</span><span class="n">s2</span><span class="p">]</span><span class="o">=</span><span class="s1">&#39;</span><span class="si">%7.3f</span><span class="s1">&#39;</span><span class="o">%</span><span class="p">(</span><span class="n">x2</span><span class="p">)</span>
+        <span class="n">spec_prv_df</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="n">sid</span><span class="p">,</span><span class="n">s3</span><span class="p">]</span><span class="o">=</span><span class="s1">&#39;</span><span class="si">%2d</span><span class="s1">&#39;</span><span class="o">%</span><span class="p">(</span><span class="n">x3</span><span class="p">)</span>
+        <span class="n">spec_prv_df</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="n">sid</span><span class="p">,</span><span class="n">s4</span><span class="p">]</span><span class="o">=</span><span class="s1">&#39;</span><span class="si">%7.3f</span><span class="s1">&#39;</span><span class="o">%</span><span class="p">(</span><span class="n">x4</span><span class="p">)</span>
+        <span class="n">spec_prv_df</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="n">sid</span><span class="p">,</span><span class="n">s5</span><span class="p">]</span><span class="o">=</span><span class="s1">&#39;</span><span class="si">%7.3f</span><span class="s1">&#39;</span><span class="o">%</span><span class="p">(</span><span class="n">x5</span><span class="p">)</span>
+        <span class="n">spec_prv_df</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="n">sid</span><span class="p">,</span><span class="n">s6</span><span class="p">]</span><span class="o">=</span><span class="s1">&#39;</span><span class="si">%7.3f</span><span class="s1">&#39;</span><span class="o">%</span><span class="p">(</span><span class="n">x6</span><span class="p">)</span>
+        <span class="n">spec_prv_df</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="n">sid</span><span class="p">,</span><span class="n">s7</span><span class="p">]</span><span class="o">=</span><span class="s1">&#39;</span><span class="si">%7.3f</span><span class="s1">&#39;</span><span class="o">%</span><span class="p">(</span><span class="n">x7</span><span class="p">)</span>
+        <span class="n">spec_prv_df</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="n">sid</span><span class="p">,</span><span class="n">s7</span><span class="p">]</span><span class="o">=</span><span class="s1">&#39;</span><span class="si">%7.3f</span><span class="s1">&#39;</span><span class="o">%</span><span class="p">(</span><span class="n">x8</span><span class="p">)</span>
+        <span class="c1">#</span>
+        <span class="n">sidpars_trm</span><span class="p">[</span><span class="s1">&#39;description&#39;</span><span class="p">]</span><span class="o">=</span><span class="s1">&#39;Values for the TRM1 normalized by TRM2*&#39;</span>
+        <span class="n">sidpars_trm</span><span class="p">[</span><span class="s1">&#39;meas_step_min&#39;</span><span class="p">]</span><span class="o">=</span><span class="n">trm2_star_min</span><span class="o">*</span><span class="mf">1e-3</span>
+        <span class="n">sidpars_trm</span><span class="p">[</span><span class="s1">&#39;meas_step_max&#39;</span><span class="p">]</span><span class="o">=</span><span class="n">trm2_star_max</span><span class="o">*</span><span class="mf">1e-3</span>
+        <span class="c1">#</span>
+        <span class="n">sidpars_trm</span><span class="p">[</span><span class="s1">&#39;int_b&#39;</span><span class="p">]</span><span class="o">=</span><span class="s1">&#39;</span><span class="si">%7.3f</span><span class="s1">&#39;</span><span class="o">%</span><span class="p">(</span><span class="n">x1</span><span class="p">)</span>
+        <span class="n">sidpars_trm</span><span class="p">[</span><span class="s1">&#39;int_abs&#39;</span><span class="p">]</span><span class="o">=</span><span class="n">lab_field</span><span class="o">*</span><span class="n">x1</span>
+        <span class="n">sidpars_trm</span><span class="p">[</span><span class="s1">&#39;int_r2_corr&#39;</span><span class="p">]</span><span class="o">=</span><span class="s1">&#39;</span><span class="si">%7.3f</span><span class="s1">&#39;</span><span class="o">%</span><span class="p">(</span><span class="n">x2</span><span class="o">**</span><span class="mi">2</span><span class="p">)</span>
+        <span class="n">sidpars_trm</span><span class="p">[</span><span class="s1">&#39;int_n_measurements&#39;</span><span class="p">]</span><span class="o">=</span><span class="n">x3</span>
+        <span class="n">sidpars_trm</span><span class="p">[</span><span class="s1">&#39;int_frac&#39;</span><span class="p">]</span><span class="o">=</span><span class="s1">&#39;</span><span class="si">%7.3f</span><span class="s1">&#39;</span><span class="o">%</span><span class="p">(</span><span class="n">x4</span><span class="p">)</span>
+    <span class="c1"># NRM on TRM1*</span>
+    <span class="p">[</span><span class="n">x1</span><span class="p">,</span><span class="n">x2</span><span class="p">,</span><span class="n">x3</span><span class="p">,</span><span class="n">x4</span><span class="p">,</span><span class="n">x5</span><span class="p">,</span><span class="n">x6</span><span class="p">,</span><span class="n">x7</span><span class="p">,</span><span class="n">x8</span><span class="p">]</span><span class="o">=</span><span class="p">[</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">]</span>
+    <span class="k">if</span> <span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">afnrm</span><span class="p">)</span><span class="o">&gt;</span><span class="mi">0</span><span class="p">)</span> <span class="o">&amp;</span> <span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">aftrm1</span><span class="p">)</span><span class="o">&gt;</span><span class="mi">0</span><span class="p">)</span> <span class="o">&amp;</span> <span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">afarm0</span><span class="p">)</span><span class="o">&gt;</span><span class="mi">0</span><span class="p">)</span> <span class="o">&amp;</span> <span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">afarm1</span><span class="p">)</span><span class="o">&gt;</span><span class="mi">0</span><span class="p">):</span>
+        <span class="k">if</span> <span class="p">(</span><span class="n">analysis</span> <span class="o">==</span> <span class="s1">&#39;ordinary&#39;</span><span class="p">)</span> <span class="ow">or</span> <span class="p">(</span><span class="n">analysis</span> <span class="o">==</span> <span class="s1">&#39;best_reg&#39;</span><span class="p">):</span>
+            <span class="n">x1</span><span class="p">,</span><span class="n">x2</span><span class="p">,</span><span class="n">x3</span><span class="p">,</span><span class="n">x4</span><span class="p">,</span><span class="n">x5</span><span class="p">,</span><span class="n">x6</span><span class="p">,</span><span class="n">x7</span><span class="p">,</span><span class="n">x8</span><span class="p">,</span><span class="n">ss1</span> <span class="o">=</span>\
+                <span class="n">ts</span><span class="o">.</span><span class="n">plot_pint_main</span><span class="p">(</span><span class="n">sid</span><span class="p">,</span><span class="n">ax1</span><span class="p">,</span><span class="n">sid_df</span><span class="p">,</span><span class="n">afnrm</span><span class="p">,</span><span class="s1">&#39;trm1_star&#39;</span><span class="p">,</span><span class="s1">&#39;nrm&#39;</span><span class="p">,</span>\
+                                  <span class="n">trm1_star_min</span><span class="p">,</span><span class="n">trm1_star_max</span><span class="p">,</span><span class="n">aftrm1</span><span class="p">,</span><span class="n">aftrm2</span><span class="p">,</span><span class="n">spec_prv_df</span><span class="p">,</span>\
+                                  <span class="s1">&#39;reg&#39;</span><span class="p">,</span><span class="n">minR</span><span class="p">,</span><span class="n">minFrac</span><span class="p">,</span><span class="n">minSlopeT</span><span class="p">,</span><span class="n">maxSlopeT</span><span class="p">,</span><span class="n">maxBeta</span><span class="p">,</span><span class="n">maxFresid</span><span class="p">,</span>\
+                                  <span class="n">maxKrv</span><span class="p">,</span><span class="n">lab_field</span><span class="p">)</span>
+        <span class="k">if</span> <span class="p">(</span><span class="n">analysis</span> <span class="o">==</span> <span class="s1">&#39;best_krv&#39;</span><span class="p">):</span>
+            <span class="n">x1</span><span class="p">,</span><span class="n">x2</span><span class="p">,</span><span class="n">x3</span><span class="p">,</span><span class="n">x4</span><span class="p">,</span><span class="n">x5</span><span class="p">,</span><span class="n">x6</span><span class="p">,</span><span class="n">x7</span><span class="p">,</span><span class="n">x8</span><span class="p">,</span><span class="n">ss1</span> <span class="o">=</span>\
+                <span class="n">ts</span><span class="o">.</span><span class="n">plot_pint_main</span><span class="p">(</span><span class="n">sid</span><span class="p">,</span><span class="n">ax1</span><span class="p">,</span><span class="n">sid_df</span><span class="p">,</span><span class="n">afnrm</span><span class="p">,</span><span class="s1">&#39;trm1_star&#39;</span><span class="p">,</span><span class="s1">&#39;nrm&#39;</span><span class="p">,</span>\
+                                  <span class="n">trm1_star_min</span><span class="p">,</span><span class="n">trm1_star_max</span><span class="p">,</span>\
+                                  <span class="n">aftrm1</span><span class="p">,</span><span class="n">aftrm2</span><span class="p">,</span><span class="n">spec_prv_df</span><span class="p">,</span><span class="s1">&#39;krv&#39;</span><span class="p">,</span>\
+                                  <span class="n">minR</span><span class="p">,</span><span class="n">minFrac</span><span class="p">,</span><span class="n">minSlopeT</span><span class="p">,</span><span class="n">maxSlopeT</span><span class="p">,</span>\
+                                  <span class="n">maxBeta</span><span class="p">,</span><span class="n">maxFresid</span><span class="p">,</span><span class="n">maxKrv</span><span class="p">,</span><span class="n">lab_field</span><span class="p">)</span>
+    <span class="k">if</span> <span class="p">(</span><span class="nb">abs</span><span class="p">(</span><span class="n">x1</span><span class="o">+</span><span class="n">x2</span><span class="o">+</span><span class="n">x3</span><span class="o">+</span><span class="n">x4</span><span class="o">+</span><span class="n">x5</span><span class="o">+</span><span class="n">x6</span><span class="o">+</span><span class="n">x7</span><span class="o">+</span><span class="n">x8</span><span class="p">)</span><span class="o">&gt;</span><span class="mi">0</span><span class="p">):</span>
+        <span class="n">ss</span><span class="o">=</span><span class="s1">&#39;NRM-TRM1*&#39;</span>
+        <span class="p">[</span><span class="n">s1</span><span class="p">,</span><span class="n">s2</span><span class="p">]</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;from_&#39;</span><span class="o">+</span><span class="n">ss</span><span class="p">,</span> <span class="s1">&#39;to_&#39;</span><span class="o">+</span><span class="n">ss</span><span class="p">]</span>
+        <span class="n">spec_prv_df</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="n">sid</span><span class="p">,</span><span class="n">s1</span><span class="p">]</span><span class="o">=</span><span class="s1">&#39;</span><span class="si">%7.1f</span><span class="s1">&#39;</span><span class="o">%</span><span class="p">(</span><span class="n">trm1_star_min</span><span class="p">)</span>
+        <span class="n">spec_prv_df</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="n">sid</span><span class="p">,</span><span class="n">s2</span><span class="p">]</span><span class="o">=</span><span class="s1">&#39;</span><span class="si">%7.1f</span><span class="s1">&#39;</span><span class="o">%</span><span class="p">(</span><span class="n">trm1_star_max</span><span class="p">)</span>
+        <span class="p">[</span><span class="n">s1</span><span class="p">,</span><span class="n">s2</span><span class="p">,</span><span class="n">s3</span><span class="p">,</span><span class="n">s4</span><span class="p">,</span><span class="n">s5</span><span class="p">,</span><span class="n">s6</span><span class="p">,</span><span class="n">s7</span><span class="p">,</span><span class="n">s8</span><span class="p">]</span> <span class="o">=</span>\
+            <span class="p">[</span><span class="s1">&#39;slope_&#39;</span><span class="o">+</span><span class="n">ss</span><span class="p">,</span> <span class="s1">&#39;r_&#39;</span><span class="o">+</span><span class="n">ss</span><span class="p">,</span> <span class="s1">&#39;N_&#39;</span><span class="o">+</span><span class="n">ss</span><span class="p">,</span> <span class="s1">&#39;frac_&#39;</span><span class="o">+</span><span class="n">ss</span><span class="p">,</span> <span class="s1">&#39;dAIC_&#39;</span><span class="o">+</span><span class="n">ss</span><span class="p">,</span> <span class="s1">&#39;k_&#39;</span><span class="o">+</span><span class="n">ss</span><span class="p">,</span> <span class="s1">&#39;k</span><span class="se">\&#39;</span><span class="s1">_&#39;</span><span class="o">+</span><span class="n">ss</span><span class="p">,</span> <span class="s1">&#39;f_resid_&#39;</span><span class="o">+</span><span class="n">ss</span><span class="p">]</span>
+        <span class="n">spec_prv_df</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="n">sid</span><span class="p">,</span><span class="n">s1</span><span class="p">]</span><span class="o">=</span><span class="s1">&#39;</span><span class="si">%7.3f</span><span class="s1">&#39;</span><span class="o">%</span><span class="p">(</span><span class="n">x1</span><span class="p">)</span>
+        <span class="n">spec_prv_df</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="n">sid</span><span class="p">,</span><span class="n">s2</span><span class="p">]</span><span class="o">=</span><span class="s1">&#39;</span><span class="si">%7.3f</span><span class="s1">&#39;</span><span class="o">%</span><span class="p">(</span><span class="n">x2</span><span class="p">)</span>
+        <span class="n">spec_prv_df</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="n">sid</span><span class="p">,</span><span class="n">s3</span><span class="p">]</span><span class="o">=</span><span class="s1">&#39;</span><span class="si">%2d</span><span class="s1">&#39;</span><span class="o">%</span><span class="p">(</span><span class="n">x3</span><span class="p">)</span>
+        <span class="n">spec_prv_df</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="n">sid</span><span class="p">,</span><span class="n">s4</span><span class="p">]</span><span class="o">=</span><span class="s1">&#39;</span><span class="si">%7.3f</span><span class="s1">&#39;</span><span class="o">%</span><span class="p">(</span><span class="n">x4</span><span class="p">)</span>
+        <span class="n">spec_prv_df</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="n">sid</span><span class="p">,</span><span class="n">s5</span><span class="p">]</span><span class="o">=</span><span class="s1">&#39;</span><span class="si">%7.3f</span><span class="s1">&#39;</span><span class="o">%</span><span class="p">(</span><span class="n">x5</span><span class="p">)</span>
+        <span class="n">spec_prv_df</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="n">sid</span><span class="p">,</span><span class="n">s6</span><span class="p">]</span><span class="o">=</span><span class="s1">&#39;</span><span class="si">%7.3f</span><span class="s1">&#39;</span><span class="o">%</span><span class="p">(</span><span class="n">x6</span><span class="p">)</span>
+        <span class="n">spec_prv_df</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="n">sid</span><span class="p">,</span><span class="n">s7</span><span class="p">]</span><span class="o">=</span><span class="s1">&#39;</span><span class="si">%7.3f</span><span class="s1">&#39;</span><span class="o">%</span><span class="p">(</span><span class="n">x7</span><span class="p">)</span>
+        <span class="n">spec_prv_df</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="n">sid</span><span class="p">,</span><span class="n">s8</span><span class="p">]</span><span class="o">=</span><span class="s1">&#39;</span><span class="si">%7.3f</span><span class="s1">&#39;</span><span class="o">%</span><span class="p">(</span><span class="n">x8</span><span class="p">)</span>
+        <span class="k">if</span> <span class="p">((</span><span class="s1">&#39;rejected&#39;</span> <span class="ow">in</span> <span class="n">ss1</span><span class="p">)</span> <span class="o">==</span> <span class="kc">False</span><span class="p">):</span>
+            <span class="n">spec_prv_df</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="n">sid</span><span class="p">,</span><span class="s1">&#39;pint(uT)&#39;</span><span class="p">]</span><span class="o">=</span><span class="s1">&#39;</span><span class="si">%7.3f</span><span class="s1">&#39;</span><span class="o">%</span><span class="p">(</span><span class="n">lab_field</span><span class="o">*</span><span class="n">x1</span><span class="o">*</span><span class="mf">1e6</span><span class="p">)</span>
+            <span class="n">spec_prv_df</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="n">sid</span><span class="p">,</span><span class="s1">&#39;min_pint(uT)_passed&#39;</span><span class="p">]</span><span class="o">=</span><span class="s1">&#39;</span><span class="si">%7.3f</span><span class="s1">&#39;</span><span class="o">%</span><span class="p">(</span><span class="n">lab_field</span><span class="o">*</span><span class="nb">min</span><span class="p">(</span><span class="n">allrst</span><span class="o">.</span><span class="n">slope_n</span><span class="p">)</span><span class="o">*</span><span class="mf">1e6</span><span class="p">)</span>
+            <span class="n">spec_prv_df</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="n">sid</span><span class="p">,</span><span class="s1">&#39;max_pint(uT)_passed&#39;</span><span class="p">]</span><span class="o">=</span><span class="s1">&#39;</span><span class="si">%7.3f</span><span class="s1">&#39;</span><span class="o">%</span><span class="p">(</span><span class="n">lab_field</span><span class="o">*</span><span class="nb">max</span><span class="p">(</span><span class="n">allrst</span><span class="o">.</span><span class="n">slope_n</span><span class="p">)</span><span class="o">*</span><span class="mf">1e6</span><span class="p">)</span>
+        <span class="c1">#</span>
+        <span class="n">sidpars_nrm</span><span class="p">[</span><span class="s1">&#39;description&#39;</span><span class="p">]</span><span class="o">=</span><span class="s1">&#39;Values for the NRM normalized by TRM1*&#39;</span>
+        <span class="n">sidpars_nrm</span><span class="p">[</span><span class="s1">&#39;meas_step_min&#39;</span><span class="p">]</span><span class="o">=</span><span class="n">trm1_star_min</span><span class="o">*</span><span class="mf">1e-3</span>
+        <span class="n">sidpars_nrm</span><span class="p">[</span><span class="s1">&#39;meas_step_max&#39;</span><span class="p">]</span><span class="o">=</span><span class="n">trm1_star_max</span><span class="o">*</span><span class="mf">1e-3</span>
+        <span class="c1">#</span>
+        <span class="n">sidpars_nrm</span><span class="p">[</span><span class="s1">&#39;int_b&#39;</span><span class="p">]</span><span class="o">=</span><span class="s1">&#39;</span><span class="si">%7.3f</span><span class="s1">&#39;</span><span class="o">%</span><span class="p">(</span><span class="n">x1</span><span class="p">)</span>
+        <span class="n">sidpars_nrm</span><span class="p">[</span><span class="s1">&#39;int_abs&#39;</span><span class="p">]</span><span class="o">=</span><span class="n">lab_field</span><span class="o">*</span><span class="n">x1</span>
+        <span class="n">sidpars_nrm</span><span class="p">[</span><span class="s1">&#39;int_r2_corr&#39;</span><span class="p">]</span><span class="o">=</span><span class="s1">&#39;</span><span class="si">%7.3f</span><span class="s1">&#39;</span><span class="o">%</span><span class="p">(</span><span class="n">x2</span><span class="o">**</span><span class="mi">2</span><span class="p">)</span>
+        <span class="n">sidpars_nrm</span><span class="p">[</span><span class="s1">&#39;int_n_measurements&#39;</span><span class="p">]</span><span class="o">=</span><span class="n">x3</span>
+        <span class="n">sidpars_nrm</span><span class="p">[</span><span class="s1">&#39;int_frac&#39;</span><span class="p">]</span><span class="o">=</span><span class="s1">&#39;</span><span class="si">%7.3f</span><span class="s1">&#39;</span><span class="o">%</span><span class="p">(</span><span class="n">x4</span><span class="p">)</span>
+    <span class="k">if</span><span class="p">(</span><span class="n">analysis</span> <span class="o">==</span> <span class="s1">&#39;ordinary&#39;</span><span class="p">):</span>
+        <span class="n">fig4</span><span class="o">.</span><span class="n">savefig</span><span class="p">(</span><span class="n">Plot_directory</span><span class="o">+</span><span class="n">sid</span><span class="o">+</span><span class="s1">&#39;_corrected_ordinary.pdf&#39;</span><span class="p">)</span>
+    <span class="k">if</span><span class="p">(</span><span class="n">analysis</span> <span class="o">==</span> <span class="s1">&#39;best_reg&#39;</span><span class="p">):</span>
+        <span class="n">fig4</span><span class="o">.</span><span class="n">savefig</span><span class="p">(</span><span class="n">Plot_directory</span><span class="o">+</span><span class="n">sid</span><span class="o">+</span><span class="s1">&#39;_corrected_best_r.pdf&#39;</span><span class="p">)</span>
+    <span class="k">if</span><span class="p">(</span><span class="n">analysis</span> <span class="o">==</span> <span class="s1">&#39;best_krv&#39;</span><span class="p">):</span>
+        <span class="n">fig4</span><span class="o">.</span><span class="n">savefig</span><span class="p">(</span><span class="n">Plot_directory</span><span class="o">+</span><span class="n">sid</span><span class="o">+</span><span class="s1">&#39;_corrected_best_k.pdf&#39;</span><span class="p">)</span>
+    <span class="n">cnt</span><span class="o">=</span><span class="n">cnt</span><span class="o">+</span><span class="mi">1</span>
+
+    <span class="c1">## Fig5: other basic plots (NRM-TRM1, ARM0-ARM1, TRM1-TRM2, ARM1-ARM2)</span>
+    <span class="n">fig5</span><span class="o">=</span><span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">cnt</span><span class="p">,</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span><span class="mi">10</span><span class="p">))</span>
+    <span class="n">fig5</span><span class="o">.</span><span class="n">clf</span><span class="p">()</span>
+    <span class="n">ax1</span><span class="p">,</span><span class="n">ax2</span><span class="p">,</span><span class="n">ax3</span><span class="p">,</span><span class="n">ax4</span><span class="o">=</span>\
+        <span class="n">fig5</span><span class="o">.</span><span class="n">add_subplot</span><span class="p">(</span><span class="mi">221</span><span class="p">),</span><span class="n">fig5</span><span class="o">.</span><span class="n">add_subplot</span><span class="p">(</span><span class="mi">222</span><span class="p">),</span><span class="n">fig5</span><span class="o">.</span><span class="n">add_subplot</span><span class="p">(</span><span class="mi">223</span><span class="p">),</span><span class="n">fig5</span><span class="o">.</span><span class="n">add_subplot</span><span class="p">(</span><span class="mi">224</span><span class="p">)</span>
+    <span class="k">for</span> <span class="n">t</span> <span class="ow">in</span> <span class="p">(</span><span class="n">ntrm_types</span><span class="o">+</span><span class="n">arm_types</span><span class="p">):</span>
+        <span class="p">[</span><span class="n">x1</span><span class="p">,</span><span class="n">x2</span><span class="p">,</span><span class="n">x3</span><span class="p">,</span><span class="n">x4</span><span class="p">,</span><span class="n">x5</span><span class="p">]</span><span class="o">=</span><span class="p">[</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">]</span>
+        <span class="k">if</span> <span class="p">(</span><span class="n">t</span><span class="o">==</span><span class="s1">&#39;NRM&#39;</span><span class="p">)</span> <span class="o">&amp;</span> <span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">aftrm1</span><span class="p">)</span><span class="o">&gt;</span><span class="mi">0</span><span class="p">)</span> <span class="o">&amp;</span> <span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">afnrm</span><span class="p">)</span><span class="o">&gt;</span><span class="mi">0</span><span class="p">):</span>
+            <span class="n">max_xrm</span><span class="o">=</span><span class="nb">max</span><span class="p">(</span><span class="n">sid_df</span><span class="o">.</span><span class="n">nrm</span><span class="o">.</span><span class="n">max</span><span class="p">(),</span> <span class="n">sid_df</span><span class="o">.</span><span class="n">trm1</span><span class="o">.</span><span class="n">max</span><span class="p">())</span>
+            <span class="n">x1</span><span class="p">,</span><span class="n">x2</span><span class="p">,</span><span class="n">x3</span><span class="p">,</span><span class="n">x4</span><span class="p">,</span><span class="n">x5</span><span class="o">=</span><span class="n">ts</span><span class="o">.</span><span class="n">plot_xrm_xrm2_r2</span><span class="p">(</span><span class="n">sid</span><span class="p">,</span><span class="n">ax1</span><span class="p">,</span><span class="n">sid_df</span><span class="p">,</span><span class="n">afnrm</span><span class="p">,</span><span class="s1">&#39;trm1&#39;</span><span class="p">,</span><span class="s1">&#39;nrm&#39;</span><span class="p">,</span>\
+                                            <span class="n">trm1_star_min</span><span class="p">,</span><span class="n">trm1_star_max</span><span class="p">)</span>
+            <span class="n">ss</span><span class="o">=</span><span class="s1">&#39;NRM-TRM1&#39;</span>
+            <span class="c1">#[s1,s4,s5]=[&#39;slope_NRM-TRM1&#39;,&#39;k_NRM-TRM1&#39;,&#39;k\&#39;_NRM-TRM1&#39;]</span>
+        <span class="k">if</span> <span class="p">(</span><span class="n">t</span><span class="o">==</span><span class="s1">&#39;TRM1&#39;</span><span class="p">)</span> <span class="o">&amp;</span> <span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">aftrm2</span><span class="p">)</span><span class="o">&gt;</span><span class="mi">0</span><span class="p">)</span> <span class="o">&amp;</span> <span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">aftrm1</span><span class="p">)</span><span class="o">&gt;</span><span class="mi">0</span><span class="p">):</span>
+            <span class="n">max_xrm</span><span class="o">=</span><span class="nb">max</span><span class="p">(</span><span class="n">sid_df</span><span class="o">.</span><span class="n">trm1</span><span class="o">.</span><span class="n">max</span><span class="p">(),</span> <span class="n">sid_df</span><span class="o">.</span><span class="n">trm2</span><span class="o">.</span><span class="n">max</span><span class="p">())</span>
+            <span class="n">x1</span><span class="p">,</span><span class="n">x2</span><span class="p">,</span><span class="n">x3</span><span class="p">,</span><span class="n">x4</span><span class="p">,</span><span class="n">x5</span><span class="o">=</span><span class="n">ts</span><span class="o">.</span><span class="n">plot_xrm_xrm2_r2</span><span class="p">(</span><span class="n">sid</span><span class="p">,</span><span class="n">ax3</span><span class="p">,</span><span class="n">sid_df</span><span class="p">,</span><span class="n">aftrm1</span><span class="p">,</span><span class="s1">&#39;trm2&#39;</span><span class="p">,</span><span class="s1">&#39;trm1&#39;</span><span class="p">,</span>\
+                                            <span class="n">trm2_star_min</span><span class="p">,</span><span class="n">trm2_star_max</span><span class="p">)</span>
+            <span class="n">ss</span><span class="o">=</span><span class="s1">&#39;TRM1-TRM2&#39;</span>
+            <span class="c1">#[s1,s4,s5]=[&#39;slope_TRM1-TRM2&#39;,&#39;k_TRM1-TRM2&#39;,&#39;k\&#39;_TRM1-TRM2&#39;]</span>
+        <span class="k">if</span> <span class="p">(</span><span class="n">t</span><span class="o">==</span><span class="s1">&#39;ARM0&#39;</span><span class="p">)</span> <span class="o">&amp;</span> <span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">afarm1</span><span class="p">)</span><span class="o">&gt;</span><span class="mi">0</span><span class="p">)</span> <span class="o">&amp;</span> <span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">afarm0</span><span class="p">)</span><span class="o">&gt;</span><span class="mi">0</span><span class="p">):</span>
+            <span class="n">max_xrm</span><span class="o">=</span><span class="nb">max</span><span class="p">(</span><span class="n">sid_df</span><span class="o">.</span><span class="n">arm0</span><span class="o">.</span><span class="n">max</span><span class="p">(),</span> <span class="n">sid_df</span><span class="o">.</span><span class="n">arm1</span><span class="o">.</span><span class="n">max</span><span class="p">())</span>
+            <span class="n">x1</span><span class="p">,</span><span class="n">x2</span><span class="p">,</span><span class="n">x3</span><span class="p">,</span><span class="n">x4</span><span class="p">,</span><span class="n">x5</span><span class="o">=</span><span class="n">ts</span><span class="o">.</span><span class="n">plot_xrm_xrm2_r2</span><span class="p">(</span><span class="n">sid</span><span class="p">,</span><span class="n">ax2</span><span class="p">,</span><span class="n">sid_df</span><span class="p">,</span><span class="n">afnrm</span><span class="p">,</span><span class="s1">&#39;arm1&#39;</span><span class="p">,</span><span class="s1">&#39;arm0&#39;</span><span class="p">,</span>\
+                                            <span class="n">trm1_star_min</span><span class="p">,</span><span class="n">trm1_star_max</span><span class="p">)</span>
+            <span class="n">ss</span><span class="o">=</span><span class="s1">&#39;ARM0-ARM1&#39;</span>
+            <span class="c1">#[s1,s4,s5]=[&#39;slope_ARM0-ARM1&#39;,&#39;k_ARM0-ARM1&#39;,&#39;k\&#39;_ARM0-ARM1&#39;]</span>
+            <span class="n">slope_a1</span><span class="o">=</span><span class="n">x1</span>
+            <span class="n">sidpars_nrm</span><span class="p">[</span><span class="s1">&#39;int_corr_arm&#39;</span><span class="p">]</span><span class="o">=</span><span class="s1">&#39;</span><span class="si">%7.3f</span><span class="s1">&#39;</span><span class="o">%</span><span class="p">(</span><span class="n">slope_a1</span><span class="p">)</span>
+        <span class="k">if</span> <span class="p">(</span><span class="n">t</span><span class="o">==</span><span class="s1">&#39;ARM1&#39;</span><span class="p">)</span> <span class="o">&amp;</span> <span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">afarm2</span><span class="p">)</span><span class="o">&gt;</span><span class="mi">0</span><span class="p">)</span> <span class="o">&amp;</span> <span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">afarm1</span><span class="p">)</span><span class="o">&gt;</span><span class="mi">0</span><span class="p">):</span>
+            <span class="n">max_xrm</span><span class="o">=</span><span class="nb">max</span><span class="p">(</span><span class="n">sid_df</span><span class="o">.</span><span class="n">arm1</span><span class="o">.</span><span class="n">max</span><span class="p">(),</span> <span class="n">sid_df</span><span class="o">.</span><span class="n">arm2</span><span class="o">.</span><span class="n">max</span><span class="p">())</span>
+            <span class="n">x1</span><span class="p">,</span><span class="n">x2</span><span class="p">,</span><span class="n">x3</span><span class="p">,</span><span class="n">x4</span><span class="p">,</span><span class="n">x5</span><span class="o">=</span><span class="n">ts</span><span class="o">.</span><span class="n">plot_xrm_xrm2_r2</span><span class="p">(</span><span class="n">sid</span><span class="p">,</span><span class="n">ax4</span><span class="p">,</span><span class="n">sid_df</span><span class="p">,</span><span class="n">aftrm1</span><span class="p">,</span><span class="s1">&#39;arm2&#39;</span><span class="p">,</span><span class="s1">&#39;arm1&#39;</span><span class="p">,</span>\
+                                            <span class="n">trm2_star_min</span><span class="p">,</span><span class="n">trm2_star_max</span><span class="p">)</span>
+            <span class="n">ss</span><span class="o">=</span><span class="s1">&#39;ARM1-ARM2&#39;</span>
+            <span class="c1">#[s1,s4,s5]=[&#39;slope_ARM1-ARM2&#39;,&#39;k_ARM1-ARM2&#39;,&#39;k\&#39;_ARM1-ARM2&#39;]</span>
+            <span class="n">slope_a2</span><span class="o">=</span><span class="n">x1</span>
+            <span class="n">sidpars_trm</span><span class="p">[</span><span class="s1">&#39;int_corr_arm&#39;</span><span class="p">]</span><span class="o">=</span><span class="s1">&#39;</span><span class="si">%7.3f</span><span class="s1">&#39;</span><span class="o">%</span><span class="p">(</span><span class="n">slope_a2</span><span class="p">)</span>
+        <span class="k">if</span> <span class="p">[(</span><span class="n">t</span><span class="o">==</span><span class="s1">&#39;NRM&#39;</span><span class="p">)</span><span class="o">|</span><span class="p">(</span><span class="n">t</span><span class="o">==</span><span class="s1">&#39;TRM1&#39;</span><span class="p">)</span><span class="o">|</span><span class="p">(</span><span class="n">t</span><span class="o">==</span><span class="s1">&#39;ARM0&#39;</span><span class="p">)</span><span class="o">|</span><span class="p">(</span><span class="n">t</span><span class="o">==</span><span class="s1">&#39;ARM1&#39;</span><span class="p">)]:</span>
+            <span class="k">if</span> <span class="p">(</span><span class="nb">abs</span><span class="p">(</span><span class="n">x1</span><span class="o">+</span><span class="n">x2</span><span class="o">+</span><span class="n">x3</span><span class="o">+</span><span class="n">x4</span><span class="o">+</span><span class="n">x5</span><span class="p">)</span><span class="o">&gt;</span><span class="mi">0</span><span class="p">):</span>
+                <span class="p">[</span><span class="n">s1</span><span class="p">,</span><span class="n">s2</span><span class="p">,</span><span class="n">s4</span><span class="p">,</span><span class="n">s5</span><span class="p">]</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;slope_&#39;</span><span class="o">+</span><span class="n">ss</span><span class="p">,</span> <span class="s1">&#39;r_&#39;</span><span class="o">+</span><span class="n">ss</span><span class="p">,</span> <span class="s1">&#39;k_&#39;</span><span class="o">+</span><span class="n">ss</span><span class="p">,</span><span class="s1">&#39;k</span><span class="se">\&#39;</span><span class="s1">_&#39;</span><span class="o">+</span><span class="n">ss</span><span class="p">]</span>
+                <span class="n">spec_prv_df</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="n">sid</span><span class="p">,</span><span class="n">s1</span><span class="p">]</span><span class="o">=</span><span class="nb">float</span><span class="p">(</span><span class="s1">&#39;</span><span class="si">{:.4e}</span><span class="s1">&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">x1</span><span class="p">))</span>
+                <span class="n">spec_prv_df</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="n">sid</span><span class="p">,</span><span class="n">s2</span><span class="p">]</span><span class="o">=</span><span class="nb">float</span><span class="p">(</span><span class="s1">&#39;</span><span class="si">{:.4e}</span><span class="s1">&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">x2</span><span class="p">))</span>
+                <span class="n">spec_prv_df</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="n">sid</span><span class="p">,</span><span class="n">s4</span><span class="p">]</span><span class="o">=</span><span class="nb">float</span><span class="p">(</span><span class="s1">&#39;</span><span class="si">{:.4e}</span><span class="s1">&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">x4</span><span class="p">))</span>
+                <span class="n">spec_prv_df</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="n">sid</span><span class="p">,</span><span class="n">s5</span><span class="p">]</span><span class="o">=</span><span class="nb">float</span><span class="p">(</span><span class="s1">&#39;</span><span class="si">{:.4e}</span><span class="s1">&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">x5</span><span class="p">))</span>
+    <span class="k">if</span><span class="p">(</span><span class="n">analysis</span> <span class="o">==</span> <span class="s1">&#39;ordinary&#39;</span><span class="p">):</span>
+        <span class="n">fig5</span><span class="o">.</span><span class="n">savefig</span><span class="p">(</span><span class="n">Plot_directory</span><span class="o">+</span><span class="n">sid</span><span class="o">+</span><span class="s1">&#39;_ratios2_ordinary.pdf&#39;</span><span class="p">)</span>
+    <span class="k">if</span><span class="p">(</span><span class="n">analysis</span> <span class="o">==</span> <span class="s1">&#39;best_reg&#39;</span><span class="p">):</span>
+        <span class="n">fig5</span><span class="o">.</span><span class="n">savefig</span><span class="p">(</span><span class="n">Plot_directory</span><span class="o">+</span><span class="n">sid</span><span class="o">+</span><span class="s1">&#39;_ratios2_best_r.pdf&#39;</span><span class="p">)</span>
+    <span class="k">if</span><span class="p">(</span><span class="n">analysis</span> <span class="o">==</span> <span class="s1">&#39;best_krv&#39;</span><span class="p">):</span>
+        <span class="n">fig5</span><span class="o">.</span><span class="n">savefig</span><span class="p">(</span><span class="n">Plot_directory</span><span class="o">+</span><span class="n">sid</span><span class="o">+</span><span class="s1">&#39;_ratios2_best_k.pdf&#39;</span><span class="p">)</span>
+    <span class="n">cnt</span><span class="o">=</span><span class="n">cnt</span><span class="o">+</span><span class="mi">1</span>
+    
+    <span class="c1">## data outtput for MagIC</span>
+    <span class="n">sidPars</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">sidpars_nrm</span><span class="p">)</span>
+    <span class="n">sidPars</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">sidpars_trm</span><span class="p">)</span>
+
+    <span class="c1">## record the step intervals</span>
+    <span class="k">if</span> <span class="p">(</span><span class="n">step_wishes</span> <span class="o">==</span> <span class="kc">False</span><span class="p">):</span> <span class="n">stepRecs</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">steprec</span><span class="p">)</span>
+
+<span class="c1">## concluding the analysis </span>
+<span class="c1"># data outtput for MagIC</span>
+<span class="k">if</span><span class="p">(</span><span class="n">analysis</span> <span class="o">==</span> <span class="s1">&#39;ordinary&#39;</span><span class="p">):</span>
+    <span class="n">pmag</span><span class="o">.</span><span class="n">magic_write</span><span class="p">(</span><span class="n">MagIC_directory</span><span class="o">+</span><span class="s1">&#39;specimens_ts_ordinary.txt&#39;</span><span class="p">,</span><span class="n">sidPars</span><span class="p">,</span><span class="s1">&#39;specimens&#39;</span><span class="p">)</span>
+<span class="k">if</span><span class="p">(</span><span class="n">analysis</span> <span class="o">==</span> <span class="s1">&#39;best_reg&#39;</span><span class="p">):</span>
+    <span class="n">pmag</span><span class="o">.</span><span class="n">magic_write</span><span class="p">(</span><span class="n">MagIC_directory</span><span class="o">+</span><span class="s1">&#39;specimens_ts_best_r.txt&#39;</span><span class="p">,</span><span class="n">sidPars</span><span class="p">,</span><span class="s1">&#39;specimens&#39;</span><span class="p">)</span>
+<span class="k">if</span><span class="p">(</span><span class="n">analysis</span> <span class="o">==</span> <span class="s1">&#39;best_krv&#39;</span><span class="p">):</span>
+    <span class="n">pmag</span><span class="o">.</span><span class="n">magic_write</span><span class="p">(</span><span class="n">MagIC_directory</span><span class="o">+</span><span class="s1">&#39;specimens_ts_best_k.txt&#39;</span><span class="p">,</span><span class="n">sidPars</span><span class="p">,</span><span class="s1">&#39;specimens&#39;</span><span class="p">)</span>
+<span class="c1"># data outtput for private</span>
+<span class="k">if</span><span class="p">(</span><span class="n">analysis</span> <span class="o">==</span> <span class="s1">&#39;ordinary&#39;</span><span class="p">):</span>
+    <span class="n">spec_prv_df</span><span class="o">.</span><span class="n">to_csv</span><span class="p">(</span><span class="n">csv_directory</span><span class="o">+</span><span class="s1">&#39;specimen_results_ordinary.csv&#39;</span><span class="p">,</span><span class="n">index</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+<span class="k">if</span><span class="p">(</span><span class="n">analysis</span> <span class="o">==</span> <span class="s1">&#39;best_reg&#39;</span><span class="p">):</span>
+    <span class="n">spec_prv_df</span><span class="o">.</span><span class="n">to_csv</span><span class="p">(</span><span class="n">csv_directory</span><span class="o">+</span><span class="s1">&#39;specimen_results_best_r.csv&#39;</span><span class="p">,</span><span class="n">index</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+<span class="k">if</span><span class="p">(</span><span class="n">analysis</span> <span class="o">==</span> <span class="s1">&#39;best_krv&#39;</span><span class="p">):</span>
+    <span class="n">spec_prv_df</span><span class="o">.</span><span class="n">to_csv</span><span class="p">(</span><span class="n">csv_directory</span><span class="o">+</span><span class="s1">&#39;specimen_results_best_k.csv&#39;</span><span class="p">,</span><span class="n">index</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+<span class="c1"># data outtput for step intervals</span>
+<span class="k">if</span> <span class="p">(</span><span class="n">step_wishes</span> <span class="o">==</span> <span class="kc">False</span><span class="p">):</span> 
+    <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">stepRecs</span><span class="p">)</span><span class="o">.</span><span class="n">to_csv</span><span class="p">(</span><span class="n">csv_directory</span><span class="o">+</span><span class="s1">&#39;steps_optimum.csv&#39;</span><span class="p">,</span><span class="n">index</span><span class="o">=</span><span class="kc">None</span><span class="p">)</span>    
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>--------------
+[working on:  mc120c-SA4 ]
+NRM:  24  data, TRM1: 24  data, TRM2: 24  data
+ARM0:  24  data, ARM1: 24  data, ARM2: 24  data
+opt interval Zijderveld:   5.0 - 120.0 mT
+[calculated for 190 step-combinations for 1st heating parameters ( 5.0 - 180.0 mT)]
+[calculated for 231 step-combinations for 2nd heating parameters ( 0.0 - 180.0 mT)]
+[merge the combinations for H_min_n &gt;= H_min_t with common H_max]
+  2853  cominbnations --&gt;  1710  cominbnations
+[criteria, 2nd heating]
+  Frac_t &gt;= 0.15 :  1592 step-combinations
+  r_t &gt;= 0.995 :  1571 step-combinations
+  0.95 &lt;= slope_t &lt;= 1.05 :  1550 step-combinations
+[criteria, 1st heating]
+  Frac_n &gt;= 0.15 :  1083 step-combinations
+  r_n &gt;= 0.995 :  948 step-combinations
+[sort by frac_n and select the best step-combination]
+mc120c-SA4
+No data for dir_dec
+mc120c-SA4
+No data for dir_inc
+mc120c-SA4
+No data for dir_mad_free
+mc120c-SA4
+No data for rem_ltd_perc
+2  records written to file  data_files/tsunakawa_shaw/MagIC/specimens_ts_best_r.txt
+</pre></div>
+</div>
+<img alt="../../_images/0831e3f2d5670c5ff141c709251adfacf6acae22337767390b85ab75177f5f5d.png" src="../../_images/0831e3f2d5670c5ff141c709251adfacf6acae22337767390b85ab75177f5f5d.png" />
+<img alt="../../_images/13a21be477ff6de97023e96afdeb726dbd40b2ebba8009e8de50a96a2b58f5a1.png" src="../../_images/13a21be477ff6de97023e96afdeb726dbd40b2ebba8009e8de50a96a2b58f5a1.png" />
+<img alt="../../_images/901738de625a64874054b21a4d06d71f4ea1d4821dde164e5baf5762550ae9bc.png" src="../../_images/901738de625a64874054b21a4d06d71f4ea1d4821dde164e5baf5762550ae9bc.png" />
+<img alt="../../_images/58e558df962a20a8adada504d0b7c30ea0a086dc42cd0d9099a6b762eb1869f3.png" src="../../_images/58e558df962a20a8adada504d0b7c30ea0a086dc42cd0d9099a6b762eb1869f3.png" />
+<img alt="../../_images/cf6ddc744b1a87fc9841910021b981bf597bb4873ea91e689fcef6dfa282cb71.png" src="../../_images/cf6ddc744b1a87fc9841910021b981bf597bb4873ea91e689fcef6dfa282cb71.png" />
+</div>
+</div>
+</section>
+</section>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            name: "python3",
+            path: "./example_notebooks/template_notebooks"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+                </article>
+              
+
+              
+              
+                <footer class="bd-footer-article">
+                  
+<div class="footer-article-items footer-article__inner">
+  
+    <div class="footer-article-item"><!-- Previous / next buttons -->
+<div class="prev-next-area">
+</div></div>
+  
+</div>
+
+                </footer>
+              
+            </div>
+            
+            
+              
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#">How to use</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#check-pmagpy-version">Check PmagPy version</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#choose-the-analysis-method-for-tsunakawa-shaw-api-estimation">Choose the analysis method for Tsunakawa-Shaw API estimation</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#ordinary-find-the-reasonable-portion-by-criteria-of-yamamoto-et-al-2003-using-r-since-2003">ordinary: find the reasonable portion, by criteria of Yamamoto et al. (2003) using r, since 2003</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#best-reg-find-the-best-portion-by-criteria-of-yamamoto-et-al-2003-using-r-since-2022">best_reg: find the best portion, by criteria of Yamamoto et al. (2003) using r, since 2022</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#best-krv-find-the-best-portion-output-best-files-by-criteria-of-lloyd-et-al-2021-using-k">best_krv - find the best portion, output “best” files, by criteria of Lloyd et al. (2021) using k’</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#threshold-values-for-criteria-yamamoto-et-al-2003-and-lloyd-et-al-2021">threshold values for criteria: Yamamoto et al. (2003) and Lloyd et al.(2021)</a></li>
+</ul>
+</li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#set-variables">Set variables</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#file-paths-directories">file paths (directories)</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#sample-description-for-magic">sample description for MagIC</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#experimental-condition">experimental condition</a></li>
+</ul>
+</li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#read-raw-data-convert-to-magic-format">Read raw data; convert to MAGIC format</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#create-the-template-files">Create the template files</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#siteinfo-template-csv-template-file-for-sample-data-age-lat-long">1) siteinfo_template.csv: template file for sample data &lt;age, lat, long&gt;</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#steps-template-csv-template-file-for-step-wishes-to-use-for-main-analyses">2) steps_template.csv: template file for step wishes to use for main analyses</a></li>
+</ul>
+</li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#main-analysis">Main Analysis</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#remove-existing-plots">remove existing plots</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#read-in-measurements-data">read in measurements data</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#set-specimen-ids">set specimen ids</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#read-in-the-specimen-treatment-step-wishes-from-steps-csv">read in the specimen treatment step wishes from “steps.csv”</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#main-loop">main loop</a></li>
+</ul>
+</li>
+</ul>
+
+  </nav></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
+  
+  <div class="footer-item">
+    
+<p class="component-author">
+By PmagPy Contributors
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  <p class="copyright">
+    
+      © Copyright 2023.
+      <br/>
+    
+  </p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+</div>
+          </footer>
+        
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="../../_static/scripts/bootstrap.js?digest=e353d410970836974a52"></script>
+<script src="../../_static/scripts/pydata-sphinx-theme.js?digest=e353d410970836974a52"></script>
+
+  <footer class="bd-footer">
+  </footer>
+  </body>
+</html>
