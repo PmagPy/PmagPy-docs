@@ -6,6 +6,28 @@ These Jupyter notebooks contain code associated with example workflows associate
 :class-container: text-left
 :gutter: 3
 
+🧭:::{grid-item-card}
+:link: template_notebooks/Inspecting_MagIC_directional_data
+:link-type: doc
+:class-header: bg-light
+
+MagIC data inspection template 🧐
+^^^
+
+This notebook enables a MagIC contribution to be downloaded with the directional data within it to be visualized using PmagPy.
+:::
+
+:::{grid-item-card}
+:link: template_notebooks/Conduct_reversal_tests
+:link-type: doc
+:class-header: bg-light
+
+Reversal test template 🧲
+^^^
+
+This notebook conducts statistical reversal tests on directional data in MagIC format.
+:::
+
 :::{grid-item-card}
 :link: template_notebooks/PmagPy_iodp_HOLE_template
 :link-type: doc
@@ -22,7 +44,7 @@ This notebook is for people wanting to download and manipulate data from an IODP
 :link-type: doc
 :class-header: bg-light
 
-Tsunakawa-Shaw paleointensity template 🧭
+Tsunakawa-Shaw paleointensity template 🏋️
 ^^^
 
 This template enables data from Tsunakawa-Shaw method paleointensity experiments to be analyzed using PmagPy (see Yamamoto et al. 2022 for examples; https://doi.org/10.1029/2022GC010391). 
