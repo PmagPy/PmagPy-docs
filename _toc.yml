@@ -30,7 +30,9 @@ parts:
     - file: documentation_notebooks/PmagPy_MagIC
   - caption: Example notebooks
     chapters:
-    - file: example_notebooks/example_notebooks
+    - file: example_notebooks/tutorial_notebooks
+    - file: example_notebooks/template_notebooks
+    - file: example_notebooks/published_notebooks
   - caption: MagIC
     chapters:
     - file: MagIC/MagIC
