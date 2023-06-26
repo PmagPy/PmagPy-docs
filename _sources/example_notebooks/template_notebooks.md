@@ -40,7 +40,7 @@ This notebook is for people wanting to download and manipulate data from an IODP
 :::
 
 :::{grid-item-card}
-:link: template_notebooks/PmagPy_tsunakawa_shaw_analysis.ipynb
+:link: template_notebooks/PmagPy_tsunakawa_shaw_analysis
 :link-type: doc
 :class-header: bg-light
 
