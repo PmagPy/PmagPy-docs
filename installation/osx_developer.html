@@ -437,11 +437,23 @@ reinstall</a>.</p></li>
 section</a> for
 more information on finding your command line.</p></li>
 <li><p>Create and activate a new conda Python environment with some required
-packages:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">conda</span> <span class="n">create</span> <span class="o">-</span><span class="n">n</span> <span class="n">pmagpy_env</span> <span class="n">future</span> <span class="n">wxPython</span> <span class="n">cartopy</span> <span class="n">pandas</span> <span class="n">matplotlib</span> <span class="n">requests</span> <span class="n">jupyter</span> <span class="n">seaborn</span>
-<span class="n">conda</span> <span class="n">activate</span> <span class="n">pmagpy_env</span>
-<span class="n">pip</span> <span class="n">install</span> <span class="o">--</span><span class="n">user</span> <span class="o">--</span><span class="n">upgrade</span> <span class="n">pip</span> <span class="n">setuptools</span>
-<span class="n">conda</span> <span class="n">install</span> <span class="n">conda</span><span class="o">-</span><span class="n">forge</span><span class="p">::</span><span class="n">python</span><span class="o">-</span><span class="n">wget</span>
+packages by copying and pasting each of these lines and then running each of these lines in the terminal:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">conda</span> <span class="n">create</span> <span class="o">-</span><span class="n">n</span> <span class="n">pmagpy_env</span> <span class="n">future</span> <span class="n">scipy</span> <span class="n">pandas</span> <span class="n">matplotlib</span> <span class="n">requests</span> <span class="n">jupyter</span> <span class="n">seaborn</span>
+</pre></div>
+</div>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">conda</span> <span class="n">activate</span> <span class="n">pmagpy_env</span>
+</pre></div>
+</div>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">pip</span> <span class="n">install</span> <span class="o">--</span><span class="n">user</span> <span class="o">--</span><span class="n">upgrade</span> <span class="n">pip</span> <span class="n">setuptools</span>
+</pre></div>
+</div>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">pip</span> <span class="n">install</span> <span class="n">wxpython</span>
+</pre></div>
+</div>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">conda</span> <span class="n">install</span> <span class="o">-</span><span class="n">c</span> <span class="n">conda</span><span class="o">-</span><span class="n">forge</span> <span class="n">cartopy</span>
+</pre></div>
+</div>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">conda</span> <span class="n">install</span> <span class="n">conda</span><span class="o">-</span><span class="n">forge</span><span class="p">::</span><span class="n">python</span><span class="o">-</span><span class="n">wget</span>
 </pre></div>
 </div>
 </li>
