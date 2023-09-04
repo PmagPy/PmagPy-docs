@@ -396,7 +396,7 @@ document.write(`
             </div>
             <nav aria-label="Page">
                 <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#analyzing-and-visualizing-the-data">Analyzing and visualizing the data</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#import-functions-from-pmagpy">Import functions from PmagPy</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#import-the-data">Import the data</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#unpacking-the-tables">Unpacking the tables</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#visualizing-measurement-level-data">Visualizing measurement level data</a></li>
@@ -419,25 +419,14 @@ document.write(`
                   
   <section class="tex2jax_ignore mathjax_ignore" id="inspecting-directional-data-in-a-magic-contribution-using-pmagpy">
 <h1>Inspecting directional data in a MagIC contribution using PmagPy<a class="headerlink" href="#inspecting-directional-data-in-a-magic-contribution-using-pmagpy" title="Permalink to this heading">#</a></h1>
-<p>Let’s have a look at a MagIC contribution that is a typical directional data set. This study by Nicole Behar and coauthors focused on lava flows from the Plio-Pleistocene Golan Heights.</p>
-<blockquote>
-<div><p>Behar, N., Shaar, R., Tauxe, L., Asefaw,
-H., Ebert, Y., Heimann, A., et al. (2019).
-Paleomagnetism and paleosecular
-variations from the Plio‐Pleistocene
-Golan Heights volcanic plateau, Israel.
-Geochemistry, Geophysics, Geosystems,
-20 <a class="reference external" href="https://doi.org/10.1029/2019GC008479">https://doi.org/10.1029/2019GC008479</a></p>
-</div></blockquote>
-<p>A way that we can readily search for a contribution on MagIC is using the study doi. Let’s go check out the contribution on the MagIC website:</p>
-<p><a class="reference external" href="https://earthref.org/MagIC/doi/10.1029/2019GC008479">https://earthref.org/MagIC/doi/10.1029/2019GC008479</a></p>
-<section id="analyzing-and-visualizing-the-data">
-<h2>Analyzing and visualizing the data<a class="headerlink" href="#analyzing-and-visualizing-the-data" title="Permalink to this heading">#</a></h2>
-<p>We want to be able to get the data from MagIC, import the data into our notebook, and have a look at it.</p>
+<p>This template notebook enables inspection of the data within a MagIC contribution. We want to get the data from MagIC, import the data into our notebook, and inspect the data by making plots.</p>
+<section id="import-functions-from-pmagpy">
+<h2>Import functions from PmagPy<a class="headerlink" href="#import-functions-from-pmagpy" title="Permalink to this heading">#</a></h2>
 <p>To start with, let’s import some functions from PmagPy:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">pmagpy.ipmag</span> <span class="k">as</span> <span class="nn">ipmag</span>
+<span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
 <span class="o">%</span><span class="k">matplotlib</span> inline
 <span class="o">%</span><span class="k">config</span> InlineBackend.figure_format=&#39;retina&#39;
 </pre></div>
@@ -447,21 +436,20 @@ Geochemistry, Geophysics, Geosystems,
 </section>
 <section id="import-the-data">
 <h2>Import the data<a class="headerlink" href="#import-the-data" title="Permalink to this heading">#</a></h2>
-<p>We can use ipmag to go download the data from MagIC for us. We can do this in a couple of ways. One way is to use the doi and the function <code class="docutils literal notranslate"><span class="pre">ipmag.download_magic_from_doi()</span></code>. The other is to use the MagIC contribution ID number with the <code class="docutils literal notranslate"><span class="pre">ipmag.download_magic_from_id()</span></code> function. Let’s take that approach&gt;</p>
+<p>We can use ipmag to go download the data from MagIC for us. We can do this in a couple of ways. One way is to use the doi and the function <code class="docutils literal notranslate"><span class="pre">ipmag.download_magic_from_doi()</span></code>. The other is to use the MagIC contribution ID number with the <code class="docutils literal notranslate"><span class="pre">ipmag.download_magic_from_id()</span></code> function. Let’s take that approach for the study:</p>
+<blockquote>
+<div><p>Nicholas L. Swanson‐Hysell, Margaret S. Avery, Yiming Zhang, Eben B. Hodgin, Robert J. Sherwood, Francisco E. Apen, Terrence J. Boerboom, C. Brenhin Keller, John M. Cottle (2021). The paleogeography of Laurentia in its early years:new constraints from the Paleoproterozoic East‐Central Minnesota batholith. Tectonics. doi:10.1029/2021TC006751. MagIC contribution: <a class="reference external" href="https://earthref.org/MagIC/doi/10.1029/2021TC006751">https://earthref.org/MagIC/doi/10.1029/2021TC006751</a></p>
+</div></blockquote>
+<p>which has a MagIC ID of 17072. This MagIC ID can be replaced with that of another study in the MagIC database.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">magic_id</span><span class="o">=</span><span class="s1">&#39;16676&#39;</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">magic_id</span><span class="o">=</span><span class="s1">&#39;17072&#39;</span>
 <span class="n">result</span><span class="p">,</span> <span class="n">magic_file_name</span> <span class="o">=</span> <span class="n">ipmag</span><span class="o">.</span><span class="n">download_magic_from_id</span><span class="p">(</span><span class="n">magic_id</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
-<div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>100% [......................................................] 1133759 / 1133759
-</pre></div>
 </div>
-</div>
-</div>
-<p>Running this function should give you a file called <code class="docutils literal notranslate"><span class="pre">magic_contribution_16676.txt</span></code> in the folder that this notebook is in. Let’s go find that file in the Jupyter directory and open it to have a look.</p>
+<p>Running this function will download a file called <code class="docutils literal notranslate"><span class="pre">magic_contribution_17072.txt</span></code> in the folder that this notebook is in.</p>
 <p>In the above code cell, we saved a variable <code class="docutils literal notranslate"><span class="pre">magic_file_name</span></code> that is the name of the files that was downloaded.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -470,7 +458,7 @@ Geochemistry, Geophysics, Geosystems,
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&#39;magic_contribution_16676.txt&#39;
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&#39;magic_contribution_17072.txt&#39;
 </pre></div>
 </div>
 </div>
@@ -486,8 +474,6 @@ Geochemistry, Geophysics, Geosystems,
 <li><p>samples</p></li>
 <li><p>specimens</p></li>
 <li><p>measurements</p></li>
-<li><p>criteria</p></li>
-<li><p>ages</p></li>
 </ul>
 <p>We want unpack the contribution into these distinct tables.</p>
 <div class="cell docutils container">
@@ -499,12 +485,10 @@ Geochemistry, Geophysics, Geosystems,
 <div class="cell_output docutils container">
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>1  records written to file  /Users/unimos/0000_Github/PmagPy-docs/example_notebooks/template_notebooks/contribution.txt
 1  records written to file  /Users/unimos/0000_Github/PmagPy-docs/example_notebooks/template_notebooks/locations.txt
-91  records written to file  /Users/unimos/0000_Github/PmagPy-docs/example_notebooks/template_notebooks/sites.txt
-611  records written to file  /Users/unimos/0000_Github/PmagPy-docs/example_notebooks/template_notebooks/samples.txt
-676  records written to file  /Users/unimos/0000_Github/PmagPy-docs/example_notebooks/template_notebooks/specimens.txt
-6297  records written to file  /Users/unimos/0000_Github/PmagPy-docs/example_notebooks/template_notebooks/measurements.txt
-1  records written to file  /Users/unimos/0000_Github/PmagPy-docs/example_notebooks/template_notebooks/criteria.txt
-91  records written to file  /Users/unimos/0000_Github/PmagPy-docs/example_notebooks/template_notebooks/ages.txt
+90  records written to file  /Users/unimos/0000_Github/PmagPy-docs/example_notebooks/template_notebooks/sites.txt
+312  records written to file  /Users/unimos/0000_Github/PmagPy-docs/example_notebooks/template_notebooks/samples.txt
+1559  records written to file  /Users/unimos/0000_Github/PmagPy-docs/example_notebooks/template_notebooks/specimens.txt
+12410  records written to file  /Users/unimos/0000_Github/PmagPy-docs/example_notebooks/template_notebooks/measurements.txt
 </pre></div>
 </div>
 <div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>True
@@ -515,26 +499,26 @@ Geochemistry, Geophysics, Geosystems,
 </section>
 <section id="visualizing-measurement-level-data">
 <h2>Visualizing measurement level data<a class="headerlink" href="#visualizing-measurement-level-data" title="Permalink to this heading">#</a></h2>
-<p>The <code class="docutils literal notranslate"><span class="pre">ipmag.zeq_magic()</span></code> function will plot measurement data from single specimens. Using the <code class="docutils literal notranslate"><span class="pre">n_plots</span></code> parameter specifies how many specimens data are plotted for.</p>
+<p>The <code class="docutils literal notranslate"><span class="pre">ipmag.zeq_magic()</span></code> function will plot measurement data from single specimens generating:</p>
+<ul class="simple">
+<li><p>equal area plot</p></li>
+<li><p>Zijderveld plot</p></li>
+<li><p>demagnetization plot</p></li>
+</ul>
+<p>The <code class="docutils literal notranslate"><span class="pre">n_plots</span></code> parameter specifies how many specimens data are generated.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">ipmag</span><span class="o">.</span><span class="n">zeq_magic</span><span class="p">(</span><span class="n">save_plots</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span>
-                <span class="n">n_plots</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">ipmag</span><span class="o">.</span><span class="n">zeq_magic</span><span class="p">(</span><span class="n">save_plots</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">n_plots</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>-I- Using online data model
--I- Getting method codes from earthref.org
--I- Importing controlled vocabularies from https://earthref.org
-</pre></div>
-</div>
 <div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>(True, [])
 </pre></div>
 </div>
-<img alt="../../_images/b73b96cbf31157973572944ce331f6493cd67c4947e498b5d597208ea1f2ad46.png" src="../../_images/b73b96cbf31157973572944ce331f6493cd67c4947e498b5d597208ea1f2ad46.png" />
-<img alt="../../_images/aafa85ddcc98e3e3d983ee6d50b8e09e94741b525ec9dbb2e5ad2926cfc7aab8.png" src="../../_images/aafa85ddcc98e3e3d983ee6d50b8e09e94741b525ec9dbb2e5ad2926cfc7aab8.png" />
-<img alt="../../_images/49ce4ac612c3d4a4d38387a09a92a0c84ad3d882ddbc43ac4cd507d9b14344b0.png" src="../../_images/49ce4ac612c3d4a4d38387a09a92a0c84ad3d882ddbc43ac4cd507d9b14344b0.png" />
+<img alt="../../_images/b62be6871bc95251f632ae2651aa2295a89bb1490307ef91ab01a707d2424593.png" src="../../_images/b62be6871bc95251f632ae2651aa2295a89bb1490307ef91ab01a707d2424593.png" />
+<img alt="../../_images/d92751752f478238f80b68bb45aaa93f1c7610eca3e98e064acd63a21f1f3a67.png" src="../../_images/d92751752f478238f80b68bb45aaa93f1c7610eca3e98e064acd63a21f1f3a67.png" />
+<img alt="../../_images/3409b943a5bdd2253f3228af667c3d5721abb25f6d06abdb0e6efb529c517eac.png" src="../../_images/3409b943a5bdd2253f3228af667c3d5721abb25f6d06abdb0e6efb529c517eac.png" />
 </div>
 </div>
 </section>
@@ -549,11 +533,11 @@ Geochemistry, Geophysics, Geosystems,
 </div>
 <div class="cell_output docutils container">
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>-W- File /Users/unimos/0000_Github/PmagPy-docs/example_notebooks/template_notebooks/criteria.txt is incomplete and will be ignored
-91  sites records read in
-1  saved in  LO:_Golan-Heights_SI:__SA:__SP:__CO:_g_TY:_eqarea_.svg
+90  sites records read in
+1  saved in  LO:_ECMB_SI:__SA:__SP:__CO:_g_TY:_eqarea_.svg
 </pre></div>
 </div>
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>(True, [&#39;LO:_Golan-Heights_SI:__SA:__SP:__CO:_g_TY:_eqarea_.svg&#39;])
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>(True, [&#39;LO:_ECMB_SI:__SA:__SP:__CO:_g_TY:_eqarea_.svg&#39;])
 </pre></div>
 </div>
 </div>
@@ -570,11 +554,11 @@ Geochemistry, Geophysics, Geosystems,
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>-W- File /Users/unimos/0000_Github/PmagPy-docs/example_notebooks/template_notebooks/criteria.txt is incomplete and will be ignored
 </pre></div>
 </div>
-<img alt="../../_images/3b956607837d18fe761d6bf6a03504f58a37bde6455ae24350d39df2ebe0b52b.png" src="../../_images/3b956607837d18fe761d6bf6a03504f58a37bde6455ae24350d39df2ebe0b52b.png" />
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>1  saved in  MC:_16676_TY:_VGP_map.pdf
+<img alt="../../_images/5e93c3ad6e5a7cd3523c054fdc4249c0df1527f970f6e94a97c321c95ace0853.png" src="../../_images/5e93c3ad6e5a7cd3523c054fdc4249c0df1527f970f6e94a97c321c95ace0853.png" />
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>1  saved in  MC:_17072_TY:_VGP_map.pdf
 </pre></div>
 </div>
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>(True, dict_values([&#39;MC:_16676_TY:_VGP_map.pdf&#39;]))
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>(True, dict_values([&#39;MC:_17072_TY:_VGP_map.pdf&#39;]))
 </pre></div>
 </div>
 </div>
@@ -583,6 +567,24 @@ Geochemistry, Geophysics, Geosystems,
 <section id="importing-specific-magic-tables">
 <h2>Importing specific MagIC tables<a class="headerlink" href="#importing-specific-magic-tables" title="Permalink to this heading">#</a></h2>
 <p>The functions above <code class="docutils literal notranslate"><span class="pre">ipmag.zeq_magic</span></code>, <code class="docutils literal notranslate"><span class="pre">ipmag.eqarea_magic</span></code>, and <code class="docutils literal notranslate"><span class="pre">ipmag.vgpmap_magic</span></code> are convenience functions that are able to directly read from MagIC files. For some other functions in <code class="docutils literal notranslate"><span class="pre">PmagPy</span></code> data need to be imported to be Python objects. There is a really nice package for dealing with tabular data in Python called <code class="docutils literal notranslate"><span class="pre">pandas</span></code>. The code cell below imports this package so that we can use it. We use the typical scientific Python nomenclature of importing it for use to the shorthand <code class="docutils literal notranslate"><span class="pre">pd</span></code>.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Read the files</span>
+<span class="n">specimens</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s1">&#39;specimens.txt&#39;</span><span class="p">,</span> <span class="n">sep</span><span class="o">=</span><span class="s1">&#39;</span><span class="se">\t</span><span class="s1">&#39;</span><span class="p">,</span> <span class="n">skiprows</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+<span class="n">measurements</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s1">&#39;measurements.txt&#39;</span><span class="p">,</span> <span class="n">sep</span><span class="o">=</span><span class="s1">&#39;</span><span class="se">\t</span><span class="s1">&#39;</span><span class="p">,</span> <span class="n">skiprows</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+
+<span class="c1"># Get the unique specimen names from each DataFrame</span>
+<span class="n">unique_specimens</span> <span class="o">=</span> <span class="n">specimens</span><span class="p">[</span><span class="s1">&#39;specimen&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">unique</span><span class="p">()</span>
+<span class="n">unique_measurements</span> <span class="o">=</span> <span class="n">measurements</span><span class="p">[</span><span class="s1">&#39;specimen&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">unique</span><span class="p">()</span>
+
+<span class="c1"># Find the common unique names using numpy&#39;s intersect1d method</span>
+<span class="n">specimen_list</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">np</span><span class="o">.</span><span class="n">intersect1d</span><span class="p">(</span><span class="n">unique_specimens</span><span class="p">,</span> <span class="n">unique_measurements</span><span class="p">)</span>
+
+<span class="n">specimen_list</span>
+</pre></div>
+</div>
+</div>
+</div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
@@ -979,7 +981,7 @@ Geochemistry, Geophysics, Geosystems,
   </div>
   <nav class="bd-toc-nav page-toc">
     <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#analyzing-and-visualizing-the-data">Analyzing and visualizing the data</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#import-functions-from-pmagpy">Import functions from PmagPy</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#import-the-data">Import the data</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#unpacking-the-tables">Unpacking the tables</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#visualizing-measurement-level-data">Visualizing measurement level data</a></li>
