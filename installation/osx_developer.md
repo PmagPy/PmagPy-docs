@@ -24,12 +24,29 @@ need to download Anaconda.
   more information on finding your command line.
 
 - Create and activate a new conda Python environment with some required
-  packages:
+  packages by copying and pasting each of these lines and then running each of these lines in the terminal:
 
   ```
-  conda create -n pmagpy_env future wxPython cartopy pandas matplotlib requests jupyter seaborn
+  conda create -n pmagpy_env future scipy pandas matplotlib requests jupyter seaborn
+  ```
+
+  ```
   conda activate pmagpy_env
+  ```
+  
+  ```
   pip install --user --upgrade pip setuptools
+  ```
+
+  ```  
+  pip install wxpython
+  ```
+
+  ```
+  conda install -c conda-forge cartopy
+  ```
+
+  ```
   conda install conda-forge::python-wget
   ```
 
