@@ -396,19 +396,26 @@ document.write(`
             </div>
             <nav aria-label="Page">
                 <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#change-the-magic-contribution">Change the MagIC contribution</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#apply-to-your-own-sites-txt-data">Apply to your own <code class="docutils literal notranslate"><span class="pre">sites.txt</span></code> data</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#introduction">Introduction</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#change-the-magic-contribution">Change the MagIC contribution</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#apply-to-your-own-sites-txt-data">Apply to your own <code class="docutils literal notranslate"><span class="pre">sites.txt</span></code> data</a></li>
+</ul>
+</li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#import-packages">Import packages</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#download-data">Download data</a><ul class="nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#download-and-unpack-data">Download and unpack data</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#download-magic-contribution">Download MagIC contribution</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#make-a-new-folder-for-the-data">Make a new folder for the data</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#move-the-magic-file-into-this-folder">Move the MagIC file into this folder</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#unpack-the-magic-file">Unpack the MagIC file</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#import-the-sites-table">Import the sites table</a></li>
 </ul>
 </li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#reversal-tests">Reversal tests</a><ul class="nav section-nav flex-column">
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#learn-about-the-function">Learn about the function</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#conduct-the-bootstrap-reversal-test">Conduct the bootstrap reversal test</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#conduct-the-watson-common-mean-reversal-test">Conduct the Watson common mean reversal test</a></li>
 </ul>
 </li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#conduct-the-watson-common-mean-reversal-test">Conduct the Watson common mean reversal test</a></li>
 </ul>
             </nav>
         </div>
@@ -422,6 +429,8 @@ document.write(`
                   
   <section class="tex2jax_ignore mathjax_ignore" id="conduct-reversal-test-on-directional-data-in-magic-format-using-pmagpy">
 <h1>Conduct reversal test on directional data in MagIC format using PmagPy<a class="headerlink" href="#conduct-reversal-test-on-directional-data-in-magic-format-using-pmagpy" title="Permalink to this heading">#</a></h1>
+<section id="introduction">
+<h2>Introduction<a class="headerlink" href="#introduction" title="Permalink to this heading">#</a></h2>
 <p>In this notebook, we conduct a reversal test on site level paleomagnetic directional data from the following study.</p>
 <blockquote>
 <div><p>Behar, N., Shaar, R., Tauxe, L., Asefaw,
@@ -433,12 +442,13 @@ Geochemistry, Geophysics, Geosystems,
 20 <a class="reference external" href="https://doi.org/10.1029/2019GC008479">https://doi.org/10.1029/2019GC008479</a></p>
 </div></blockquote>
 <section id="change-the-magic-contribution">
-<h2>Change the MagIC contribution<a class="headerlink" href="#change-the-magic-contribution" title="Permalink to this heading">#</a></h2>
+<h3>Change the MagIC contribution<a class="headerlink" href="#change-the-magic-contribution" title="Permalink to this heading">#</a></h3>
 <p>You can change what study this notebook is applied to by changing the <code class="docutils literal notranslate"><span class="pre">magic_id</span></code> in the <strong>Download data</strong> code below.</p>
 </section>
 <section id="apply-to-your-own-sites-txt-data">
-<h2>Apply to your own <code class="docutils literal notranslate"><span class="pre">sites.txt</span></code> data<a class="headerlink" href="#apply-to-your-own-sites-txt-data" title="Permalink to this heading">#</a></h2>
+<h3>Apply to your own <code class="docutils literal notranslate"><span class="pre">sites.txt</span></code> data<a class="headerlink" href="#apply-to-your-own-sites-txt-data" title="Permalink to this heading">#</a></h3>
 <p>You can also substitute in your own MagIC format <code class="docutils literal notranslate"><span class="pre">sites.txt</span></code> file. To do this, skip the <strong>Download data</strong> section and got to the <strong>Import the sites table</strong> section after running the <strong>Import packages</strong> code.</p>
+</section>
 </section>
 <section id="import-packages">
 <h2>Import packages<a class="headerlink" href="#import-packages" title="Permalink to this heading">#</a></h2>
@@ -446,6 +456,7 @@ Geochemistry, Geophysics, Geosystems,
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">pmagpy.ipmag</span> <span class="k">as</span> <span class="nn">ipmag</span>
 <span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
+<span class="kn">import</span> <span class="nn">os</span>
 <span class="o">%</span><span class="k">matplotlib</span> inline
 <span class="o">%</span><span class="k">config</span> InlineBackend.figure_format=&#39;retina&#39;
 </pre></div>
@@ -453,28 +464,64 @@ Geochemistry, Geophysics, Geosystems,
 </div>
 </div>
 </section>
-<section id="download-data">
-<h2>Download data<a class="headerlink" href="#download-data" title="Permalink to this heading">#</a></h2>
+<section id="download-and-unpack-data">
+<h2>Download and unpack data<a class="headerlink" href="#download-and-unpack-data" title="Permalink to this heading">#</a></h2>
+<section id="download-magic-contribution">
+<h3>Download MagIC contribution<a class="headerlink" href="#download-magic-contribution" title="Permalink to this heading">#</a></h3>
 <p>Following the steps in the
 <code class="docutils literal notranslate"><span class="pre">Inspecting_MagIC_directional_data.ipynb</span></code>
-notebook, we can download and unpack the data.</p>
+notebook, we can first download the data from MagIC</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">magic_id</span><span class="o">=</span><span class="s1">&#39;16676&#39;</span>
 <span class="n">result</span><span class="p">,</span> <span class="n">magic_file_name</span> <span class="o">=</span> <span class="n">ipmag</span><span class="o">.</span><span class="n">download_magic_from_id</span><span class="p">(</span><span class="n">magic_id</span><span class="p">)</span>
-<span class="n">ipmag</span><span class="o">.</span><span class="n">download_magic</span><span class="p">(</span><span class="n">magic_file_name</span><span class="p">,</span><span class="n">print_progress</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="make-a-new-folder-for-the-data">
+<h3>Make a new folder for the data<a class="headerlink" href="#make-a-new-folder-for-the-data" title="Permalink to this heading">#</a></h3>
+<p>The file will have downloaded to our current working directory. Let’s make a new folder to keep things organized.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">dirs</span><span class="o">=</span><span class="n">os</span><span class="o">.</span><span class="n">listdir</span><span class="p">()</span> <span class="c1"># get a list of directories in this one</span>
+<span class="n">data_dir</span> <span class="o">=</span> <span class="s2">&quot;reversal_test&quot;</span>
+<span class="k">if</span> <span class="n">data_dir</span> <span class="ow">not</span> <span class="ow">in</span> <span class="n">dirs</span><span class="p">:</span>
+    <span class="n">os</span><span class="o">.</span><span class="n">mkdir</span><span class="p">(</span><span class="n">data_dir</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="move-the-magic-file-into-this-folder">
+<h3>Move the MagIC file into this folder<a class="headerlink" href="#move-the-magic-file-into-this-folder" title="Permalink to this heading">#</a></h3>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">os</span><span class="o">.</span><span class="n">rename</span><span class="p">(</span><span class="n">magic_file_name</span><span class="p">,</span> <span class="n">data_dir</span><span class="o">+</span><span class="s1">&#39;/&#39;</span><span class="o">+</span><span class="n">magic_file_name</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="unpack-the-magic-file">
+<h3>Unpack the MagIC file<a class="headerlink" href="#unpack-the-magic-file" title="Permalink to this heading">#</a></h3>
+<p>MagIC contributions are made up of distinct tables that can be unpacked. In this case, we are going to do a reversal test on the site level data so are particularly interested in unpacking the <code class="docutils literal notranslate"><span class="pre">sites.txt</span></code> table from the MagIC file.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">ipmag</span><span class="o">.</span><span class="n">unpack_magic</span><span class="p">(</span><span class="n">magic_file_name</span><span class="p">,</span><span class="n">dir_path</span><span class="o">=</span><span class="n">data_dir</span><span class="p">,</span><span class="n">print_progress</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>100% [......................................................] 1133759 / 11337591  records written to file  /Users/unimos/0000_Github/PmagPy-docs/example_notebooks/template_notebooks/contribution.txt
-1  records written to file  /Users/unimos/0000_Github/PmagPy-docs/example_notebooks/template_notebooks/locations.txt
-91  records written to file  /Users/unimos/0000_Github/PmagPy-docs/example_notebooks/template_notebooks/sites.txt
-611  records written to file  /Users/unimos/0000_Github/PmagPy-docs/example_notebooks/template_notebooks/samples.txt
-676  records written to file  /Users/unimos/0000_Github/PmagPy-docs/example_notebooks/template_notebooks/specimens.txt
-6297  records written to file  /Users/unimos/0000_Github/PmagPy-docs/example_notebooks/template_notebooks/measurements.txt
-1  records written to file  /Users/unimos/0000_Github/PmagPy-docs/example_notebooks/template_notebooks/criteria.txt
-91  records written to file  /Users/unimos/0000_Github/PmagPy-docs/example_notebooks/template_notebooks/ages.txt
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>1  records written to file  /Users/unimos/0000_Github/PmagPy-docs/example_notebooks/template_notebooks/reversal_test/contribution.txt
+1  records written to file  /Users/unimos/0000_Github/PmagPy-docs/example_notebooks/template_notebooks/reversal_test/locations.txt
+91  records written to file  /Users/unimos/0000_Github/PmagPy-docs/example_notebooks/template_notebooks/reversal_test/sites.txt
+611  records written to file  /Users/unimos/0000_Github/PmagPy-docs/example_notebooks/template_notebooks/reversal_test/samples.txt
+676  records written to file  /Users/unimos/0000_Github/PmagPy-docs/example_notebooks/template_notebooks/reversal_test/specimens.txt
+6297  records written to file  /Users/unimos/0000_Github/PmagPy-docs/example_notebooks/template_notebooks/reversal_test/measurements.txt
+1  records written to file  /Users/unimos/0000_Github/PmagPy-docs/example_notebooks/template_notebooks/reversal_test/criteria.txt
+91  records written to file  /Users/unimos/0000_Github/PmagPy-docs/example_notebooks/template_notebooks/reversal_test/ages.txt
 </pre></div>
 </div>
 <div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>True
@@ -482,12 +529,15 @@ notebook, we can download and unpack the data.</p>
 </div>
 </div>
 </div>
+</section>
 <section id="import-the-sites-table">
 <h3>Import the sites table<a class="headerlink" href="#import-the-sites-table" title="Permalink to this heading">#</a></h3>
 <p>We can now use pandas to import the sites table to a pandas dataframe using the function <code class="docutils literal notranslate"><span class="pre">pd.read_csv()</span></code>.</p>
+<p>We need to point <code class="docutils literal notranslate"><span class="pre">pd.read_csv()</span></code> to the file which with the above steps has the location and name of <code class="docutils literal notranslate"><span class="pre">'reversal_test/sites.txt'</span></code>. This can be changed if the file is in a different place or has a different name. For example, if it is in the same directory as the notebook it can be: <code class="docutils literal notranslate"><span class="pre">'sites.txt'</span></code></p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">sites</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s1">&#39;sites.txt&#39;</span><span class="p">,</span><span class="n">sep</span><span class="o">=</span><span class="s1">&#39;</span><span class="se">\t</span><span class="s1">&#39;</span><span class="p">,</span><span class="n">header</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">sites_file</span> <span class="o">=</span> <span class="s1">&#39;reversal_test/sites.txt&#39;</span>
+<span class="n">sites</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="n">sites_file</span><span class="p">,</span><span class="n">sep</span><span class="o">=</span><span class="s1">&#39;</span><span class="se">\t</span><span class="s1">&#39;</span><span class="p">,</span><span class="n">header</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
 <span class="n">sites</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
 </pre></div>
 </div>
@@ -684,7 +734,7 @@ notebook, we can download and unpack the data.</p>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span><span class=" -Color -Color-Red">Signature:</span>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span><span class=" -Color -Color-Red">Signature:</span>
 ipmag<span class=" -Color -Color-Blue">.</span>reversal_test_bootstrap<span class=" -Color -Color-Blue">(</span>
     dec<span class=" -Color -Color-Blue">=</span><span class=" -Color -Color-Green">None</span><span class=" -Color -Color-Blue">,</span>
     inc<span class=" -Color -Color-Blue">=</span><span class=" -Color -Color-Green">None</span><span class=" -Color -Color-Blue">,</span>
@@ -744,7 +794,7 @@ Examples:
 </section>
 <section id="conduct-the-bootstrap-reversal-test">
 <h3>Conduct the bootstrap reversal test<a class="headerlink" href="#conduct-the-bootstrap-reversal-test" title="Permalink to this heading">#</a></h3>
-<p>Let’s go ahead and do the reversal test.</p>
+<p>Let’s go ahead and do the bootstrap reversal test using this <code class="docutils literal notranslate"><span class="pre">ipmag.reversal_test_bootstrap()</span></code> function.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">ipmag</span><span class="o">.</span><span class="n">reversal_test_bootstrap</span><span class="p">(</span><span class="n">dec</span><span class="o">=</span><span class="n">sites_dec</span><span class="p">,</span>
@@ -753,7 +803,7 @@ Examples:
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../_images/585cc3da43a11c08e42f876db5222bcbea0367802a46bbb1825060f071b57fa7.png" src="../../_images/585cc3da43a11c08e42f876db5222bcbea0367802a46bbb1825060f071b57fa7.png" />
+<img alt="../../_images/55ce54349a05b8f33791fc27260b68971fed77d884923f511874c5c686f6e51d.png" src="../../_images/55ce54349a05b8f33791fc27260b68971fed77d884923f511874c5c686f6e51d.png" />
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Fail, distinct in x and z
 </pre></div>
 </div>
@@ -763,9 +813,8 @@ Examples:
 </div>
 </div>
 </section>
-</section>
 <section id="conduct-the-watson-common-mean-reversal-test">
-<h2>Conduct the Watson common mean reversal test<a class="headerlink" href="#conduct-the-watson-common-mean-reversal-test" title="Permalink to this heading">#</a></h2>
+<h3>Conduct the Watson common mean reversal test<a class="headerlink" href="#conduct-the-watson-common-mean-reversal-test" title="Permalink to this heading">#</a></h3>
 <p>We can do the Watson common mean test (together with McFadden and McElhinny (1990) classification) as well:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -778,21 +827,22 @@ Examples:
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Results of Watson V test: 
 
 Watson&#39;s V:           13.3
-Critical value of V:  6.0
+Critical value of V:  6.4
 &quot;Fail&quot;: Since V is greater than Vcrit, the two means can
 be distinguished at the 95% confidence level.
 
 M&amp;M1990 classification:
 
 Angle between data set means: 9.9
-Critical angle for M&amp;M1990:   6.7
+Critical angle for M&amp;M1990:   6.9
 </pre></div>
 </div>
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>(0, 9.928574544258854, 6.662235847838227, &#39;&#39;)
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>(0, 9.928574544258854, 6.8708689608713165, &#39;&#39;)
 </pre></div>
 </div>
 </div>
 </div>
+</section>
 </section>
 </section>
 
@@ -845,19 +895,26 @@ Critical angle for M&amp;M1990:   6.7
   </div>
   <nav class="bd-toc-nav page-toc">
     <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#change-the-magic-contribution">Change the MagIC contribution</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#apply-to-your-own-sites-txt-data">Apply to your own <code class="docutils literal notranslate"><span class="pre">sites.txt</span></code> data</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#introduction">Introduction</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#change-the-magic-contribution">Change the MagIC contribution</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#apply-to-your-own-sites-txt-data">Apply to your own <code class="docutils literal notranslate"><span class="pre">sites.txt</span></code> data</a></li>
+</ul>
+</li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#import-packages">Import packages</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#download-data">Download data</a><ul class="nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#download-and-unpack-data">Download and unpack data</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#download-magic-contribution">Download MagIC contribution</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#make-a-new-folder-for-the-data">Make a new folder for the data</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#move-the-magic-file-into-this-folder">Move the MagIC file into this folder</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#unpack-the-magic-file">Unpack the MagIC file</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#import-the-sites-table">Import the sites table</a></li>
 </ul>
 </li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#reversal-tests">Reversal tests</a><ul class="nav section-nav flex-column">
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#learn-about-the-function">Learn about the function</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#conduct-the-bootstrap-reversal-test">Conduct the bootstrap reversal test</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#conduct-the-watson-common-mean-reversal-test">Conduct the Watson common mean reversal test</a></li>
 </ul>
 </li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#conduct-the-watson-common-mean-reversal-test">Conduct the Watson common mean reversal test</a></li>
 </ul>
   </nav></div>
 
