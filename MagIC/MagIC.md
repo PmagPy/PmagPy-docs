@@ -30,7 +30,7 @@ field photos, methodology, and more. At present and into the future,
 the general procedure is to archive the data at the same time that they are
 published. To smooth this path, it is advisable to put your data into
 the MagIC format as early in the process as possible. All data that enters the database 
-must be in the standard MagIC format. The data can be assembled as a set of MagIC tables
+needs to be in the standard MagIC format. The data can be assembled as a set of MagIC tables
 that are combined into a single file for upload into the MagIC database.
 
 ## Structure of the database tables
@@ -74,8 +74,8 @@ AZ01              Azores   basalt      lava flow      37.80 -25.80
 ```
 
 Although data can be entered directly into Excel spreadsheets by hand,
-it is easier to generate the necessary tables as a by-product of
-ordinary data processing where meta-data
+it can be preferable to generate the necessary tables as a by-product of 
+data processing where meta-data
 and method codes are populated into tables along the way. 
 Aspects of the **PmagPy** software seek to generate MagIC
 data tables automatically for many aspects of common paleomagnetic studies
