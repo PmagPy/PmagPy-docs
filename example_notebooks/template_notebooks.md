@@ -18,7 +18,7 @@ This notebook enables a MagIC contribution to be downloaded with the directional
 :::
 
 :::{grid-item-card}
-:link: template_notebooks/Conduct_reversal_tests
+:link: template_notebooks/reversal_test
 :link-type: doc
 :class-header: bg-light
 
