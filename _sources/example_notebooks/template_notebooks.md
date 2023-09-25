@@ -18,6 +18,17 @@ This notebook enables a MagIC contribution to be downloaded with the directional
 :::
 
 :::{grid-item-card}
+:link: template_notebooks/mean_determination.ipynb
+:link-type: doc
+:class-header: bg-light
+
+Mean determination template 🎯
+^^^
+
+This notebook calculates means from directional data using both Fisher statistics and a bootstrap approach.
+:::
+
+:::{grid-item-card}
 :link: template_notebooks/reversal_test
 :link-type: doc
 :class-header: bg-light

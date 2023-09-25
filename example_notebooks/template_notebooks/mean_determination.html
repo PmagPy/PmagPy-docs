@@ -1,0 +1,948 @@
+
+
+<!DOCTYPE html>
+
+
+<html lang="en" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
+
+    <title>Calculating means on directional data in MagIC format using PmagPy &#8212; PmagPy Documentation</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "light";
+  </script>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../../_static/styles/theme.css?digest=ac02cc09edc035673794" rel="stylesheet" />
+<link href="../../_static/styles/bootstrap.css?digest=ac02cc09edc035673794" rel="stylesheet" />
+<link href="../../_static/styles/pydata-sphinx-theme.css?digest=ac02cc09edc035673794" rel="stylesheet" />
+
+  
+  <link href="../../_static/vendor/fontawesome/6.1.2/css/all.min.css?digest=ac02cc09edc035673794" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="../../_static/vendor/fontawesome/6.1.2/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../../_static/vendor/fontawesome/6.1.2/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../../_static/vendor/fontawesome/6.1.2/webfonts/fa-regular-400.woff2" />
+
+    <link rel="stylesheet" type="text/css" href="../../_static/pygments.css" />
+    <link rel="stylesheet" href="../../_static/styles/sphinx-book-theme.css?digest=14f4ca6b54d191a8c7657f6c759bf11a5fb86285" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/design-style.4045f2051d55cab465a707391d5b2007.min.css" />
+  
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../../_static/scripts/bootstrap.js?digest=ac02cc09edc035673794" />
+<link rel="preload" as="script" href="../../_static/scripts/pydata-sphinx-theme.js?digest=ac02cc09edc035673794" />
+  <script src="../../_static/vendor/fontawesome/6.1.2/js/all.min.js?digest=ac02cc09edc035673794"></script>
+
+    <script data-url_root="../../" id="documentation_options" src="../../_static/documentation_options.js"></script>
+    <script src="../../_static/jquery.js"></script>
+    <script src="../../_static/underscore.js"></script>
+    <script src="../../_static/_sphinx_javascript_frameworks_compat.js"></script>
+    <script src="../../_static/doctools.js"></script>
+    <script src="../../_static/clipboard.min.js"></script>
+    <script src="../../_static/copybutton.js"></script>
+    <script src="../../_static/scripts/sphinx-book-theme.js?digest=5a5c038af52cf7bc1a1ec88eea08e6366ee68824"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="../../_static/togglebutton.js"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script src="../../_static/design-tabs.js"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
+const thebe_selector = ".thebe,.cell"
+const thebe_selector_input = "pre"
+const thebe_selector_output = ".output, .cell_output"
+</script>
+    <script async="async" src="../../_static/sphinx-thebe.js"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'example_notebooks/template_notebooks/mean_determination';</script>
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <a class="skip-link" href="#main-content">Skip to main content</a>
+  
+  <div id="pst-scroll-pixel-helper"></div>
+
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>
+    Back to top
+  </button>
+
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          name="__primary"
+          id="__primary"/>
+  <label class="overlay overlay-primary" for="__primary"></label>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          name="__secondary"
+          id="__secondary"/>
+  <label class="overlay overlay-secondary" for="__secondary"></label>
+  
+  <div class="search-button__wrapper">
+    <div class="search-button__overlay"></div>
+    <div class="search-button__search-container">
+<form class="bd-search d-flex align-items-center"
+      action="../../search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         id="search-input"
+         placeholder="Search this book..."
+         aria-label="Search this book..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form></div>
+  </div>
+  
+    <nav class="bd-header navbar navbar-expand-lg bd-navbar">
+    </nav>
+  
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      <div class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+  
+
+<a class="navbar-brand logo" href="../../intro.html">
+  
+  
+  
+  
+    
+    
+      
+    
+    
+    <img src="../../_static/pmagpy_logo_notext.png" class="logo__image only-light" alt="Logo image"/>
+    <script>document.write(`<img src="../../_static/pmagpy_logo_notext.png" class="logo__image only-dark" alt="Logo image"/>`);</script>
+  
+  
+</a></div>
+        <div class="sidebar-primary-item"><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        
+        <ul class="nav bd-sidenav bd-sidenav__home-link">
+            <li class="toctree-l1">
+                <a class="reference internal" href="../../intro.html">
+                    PmagPy: An open source package for paleomagnetic data analysis
+                </a>
+            </li>
+        </ul>
+        <p aria-level="2" class="caption" role="heading"><span class="caption-text">Installation</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../installation/PmagPy_install.html">Installing <strong>PmagPy</strong></a><input class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-1"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../installation/osx_pip.html">OSX pip install</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../installation/osx_developer.html">OSX developer install</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../installation/windows_pip.html">Windows pip install</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../installation/windows_developer.html">Windows developer install</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../installation/linux_pip.html">Linux pip install</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../installation/linux_developer.html">Linux developer install</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../installation/troubleshooting.html">Troubleshooting installation issues</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../programs/command_line_programs.html">Command line programs</a></li>
+</ul>
+</li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../programs/pmag_gui.html">Installing and Getting Started with Pmag GUI</a><input class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-2"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../programs/demag_gui.html">Demag GUI</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../programs/thellier_gui.html">Thellier GUI</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../resources/survival_skills.html">Survival computer skills</a></li>
+
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Documentation notebooks</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../../documentation_notebooks/Jupyter.html">Jupyter Notebooks</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../documentation_notebooks/PmagPy_introduction.html">Introduction to PmagPy</a></li>
+
+<li class="toctree-l1"><a class="reference internal" href="../../documentation_notebooks/PmagPy_calculations.html">Calculations with PmagPy</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../documentation_notebooks/PmagPy_plots_analysis.html">Visualizations and more analysis with PmagPy</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../documentation_notebooks/PmagPy_MagIC.html">Working with the MagIC database using PmagPy</a></li>
+
+
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Example notebooks</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../tutorial_notebooks.html">Tutorial notebooks</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../template_notebooks.html">Template notebooks</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../published_notebooks.html">Published studies notebooks</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">MagIC</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../../MagIC/MagIC.html">MagIC database and file formats</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Function docstrings</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../../api/api.html">API Reference</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">References</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../../references.html">References</a></li>
+</ul>
+
+    </div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+  </div>
+  
+  <div id="rtd-footer-container"></div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><label class="sidebar-toggle primary-toggle btn btn-sm" for="__primary" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</label></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+
+
+
+<div class="dropdown dropdown-source-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Source repositories">
+    <i class="fab fa-github"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="https://github.com/pmagpy/pmagpy-docs" target="_blank"
+   class="btn btn-sm btn-source-repository-button dropdown-item"
+   title="Source repository"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fab fa-github"></i>
+  </span>
+<span class="btn__text-container">Repository</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li><a href="https://github.com/pmagpy/pmagpy-docs/issues/new?title=Issue%20on%20page%20%2Fexample_notebooks/template_notebooks/mean_determination.html&body=Your%20issue%20content%20here." target="_blank"
+   class="btn btn-sm btn-source-issues-button dropdown-item"
+   title="Open an issue"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-lightbulb"></i>
+  </span>
+<span class="btn__text-container">Open issue</span>
+</a>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+
+
+<div class="dropdown dropdown-download-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Download this page">
+    <i class="fas fa-download"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="../../_sources/example_notebooks/template_notebooks/mean_determination.ipynb" target="_blank"
+   class="btn btn-sm btn-download-source-button dropdown-item"
+   title="Download source file"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="btn__text-container">.ipynb</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="window.print()"
+  class="btn btn-sm btn-download-pdf-button dropdown-item"
+  title="Print to PDF"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="btn__text-container">.pdf</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button"
+  title="Fullscreen mode"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm navbar-btn theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="theme-switch nav-link" data-mode="light"><i class="fa-solid fa-sun fa-lg"></i></span>
+    <span class="theme-switch nav-link" data-mode="dark"><i class="fa-solid fa-moon fa-lg"></i></span>
+    <span class="theme-switch nav-link" data-mode="auto"><i class="fa-solid fa-circle-half-stroke fa-lg"></i></span>
+  </button>
+`);
+</script>
+
+<script>
+document.write(`
+  <button class="btn btn-sm navbar-btn search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass fa-lg"></i>
+  </button>
+`);
+</script>
+<label class="sidebar-toggle secondary-toggle btn btn-sm" for="__secondary"title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</label>
+</div></div>
+      
+    </div>
+  
+</div>
+</div>
+              
+              
+
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1>Calculating means on directional data in MagIC format using PmagPy</h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+            <div>
+                <h2> Contents </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#introduction">Introduction</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#change-the-magic-contribution">Change the MagIC contribution</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#apply-to-your-own-sites-txt-data">Apply to your own <code class="docutils literal notranslate"><span class="pre">sites.txt</span></code> data</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#import-packages">Import packages</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#download-and-unpack-data">Download and unpack data</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#download-magic-contribution">Download MagIC contribution</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#unpack-the-magic-file">Unpack the MagIC file</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#import-the-sites-table">Import the sites table</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#filter-by-tilt-correction">Filter by tilt correction</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#make-declination-inclination-lists">Make declination/inclination lists</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#plot-the-directions">Plot the directions</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#separate-the-data-by-polarity">Separate the data by polarity</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#calculate-fisher-mean">Calculate Fisher mean</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#plot-the-directions-and-fisher-mean">Plot the directions and Fisher mean</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#calculate-bootstrap-confidence-region">Calculate bootstrap confidence region</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#plot-the-bootstrap-confidence-region">Plot the bootstrap confidence region</a></li>
+</ul>
+            </nav>
+        </div>
+    </div>
+</div>
+
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article" role="main">
+                  
+  <section class="tex2jax_ignore mathjax_ignore" id="calculating-means-on-directional-data-in-magic-format-using-pmagpy">
+<h1>Calculating means on directional data in MagIC format using PmagPy<a class="headerlink" href="#calculating-means-on-directional-data-in-magic-format-using-pmagpy" title="Permalink to this heading">#</a></h1>
+<section id="introduction">
+<h2>Introduction<a class="headerlink" href="#introduction" title="Permalink to this heading">#</a></h2>
+<p>This notebook is a template for importing data and calculating mean directions using PmagPy. You can use it on any MagIC contribution with site level data (or alternatively it could be applied to specimen level data). The example that is given is on paleomagnetic directional data from the following study that is in the MagIC database (<a class="reference external" href="https://earthref.org/MagIC/19938">https://earthref.org/MagIC/19938</a>):</p>
+<blockquote>
+<div><p>MacFadden, Woodburne, and Opdyke (1990). Paleomagnetism and Neogene clockwise rotation of the Northern Cady Mountains, Mojave Desert of southern California. Journal of Geophysical Research: Solid Earth 95 (B4):4597-4608. doi:10.1029/JB095IB04P04597.</p>
+</div></blockquote>
+<section id="change-the-magic-contribution">
+<h3>Change the MagIC contribution<a class="headerlink" href="#change-the-magic-contribution" title="Permalink to this heading">#</a></h3>
+<p>You can change what study this notebook is applied to by changing the <code class="docutils literal notranslate"><span class="pre">magic_id</span></code> in the <strong>Download data and unpack data</strong> code cell below.</p>
+</section>
+<section id="apply-to-your-own-sites-txt-data">
+<h3>Apply to your own <code class="docutils literal notranslate"><span class="pre">sites.txt</span></code> data<a class="headerlink" href="#apply-to-your-own-sites-txt-data" title="Permalink to this heading">#</a></h3>
+<p>You can also substitute in your own MagIC format <code class="docutils literal notranslate"><span class="pre">sites.txt</span></code> file. To do this, skip the <strong>Download data and unpack data</strong> section and go to the <strong>Import the sites table</strong> section after running the <strong>Import packages</strong> code.</p>
+</section>
+</section>
+<section id="import-packages">
+<h2>Import packages<a class="headerlink" href="#import-packages" title="Permalink to this heading">#</a></h2>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">pmagpy.pmag</span> <span class="k">as</span> <span class="nn">pmag</span>
+<span class="kn">import</span> <span class="nn">pmagpy.ipmag</span> <span class="k">as</span> <span class="nn">ipmag</span>
+<span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
+
+<span class="o">%</span><span class="k">matplotlib</span> inline
+<span class="o">%</span><span class="k">config</span> InlineBackend.figure_format=&#39;retina&#39;
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="download-and-unpack-data">
+<h2>Download and unpack data<a class="headerlink" href="#download-and-unpack-data" title="Permalink to this heading">#</a></h2>
+<section id="download-magic-contribution">
+<h3>Download MagIC contribution<a class="headerlink" href="#download-magic-contribution" title="Permalink to this heading">#</a></h3>
+<p>We can first download the data from MagIC by providing the <code class="docutils literal notranslate"><span class="pre">magic_id</span></code>.
+If the directory name that is given is not provided, it will be created.
+In the example, the data are put into a folder within this directory that is named <code class="docutils literal notranslate"><span class="pre">reversal_test_data</span></code>.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">magic_id</span><span class="o">=</span><span class="s1">&#39;19938&#39;</span>
+<span class="n">directory</span> <span class="o">=</span> <span class="s1">&#39;./mean_determination_data&#39;</span>
+<span class="n">result</span><span class="p">,</span> <span class="n">magic_file_path</span> <span class="o">=</span> <span class="n">ipmag</span><span class="o">.</span><span class="n">download_magic_from_id</span><span class="p">(</span><span class="n">magic_id</span><span class="p">,</span> <span class="n">directory</span><span class="o">=</span><span class="n">directory</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="unpack-the-magic-file">
+<h3>Unpack the MagIC file<a class="headerlink" href="#unpack-the-magic-file" title="Permalink to this heading">#</a></h3>
+<p>MagIC contributions are made up of distinct tables that can be unpacked. In this case, we are going to do a reversal test on the site level data so we are particularly interested in unpacking the <code class="docutils literal notranslate"><span class="pre">sites.txt</span></code> table from the MagIC file.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">ipmag</span><span class="o">.</span><span class="n">unpack_magic</span><span class="p">(</span><span class="n">magic_file_path</span><span class="p">,</span><span class="n">dir_path</span><span class="o">=</span><span class="n">directory</span><span class="p">,</span> <span class="n">print_progress</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>1  records written to file  /Users/unimos/0000_Github/PmagPy-docs/example_notebooks/template_notebooks/mean_determination_data/contribution.txt
+1  records written to file  /Users/unimos/0000_Github/PmagPy-docs/example_notebooks/template_notebooks/mean_determination_data/locations.txt
+48  records written to file  /Users/unimos/0000_Github/PmagPy-docs/example_notebooks/template_notebooks/mean_determination_data/sites.txt
+</pre></div>
+</div>
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>True
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="import-the-sites-table">
+<h3>Import the sites table<a class="headerlink" href="#import-the-sites-table" title="Permalink to this heading">#</a></h3>
+<p>We can now use pandas to import the sites table to a pandas dataframe using the function <code class="docutils literal notranslate"><span class="pre">pd.read_csv()</span></code>.</p>
+<p>We need to point <code class="docutils literal notranslate"><span class="pre">pd.read_csv()</span></code> to the file which with the above steps has the location and name of <code class="docutils literal notranslate"><span class="pre">'reversal_test/sites.txt'</span></code>. This can be changed if the file is in a different place or has a different name. For example, if it is in the same directory as the notebook it can be: <code class="docutils literal notranslate"><span class="pre">'sites.txt'</span></code></p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># change the sites_file path if you want to use a file in a different directory</span>
+<span class="n">sites_file</span> <span class="o">=</span> <span class="n">directory</span> <span class="o">+</span> <span class="s1">&#39;/sites.txt&#39;</span>
+<span class="n">sites</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="n">sites_file</span><span class="p">,</span><span class="n">sep</span><span class="o">=</span><span class="s1">&#39;</span><span class="se">\t</span><span class="s1">&#39;</span><span class="p">,</span><span class="n">header</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+<span class="n">sites</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>age_high</th>
+      <th>age_low</th>
+      <th>age_unit</th>
+      <th>citations</th>
+      <th>dir_dec</th>
+      <th>dir_inc</th>
+      <th>dir_tilt_correction</th>
+      <th>geologic_classes</th>
+      <th>geologic_types</th>
+      <th>height</th>
+      <th>lat</th>
+      <th>lithologies</th>
+      <th>location</th>
+      <th>lon</th>
+      <th>method_codes</th>
+      <th>site</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>23</td>
+      <td>17</td>
+      <td>Ma</td>
+      <td>10.1029/JB095iB04p04597</td>
+      <td>198.1</td>
+      <td>-39.7</td>
+      <td>100</td>
+      <td>Sedimentary</td>
+      <td>Sediment Layer</td>
+      <td>0.0</td>
+      <td>34.75</td>
+      <td>Silt</td>
+      <td>Hector Formation</td>
+      <td>244</td>
+      <td>LP-DIR-T:LP-DIR-AF:DE-BFL</td>
+      <td>340.0</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>23</td>
+      <td>17</td>
+      <td>Ma</td>
+      <td>10.1029/JB095iB04p04597</td>
+      <td>62.1</td>
+      <td>42.5</td>
+      <td>100</td>
+      <td>Sedimentary</td>
+      <td>Sediment Layer</td>
+      <td>21.0</td>
+      <td>34.75</td>
+      <td>Silt</td>
+      <td>Hector Formation</td>
+      <td>244</td>
+      <td>LP-DIR-T:LP-DIR-AF:DE-BFL</td>
+      <td>342.0</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>23</td>
+      <td>17</td>
+      <td>Ma</td>
+      <td>10.1029/JB095iB04p04597</td>
+      <td>32.8</td>
+      <td>48.6</td>
+      <td>100</td>
+      <td>Sedimentary</td>
+      <td>Sediment Layer</td>
+      <td>27.0</td>
+      <td>34.75</td>
+      <td>Silt</td>
+      <td>Hector Formation</td>
+      <td>244</td>
+      <td>LP-DIR-T:LP-DIR-AF:DE-BFL</td>
+      <td>344.0</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>23</td>
+      <td>17</td>
+      <td>Ma</td>
+      <td>10.1029/JB095iB04p04597</td>
+      <td>22.8</td>
+      <td>32.9</td>
+      <td>100</td>
+      <td>Sedimentary</td>
+      <td>Sediment Layer</td>
+      <td>30.0</td>
+      <td>34.75</td>
+      <td>Silt</td>
+      <td>Hector Formation</td>
+      <td>244</td>
+      <td>LP-DIR-T:LP-DIR-AF:DE-BFL</td>
+      <td>351.0</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>23</td>
+      <td>17</td>
+      <td>Ma</td>
+      <td>10.1029/JB095iB04p04597</td>
+      <td>55.0</td>
+      <td>23.6</td>
+      <td>100</td>
+      <td>Sedimentary</td>
+      <td>Sediment Layer</td>
+      <td>39.0</td>
+      <td>34.75</td>
+      <td>Silt</td>
+      <td>Hector Formation</td>
+      <td>244</td>
+      <td>LP-DIR-T:LP-DIR-AF:DE-BFL</td>
+      <td>349.0</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+</div>
+</section>
+<section id="filter-by-tilt-correction">
+<h3>Filter by tilt correction<a class="headerlink" href="#filter-by-tilt-correction" title="Permalink to this heading">#</a></h3>
+<p>When there are data in both geographic coordinates (without correction for bedding tilt) and data in tilt corrected coordinates, they each get their own row with different values in the <code class="docutils literal notranslate"><span class="pre">dir_tilt_correction</span></code> column:</p>
+<ul class="simple">
+<li><p>0: No tilt correction applied. The data are in the geographic coordinate system (i.e., as they are currently oriented in the field).</p></li>
+<li><p>100: Full (100%) tilt correction applied. The data are in the paleohorizontal coordinate system, meaning they have been corrected for tilting to represent their original horizontal position.</p></li>
+</ul>
+<p>In the example dataset, only the tilt-corrected values are available. As a result, all the entries have a <code class="docutils literal notranslate"><span class="pre">dir_tilt_correction</span></code> of 100.
+For completeness, we will filter and make a <code class="docutils literal notranslate"><span class="pre">sites_geo</span></code> dataframe where <code class="docutils literal notranslate"><span class="pre">dir_tilt_correction</span></code> is 0 and
+a <code class="docutils literal notranslate"><span class="pre">sites_tc</span></code> dataframe where <code class="docutils literal notranslate"><span class="pre">dir_tilt_correction</span></code> is 100. For this example, <code class="docutils literal notranslate"><span class="pre">sites_geo</span></code> will be empty, but
+it will be populated for a MagIC contribution where there are data in those coordinates.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">sites_geo</span> <span class="o">=</span> <span class="n">sites</span><span class="p">[</span><span class="n">sites</span><span class="p">[</span><span class="s1">&#39;dir_tilt_correction&#39;</span><span class="p">]</span> <span class="o">==</span> <span class="mi">0</span><span class="p">]</span>
+<span class="n">sites_tc</span> <span class="o">=</span> <span class="n">sites</span><span class="p">[</span><span class="n">sites</span><span class="p">[</span><span class="s1">&#39;dir_tilt_correction&#39;</span><span class="p">]</span> <span class="o">==</span> <span class="mi">100</span><span class="p">]</span>
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="make-declination-inclination-lists">
+<h3>Make declination/inclination lists<a class="headerlink" href="#make-declination-inclination-lists" title="Permalink to this heading">#</a></h3>
+<p>We can extract specific columns from the dataframe by using the nomenclature <code class="docutils literal notranslate"><span class="pre">dataframe_name['column_name']</span></code>. In this case, we want to conduct a reversal test on the data in the <code class="docutils literal notranslate"><span class="pre">sites_geo</span></code> dataframe and are interested in the directional data which are the declination column <code class="docutils literal notranslate"><span class="pre">dir_dec</span></code> and the inclination column <code class="docutils literal notranslate"><span class="pre">dir_inc</span></code>. So using the code <code class="docutils literal notranslate"><span class="pre">sites['dir_dec']</span></code> will give us all the declinations which we can assign to a variable <code class="docutils literal notranslate"><span class="pre">sites_dec</span></code>.</p>
+<p>If you wanted to do the test on the <code class="docutils literal notranslate"><span class="pre">sites_tc</span></code> data, you would switch in <code class="docutils literal notranslate"><span class="pre">sites_tc</span></code> for <code class="docutils literal notranslate"><span class="pre">sites_geo</span></code> in the text below.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">sites_dec</span> <span class="o">=</span> <span class="n">sites_tc</span><span class="p">[</span><span class="s1">&#39;dir_dec&#39;</span><span class="p">]</span>
+<span class="n">sites_inc</span> <span class="o">=</span> <span class="n">sites_tc</span><span class="p">[</span><span class="s1">&#39;dir_inc&#39;</span><span class="p">]</span>
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+</section>
+<section id="plot-the-directions">
+<h2>Plot the directions<a class="headerlink" href="#plot-the-directions" title="Permalink to this heading">#</a></h2>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">ipmag</span><span class="o">.</span><span class="n">plot_net</span><span class="p">()</span>
+<span class="n">ipmag</span><span class="o">.</span><span class="n">plot_di</span><span class="p">(</span><span class="n">sites_dec</span><span class="p">,</span><span class="n">sites_inc</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../../_images/ef33cf59f7a49681d18e252d64dab35e985a1676f9b13f0103e0399d943f878b.png" src="../../_images/ef33cf59f7a49681d18e252d64dab35e985a1676f9b13f0103e0399d943f878b.png" />
+</div>
+</div>
+</section>
+<section id="separate-the-data-by-polarity">
+<h2>Separate the data by polarity<a class="headerlink" href="#separate-the-data-by-polarity" title="Permalink to this heading">#</a></h2>
+<p>Let’s focus on calculating the mean for the normal polarity data. To do that, we need to separate the data into the two polarity modes. This can be done with the <code class="docutils literal notranslate"><span class="pre">ipmag.separate_directions()</span></code> function. <strong>Skip this step if you have single polarity data</strong>:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">dec_normal</span><span class="p">,</span> <span class="n">inc_normal</span><span class="p">,</span> <span class="n">dec_reversed</span><span class="p">,</span> <span class="n">inc_reversed</span> <span class="o">=</span> <span class="n">ipmag</span><span class="o">.</span><span class="n">separate_directions</span><span class="p">(</span><span class="n">sites_dec</span><span class="p">,</span><span class="n">sites_inc</span><span class="p">)</span>
+<span class="n">sites_dec</span> <span class="o">=</span> <span class="n">dec_normal</span>
+<span class="n">sites_inc</span> <span class="o">=</span> <span class="n">inc_normal</span>
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="calculate-fisher-mean">
+<h2>Calculate Fisher mean<a class="headerlink" href="#calculate-fisher-mean" title="Permalink to this heading">#</a></h2>
+<p>Now that we have extracted the declination and inclination values, let’s calculate the Fisher mean.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">site_mean</span> <span class="o">=</span> <span class="n">ipmag</span><span class="o">.</span><span class="n">fisher_mean</span><span class="p">(</span><span class="n">sites_dec</span><span class="p">,</span><span class="n">sites_inc</span><span class="p">)</span>
+<span class="n">site_mean</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>{&#39;dec&#39;: 28.036900368913685,
+ &#39;inc&#39;: 45.655647454684676,
+ &#39;n&#39;: 24,
+ &#39;r&#39;: 22.63536254133362,
+ &#39;k&#39;: 16.854293317198863,
+ &#39;alpha95&#39;: 7.425731242923154,
+ &#39;csd&#39;: 19.73012083339684}
+</pre></div>
+</div>
+</div>
+</div>
+<p><code class="docutils literal notranslate"><span class="pre">ipmag.fisher_mean</span></code> returns a dictionary with keys corresponding to the different parameters of the Fisher mean. We can print out a pretty version of the mean using <code class="docutils literal notranslate"><span class="pre">ipmag.print_direction_mean(site_mean)</span></code>.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">ipmag</span><span class="o">.</span><span class="n">print_direction_mean</span><span class="p">(</span><span class="n">site_mean</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Dec: 28.0  Inc: 45.7
+Number of directions in mean (n): 24
+Angular radius of 95% confidence (a_95): 7.4
+Precision parameter (k) estimate: 16.9
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="plot-the-directions-and-fisher-mean">
+<h2>Plot the directions and Fisher mean<a class="headerlink" href="#plot-the-directions-and-fisher-mean" title="Permalink to this heading">#</a></h2>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">ipmag</span><span class="o">.</span><span class="n">plot_net</span><span class="p">()</span>
+<span class="n">ipmag</span><span class="o">.</span><span class="n">plot_di</span><span class="p">(</span><span class="n">sites_dec</span><span class="p">,</span><span class="n">sites_inc</span><span class="p">)</span>
+<span class="n">ipmag</span><span class="o">.</span><span class="n">plot_di_mean</span><span class="p">(</span><span class="n">site_mean</span><span class="p">[</span><span class="s1">&#39;dec&#39;</span><span class="p">],</span><span class="n">site_mean</span><span class="p">[</span><span class="s1">&#39;inc&#39;</span><span class="p">],</span><span class="n">site_mean</span><span class="p">[</span><span class="s1">&#39;alpha95&#39;</span><span class="p">],</span><span class="n">color</span><span class="o">=</span><span class="s1">&#39;red&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../../_images/6dfb2392192a5f7f1c9ff8e40ad80d0b7cf29b716f71270aefdbda79399f9d85.png" src="../../_images/6dfb2392192a5f7f1c9ff8e40ad80d0b7cf29b716f71270aefdbda79399f9d85.png" />
+</div>
+</div>
+</section>
+<section id="calculate-bootstrap-confidence-region">
+<h2>Calculate bootstrap confidence region<a class="headerlink" href="#calculate-bootstrap-confidence-region" title="Permalink to this heading">#</a></h2>
+<p>As shown in Tauxe et al. (1991), these example data are not consistent with a Fisher distribution—as is the case for many datasets. In such cases, a non-parametric approach can be taken to estimate the confidence region for the mean of directions. We can use the function <code class="docutils literal notranslate"><span class="pre">ipmag.mean_confidence_bootstrap</span></code> to determine the confidence region of the mean without assuming a Fisher distribution using the method of:</p>
+<blockquote>
+<div><p>Heslop, D., Scealy, J. L., Wood, A. T. A., Tauxe, L., &amp; Roberts, A. P. (2023). A bootstrap common mean direction test. Journal of Geophysical Research: Solid Earth, 128, e2023JB026983. <a class="reference external" href="https://doi.org/10.1029/2023JB026983">https://doi.org/10.1029/2023JB026983</a></p>
+</div></blockquote>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">bootstrap_mean</span><span class="p">,</span> <span class="n">bootstrap_confidence</span> <span class="o">=</span> <span class="n">ipmag</span><span class="o">.</span><span class="n">mean_bootstrap_confidence</span><span class="p">(</span><span class="n">sites_dec</span><span class="p">,</span><span class="n">sites_inc</span><span class="p">,</span><span class="n">num_sims</span><span class="o">=</span><span class="mi">10000</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>This function returns:</p>
+<ol class="arabic simple">
+<li><p>a dictionary of parameters the includes the estimated mean
+direction and the T statistic which is the basis of the bootstrap confidence region</p></li>
+<li><p>list of [dec, inc] pairs that represent the boundary of the confidence region. The bootstrap confidence region cannot be reported readily in a compact form so is instead a long list of points along the boundary of the confidence region.</p></li>
+</ol>
+<p>Let’s look at the mean.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">bootstrap_mean</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>{&#39;dec&#39;: 28.036900368913685,
+ &#39;inc&#39;: 45.655647454684676,
+ &#39;T_critical&#39;: 8.237331235732217}
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="plot-the-bootstrap-confidence-region">
+<h2>Plot the bootstrap confidence region<a class="headerlink" href="#plot-the-bootstrap-confidence-region" title="Permalink to this heading">#</a></h2>
+<p>We can plot the bootstrap confidence region for the mean using the <code class="docutils literal notranslate"><span class="pre">ipmag.plot_bootstrap_confidence()</span></code> function which takes the mean and the confidence region output from <code class="docutils literal notranslate"><span class="pre">ipmag.mean_bootstrap_confidence()</span></code> function.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">ipmag</span><span class="o">.</span><span class="n">plot_net</span><span class="p">()</span>
+<span class="n">ipmag</span><span class="o">.</span><span class="n">plot_di</span><span class="p">(</span><span class="n">sites_dec</span><span class="p">,</span><span class="n">sites_inc</span><span class="p">)</span>
+<span class="n">ipmag</span><span class="o">.</span><span class="n">plot_bootstrap_confidence</span><span class="p">(</span><span class="n">bootstrap_mean</span><span class="p">[</span><span class="s1">&#39;dec&#39;</span><span class="p">],</span> <span class="n">bootstrap_mean</span><span class="p">[</span><span class="s1">&#39;inc&#39;</span><span class="p">],</span> <span class="n">bootstrap_confidence</span><span class="p">,</span>
+                                <span class="n">mean_color</span><span class="o">=</span><span class="s1">&#39;red&#39;</span><span class="p">,</span> <span class="n">confidence_color</span><span class="o">=</span><span class="s1">&#39;red&#39;</span><span class="p">,)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../../_images/851547bb1a9e8a70ad1b399f5c6ba7be3c3ec5d4321be11f1792af7ec6182e46.png" src="../../_images/851547bb1a9e8a70ad1b399f5c6ba7be3c3ec5d4321be11f1792af7ec6182e46.png" />
+</div>
+</div>
+</section>
+</section>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            name: "python3",
+            path: "./example_notebooks/template_notebooks"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+                </article>
+              
+
+              
+              
+              
+              
+                <footer class="prev-next-footer">
+                  <!-- Previous / next buttons -->
+<div class="prev-next-area">
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#introduction">Introduction</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#change-the-magic-contribution">Change the MagIC contribution</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#apply-to-your-own-sites-txt-data">Apply to your own <code class="docutils literal notranslate"><span class="pre">sites.txt</span></code> data</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#import-packages">Import packages</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#download-and-unpack-data">Download and unpack data</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#download-magic-contribution">Download MagIC contribution</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#unpack-the-magic-file">Unpack the MagIC file</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#import-the-sites-table">Import the sites table</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#filter-by-tilt-correction">Filter by tilt correction</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#make-declination-inclination-lists">Make declination/inclination lists</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#plot-the-directions">Plot the directions</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#separate-the-data-by-polarity">Separate the data by polarity</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#calculate-fisher-mean">Calculate Fisher mean</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#plot-the-directions-and-fisher-mean">Plot the directions and Fisher mean</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#calculate-bootstrap-confidence-region">Calculate bootstrap confidence region</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#plot-the-bootstrap-confidence-region">Plot the bootstrap confidence region</a></li>
+</ul>
+  </nav></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
+  
+  <div class="footer-item">
+    
+<p class="component-author">
+By PmagPy Contributors
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  <p class="copyright">
+    
+      © Copyright 2023.
+      <br/>
+    
+  </p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+</div>
+          </footer>
+        
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="../../_static/scripts/bootstrap.js?digest=ac02cc09edc035673794"></script>
+<script src="../../_static/scripts/pydata-sphinx-theme.js?digest=ac02cc09edc035673794"></script>
+
+  <footer class="bd-footer">
+  </footer>
+  </body>
+</html>
