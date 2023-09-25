@@ -9,7 +9,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
 
-    <title>Conduct reversal test on directional data in MagIC format using PmagPy &#8212; PmagPy Documentation</title>
+    <title>Conduct reversal tests on directional data in MagIC format using PmagPy &#8212; PmagPy Documentation</title>
   
   
   
@@ -396,7 +396,7 @@ document.write(`
               
 
 <div id="jb-print-docs-body" class="onlyprint">
-    <h1>Conduct reversal test on directional data in MagIC format using PmagPy</h1>
+    <h1>Conduct reversal tests on directional data in MagIC format using PmagPy</h1>
     <!-- Table of contents -->
     <div id="print-main-content">
         <div id="jb-print-toc">
@@ -420,10 +420,11 @@ document.write(`
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#make-declination-inclination-lists">Make declination/inclination lists</a></li>
 </ul>
 </li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#plot-the-directions">Plot the directions</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#reversal-tests">Reversal tests</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#conduct-the-bootstrap-reversal-test">Conduct the bootstrap reversal test</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#learn-about-the-function">Learn about the function</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#conduct-the-watson-common-mean-reversal-test">Conduct the Watson common mean reversal test</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#conduct-the-bootstrap-reversal-test">Conduct the bootstrap reversal test</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#learn-about-the-reversal-test-functions">Learn about the reversal test functions</a></li>
 </ul>
 </li>
 </ul>
@@ -437,23 +438,17 @@ document.write(`
 <div id="searchbox"></div>
                 <article class="bd-article" role="main">
                   
-  <section class="tex2jax_ignore mathjax_ignore" id="conduct-reversal-test-on-directional-data-in-magic-format-using-pmagpy">
-<h1>Conduct reversal test on directional data in MagIC format using PmagPy<a class="headerlink" href="#conduct-reversal-test-on-directional-data-in-magic-format-using-pmagpy" title="Permalink to this heading">#</a></h1>
+  <section class="tex2jax_ignore mathjax_ignore" id="conduct-reversal-tests-on-directional-data-in-magic-format-using-pmagpy">
+<h1>Conduct reversal tests on directional data in MagIC format using PmagPy<a class="headerlink" href="#conduct-reversal-tests-on-directional-data-in-magic-format-using-pmagpy" title="Permalink to this heading">#</a></h1>
 <section id="introduction">
 <h2>Introduction<a class="headerlink" href="#introduction" title="Permalink to this heading">#</a></h2>
-<p>This notebook is a template for importing data and conducting a reversal test using PmagPy. You can use it on any MagIC contribution with dual polarity site data. The example that is given is on paleomagnetic directional data from the following study:</p>
+<p>This notebook is a template for importing data and conducting a reversal test using PmagPy. You can use it on any MagIC contribution with dual polarity site data. The example that is given is on paleomagnetic directional data from the following study that is in the MagIC database (<a class="reference external" href="https://earthref.org/MagIC/19903">https://earthref.org/MagIC/19903</a>):</p>
 <blockquote>
-<div><p>Behar, N., Shaar, R., Tauxe, L., Asefaw,
-H., Ebert, Y., Heimann, A., et al. (2019).
-Paleomagnetism and paleosecular
-variations from the Plio‐Pleistocene
-Golan Heights volcanic plateau, Israel.
-Geochemistry, Geophysics, Geosystems,
-20 <a class="reference external" href="https://doi.org/10.1029/2019GC008479">https://doi.org/10.1029/2019GC008479</a></p>
+<div><p>Hong Ao, Zhisheng An, Mark J. Dekkers, Yongxiang Li, Guoqiao Xiao, Hui Zhao, Xiaoke Qiang (2013). Pleistocene magnetochronology of the fauna and Paleolithic sites in the Nihewan Basin: Significance for environmental and hominin evolution in North China. Quaternary Geochronology 18:78-92. doi:10.1016/J.QUAGEO.2013.06.004.</p>
 </div></blockquote>
 <section id="change-the-magic-contribution">
 <h3>Change the MagIC contribution<a class="headerlink" href="#change-the-magic-contribution" title="Permalink to this heading">#</a></h3>
-<p>You can change what study this notebook is applied to by changing the <code class="docutils literal notranslate"><span class="pre">magic_id</span></code> in the <strong>Download data and unpack data</strong> code cel below.</p>
+<p>You can change what study this notebook is applied to by changing the <code class="docutils literal notranslate"><span class="pre">magic_id</span></code> in the <strong>Download data and unpack data</strong> code cell below.</p>
 </section>
 <section id="apply-to-your-own-sites-txt-data">
 <h3>Apply to your own <code class="docutils literal notranslate"><span class="pre">sites.txt</span></code> data<a class="headerlink" href="#apply-to-your-own-sites-txt-data" title="Permalink to this heading">#</a></h3>
@@ -478,14 +473,12 @@ Geochemistry, Geophysics, Geosystems,
 <h2>Download and unpack data<a class="headerlink" href="#download-and-unpack-data" title="Permalink to this heading">#</a></h2>
 <section id="download-magic-contribution">
 <h3>Download MagIC contribution<a class="headerlink" href="#download-magic-contribution" title="Permalink to this heading">#</a></h3>
-<p>Following the steps in the
-<code class="docutils literal notranslate"><span class="pre">Inspecting_MagIC_directional_data.ipynb</span></code>
-notebook, we can first download the data from MagIC.
+<p>We can first download the data from MagIC by providing the <code class="docutils literal notranslate"><span class="pre">magic_id</span></code>.
 If the directory name that is given is not provided, it will be created.
 In the example, the data are put into a folder within this directory that is named <code class="docutils literal notranslate"><span class="pre">reversal_test_data</span></code>.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">magic_id</span><span class="o">=</span><span class="s1">&#39;19904&#39;</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">magic_id</span><span class="o">=</span><span class="s1">&#39;19903&#39;</span>
 <span class="n">directory</span> <span class="o">=</span> <span class="s1">&#39;./reversal_test_data&#39;</span>
 <span class="n">result</span><span class="p">,</span> <span class="n">magic_file_path</span> <span class="o">=</span> <span class="n">ipmag</span><span class="o">.</span><span class="n">download_magic_from_id</span><span class="p">(</span><span class="n">magic_id</span><span class="p">,</span> <span class="n">directory</span><span class="o">=</span><span class="n">directory</span><span class="p">)</span>
 </pre></div>
@@ -503,9 +496,11 @@ In the example, the data are put into a folder within this directory that is nam
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>1  records written to file  /Users/penokean/0000_GitHub/PmagPy-docs/example_notebooks/template_notebooks/reversal_test_data/contribution.txt
-1  records written to file  /Users/penokean/0000_GitHub/PmagPy-docs/example_notebooks/template_notebooks/reversal_test_data/locations.txt
-48  records written to file  /Users/penokean/0000_GitHub/PmagPy-docs/example_notebooks/template_notebooks/reversal_test_data/sites.txt
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>1  records written to file  /Users/unimos/0000_Github/PmagPy-docs/example_notebooks/template_notebooks/reversal_test_data/contribution.txt
+1  records written to file  /Users/unimos/0000_Github/PmagPy-docs/example_notebooks/template_notebooks/reversal_test_data/locations.txt
+214  records written to file  /Users/unimos/0000_Github/PmagPy-docs/example_notebooks/template_notebooks/reversal_test_data/sites.txt
+214  records written to file  /Users/unimos/0000_Github/PmagPy-docs/example_notebooks/template_notebooks/reversal_test_data/samples.txt
+214  records written to file  /Users/unimos/0000_Github/PmagPy-docs/example_notebooks/template_notebooks/reversal_test_data/specimens.txt
 </pre></div>
 </div>
 <div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>True
@@ -562,103 +557,109 @@ In the example, the data are put into a folder within this directory that is nam
       <th>lon</th>
       <th>method_codes</th>
       <th>site</th>
+      <th>vgp_lat</th>
     </tr>
   </thead>
   <tbody>
     <tr>
       <th>0</th>
-      <td>23</td>
-      <td>17</td>
+      <td>0</td>
+      <td>3</td>
       <td>Ma</td>
-      <td>10.1029/JB095iB04p04597</td>
-      <td>198.1</td>
-      <td>-39.7</td>
+      <td>10.1016/j.quageo.2013.06.004</td>
+      <td>353.6</td>
+      <td>46.3</td>
       <td>100</td>
       <td>Sedimentary</td>
       <td>Sediment Layer</td>
+      <td>-0.0</td>
+      <td>40.15</td>
+      <td>Silty Clay</td>
+      <td>Daodi Section, Nihewan Basin</td>
+      <td>114.658333</td>
+      <td>LP-DIR-T:DE-BFL</td>
       <td>0.0</td>
-      <td>34.75</td>
-      <td>Silt</td>
-      <td>Hector Formation</td>
-      <td>116.0</td>
-      <td>LP-DIR-T:LP-DIR-AF:DE-BFL</td>
-      <td>340.0</td>
+      <td>76.399711</td>
     </tr>
     <tr>
       <th>1</th>
-      <td>23</td>
-      <td>17</td>
+      <td>0</td>
+      <td>3</td>
       <td>Ma</td>
-      <td>10.1029/JB095iB04p04597</td>
-      <td>62.1</td>
-      <td>42.5</td>
+      <td>10.1016/j.quageo.2013.06.004</td>
+      <td>2.6</td>
+      <td>59.7</td>
       <td>100</td>
       <td>Sedimentary</td>
       <td>Sediment Layer</td>
-      <td>21.0</td>
-      <td>34.75</td>
-      <td>Silt</td>
-      <td>Hector Formation</td>
-      <td>116.0</td>
-      <td>LP-DIR-T:LP-DIR-AF:DE-BFL</td>
-      <td>342.0</td>
+      <td>-2.3</td>
+      <td>40.15</td>
+      <td>Silty Clay</td>
+      <td>Daodi Section, Nihewan Basin</td>
+      <td>114.658333</td>
+      <td>LP-DIR-T:DE-BFL</td>
+      <td>2.3</td>
+      <td>87.978299</td>
     </tr>
     <tr>
       <th>2</th>
-      <td>23</td>
-      <td>17</td>
+      <td>0</td>
+      <td>3</td>
       <td>Ma</td>
-      <td>10.1029/JB095iB04p04597</td>
-      <td>32.8</td>
-      <td>48.6</td>
+      <td>10.1016/j.quageo.2013.06.004</td>
+      <td>347.7</td>
+      <td>60.6</td>
       <td>100</td>
       <td>Sedimentary</td>
       <td>Sediment Layer</td>
-      <td>27.0</td>
-      <td>34.75</td>
-      <td>Silt</td>
-      <td>Hector Formation</td>
-      <td>116.0</td>
-      <td>LP-DIR-T:LP-DIR-AF:DE-BFL</td>
-      <td>344.0</td>
+      <td>-3.3</td>
+      <td>40.15</td>
+      <td>Silty Clay</td>
+      <td>Daodi Section, Nihewan Basin</td>
+      <td>114.658333</td>
+      <td>LP-DIR-T:DE-BFL</td>
+      <td>3.3</td>
+      <td>80.596793</td>
     </tr>
     <tr>
       <th>3</th>
-      <td>23</td>
-      <td>17</td>
+      <td>0</td>
+      <td>3</td>
       <td>Ma</td>
-      <td>10.1029/JB095iB04p04597</td>
-      <td>22.8</td>
-      <td>32.9</td>
+      <td>10.1016/j.quageo.2013.06.004</td>
+      <td>338.2</td>
+      <td>44.2</td>
       <td>100</td>
       <td>Sedimentary</td>
       <td>Sediment Layer</td>
-      <td>30.0</td>
-      <td>34.75</td>
-      <td>Silt</td>
-      <td>Hector Formation</td>
-      <td>116.0</td>
-      <td>LP-DIR-T:LP-DIR-AF:DE-BFL</td>
-      <td>351.0</td>
+      <td>-4.3</td>
+      <td>40.15</td>
+      <td>Silty Clay</td>
+      <td>Daodi Section, Nihewan Basin</td>
+      <td>114.658333</td>
+      <td>LP-DIR-T:DE-BFL</td>
+      <td>4.3</td>
+      <td>66.955595</td>
     </tr>
     <tr>
       <th>4</th>
-      <td>23</td>
-      <td>17</td>
+      <td>0</td>
+      <td>3</td>
       <td>Ma</td>
-      <td>10.1029/JB095iB04p04597</td>
-      <td>55.0</td>
-      <td>23.6</td>
+      <td>10.1016/j.quageo.2013.06.004</td>
+      <td>348.6</td>
+      <td>33.6</td>
       <td>100</td>
       <td>Sedimentary</td>
       <td>Sediment Layer</td>
-      <td>39.0</td>
-      <td>34.75</td>
-      <td>Silt</td>
-      <td>Hector Formation</td>
-      <td>116.0</td>
-      <td>LP-DIR-T:LP-DIR-AF:DE-BFL</td>
-      <td>349.0</td>
+      <td>-5.0</td>
+      <td>40.15</td>
+      <td>Silty Clay</td>
+      <td>Daodi Section, Nihewan Basin</td>
+      <td>114.658333</td>
+      <td>LP-DIR-T:DE-BFL</td>
+      <td>5.0</td>
+      <td>66.113052</td>
     </tr>
   </tbody>
 </table>
@@ -672,11 +673,10 @@ In the example, the data are put into a folder within this directory that is nam
 <li><p>0: No tilt correction applied. The data are in the geographic coordinate system (i.e., as they are currently oriented in the field).</p></li>
 <li><p>100: Full (100%) tilt correction applied. The data are in the paleohorizontal coordinate system, meaning they have been corrected for tilting to represent their original horizontal position.</p></li>
 </ul>
-<p>In the example dataset, the authors consider the lavas of the Plio‐Pleistocene
-Golan Heights volcanic plateau to be untilted. As a result, all the entries have a <code class="docutils literal notranslate"><span class="pre">dir_tilt_correction</span></code> of 0.
+<p>In the example dataset, only the tilt-corrected values are available. As a result, all the entries have a <code class="docutils literal notranslate"><span class="pre">dir_tilt_correction</span></code> of 100.
 For completeness, we will filter and make a <code class="docutils literal notranslate"><span class="pre">sites_geo</span></code> dataframe where <code class="docutils literal notranslate"><span class="pre">dir_tilt_correction</span></code> is 0 and
-a <code class="docutils literal notranslate"><span class="pre">sites_tc</span></code> dataframe where <code class="docutils literal notranslate"><span class="pre">dir_tilt_correction</span></code> is 100. For this example, <code class="docutils literal notranslate"><span class="pre">sites_tc</span></code> will be empty but
-it will be populated for a MagIC contribution where there are tilt-corrected data.</p>
+a <code class="docutils literal notranslate"><span class="pre">sites_tc</span></code> dataframe where <code class="docutils literal notranslate"><span class="pre">dir_tilt_correction</span></code> is 100. For this example, <code class="docutils literal notranslate"><span class="pre">sites_geo</span></code> will be empty, but
+it will be populated for a MagIC contribution where there are data in those coordinates.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">sites_geo</span> <span class="o">=</span> <span class="n">sites</span><span class="p">[</span><span class="n">sites</span><span class="p">[</span><span class="s1">&#39;dir_tilt_correction&#39;</span><span class="p">]</span> <span class="o">==</span> <span class="mi">0</span><span class="p">]</span>
@@ -684,966 +684,6 @@ it will be populated for a MagIC contribution where there are tilt-corrected dat
 </pre></div>
 </div>
 </div>
-</div>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">sites_tc</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output text_html"><div>
-<style scoped>
-    .dataframe tbody tr th:only-of-type {
-        vertical-align: middle;
-    }
-
-    .dataframe tbody tr th {
-        vertical-align: top;
-    }
-
-    .dataframe thead th {
-        text-align: right;
-    }
-</style>
-<table border="1" class="dataframe">
-  <thead>
-    <tr style="text-align: right;">
-      <th></th>
-      <th>age_high</th>
-      <th>age_low</th>
-      <th>age_unit</th>
-      <th>citations</th>
-      <th>dir_dec</th>
-      <th>dir_inc</th>
-      <th>dir_tilt_correction</th>
-      <th>geologic_classes</th>
-      <th>geologic_types</th>
-      <th>height</th>
-      <th>lat</th>
-      <th>lithologies</th>
-      <th>location</th>
-      <th>lon</th>
-      <th>method_codes</th>
-      <th>site</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <th>0</th>
-      <td>23</td>
-      <td>17</td>
-      <td>Ma</td>
-      <td>10.1029/JB095iB04p04597</td>
-      <td>198.1</td>
-      <td>-39.7</td>
-      <td>100</td>
-      <td>Sedimentary</td>
-      <td>Sediment Layer</td>
-      <td>0.0</td>
-      <td>34.75</td>
-      <td>Silt</td>
-      <td>Hector Formation</td>
-      <td>116.0</td>
-      <td>LP-DIR-T:LP-DIR-AF:DE-BFL</td>
-      <td>340.0</td>
-    </tr>
-    <tr>
-      <th>1</th>
-      <td>23</td>
-      <td>17</td>
-      <td>Ma</td>
-      <td>10.1029/JB095iB04p04597</td>
-      <td>62.1</td>
-      <td>42.5</td>
-      <td>100</td>
-      <td>Sedimentary</td>
-      <td>Sediment Layer</td>
-      <td>21.0</td>
-      <td>34.75</td>
-      <td>Silt</td>
-      <td>Hector Formation</td>
-      <td>116.0</td>
-      <td>LP-DIR-T:LP-DIR-AF:DE-BFL</td>
-      <td>342.0</td>
-    </tr>
-    <tr>
-      <th>2</th>
-      <td>23</td>
-      <td>17</td>
-      <td>Ma</td>
-      <td>10.1029/JB095iB04p04597</td>
-      <td>32.8</td>
-      <td>48.6</td>
-      <td>100</td>
-      <td>Sedimentary</td>
-      <td>Sediment Layer</td>
-      <td>27.0</td>
-      <td>34.75</td>
-      <td>Silt</td>
-      <td>Hector Formation</td>
-      <td>116.0</td>
-      <td>LP-DIR-T:LP-DIR-AF:DE-BFL</td>
-      <td>344.0</td>
-    </tr>
-    <tr>
-      <th>3</th>
-      <td>23</td>
-      <td>17</td>
-      <td>Ma</td>
-      <td>10.1029/JB095iB04p04597</td>
-      <td>22.8</td>
-      <td>32.9</td>
-      <td>100</td>
-      <td>Sedimentary</td>
-      <td>Sediment Layer</td>
-      <td>30.0</td>
-      <td>34.75</td>
-      <td>Silt</td>
-      <td>Hector Formation</td>
-      <td>116.0</td>
-      <td>LP-DIR-T:LP-DIR-AF:DE-BFL</td>
-      <td>351.0</td>
-    </tr>
-    <tr>
-      <th>4</th>
-      <td>23</td>
-      <td>17</td>
-      <td>Ma</td>
-      <td>10.1029/JB095iB04p04597</td>
-      <td>55.0</td>
-      <td>23.6</td>
-      <td>100</td>
-      <td>Sedimentary</td>
-      <td>Sediment Layer</td>
-      <td>39.0</td>
-      <td>34.75</td>
-      <td>Silt</td>
-      <td>Hector Formation</td>
-      <td>116.0</td>
-      <td>LP-DIR-T:LP-DIR-AF:DE-BFL</td>
-      <td>349.0</td>
-    </tr>
-    <tr>
-      <th>5</th>
-      <td>23</td>
-      <td>17</td>
-      <td>Ma</td>
-      <td>10.1029/JB095iB04p04597</td>
-      <td>28.5</td>
-      <td>53.4</td>
-      <td>100</td>
-      <td>Sedimentary</td>
-      <td>Sediment Layer</td>
-      <td>41.0</td>
-      <td>34.75</td>
-      <td>Silt</td>
-      <td>Hector Formation</td>
-      <td>116.0</td>
-      <td>LP-DIR-T:LP-DIR-AF:DE-BFL</td>
-      <td>346.0</td>
-    </tr>
-    <tr>
-      <th>6</th>
-      <td>23</td>
-      <td>17</td>
-      <td>Ma</td>
-      <td>10.1029/JB095iB04p04597</td>
-      <td>44.5</td>
-      <td>59.8</td>
-      <td>100</td>
-      <td>Sedimentary</td>
-      <td>Sediment Layer</td>
-      <td>47.0</td>
-      <td>34.75</td>
-      <td>Silt</td>
-      <td>Hector Formation</td>
-      <td>116.0</td>
-      <td>LP-DIR-T:LP-DIR-AF:DE-BFL</td>
-      <td>353.0</td>
-    </tr>
-    <tr>
-      <th>7</th>
-      <td>23</td>
-      <td>17</td>
-      <td>Ma</td>
-      <td>10.1029/JB095iB04p04597</td>
-      <td>189.4</td>
-      <td>-53.0</td>
-      <td>100</td>
-      <td>Sedimentary</td>
-      <td>Sediment Layer</td>
-      <td>55.0</td>
-      <td>34.75</td>
-      <td>Silt</td>
-      <td>Hector Formation</td>
-      <td>116.0</td>
-      <td>LP-DIR-T:LP-DIR-AF:DE-BFL</td>
-      <td>348.0</td>
-    </tr>
-    <tr>
-      <th>8</th>
-      <td>23</td>
-      <td>17</td>
-      <td>Ma</td>
-      <td>10.1029/JB095iB04p04597</td>
-      <td>202.2</td>
-      <td>-24.5</td>
-      <td>100</td>
-      <td>Sedimentary</td>
-      <td>Sediment Layer</td>
-      <td>69.0</td>
-      <td>34.75</td>
-      <td>Silt</td>
-      <td>Hector Formation</td>
-      <td>116.0</td>
-      <td>LP-DIR-T:LP-DIR-AF:DE-BFL</td>
-      <td>357.0</td>
-    </tr>
-    <tr>
-      <th>9</th>
-      <td>23</td>
-      <td>17</td>
-      <td>Ma</td>
-      <td>10.1029/JB095iB04p04597</td>
-      <td>216.2</td>
-      <td>-22.8</td>
-      <td>100</td>
-      <td>Sedimentary</td>
-      <td>Sediment Layer</td>
-      <td>69.0</td>
-      <td>34.75</td>
-      <td>Silt</td>
-      <td>Hector Formation</td>
-      <td>116.0</td>
-      <td>LP-DIR-T:LP-DIR-AF:DE-BFL</td>
-      <td>359.0</td>
-    </tr>
-    <tr>
-      <th>10</th>
-      <td>23</td>
-      <td>17</td>
-      <td>Ma</td>
-      <td>10.1029/JB095iB04p04597</td>
-      <td>3.8</td>
-      <td>55.2</td>
-      <td>100</td>
-      <td>Sedimentary</td>
-      <td>Sediment Layer</td>
-      <td>79.0</td>
-      <td>34.75</td>
-      <td>Silt</td>
-      <td>Hector Formation</td>
-      <td>116.0</td>
-      <td>LP-DIR-T:LP-DIR-AF:DE-BFL</td>
-      <td>350.0</td>
-    </tr>
-    <tr>
-      <th>11</th>
-      <td>23</td>
-      <td>17</td>
-      <td>Ma</td>
-      <td>10.1029/JB095iB04p04597</td>
-      <td>216.8</td>
-      <td>-28.8</td>
-      <td>100</td>
-      <td>Sedimentary</td>
-      <td>Sediment Layer</td>
-      <td>85.0</td>
-      <td>34.75</td>
-      <td>Silt</td>
-      <td>Hector Formation</td>
-      <td>116.0</td>
-      <td>LP-DIR-T:LP-DIR-AF:DE-BFL</td>
-      <td>352.0</td>
-    </tr>
-    <tr>
-      <th>12</th>
-      <td>23</td>
-      <td>17</td>
-      <td>Ma</td>
-      <td>10.1029/JB095iB04p04597</td>
-      <td>222.5</td>
-      <td>-51.3</td>
-      <td>100</td>
-      <td>Sedimentary</td>
-      <td>Sediment Layer</td>
-      <td>90.0</td>
-      <td>34.75</td>
-      <td>Silt</td>
-      <td>Hector Formation</td>
-      <td>116.0</td>
-      <td>LP-DIR-T:LP-DIR-AF:DE-BFL</td>
-      <td>363.0</td>
-    </tr>
-    <tr>
-      <th>13</th>
-      <td>23</td>
-      <td>17</td>
-      <td>Ma</td>
-      <td>10.1029/JB095iB04p04597</td>
-      <td>202.3</td>
-      <td>-38.5</td>
-      <td>100</td>
-      <td>Sedimentary</td>
-      <td>Sediment Layer</td>
-      <td>93.0</td>
-      <td>34.75</td>
-      <td>Silt</td>
-      <td>Hector Formation</td>
-      <td>116.0</td>
-      <td>LP-DIR-T:LP-DIR-AF:DE-BFL</td>
-      <td>354.0</td>
-    </tr>
-    <tr>
-      <th>14</th>
-      <td>23</td>
-      <td>17</td>
-      <td>Ma</td>
-      <td>10.1029/JB095iB04p04597</td>
-      <td>211.9</td>
-      <td>-32.5</td>
-      <td>100</td>
-      <td>Sedimentary</td>
-      <td>Sediment Layer</td>
-      <td>102.0</td>
-      <td>34.75</td>
-      <td>Silt</td>
-      <td>Hector Formation</td>
-      <td>116.0</td>
-      <td>LP-DIR-T:LP-DIR-AF:DE-BFL</td>
-      <td>356.0</td>
-    </tr>
-    <tr>
-      <th>15</th>
-      <td>23</td>
-      <td>17</td>
-      <td>Ma</td>
-      <td>10.1029/JB095iB04p04597</td>
-      <td>1.3</td>
-      <td>55.0</td>
-      <td>100</td>
-      <td>Sedimentary</td>
-      <td>Sediment Layer</td>
-      <td>110.0</td>
-      <td>34.75</td>
-      <td>Silt</td>
-      <td>Hector Formation</td>
-      <td>116.0</td>
-      <td>LP-DIR-T:LP-DIR-AF:DE-BFL</td>
-      <td>365.0</td>
-    </tr>
-    <tr>
-      <th>16</th>
-      <td>23</td>
-      <td>17</td>
-      <td>Ma</td>
-      <td>10.1029/JB095iB04p04597</td>
-      <td>27.2</td>
-      <td>46.9</td>
-      <td>100</td>
-      <td>Sedimentary</td>
-      <td>Sediment Layer</td>
-      <td>114.0</td>
-      <td>34.75</td>
-      <td>Silt</td>
-      <td>Hector Formation</td>
-      <td>116.0</td>
-      <td>LP-DIR-T:LP-DIR-AF:DE-BFL</td>
-      <td>338.0</td>
-    </tr>
-    <tr>
-      <th>17</th>
-      <td>23</td>
-      <td>17</td>
-      <td>Ma</td>
-      <td>10.1029/JB095iB04p04597</td>
-      <td>192.2</td>
-      <td>-23.8</td>
-      <td>100</td>
-      <td>Sedimentary</td>
-      <td>Sediment Layer</td>
-      <td>123.0</td>
-      <td>34.75</td>
-      <td>Silt</td>
-      <td>Hector Formation</td>
-      <td>116.0</td>
-      <td>LP-DIR-T:LP-DIR-AF:DE-BFL</td>
-      <td>324.0</td>
-    </tr>
-    <tr>
-      <th>18</th>
-      <td>23</td>
-      <td>17</td>
-      <td>Ma</td>
-      <td>10.1029/JB095iB04p04597</td>
-      <td>48.1</td>
-      <td>50.4</td>
-      <td>100</td>
-      <td>Sedimentary</td>
-      <td>Sediment Layer</td>
-      <td>128.0</td>
-      <td>34.75</td>
-      <td>Silt</td>
-      <td>Hector Formation</td>
-      <td>116.0</td>
-      <td>LP-DIR-T:LP-DIR-AF:DE-BFL</td>
-      <td>331.0</td>
-    </tr>
-    <tr>
-      <th>19</th>
-      <td>23</td>
-      <td>17</td>
-      <td>Ma</td>
-      <td>10.1029/JB095iB04p04597</td>
-      <td>30.2</td>
-      <td>45.5</td>
-      <td>100</td>
-      <td>Sedimentary</td>
-      <td>Sediment Layer</td>
-      <td>134.0</td>
-      <td>34.75</td>
-      <td>Silt</td>
-      <td>Hector Formation</td>
-      <td>116.0</td>
-      <td>LP-DIR-T:LP-DIR-AF:DE-BFL</td>
-      <td>333.0</td>
-    </tr>
-    <tr>
-      <th>20</th>
-      <td>23</td>
-      <td>17</td>
-      <td>Ma</td>
-      <td>10.1029/JB095iB04p04597</td>
-      <td>190.5</td>
-      <td>-55.8</td>
-      <td>100</td>
-      <td>Sedimentary</td>
-      <td>Sediment Layer</td>
-      <td>141.0</td>
-      <td>34.75</td>
-      <td>Silt</td>
-      <td>Hector Formation</td>
-      <td>116.0</td>
-      <td>LP-DIR-T:LP-DIR-AF:DE-BFL</td>
-      <td>328.0</td>
-    </tr>
-    <tr>
-      <th>21</th>
-      <td>23</td>
-      <td>17</td>
-      <td>Ma</td>
-      <td>10.1029/JB095iB04p04597</td>
-      <td>20.5</td>
-      <td>54.0</td>
-      <td>100</td>
-      <td>Sedimentary</td>
-      <td>Sediment Layer</td>
-      <td>153.0</td>
-      <td>34.75</td>
-      <td>Silt</td>
-      <td>Hector Formation</td>
-      <td>116.0</td>
-      <td>LP-DIR-T:LP-DIR-AF:DE-BFL</td>
-      <td>335.0</td>
-    </tr>
-    <tr>
-      <th>22</th>
-      <td>23</td>
-      <td>17</td>
-      <td>Ma</td>
-      <td>10.1029/JB095iB04p04597</td>
-      <td>220.4</td>
-      <td>-25.7</td>
-      <td>100</td>
-      <td>Sedimentary</td>
-      <td>Sediment Layer</td>
-      <td>162.0</td>
-      <td>34.75</td>
-      <td>Silt</td>
-      <td>Hector Formation</td>
-      <td>116.0</td>
-      <td>LP-DIR-T:LP-DIR-AF:DE-BFL</td>
-      <td>330.0</td>
-    </tr>
-    <tr>
-      <th>23</th>
-      <td>23</td>
-      <td>17</td>
-      <td>Ma</td>
-      <td>10.1029/JB095iB04p04597</td>
-      <td>26.7</td>
-      <td>40.5</td>
-      <td>100</td>
-      <td>Sedimentary</td>
-      <td>Sediment Layer</td>
-      <td>185.0</td>
-      <td>34.75</td>
-      <td>Silt</td>
-      <td>Hector Formation</td>
-      <td>116.0</td>
-      <td>LP-DIR-T:LP-DIR-AF:DE-BFL</td>
-      <td>339.0</td>
-    </tr>
-    <tr>
-      <th>24</th>
-      <td>23</td>
-      <td>17</td>
-      <td>Ma</td>
-      <td>10.1029/JB095iB04p04597</td>
-      <td>38.1</td>
-      <td>51.9</td>
-      <td>100</td>
-      <td>Sedimentary</td>
-      <td>Sediment Layer</td>
-      <td>194.0</td>
-      <td>34.75</td>
-      <td>Silt</td>
-      <td>Hector Formation</td>
-      <td>116.0</td>
-      <td>LP-DIR-T:LP-DIR-AF:DE-BFL</td>
-      <td>334.0</td>
-    </tr>
-    <tr>
-      <th>25</th>
-      <td>23</td>
-      <td>17</td>
-      <td>Ma</td>
-      <td>10.1029/JB095iB04p04597</td>
-      <td>48.6</td>
-      <td>38.6</td>
-      <td>100</td>
-      <td>Sedimentary</td>
-      <td>Sediment Layer</td>
-      <td>206.0</td>
-      <td>34.75</td>
-      <td>Silt</td>
-      <td>Hector Formation</td>
-      <td>116.0</td>
-      <td>LP-DIR-T:LP-DIR-AF:DE-BFL</td>
-      <td>341.0</td>
-    </tr>
-    <tr>
-      <th>26</th>
-      <td>23</td>
-      <td>17</td>
-      <td>Ma</td>
-      <td>10.1029/JB095iB04p04597</td>
-      <td>67.5</td>
-      <td>30.3</td>
-      <td>100</td>
-      <td>Sedimentary</td>
-      <td>Sediment Layer</td>
-      <td>219.0</td>
-      <td>34.75</td>
-      <td>Silt</td>
-      <td>Hector Formation</td>
-      <td>116.0</td>
-      <td>LP-DIR-T:LP-DIR-AF:DE-BFL</td>
-      <td>336.0</td>
-    </tr>
-    <tr>
-      <th>27</th>
-      <td>23</td>
-      <td>17</td>
-      <td>Ma</td>
-      <td>10.1029/JB095iB04p04597</td>
-      <td>52.1</td>
-      <td>26.5</td>
-      <td>100</td>
-      <td>Sedimentary</td>
-      <td>Sediment Layer</td>
-      <td>222.0</td>
-      <td>34.75</td>
-      <td>Silt</td>
-      <td>Hector Formation</td>
-      <td>116.0</td>
-      <td>LP-DIR-T:LP-DIR-AF:DE-BFL</td>
-      <td>401.0</td>
-    </tr>
-    <tr>
-      <th>28</th>
-      <td>23</td>
-      <td>17</td>
-      <td>Ma</td>
-      <td>10.1029/JB095iB04p04597</td>
-      <td>193.7</td>
-      <td>-29.6</td>
-      <td>100</td>
-      <td>Sedimentary</td>
-      <td>Sediment Layer</td>
-      <td>233.0</td>
-      <td>34.75</td>
-      <td>Silt</td>
-      <td>Hector Formation</td>
-      <td>116.0</td>
-      <td>LP-DIR-T:LP-DIR-AF:DE-BFL</td>
-      <td>402.0</td>
-    </tr>
-    <tr>
-      <th>29</th>
-      <td>23</td>
-      <td>17</td>
-      <td>Ma</td>
-      <td>10.1029/JB095iB04p04597</td>
-      <td>17.0</td>
-      <td>46.1</td>
-      <td>100</td>
-      <td>Sedimentary</td>
-      <td>Sediment Layer</td>
-      <td>246.0</td>
-      <td>34.75</td>
-      <td>Silt</td>
-      <td>Hector Formation</td>
-      <td>116.0</td>
-      <td>LP-DIR-T:LP-DIR-AF:DE-BFL</td>
-      <td>403.0</td>
-    </tr>
-    <tr>
-      <th>30</th>
-      <td>23</td>
-      <td>17</td>
-      <td>Ma</td>
-      <td>10.1029/JB095iB04p04597</td>
-      <td>356.6</td>
-      <td>48.9</td>
-      <td>100</td>
-      <td>Sedimentary</td>
-      <td>Sediment Layer</td>
-      <td>255.0</td>
-      <td>34.75</td>
-      <td>Silt</td>
-      <td>Hector Formation</td>
-      <td>116.0</td>
-      <td>LP-DIR-T:LP-DIR-AF:DE-BFL</td>
-      <td>404.0</td>
-    </tr>
-    <tr>
-      <th>31</th>
-      <td>23</td>
-      <td>17</td>
-      <td>Ma</td>
-      <td>10.1029/JB095iB04p04597</td>
-      <td>353.8</td>
-      <td>44.5</td>
-      <td>100</td>
-      <td>Sedimentary</td>
-      <td>Sediment Layer</td>
-      <td>257.0</td>
-      <td>34.75</td>
-      <td>Silt</td>
-      <td>Hector Formation</td>
-      <td>116.0</td>
-      <td>LP-DIR-T:LP-DIR-AF:DE-BFL</td>
-      <td>405.0</td>
-    </tr>
-    <tr>
-      <th>32</th>
-      <td>23</td>
-      <td>17</td>
-      <td>Ma</td>
-      <td>10.1029/JB095iB04p04597</td>
-      <td>28.5</td>
-      <td>15.4</td>
-      <td>100</td>
-      <td>Sedimentary</td>
-      <td>Sediment Layer</td>
-      <td>261.0</td>
-      <td>34.75</td>
-      <td>Silt</td>
-      <td>Hector Formation</td>
-      <td>116.0</td>
-      <td>LP-DIR-T:LP-DIR-AF:DE-BFL</td>
-      <td>406.0</td>
-    </tr>
-    <tr>
-      <th>33</th>
-      <td>23</td>
-      <td>17</td>
-      <td>Ma</td>
-      <td>10.1029/JB095iB04p04597</td>
-      <td>345.3</td>
-      <td>41.5</td>
-      <td>100</td>
-      <td>Sedimentary</td>
-      <td>Sediment Layer</td>
-      <td>264.0</td>
-      <td>34.75</td>
-      <td>Silt</td>
-      <td>Hector Formation</td>
-      <td>116.0</td>
-      <td>LP-DIR-T:LP-DIR-AF:DE-BFL</td>
-      <td>422.0</td>
-    </tr>
-    <tr>
-      <th>34</th>
-      <td>23</td>
-      <td>17</td>
-      <td>Ma</td>
-      <td>10.1029/JB095iB04p04597</td>
-      <td>16.9</td>
-      <td>36.1</td>
-      <td>100</td>
-      <td>Sedimentary</td>
-      <td>Sediment Layer</td>
-      <td>273.0</td>
-      <td>34.75</td>
-      <td>Silt</td>
-      <td>Hector Formation</td>
-      <td>116.0</td>
-      <td>LP-DIR-T:LP-DIR-AF:DE-BFL</td>
-      <td>407.0</td>
-    </tr>
-    <tr>
-      <th>35</th>
-      <td>23</td>
-      <td>17</td>
-      <td>Ma</td>
-      <td>10.1029/JB095iB04p04597</td>
-      <td>352.0</td>
-      <td>51.7</td>
-      <td>100</td>
-      <td>Sedimentary</td>
-      <td>Sediment Layer</td>
-      <td>281.0</td>
-      <td>34.75</td>
-      <td>Silt</td>
-      <td>Hector Formation</td>
-      <td>116.0</td>
-      <td>LP-DIR-T:LP-DIR-AF:DE-BFL</td>
-      <td>408.0</td>
-    </tr>
-    <tr>
-      <th>36</th>
-      <td>23</td>
-      <td>17</td>
-      <td>Ma</td>
-      <td>10.1029/JB095iB04p04597</td>
-      <td>196.6</td>
-      <td>-37.5</td>
-      <td>100</td>
-      <td>Sedimentary</td>
-      <td>Sediment Layer</td>
-      <td>285.0</td>
-      <td>34.75</td>
-      <td>Silt</td>
-      <td>Hector Formation</td>
-      <td>116.0</td>
-      <td>LP-DIR-T:LP-DIR-AF:DE-BFL</td>
-      <td>409.0</td>
-    </tr>
-    <tr>
-      <th>37</th>
-      <td>23</td>
-      <td>17</td>
-      <td>Ma</td>
-      <td>10.1029/JB095iB04p04597</td>
-      <td>160.0</td>
-      <td>-40.2</td>
-      <td>100</td>
-      <td>Sedimentary</td>
-      <td>Sediment Layer</td>
-      <td>291.0</td>
-      <td>34.75</td>
-      <td>Silt</td>
-      <td>Hector Formation</td>
-      <td>116.0</td>
-      <td>LP-DIR-T:LP-DIR-AF:DE-BFL</td>
-      <td>410.0</td>
-    </tr>
-    <tr>
-      <th>38</th>
-      <td>23</td>
-      <td>17</td>
-      <td>Ma</td>
-      <td>10.1029/JB095iB04p04597</td>
-      <td>186.3</td>
-      <td>-43.3</td>
-      <td>100</td>
-      <td>Sedimentary</td>
-      <td>Sediment Layer</td>
-      <td>299.0</td>
-      <td>34.75</td>
-      <td>Silt</td>
-      <td>Hector Formation</td>
-      <td>116.0</td>
-      <td>LP-DIR-T:LP-DIR-AF:DE-BFL</td>
-      <td>411.0</td>
-    </tr>
-    <tr>
-      <th>39</th>
-      <td>23</td>
-      <td>17</td>
-      <td>Ma</td>
-      <td>10.1029/JB095iB04p04597</td>
-      <td>195.8</td>
-      <td>-45.4</td>
-      <td>100</td>
-      <td>Sedimentary</td>
-      <td>Sediment Layer</td>
-      <td>302.0</td>
-      <td>34.75</td>
-      <td>Silt</td>
-      <td>Hector Formation</td>
-      <td>116.0</td>
-      <td>LP-DIR-T:LP-DIR-AF:DE-BFL</td>
-      <td>412.0</td>
-    </tr>
-    <tr>
-      <th>40</th>
-      <td>23</td>
-      <td>17</td>
-      <td>Ma</td>
-      <td>10.1029/JB095iB04p04597</td>
-      <td>139.6</td>
-      <td>-40.2</td>
-      <td>100</td>
-      <td>Sedimentary</td>
-      <td>Sediment Layer</td>
-      <td>306.0</td>
-      <td>34.75</td>
-      <td>Silt</td>
-      <td>Hector Formation</td>
-      <td>116.0</td>
-      <td>LP-DIR-T:LP-DIR-AF:DE-BFL</td>
-      <td>413.0</td>
-    </tr>
-    <tr>
-      <th>41</th>
-      <td>23</td>
-      <td>17</td>
-      <td>Ma</td>
-      <td>10.1029/JB095iB04p04597</td>
-      <td>173.3</td>
-      <td>-45.0</td>
-      <td>100</td>
-      <td>Sedimentary</td>
-      <td>Sediment Layer</td>
-      <td>320.0</td>
-      <td>34.75</td>
-      <td>Silt</td>
-      <td>Hector Formation</td>
-      <td>116.0</td>
-      <td>LP-DIR-T:LP-DIR-AF:DE-BFL</td>
-      <td>415.0</td>
-    </tr>
-    <tr>
-      <th>42</th>
-      <td>23</td>
-      <td>17</td>
-      <td>Ma</td>
-      <td>10.1029/JB095iB04p04597</td>
-      <td>168.1</td>
-      <td>-53.2</td>
-      <td>100</td>
-      <td>Sedimentary</td>
-      <td>Sediment Layer</td>
-      <td>332.0</td>
-      <td>34.75</td>
-      <td>Silt</td>
-      <td>Hector Formation</td>
-      <td>116.0</td>
-      <td>LP-DIR-T:LP-DIR-AF:DE-BFL</td>
-      <td>416.0</td>
-    </tr>
-    <tr>
-      <th>43</th>
-      <td>23</td>
-      <td>17</td>
-      <td>Ma</td>
-      <td>10.1029/JB095iB04p04597</td>
-      <td>131.2</td>
-      <td>-56.3</td>
-      <td>100</td>
-      <td>Sedimentary</td>
-      <td>Sediment Layer</td>
-      <td>333.0</td>
-      <td>34.75</td>
-      <td>Silt</td>
-      <td>Hector Formation</td>
-      <td>116.0</td>
-      <td>LP-DIR-T:LP-DIR-AF:DE-BFL</td>
-      <td>417.0</td>
-    </tr>
-    <tr>
-      <th>44</th>
-      <td>23</td>
-      <td>17</td>
-      <td>Ma</td>
-      <td>10.1029/JB095iB04p04597</td>
-      <td>180.2</td>
-      <td>-53.0</td>
-      <td>100</td>
-      <td>Sedimentary</td>
-      <td>Sediment Layer</td>
-      <td>342.0</td>
-      <td>34.75</td>
-      <td>Silt</td>
-      <td>Hector Formation</td>
-      <td>116.0</td>
-      <td>LP-DIR-T:LP-DIR-AF:DE-BFL</td>
-      <td>418.0</td>
-    </tr>
-    <tr>
-      <th>45</th>
-      <td>23</td>
-      <td>17</td>
-      <td>Ma</td>
-      <td>10.1029/JB095iB04p04597</td>
-      <td>205.0</td>
-      <td>-58.5</td>
-      <td>100</td>
-      <td>Sedimentary</td>
-      <td>Sediment Layer</td>
-      <td>350.0</td>
-      <td>34.75</td>
-      <td>Silt</td>
-      <td>Hector Formation</td>
-      <td>116.0</td>
-      <td>LP-DIR-T:LP-DIR-AF:DE-BFL</td>
-      <td>419.0</td>
-    </tr>
-    <tr>
-      <th>46</th>
-      <td>23</td>
-      <td>17</td>
-      <td>Ma</td>
-      <td>10.1029/JB095iB04p04597</td>
-      <td>147.9</td>
-      <td>-50.0</td>
-      <td>100</td>
-      <td>Sedimentary</td>
-      <td>Sediment Layer</td>
-      <td>354.0</td>
-      <td>34.75</td>
-      <td>Silt</td>
-      <td>Hector Formation</td>
-      <td>116.0</td>
-      <td>LP-DIR-T:LP-DIR-AF:DE-BFL</td>
-      <td>420.0</td>
-    </tr>
-    <tr>
-      <th>47</th>
-      <td>23</td>
-      <td>17</td>
-      <td>Ma</td>
-      <td>10.1029/JB095iB04p04597</td>
-      <td>141.1</td>
-      <td>-45.0</td>
-      <td>100</td>
-      <td>Sedimentary</td>
-      <td>Sediment Layer</td>
-      <td>360.0</td>
-      <td>34.75</td>
-      <td>Silt</td>
-      <td>Hector Formation</td>
-      <td>116.0</td>
-      <td>LP-DIR-T:LP-DIR-AF:DE-BFL</td>
-      <td>421.0</td>
-    </tr>
-  </tbody>
-</table>
-</div></div></div>
 </div>
 </section>
 <section id="make-declination-inclination-lists">
@@ -1658,71 +698,60 @@ it will be populated for a MagIC contribution where there are tilt-corrected dat
 </div>
 </div>
 </div>
+</section>
+</section>
+<section id="plot-the-directions">
+<h2>Plot the directions<a class="headerlink" href="#plot-the-directions" title="Permalink to this heading">#</a></h2>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="n">sites_dec</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">ipmag</span><span class="o">.</span><span class="n">plot_net</span><span class="p">()</span>
+<span class="n">ipmag</span><span class="o">.</span><span class="n">plot_di</span><span class="p">(</span><span class="n">sites_dec</span><span class="p">,</span><span class="n">sites_inc</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0     198.1
-1      62.1
-2      32.8
-3      22.8
-4      55.0
-5      28.5
-6      44.5
-7     189.4
-8     202.2
-9     216.2
-10      3.8
-11    216.8
-12    222.5
-13    202.3
-14    211.9
-15      1.3
-16     27.2
-17    192.2
-18     48.1
-19     30.2
-20    190.5
-21     20.5
-22    220.4
-23     26.7
-24     38.1
-25     48.6
-26     67.5
-27     52.1
-28    193.7
-29     17.0
-30    356.6
-31    353.8
-32     28.5
-33    345.3
-34     16.9
-35    352.0
-36    196.6
-37    160.0
-38    186.3
-39    195.8
-40    139.6
-41    173.3
-42    168.1
-43    131.2
-44    180.2
-45    205.0
-46    147.9
-47    141.1
-Name: dir_dec, dtype: float64
+<img alt="../../_images/f14b7ba09f01294d72a7845b8c590722f78e032d9f2125024984df3894f1c3cd.png" src="../../_images/f14b7ba09f01294d72a7845b8c590722f78e032d9f2125024984df3894f1c3cd.png" />
+</div>
+</div>
+</section>
+<section id="reversal-tests">
+<h2>Reversal tests<a class="headerlink" href="#reversal-tests" title="Permalink to this heading">#</a></h2>
+<p>Now that we have extracted the declination and inclination values, let’s conduct reversal tests on these data using the functions <code class="docutils literal notranslate"><span class="pre">ipmag.reversal_test_bootstrap</span></code> and <code class="docutils literal notranslate"><span class="pre">ipmag.reversal_test_MM1990</span></code>.</p>
+<section id="conduct-the-watson-common-mean-reversal-test">
+<h3>Conduct the Watson common mean reversal test<a class="headerlink" href="#conduct-the-watson-common-mean-reversal-test" title="Permalink to this heading">#</a></h3>
+<p>We can do the Watson common mean test (together with McFadden and McElhinny (1990) classification) as well:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">ipmag</span><span class="o">.</span><span class="n">reversal_test_MM1990</span><span class="p">(</span><span class="n">dec</span><span class="o">=</span><span class="n">sites_dec</span><span class="p">,</span>
+                           <span class="n">inc</span><span class="o">=</span><span class="n">sites_inc</span><span class="p">,</span>
+                           <span class="n">plot_CDF</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Results of Watson V test: 
+
+Watson&#39;s V:           4.4
+Critical value of V:  6.1
+&quot;Pass&quot;: Since V is less than Vcrit, the null hypothesis
+that the two populations are drawn from distributions
+that share a common mean direction can not be rejected.
+
+M&amp;M1990 classification:
+
+Angle between data set means: 4.4
+Critical angle for M&amp;M1990:   5.1
+The McFadden and McElhinny (1990) classification for
+this test is: &#39;B&#39;
+</pre></div>
+</div>
+<img alt="../../_images/19727b4c3860eec94242f0878270b1ef9e5f42bc2a0d71033d9fa4fb764dcd78.png" src="../../_images/19727b4c3860eec94242f0878270b1ef9e5f42bc2a0d71033d9fa4fb764dcd78.png" />
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>(1, 4.362992887306586, 5.11040955061146, &#39;B&#39;)
 </pre></div>
 </div>
 </div>
 </div>
 </section>
-</section>
-<section id="reversal-tests">
-<h2>Reversal tests<a class="headerlink" href="#reversal-tests" title="Permalink to this heading">#</a></h2>
-<p>Now that we have extracted the declination and inclination values, let’s conduct reversal tests on these data using the functions <code class="docutils literal notranslate"><span class="pre">ipmag.reversal_test_bootstrap</span></code> and <code class="docutils literal notranslate"><span class="pre">ipmag.reversal_test_MM1990</span></code>.</p>
 <section id="conduct-the-bootstrap-reversal-test">
 <h3>Conduct the bootstrap reversal test<a class="headerlink" href="#conduct-the-bootstrap-reversal-test" title="Permalink to this heading">#</a></h3>
 <p>Let’s go ahead and do the bootstrap reversal test using this <code class="docutils literal notranslate"><span class="pre">ipmag.reversal_test_bootstrap()</span></code> function.</p>
@@ -1730,13 +759,15 @@ Name: dir_dec, dtype: float64
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">ipmag</span><span class="o">.</span><span class="n">reversal_test_bootstrap</span><span class="p">(</span><span class="n">dec</span><span class="o">=</span><span class="n">sites_dec</span><span class="p">,</span>
                               <span class="n">inc</span><span class="o">=</span><span class="n">sites_inc</span><span class="p">,</span>
-                              <span class="n">plot_stereo</span> <span class="o">=</span> <span class="kc">True</span><span class="p">)</span>
+                              <span class="n">plot_stereo</span> <span class="o">=</span> <span class="kc">True</span><span class="p">,</span>
+                              <span class="n">save</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span>
+                              <span class="n">save_folder</span><span class="o">=</span><span class="n">directory</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../_images/9efe8036059ee896c7568075f5b96dbda73c703e946346c2208c65a2a854fa7b.png" src="../../_images/9efe8036059ee896c7568075f5b96dbda73c703e946346c2208c65a2a854fa7b.png" />
-<img alt="../../_images/213c34af4c06e0ba38dde0804079b8614e2b8c2445578e8c54bdaf617b733697.png" src="../../_images/213c34af4c06e0ba38dde0804079b8614e2b8c2445578e8c54bdaf617b733697.png" />
+<img alt="../../_images/db0659355d88f3624dc3f8be8a64a6fbbb2dbcadaafbaa244c6522acb10ed56b.png" src="../../_images/db0659355d88f3624dc3f8be8a64a6fbbb2dbcadaafbaa244c6522acb10ed56b.png" />
+<img alt="../../_images/4538f126838be3b6d9f0a2d9790629f278a26be7f29ed6768de9f6502df40a15.png" src="../../_images/4538f126838be3b6d9f0a2d9790629f278a26be7f29ed6768de9f6502df40a15.png" />
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Pass
 </pre></div>
 </div>
@@ -1746,9 +777,9 @@ Name: dir_dec, dtype: float64
 </div>
 </div>
 </section>
-<section id="learn-about-the-function">
-<h3>Learn about the function<a class="headerlink" href="#learn-about-the-function" title="Permalink to this heading">#</a></h3>
-<p>To learn more about this function we can type <code class="docutils literal notranslate"><span class="pre">ipmag.reversal_test_bootstrap?</span></code> in a code cell.</p>
+<section id="learn-about-the-reversal-test-functions">
+<h3>Learn about the reversal test functions<a class="headerlink" href="#learn-about-the-reversal-test-functions" title="Permalink to this heading">#</a></h3>
+<p>To learn more about the function we can type the function with a question mark after them in a code cell: <code class="docutils literal notranslate"><span class="pre">ipmag.reversal_test_bootstrap?</span></code> in a code cell.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>ipmag.reversal_test_bootstrap<span class="o">?</span>
@@ -1807,38 +838,8 @@ Examples:
 
     &gt;&gt;&gt; direction_dec, direction_inc, direction_moment = ipmag.unpack_di_block(directions)
     &gt;&gt;&gt; ipmag.reversal_test_bootstrap(dec=direction_dec,inc=direction_inc, plot_stereo = True)
-<span class=" -Color -Color-Red">File:</span>      ~/0000_GitHub/PmagPy/pmagpy/ipmag.py
+<span class=" -Color -Color-Red">File:</span>      ~/0000_Github/PmagPy/pmagpy/ipmag.py
 <span class=" -Color -Color-Red">Type:</span>      function
-</pre></div>
-</div>
-</div>
-</div>
-</section>
-<section id="conduct-the-watson-common-mean-reversal-test">
-<h3>Conduct the Watson common mean reversal test<a class="headerlink" href="#conduct-the-watson-common-mean-reversal-test" title="Permalink to this heading">#</a></h3>
-<p>We can do the Watson common mean test (together with McFadden and McElhinny (1990) classification) as well:</p>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">ipmag</span><span class="o">.</span><span class="n">reversal_test_MM1990</span><span class="p">(</span><span class="n">dec</span><span class="o">=</span><span class="n">sites_dec</span><span class="p">,</span>
-                           <span class="n">inc</span><span class="o">=</span><span class="n">sites_inc</span><span class="p">)</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Results of Watson V test: 
-
-Watson&#39;s V:           9.2
-Critical value of V:  6.5
-&quot;Fail&quot;: Since V is greater than Vcrit, the two means can
-be distinguished at the 95% confidence level.
-
-M&amp;M1990 classification:
-
-Angle between data set means: 13.4
-Critical angle for M&amp;M1990:   11.2
-</pre></div>
-</div>
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>(0, 13.36386019629975, 11.197090525992087, &#39;&#39;)
 </pre></div>
 </div>
 </div>
@@ -1905,7 +906,7 @@ Examples:
 
     &gt;&gt;&gt; direction_dec, direction_inc, direction_moment = ipmag.unpack_di_block(directions)
     &gt;&gt;&gt; ipmag.reversal_test_MM1990(dec=direction_dec,inc=direction_inc, plot_stereo = True)
-<span class=" -Color -Color-Red">File:</span>      ~/0000_GitHub/PmagPy/pmagpy/ipmag.py
+<span class=" -Color -Color-Red">File:</span>      ~/0000_Github/PmagPy/pmagpy/ipmag.py
 <span class=" -Color -Color-Red">Type:</span>      function
 </pre></div>
 </div>
@@ -1974,10 +975,11 @@ Examples:
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#make-declination-inclination-lists">Make declination/inclination lists</a></li>
 </ul>
 </li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#plot-the-directions">Plot the directions</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#reversal-tests">Reversal tests</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#conduct-the-bootstrap-reversal-test">Conduct the bootstrap reversal test</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#learn-about-the-function">Learn about the function</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#conduct-the-watson-common-mean-reversal-test">Conduct the Watson common mean reversal test</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#conduct-the-bootstrap-reversal-test">Conduct the bootstrap reversal test</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#learn-about-the-reversal-test-functions">Learn about the reversal test functions</a></li>
 </ul>
 </li>
 </ul>
