@@ -18,7 +18,7 @@ This notebook enables a MagIC contribution to be downloaded with the directional
 :::
 
 :::{grid-item-card}
-:link: template_notebooks/mean_determination.ipynb
+:link: template_notebooks/mean_determination
 :link-type: doc
 :class-header: bg-light
 
