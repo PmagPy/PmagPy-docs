@@ -1,0 +1,2036 @@
+
+
+<!DOCTYPE html>
+
+
+<html lang="en" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
+
+    <title>Conduct reversal test on directional data in MagIC format using PmagPy &#8212; PmagPy Documentation</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "light";
+  </script>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../../_static/styles/theme.css?digest=ac02cc09edc035673794" rel="stylesheet" />
+<link href="../../_static/styles/bootstrap.css?digest=ac02cc09edc035673794" rel="stylesheet" />
+<link href="../../_static/styles/pydata-sphinx-theme.css?digest=ac02cc09edc035673794" rel="stylesheet" />
+
+  
+  <link href="../../_static/vendor/fontawesome/6.1.2/css/all.min.css?digest=ac02cc09edc035673794" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="../../_static/vendor/fontawesome/6.1.2/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../../_static/vendor/fontawesome/6.1.2/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../../_static/vendor/fontawesome/6.1.2/webfonts/fa-regular-400.woff2" />
+
+    <link rel="stylesheet" type="text/css" href="../../_static/pygments.css" />
+    <link rel="stylesheet" href="../../_static/styles/sphinx-book-theme.css?digest=14f4ca6b54d191a8c7657f6c759bf11a5fb86285" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/design-style.4045f2051d55cab465a707391d5b2007.min.css" />
+  
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../../_static/scripts/bootstrap.js?digest=ac02cc09edc035673794" />
+<link rel="preload" as="script" href="../../_static/scripts/pydata-sphinx-theme.js?digest=ac02cc09edc035673794" />
+  <script src="../../_static/vendor/fontawesome/6.1.2/js/all.min.js?digest=ac02cc09edc035673794"></script>
+
+    <script data-url_root="../../" id="documentation_options" src="../../_static/documentation_options.js"></script>
+    <script src="../../_static/jquery.js"></script>
+    <script src="../../_static/underscore.js"></script>
+    <script src="../../_static/_sphinx_javascript_frameworks_compat.js"></script>
+    <script src="../../_static/doctools.js"></script>
+    <script src="../../_static/clipboard.min.js"></script>
+    <script src="../../_static/copybutton.js"></script>
+    <script src="../../_static/scripts/sphinx-book-theme.js?digest=5a5c038af52cf7bc1a1ec88eea08e6366ee68824"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="../../_static/togglebutton.js"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script src="../../_static/design-tabs.js"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
+const thebe_selector = ".thebe,.cell"
+const thebe_selector_input = "pre"
+const thebe_selector_output = ".output, .cell_output"
+</script>
+    <script async="async" src="../../_static/sphinx-thebe.js"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'example_notebooks/template_notebooks/reversal_test';</script>
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <a class="skip-link" href="#main-content">Skip to main content</a>
+  
+  <div id="pst-scroll-pixel-helper"></div>
+
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>
+    Back to top
+  </button>
+
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          name="__primary"
+          id="__primary"/>
+  <label class="overlay overlay-primary" for="__primary"></label>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          name="__secondary"
+          id="__secondary"/>
+  <label class="overlay overlay-secondary" for="__secondary"></label>
+  
+  <div class="search-button__wrapper">
+    <div class="search-button__overlay"></div>
+    <div class="search-button__search-container">
+<form class="bd-search d-flex align-items-center"
+      action="../../search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         id="search-input"
+         placeholder="Search this book..."
+         aria-label="Search this book..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form></div>
+  </div>
+  
+    <nav class="bd-header navbar navbar-expand-lg bd-navbar">
+    </nav>
+  
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      <div class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+  
+
+<a class="navbar-brand logo" href="../../intro.html">
+  
+  
+  
+  
+    
+    
+      
+    
+    
+    <img src="../../_static/pmagpy_logo_notext.png" class="logo__image only-light" alt="Logo image"/>
+    <script>document.write(`<img src="../../_static/pmagpy_logo_notext.png" class="logo__image only-dark" alt="Logo image"/>`);</script>
+  
+  
+</a></div>
+        <div class="sidebar-primary-item"><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        
+        <ul class="nav bd-sidenav bd-sidenav__home-link">
+            <li class="toctree-l1">
+                <a class="reference internal" href="../../intro.html">
+                    PmagPy: An open source package for paleomagnetic data analysis
+                </a>
+            </li>
+        </ul>
+        <p aria-level="2" class="caption" role="heading"><span class="caption-text">Installation</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../installation/PmagPy_install.html">Installing <strong>PmagPy</strong></a><input class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-1"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../installation/osx_pip.html">OSX pip install</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../installation/osx_developer.html">OSX developer install</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../installation/windows_pip.html">Windows pip install</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../installation/windows_developer.html">Windows developer install</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../installation/linux_pip.html">Linux pip install</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../installation/linux_developer.html">Linux developer install</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../installation/troubleshooting.html">Troubleshooting installation issues</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../programs/command_line_programs.html">Command line programs</a></li>
+</ul>
+</li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../programs/pmag_gui.html">Installing and Getting Started with Pmag GUI</a><input class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-2"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../programs/demag_gui.html">Demag GUI</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../programs/thellier_gui.html">Thellier GUI</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../resources/survival_skills.html">Survival computer skills</a></li>
+
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Documentation notebooks</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../../documentation_notebooks/Jupyter.html">Jupyter Notebooks</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../documentation_notebooks/PmagPy_introduction.html">Introduction to PmagPy</a></li>
+
+<li class="toctree-l1"><a class="reference internal" href="../../documentation_notebooks/PmagPy_calculations.html">Calculations with PmagPy</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../documentation_notebooks/PmagPy_plots_analysis.html">Visualizations and more analysis with PmagPy</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../documentation_notebooks/PmagPy_MagIC.html">Working with the MagIC database using PmagPy</a></li>
+
+
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Example notebooks</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../tutorial_notebooks.html">Tutorial notebooks</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../template_notebooks.html">Template notebooks</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../published_notebooks.html">Published studies notebooks</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">MagIC</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../../MagIC/MagIC.html">MagIC database and file formats</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Function docstrings</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../../api/api.html">API Reference</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">References</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../../references.html">References</a></li>
+</ul>
+
+    </div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+  </div>
+  
+  <div id="rtd-footer-container"></div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><label class="sidebar-toggle primary-toggle btn btn-sm" for="__primary" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</label></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+
+
+
+<div class="dropdown dropdown-source-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Source repositories">
+    <i class="fab fa-github"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="https://github.com/pmagpy/pmagpy-docs" target="_blank"
+   class="btn btn-sm btn-source-repository-button dropdown-item"
+   title="Source repository"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fab fa-github"></i>
+  </span>
+<span class="btn__text-container">Repository</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li><a href="https://github.com/pmagpy/pmagpy-docs/issues/new?title=Issue%20on%20page%20%2Fexample_notebooks/template_notebooks/reversal_test.html&body=Your%20issue%20content%20here." target="_blank"
+   class="btn btn-sm btn-source-issues-button dropdown-item"
+   title="Open an issue"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-lightbulb"></i>
+  </span>
+<span class="btn__text-container">Open issue</span>
+</a>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+
+
+<div class="dropdown dropdown-download-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Download this page">
+    <i class="fas fa-download"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="../../_sources/example_notebooks/template_notebooks/reversal_test.ipynb" target="_blank"
+   class="btn btn-sm btn-download-source-button dropdown-item"
+   title="Download source file"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="btn__text-container">.ipynb</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="window.print()"
+  class="btn btn-sm btn-download-pdf-button dropdown-item"
+  title="Print to PDF"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="btn__text-container">.pdf</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button"
+  title="Fullscreen mode"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm navbar-btn theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="theme-switch nav-link" data-mode="light"><i class="fa-solid fa-sun fa-lg"></i></span>
+    <span class="theme-switch nav-link" data-mode="dark"><i class="fa-solid fa-moon fa-lg"></i></span>
+    <span class="theme-switch nav-link" data-mode="auto"><i class="fa-solid fa-circle-half-stroke fa-lg"></i></span>
+  </button>
+`);
+</script>
+
+<script>
+document.write(`
+  <button class="btn btn-sm navbar-btn search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass fa-lg"></i>
+  </button>
+`);
+</script>
+<label class="sidebar-toggle secondary-toggle btn btn-sm" for="__secondary"title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</label>
+</div></div>
+      
+    </div>
+  
+</div>
+</div>
+              
+              
+
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1>Conduct reversal test on directional data in MagIC format using PmagPy</h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+            <div>
+                <h2> Contents </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#introduction">Introduction</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#change-the-magic-contribution">Change the MagIC contribution</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#apply-to-your-own-sites-txt-data">Apply to your own <code class="docutils literal notranslate"><span class="pre">sites.txt</span></code> data</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#import-packages">Import packages</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#download-and-unpack-data">Download and unpack data</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#download-magic-contribution">Download MagIC contribution</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#unpack-the-magic-file">Unpack the MagIC file</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#import-the-sites-table">Import the sites table</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#filter-by-tilt-correction">Filter by tilt correction</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#make-declination-inclination-lists">Make declination/inclination lists</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#reversal-tests">Reversal tests</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#conduct-the-bootstrap-reversal-test">Conduct the bootstrap reversal test</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#learn-about-the-function">Learn about the function</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#conduct-the-watson-common-mean-reversal-test">Conduct the Watson common mean reversal test</a></li>
+</ul>
+</li>
+</ul>
+            </nav>
+        </div>
+    </div>
+</div>
+
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article" role="main">
+                  
+  <section class="tex2jax_ignore mathjax_ignore" id="conduct-reversal-test-on-directional-data-in-magic-format-using-pmagpy">
+<h1>Conduct reversal test on directional data in MagIC format using PmagPy<a class="headerlink" href="#conduct-reversal-test-on-directional-data-in-magic-format-using-pmagpy" title="Permalink to this heading">#</a></h1>
+<section id="introduction">
+<h2>Introduction<a class="headerlink" href="#introduction" title="Permalink to this heading">#</a></h2>
+<p>This notebook is a template for importing data and conducting a reversal test using PmagPy. You can use it on any MagIC contribution with dual polarity site data. The example that is given is on paleomagnetic directional data from the following study:</p>
+<blockquote>
+<div><p>Behar, N., Shaar, R., Tauxe, L., Asefaw,
+H., Ebert, Y., Heimann, A., et al. (2019).
+Paleomagnetism and paleosecular
+variations from the Plio‐Pleistocene
+Golan Heights volcanic plateau, Israel.
+Geochemistry, Geophysics, Geosystems,
+20 <a class="reference external" href="https://doi.org/10.1029/2019GC008479">https://doi.org/10.1029/2019GC008479</a></p>
+</div></blockquote>
+<section id="change-the-magic-contribution">
+<h3>Change the MagIC contribution<a class="headerlink" href="#change-the-magic-contribution" title="Permalink to this heading">#</a></h3>
+<p>You can change what study this notebook is applied to by changing the <code class="docutils literal notranslate"><span class="pre">magic_id</span></code> in the <strong>Download data and unpack data</strong> code cel below.</p>
+</section>
+<section id="apply-to-your-own-sites-txt-data">
+<h3>Apply to your own <code class="docutils literal notranslate"><span class="pre">sites.txt</span></code> data<a class="headerlink" href="#apply-to-your-own-sites-txt-data" title="Permalink to this heading">#</a></h3>
+<p>You can also substitute in your own MagIC format <code class="docutils literal notranslate"><span class="pre">sites.txt</span></code> file. To do this, skip the <strong>Download data and unpack data</strong> section and go to the <strong>Import the sites table</strong> section after running the <strong>Import packages</strong> code.</p>
+</section>
+</section>
+<section id="import-packages">
+<h2>Import packages<a class="headerlink" href="#import-packages" title="Permalink to this heading">#</a></h2>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">pmagpy.ipmag</span> <span class="k">as</span> <span class="nn">ipmag</span>
+<span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
+
+<span class="o">%</span><span class="k">matplotlib</span> inline
+<span class="o">%</span><span class="k">config</span> InlineBackend.figure_format=&#39;retina&#39;
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="download-and-unpack-data">
+<h2>Download and unpack data<a class="headerlink" href="#download-and-unpack-data" title="Permalink to this heading">#</a></h2>
+<section id="download-magic-contribution">
+<h3>Download MagIC contribution<a class="headerlink" href="#download-magic-contribution" title="Permalink to this heading">#</a></h3>
+<p>Following the steps in the
+<code class="docutils literal notranslate"><span class="pre">Inspecting_MagIC_directional_data.ipynb</span></code>
+notebook, we can first download the data from MagIC.
+If the directory name that is given is not provided, it will be created.
+In the example, the data are put into a folder within this directory that is named <code class="docutils literal notranslate"><span class="pre">reversal_test_data</span></code>.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">magic_id</span><span class="o">=</span><span class="s1">&#39;19904&#39;</span>
+<span class="n">directory</span> <span class="o">=</span> <span class="s1">&#39;./reversal_test_data&#39;</span>
+<span class="n">result</span><span class="p">,</span> <span class="n">magic_file_path</span> <span class="o">=</span> <span class="n">ipmag</span><span class="o">.</span><span class="n">download_magic_from_id</span><span class="p">(</span><span class="n">magic_id</span><span class="p">,</span> <span class="n">directory</span><span class="o">=</span><span class="n">directory</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="unpack-the-magic-file">
+<h3>Unpack the MagIC file<a class="headerlink" href="#unpack-the-magic-file" title="Permalink to this heading">#</a></h3>
+<p>MagIC contributions are made up of distinct tables that can be unpacked. In this case, we are going to do a reversal test on the site level data so we are particularly interested in unpacking the <code class="docutils literal notranslate"><span class="pre">sites.txt</span></code> table from the MagIC file.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">ipmag</span><span class="o">.</span><span class="n">unpack_magic</span><span class="p">(</span><span class="n">magic_file_path</span><span class="p">,</span><span class="n">dir_path</span><span class="o">=</span><span class="n">directory</span><span class="p">,</span> <span class="n">print_progress</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>1  records written to file  /Users/penokean/0000_GitHub/PmagPy-docs/example_notebooks/template_notebooks/reversal_test_data/contribution.txt
+1  records written to file  /Users/penokean/0000_GitHub/PmagPy-docs/example_notebooks/template_notebooks/reversal_test_data/locations.txt
+48  records written to file  /Users/penokean/0000_GitHub/PmagPy-docs/example_notebooks/template_notebooks/reversal_test_data/sites.txt
+</pre></div>
+</div>
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>True
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="import-the-sites-table">
+<h3>Import the sites table<a class="headerlink" href="#import-the-sites-table" title="Permalink to this heading">#</a></h3>
+<p>We can now use pandas to import the sites table to a pandas dataframe using the function <code class="docutils literal notranslate"><span class="pre">pd.read_csv()</span></code>.</p>
+<p>We need to point <code class="docutils literal notranslate"><span class="pre">pd.read_csv()</span></code> to the file which with the above steps has the location and name of <code class="docutils literal notranslate"><span class="pre">'reversal_test/sites.txt'</span></code>. This can be changed if the file is in a different place or has a different name. For example, if it is in the same directory as the notebook it can be: <code class="docutils literal notranslate"><span class="pre">'sites.txt'</span></code></p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># change the sites_file path if you want to use a file in a different directory</span>
+<span class="n">sites_file</span> <span class="o">=</span> <span class="n">directory</span> <span class="o">+</span> <span class="s1">&#39;/sites.txt&#39;</span>
+<span class="n">sites</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="n">sites_file</span><span class="p">,</span><span class="n">sep</span><span class="o">=</span><span class="s1">&#39;</span><span class="se">\t</span><span class="s1">&#39;</span><span class="p">,</span><span class="n">header</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+<span class="n">sites</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>age_high</th>
+      <th>age_low</th>
+      <th>age_unit</th>
+      <th>citations</th>
+      <th>dir_dec</th>
+      <th>dir_inc</th>
+      <th>dir_tilt_correction</th>
+      <th>geologic_classes</th>
+      <th>geologic_types</th>
+      <th>height</th>
+      <th>lat</th>
+      <th>lithologies</th>
+      <th>location</th>
+      <th>lon</th>
+      <th>method_codes</th>
+      <th>site</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>23</td>
+      <td>17</td>
+      <td>Ma</td>
+      <td>10.1029/JB095iB04p04597</td>
+      <td>198.1</td>
+      <td>-39.7</td>
+      <td>100</td>
+      <td>Sedimentary</td>
+      <td>Sediment Layer</td>
+      <td>0.0</td>
+      <td>34.75</td>
+      <td>Silt</td>
+      <td>Hector Formation</td>
+      <td>116.0</td>
+      <td>LP-DIR-T:LP-DIR-AF:DE-BFL</td>
+      <td>340.0</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>23</td>
+      <td>17</td>
+      <td>Ma</td>
+      <td>10.1029/JB095iB04p04597</td>
+      <td>62.1</td>
+      <td>42.5</td>
+      <td>100</td>
+      <td>Sedimentary</td>
+      <td>Sediment Layer</td>
+      <td>21.0</td>
+      <td>34.75</td>
+      <td>Silt</td>
+      <td>Hector Formation</td>
+      <td>116.0</td>
+      <td>LP-DIR-T:LP-DIR-AF:DE-BFL</td>
+      <td>342.0</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>23</td>
+      <td>17</td>
+      <td>Ma</td>
+      <td>10.1029/JB095iB04p04597</td>
+      <td>32.8</td>
+      <td>48.6</td>
+      <td>100</td>
+      <td>Sedimentary</td>
+      <td>Sediment Layer</td>
+      <td>27.0</td>
+      <td>34.75</td>
+      <td>Silt</td>
+      <td>Hector Formation</td>
+      <td>116.0</td>
+      <td>LP-DIR-T:LP-DIR-AF:DE-BFL</td>
+      <td>344.0</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>23</td>
+      <td>17</td>
+      <td>Ma</td>
+      <td>10.1029/JB095iB04p04597</td>
+      <td>22.8</td>
+      <td>32.9</td>
+      <td>100</td>
+      <td>Sedimentary</td>
+      <td>Sediment Layer</td>
+      <td>30.0</td>
+      <td>34.75</td>
+      <td>Silt</td>
+      <td>Hector Formation</td>
+      <td>116.0</td>
+      <td>LP-DIR-T:LP-DIR-AF:DE-BFL</td>
+      <td>351.0</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>23</td>
+      <td>17</td>
+      <td>Ma</td>
+      <td>10.1029/JB095iB04p04597</td>
+      <td>55.0</td>
+      <td>23.6</td>
+      <td>100</td>
+      <td>Sedimentary</td>
+      <td>Sediment Layer</td>
+      <td>39.0</td>
+      <td>34.75</td>
+      <td>Silt</td>
+      <td>Hector Formation</td>
+      <td>116.0</td>
+      <td>LP-DIR-T:LP-DIR-AF:DE-BFL</td>
+      <td>349.0</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+</div>
+</section>
+<section id="filter-by-tilt-correction">
+<h3>Filter by tilt correction<a class="headerlink" href="#filter-by-tilt-correction" title="Permalink to this heading">#</a></h3>
+<p>When there are data in both geographic coordinates (without correction for bedding tilt) and data in tilt corrected coordinates, they each get their own row with different values in the <code class="docutils literal notranslate"><span class="pre">dir_tilt_correction</span></code> column:</p>
+<ul class="simple">
+<li><p>0: No tilt correction applied. The data are in the geographic coordinate system (i.e., as they are currently oriented in the field).</p></li>
+<li><p>100: Full (100%) tilt correction applied. The data are in the paleohorizontal coordinate system, meaning they have been corrected for tilting to represent their original horizontal position.</p></li>
+</ul>
+<p>In the example dataset, the authors consider the lavas of the Plio‐Pleistocene
+Golan Heights volcanic plateau to be untilted. As a result, all the entries have a <code class="docutils literal notranslate"><span class="pre">dir_tilt_correction</span></code> of 0.
+For completeness, we will filter and make a <code class="docutils literal notranslate"><span class="pre">sites_geo</span></code> dataframe where <code class="docutils literal notranslate"><span class="pre">dir_tilt_correction</span></code> is 0 and
+a <code class="docutils literal notranslate"><span class="pre">sites_tc</span></code> dataframe where <code class="docutils literal notranslate"><span class="pre">dir_tilt_correction</span></code> is 100. For this example, <code class="docutils literal notranslate"><span class="pre">sites_tc</span></code> will be empty but
+it will be populated for a MagIC contribution where there are tilt-corrected data.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">sites_geo</span> <span class="o">=</span> <span class="n">sites</span><span class="p">[</span><span class="n">sites</span><span class="p">[</span><span class="s1">&#39;dir_tilt_correction&#39;</span><span class="p">]</span> <span class="o">==</span> <span class="mi">0</span><span class="p">]</span>
+<span class="n">sites_tc</span> <span class="o">=</span> <span class="n">sites</span><span class="p">[</span><span class="n">sites</span><span class="p">[</span><span class="s1">&#39;dir_tilt_correction&#39;</span><span class="p">]</span> <span class="o">==</span> <span class="mi">100</span><span class="p">]</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">sites_tc</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>age_high</th>
+      <th>age_low</th>
+      <th>age_unit</th>
+      <th>citations</th>
+      <th>dir_dec</th>
+      <th>dir_inc</th>
+      <th>dir_tilt_correction</th>
+      <th>geologic_classes</th>
+      <th>geologic_types</th>
+      <th>height</th>
+      <th>lat</th>
+      <th>lithologies</th>
+      <th>location</th>
+      <th>lon</th>
+      <th>method_codes</th>
+      <th>site</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>23</td>
+      <td>17</td>
+      <td>Ma</td>
+      <td>10.1029/JB095iB04p04597</td>
+      <td>198.1</td>
+      <td>-39.7</td>
+      <td>100</td>
+      <td>Sedimentary</td>
+      <td>Sediment Layer</td>
+      <td>0.0</td>
+      <td>34.75</td>
+      <td>Silt</td>
+      <td>Hector Formation</td>
+      <td>116.0</td>
+      <td>LP-DIR-T:LP-DIR-AF:DE-BFL</td>
+      <td>340.0</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>23</td>
+      <td>17</td>
+      <td>Ma</td>
+      <td>10.1029/JB095iB04p04597</td>
+      <td>62.1</td>
+      <td>42.5</td>
+      <td>100</td>
+      <td>Sedimentary</td>
+      <td>Sediment Layer</td>
+      <td>21.0</td>
+      <td>34.75</td>
+      <td>Silt</td>
+      <td>Hector Formation</td>
+      <td>116.0</td>
+      <td>LP-DIR-T:LP-DIR-AF:DE-BFL</td>
+      <td>342.0</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>23</td>
+      <td>17</td>
+      <td>Ma</td>
+      <td>10.1029/JB095iB04p04597</td>
+      <td>32.8</td>
+      <td>48.6</td>
+      <td>100</td>
+      <td>Sedimentary</td>
+      <td>Sediment Layer</td>
+      <td>27.0</td>
+      <td>34.75</td>
+      <td>Silt</td>
+      <td>Hector Formation</td>
+      <td>116.0</td>
+      <td>LP-DIR-T:LP-DIR-AF:DE-BFL</td>
+      <td>344.0</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>23</td>
+      <td>17</td>
+      <td>Ma</td>
+      <td>10.1029/JB095iB04p04597</td>
+      <td>22.8</td>
+      <td>32.9</td>
+      <td>100</td>
+      <td>Sedimentary</td>
+      <td>Sediment Layer</td>
+      <td>30.0</td>
+      <td>34.75</td>
+      <td>Silt</td>
+      <td>Hector Formation</td>
+      <td>116.0</td>
+      <td>LP-DIR-T:LP-DIR-AF:DE-BFL</td>
+      <td>351.0</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>23</td>
+      <td>17</td>
+      <td>Ma</td>
+      <td>10.1029/JB095iB04p04597</td>
+      <td>55.0</td>
+      <td>23.6</td>
+      <td>100</td>
+      <td>Sedimentary</td>
+      <td>Sediment Layer</td>
+      <td>39.0</td>
+      <td>34.75</td>
+      <td>Silt</td>
+      <td>Hector Formation</td>
+      <td>116.0</td>
+      <td>LP-DIR-T:LP-DIR-AF:DE-BFL</td>
+      <td>349.0</td>
+    </tr>
+    <tr>
+      <th>5</th>
+      <td>23</td>
+      <td>17</td>
+      <td>Ma</td>
+      <td>10.1029/JB095iB04p04597</td>
+      <td>28.5</td>
+      <td>53.4</td>
+      <td>100</td>
+      <td>Sedimentary</td>
+      <td>Sediment Layer</td>
+      <td>41.0</td>
+      <td>34.75</td>
+      <td>Silt</td>
+      <td>Hector Formation</td>
+      <td>116.0</td>
+      <td>LP-DIR-T:LP-DIR-AF:DE-BFL</td>
+      <td>346.0</td>
+    </tr>
+    <tr>
+      <th>6</th>
+      <td>23</td>
+      <td>17</td>
+      <td>Ma</td>
+      <td>10.1029/JB095iB04p04597</td>
+      <td>44.5</td>
+      <td>59.8</td>
+      <td>100</td>
+      <td>Sedimentary</td>
+      <td>Sediment Layer</td>
+      <td>47.0</td>
+      <td>34.75</td>
+      <td>Silt</td>
+      <td>Hector Formation</td>
+      <td>116.0</td>
+      <td>LP-DIR-T:LP-DIR-AF:DE-BFL</td>
+      <td>353.0</td>
+    </tr>
+    <tr>
+      <th>7</th>
+      <td>23</td>
+      <td>17</td>
+      <td>Ma</td>
+      <td>10.1029/JB095iB04p04597</td>
+      <td>189.4</td>
+      <td>-53.0</td>
+      <td>100</td>
+      <td>Sedimentary</td>
+      <td>Sediment Layer</td>
+      <td>55.0</td>
+      <td>34.75</td>
+      <td>Silt</td>
+      <td>Hector Formation</td>
+      <td>116.0</td>
+      <td>LP-DIR-T:LP-DIR-AF:DE-BFL</td>
+      <td>348.0</td>
+    </tr>
+    <tr>
+      <th>8</th>
+      <td>23</td>
+      <td>17</td>
+      <td>Ma</td>
+      <td>10.1029/JB095iB04p04597</td>
+      <td>202.2</td>
+      <td>-24.5</td>
+      <td>100</td>
+      <td>Sedimentary</td>
+      <td>Sediment Layer</td>
+      <td>69.0</td>
+      <td>34.75</td>
+      <td>Silt</td>
+      <td>Hector Formation</td>
+      <td>116.0</td>
+      <td>LP-DIR-T:LP-DIR-AF:DE-BFL</td>
+      <td>357.0</td>
+    </tr>
+    <tr>
+      <th>9</th>
+      <td>23</td>
+      <td>17</td>
+      <td>Ma</td>
+      <td>10.1029/JB095iB04p04597</td>
+      <td>216.2</td>
+      <td>-22.8</td>
+      <td>100</td>
+      <td>Sedimentary</td>
+      <td>Sediment Layer</td>
+      <td>69.0</td>
+      <td>34.75</td>
+      <td>Silt</td>
+      <td>Hector Formation</td>
+      <td>116.0</td>
+      <td>LP-DIR-T:LP-DIR-AF:DE-BFL</td>
+      <td>359.0</td>
+    </tr>
+    <tr>
+      <th>10</th>
+      <td>23</td>
+      <td>17</td>
+      <td>Ma</td>
+      <td>10.1029/JB095iB04p04597</td>
+      <td>3.8</td>
+      <td>55.2</td>
+      <td>100</td>
+      <td>Sedimentary</td>
+      <td>Sediment Layer</td>
+      <td>79.0</td>
+      <td>34.75</td>
+      <td>Silt</td>
+      <td>Hector Formation</td>
+      <td>116.0</td>
+      <td>LP-DIR-T:LP-DIR-AF:DE-BFL</td>
+      <td>350.0</td>
+    </tr>
+    <tr>
+      <th>11</th>
+      <td>23</td>
+      <td>17</td>
+      <td>Ma</td>
+      <td>10.1029/JB095iB04p04597</td>
+      <td>216.8</td>
+      <td>-28.8</td>
+      <td>100</td>
+      <td>Sedimentary</td>
+      <td>Sediment Layer</td>
+      <td>85.0</td>
+      <td>34.75</td>
+      <td>Silt</td>
+      <td>Hector Formation</td>
+      <td>116.0</td>
+      <td>LP-DIR-T:LP-DIR-AF:DE-BFL</td>
+      <td>352.0</td>
+    </tr>
+    <tr>
+      <th>12</th>
+      <td>23</td>
+      <td>17</td>
+      <td>Ma</td>
+      <td>10.1029/JB095iB04p04597</td>
+      <td>222.5</td>
+      <td>-51.3</td>
+      <td>100</td>
+      <td>Sedimentary</td>
+      <td>Sediment Layer</td>
+      <td>90.0</td>
+      <td>34.75</td>
+      <td>Silt</td>
+      <td>Hector Formation</td>
+      <td>116.0</td>
+      <td>LP-DIR-T:LP-DIR-AF:DE-BFL</td>
+      <td>363.0</td>
+    </tr>
+    <tr>
+      <th>13</th>
+      <td>23</td>
+      <td>17</td>
+      <td>Ma</td>
+      <td>10.1029/JB095iB04p04597</td>
+      <td>202.3</td>
+      <td>-38.5</td>
+      <td>100</td>
+      <td>Sedimentary</td>
+      <td>Sediment Layer</td>
+      <td>93.0</td>
+      <td>34.75</td>
+      <td>Silt</td>
+      <td>Hector Formation</td>
+      <td>116.0</td>
+      <td>LP-DIR-T:LP-DIR-AF:DE-BFL</td>
+      <td>354.0</td>
+    </tr>
+    <tr>
+      <th>14</th>
+      <td>23</td>
+      <td>17</td>
+      <td>Ma</td>
+      <td>10.1029/JB095iB04p04597</td>
+      <td>211.9</td>
+      <td>-32.5</td>
+      <td>100</td>
+      <td>Sedimentary</td>
+      <td>Sediment Layer</td>
+      <td>102.0</td>
+      <td>34.75</td>
+      <td>Silt</td>
+      <td>Hector Formation</td>
+      <td>116.0</td>
+      <td>LP-DIR-T:LP-DIR-AF:DE-BFL</td>
+      <td>356.0</td>
+    </tr>
+    <tr>
+      <th>15</th>
+      <td>23</td>
+      <td>17</td>
+      <td>Ma</td>
+      <td>10.1029/JB095iB04p04597</td>
+      <td>1.3</td>
+      <td>55.0</td>
+      <td>100</td>
+      <td>Sedimentary</td>
+      <td>Sediment Layer</td>
+      <td>110.0</td>
+      <td>34.75</td>
+      <td>Silt</td>
+      <td>Hector Formation</td>
+      <td>116.0</td>
+      <td>LP-DIR-T:LP-DIR-AF:DE-BFL</td>
+      <td>365.0</td>
+    </tr>
+    <tr>
+      <th>16</th>
+      <td>23</td>
+      <td>17</td>
+      <td>Ma</td>
+      <td>10.1029/JB095iB04p04597</td>
+      <td>27.2</td>
+      <td>46.9</td>
+      <td>100</td>
+      <td>Sedimentary</td>
+      <td>Sediment Layer</td>
+      <td>114.0</td>
+      <td>34.75</td>
+      <td>Silt</td>
+      <td>Hector Formation</td>
+      <td>116.0</td>
+      <td>LP-DIR-T:LP-DIR-AF:DE-BFL</td>
+      <td>338.0</td>
+    </tr>
+    <tr>
+      <th>17</th>
+      <td>23</td>
+      <td>17</td>
+      <td>Ma</td>
+      <td>10.1029/JB095iB04p04597</td>
+      <td>192.2</td>
+      <td>-23.8</td>
+      <td>100</td>
+      <td>Sedimentary</td>
+      <td>Sediment Layer</td>
+      <td>123.0</td>
+      <td>34.75</td>
+      <td>Silt</td>
+      <td>Hector Formation</td>
+      <td>116.0</td>
+      <td>LP-DIR-T:LP-DIR-AF:DE-BFL</td>
+      <td>324.0</td>
+    </tr>
+    <tr>
+      <th>18</th>
+      <td>23</td>
+      <td>17</td>
+      <td>Ma</td>
+      <td>10.1029/JB095iB04p04597</td>
+      <td>48.1</td>
+      <td>50.4</td>
+      <td>100</td>
+      <td>Sedimentary</td>
+      <td>Sediment Layer</td>
+      <td>128.0</td>
+      <td>34.75</td>
+      <td>Silt</td>
+      <td>Hector Formation</td>
+      <td>116.0</td>
+      <td>LP-DIR-T:LP-DIR-AF:DE-BFL</td>
+      <td>331.0</td>
+    </tr>
+    <tr>
+      <th>19</th>
+      <td>23</td>
+      <td>17</td>
+      <td>Ma</td>
+      <td>10.1029/JB095iB04p04597</td>
+      <td>30.2</td>
+      <td>45.5</td>
+      <td>100</td>
+      <td>Sedimentary</td>
+      <td>Sediment Layer</td>
+      <td>134.0</td>
+      <td>34.75</td>
+      <td>Silt</td>
+      <td>Hector Formation</td>
+      <td>116.0</td>
+      <td>LP-DIR-T:LP-DIR-AF:DE-BFL</td>
+      <td>333.0</td>
+    </tr>
+    <tr>
+      <th>20</th>
+      <td>23</td>
+      <td>17</td>
+      <td>Ma</td>
+      <td>10.1029/JB095iB04p04597</td>
+      <td>190.5</td>
+      <td>-55.8</td>
+      <td>100</td>
+      <td>Sedimentary</td>
+      <td>Sediment Layer</td>
+      <td>141.0</td>
+      <td>34.75</td>
+      <td>Silt</td>
+      <td>Hector Formation</td>
+      <td>116.0</td>
+      <td>LP-DIR-T:LP-DIR-AF:DE-BFL</td>
+      <td>328.0</td>
+    </tr>
+    <tr>
+      <th>21</th>
+      <td>23</td>
+      <td>17</td>
+      <td>Ma</td>
+      <td>10.1029/JB095iB04p04597</td>
+      <td>20.5</td>
+      <td>54.0</td>
+      <td>100</td>
+      <td>Sedimentary</td>
+      <td>Sediment Layer</td>
+      <td>153.0</td>
+      <td>34.75</td>
+      <td>Silt</td>
+      <td>Hector Formation</td>
+      <td>116.0</td>
+      <td>LP-DIR-T:LP-DIR-AF:DE-BFL</td>
+      <td>335.0</td>
+    </tr>
+    <tr>
+      <th>22</th>
+      <td>23</td>
+      <td>17</td>
+      <td>Ma</td>
+      <td>10.1029/JB095iB04p04597</td>
+      <td>220.4</td>
+      <td>-25.7</td>
+      <td>100</td>
+      <td>Sedimentary</td>
+      <td>Sediment Layer</td>
+      <td>162.0</td>
+      <td>34.75</td>
+      <td>Silt</td>
+      <td>Hector Formation</td>
+      <td>116.0</td>
+      <td>LP-DIR-T:LP-DIR-AF:DE-BFL</td>
+      <td>330.0</td>
+    </tr>
+    <tr>
+      <th>23</th>
+      <td>23</td>
+      <td>17</td>
+      <td>Ma</td>
+      <td>10.1029/JB095iB04p04597</td>
+      <td>26.7</td>
+      <td>40.5</td>
+      <td>100</td>
+      <td>Sedimentary</td>
+      <td>Sediment Layer</td>
+      <td>185.0</td>
+      <td>34.75</td>
+      <td>Silt</td>
+      <td>Hector Formation</td>
+      <td>116.0</td>
+      <td>LP-DIR-T:LP-DIR-AF:DE-BFL</td>
+      <td>339.0</td>
+    </tr>
+    <tr>
+      <th>24</th>
+      <td>23</td>
+      <td>17</td>
+      <td>Ma</td>
+      <td>10.1029/JB095iB04p04597</td>
+      <td>38.1</td>
+      <td>51.9</td>
+      <td>100</td>
+      <td>Sedimentary</td>
+      <td>Sediment Layer</td>
+      <td>194.0</td>
+      <td>34.75</td>
+      <td>Silt</td>
+      <td>Hector Formation</td>
+      <td>116.0</td>
+      <td>LP-DIR-T:LP-DIR-AF:DE-BFL</td>
+      <td>334.0</td>
+    </tr>
+    <tr>
+      <th>25</th>
+      <td>23</td>
+      <td>17</td>
+      <td>Ma</td>
+      <td>10.1029/JB095iB04p04597</td>
+      <td>48.6</td>
+      <td>38.6</td>
+      <td>100</td>
+      <td>Sedimentary</td>
+      <td>Sediment Layer</td>
+      <td>206.0</td>
+      <td>34.75</td>
+      <td>Silt</td>
+      <td>Hector Formation</td>
+      <td>116.0</td>
+      <td>LP-DIR-T:LP-DIR-AF:DE-BFL</td>
+      <td>341.0</td>
+    </tr>
+    <tr>
+      <th>26</th>
+      <td>23</td>
+      <td>17</td>
+      <td>Ma</td>
+      <td>10.1029/JB095iB04p04597</td>
+      <td>67.5</td>
+      <td>30.3</td>
+      <td>100</td>
+      <td>Sedimentary</td>
+      <td>Sediment Layer</td>
+      <td>219.0</td>
+      <td>34.75</td>
+      <td>Silt</td>
+      <td>Hector Formation</td>
+      <td>116.0</td>
+      <td>LP-DIR-T:LP-DIR-AF:DE-BFL</td>
+      <td>336.0</td>
+    </tr>
+    <tr>
+      <th>27</th>
+      <td>23</td>
+      <td>17</td>
+      <td>Ma</td>
+      <td>10.1029/JB095iB04p04597</td>
+      <td>52.1</td>
+      <td>26.5</td>
+      <td>100</td>
+      <td>Sedimentary</td>
+      <td>Sediment Layer</td>
+      <td>222.0</td>
+      <td>34.75</td>
+      <td>Silt</td>
+      <td>Hector Formation</td>
+      <td>116.0</td>
+      <td>LP-DIR-T:LP-DIR-AF:DE-BFL</td>
+      <td>401.0</td>
+    </tr>
+    <tr>
+      <th>28</th>
+      <td>23</td>
+      <td>17</td>
+      <td>Ma</td>
+      <td>10.1029/JB095iB04p04597</td>
+      <td>193.7</td>
+      <td>-29.6</td>
+      <td>100</td>
+      <td>Sedimentary</td>
+      <td>Sediment Layer</td>
+      <td>233.0</td>
+      <td>34.75</td>
+      <td>Silt</td>
+      <td>Hector Formation</td>
+      <td>116.0</td>
+      <td>LP-DIR-T:LP-DIR-AF:DE-BFL</td>
+      <td>402.0</td>
+    </tr>
+    <tr>
+      <th>29</th>
+      <td>23</td>
+      <td>17</td>
+      <td>Ma</td>
+      <td>10.1029/JB095iB04p04597</td>
+      <td>17.0</td>
+      <td>46.1</td>
+      <td>100</td>
+      <td>Sedimentary</td>
+      <td>Sediment Layer</td>
+      <td>246.0</td>
+      <td>34.75</td>
+      <td>Silt</td>
+      <td>Hector Formation</td>
+      <td>116.0</td>
+      <td>LP-DIR-T:LP-DIR-AF:DE-BFL</td>
+      <td>403.0</td>
+    </tr>
+    <tr>
+      <th>30</th>
+      <td>23</td>
+      <td>17</td>
+      <td>Ma</td>
+      <td>10.1029/JB095iB04p04597</td>
+      <td>356.6</td>
+      <td>48.9</td>
+      <td>100</td>
+      <td>Sedimentary</td>
+      <td>Sediment Layer</td>
+      <td>255.0</td>
+      <td>34.75</td>
+      <td>Silt</td>
+      <td>Hector Formation</td>
+      <td>116.0</td>
+      <td>LP-DIR-T:LP-DIR-AF:DE-BFL</td>
+      <td>404.0</td>
+    </tr>
+    <tr>
+      <th>31</th>
+      <td>23</td>
+      <td>17</td>
+      <td>Ma</td>
+      <td>10.1029/JB095iB04p04597</td>
+      <td>353.8</td>
+      <td>44.5</td>
+      <td>100</td>
+      <td>Sedimentary</td>
+      <td>Sediment Layer</td>
+      <td>257.0</td>
+      <td>34.75</td>
+      <td>Silt</td>
+      <td>Hector Formation</td>
+      <td>116.0</td>
+      <td>LP-DIR-T:LP-DIR-AF:DE-BFL</td>
+      <td>405.0</td>
+    </tr>
+    <tr>
+      <th>32</th>
+      <td>23</td>
+      <td>17</td>
+      <td>Ma</td>
+      <td>10.1029/JB095iB04p04597</td>
+      <td>28.5</td>
+      <td>15.4</td>
+      <td>100</td>
+      <td>Sedimentary</td>
+      <td>Sediment Layer</td>
+      <td>261.0</td>
+      <td>34.75</td>
+      <td>Silt</td>
+      <td>Hector Formation</td>
+      <td>116.0</td>
+      <td>LP-DIR-T:LP-DIR-AF:DE-BFL</td>
+      <td>406.0</td>
+    </tr>
+    <tr>
+      <th>33</th>
+      <td>23</td>
+      <td>17</td>
+      <td>Ma</td>
+      <td>10.1029/JB095iB04p04597</td>
+      <td>345.3</td>
+      <td>41.5</td>
+      <td>100</td>
+      <td>Sedimentary</td>
+      <td>Sediment Layer</td>
+      <td>264.0</td>
+      <td>34.75</td>
+      <td>Silt</td>
+      <td>Hector Formation</td>
+      <td>116.0</td>
+      <td>LP-DIR-T:LP-DIR-AF:DE-BFL</td>
+      <td>422.0</td>
+    </tr>
+    <tr>
+      <th>34</th>
+      <td>23</td>
+      <td>17</td>
+      <td>Ma</td>
+      <td>10.1029/JB095iB04p04597</td>
+      <td>16.9</td>
+      <td>36.1</td>
+      <td>100</td>
+      <td>Sedimentary</td>
+      <td>Sediment Layer</td>
+      <td>273.0</td>
+      <td>34.75</td>
+      <td>Silt</td>
+      <td>Hector Formation</td>
+      <td>116.0</td>
+      <td>LP-DIR-T:LP-DIR-AF:DE-BFL</td>
+      <td>407.0</td>
+    </tr>
+    <tr>
+      <th>35</th>
+      <td>23</td>
+      <td>17</td>
+      <td>Ma</td>
+      <td>10.1029/JB095iB04p04597</td>
+      <td>352.0</td>
+      <td>51.7</td>
+      <td>100</td>
+      <td>Sedimentary</td>
+      <td>Sediment Layer</td>
+      <td>281.0</td>
+      <td>34.75</td>
+      <td>Silt</td>
+      <td>Hector Formation</td>
+      <td>116.0</td>
+      <td>LP-DIR-T:LP-DIR-AF:DE-BFL</td>
+      <td>408.0</td>
+    </tr>
+    <tr>
+      <th>36</th>
+      <td>23</td>
+      <td>17</td>
+      <td>Ma</td>
+      <td>10.1029/JB095iB04p04597</td>
+      <td>196.6</td>
+      <td>-37.5</td>
+      <td>100</td>
+      <td>Sedimentary</td>
+      <td>Sediment Layer</td>
+      <td>285.0</td>
+      <td>34.75</td>
+      <td>Silt</td>
+      <td>Hector Formation</td>
+      <td>116.0</td>
+      <td>LP-DIR-T:LP-DIR-AF:DE-BFL</td>
+      <td>409.0</td>
+    </tr>
+    <tr>
+      <th>37</th>
+      <td>23</td>
+      <td>17</td>
+      <td>Ma</td>
+      <td>10.1029/JB095iB04p04597</td>
+      <td>160.0</td>
+      <td>-40.2</td>
+      <td>100</td>
+      <td>Sedimentary</td>
+      <td>Sediment Layer</td>
+      <td>291.0</td>
+      <td>34.75</td>
+      <td>Silt</td>
+      <td>Hector Formation</td>
+      <td>116.0</td>
+      <td>LP-DIR-T:LP-DIR-AF:DE-BFL</td>
+      <td>410.0</td>
+    </tr>
+    <tr>
+      <th>38</th>
+      <td>23</td>
+      <td>17</td>
+      <td>Ma</td>
+      <td>10.1029/JB095iB04p04597</td>
+      <td>186.3</td>
+      <td>-43.3</td>
+      <td>100</td>
+      <td>Sedimentary</td>
+      <td>Sediment Layer</td>
+      <td>299.0</td>
+      <td>34.75</td>
+      <td>Silt</td>
+      <td>Hector Formation</td>
+      <td>116.0</td>
+      <td>LP-DIR-T:LP-DIR-AF:DE-BFL</td>
+      <td>411.0</td>
+    </tr>
+    <tr>
+      <th>39</th>
+      <td>23</td>
+      <td>17</td>
+      <td>Ma</td>
+      <td>10.1029/JB095iB04p04597</td>
+      <td>195.8</td>
+      <td>-45.4</td>
+      <td>100</td>
+      <td>Sedimentary</td>
+      <td>Sediment Layer</td>
+      <td>302.0</td>
+      <td>34.75</td>
+      <td>Silt</td>
+      <td>Hector Formation</td>
+      <td>116.0</td>
+      <td>LP-DIR-T:LP-DIR-AF:DE-BFL</td>
+      <td>412.0</td>
+    </tr>
+    <tr>
+      <th>40</th>
+      <td>23</td>
+      <td>17</td>
+      <td>Ma</td>
+      <td>10.1029/JB095iB04p04597</td>
+      <td>139.6</td>
+      <td>-40.2</td>
+      <td>100</td>
+      <td>Sedimentary</td>
+      <td>Sediment Layer</td>
+      <td>306.0</td>
+      <td>34.75</td>
+      <td>Silt</td>
+      <td>Hector Formation</td>
+      <td>116.0</td>
+      <td>LP-DIR-T:LP-DIR-AF:DE-BFL</td>
+      <td>413.0</td>
+    </tr>
+    <tr>
+      <th>41</th>
+      <td>23</td>
+      <td>17</td>
+      <td>Ma</td>
+      <td>10.1029/JB095iB04p04597</td>
+      <td>173.3</td>
+      <td>-45.0</td>
+      <td>100</td>
+      <td>Sedimentary</td>
+      <td>Sediment Layer</td>
+      <td>320.0</td>
+      <td>34.75</td>
+      <td>Silt</td>
+      <td>Hector Formation</td>
+      <td>116.0</td>
+      <td>LP-DIR-T:LP-DIR-AF:DE-BFL</td>
+      <td>415.0</td>
+    </tr>
+    <tr>
+      <th>42</th>
+      <td>23</td>
+      <td>17</td>
+      <td>Ma</td>
+      <td>10.1029/JB095iB04p04597</td>
+      <td>168.1</td>
+      <td>-53.2</td>
+      <td>100</td>
+      <td>Sedimentary</td>
+      <td>Sediment Layer</td>
+      <td>332.0</td>
+      <td>34.75</td>
+      <td>Silt</td>
+      <td>Hector Formation</td>
+      <td>116.0</td>
+      <td>LP-DIR-T:LP-DIR-AF:DE-BFL</td>
+      <td>416.0</td>
+    </tr>
+    <tr>
+      <th>43</th>
+      <td>23</td>
+      <td>17</td>
+      <td>Ma</td>
+      <td>10.1029/JB095iB04p04597</td>
+      <td>131.2</td>
+      <td>-56.3</td>
+      <td>100</td>
+      <td>Sedimentary</td>
+      <td>Sediment Layer</td>
+      <td>333.0</td>
+      <td>34.75</td>
+      <td>Silt</td>
+      <td>Hector Formation</td>
+      <td>116.0</td>
+      <td>LP-DIR-T:LP-DIR-AF:DE-BFL</td>
+      <td>417.0</td>
+    </tr>
+    <tr>
+      <th>44</th>
+      <td>23</td>
+      <td>17</td>
+      <td>Ma</td>
+      <td>10.1029/JB095iB04p04597</td>
+      <td>180.2</td>
+      <td>-53.0</td>
+      <td>100</td>
+      <td>Sedimentary</td>
+      <td>Sediment Layer</td>
+      <td>342.0</td>
+      <td>34.75</td>
+      <td>Silt</td>
+      <td>Hector Formation</td>
+      <td>116.0</td>
+      <td>LP-DIR-T:LP-DIR-AF:DE-BFL</td>
+      <td>418.0</td>
+    </tr>
+    <tr>
+      <th>45</th>
+      <td>23</td>
+      <td>17</td>
+      <td>Ma</td>
+      <td>10.1029/JB095iB04p04597</td>
+      <td>205.0</td>
+      <td>-58.5</td>
+      <td>100</td>
+      <td>Sedimentary</td>
+      <td>Sediment Layer</td>
+      <td>350.0</td>
+      <td>34.75</td>
+      <td>Silt</td>
+      <td>Hector Formation</td>
+      <td>116.0</td>
+      <td>LP-DIR-T:LP-DIR-AF:DE-BFL</td>
+      <td>419.0</td>
+    </tr>
+    <tr>
+      <th>46</th>
+      <td>23</td>
+      <td>17</td>
+      <td>Ma</td>
+      <td>10.1029/JB095iB04p04597</td>
+      <td>147.9</td>
+      <td>-50.0</td>
+      <td>100</td>
+      <td>Sedimentary</td>
+      <td>Sediment Layer</td>
+      <td>354.0</td>
+      <td>34.75</td>
+      <td>Silt</td>
+      <td>Hector Formation</td>
+      <td>116.0</td>
+      <td>LP-DIR-T:LP-DIR-AF:DE-BFL</td>
+      <td>420.0</td>
+    </tr>
+    <tr>
+      <th>47</th>
+      <td>23</td>
+      <td>17</td>
+      <td>Ma</td>
+      <td>10.1029/JB095iB04p04597</td>
+      <td>141.1</td>
+      <td>-45.0</td>
+      <td>100</td>
+      <td>Sedimentary</td>
+      <td>Sediment Layer</td>
+      <td>360.0</td>
+      <td>34.75</td>
+      <td>Silt</td>
+      <td>Hector Formation</td>
+      <td>116.0</td>
+      <td>LP-DIR-T:LP-DIR-AF:DE-BFL</td>
+      <td>421.0</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+</div>
+</section>
+<section id="make-declination-inclination-lists">
+<h3>Make declination/inclination lists<a class="headerlink" href="#make-declination-inclination-lists" title="Permalink to this heading">#</a></h3>
+<p>We can extract specific columns from the dataframe by using the nomenclature <code class="docutils literal notranslate"><span class="pre">dataframe_name['column_name']</span></code>. In this case, we want to conduct a reversal test on the data in the <code class="docutils literal notranslate"><span class="pre">sites_geo</span></code> dataframe and are interested in the directional data which are the declination column <code class="docutils literal notranslate"><span class="pre">dir_dec</span></code> and the inclination column <code class="docutils literal notranslate"><span class="pre">dir_inc</span></code>. So using the code <code class="docutils literal notranslate"><span class="pre">sites['dir_dec']</span></code> will give us all the declinations which we can assign to a variable <code class="docutils literal notranslate"><span class="pre">sites_dec</span></code>.</p>
+<p>If you wanted to do the test on the <code class="docutils literal notranslate"><span class="pre">sites_tc</span></code> data, you would switch in <code class="docutils literal notranslate"><span class="pre">sites_tc</span></code> for <code class="docutils literal notranslate"><span class="pre">sites_geo</span></code> in the text below.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">sites_dec</span> <span class="o">=</span> <span class="n">sites_tc</span><span class="p">[</span><span class="s1">&#39;dir_dec&#39;</span><span class="p">]</span>
+<span class="n">sites_inc</span> <span class="o">=</span> <span class="n">sites_tc</span><span class="p">[</span><span class="s1">&#39;dir_inc&#39;</span><span class="p">]</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="n">sites_dec</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0     198.1
+1      62.1
+2      32.8
+3      22.8
+4      55.0
+5      28.5
+6      44.5
+7     189.4
+8     202.2
+9     216.2
+10      3.8
+11    216.8
+12    222.5
+13    202.3
+14    211.9
+15      1.3
+16     27.2
+17    192.2
+18     48.1
+19     30.2
+20    190.5
+21     20.5
+22    220.4
+23     26.7
+24     38.1
+25     48.6
+26     67.5
+27     52.1
+28    193.7
+29     17.0
+30    356.6
+31    353.8
+32     28.5
+33    345.3
+34     16.9
+35    352.0
+36    196.6
+37    160.0
+38    186.3
+39    195.8
+40    139.6
+41    173.3
+42    168.1
+43    131.2
+44    180.2
+45    205.0
+46    147.9
+47    141.1
+Name: dir_dec, dtype: float64
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+</section>
+<section id="reversal-tests">
+<h2>Reversal tests<a class="headerlink" href="#reversal-tests" title="Permalink to this heading">#</a></h2>
+<p>Now that we have extracted the declination and inclination values, let’s conduct reversal tests on these data using the functions <code class="docutils literal notranslate"><span class="pre">ipmag.reversal_test_bootstrap</span></code> and <code class="docutils literal notranslate"><span class="pre">ipmag.reversal_test_MM1990</span></code>.</p>
+<section id="conduct-the-bootstrap-reversal-test">
+<h3>Conduct the bootstrap reversal test<a class="headerlink" href="#conduct-the-bootstrap-reversal-test" title="Permalink to this heading">#</a></h3>
+<p>Let’s go ahead and do the bootstrap reversal test using this <code class="docutils literal notranslate"><span class="pre">ipmag.reversal_test_bootstrap()</span></code> function.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">ipmag</span><span class="o">.</span><span class="n">reversal_test_bootstrap</span><span class="p">(</span><span class="n">dec</span><span class="o">=</span><span class="n">sites_dec</span><span class="p">,</span>
+                              <span class="n">inc</span><span class="o">=</span><span class="n">sites_inc</span><span class="p">,</span>
+                              <span class="n">plot_stereo</span> <span class="o">=</span> <span class="kc">True</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../../_images/9efe8036059ee896c7568075f5b96dbda73c703e946346c2208c65a2a854fa7b.png" src="../../_images/9efe8036059ee896c7568075f5b96dbda73c703e946346c2208c65a2a854fa7b.png" />
+<img alt="../../_images/213c34af4c06e0ba38dde0804079b8614e2b8c2445578e8c54bdaf617b733697.png" src="../../_images/213c34af4c06e0ba38dde0804079b8614e2b8c2445578e8c54bdaf617b733697.png" />
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Pass
+</pre></div>
+</div>
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>1
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="learn-about-the-function">
+<h3>Learn about the function<a class="headerlink" href="#learn-about-the-function" title="Permalink to this heading">#</a></h3>
+<p>To learn more about this function we can type <code class="docutils literal notranslate"><span class="pre">ipmag.reversal_test_bootstrap?</span></code> in a code cell.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>ipmag.reversal_test_bootstrap<span class="o">?</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span><span class=" -Color -Color-Red">Signature:</span>
+ipmag<span class=" -Color -Color-Blue">.</span>reversal_test_bootstrap<span class=" -Color -Color-Blue">(</span>
+    dec<span class=" -Color -Color-Blue">=</span><span class=" -Color -Color-Green">None</span><span class=" -Color -Color-Blue">,</span>
+    inc<span class=" -Color -Color-Blue">=</span><span class=" -Color -Color-Green">None</span><span class=" -Color -Color-Blue">,</span>
+    di_block<span class=" -Color -Color-Blue">=</span><span class=" -Color -Color-Green">None</span><span class=" -Color -Color-Blue">,</span>
+    plot_stereo<span class=" -Color -Color-Blue">=</span><span class=" -Color -Color-Green">False</span><span class=" -Color -Color-Blue">,</span>
+    color1<span class=" -Color -Color-Blue">=&#39;blue&#39;,</span>
+    color2<span class=" -Color -Color-Blue">=&#39;red&#39;,</span>
+    save<span class=" -Color -Color-Blue">=</span><span class=" -Color -Color-Green">False</span><span class=" -Color -Color-Blue">,</span>
+    save_folder<span class=" -Color -Color-Blue">=&#39;.&#39;,</span>
+    fmt<span class=" -Color -Color-Blue">=&#39;svg&#39;,</span>
+<span class=" -Color -Color-Blue">)</span>
+<span class=" -Color -Color-Red">Docstring:</span>
+Conduct a reversal test using bootstrap statistics (Tauxe, 2010) to
+determine whether two populations of directions could be from an antipodal
+common mean.
+
+Parameters:
+    dec: list of declinations
+    inc: list of inclinations
+    di_block: a nested list of [dec,inc]
+        A di_block can be provided in which case it will be used instead of
+        dec, inc lists.
+    plot_stereo : before plotting the CDFs, plot stereonet with the
+        bidirectionally separated data (default is False)
+    save : boolean argument to save plots (default is False)
+    save_folder : directory where plots will be saved (default is current directory, &#39;.&#39;)
+    fmt : format of saved figures (default is &#39;svg&#39;)
+
+Returns:
+    A boolean where 0 is fail and 1 is pass is returned. 
+    Plots of the cumulative distribution of Cartesian components are shown
+    an equal area plot if `plot_stereo = True`. 
+
+Examples:
+    Populations of roughly antipodal directions are developed here using
+    ``ipmag.fishrot``. These directions are combined into a single di_block
+    given that the function determines the principal component and splits the
+    data accordingly by polarity.
+
+    &gt;&gt;&gt; directions_n = ipmag.fishrot(k=20, n=30, dec=5, inc=-60)
+    &gt;&gt;&gt; directions_r = ipmag.fishrot(k=35, n=25, dec=182, inc=57)
+    &gt;&gt;&gt; directions = directions_n + directions_r
+    &gt;&gt;&gt; ipmag.reversal_test_bootstrap(di_block=directions, plot_stereo = True)
+
+    Data can also be input to the function as separate lists of dec and inc.
+    In this example, the di_block from above is split into lists of dec and inc
+    which are then used in the function:
+
+    &gt;&gt;&gt; direction_dec, direction_inc, direction_moment = ipmag.unpack_di_block(directions)
+    &gt;&gt;&gt; ipmag.reversal_test_bootstrap(dec=direction_dec,inc=direction_inc, plot_stereo = True)
+<span class=" -Color -Color-Red">File:</span>      ~/0000_GitHub/PmagPy/pmagpy/ipmag.py
+<span class=" -Color -Color-Red">Type:</span>      function
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="conduct-the-watson-common-mean-reversal-test">
+<h3>Conduct the Watson common mean reversal test<a class="headerlink" href="#conduct-the-watson-common-mean-reversal-test" title="Permalink to this heading">#</a></h3>
+<p>We can do the Watson common mean test (together with McFadden and McElhinny (1990) classification) as well:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">ipmag</span><span class="o">.</span><span class="n">reversal_test_MM1990</span><span class="p">(</span><span class="n">dec</span><span class="o">=</span><span class="n">sites_dec</span><span class="p">,</span>
+                           <span class="n">inc</span><span class="o">=</span><span class="n">sites_inc</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Results of Watson V test: 
+
+Watson&#39;s V:           9.2
+Critical value of V:  6.5
+&quot;Fail&quot;: Since V is greater than Vcrit, the two means can
+be distinguished at the 95% confidence level.
+
+M&amp;M1990 classification:
+
+Angle between data set means: 13.4
+Critical angle for M&amp;M1990:   11.2
+</pre></div>
+</div>
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>(0, 13.36386019629975, 11.197090525992087, &#39;&#39;)
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>ipmag.reversal_test_MM1990<span class="o">?</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span><span class=" -Color -Color-Red">Signature:</span>
+ipmag<span class=" -Color -Color-Blue">.</span>reversal_test_MM1990<span class=" -Color -Color-Blue">(</span>
+    dec<span class=" -Color -Color-Blue">=</span><span class=" -Color -Color-Green">None</span><span class=" -Color -Color-Blue">,</span>
+    inc<span class=" -Color -Color-Blue">=</span><span class=" -Color -Color-Green">None</span><span class=" -Color -Color-Blue">,</span>
+    di_block<span class=" -Color -Color-Blue">=</span><span class=" -Color -Color-Green">None</span><span class=" -Color -Color-Blue">,</span>
+    plot_CDF<span class=" -Color -Color-Blue">=</span><span class=" -Color -Color-Green">False</span><span class=" -Color -Color-Blue">,</span>
+    plot_stereo<span class=" -Color -Color-Blue">=</span><span class=" -Color -Color-Green">False</span><span class=" -Color -Color-Blue">,</span>
+    save<span class=" -Color -Color-Blue">=</span><span class=" -Color -Color-Green">False</span><span class=" -Color -Color-Blue">,</span>
+    save_folder<span class=" -Color -Color-Blue">=&#39;.&#39;,</span>
+    fmt<span class=" -Color -Color-Blue">=&#39;svg&#39;,</span>
+<span class=" -Color -Color-Blue">)</span>
+<span class=" -Color -Color-Red">Docstring:</span>
+Calculates Watson&#39;s V statistic from input files through Monte Carlo
+simulation in order to test whether normal and reversed populations could
+have been drawn from a common mean. Also provides the critical angle between 
+the two sample mean directions and the corresponding McFadden and McElhinny 
+(1990) classification. This function is a wrapper around the 
+ipmag.common_mean_watson() function with the first step of splitting
+the data into two polarities using the pmag.flip() function and flipping
+the reverse direction to their antipode.
+
+ Parameters:
+    dec (list, optional): List of declinations.
+    inc (list, optional): List of inclinations.
+    di_block (list of lists, optional): Nested list of [dec,inc]. If provided, it 
+        takes precedence over separate dec and inc lists.
+    plot_CDF (bool, optional): If True, plot the CDF accompanying the results. Defaults to False.
+    plot_stereo (bool, optional): If True, plot stereonet with bidirectionally separated data. Defaults to False.
+    save (bool, optional): If True, save the plots. Defaults to False.
+    save_folder (str, optional): Directory path for saving plots. Defaults to current directory.
+    fmt (str, optional): Format of saved figures. Defaults to &#39;svg&#39;.
+
+Returns:
+    result (bool): 0 indicates fail, 1 indicates pass.
+    angle (float): Angle between the Fisher means of the two data sets.
+    critical_angle (float): Critical angle for the test to pass.
+    classification (str): MM1990 classification for a positive test.
+
+Examples:
+    Populations of roughly antipodal directions are developed here using
+    ``ipmag.fishrot``. These directions are combined into a single di_block
+    given that the function determines the principal component and splits the
+    data accordingly by polarity.
+
+    &gt;&gt;&gt; directions_n = ipmag.fishrot(k=20, n=30, dec=5, inc=-60)
+    &gt;&gt;&gt; directions_r = ipmag.fishrot(k=35, n=25, dec=182, inc=57)
+    &gt;&gt;&gt; directions = directions_n + directions_r
+    &gt;&gt;&gt; ipmag.reversal_test_MM1990(di_block=directions, plot_stereo = True)
+
+    Data can also be input to the function as separate lists of dec and inc.
+    In this example, the di_block from above is split into lists of dec and inc
+    which are then used in the function:
+
+    &gt;&gt;&gt; direction_dec, direction_inc, direction_moment = ipmag.unpack_di_block(directions)
+    &gt;&gt;&gt; ipmag.reversal_test_MM1990(dec=direction_dec,inc=direction_inc, plot_stereo = True)
+<span class=" -Color -Color-Red">File:</span>      ~/0000_GitHub/PmagPy/pmagpy/ipmag.py
+<span class=" -Color -Color-Red">Type:</span>      function
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+</section>
+</section>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            name: "python3",
+            path: "./example_notebooks/template_notebooks"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+                </article>
+              
+
+              
+              
+              
+              
+                <footer class="prev-next-footer">
+                  <!-- Previous / next buttons -->
+<div class="prev-next-area">
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#introduction">Introduction</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#change-the-magic-contribution">Change the MagIC contribution</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#apply-to-your-own-sites-txt-data">Apply to your own <code class="docutils literal notranslate"><span class="pre">sites.txt</span></code> data</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#import-packages">Import packages</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#download-and-unpack-data">Download and unpack data</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#download-magic-contribution">Download MagIC contribution</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#unpack-the-magic-file">Unpack the MagIC file</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#import-the-sites-table">Import the sites table</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#filter-by-tilt-correction">Filter by tilt correction</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#make-declination-inclination-lists">Make declination/inclination lists</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#reversal-tests">Reversal tests</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#conduct-the-bootstrap-reversal-test">Conduct the bootstrap reversal test</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#learn-about-the-function">Learn about the function</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#conduct-the-watson-common-mean-reversal-test">Conduct the Watson common mean reversal test</a></li>
+</ul>
+</li>
+</ul>
+  </nav></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
+  
+  <div class="footer-item">
+    
+<p class="component-author">
+By PmagPy Contributors
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  <p class="copyright">
+    
+      © Copyright 2023.
+      <br/>
+    
+  </p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+</div>
+          </footer>
+        
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="../../_static/scripts/bootstrap.js?digest=ac02cc09edc035673794"></script>
+<script src="../../_static/scripts/pydata-sphinx-theme.js?digest=ac02cc09edc035673794"></script>
+
+  <footer class="bd-footer">
+  </footer>
+  </body>
+</html>
