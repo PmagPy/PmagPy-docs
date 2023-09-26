@@ -423,7 +423,8 @@ document.write(`
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#plot-the-directions">Plot the directions</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#reversal-tests">Reversal tests</a><ul class="nav section-nav flex-column">
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#conduct-the-watson-common-mean-reversal-test">Conduct the Watson common mean reversal test</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#conduct-the-bootstrap-reversal-test">Conduct the bootstrap reversal test</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#conduct-the-classic-tauxe-et-al-1991-bootstrap-reversal-test">Conduct the classic Tauxe et al. (1991) bootstrap reversal test</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#apply-the-updated-heslop-et-al-2023-bootstrap-reversal-test">Apply the updated Heslop et al. (2023) bootstrap reversal test</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#learn-about-the-reversal-test-functions">Learn about the reversal test functions</a></li>
 </ul>
 </li>
@@ -732,7 +733,7 @@ it will be populated for a MagIC contribution where there are data in those coor
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Results of Watson V test: 
 
 Watson&#39;s V:           4.4
-Critical value of V:  6.1
+Critical value of V:  6.0
 &quot;Pass&quot;: Since V is less than Vcrit, the null hypothesis
 that the two populations are drawn from distributions
 that share a common mean direction can not be rejected.
@@ -745,15 +746,15 @@ The McFadden and McElhinny (1990) classification for
 this test is: &#39;B&#39;
 </pre></div>
 </div>
-<img alt="../../_images/19727b4c3860eec94242f0878270b1ef9e5f42bc2a0d71033d9fa4fb764dcd78.png" src="../../_images/19727b4c3860eec94242f0878270b1ef9e5f42bc2a0d71033d9fa4fb764dcd78.png" />
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>(1, 4.362992887306586, 5.11040955061146, &#39;B&#39;)
+<img alt="../../_images/b3d83ca6f36a450c2338d3b9089edef8af7b0ba31913c087d988d4dda35624f9.png" src="../../_images/b3d83ca6f36a450c2338d3b9089edef8af7b0ba31913c087d988d4dda35624f9.png" />
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>(1, 4.362992887306586, 5.081179945208339, &#39;B&#39;)
 </pre></div>
 </div>
 </div>
 </div>
 </section>
-<section id="conduct-the-bootstrap-reversal-test">
-<h3>Conduct the bootstrap reversal test<a class="headerlink" href="#conduct-the-bootstrap-reversal-test" title="Permalink to this heading">#</a></h3>
+<section id="conduct-the-classic-tauxe-et-al-1991-bootstrap-reversal-test">
+<h3>Conduct the classic Tauxe et al. (1991) bootstrap reversal test<a class="headerlink" href="#conduct-the-classic-tauxe-et-al-1991-bootstrap-reversal-test" title="Permalink to this heading">#</a></h3>
 <p>Let’s go ahead and do the bootstrap reversal test using this <code class="docutils literal notranslate"><span class="pre">ipmag.reversal_test_bootstrap()</span></code> function.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -767,7 +768,7 @@ this test is: &#39;B&#39;
 </div>
 <div class="cell_output docutils container">
 <img alt="../../_images/db0659355d88f3624dc3f8be8a64a6fbbb2dbcadaafbaa244c6522acb10ed56b.png" src="../../_images/db0659355d88f3624dc3f8be8a64a6fbbb2dbcadaafbaa244c6522acb10ed56b.png" />
-<img alt="../../_images/4538f126838be3b6d9f0a2d9790629f278a26be7f29ed6768de9f6502df40a15.png" src="../../_images/4538f126838be3b6d9f0a2d9790629f278a26be7f29ed6768de9f6502df40a15.png" />
+<img alt="../../_images/c572abce0a95fb0bb11f8c1fd0f5e54c90fe865139af88007d12926faf297d8b.png" src="../../_images/c572abce0a95fb0bb11f8c1fd0f5e54c90fe865139af88007d12926faf297d8b.png" />
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Pass
 </pre></div>
 </div>
@@ -776,6 +777,10 @@ this test is: &#39;B&#39;
 </div>
 </div>
 </div>
+</section>
+<section id="apply-the-updated-heslop-et-al-2023-bootstrap-reversal-test">
+<h3>Apply the updated Heslop et al. (2023) bootstrap reversal test<a class="headerlink" href="#apply-the-updated-heslop-et-al-2023-bootstrap-reversal-test" title="Permalink to this heading">#</a></h3>
+<p>In the framework of the bootstrap reversal above Tauxe et al. (1991) inference comes from comparing the bootstrap-derived confidence regions for the mean directions. Heslop et al. (2023) updated the test and placed it within a null hypothesis significance testing framework.</p>
 </section>
 <section id="learn-about-the-reversal-test-functions">
 <h3>Learn about the reversal test functions<a class="headerlink" href="#learn-about-the-reversal-test-functions" title="Permalink to this heading">#</a></h3>
@@ -912,6 +917,135 @@ Examples:
 </div>
 </div>
 </div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">pmagpy.pmag</span> <span class="k">as</span> <span class="nn">pmag</span>
+<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
+
+<span class="n">di_block</span> <span class="o">=</span>  <span class="kc">None</span>
+<span class="n">dec</span> <span class="o">=</span> <span class="n">sites_dec</span>
+<span class="n">inc</span> <span class="o">=</span> <span class="n">sites_inc</span>
+
+<span class="k">if</span> <span class="n">di_block</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+    <span class="n">all_dirs</span> <span class="o">=</span> <span class="n">ipmag</span><span class="o">.</span><span class="n">make_di_block</span><span class="p">(</span><span class="n">dec</span><span class="p">,</span> <span class="n">inc</span><span class="p">)</span>
+<span class="k">else</span><span class="p">:</span>
+    <span class="n">all_dirs</span> <span class="o">=</span> <span class="n">di_block</span>
+
+<span class="n">F1</span><span class="p">,</span> <span class="n">F2</span> <span class="o">=</span> <span class="n">pmag</span><span class="o">.</span><span class="n">flip</span><span class="p">(</span><span class="n">all_dirs</span><span class="p">)</span>
+
+<span class="n">X1</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">transpose</span><span class="p">(</span><span class="n">pmag</span><span class="o">.</span><span class="n">dir2cart</span><span class="p">(</span><span class="n">F1</span><span class="p">))</span> <span class="c1"># normal directions in Cartesian coordinates (one direction per column)</span>
+<span class="n">X2</span> <span class="o">=</span> <span class="o">-</span><span class="n">np</span><span class="o">.</span><span class="n">transpose</span><span class="p">(</span><span class="n">pmag</span><span class="o">.</span><span class="n">dir2cart</span><span class="p">(</span><span class="n">F2</span><span class="p">))</span> <span class="c1"># inverted reversed directions in Cartesian coordinates</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">n1</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">shape</span><span class="p">(</span><span class="n">X1</span><span class="p">)[</span><span class="mi">1</span><span class="p">]</span> <span class="c1">#number of observations in first data set</span>
+<span class="n">n2</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">shape</span><span class="p">(</span><span class="n">X2</span><span class="p">)[</span><span class="mi">1</span><span class="p">]</span> <span class="c1">#number of observations in second data set</span>
+<span class="n">n</span> <span class="o">=</span> <span class="n">n1</span> <span class="o">+</span> <span class="n">n2</span> <span class="c1">#total number of observations</span>
+
+<span class="n">X12</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">hstack</span><span class="p">((</span><span class="n">X1</span><span class="p">,</span><span class="n">X2</span><span class="p">))</span> <span class="c1">#form pooled data set</span>
+
+<span class="n">mhat1</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="n">X1</span><span class="p">,</span><span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+<span class="n">mhat1</span> <span class="o">/=</span> <span class="n">np</span><span class="o">.</span><span class="n">linalg</span><span class="o">.</span><span class="n">norm</span><span class="p">(</span><span class="n">mhat1</span><span class="p">)</span> <span class="c1">#mean of first data set</span>
+
+<span class="n">mhat2</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="n">X2</span><span class="p">,</span><span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+<span class="n">mhat2</span> <span class="o">/=</span> <span class="n">np</span><span class="o">.</span><span class="n">linalg</span><span class="o">.</span><span class="n">norm</span><span class="p">(</span><span class="n">mhat2</span><span class="p">)</span> <span class="c1">#mean of second data set</span>
+
+<span class="n">mhat12</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="n">X12</span><span class="p">,</span><span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+<span class="n">mhat12</span> <span class="o">/=</span> <span class="n">np</span><span class="o">.</span><span class="n">linalg</span><span class="o">.</span><span class="n">norm</span><span class="p">(</span><span class="n">mhat12</span><span class="p">)</span> <span class="c1">#mean of pooled data set</span>
+
+<span class="n">Mhat1</span> <span class="o">=</span> <span class="n">pmag</span><span class="o">.</span><span class="n">form_Mhat</span><span class="p">(</span><span class="n">mhat1</span><span class="p">)</span> <span class="c1">#Mhat of first data set</span>
+<span class="n">Ghat1</span> <span class="o">=</span> <span class="n">pmag</span><span class="o">.</span><span class="n">form_Ghat</span><span class="p">(</span><span class="n">X1</span><span class="p">,</span><span class="n">Mhat1</span><span class="p">)</span> <span class="c1">#Ghat of first data set</span>
+
+<span class="n">Mhat2</span> <span class="o">=</span> <span class="n">pmag</span><span class="o">.</span><span class="n">form_Mhat</span><span class="p">(</span><span class="n">mhat2</span><span class="p">)</span> <span class="c1">#Mhat of second data set</span>
+<span class="n">Ghat2</span> <span class="o">=</span> <span class="n">pmag</span><span class="o">.</span><span class="n">form_Ghat</span><span class="p">(</span><span class="n">X2</span><span class="p">,</span><span class="n">Mhat2</span><span class="p">)</span> <span class="c1">#Ghat of second data set</span>
+
+<span class="n">Ahat</span> <span class="o">=</span> <span class="n">Mhat1</span><span class="o">.</span><span class="n">getH</span><span class="p">()</span><span class="o">*</span><span class="n">np</span><span class="o">.</span><span class="n">linalg</span><span class="o">.</span><span class="n">inv</span><span class="p">(</span><span class="n">Ghat1</span><span class="p">)</span><span class="o">*</span><span class="n">Mhat1</span>
+<span class="n">Ahat</span> <span class="o">+=</span> <span class="n">Mhat2</span><span class="o">.</span><span class="n">getH</span><span class="p">()</span><span class="o">*</span><span class="n">np</span><span class="o">.</span><span class="n">linalg</span><span class="o">.</span><span class="n">inv</span><span class="p">(</span><span class="n">Ghat2</span><span class="p">)</span><span class="o">*</span><span class="n">Mhat2</span>
+<span class="n">Ahat</span> <span class="o">*=</span> <span class="n">n</span>
+
+<span class="n">D</span><span class="p">,</span><span class="n">V</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linalg</span><span class="o">.</span><span class="n">eig</span><span class="p">(</span><span class="n">Ahat</span><span class="p">)</span>
+<span class="n">idx</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">argmin</span><span class="p">(</span><span class="n">D</span><span class="p">)</span>
+<span class="n">Lmin</span> <span class="o">=</span> <span class="n">D</span><span class="p">[</span><span class="n">idx</span><span class="p">]</span> <span class="c1">#minimum eigenvalue</span>
+<span class="n">mhat0</span> <span class="o">=</span> <span class="n">V</span><span class="p">[:,</span><span class="n">idx</span><span class="p">]</span> <span class="c1">#eigenvector corresponding to pooled sample mean</span>
+
+<span class="n">Q1</span> <span class="o">=</span> <span class="n">pmag</span><span class="o">.</span><span class="n">form_Q</span><span class="p">(</span><span class="n">mhat0</span><span class="p">,</span><span class="n">mhat1</span><span class="p">)</span> <span class="c1">#rotation matrix for first data set</span>
+<span class="n">X10</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">matmul</span><span class="p">(</span><span class="n">Q1</span><span class="p">,</span><span class="n">X1</span><span class="p">)</span> <span class="c1">#rotated version of first data set</span>
+
+<span class="n">Q2</span> <span class="o">=</span> <span class="n">pmag</span><span class="o">.</span><span class="n">form_Q</span><span class="p">(</span><span class="n">mhat0</span><span class="p">,</span><span class="n">mhat2</span><span class="p">)</span> <span class="c1">#rotation matrix for second data set</span>
+<span class="n">X20</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">matmul</span><span class="p">(</span><span class="n">Q2</span><span class="p">,</span><span class="n">X2</span><span class="p">)</span> <span class="c1">#rotated version of second data set</span>
+
+<span class="n">num_sims</span> <span class="o">=</span> <span class="mi">1000</span> <span class="c1">#number of bootstrap iterations</span>
+<span class="n">Lmin_b</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">(</span><span class="n">num_sims</span><span class="p">)</span> <span class="c1">#predefine output array for minimum eigenvalues</span>
+<span class="n">T_b</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">(</span><span class="n">num_sims</span><span class="p">)</span> <span class="c1">##predefine output array for Tb (equation 11)</span>
+
+<span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">num_sims</span><span class="p">):</span> <span class="c1">#loop through bootstrap iterations</span>
+    <span class="n">idx1</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">randint</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="n">n1</span><span class="p">,</span><span class="n">n1</span><span class="p">)</span> <span class="c1">#select observation indicies with replacement</span>
+    <span class="n">X10_b</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">asarray</span><span class="p">(</span><span class="n">X10</span><span class="p">[:,</span><span class="n">idx1</span><span class="p">])</span> <span class="c1">#form bootstrap sample from rotated version of first data set</span>
+    
+    <span class="n">mhat10_b</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="n">X10_b</span><span class="p">,</span><span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span> <span class="c1">#mean direction of bootstrap sample</span>
+    <span class="n">mhat10_b</span> <span class="o">/=</span> <span class="n">np</span><span class="o">.</span><span class="n">linalg</span><span class="o">.</span><span class="n">norm</span><span class="p">(</span><span class="n">mhat10_b</span><span class="p">)</span>
+    <span class="n">mhat10_b</span> <span class="o">=</span> <span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">asarray</span><span class="p">(</span><span class="n">mhat10_b</span><span class="p">))</span><span class="o">.</span><span class="n">flatten</span><span class="p">()</span>
+    <span class="n">Mhat10_b</span> <span class="o">=</span> <span class="n">pmag</span><span class="o">.</span><span class="n">form_Mhat</span><span class="p">(</span><span class="n">mhat10_b</span><span class="p">)</span> <span class="c1">#\hat{M} for bootstrap sample</span>
+    <span class="n">Ghat10_b</span> <span class="o">=</span> <span class="n">pmag</span><span class="o">.</span><span class="n">form_Ghat</span><span class="p">(</span><span class="n">X10_b</span><span class="p">,</span><span class="n">Mhat10_b</span><span class="p">)</span> <span class="c1">#\hat{G} for bootstrap sample</span>
+    
+    <span class="n">idx2</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">randint</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="n">n2</span><span class="p">,</span><span class="n">n2</span><span class="p">)</span> <span class="c1">#select observation indicies with replacement</span>
+    <span class="n">X20_b</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">asarray</span><span class="p">(</span><span class="n">X20</span><span class="p">[:,</span><span class="n">idx2</span><span class="p">])</span> <span class="c1">#form bootstrap sample from rotated version of second data set</span>
+    
+    <span class="n">mhat20_b</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="n">X20_b</span><span class="p">,</span><span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span> <span class="c1">#mean direction of bootstrap sample</span>
+    <span class="n">mhat20_b</span> <span class="o">/=</span> <span class="n">np</span><span class="o">.</span><span class="n">linalg</span><span class="o">.</span><span class="n">norm</span><span class="p">(</span><span class="n">mhat20_b</span><span class="p">)</span>
+    <span class="n">mhat20_b</span> <span class="o">=</span> <span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">asarray</span><span class="p">(</span><span class="n">mhat20_b</span><span class="p">))</span><span class="o">.</span><span class="n">flatten</span><span class="p">()</span>
+    <span class="n">Mhat20_b</span> <span class="o">=</span> <span class="n">pmag</span><span class="o">.</span><span class="n">form_Mhat</span><span class="p">(</span><span class="n">mhat20_b</span><span class="p">)</span> <span class="c1">#\hat{M} for bootstrap sample</span>
+    <span class="n">Ghat20_b</span> <span class="o">=</span> <span class="n">pmag</span><span class="o">.</span><span class="n">form_Ghat</span><span class="p">(</span><span class="n">X20_b</span><span class="p">,</span><span class="n">Mhat20_b</span><span class="p">)</span> <span class="c1">#\hat{G} for bootstrap sample</span>
+    
+    <span class="n">Ahat_b</span> <span class="o">=</span> <span class="n">Mhat10_b</span><span class="o">.</span><span class="n">getH</span><span class="p">()</span><span class="o">*</span><span class="n">np</span><span class="o">.</span><span class="n">linalg</span><span class="o">.</span><span class="n">inv</span><span class="p">(</span><span class="n">Ghat10_b</span><span class="p">)</span><span class="o">*</span><span class="n">Mhat10_b</span> <span class="c1">#bootstrap estimate of \hat{A}_0 (equation 8)</span>
+    <span class="n">Ahat_b</span> <span class="o">+=</span> <span class="n">Mhat20_b</span><span class="o">.</span><span class="n">getH</span><span class="p">()</span><span class="o">*</span><span class="n">np</span><span class="o">.</span><span class="n">linalg</span><span class="o">.</span><span class="n">inv</span><span class="p">(</span><span class="n">Ghat20_b</span><span class="p">)</span><span class="o">*</span><span class="n">Mhat20_b</span>
+    <span class="n">Ahat_b</span> <span class="o">*=</span> <span class="n">n</span>
+    
+    <span class="n">D_b</span><span class="p">,</span><span class="n">V_b</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linalg</span><span class="o">.</span><span class="n">eig</span><span class="p">(</span><span class="n">Ahat_b</span><span class="p">)</span> <span class="c1">#Eigenvalues and eigenvectors</span>
+    <span class="n">Lmin_b</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">min</span><span class="p">(</span><span class="n">D_b</span><span class="p">)</span> <span class="c1">#minimum eigenvalue for boostrap sample</span>
+    <span class="n">T_b</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">matmul</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">matmul</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">transpose</span><span class="p">(</span><span class="n">mhat0</span><span class="p">),</span><span class="n">Ahat_b</span><span class="p">),</span><span class="n">mhat0</span><span class="p">)</span> <span class="c1">#Bootstrap T for pooled data (equation 11)</span>
+    
+<span class="n">p</span> <span class="o">=</span> <span class="p">(</span><span class="mi">1</span><span class="o">+</span><span class="n">np</span><span class="o">.</span><span class="n">sum</span><span class="p">(</span><span class="n">Lmin_b</span><span class="o">&gt;=</span><span class="n">Lmin</span><span class="p">))</span><span class="o">/</span><span class="p">(</span><span class="n">num_sims</span><span class="o">+</span><span class="mi">1</span><span class="p">)</span> <span class="c1"># p-value (step 8 of CMDT, Section 3)</span>
+<span class="c1"># (n.b., if p &gt; 0.05 cannot reject null of common means at alpha = 0.05)</span>
+
+<span class="n">alpha</span> <span class="o">=</span> <span class="mf">0.05</span> <span class="c1">#set significance level</span>
+<span class="n">Lmin_c</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">quantile</span><span class="p">(</span><span class="n">Lmin_b</span><span class="p">,</span><span class="mi">1</span><span class="o">-</span><span class="n">alpha</span><span class="p">)</span> <span class="c1">#test critical value</span>
+<span class="c1"># (n.b., if Lmin &gt; Lmin_c reject null of common means at alpha significance level)</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;CMDT value = </span><span class="si">{:.2f}</span><span class="s2">&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">Lmin</span><span class="p">))</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;CMDT critical value = </span><span class="si">{:.2f}</span><span class="s2">&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">Lmin_c</span><span class="p">))</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;CMDT p-value = </span><span class="si">{:.2f}</span><span class="s2">&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">p</span><span class="p">))</span>
+
+<span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">()</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">hist</span><span class="p">(</span><span class="n">Lmin_b</span><span class="p">,</span><span class="n">bins</span><span class="o">=</span><span class="nb">int</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span><span class="n">num_sims</span><span class="p">)),</span><span class="n">color</span> <span class="o">=</span> <span class="s2">&quot;0.6&quot;</span><span class="p">,</span> <span class="n">ec</span><span class="o">=</span><span class="s2">&quot;0.6&quot;</span><span class="p">);</span>
+<span class="n">axes</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">gca</span><span class="p">()</span>
+<span class="n">y_min</span><span class="p">,</span> <span class="n">y_max</span> <span class="o">=</span> <span class="n">axes</span><span class="o">.</span><span class="n">get_ylim</span><span class="p">()</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">([</span><span class="n">Lmin</span><span class="p">,</span><span class="n">Lmin</span><span class="p">],[</span><span class="n">y_min</span><span class="p">,</span><span class="n">y_max</span><span class="p">],</span><span class="s1">&#39;--k&#39;</span><span class="p">,</span><span class="n">label</span><span class="o">=</span><span class="s1">&#39;Test statistic&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">([</span><span class="n">Lmin_c</span><span class="p">,</span><span class="n">Lmin_c</span><span class="p">],[</span><span class="n">y_min</span><span class="p">,</span><span class="n">y_max</span><span class="p">],</span><span class="s1">&#39;-k&#39;</span><span class="p">,</span><span class="n">label</span><span class="o">=</span><span class="s1">&#39;Critical value&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylim</span><span class="p">([</span><span class="n">y_min</span><span class="p">,</span><span class="n">y_max</span><span class="p">])</span>
+<span class="n">x_min</span><span class="p">,</span> <span class="n">x_max</span> <span class="o">=</span> <span class="n">axes</span><span class="o">.</span><span class="n">get_xlim</span><span class="p">()</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xlim</span><span class="p">([</span><span class="mi">0</span><span class="p">,</span><span class="mi">30</span><span class="p">])</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="sa">r</span><span class="s1">&#39;$\lambda_{\rm</span><span class="si">{min}</span><span class="s1">}^{(b)}$&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s1">&#39;Frequency&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">minorticks_on</span><span class="p">()</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">rcParams</span><span class="o">.</span><span class="n">update</span><span class="p">({</span><span class="s1">&#39;font.size&#39;</span><span class="p">:</span> <span class="mi">12</span><span class="p">})</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">legend</span><span class="p">();</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>CMDT value = 8.22
+CMDT critical value = 12.41
+CMDT p-value = 0.14
+</pre></div>
+</div>
+<img alt="../../_images/58820619b209f881af1a0cc21e88bf0479f98791eb5b7077d4b098f0f2b0081a.png" src="../../_images/58820619b209f881af1a0cc21e88bf0479f98791eb5b7077d4b098f0f2b0081a.png" />
+</div>
+</div>
 </section>
 </section>
 </section>
@@ -978,7 +1112,8 @@ Examples:
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#plot-the-directions">Plot the directions</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#reversal-tests">Reversal tests</a><ul class="nav section-nav flex-column">
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#conduct-the-watson-common-mean-reversal-test">Conduct the Watson common mean reversal test</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#conduct-the-bootstrap-reversal-test">Conduct the bootstrap reversal test</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#conduct-the-classic-tauxe-et-al-1991-bootstrap-reversal-test">Conduct the classic Tauxe et al. (1991) bootstrap reversal test</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#apply-the-updated-heslop-et-al-2023-bootstrap-reversal-test">Apply the updated Heslop et al. (2023) bootstrap reversal test</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#learn-about-the-reversal-test-functions">Learn about the reversal test functions</a></li>
 </ul>
 </li>
