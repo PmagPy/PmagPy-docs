@@ -445,7 +445,7 @@ document.write(`
 <h2>Introduction<a class="headerlink" href="#introduction" title="Permalink to this heading">#</a></h2>
 <p>This notebook is a template for importing data and conducting reversal tests using PmagPy. You can use it on any MagIC contribution with dual polarity site data. The example that is given is on paleomagnetic directional data from the following study that is in the MagIC database (<a class="reference external" href="https://earthref.org/MagIC/19903">https://earthref.org/MagIC/19903</a>):</p>
 <blockquote>
-<div><p>Hong Ao, Zhisheng An, Mark J. Dekkers, Yongxiang Li, Guoqiao Xiao, Hui Zhao, Xiaoke Qiang (2013). Pleistocene magnetochronology of the fauna and Paleolithic sites in the Nihewan Basin: Significance for environmental and hominin evolution in North China. Quaternary Geochronology 18:78-92. doi:10.1016/J.QUAGEO.2013.06.004.</p>
+<div><p>Ao, An, Dekkers, Li, Xiao, Zhao, Xand Qiang (2013). Pleistocene magnetochronology of the fauna and Paleolithic sites in the Nihewan Basin: Significance for environmental and hominin evolution in North China. Quaternary Geochronology 18:78-92. doi:10.1016/J.QUAGEO.2013.06.004.</p>
 </div></blockquote>
 <section id="change-the-magic-contribution">
 <h3>Change the MagIC contribution<a class="headerlink" href="#change-the-magic-contribution" title="Permalink to this heading">#</a></h3>
@@ -777,7 +777,7 @@ this test is: &#39;B&#39;
 </section>
 <section id="apply-the-updated-heslop-et-al-2023-bootstrap-reversal-test">
 <h3>Apply the updated Heslop et al. (2023) bootstrap reversal test<a class="headerlink" href="#apply-the-updated-heslop-et-al-2023-bootstrap-reversal-test" title="Permalink to this heading">#</a></h3>
-<p>In the framework of the bootstrap reversal above Tauxe et al. (1991) inference comes from comparing the bootstrap-derived confidence regions for the mean directions. Heslop et al. (2023) updated the test and placed it within a null hypothesis significance testing framework.</p>
+<p>In the framework of the bootstrap reversal above Tauxe et al. (1991) inference comes from comparing the bootstrap-derived confidence regions for the mean directions. Heslop et al. (2023) updated the test and placed it within a null hypothesis significance testing framework. If the test statistic value is below a critical value, then the hypothesis that the populations share a common mean (for a reversal test that the antipode of one population shares a common mean with the other), cannot be rejected. In common parlance, such a result corresponds to “passing” a reversal test. In contrast, if the test statistic value exceeds the critical value the null hypothesis that the populations share a common mean can be rejected. In common parlance, such a result corresponds to “failing” a reversal test.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">result</span> <span class="o">=</span> <span class="n">ipmag</span><span class="o">.</span><span class="n">reversal_test_bootstrap_H23</span><span class="p">(</span><span class="n">sites_dec</span><span class="p">,</span> <span class="n">sites_inc</span><span class="p">,</span> <span class="n">num_sims</span><span class="o">=</span><span class="mi">1000</span><span class="p">)</span>
@@ -797,7 +797,7 @@ Cannot reject null of common means at alpha = 0.05 confidence level
 </section>
 <section id="learn-about-the-reversal-test-functions">
 <h3>Learn about the reversal test functions<a class="headerlink" href="#learn-about-the-reversal-test-functions" title="Permalink to this heading">#</a></h3>
-<p>To learn more about the function we can type the function with a question mark after them in a code cell: <code class="docutils literal notranslate"><span class="pre">ipmag.reversal_test_bootstrap?</span></code> in a code cell.</p>
+<p>To learn more about the functions, we can type the function with a question mark after them in a code cell (e.g. <code class="docutils literal notranslate"><span class="pre">ipmag.reversal_test_bootstrap?</span></code>). Doing so gives more information about the function and shows additional parameters that are available for customizing colors and symbols as well as saving output.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>ipmag.reversal_test_bootstrap<span class="o">?</span>
