@@ -410,13 +410,14 @@ document.write(`
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#import-the-data">Import the data</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#unpacking-the-tables">Unpacking the tables</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#visualizing-measurement-level-data">Visualizing measurement level data</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#get-specimen-list">Get specimen list</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#plot-a-specific-specimen">Plot a specific specimen</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#visualizing-site-level-data">Visualizing site level data</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#importing-specific-magic-tables">Importing specific MagIC tables</a><ul class="nav section-nav flex-column">
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#import-the-sites-table">Import the sites table</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#plot-the-sites-and-calculate-the-fisher-mean">Plot the sites and calculate the Fisher mean</a></li>
 </ul>
 </li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#plot-up-data-from-any-specimen">Plot up data from any specimen</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#pick-a-magic-contribution-to-inspect-yourself">Pick a MagIC contribution to inspect yourself</a></li>
 </ul>
             </nav>
         </div>
@@ -437,6 +438,8 @@ document.write(`
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">pmagpy.ipmag</span> <span class="k">as</span> <span class="nn">ipmag</span>
+<span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
+<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
 
 <span class="o">%</span><span class="k">matplotlib</span> inline
 <span class="o">%</span><span class="k">config</span> InlineBackend.figure_format=&#39;retina&#39;
@@ -447,15 +450,16 @@ document.write(`
 </section>
 <section id="import-the-data">
 <h2>Import the data<a class="headerlink" href="#import-the-data" title="Permalink to this heading">#</a></h2>
-<p>We can use ipmag to go download the data from MagIC for us. We can do this in a couple of ways. One way is to use the doi and the function <code class="docutils literal notranslate"><span class="pre">ipmag.download_magic_from_doi()</span></code>. The other is to use the MagIC contribution ID number with the <code class="docutils literal notranslate"><span class="pre">ipmag.download_magic_from_id()</span></code> function. Let’s take that approach for the study:</p>
+<p>We can use ipmag to go download the data from MagIC for us. We can do this in a couple of ways. One way is to use the doi and the function <code class="docutils literal notranslate"><span class="pre">ipmag.download_magic_from_doi()</span></code>. The other is to use the MagIC contribution ID number with the <code class="docutils literal notranslate"><span class="pre">ipmag.download_magic_from_id()</span></code> function. Let’s take the doi download approach for the study:</p>
 <blockquote>
-<div><p>Nicholas L. Swanson‐Hysell, Margaret S. Avery, Yiming Zhang, Eben B. Hodgin, Robert J. Sherwood, Francisco E. Apen, Terrence J. Boerboom, C. Brenhin Keller, John M. Cottle (2021). The paleogeography of Laurentia in its early years:new constraints from the Paleoproterozoic East‐Central Minnesota batholith. Tectonics. doi:10.1029/2021TC006751. MagIC contribution: <a class="reference external" href="https://earthref.org/MagIC/doi/10.1029/2021TC006751">https://earthref.org/MagIC/doi/10.1029/2021TC006751</a></p>
+<div><p>Stelten, Thomas, Pivarunas, and Champion (2023). Spatio-temporal clustering of post-caldera eruptions at Yellowstone caldera: implications for volcanic hazards and pre-eruptive magma reservoir configuration. Bulletin of Volcanology 85 (10). doi:10.1007/S00445-023-01665-W.</p>
 </div></blockquote>
-<p>which has a MagIC ID of 17072. This MagIC ID can be replaced with that of another study in the MagIC database.</p>
+<p>We can use the 10.1007/S00445-023-01665-W of the paper. This doi can be replaced with that of another study in the MagIC database.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">magic_id</span><span class="o">=</span><span class="s1">&#39;17072&#39;</span>
-<span class="n">result</span><span class="p">,</span> <span class="n">magic_file_name</span> <span class="o">=</span> <span class="n">ipmag</span><span class="o">.</span><span class="n">download_magic_from_id</span><span class="p">(</span><span class="n">magic_id</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">doi</span> <span class="o">=</span> <span class="s1">&#39;10.1007/S00445-023-01665-W&#39;</span>
+<span class="n">directory</span> <span class="o">=</span> <span class="s1">&#39;./inspecting_MagIC_data/&#39;</span>
+<span class="n">result</span><span class="p">,</span> <span class="n">magic_file_name</span> <span class="o">=</span> <span class="n">ipmag</span><span class="o">.</span><span class="n">download_magic_from_doi</span><span class="p">(</span><span class="n">doi</span><span class="p">,</span> <span class="n">directory</span> <span class="o">=</span> <span class="n">directory</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -469,7 +473,7 @@ document.write(`
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&#39;magic_contribution_17072 (1).txt&#39;
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&#39;./inspecting_MagIC_data/magic_contribution.txt&#39;
 </pre></div>
 </div>
 </div>
@@ -479,27 +483,29 @@ document.write(`
 <h2>Unpacking the tables<a class="headerlink" href="#unpacking-the-tables" title="Permalink to this heading">#</a></h2>
 <p>A MagIC contribution is a single .txt file that comprises a number of tables. In the case of this contribution, we have these tables:</p>
 <ul class="simple">
+<li><p>ages</p></li>
 <li><p>contribution</p></li>
 <li><p>locations</p></li>
-<li><p>sites</p></li>
-<li><p>samples</p></li>
-<li><p>specimens</p></li>
 <li><p>measurements</p></li>
+<li><p>samples</p></li>
+<li><p>sites</p></li>
+<li><p>specimens</p></li>
 </ul>
 <p>We want unpack the contribution into these distinct tables.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">ipmag</span><span class="o">.</span><span class="n">download_magic</span><span class="p">(</span><span class="n">magic_file_name</span><span class="p">,</span><span class="n">print_progress</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">ipmag</span><span class="o">.</span><span class="n">unpack_magic</span><span class="p">(</span><span class="n">magic_file_name</span><span class="p">,</span> <span class="n">dir_path</span><span class="o">=</span><span class="n">directory</span><span class="p">,</span> <span class="n">print_progress</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>1  records written to file  /Users/unimos/0000_Github/PmagPy-docs/example_notebooks/template_notebooks/contribution.txt
-1  records written to file  /Users/unimos/0000_Github/PmagPy-docs/example_notebooks/template_notebooks/locations.txt
-90  records written to file  /Users/unimos/0000_Github/PmagPy-docs/example_notebooks/template_notebooks/sites.txt
-312  records written to file  /Users/unimos/0000_Github/PmagPy-docs/example_notebooks/template_notebooks/samples.txt
-1559  records written to file  /Users/unimos/0000_Github/PmagPy-docs/example_notebooks/template_notebooks/specimens.txt
-12410  records written to file  /Users/unimos/0000_Github/PmagPy-docs/example_notebooks/template_notebooks/measurements.txt
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>1  records written to file  /Users/unimos/0000_Github/PmagPy-docs/example_notebooks/template_notebooks/inspecting_MagIC_data/contribution.txt
+4  records written to file  /Users/unimos/0000_Github/PmagPy-docs/example_notebooks/template_notebooks/inspecting_MagIC_data/locations.txt
+7  records written to file  /Users/unimos/0000_Github/PmagPy-docs/example_notebooks/template_notebooks/inspecting_MagIC_data/sites.txt
+71  records written to file  /Users/unimos/0000_Github/PmagPy-docs/example_notebooks/template_notebooks/inspecting_MagIC_data/samples.txt
+178  records written to file  /Users/unimos/0000_Github/PmagPy-docs/example_notebooks/template_notebooks/inspecting_MagIC_data/specimens.txt
+1247  records written to file  /Users/unimos/0000_Github/PmagPy-docs/example_notebooks/template_notebooks/inspecting_MagIC_data/measurements.txt
+4  records written to file  /Users/unimos/0000_Github/PmagPy-docs/example_notebooks/template_notebooks/inspecting_MagIC_data/ages.txt
 </pre></div>
 </div>
 <div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>True
@@ -516,37 +522,167 @@ document.write(`
 <li><p>Zijderveld plot</p></li>
 <li><p>demagnetization plot</p></li>
 </ul>
-<p>The <code class="docutils literal notranslate"><span class="pre">n_plots</span></code> parameter specifies how many specimens data are generated.</p>
+<p>The <code class="docutils literal notranslate"><span class="pre">n_plots</span></code> parameter specifies how many specimens data are generated. It will start with the first listed specimen.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">ipmag</span><span class="o">.</span><span class="n">zeq_magic</span><span class="p">(</span><span class="n">save_plots</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">n_plots</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">ipmag</span><span class="o">.</span><span class="n">zeq_magic</span><span class="p">(</span><span class="n">save_plots</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> 
+                <span class="n">input_dir_path</span><span class="o">=</span><span class="n">directory</span><span class="p">,</span> 
+                <span class="n">n_plots</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>-I- Using online data model
--I- Getting method codes from earthref.org
--I- Importing controlled vocabularies from https://earthref.org
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>1  saved in  LO:__SI:__SA:__SP:_Y2102-1a_CO:__TY:_eqarea_.png
+2  saved in  LO:__SI:__SA:__SP:_Y2102-1a_CO:__TY:_zijd_.png
+3  saved in  LO:__SI:__SA:__SP:_Y2102-1a_CO:__TY:_demag_.png
 </pre></div>
 </div>
-<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
-<span class="ne">AttributeError</span><span class="g g-Whitespace">                            </span>Traceback (most recent call last)
-<span class="nn">/Users/unimos/0000_Github/PmagPy-docs/example_notebooks/template_notebooks/Inspecting_MagIC_directional_data.ipynb Cell 11</span> in <span class="ni">&lt;cell line: 1&gt;</span><span class="nt">()</span>
-<span class="o">----&gt;</span> <span class="o">&lt;</span><span class="n">a</span> <span class="n">href</span><span class="o">=</span><span class="s1">&#39;vscode-notebook-cell:/Users/unimos/0000_Github/PmagPy-docs/example_notebooks/template_notebooks/Inspecting_MagIC_directional_data.ipynb#X53sZmlsZQ%3D%3D?line=0&#39;</span><span class="o">&gt;</span><span class="mi">1</span><span class="o">&lt;/</span><span class="n">a</span><span class="o">&gt;</span> <span class="n">ipmag</span><span class="o">.</span><span class="n">zeq_magic</span><span class="p">(</span><span class="n">save_plots</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">n_plots</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
-
-<span class="nn">File ~/0000_Github/PmagPy/pmagpy/ipmag.py:12250,</span> in <span class="ni">zeq_magic</span><span class="nt">(meas_file, spec_file, crd, input_dir_path, angle, n_plots, save_plots, fmt, interactive, specimen, samp_file, contribution, fignum, image_records)</span>
-<span class="g g-Whitespace">  </span><span class="mi">12248</span>     <span class="k">if</span> <span class="s1">&#39;id&#39;</span> <span class="ow">in</span> <span class="n">contribution</span><span class="o">.</span><span class="n">tables</span><span class="p">[</span><span class="s1">&#39;contribution&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">df</span><span class="o">.</span><span class="n">columns</span><span class="p">:</span>
-<span class="g g-Whitespace">  </span><span class="mi">12249</span>         <span class="n">con_id</span> <span class="o">=</span> <span class="n">contribution</span><span class="o">.</span><span class="n">tables</span><span class="p">[</span><span class="s1">&#39;contribution&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">df</span><span class="p">[</span><span class="s1">&#39;id&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">values</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
-<span class="ne">&gt; </span><span class="mi">12250</span> <span class="n">pmagplotlib</span><span class="o">.</span><span class="n">add_borders</span><span class="p">(</span><span class="n">ZED</span><span class="p">,</span> <span class="n">titles</span><span class="p">,</span> <span class="n">con_id</span><span class="o">=</span><span class="n">con_id</span><span class="p">)</span>
-<span class="g g-Whitespace">  </span><span class="mi">12251</span> <span class="k">for</span> <span class="n">title</span> <span class="ow">in</span> <span class="n">titles</span><span class="p">:</span>
-<span class="g g-Whitespace">  </span><span class="mi">12252</span>     <span class="n">int_str</span> <span class="o">=</span> <span class="s2">&quot;&quot;</span>
-
-<span class="ne">AttributeError</span>: module &#39;pmagpy.pmagplotlib&#39; has no attribute &#39;add_borders&#39;
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>(True,
+ [&#39;LO:__SI:__SA:__SP:_Y2102-1a_CO:__TY:_eqarea_.png&#39;,
+  &#39;LO:__SI:__SA:__SP:_Y2102-1a_CO:__TY:_zijd_.png&#39;,
+  &#39;LO:__SI:__SA:__SP:_Y2102-1a_CO:__TY:_demag_.png&#39;])
 </pre></div>
 </div>
-<img alt="../../_images/083280994ff24f3a0ceb7b79849fce4ddb5f0c2d08711cafd3856760ce33e29a.png" src="../../_images/083280994ff24f3a0ceb7b79849fce4ddb5f0c2d08711cafd3856760ce33e29a.png" />
-<img alt="../../_images/8c1dd9cc191db582169272e2dc8bee61c8bab39d1093a9ddcb632c6429c402df.png" src="../../_images/8c1dd9cc191db582169272e2dc8bee61c8bab39d1093a9ddcb632c6429c402df.png" />
-<img alt="../../_images/18759b3a1269fa8aa033257d5b905fb020ba56500ed35a073c805c77f94b7aad.png" src="../../_images/18759b3a1269fa8aa033257d5b905fb020ba56500ed35a073c805c77f94b7aad.png" />
+</div>
+</div>
+</section>
+<section id="get-specimen-list">
+<h2>Get specimen list<a class="headerlink" href="#get-specimen-list" title="Permalink to this heading">#</a></h2>
+<p>We can get lists of MagIC_names for locations, sites, samples, specimens using <code class="docutils literal notranslate"><span class="pre">ipmag.list_MagIC_names</span></code>. Let’s look at all of the specimen names.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">MagIC_names</span> <span class="o">=</span> <span class="n">ipmag</span><span class="o">.</span><span class="n">list_MagIC_names</span><span class="p">(</span><span class="n">directory</span><span class="p">)</span>
+<span class="n">MagIC_names</span><span class="p">[</span><span class="s1">&#39;specimens&#39;</span><span class="p">]</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[&#39;Y2102-1a&#39;,
+ &#39;Y2102-2a&#39;,
+ &#39;Y2102-2b&#39;,
+ &#39;Y2102-3a&#39;,
+ &#39;Y2102-4a&#39;,
+ &#39;Y2102-5a&#39;,
+ &#39;Y2102-5b&#39;,
+ &#39;Y2102-6a&#39;,
+ &#39;Y2102-6b&#39;,
+ &#39;Y2102-7a&#39;,
+ &#39;Y2102-8a&#39;,
+ &#39;Y211-1a&#39;,
+ &#39;Y211-2a&#39;,
+ &#39;Y211-3a&#39;,
+ &#39;Y211-3b&#39;,
+ &#39;Y211-4a&#39;,
+ &#39;Y211-5a&#39;,
+ &#39;Y211-6a&#39;,
+ &#39;Y211-7a&#39;,
+ &#39;Y211-7b&#39;,
+ &#39;Y211-8a&#39;,
+ &#39;Y211-9a&#39;,
+ &#39;Y213-10a&#39;,
+ &#39;Y213-11a&#39;,
+ &#39;Y213-1a&#39;,
+ &#39;Y213-1b&#39;,
+ &#39;Y213-2a&#39;,
+ &#39;Y213-3a&#39;,
+ &#39;Y213-4a&#39;,
+ &#39;Y213-5a&#39;,
+ &#39;Y213-6a&#39;,
+ &#39;Y213-6b&#39;,
+ &#39;Y213-7a&#39;,
+ &#39;Y213-7b&#39;,
+ &#39;Y213-8a&#39;,
+ &#39;Y213-8b&#39;,
+ &#39;Y213-9a&#39;,
+ &#39;Y214-10a&#39;,
+ &#39;Y214-10b&#39;,
+ &#39;Y214-11a&#39;,
+ &#39;Y214-11b&#39;,
+ &#39;Y214-12a&#39;,
+ &#39;Y214-1a&#39;,
+ &#39;Y214-2a&#39;,
+ &#39;Y214-3a&#39;,
+ &#39;Y214-4a&#39;,
+ &#39;Y214-4b&#39;,
+ &#39;Y214-5a&#39;,
+ &#39;Y214-5b&#39;,
+ &#39;Y214-6a&#39;,
+ &#39;Y214-7a&#39;,
+ &#39;Y214-8a&#39;,
+ &#39;Y214-9a&#39;,
+ &#39;Y215-10a&#39;,
+ &#39;Y215-10b&#39;,
+ &#39;Y215-1a&#39;,
+ &#39;Y215-1b&#39;,
+ &#39;Y215-2a&#39;,
+ &#39;Y215-3a&#39;,
+ &#39;Y215-3b&#39;,
+ &#39;Y215-4a&#39;,
+ &#39;Y215-5a&#39;,
+ &#39;Y215-5b&#39;,
+ &#39;Y215-6a&#39;,
+ &#39;Y215-6b&#39;,
+ &#39;Y215-7a&#39;,
+ &#39;Y215-7b&#39;,
+ &#39;Y215-8a&#39;,
+ &#39;Y215-8b&#39;,
+ &#39;Y215-9a&#39;,
+ &#39;Y215-9b&#39;,
+ &#39;Y216-10a&#39;,
+ &#39;Y216-11a&#39;,
+ &#39;Y216-1a&#39;,
+ &#39;Y216-2a&#39;,
+ &#39;Y216-2b&#39;,
+ &#39;Y216-3a&#39;,
+ &#39;Y216-3b&#39;,
+ &#39;Y216-4a&#39;,
+ &#39;Y216-4b&#39;,
+ &#39;Y216-5a&#39;,
+ &#39;Y216-6a&#39;,
+ &#39;Y216-7a&#39;,
+ &#39;Y216-7b&#39;,
+ &#39;Y216-8a&#39;,
+ &#39;Y216-8b&#39;,
+ &#39;Y216-9a&#39;,
+ &#39;Y216-9b&#39;,
+ &#39;Y217-10a&#39;,
+ &#39;Y217-1a&#39;,
+ &#39;Y217-2a&#39;,
+ &#39;Y217-2b&#39;,
+ &#39;Y217-3a&#39;,
+ &#39;Y217-4a&#39;,
+ &#39;Y217-5a&#39;,
+ &#39;Y217-6a&#39;,
+ &#39;Y217-6b&#39;,
+ &#39;Y217-7a&#39;,
+ &#39;Y217-7b&#39;,
+ &#39;Y217-8a&#39;,
+ &#39;Y217-9a&#39;]
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="plot-a-specific-specimen">
+<h2>Plot a specific specimen<a class="headerlink" href="#plot-a-specific-specimen" title="Permalink to this heading">#</a></h2>
+<p>We can then have <code class="docutils literal notranslate"><span class="pre">ipmag.zeq_magic</span></code> plot a specific specimen rather than defaulting to plotting the first one.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">specimen_to_plot</span> <span class="o">=</span> <span class="s1">&#39;Y217-9a&#39;</span>
+
+<span class="n">ipmag</span><span class="o">.</span><span class="n">zeq_magic</span><span class="p">(</span><span class="n">save_plots</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> 
+                <span class="n">input_dir_path</span><span class="o">=</span><span class="n">directory</span><span class="p">,</span>
+                <span class="n">specimen</span><span class="o">=</span><span class="n">specimen_to_plot</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>(True, [])
+</pre></div>
+</div>
+<img alt="../../_images/fb11e463f94e6d2be29efebf1d24486ff9b8feb7f598285bb20f631f31464d6e.png" src="../../_images/fb11e463f94e6d2be29efebf1d24486ff9b8feb7f598285bb20f631f31464d6e.png" />
+<img alt="../../_images/4dbfd1bdaad17212114869aa9601cc6232162b9f71cb02c9a73eafd5957e7e4f.png" src="../../_images/4dbfd1bdaad17212114869aa9601cc6232162b9f71cb02c9a73eafd5957e7e4f.png" />
+<img alt="../../_images/55c12c5cc77ea82644c10ecba198dc7f498102a8d1279c17e36d5d2090011501.png" src="../../_images/55c12c5cc77ea82644c10ecba198dc7f498102a8d1279c17e36d5d2090011501.png" />
 </div>
 </div>
 </section>
@@ -555,64 +691,37 @@ document.write(`
 <p>Plots can also be saved by setting <code class="docutils literal notranslate"><span class="pre">save_plots</span></code> to be <code class="docutils literal notranslate"><span class="pre">True</span></code></p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">ipmag</span><span class="o">.</span><span class="n">eqarea_magic</span><span class="p">(</span><span class="n">save_plots</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">ipmag</span><span class="o">.</span><span class="n">eqarea_magic</span><span class="p">(</span><span class="n">save_plots</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> 
+                   <span class="n">input_dir_path</span><span class="o">=</span><span class="n">directory</span><span class="p">,</span>
+                   <span class="n">dir_path</span><span class="o">=</span><span class="n">directory</span><span class="p">,</span>
+                   <span class="p">)</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>-W- File /Users/unimos/0000_Github/PmagPy-docs/example_notebooks/template_notebooks/criteria.txt is incomplete and will be ignored
-90  sites records read in
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>7  sites records read in
+1  saved in  LO:_Mallard Lake_SI:__SA:__SP:__CO:_g_TY:_eqarea_.svg
 </pre></div>
 </div>
-<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
-<span class="ne">AttributeError</span><span class="g g-Whitespace">                            </span>Traceback (most recent call last)
-<span class="nn">/Users/unimos/0000_Github/PmagPy-docs/example_notebooks/template_notebooks/Inspecting_MagIC_directional_data.ipynb Cell 13</span> in <span class="ni">&lt;cell line: 1&gt;</span><span class="nt">()</span>
-<span class="o">----&gt;</span> <span class="o">&lt;</span><span class="n">a</span> <span class="n">href</span><span class="o">=</span><span class="s1">&#39;vscode-notebook-cell:/Users/unimos/0000_Github/PmagPy-docs/example_notebooks/template_notebooks/Inspecting_MagIC_directional_data.ipynb#X55sZmlsZQ%3D%3D?line=0&#39;</span><span class="o">&gt;</span><span class="mi">1</span><span class="o">&lt;/</span><span class="n">a</span><span class="o">&gt;</span> <span class="n">ipmag</span><span class="o">.</span><span class="n">eqarea_magic</span><span class="p">(</span><span class="n">save_plots</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
-
-<span class="nn">File ~/0000_Github/PmagPy/pmagpy/ipmag.py:13646,</span> in <span class="ni">eqarea_magic</span><span class="nt">(in_file, dir_path, input_dir_path, spec_file, samp_file, site_file, loc_file, plot_by, crd, ignore_tilt, save_plots, fmt, contour, color_map, plot_ell, n_plots, interactive, contribution, source_table, image_records)</span>
-<span class="g g-Whitespace">  </span><span class="mi">13644</span> <span class="k">if</span> <span class="n">pmagplotlib</span><span class="o">.</span><span class="n">isServer</span><span class="p">:</span>
-<span class="g g-Whitespace">  </span><span class="mi">13645</span>     <span class="n">titles</span> <span class="o">=</span> <span class="p">{</span><span class="s1">&#39;eqarea&#39;</span><span class="p">:</span> <span class="s1">&#39;Equal Area Plot&#39;</span><span class="p">}</span>
-<span class="ne">&gt; </span><span class="mi">13646</span>     <span class="n">FIG</span> <span class="o">=</span> <span class="n">pmagplotlib</span><span class="o">.</span><span class="n">add_borders</span><span class="p">(</span><span class="n">FIG</span><span class="p">,</span> <span class="n">titles</span><span class="p">,</span> <span class="n">con_id</span><span class="o">=</span><span class="n">con_id</span><span class="p">)</span>
-<span class="g g-Whitespace">  </span><span class="mi">13647</span>     <span class="n">saved_figs</span> <span class="o">=</span> <span class="n">pmagplotlib</span><span class="o">.</span><span class="n">save_plots</span><span class="p">(</span><span class="n">FIG</span><span class="p">,</span> <span class="n">files</span><span class="p">)</span>
-<span class="g g-Whitespace">  </span><span class="mi">13648</span> <span class="k">elif</span> <span class="n">save_plots</span><span class="p">:</span>
-
-<span class="ne">AttributeError</span>: module &#39;pmagpy.pmagplotlib&#39; has no attribute &#39;add_borders&#39;
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>(True, [&#39;LO:_Mallard Lake_SI:__SA:__SP:__CO:_g_TY:_eqarea_.svg&#39;])
 </pre></div>
 </div>
-<img alt="../../_images/b1b62f8266dc06ecf30ea96bf63044ef85ca16abad0bf7360a38e21cf171cd8c.png" src="../../_images/b1b62f8266dc06ecf30ea96bf63044ef85ca16abad0bf7360a38e21cf171cd8c.png" />
 </div>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">ipmag</span><span class="o">.</span><span class="n">vgpmap_magic</span><span class="p">(</span><span class="n">flip</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">ipmag</span><span class="o">.</span><span class="n">vgpmap_magic</span><span class="p">(</span><span class="n">dir_path</span><span class="o">=</span><span class="n">directory</span><span class="p">,</span> <span class="n">flip</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span>
                    <span class="n">save_plots</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span>
                    <span class="n">lat_0</span><span class="o">=</span><span class="mi">60</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>-W- File /Users/unimos/0000_Github/PmagPy-docs/example_notebooks/template_notebooks/criteria.txt is incomplete and will be ignored
+<img alt="../../_images/e330dbf675cf1430a0ad7d0929652c076d2b5f42fba0aec583c6bf7d9ca6323a.png" src="../../_images/e330dbf675cf1430a0ad7d0929652c076d2b5f42fba0aec583c6bf7d9ca6323a.png" />
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>1  saved in  MC:_19640_TY:_VGP_map.pdf
 </pre></div>
 </div>
-<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
-<span class="ne">AttributeError</span><span class="g g-Whitespace">                            </span>Traceback (most recent call last)
-<span class="nn">/Users/unimos/0000_Github/PmagPy-docs/example_notebooks/template_notebooks/Inspecting_MagIC_directional_data.ipynb Cell 14</span> in <span class="ni">&lt;cell line: 1&gt;</span><span class="nt">()</span>
-<span class="o">----&gt;</span> <span class="o">&lt;</span><span class="n">a</span> <span class="n">href</span><span class="o">=</span><span class="s1">&#39;vscode-notebook-cell:/Users/unimos/0000_Github/PmagPy-docs/example_notebooks/template_notebooks/Inspecting_MagIC_directional_data.ipynb#X56sZmlsZQ%3D%3D?line=0&#39;</span><span class="o">&gt;</span><span class="mi">1</span><span class="o">&lt;/</span><span class="n">a</span><span class="o">&gt;</span> <span class="n">ipmag</span><span class="o">.</span><span class="n">vgpmap_magic</span><span class="p">(</span><span class="n">flip</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span>
-      <span class="o">&lt;</span><span class="n">a</span> <span class="n">href</span><span class="o">=</span><span class="s1">&#39;vscode-notebook-cell:/Users/unimos/0000_Github/PmagPy-docs/example_notebooks/template_notebooks/Inspecting_MagIC_directional_data.ipynb#X56sZmlsZQ%3D%3D?line=1&#39;</span><span class="o">&gt;</span><span class="mi">2</span><span class="o">&lt;/</span><span class="n">a</span><span class="o">&gt;</span>                    <span class="n">save_plots</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span>
-      <span class="o">&lt;</span><span class="n">a</span> <span class="n">href</span><span class="o">=</span><span class="s1">&#39;vscode-notebook-cell:/Users/unimos/0000_Github/PmagPy-docs/example_notebooks/template_notebooks/Inspecting_MagIC_directional_data.ipynb#X56sZmlsZQ%3D%3D?line=2&#39;</span><span class="o">&gt;</span><span class="mi">3</span><span class="o">&lt;/</span><span class="n">a</span><span class="o">&gt;</span>                    <span class="n">lat_0</span><span class="o">=</span><span class="mi">60</span><span class="p">)</span>
-
-<span class="nn">File ~/0000_Github/PmagPy/pmagpy/ipmag.py:14583,</span> in <span class="ni">vgpmap_magic</span><span class="nt">(dir_path, results_file, crd, sym, size, rsym, rsize, fmt, res, proj, flip, anti, fancy, ell, ages, lat_0, lon_0, save_plots, interactive, contribution, image_records)</span>
-<span class="g g-Whitespace">  </span><span class="mi">14580</span> <span class="n">Opts</span><span class="p">[</span><span class="s1">&#39;details&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="p">{</span><span class="s1">&#39;coasts&#39;</span><span class="p">:</span> <span class="mi">1</span><span class="p">,</span> <span class="s1">&#39;rivers&#39;</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span> <span class="s1">&#39;states&#39;</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span>
-<span class="g g-Whitespace">  </span><span class="mi">14581</span>                    <span class="s1">&#39;countries&#39;</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span> <span class="s1">&#39;ocean&#39;</span><span class="p">:</span> <span class="mi">1</span><span class="p">,</span> <span class="s1">&#39;fancy&#39;</span><span class="p">:</span> <span class="n">fancy</span><span class="p">}</span>
-<span class="g g-Whitespace">  </span><span class="mi">14582</span> <span class="c1"># make the base map with a blue triangle at the pole</span>
-<span class="ne">&gt; </span><span class="mi">14583</span> <span class="n">pmagplotlib</span><span class="o">.</span><span class="n">plot_map</span><span class="p">(</span><span class="n">FIG</span><span class="p">[</span><span class="s1">&#39;map&#39;</span><span class="p">],</span> <span class="p">[</span><span class="mf">90.</span><span class="p">],</span> <span class="p">[</span><span class="mf">0.</span><span class="p">],</span> <span class="n">Opts</span><span class="p">)</span>
-<span class="g g-Whitespace">  </span><span class="mi">14584</span> <span class="n">Opts</span><span class="p">[</span><span class="s1">&#39;pltgrid&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="o">-</span><span class="mi">1</span>
-<span class="g g-Whitespace">  </span><span class="mi">14585</span> <span class="n">Opts</span><span class="p">[</span><span class="s1">&#39;sym&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">sym</span>
-
-<span class="ne">AttributeError</span>: module &#39;pmagpy.pmagplotlib&#39; has no attribute &#39;plot_map&#39;
-</pre></div>
-</div>
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;Figure size 1440x1440 with 0 Axes&gt;
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>(True, dict_values([&#39;MC:_19640_TY:_VGP_map.pdf&#39;]))
 </pre></div>
 </div>
 </div>
@@ -626,12 +735,230 @@ document.write(`
 <p>We can now use pandas to import the sites table to a pandas dataframe using the function <code class="docutils literal notranslate"><span class="pre">pd.read_csv()</span></code>.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">sites</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s1">&#39;sites.txt&#39;</span><span class="p">,</span><span class="n">sep</span><span class="o">=</span><span class="s1">&#39;</span><span class="se">\t</span><span class="s1">&#39;</span><span class="p">,</span><span class="n">header</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">sites</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="n">directory</span> <span class="o">+</span> <span class="s1">&#39;sites.txt&#39;</span><span class="p">,</span> <span class="n">sep</span><span class="o">=</span><span class="s1">&#39;</span><span class="se">\t</span><span class="s1">&#39;</span><span class="p">,</span> <span class="n">header</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
 <span class="n">sites</span>
 </pre></div>
 </div>
 </div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>age</th>
+      <th>age_unit</th>
+      <th>analysts</th>
+      <th>citations</th>
+      <th>dir_alpha95</th>
+      <th>dir_comp_name</th>
+      <th>dir_dec</th>
+      <th>dir_inc</th>
+      <th>dir_k</th>
+      <th>dir_n_samples</th>
+      <th>...</th>
+      <th>method_codes</th>
+      <th>result_quality</th>
+      <th>samples</th>
+      <th>site</th>
+      <th>software_packages</th>
+      <th>specimens</th>
+      <th>vgp_dm</th>
+      <th>vgp_dp</th>
+      <th>vgp_lat</th>
+      <th>vgp_lon</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>160.2</td>
+      <td>ka</td>
+      <td>AFP</td>
+      <td>This study</td>
+      <td>2.4</td>
+      <td>Y212_chrm</td>
+      <td>352.1</td>
+      <td>66.2</td>
+      <td>396</td>
+      <td>8</td>
+      <td>...</td>
+      <td>LP-DIR-AF:DE-BFL-A:DA-DIR-GEO:LP-DIR-T:DE-BFL:...</td>
+      <td>g</td>
+      <td>Y2102-1:Y2102-2:Y2102-3:Y2102-4:Y2102-5:Y2102-...</td>
+      <td>Y2102</td>
+      <td>pmagpy-4.2.108: demag_gui.v.3.0</td>
+      <td>Y2102-1a:Y2102-2a:Y2102-2b:Y2102-3a:Y2102-4a:Y...</td>
+      <td>3.9</td>
+      <td>3.2</td>
+      <td>83.1</td>
+      <td>199.7</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>159.9</td>
+      <td>ka</td>
+      <td>AFP</td>
+      <td>This study</td>
+      <td>7.7</td>
+      <td>Y211_chrm</td>
+      <td>339.3</td>
+      <td>66.2</td>
+      <td>54</td>
+      <td>6</td>
+      <td>...</td>
+      <td>LP-DIR-T:DE-BFP:DA-DIR-GEO:DE-BFL-A:LP-DIR-AF:...</td>
+      <td>g</td>
+      <td>Y211-1:Y211-2:Y211-3:Y211-4:Y211-5:Y211-7</td>
+      <td>Y211</td>
+      <td>pmagpy-4.2.108: demag_gui.v.3.0</td>
+      <td>Y211-1a:Y211-2a:Y211-3a:Y211-3b:Y211-4a:Y211-5...</td>
+      <td>12.6</td>
+      <td>10.3</td>
+      <td>75.2</td>
+      <td>183.1</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>160.2</td>
+      <td>ka</td>
+      <td>AFP</td>
+      <td>This study</td>
+      <td>4.9</td>
+      <td>Y213_chrm</td>
+      <td>332.1</td>
+      <td>68.1</td>
+      <td>87</td>
+      <td>1</td>
+      <td>...</td>
+      <td>LP-DIR-AF:DE-BFL:DA-DIR-GEO:LP-DIR-T:DE-BFL-A:...</td>
+      <td>g</td>
+      <td>Y213-10:Y213-1:Y213-2:Y213-3:Y213-4:Y213-5:Y21...</td>
+      <td>Y213</td>
+      <td>pmagpy-4.2.108: demag_gui.v.3.0</td>
+      <td>Y213-10a:Y213-1a:Y213-1b:Y213-2a:Y213-3a:Y213-...</td>
+      <td>8.2</td>
+      <td>6.9</td>
+      <td>70.2</td>
+      <td>189.3</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>161.7</td>
+      <td>ka</td>
+      <td>AFP</td>
+      <td>This study</td>
+      <td>4.7</td>
+      <td>Y214_chrm</td>
+      <td>337.5</td>
+      <td>60.9</td>
+      <td>88</td>
+      <td>1</td>
+      <td>...</td>
+      <td>LP-DIR-AF:DE-BFL:DA-DIR-GEO:DE-BFL-A:LP-DIR-T:...</td>
+      <td>g</td>
+      <td>Y214-11:Y214-1:Y214-2:Y214-3:Y214-4:Y214-5:Y21...</td>
+      <td>Y214</td>
+      <td>pmagpy-4.2.108: demag_gui.v.3.0</td>
+      <td>Y214-11a:Y214-1a:Y214-2a:Y214-3a:Y214-4a:Y214-...</td>
+      <td>7.2</td>
+      <td>5.5</td>
+      <td>73.5</td>
+      <td>157.8</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>160.8</td>
+      <td>ka</td>
+      <td>AFP</td>
+      <td>This study</td>
+      <td>3.0</td>
+      <td>Y215_chrm</td>
+      <td>333.3</td>
+      <td>64.1</td>
+      <td>211</td>
+      <td>1</td>
+      <td>...</td>
+      <td>LP-DIR-AF:DE-BFL:DA-DIR-GEO:DE-BFL-A:LP-DIR-T:...</td>
+      <td>g</td>
+      <td>Y215-10:Y215-1:Y215-2:Y215-3:Y215-4:Y215-5:Y21...</td>
+      <td>Y215</td>
+      <td>pmagpy-4.2.108: demag_gui.v.3.0</td>
+      <td>Y215-10a:Y215-1b:Y215-2a:Y215-3b:Y215-4a:Y215-...</td>
+      <td>4.8</td>
+      <td>3.8</td>
+      <td>71.2</td>
+      <td>172.5</td>
+    </tr>
+    <tr>
+      <th>5</th>
+      <td>160.8</td>
+      <td>ka</td>
+      <td>AFP</td>
+      <td>This study</td>
+      <td>1.9</td>
+      <td>Y216_chrm</td>
+      <td>326.3</td>
+      <td>64.7</td>
+      <td>549</td>
+      <td>1</td>
+      <td>...</td>
+      <td>LP-DIR-T:DE-BFL:DA-DIR-GEO:LP-DIR-AF:DE-BFL-A:...</td>
+      <td>g</td>
+      <td>Y216-10:Y216-11:Y216-1:Y216-2:Y216-3:Y216-4:Y2...</td>
+      <td>Y216</td>
+      <td>pmagpy-4.2.108: demag_gui.v.3.0</td>
+      <td>Y216-10a:Y216-11a:Y216-1a:Y216-2a:Y216-3a:Y216...</td>
+      <td>3.1</td>
+      <td>2.5</td>
+      <td>65.4</td>
+      <td>171.3</td>
+    </tr>
+    <tr>
+      <th>6</th>
+      <td>160.8</td>
+      <td>ka</td>
+      <td>AFP</td>
+      <td>This study</td>
+      <td>3.4</td>
+      <td>Y217_chrm</td>
+      <td>326.5</td>
+      <td>64.4</td>
+      <td>185</td>
+      <td>1</td>
+      <td>...</td>
+      <td>LP-DIR-AF:DE-BFL:DA-DIR-GEO:DE-BFL-A:LP-DIR-T:...</td>
+      <td>g</td>
+      <td>Y217-10:Y217-1:Y217-2:Y217-3:Y217-4:Y217-5:Y21...</td>
+      <td>Y217</td>
+      <td>pmagpy-4.2.108: demag_gui.v.3.0</td>
+      <td>Y217-10a:Y217-1a:Y217-2a:Y217-2b:Y217-3a:Y217-...</td>
+      <td>5.4</td>
+      <td>4.4</td>
+      <td>66.6</td>
+      <td>175.1</td>
+    </tr>
+  </tbody>
+</table>
+<p>7 rows × 32 columns</p>
+</div></div></div>
 </div>
+</section>
+<section id="plot-the-sites-and-calculate-the-fisher-mean">
+<h3>Plot the sites and calculate the Fisher mean<a class="headerlink" href="#plot-the-sites-and-calculate-the-fisher-mean" title="Permalink to this heading">#</a></h3>
 <p>We can extract specific columns from the dataframe by using the nomenclature <code class="docutils literal notranslate"><span class="pre">dataframe_name['column_name']</span></code>. In this case, the dataframe name is <code class="docutils literal notranslate"><span class="pre">sites</span></code> and the column name might be <code class="docutils literal notranslate"><span class="pre">dir_dec</span></code>. So <code class="docutils literal notranslate"><span class="pre">sites['dir_dec']</span></code> will give us  all the declinations.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -641,138 +968,49 @@ document.write(`
 </div>
 </div>
 </div>
-</section>
-</section>
-<section id="plot-up-data-from-any-specimen">
-<h2>Plot up data from any specimen<a class="headerlink" href="#plot-up-data-from-any-specimen" title="Permalink to this heading">#</a></h2>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
-
-<span class="c1"># Read the files</span>
-<span class="n">specimens</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s1">&#39;specimens.txt&#39;</span><span class="p">,</span> <span class="n">sep</span><span class="o">=</span><span class="s1">&#39;</span><span class="se">\t</span><span class="s1">&#39;</span><span class="p">,</span> <span class="n">skiprows</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
-<span class="n">measurements</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s1">&#39;measurements.txt&#39;</span><span class="p">,</span> <span class="n">sep</span><span class="o">=</span><span class="s1">&#39;</span><span class="se">\t</span><span class="s1">&#39;</span><span class="p">,</span> <span class="n">skiprows</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
-
-<span class="c1"># Get the unique specimen names from each DataFrame</span>
-<span class="n">unique_specimens</span> <span class="o">=</span> <span class="n">specimens</span><span class="p">[</span><span class="s1">&#39;specimen&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">unique</span><span class="p">()</span>
-<span class="n">unique_measurements</span> <span class="o">=</span> <span class="n">measurements</span><span class="p">[</span><span class="s1">&#39;specimen&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">unique</span><span class="p">()</span>
-
-<span class="c1"># Find the common unique names using numpy&#39;s intersect1d method</span>
-<span class="n">specimen_list</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">np</span><span class="o">.</span><span class="n">intersect1d</span><span class="p">(</span><span class="n">unique_specimens</span><span class="p">,</span> <span class="n">unique_measurements</span><span class="p">)</span>
-
-<span class="n">specimen_list</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">6</span><span class="p">,</span><span class="mi">6</span><span class="p">))</span>
+<span class="n">ipmag</span><span class="o">.</span><span class="n">plot_net</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
+<span class="n">ipmag</span><span class="o">.</span><span class="n">plot_di</span><span class="p">(</span><span class="n">sites_dec</span><span class="p">,</span> <span class="n">sites_inc</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;black&#39;</span><span class="p">,</span> <span class="n">marker</span><span class="o">=</span><span class="s1">&#39;o&#39;</span><span class="p">,</span> <span class="n">markersize</span><span class="o">=</span><span class="mi">40</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([&#39;NED1-1b&#39;, &#39;NED1-2b&#39;, &#39;NED1-3b&#39;, &#39;NED1-4b&#39;, &#39;NED1-5b&#39;, &#39;NED1-6b&#39;,
-       &#39;NED1-7b&#39;, &#39;NED1-8b&#39;, &#39;NED10-1b&#39;, &#39;NED10-2b&#39;, &#39;NED10-3b&#39;,
-       &#39;NED10-4b&#39;, &#39;NED10-5b&#39;, &#39;NED10-6b&#39;, &#39;NED10-7b&#39;, &#39;NED10-8b&#39;,
-       &#39;NED11-1b&#39;, &#39;NED11-2b&#39;, &#39;NED11-3b&#39;, &#39;NED11-4b&#39;, &#39;NED11-5b&#39;,
-       &#39;NED11-6b&#39;, &#39;NED11-7b&#39;, &#39;NED11-8b&#39;, &#39;NED12-1b&#39;, &#39;NED12-2b&#39;,
-       &#39;NED12-3b&#39;, &#39;NED12-4b&#39;, &#39;NED12-5b&#39;, &#39;NED12-6b&#39;, &#39;NED12-7b&#39;,
-       &#39;NED12-8b&#39;, &#39;NED13-1b&#39;, &#39;NED13-2b&#39;, &#39;NED13-3b&#39;, &#39;NED13-4b&#39;,
-       &#39;NED13-5b&#39;, &#39;NED13-6b&#39;, &#39;NED13-7b&#39;, &#39;NED13-8b&#39;, &#39;NED14-1b&#39;,
-       &#39;NED14-2b&#39;, &#39;NED14-3b&#39;, &#39;NED14-4b&#39;, &#39;NED14-5b&#39;, &#39;NED14-6b&#39;,
-       &#39;NED14-7b&#39;, &#39;NED14-8b&#39;, &#39;NED14-9b&#39;, &#39;NED15-1b&#39;, &#39;NED15-2b&#39;,
-       &#39;NED15-3b&#39;, &#39;NED15-4b&#39;, &#39;NED15-5b&#39;, &#39;NED15-6b&#39;, &#39;NED15-7b&#39;,
-       &#39;NED15-8b&#39;, &#39;NED15-9b&#39;, &#39;NED16-1b&#39;, &#39;NED16-2b&#39;, &#39;NED16-3b&#39;,
-       &#39;NED16-4b&#39;, &#39;NED16-5b&#39;, &#39;NED16-6b&#39;, &#39;NED16-7b&#39;, &#39;NED16-8b&#39;,
-       &#39;NED17-10a&#39;, &#39;NED17-10b&#39;, &#39;NED17-11a&#39;, &#39;NED17-11b&#39;, &#39;NED17-1a&#39;,
-       &#39;NED17-1b&#39;, &#39;NED17-2a&#39;, &#39;NED17-2b&#39;, &#39;NED17-3a&#39;, &#39;NED17-3b&#39;,
-       &#39;NED17-4a&#39;, &#39;NED17-4b&#39;, &#39;NED17-5a&#39;, &#39;NED17-5b&#39;, &#39;NED17-6a&#39;,
-       &#39;NED17-6b&#39;, &#39;NED17-7a&#39;, &#39;NED17-7b&#39;, &#39;NED17-8a&#39;, &#39;NED17-8b&#39;,
-       &#39;NED17-9a&#39;, &#39;NED17-9b&#39;, &#39;NED18-1b&#39;, &#39;NED18-2b&#39;, &#39;NED18-3b&#39;,
-       &#39;NED18-4b&#39;, &#39;NED18-5b&#39;, &#39;NED18-6b&#39;, &#39;NED18-7b&#39;, &#39;NED18-8b&#39;,
-       &#39;NED19-1b&#39;, &#39;NED19-2b&#39;, &#39;NED19-3b&#39;, &#39;NED19-4b&#39;, &#39;NED19-5b&#39;,
-       &#39;NED19-6b&#39;, &#39;NED19-7a&#39;, &#39;NED19-7b&#39;, &#39;NED19-8a&#39;, &#39;NED19-8b&#39;,
-       &#39;NED2-1a&#39;, &#39;NED2-1b&#39;, &#39;NED2-2a&#39;, &#39;NED2-2b&#39;, &#39;NED2-3a&#39;, &#39;NED2-3b&#39;,
-       &#39;NED2-4a&#39;, &#39;NED2-4b&#39;, &#39;NED2-5a&#39;, &#39;NED2-5b&#39;, &#39;NED2-6a&#39;, &#39;NED2-6b&#39;,
-       &#39;NED2-7a&#39;, &#39;NED2-7b&#39;, &#39;NED2-8a&#39;, &#39;NED2-8b&#39;, &#39;NED20-3a&#39;, &#39;NED20-4a&#39;,
-       &#39;NED20-5a&#39;, &#39;NED20-6a&#39;, &#39;NED20-7a&#39;, &#39;NED20-8a&#39;, &#39;NED21-1a&#39;,
-       &#39;NED21-2a&#39;, &#39;NED21-3a&#39;, &#39;NED21-4a&#39;, &#39;NED21-5a&#39;, &#39;NED21-6a&#39;,
-       &#39;NED21-7a&#39;, &#39;NED21-8a&#39;, &#39;NED22-3a&#39;, &#39;NED22-4a&#39;, &#39;NED22-5a&#39;,
-       &#39;NED22-6a&#39;, &#39;NED23-1a&#39;, &#39;NED23-2a&#39;, &#39;NED23-3a&#39;, &#39;NED23-4a&#39;,
-       &#39;NED23-5a&#39;, &#39;NED23-6a&#39;, &#39;NED23-8a&#39;, &#39;NED24-1a&#39;, &#39;NED24-3a&#39;,
-       &#39;NED25-1a&#39;, &#39;NED25-2a&#39;, &#39;NED25-3a&#39;, &#39;NED25-4a&#39;, &#39;NED25-5a&#39;,
-       &#39;NED25-6a&#39;, &#39;NED25-7a&#39;, &#39;NED25-8a&#39;, &#39;NED26-1a&#39;, &#39;NED26-2a&#39;,
-       &#39;NED26-3a&#39;, &#39;NED26-4a&#39;, &#39;NED26-5a&#39;, &#39;NED26-6a&#39;, &#39;NED26-7a&#39;,
-       &#39;NED26-8a&#39;, &#39;NED27-1a&#39;, &#39;NED27-2a&#39;, &#39;NED27-3a&#39;, &#39;NED27-4a&#39;,
-       &#39;NED27-5a&#39;, &#39;NED27-6a&#39;, &#39;NED27-7a&#39;, &#39;NED27-8a&#39;, &#39;NED28-1a&#39;,
-       &#39;NED28-2a&#39;, &#39;NED28-3a&#39;, &#39;NED28-4a&#39;, &#39;NED28-5a&#39;, &#39;NED29-1a&#39;,
-       &#39;NED29-2a&#39;, &#39;NED29-3a&#39;, &#39;NED29-4a&#39;, &#39;NED29-5a&#39;, &#39;NED29-6a&#39;,
-       &#39;NED29-7a&#39;, &#39;NED29-8a&#39;, &#39;NED29-9a&#39;, &#39;NED3-1b&#39;, &#39;NED3-2b&#39;,
-       &#39;NED3-3b&#39;, &#39;NED3-4b&#39;, &#39;NED3-5b&#39;, &#39;NED3-6b&#39;, &#39;NED3-7b&#39;, &#39;NED3-8b&#39;,
-       &#39;NED30-1a&#39;, &#39;NED30-2a&#39;, &#39;NED30-3a&#39;, &#39;NED30-4a&#39;, &#39;NED30-5a&#39;,
-       &#39;NED30-6a&#39;, &#39;NED30-7a&#39;, &#39;NED30-8a&#39;, &#39;NED30-9a&#39;, &#39;NED31-1a&#39;,
-       &#39;NED31-2a&#39;, &#39;NED31-3a&#39;, &#39;NED31-4a&#39;, &#39;NED31-5a&#39;, &#39;NED32-1a&#39;,
-       &#39;NED32-2a&#39;, &#39;NED32-3a&#39;, &#39;NED32-4a&#39;, &#39;NED32-5a&#39;, &#39;NED32-6a&#39;,
-       &#39;NED32-7a&#39;, &#39;NED32-8a&#39;, &#39;NED32-9a&#39;, &#39;NED33-1a&#39;, &#39;NED33-2a&#39;,
-       &#39;NED33-3a&#39;, &#39;NED33-4a&#39;, &#39;NED33-5a&#39;, &#39;NED33-6a&#39;, &#39;NED33-7a&#39;,
-       &#39;NED33-8a&#39;, &#39;NED34-1a&#39;, &#39;NED34-2a&#39;, &#39;NED34-3a&#39;, &#39;NED34-4a&#39;,
-       &#39;NED34-5a&#39;, &#39;NED34-6a&#39;, &#39;NED34-7a&#39;, &#39;NED34-8a&#39;, &#39;NED35-1a&#39;,
-       &#39;NED35-2a&#39;, &#39;NED35-3a&#39;, &#39;NED35-4a&#39;, &#39;NED35-6a&#39;, &#39;NED35-7a&#39;,
-       &#39;NED35-8a&#39;, &#39;NED35-9a&#39;, &#39;NED36-1a&#39;, &#39;NED36-2a&#39;, &#39;NED36-3a&#39;,
-       &#39;NED36-4a&#39;, &#39;NED36-5a&#39;, &#39;NED36-7a&#39;, &#39;NED36-8a&#39;, &#39;NED4-1b&#39;,
-       &#39;NED4-2b&#39;, &#39;NED4-3b&#39;, &#39;NED4-4b&#39;, &#39;NED4-5b&#39;, &#39;NED4-6b&#39;, &#39;NED4-7b&#39;,
-       &#39;NED4-8b&#39;, &#39;NED5-1b&#39;, &#39;NED5-2b&#39;, &#39;NED5-3b&#39;, &#39;NED5-4b&#39;, &#39;NED5-5b&#39;,
-       &#39;NED5-6b&#39;, &#39;NED5-7b&#39;, &#39;NED5-8b&#39;, &#39;NED6-1b&#39;, &#39;NED6-2b&#39;, &#39;NED6-3b&#39;,
-       &#39;NED6-4b&#39;, &#39;NED6-5b&#39;, &#39;NED6-6b&#39;, &#39;NED6-7b&#39;, &#39;NED6-8b&#39;, &#39;NED6-9b&#39;,
-       &#39;NED7-1b&#39;, &#39;NED7-2b&#39;, &#39;NED7-3b&#39;, &#39;NED7-4b&#39;, &#39;NED7-5b&#39;, &#39;NED7-6b&#39;,
-       &#39;NED7-7b&#39;, &#39;NED7-8b&#39;, &#39;NED8-1b&#39;, &#39;NED8-2b&#39;, &#39;NED8-3b&#39;, &#39;NED8-4b&#39;,
-       &#39;NED8-5b&#39;, &#39;NED8-6b&#39;, &#39;NED8-7b&#39;, &#39;NED8-8b&#39;, &#39;NED9-1b&#39;, &#39;NED9-2b&#39;,
-       &#39;NED9-3b&#39;, &#39;NED9-4b&#39;, &#39;NED9-5b&#39;, &#39;NED9-6b&#39;, &#39;NED9-7b&#39;, &#39;NED9-8b&#39;,
-       &#39;NWD1-10a&#39;, &#39;NWD1-10b&#39;, &#39;NWD1-11a&#39;, &#39;NWD1-11b&#39;, &#39;NWD1-12a&#39;,
-       &#39;NWD1-12b&#39;, &#39;NWD1-13a&#39;, &#39;NWD1-14a&#39;, &#39;NWD1-15a&#39;, &#39;NWD1-16a&#39;,
-       &#39;NWD1-17a&#39;, &#39;NWD1-18a&#39;, &#39;NWD1-19a&#39;, &#39;NWD1-1b&#39;, &#39;NWD1-2b&#39;,
-       &#39;NWD1-3b&#39;, &#39;NWD1-4b&#39;, &#39;NWD1-5b&#39;, &#39;NWD1-6b&#39;, &#39;NWD1-7b&#39;, &#39;NWD1-8b&#39;,
-       &#39;NWD1-9a&#39;, &#39;NWD1-9b&#39;, &#39;RFG1-10a&#39;, &#39;RFG1-11a&#39;, &#39;RFG1-12a&#39;,
-       &#39;RFG1-13a&#39;, &#39;RFG1-1a&#39;, &#39;RFG1-2a&#39;, &#39;RFG1-3a&#39;, &#39;RFG1-4a&#39;, &#39;RFG1-5a&#39;,
-       &#39;RFG1-6a&#39;, &#39;RFG1-7a&#39;, &#39;RFG1-8a&#39;, &#39;RFG1-9a&#39;, &#39;SCG1-1a&#39;, &#39;SCG1-2a&#39;,
-       &#39;SCG1-3a&#39;], dtype=object)
-</pre></div>
-</div>
+<img alt="../../_images/fc4659ad6b75e723f58a47cb0163c0787c5e20ed5a706e8f7e4aeea3dbc0c5e5.png" src="../../_images/fc4659ad6b75e723f58a47cb0163c0787c5e20ed5a706e8f7e4aeea3dbc0c5e5.png" />
 </div>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">specimen_name</span> <span class="o">=</span> <span class="s1">&#39;NED17-4b&#39;</span>
-</pre></div>
-</div>
-</div>
-</div>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">ipmag</span><span class="o">.</span><span class="n">zeq_magic</span><span class="p">(</span><span class="n">save_plots</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">specimen</span><span class="o">=</span><span class="s1">&#39;NED17-4b&#39;</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">mean_direction</span> <span class="o">=</span> <span class="n">ipmag</span><span class="o">.</span><span class="n">fisher_mean</span><span class="p">(</span><span class="n">sites_dec</span><span class="p">,</span> <span class="n">sites_inc</span><span class="p">)</span>
+<span class="n">ipmag</span><span class="o">.</span><span class="n">print_direction_mean</span><span class="p">(</span><span class="n">mean_direction</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
-<span class="ne">AttributeError</span><span class="g g-Whitespace">                            </span>Traceback (most recent call last)
-<span class="nn">/Users/unimos/0000_Github/PmagPy-docs/example_notebooks/template_notebooks/Inspecting_MagIC_directional_data.ipynb Cell 25</span> in <span class="ni">&lt;cell line: 1&gt;</span><span class="nt">()</span>
-<span class="o">----&gt;</span> <span class="o">&lt;</span><span class="n">a</span> <span class="n">href</span><span class="o">=</span><span class="s1">&#39;vscode-notebook-cell:/Users/unimos/0000_Github/PmagPy-docs/example_notebooks/template_notebooks/Inspecting_MagIC_directional_data.ipynb#Y103sZmlsZQ%3D%3D?line=0&#39;</span><span class="o">&gt;</span><span class="mi">1</span><span class="o">&lt;/</span><span class="n">a</span><span class="o">&gt;</span> <span class="n">ipmag</span><span class="o">.</span><span class="n">zeq_magic</span><span class="p">(</span><span class="n">save_plots</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">specimen</span><span class="o">=</span><span class="s1">&#39;NED17-4b&#39;</span><span class="p">)</span>
-
-<span class="nn">File ~/0000_Github/PmagPy/pmagpy/ipmag.py:12250,</span> in <span class="ni">zeq_magic</span><span class="nt">(meas_file, spec_file, crd, input_dir_path, angle, n_plots, save_plots, fmt, interactive, specimen, samp_file, contribution, fignum, image_records)</span>
-<span class="g g-Whitespace">  </span><span class="mi">12248</span>     <span class="k">if</span> <span class="s1">&#39;id&#39;</span> <span class="ow">in</span> <span class="n">contribution</span><span class="o">.</span><span class="n">tables</span><span class="p">[</span><span class="s1">&#39;contribution&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">df</span><span class="o">.</span><span class="n">columns</span><span class="p">:</span>
-<span class="g g-Whitespace">  </span><span class="mi">12249</span>         <span class="n">con_id</span> <span class="o">=</span> <span class="n">contribution</span><span class="o">.</span><span class="n">tables</span><span class="p">[</span><span class="s1">&#39;contribution&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">df</span><span class="p">[</span><span class="s1">&#39;id&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">values</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
-<span class="ne">&gt; </span><span class="mi">12250</span> <span class="n">pmagplotlib</span><span class="o">.</span><span class="n">add_borders</span><span class="p">(</span><span class="n">ZED</span><span class="p">,</span> <span class="n">titles</span><span class="p">,</span> <span class="n">con_id</span><span class="o">=</span><span class="n">con_id</span><span class="p">)</span>
-<span class="g g-Whitespace">  </span><span class="mi">12251</span> <span class="k">for</span> <span class="n">title</span> <span class="ow">in</span> <span class="n">titles</span><span class="p">:</span>
-<span class="g g-Whitespace">  </span><span class="mi">12252</span>     <span class="n">int_str</span> <span class="o">=</span> <span class="s2">&quot;&quot;</span>
-
-<span class="ne">AttributeError</span>: module &#39;pmagpy.pmagplotlib&#39; has no attribute &#39;add_borders&#39;
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Dec: 335.2  Inc: 65.2
+Number of directions in mean (n): 7
+Angular radius of 95% confidence (a_95): 3.2
+Precision parameter (k) estimate: 348.8
 </pre></div>
 </div>
-<img alt="../../_images/25e2bc2b5c1d768d320dc11770ad4c526d7cf7bb2dbeaabff95e1f8c3befe197.png" src="../../_images/25e2bc2b5c1d768d320dc11770ad4c526d7cf7bb2dbeaabff95e1f8c3befe197.png" />
-<img alt="../../_images/b5882048a201953bea0488f89629559685dd7958f4b02a0e1b8a6effd2604a6e.png" src="../../_images/b5882048a201953bea0488f89629559685dd7958f4b02a0e1b8a6effd2604a6e.png" />
-<img alt="../../_images/be1310ee627bb400959490703de2541cae969c018eae21e2a88249117ad51d3f.png" src="../../_images/be1310ee627bb400959490703de2541cae969c018eae21e2a88249117ad51d3f.png" />
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">6</span><span class="p">,</span><span class="mi">6</span><span class="p">))</span>
+<span class="n">ipmag</span><span class="o">.</span><span class="n">plot_net</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
+<span class="n">ipmag</span><span class="o">.</span><span class="n">plot_di</span><span class="p">(</span><span class="n">sites_dec</span><span class="p">,</span> <span class="n">sites_inc</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;black&#39;</span><span class="p">,</span> <span class="n">marker</span><span class="o">=</span><span class="s1">&#39;o&#39;</span><span class="p">,</span> <span class="n">markersize</span><span class="o">=</span><span class="mi">40</span><span class="p">)</span>
+<span class="n">ipmag</span><span class="o">.</span><span class="n">plot_di_mean</span><span class="p">(</span><span class="n">mean_direction</span><span class="p">[</span><span class="s1">&#39;dec&#39;</span><span class="p">],</span> <span class="n">mean_direction</span><span class="p">[</span><span class="s1">&#39;inc&#39;</span><span class="p">],</span> <span class="n">mean_direction</span><span class="p">[</span><span class="s1">&#39;alpha95&#39;</span><span class="p">],</span>
+                   <span class="n">color</span><span class="o">=</span><span class="s1">&#39;red&#39;</span><span class="p">,</span> <span class="n">marker</span><span class="o">=</span><span class="s1">&#39;s&#39;</span><span class="p">,</span> <span class="n">markersize</span><span class="o">=</span><span class="mi">40</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../../_images/925d62aae2134b9aa870d1e26f0fe530f322683e764fb1a2add7d4176707d7a0.png" src="../../_images/925d62aae2134b9aa870d1e26f0fe530f322683e764fb1a2add7d4176707d7a0.png" />
 </div>
 </div>
 </section>
-<section id="pick-a-magic-contribution-to-inspect-yourself">
-<h2>Pick a MagIC contribution to inspect yourself<a class="headerlink" href="#pick-a-magic-contribution-to-inspect-yourself" title="Permalink to this heading">#</a></h2>
-<p>Browse through some MagIC contributions and import the data to inspect them for yourself.</p>
-<p>You can copy code from cells above and put them in the cells below.</p>
 </section>
 </section>
 
@@ -825,13 +1063,14 @@ document.write(`
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#import-the-data">Import the data</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#unpacking-the-tables">Unpacking the tables</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#visualizing-measurement-level-data">Visualizing measurement level data</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#get-specimen-list">Get specimen list</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#plot-a-specific-specimen">Plot a specific specimen</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#visualizing-site-level-data">Visualizing site level data</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#importing-specific-magic-tables">Importing specific MagIC tables</a><ul class="nav section-nav flex-column">
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#import-the-sites-table">Import the sites table</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#plot-the-sites-and-calculate-the-fisher-mean">Plot the sites and calculate the Fisher mean</a></li>
 </ul>
 </li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#plot-up-data-from-any-specimen">Plot up data from any specimen</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#pick-a-magic-contribution-to-inspect-yourself">Pick a MagIC contribution to inspect yourself</a></li>
 </ul>
   </nav></div>
 
