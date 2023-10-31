@@ -19,12 +19,12 @@
   </script>
   
   <!-- Loaded before other Sphinx assets -->
-  <link href="../_static/styles/theme.css?digest=ac02cc09edc035673794" rel="stylesheet" />
-<link href="../_static/styles/bootstrap.css?digest=ac02cc09edc035673794" rel="stylesheet" />
-<link href="../_static/styles/pydata-sphinx-theme.css?digest=ac02cc09edc035673794" rel="stylesheet" />
+  <link href="../_static/styles/theme.css?digest=365ca57ee442770a23c6" rel="stylesheet" />
+<link href="../_static/styles/bootstrap.css?digest=365ca57ee442770a23c6" rel="stylesheet" />
+<link href="../_static/styles/pydata-sphinx-theme.css?digest=365ca57ee442770a23c6" rel="stylesheet" />
 
   
-  <link href="../_static/vendor/fontawesome/6.1.2/css/all.min.css?digest=ac02cc09edc035673794" rel="stylesheet" />
+  <link href="../_static/vendor/fontawesome/6.1.2/css/all.min.css?digest=365ca57ee442770a23c6" rel="stylesheet" />
   <link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.1.2/webfonts/fa-solid-900.woff2" />
 <link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.1.2/webfonts/fa-brands-400.woff2" />
 <link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.1.2/webfonts/fa-regular-400.woff2" />
@@ -38,9 +38,9 @@
     <link rel="stylesheet" type="text/css" href="../_static/design-style.4045f2051d55cab465a707391d5b2007.min.css" />
   
   <!-- Pre-loaded scripts that we'll load fully later -->
-  <link rel="preload" as="script" href="../_static/scripts/bootstrap.js?digest=ac02cc09edc035673794" />
-<link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=ac02cc09edc035673794" />
-  <script src="../_static/vendor/fontawesome/6.1.2/js/all.min.js?digest=ac02cc09edc035673794"></script>
+  <link rel="preload" as="script" href="../_static/scripts/bootstrap.js?digest=365ca57ee442770a23c6" />
+<link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=365ca57ee442770a23c6" />
+  <script src="../_static/vendor/fontawesome/6.1.2/js/all.min.js?digest=365ca57ee442770a23c6"></script>
 
     <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
     <script src="../_static/jquery.js"></script>
@@ -148,13 +148,14 @@ const thebe_selector_output = ".output, .cell_output"
   
   
   
+  
     
     
       
     
     
-    <img src="../_static/pmagpy_logo_notext.png" class="logo__image only-light" alt="Logo image"/>
-    <script>document.write(`<img src="../_static/pmagpy_logo_notext.png" class="logo__image only-dark" alt="Logo image"/>`);</script>
+    <img src="../_static/pmagpy_logo_notext.png" class="logo__image only-light" alt="PmagPy Documentation - Home"/>
+    <script>document.write(`<img src="../_static/pmagpy_logo_notext.png" class="logo__image only-dark" alt="PmagPy Documentation - Home"/>`);</script>
   
   
 </a></div>
@@ -411,7 +412,7 @@ document.write(`
             <nav aria-label="Page">
                 <ul class="visible nav section-nav flex-column">
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#standalone-executable-program">Standalone executable program</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#launching-pmagpy-for-the-command-line">Launching PmagPy for the command line</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#launching-pmag-gui-on-the-command-line">Launching Pmag GUI on the command line</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#converting-magnetometer-files-to-magic-format">Converting magnetometer files to MagIC format</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#optional-calculate-geographic-tilt-corrected-direction">Optional: Calculate geographic / tilt-corrected direction</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#filling-in-metadata">Filling in metadata</a></li>
@@ -441,14 +442,21 @@ document.write(`
   <section class="tex2jax_ignore mathjax_ignore" id="installing-and-getting-started-with-pmag-gui">
 <h1>Installing and Getting Started with Pmag GUI<a class="headerlink" href="#installing-and-getting-started-with-pmag-gui" title="Permalink to this heading">#</a></h1>
 <p><strong>Pmag GUI</strong> is a Graphical User Interface (GUI) that
-provides a quick path to the some workflows enabled by
-<strong>PmagPy</strong>. The work flow is illustrated schematically here:</p>
+provides a path to the some workflows enabled by
+<strong>PmagPy</strong> namely:</p>
+<ul class="simple">
+<li><p>the conversion of lab format data to MagIC format</p></li>
+<li><p>the interpretation of paleomagnetic directional data</p></li>
+<li><p>the interpretation of Thellier-type paleointensity data.
+The work flow is illustrated schematically here:</p></li>
+</ul>
 <a class="reference internal image-reference" href="../_images/FigQkMagicFlow.png"><img alt="image" src="../_images/FigQkMagicFlow.png" style="width: 700px;" /></a>
 <p>There are two ways to launch Pmag GUI. The first is to have downloaded
 it as an executable program in which case it can be opened as a typical application
 with a double-click.</p>
 <section id="standalone-executable-program">
 <h2>Standalone executable program<a class="headerlink" href="#standalone-executable-program" title="Permalink to this heading">#</a></h2>
+<p>The Pmag GUI program can be downloaded at these links:</p>
 <p><a class="reference external" href="https://github.com/PmagPy/PmagPy-Standalone-OSX/releases/latest/">PmagPy standalone GUI OSX</a></p>
 <p><em>The first time you open the Mac version, you need to right-click and select open. You may need to right-click and select open twice.</em></p>
 <p><a class="reference external" href="https://github.com/PmagPy/PmagPy-Standalone-Windows/releases/latest/">PmagPy standalone GUI Windows</a></p>
@@ -456,10 +464,11 @@ with a double-click.</p>
 <p><a class="reference external" href="https://github.com/PmagPy/PmagPy-Standalone-Linux/releases/latest/">PmagPy standalone GUI Linux</a></p>
 <p><strong>Note that these applications take a long time to load. When you open the application, it can look like nothing is happening for a while before opening. Please be patient.</strong></p>
 </section>
-<section id="launching-pmagpy-for-the-command-line">
-<h2>Launching PmagPy for the command line<a class="headerlink" href="#launching-pmagpy-for-the-command-line" title="Permalink to this heading">#</a></h2>
-<p>The other is to launch it from the
-command line from your fully PmagPy installation, in which case you want to follow
+<section id="launching-pmag-gui-on-the-command-line">
+<h2>Launching Pmag GUI on the command line<a class="headerlink" href="#launching-pmag-gui-on-the-command-line" title="Permalink to this heading">#</a></h2>
+<p>The other way that Pmag GUI can be launched is from the
+command line fif you have a full PmagPy installation.
+To open it in this way you can follow
 these steps:</p>
 <ol class="arabic simple">
 <li><p>Make sure you have followed all of the steps in the <a class="reference internal" href="../installation/PmagPy_install.html"><span class="doc std std-doc">Installing
@@ -473,10 +482,10 @@ section</span> for details.</p></li>
 <ol class="arabic">
 <li><p>When you start <strong>Pmag GUI</strong>, the first step is to change directories
 into a ‘Project Directory’. For each study, create a directory with a
-name that relates to that study. Here we will call it <em>ThisProject</em>.
-This is where you will collect and process all the rock and
+name that relates to that study. Here, we will call it <em>ThisProject</em>.
+This folder is where you will collect and process all the rock and
 paleomagnetic data for a given study, usually a publication. The
-project directory name should have NO SPACES and be placed on the
+project directory name should have NO spaces and be placed on the
 hard drive in a place that has NO spaces in the path. Under certain
 Windows versions, this means you should not use your home directory,
 but create a directory called for example:</p>
@@ -1090,7 +1099,7 @@ GUI</span>.</p>
   <nav class="bd-toc-nav page-toc">
     <ul class="visible nav section-nav flex-column">
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#standalone-executable-program">Standalone executable program</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#launching-pmagpy-for-the-command-line">Launching PmagPy for the command line</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#launching-pmag-gui-on-the-command-line">Launching Pmag GUI on the command line</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#converting-magnetometer-files-to-magic-format">Converting magnetometer files to MagIC format</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#optional-calculate-geographic-tilt-corrected-direction">Optional: Calculate geographic / tilt-corrected direction</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#filling-in-metadata">Filling in metadata</a></li>
@@ -1153,8 +1162,8 @@ By PmagPy Contributors
   </div>
   
   <!-- Scripts loaded after <body> so the DOM is not blocked -->
-  <script src="../_static/scripts/bootstrap.js?digest=ac02cc09edc035673794"></script>
-<script src="../_static/scripts/pydata-sphinx-theme.js?digest=ac02cc09edc035673794"></script>
+  <script src="../_static/scripts/bootstrap.js?digest=365ca57ee442770a23c6"></script>
+<script src="../_static/scripts/pydata-sphinx-theme.js?digest=365ca57ee442770a23c6"></script>
 
   <footer class="bd-footer">
   </footer>
