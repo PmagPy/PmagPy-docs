@@ -1,8 +1,12 @@
 # Installing and Getting Started with Pmag GUI
 
 **Pmag GUI** is a Graphical User Interface (GUI) that 
-provides a quick path to the some workflows enabled by
-**PmagPy**. The work flow is illustrated schematically here:
+provides a path to the some workflows enabled by
+**PmagPy** namely: 
+- the conversion of lab format data to MagIC format
+- the interpretation of paleomagnetic directional data
+- the interpretation of Thellier-type paleointensity data. 
+The work flow is illustrated schematically here:
 
 ```{image} ../images/programs/FigQkMagicFlow.png
 :alt: image
@@ -14,6 +18,8 @@ it as an executable program in which case it can be opened as a typical applicat
 with a double-click. 
 
 ## Standalone executable program
+
+The Pmag GUI program can be downloaded at these links:
 
 [PmagPy standalone GUI OSX](https://github.com/PmagPy/PmagPy-Standalone-OSX/releases/latest/)
 
@@ -27,10 +33,11 @@ with a double-click.
 
 **Note that these applications take a long time to load. When you open the application, it can look like nothing is happening for a while before opening. Please be patient.**
 
-## Launching PmagPy for the command line
+## Launching Pmag GUI on the command line
 
-The other is to launch it from the
-command line from your fully PmagPy installation, in which case you want to follow
+The other way that Pmag GUI can be launched is from the
+command line fif you have a full PmagPy installation.
+To open it in this way you can follow
 these steps:
 
 1. Make sure you have followed all of the steps in the [Installing
@@ -45,10 +52,10 @@ Getting going with Pmag GUI
 
 1. When you start **Pmag GUI**, the first step is to change directories
    into a ‘Project Directory’. For each study, create a directory with a
-   name that relates to that study. Here we will call it *ThisProject*.
-   This is where you will collect and process all the rock and
+   name that relates to that study. Here, we will call it *ThisProject*.
+   This folder is where you will collect and process all the rock and
    paleomagnetic data for a given study, usually a publication. The
-   project directory name should have NO SPACES and be placed on the
+   project directory name should have NO spaces and be placed on the
    hard drive in a place that has NO spaces in the path. Under certain
    Windows versions, this means you should not use your home directory,
    but create a directory called for example:
