@@ -34,14 +34,14 @@ See capabilities of PmagPy functions within these documentation Jupyter notebook
 :::
 
 :::{grid-item-card}
-:link: example_notebooks/example_notebooks
+:link: example_notebooks/template_notebooks
 :link-type: doc
 :class-header: bg-light
 
 Example notebooks 📓
 ^^^
 
-See example notebooks that analyze specific datasets using PmagPy.
+See example template notebooks that analyze datasets from the MagIC database using PmagPy.
 
 :::
 
