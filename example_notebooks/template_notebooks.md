@@ -14,7 +14,7 @@ These Jupyter notebooks contain code associated with example workflows associate
 MagIC data inspection template 🧐
 ^^^
 
-This notebook enables a MagIC contribution to be downloaded with the directional data within it to be visualized using PmagPy.
+This notebook enables a MagIC contribution to be downloaded with the directional data within it visualized using PmagPy.
 :::
 
 :::{grid-item-card}
@@ -25,7 +25,7 @@ This notebook enables a MagIC contribution to be downloaded with the directional
 Mean determination template 🎯
 ^^^
 
-This notebook calculates means from directional data using both Fisher statistics and a bootstrap approach.
+This notebook calculates means and associated uncertainty from directional data using both Fisher statistics and a bootstrap approach.
 :::
 
 :::{grid-item-card}
