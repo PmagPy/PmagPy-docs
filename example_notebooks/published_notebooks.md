@@ -40,5 +40,16 @@ Pleistocene paleointensity
 This notebook examines Pleistocene paleointensity data from Israel, Antarctica, Iceland, and Hawaii to interrogate the geomagnetic field (*external link to Github*).
 :::
 
+:::{grid-item-card}
+:link: https://polarwandering.github.io/PaleoSampling/
+:class-header: bg-light
+
+Sapienza et al. 2023 🎯
+Paleomagnetic sampling strategy design
+^^^
+
+This JupyterBook includes notebooks to evaluate different sampling strategies for estimating paleomagnetic poles and paleosecular variation of the magnetic field based on site magnetizations. (*external link to Paleosampling JupyterBook*).
+:::
+
 ::::
-Here are the citations to the above notebooks: {cite}`Pierce2022a`, {cite}`Tauxe2022a`
+Here are the citations to the above notebooks: {cite}`Tauxe2016a`, {cite}`Pierce2022a`, {cite}`Tauxe2022a`, {cite}`Sapienza2023a`
