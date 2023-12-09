@@ -19,6 +19,17 @@ This notebook published with the paper on PmagPy illustrates some of the capabil
 :::
 
 :::{grid-item-card}
+:link: https://github.com/Swanson-Hysell-Group/Laurentia_Paleogeography/blob/master/Code/Laurentia_pole_compilation.ipynb
+:class-header: bg-light
+
+Swanson-Hysell, 2021 🇨🇦🇺🇸
+Precambrian Laurentia paleomagnetic poles
+^^^
+
+This notebook develops and visualizes a compilation of paleomagnetic poles for Laurentia associated with the chapter The Precambrian paleogeography of Laurentia in the book Ancient Supercontinents and the Paleogeography of the Earth (*external link to Github*).
+:::
+
+:::{grid-item-card}
 :link: https://github.com/Swanson-Hysell-Group/Inclination_Shallowing/blob/main/code/Cutface_pmag.ipynb
 :class-header: bg-light
 
@@ -74,4 +85,4 @@ This JupyterBook includes notebooks to evaluate different sampling strategies fo
 :::
 
 ::::
-Here are the citations to the above notebooks: {cite}`Tauxe2016a`, {cite}`Pierce2022a`, {cite}`Tauxe2022a`, {cite}`Slotznick2023a`, {cite}`Gallo2023a`, {cite}`Sapienza2023a`
+Here are the citations to the above notebooks: {cite}`Tauxe2016a`, {cite}`Swanson-Hysell2021a`, {cite}`Pierce2022a`, {cite}`Tauxe2022a`, {cite}`Slotznick2023a`, {cite}`Gallo2023a`, {cite}`Sapienza2023a`
