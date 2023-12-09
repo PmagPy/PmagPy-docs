@@ -41,6 +41,17 @@ This notebook examines Pleistocene paleointensity data from Israel, Antarctica, 
 :::
 
 :::{grid-item-card}
+:link: https://github.com/PolarWandering/Gallo_etal_2023_APWP_construction/blob/main/code/2_MC_uncertainty_propagation.ipynb
+:class-header: bg-light
+
+Gallo et al. 2023 🛣️
+Embracing uncertainty to resolve polar wander
+^^^
+
+Notebooks that utilizes PmagPy and custom functions build up a site level based apparent polar wander path for North America in the Cenozoic. (*external link to Github*).
+:::
+
+:::{grid-item-card}
 :link: https://polarwandering.github.io/PaleoSampling/
 :class-header: bg-light
 
@@ -52,4 +63,4 @@ This JupyterBook includes notebooks to evaluate different sampling strategies fo
 :::
 
 ::::
-Here are the citations to the above notebooks: {cite}`Tauxe2016a`, {cite}`Pierce2022a`, {cite}`Tauxe2022a`, {cite}`Sapienza2023a`
+Here are the citations to the above notebooks: {cite}`Tauxe2016a`, {cite}`Pierce2022a`, {cite}`Tauxe2022a`, {cite}`Gallo2023`, {cite}`Sapienza2023a`
