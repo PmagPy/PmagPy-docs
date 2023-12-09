@@ -27,8 +27,7 @@ This notebook from the 2020 MagIC Tutorial contains exercises that:
 :::
 
 :::{grid-item-card}
-:link: https://github.com/PmagPy/2023_MagIC_Tutorial
-:link-type: doc
+:link: https://github.com/PmagPy/2023_MagIC_Tutorial/
 :class-header: bg-light
 
 2023 MagIC Tutorial
