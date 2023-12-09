@@ -41,6 +41,17 @@ This notebook examines Pleistocene paleointensity data from Israel, Antarctica, 
 :::
 
 :::{grid-item-card}
+:link: https://github.com/Swanson-Hysell-Group/Nonesuch_Formation/blob/main/Code/Nonesuch_pmag.ipynb
+:class-header: bg-light
+
+Slotznick et al. 2023 🛶
+Reconstructing the paleoenvironment of an oxygenated Mesoproterozoic shoreline
+^^^
+
+This notebook analyzes and visualizes the results of thermal demagnetization data for paleomagnetic samples collected from the Nonesuch Formation. (*external link to Github*).
+:::
+
+:::{grid-item-card}
 :link: https://github.com/PolarWandering/Gallo_etal_2023_APWP_construction/blob/main/code/2_MC_uncertainty_propagation.ipynb
 :class-header: bg-light
 
@@ -63,4 +74,4 @@ This JupyterBook includes notebooks to evaluate different sampling strategies fo
 :::
 
 ::::
-Here are the citations to the above notebooks: {cite}`Tauxe2016a`, {cite}`Pierce2022a`, {cite}`Tauxe2022a`, {cite}`Gallo2023`, {cite}`Sapienza2023a`
+Here are the citations to the above notebooks: {cite}`Tauxe2016a`, {cite}`Pierce2022a`, {cite}`Tauxe2022a`, {cite}`Slotznick2023a`, {cite}`Gallo2023a`, {cite}`Sapienza2023a`
