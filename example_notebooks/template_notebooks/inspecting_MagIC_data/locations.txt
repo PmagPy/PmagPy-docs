@@ -1,0 +1,6 @@
+tab 	locations
+age	age_high	age_low	age_unit	analysts	citations	geologic_classes	lat_n	lat_s	lithologies	location	location_type	lon_e	lon_w
+160.2	160.2	160.2	ka	AFP	This study	Extrusive	44.4	44.4	Rhyolite	Mallard Lake	Outcrop	249.3	249.3
+159.9	159.9	159.9	ka	AFP	This study	Extrusive	44.4	44.4	Rhyolite	Dry Creek	Outcrop	249.4	249.4
+161.7	161.7	161.7	ka	AFP	This study	Extrusive	44.6	44.6	Rhyolite	Elephant Back	Outcrop	249.2	249.2
+160.8	160.8	160.8	ka	AFP	This study	Extrusive	44.6	44.6	Rhyolite	Nez Perce	Outcrop	249.2	249.1

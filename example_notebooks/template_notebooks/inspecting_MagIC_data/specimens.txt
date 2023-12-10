@@ -1,0 +1,180 @@
+tab 	specimens
+analysts	citations	dir_bfv_dec	dir_bfv_inc	dir_comp	dir_dang	dir_dec	dir_inc	dir_mad_free	dir_n_comps	dir_n_measurements	dir_tilt_correction	experiments	geologic_classes	geologic_types	instrument_codes	int_corr	lithologies	meas_step_max	meas_step_min	meas_step_unit	method_codes	result_quality	sample	software_packages	specimen
+AFP	This study												Igneous:Extrusive	Lava Flow			Rhyolite				LP-NOMAG	g	Y2102-1		Y2102-1a
+	This study			Y212_chrm	0	343	66.2	0.6	1	12	0	Y2102-1a_LP-DIR-AF	Igneous:Extrusive	Lava Flow	lancaste 2022-04-19 15:30:06	u	Rhyolite	0.08	0.005	T	LP-DIR-AF:DE-BFL-A:DA-DIR-GEO	g	Y2102-1	pmagpy-4.2.108: demag_gui	Y2102-1a
+	This study			Y212_chrm	0.3	4.2	66.2	1	1	12	0	Y2102-2a_LP-DIR-T	Igneous:Extrusive	Lava Flow	lancaste 2022-05-18 08:53:42	u	Rhyolite	853	473	K	LP-DIR-T:DE-BFL:DA-DIR-GEO	g	Y2102-2	pmagpy-4.2.108: demag_gui	Y2102-2a
+AFP	This study												Igneous:Extrusive	Lava Flow			Rhyolite				LP-NOMAG	g	Y2102-2		Y2102-2a
+AFP	This study												Igneous:Extrusive	Lava Flow			Rhyolite				LP-NOMAG	g	Y2102-2		Y2102-2b
+	This study			Y212_chrm	1.1	0.8	65.7	2.5	1	12	0	Y2102-2b_LP-DIR-T	Igneous:Extrusive	Lava Flow	lancaste 2022-05-18 09:02:43	u	Rhyolite	853	523	K	LP-DIR-T:DE-BFL:DA-DIR-GEO	g	Y2102-2	pmagpy-4.2.108: demag_gui	Y2102-2b
+AFP	This study												Igneous:Extrusive	Lava Flow			Rhyolite				LP-NOMAG	g	Y2102-3		Y2102-3a
+	This study			Y212_chrm	0	342.3	69.6	0.9	1	8	0	Y2102-3a_LP-DIR-AF	Igneous:Extrusive	Lava Flow	lancaste 2022-04-06 16:52:25	u	Rhyolite	0.08	0.02	T	LP-DIR-AF:DE-BFL-A:DA-DIR-GEO	g	Y2102-3	pmagpy-4.2.108: demag_gui	Y2102-3a
+AFP	This study												Igneous:Extrusive	Lava Flow			Rhyolite				LP-NOMAG	g	Y2102-4		Y2102-4a
+	This study			Y212_chrm	0.7	353.4	66.4	0.4	1	1	0	Y2102-4a_LP-DIR-AF	Igneous:Extrusive	Lava Flow	lancaste 2022-04-19 16:02:34	u	Rhyolite	0.08	0.01	T	LP-DIR-AF:DE-BFL:DA-DIR-GEO	g	Y2102-4	pmagpy-4.2.108: demag_gui	Y2102-4a
+	This study			Y212_chrm	0.4	349.5	63	1.1	1	6	0	Y2102-5a_LP-DIR-T	Igneous:Extrusive	Lava Flow	lancaste 2022-05-05 11:31:47	u	Rhyolite	773	573	K	LP-DIR-T:DE-BFL:DA-DIR-GEO	g	Y2102-5	pmagpy-4.2.108: demag_gui	Y2102-5a
+AFP	This study												Igneous:Extrusive	Lava Flow			Rhyolite				LP-NOMAG	g	Y2102-5		Y2102-5a
+	This study			Y212_chrm	1.5	358.8	67.4	1.3	1	7	0	Y2102-5b_LP-DIR-AF	Igneous:Extrusive	Lava Flow	lancaste 2022-03-23 14:50:35	u	Rhyolite	0.08	0.025	T	LP-DIR-AF:DE-BFL:DA-DIR-GEO	g	Y2102-5	pmagpy-4.2.108: demag_gui	Y2102-5b
+AFP	This study												Igneous:Extrusive	Lava Flow			Rhyolite				LP-NOMAG	g	Y2102-5		Y2102-5b
+	This study			Y212_chrm	0	347.3	66.4	1.3	1	11	0	Y2102-6a_LP-DIR-AF	Igneous:Extrusive	Lava Flow	lancaste 2022-04-05 13:44:46	u	Rhyolite	0.08	0.01	T	LP-DIR-AF:DE-BFL-A:DA-DIR-GEO	g	Y2102-6	pmagpy-4.2.108: demag_gui	Y2102-6a
+AFP	This study												Igneous:Extrusive	Lava Flow			Rhyolite				LP-NOMAG	g	Y2102-6		Y2102-6a
+AFP	This study												Igneous:Extrusive	Lava Flow			Rhyolite				LP-NOMAG	g	Y2102-6		Y2102-6b
+AFP	This study												Igneous:Extrusive	Lava Flow			Rhyolite				LP-NOMAG	g	Y2102-7		Y2102-7a
+	This study			Y212_chrm	0.9	346.1	69.1	0.9	1	11	0	Y2102-7a_LP-DIR-AF	Igneous:Extrusive	Lava Flow	lancaste 2022-04-21 17:11:30	u	Rhyolite	0.08	0.01	T	LP-DIR-AF:DE-BFL-O:DA-DIR-GEO	g	Y2102-7	pmagpy-4.2.108: demag_gui	Y2102-7a
+AFP	This study												Igneous:Extrusive	Lava Flow			Rhyolite				LP-NOMAG	g	Y2102-8		Y2102-8a
+	This study			Y212_chrm	1.3	353.8	60.2	0.8	1	11	0	Y2102-8a_LP-DIR-AF	Igneous:Extrusive	Lava Flow	lancaste 2022-04-05 14:18:58	u	Rhyolite	0.08	0.01	T	LP-DIR-AF:DE-BFL:DA-DIR-GEO	g	Y2102-8	pmagpy-4.2.108: demag_gui	Y2102-8a
+	This study	339.2	66.2	Y211_chrm		30.8	-15.3	7.1	1	14	0	Y211-1a_LP-DIR-T	Igneous:Extrusive	Lava Flow	lancaste 2022-07-21 16:22:42	u	Rhyolite	823	273	K	LP-DIR-T:DE-BFP:DA-DIR-GEO	g	Y211-1	pmagpy-4.2.108: demag_gui	Y211-1a
+AFP	This study												Igneous:Extrusive	Lava Flow			Rhyolite				LP-NOMAG	g	Y211-1		Y211-1a
+AFP	This study												Igneous:Extrusive	Lava Flow			Rhyolite				LP-NOMAG	g	Y211-2		Y211-2a
+	This study	332.1	69.2	Y211_chrm		199.3	14.4	26.9	1	1	0	Y211-2a_LP-DIR-T	Igneous:Extrusive	Lava Flow	lancaste 2022-07-21 16:25:10	u	Rhyolite	823	473	K	LP-DIR-T:DE-BFP:DA-DIR-GEO	g	Y211-2	pmagpy-4.2.108: demag_gui	Y211-2a
+AFP	This study												Igneous:Extrusive	Lava Flow			Rhyolite				LP-NOMAG	g	Y211-3		Y211-3a
+	This study			Y211_chrm	0	356.3	77.8	0.5	1	8	0	Y211-3a_LP-DIR-T	Igneous:Extrusive	Lava Flow	lancaste 2022-05-05 11:24:58	u	Rhyolite	773	473	K	LP-DIR-T:DE-BFL-A:DA-DIR-GEO	g	Y211-3	pmagpy-4.2.108: demag_gui	Y211-3a
+AFP	This study												Igneous:Extrusive	Lava Flow			Rhyolite				LP-NOMAG	g	Y211-3		Y211-3b
+	This study			Y211_chrm	1.3	342.5	74.3	0.7	1	9	0	Y211-3b_LP-DIR-AF	Igneous:Extrusive	Lava Flow		u	Rhyolite	0.08	0.015	T	LP-DIR-AF:DE-BFL:DA-DIR-GEO	g	Y211-3	pmagpy-4.2.108: demag_gui	Y211-3b
+AFP	This study												Igneous:Extrusive	Lava Flow			Rhyolite				LP-NOMAG	g	Y211-4		Y211-4a
+	This study			Y211_chrm	0.8	352.8	53.3	1.7	1	7	0	Y211-4a_LP-DIR-T	Igneous:Extrusive	Lava Flow	lancaste 2022-07-18 14:38:38	u	Rhyolite	773	473	K	LP-DIR-T:DE-BFL:DA-DIR-GEO	g	Y211-4	pmagpy-4.2.108: demag_gui	Y211-4a
+	This study			Y211_chrm	1.6	343.6	52.3	1	1	11	0	Y211-5a_LP-DIR-AF	Igneous:Extrusive	Lava Flow	lancaste 2022-04-05 13:09:17	u	Rhyolite	0.08	0.01	T	LP-DIR-AF:DE-BFL:DA-DIR-GEO	g	Y211-5	pmagpy-4.2.108: demag_gui	Y211-5a
+AFP	This study												Igneous:Extrusive	Lava Flow			Rhyolite				LP-NOMAG	g	Y211-5		Y211-5a
+AFP	This study												Igneous:Extrusive	Lava Flow			Rhyolite				LP-NOMAG	g	Y211-6		Y211-6a
+	This study			Y211_chrm	2.5	295.7	79.3	1.1	1	7	0	Y211-6a_LP-DIR-AF	Igneous:Extrusive	Lava Flow	lancaste 2022-04-21 16:38:58	u	Rhyolite	0.08	0.02	T	LP-DIR-AF:DE-BFL:DA-DIR-GEO	b	Y211-6	pmagpy-4.2.108: demag_gui	Y211-6a
+	This study			Y211_chrm	0.2	320.9	66.3	1.1	1	8	0	Y211-7a_LP-DIR-T	Igneous:Extrusive	Lava Flow	lancaste 2022-05-05 11:27:20	u	Rhyolite	773	473	K	LP-DIR-T:DE-BFL:DA-DIR-GEO	g	Y211-7	pmagpy-4.2.108: demag_gui	Y211-7a
+AFP	This study												Igneous:Extrusive	Lava Flow			Rhyolite				LP-NOMAG	g	Y211-7		Y211-7a
+	This study			Y211_chrm	1.1	326.4	66.7	0.8	1	11	0	Y211-7b_LP-DIR-AF	Igneous:Extrusive	Lava Flow	lancaste 2022-03-30 16:57:38	u	Rhyolite	0.08	0.01	T	LP-DIR-AF:DE-BFL:DA-DIR-GEO	g	Y211-7	pmagpy-4.2.108: demag_gui	Y211-7b
+AFP	This study												Igneous:Extrusive	Lava Flow			Rhyolite				LP-NOMAG	g	Y211-7		Y211-7b
+AFP	This study												Igneous:Extrusive	Lava Flow			Rhyolite				LP-NOMAG	g	Y211-8		Y211-8a
+AFP	This study												Igneous:Extrusive	Lava Flow			Rhyolite				LP-NOMAG	g	Y211-9		Y211-9a
+	This study			Y213_chrm	1.6	345.7	69.5	0.8	1	12	0	Y213-10a_LP-DIR-AF	Igneous:Extrusive	Lava Flow	lancaste 2022-04-19 17:06:43	u	Rhyolite	0.08	0.005	T	LP-DIR-AF:DE-BFL:DA-DIR-GEO	g	Y213-10	pmagpy-4.2.108: demag_gui	Y213-10a
+AFP	This study												Igneous:Extrusive	Lava Flow			Rhyolite				LP-NOMAG	g	Y213-10		Y213-10a
+AFP	This study												Igneous:Extrusive	Lava Flow			Rhyolite				LP-NOMAG	g	Y213-11		Y213-11a
+	This study			Y213_chrm	1.2	340.8	58.5	0.7	1	15	0	Y213-1a_LP-DIR-AF	Igneous:Extrusive	Lava Flow	lancaste 2022-03-23 15:25:16	u	Rhyolite	0.08	0	T	LP-DIR-AF:DE-BFL:DA-DIR-GEO	g	Y213-1	pmagpy-4.2.108: demag_gui	Y213-1a
+AFP	This study												Igneous:Extrusive	Lava Flow			Rhyolite				LP-NOMAG	g	Y213-1		Y213-1a
+AFP	This study												Igneous:Extrusive	Lava Flow			Rhyolite				LP-NOMAG	g	Y213-1		Y213-1b
+	This study			Y213_chrm	0.2	340	58.6	0.7	1	6	0	Y213-1b_LP-DIR-T	Igneous:Extrusive	Lava Flow	lancaste 2022-05-10 17:19:00	u	Rhyolite	793	623	K	LP-DIR-T:DE-BFL:DA-DIR-GEO	g	Y213-1	pmagpy-4.2.108: demag_gui	Y213-1b
+	This study			Y213_chrm	0.2	326.1	66.1	0.9	1	6	0	Y213-2a_LP-DIR-T	Igneous:Extrusive	Lava Flow	lancaste 2022-07-18 14:40:58	u	Rhyolite	773	573	K	LP-DIR-T:DE-BFL:DA-DIR-GEO	g	Y213-2	pmagpy-4.2.108: demag_gui	Y213-2a
+AFP	This study												Igneous:Extrusive	Lava Flow			Rhyolite				LP-NOMAG	g	Y213-2		Y213-2a
+AFP	This study												Igneous:Extrusive	Lava Flow			Rhyolite				LP-NOMAG	g	Y213-3		Y213-3a
+	This study			Y213_chrm	1.1	327.4	71.1	0.6	1	13	0	Y213-3a_LP-DIR-AF	Igneous:Extrusive	Lava Flow	lancaste 2022-04-22 16:09:55	u	Rhyolite	0.08	0.005	T	LP-DIR-AF:DE-BFL:DA-DIR-GEO	g	Y213-3	pmagpy-4.2.108: demag_gui	Y213-3a
+	This study			Y213_chrm	2	327	68.6	1.2	1	11	0	Y213-4a_LP-DIR-AF	Igneous:Extrusive	Lava Flow	lancaste 2022-04-06 14:49:16	u	Rhyolite	0.08	0.01	T	LP-DIR-AF:DE-BFL:DA-DIR-GEO	g	Y213-4	pmagpy-4.2.108: demag_gui	Y213-4a
+AFP	This study												Igneous:Extrusive	Lava Flow			Rhyolite				LP-NOMAG	g	Y213-4		Y213-4a
+AFP	This study												Igneous:Extrusive	Lava Flow			Rhyolite				LP-NOMAG	g	Y213-5		Y213-5a
+	This study			Y213_chrm	0	346.2	68.6	0.2	1	15	0	Y213-5a_LP-DIR-AF	Igneous:Extrusive	Lava Flow	lancaste 2022-04-19 16:34:40	u	Rhyolite	0.08	0	T	LP-DIR-AF:DE-BFL-A:DA-DIR-GEO	g	Y213-5	pmagpy-4.2.108: demag_gui	Y213-5a
+	This study			Y213_chrm	0.7	337.7	70.8	2.1	1	14	0	Y213-6a_LP-DIR-T	Igneous:Extrusive	Lava Flow	lancaste 2022-05-18 09:04:49	u	Rhyolite	853	393	K	LP-DIR-T:DE-BFL:DA-DIR-GEO	g	Y213-6	pmagpy-4.2.108: demag_gui	Y213-6a
+AFP	This study												Igneous:Extrusive	Lava Flow			Rhyolite				LP-NOMAG	g	Y213-6		Y213-6a
+AFP	This study												Igneous:Extrusive	Lava Flow			Rhyolite				LP-NOMAG	g	Y213-6		Y213-6b
+	This study			Y213_chrm	5.3	282.8	56.2	1.5	1	8	0	Y213-7a_LP-DIR-T	Igneous:Extrusive	Lava Flow	lancaste 2022-05-18 08:56:05	u	Rhyolite	853	673	K	LP-DIR-T:DE-BFL:DA-DIR-GEO	b	Y213-7	pmagpy-4.2.108: demag_gui	Y213-7a
+AFP	This study												Igneous:Extrusive	Lava Flow			Rhyolite				LP-NOMAG	g	Y213-7		Y213-7a
+	This study			Y213_chrm	1.2	299.3	58.1	0.5	1	15	0	Y213-7b_LP-DIR-AF	Igneous:Extrusive	Lava Flow	lancaste 2022-03-23 16:00:02	u	Rhyolite	0.08	0	T	LP-DIR-AF:DE-BFL:DA-DIR-GEO	g	Y213-7	pmagpy-4.2.108: demag_gui	Y213-7b
+AFP	This study												Igneous:Extrusive	Lava Flow			Rhyolite				LP-NOMAG	g	Y213-7		Y213-7b
+AFP	This study												Igneous:Extrusive	Lava Flow			Rhyolite				LP-NOMAG	g	Y213-8		Y213-8a
+	This study			Y213_chrm	0.3	340.9	73.1	2.2	1	9	0	Y213-8a_LP-DIR-T	Igneous:Extrusive	Lava Flow	lancaste 2022-05-18 09:06:54	u	Rhyolite	853	623	K	LP-DIR-T:DE-BFL:DA-DIR-GEO	g	Y213-8	pmagpy-4.2.108: demag_gui	Y213-8a
+AFP	This study												Igneous:Extrusive	Lava Flow			Rhyolite				LP-NOMAG	g	Y213-8		Y213-8b
+AFP	This study												Igneous:Extrusive	Lava Flow			Rhyolite				LP-NOMAG	g	Y213-9		Y213-9a
+	This study			Y213_chrm	3	327.9	78.9	1.8	1	9	0	Y213-9a_LP-DIR-AF	Igneous:Extrusive	Lava Flow	lancaste 2022-04-21 17:43:48	u	Rhyolite	0.08	0.0125	T	LP-DIR-AF:DE-BFL:DA-DIR-GEO	g	Y213-9	pmagpy-4.2.108: demag_gui	Y213-9a
+AFP	This study												Igneous:Extrusive	Lava Flow			Rhyolite				LP-NOMAG	g	Y214-10		Y214-10a
+AFP	This study												Igneous:Extrusive	Lava Flow			Rhyolite				LP-NOMAG	g	Y214-10		Y214-10b
+AFP	This study												Igneous:Extrusive	Lava Flow			Rhyolite				LP-NOMAG	g	Y214-11		Y214-11a
+	This study			Y214_chrm	0.7	301.3	64.2	1.6	1	6	0	Y214-11a_LP-DIR-AF	Igneous:Extrusive	Lava Flow	lancaste 2022-03-23 20:38:33	u	Rhyolite	0.08	0.03	T	LP-DIR-AF:DE-BFL:DA-DIR-GEO	g	Y214-11	pmagpy-4.2.108: demag_gui	Y214-11a
+AFP	This study												Igneous:Extrusive	Lava Flow			Rhyolite				LP-NOMAG	g	Y214-11		Y214-11b
+AFP	This study												Igneous:Extrusive	Lava Flow			Rhyolite				LP-NOMAG	g	Y214-12		Y214-12a
+AFP	This study												Igneous:Extrusive	Lava Flow			Rhyolite				LP-NOMAG	g	Y214-1		Y214-1a
+	This study			Y214_chrm	0.7	344.8	60.7	0.4	1	14	0	Y214-1a_LP-DIR-AF	Igneous:Extrusive	Lava Flow	lancaste 2022-04-20 11:09:21	u	Rhyolite	0.08	0	T	LP-DIR-AF:DE-BFL:DA-DIR-GEO	g	Y214-1	pmagpy-4.2.108: demag_gui	Y214-1a
+	This study			Y214_chrm	0	344.8	63.2	0.4	1	14	0	Y214-2a_LP-DIR-AF	Igneous:Extrusive	Lava Flow	lancaste 2022-07-06 11:31:02	u	Rhyolite	0.08	0	T	LP-DIR-AF:DE-BFL-A:DA-DIR-GEO	g	Y214-2	pmagpy-4.2.108: demag_gui	Y214-2a
+AFP	This study												Igneous:Extrusive	Lava Flow			Rhyolite				LP-NOMAG	g	Y214-2		Y214-2a
+	This study			Y214_chrm	0	345.2	54.6	0.6	1	15	0	Y214-3a_LP-DIR-AF	Igneous:Extrusive	Lava Flow	lancaste 2022-04-05 14:53:50	u	Rhyolite	0.08	0	T	LP-DIR-AF:DE-BFL-A:DA-DIR-GEO	g	Y214-3	pmagpy-4.2.108: demag_gui	Y214-3a
+AFP	This study												Igneous:Extrusive	Lava Flow			Rhyolite				LP-NOMAG	g	Y214-3		Y214-3a
+	This study			Y214_chrm	0.9	344.3	62.4	0.4	1	11	0	Y214-4a_LP-DIR-AF	Igneous:Extrusive	Lava Flow	lancaste 2022-03-23 17:39:29	u	Rhyolite	0.08	0.01	T	LP-DIR-AF:DE-BFL:DA-DIR-GEO	g	Y214-4	pmagpy-4.2.108: demag_gui	Y214-4a
+AFP	This study												Igneous:Extrusive	Lava Flow			Rhyolite				LP-NOMAG	g	Y214-4		Y214-4a
+	This study			Y214_chrm	0	346.3	58.1	0.8	1	1	0	Y214-4b_LP-DIR-T	Igneous:Extrusive	Lava Flow	lancaste 2022-05-11 08:35:04	u	Rhyolite	813	473	K	LP-DIR-T:DE-BFL:DA-DIR-GEO	g	Y214-4	pmagpy-4.2.108: demag_gui	Y214-4b
+AFP	This study												Igneous:Extrusive	Lava Flow			Rhyolite				LP-NOMAG	g	Y214-4		Y214-4b
+	This study			Y214_chrm	0	350	64.5	0.6	1	9	0	Y214-5a_LP-DIR-AF	Igneous:Extrusive	Lava Flow	lancaste 2022-03-23 18:14:05	u	Rhyolite	0.08	0.015	T	LP-DIR-AF:DE-BFL-A:DA-DIR-GEO	g	Y214-5	pmagpy-4.2.108: demag_gui	Y214-5a
+AFP	This study												Igneous:Extrusive	Lava Flow			Rhyolite				LP-NOMAG	g	Y214-5		Y214-5a
+	This study			Y214_chrm	0.1	351.8	63.7	1.3	1	8	0	Y214-5b_LP-DIR-T	Igneous:Extrusive	Lava Flow	lancaste 2022-05-05 11:40:04	u	Rhyolite	773	473	K	LP-DIR-T:DE-BFL:DA-DIR-GEO	g	Y214-5	pmagpy-4.2.108: demag_gui	Y214-5b
+AFP	This study												Igneous:Extrusive	Lava Flow			Rhyolite				LP-NOMAG	g	Y214-5		Y214-5b
+	This study			Y214_chrm	1.6	342.9	55.1	0.9	1	6	0	Y214-6a_LP-DIR-AF	Igneous:Extrusive	Lava Flow	lancaste 2022-07-06 12:03:14	u	Rhyolite	0.08	0.025	T	LP-DIR-AF:DE-BFL:DA-DIR-GEO	g	Y214-6	pmagpy-4.2.108: demag_gui	Y214-6a
+AFP	This study												Igneous:Extrusive	Lava Flow			Rhyolite				LP-NOMAG	g	Y214-6		Y214-6a
+	This study			Y214_chrm	0.2	336.2	51.4	0.6	1	11	0	Y214-7a_LP-DIR-AF	Igneous:Extrusive	Lava Flow	lancaste 2022-04-05 15:28:01	u	Rhyolite	0.08	0.01	T	LP-DIR-AF:DE-BFL:DA-DIR-GEO	g	Y214-7	pmagpy-4.2.108: demag_gui	Y214-7a
+AFP	This study												Igneous:Extrusive	Lava Flow			Rhyolite				LP-NOMAG	g	Y214-7		Y214-7a
+	This study			Y214_chrm	0.6	321.8	59.2	0.9	1	6	0	Y214-8a_LP-DIR-T	Igneous:Extrusive	Lava Flow	lancaste 2022-07-21 08:50:28	u	Rhyolite	803	673	K	LP-DIR-T:DE-BFL:DA-DIR-GEO	g	Y214-8	pmagpy-4.2.108: demag_gui	Y214-8a
+AFP	This study												Igneous:Extrusive	Lava Flow			Rhyolite				LP-NOMAG	g	Y214-8		Y214-8a
+	This study			Y214_chrm	0.1	313.9	63.7	0.2	1	8	0	Y214-9a_LP-DIR-AF	Igneous:Extrusive	Lava Flow	lancaste 2022-04-21 18:15:47	u	Rhyolite	0.08	0.015	T	LP-DIR-AF:DE-BFL:DA-DIR-GEO	g	Y214-9	pmagpy-4.2.108: demag_gui	Y214-9a
+AFP	This study												Igneous:Extrusive	Lava Flow			Rhyolite				LP-NOMAG	g	Y214-9		Y214-9a
+AFP	This study												Igneous:Extrusive	Lava Flow			Rhyolite				LP-NOMAG	g	Y215-10		Y215-10a
+	This study			Y215_chrm	1.1	330.2	66.8	0.9	1	13	0	Y215-10a_LP-DIR-AF	Igneous:Extrusive	Lava Flow	lancaste 2022-03-31 18:20:55	u	Rhyolite	0.08	0.005	T	LP-DIR-AF:DE-BFL:DA-DIR-GEO	g	Y215-10	pmagpy-4.2.108: demag_gui	Y215-10a
+AFP	This study												Igneous:Extrusive	Lava Flow			Rhyolite				LP-NOMAG	g	Y215-10		Y215-10b
+AFP	This study												Igneous:Extrusive	Lava Flow			Rhyolite				LP-NOMAG	g	Y215-1		Y215-1a
+AFP	This study												Igneous:Extrusive	Lava Flow			Rhyolite				LP-NOMAG	g	Y215-1		Y215-1b
+	This study			Y215_chrm	0.4	339.9	58.9	1.1	1	13	0	Y215-1b_LP-DIR-AF	Igneous:Extrusive	Lava Flow	lancaste 2022-04-05 16:01:44	u	Rhyolite	0.08	0.005	T	LP-DIR-AF:DE-BFL:DA-DIR-GEO	g	Y215-1	pmagpy-4.2.108: demag_gui	Y215-1b
+	This study			Y215_chrm	0	341.2	62.1	0.6	1	13	0	Y215-2a_LP-DIR-AF	Igneous:Extrusive	Lava Flow	lancaste 2022-04-06 15:24:54	u	Rhyolite	0.08	0.005	T	LP-DIR-AF:DE-BFL-A:DA-DIR-GEO	g	Y215-2	pmagpy-4.2.108: demag_gui	Y215-2a
+AFP	This study												Igneous:Extrusive	Lava Flow			Rhyolite				LP-NOMAG	g	Y215-2		Y215-2a
+AFP	This study												Igneous:Extrusive	Lava Flow			Rhyolite				LP-NOMAG	g	Y215-3		Y215-3a
+	This study			Y215_chrm	0.9	329.3	70.3	0.8	1	7	0	Y215-3b_LP-DIR-AF	Igneous:Extrusive	Lava Flow	lancaste 2022-03-31 16:37:49	u	Rhyolite	0.08	0.025	T	LP-DIR-AF:DE-BFL:DA-DIR-GEO	g	Y215-3	pmagpy-4.2.108: demag_gui	Y215-3b
+AFP	This study												Igneous:Extrusive	Lava Flow			Rhyolite				LP-NOMAG	g	Y215-3		Y215-3b
+	This study			Y215_chrm	0	323.9	59.6	1.6	1	1	0	Y215-4a_LP-DIR-AF	Igneous:Extrusive	Lava Flow	lancaste 2022-04-20 11:41:49	u	Rhyolite	0.08	0.01	T	LP-DIR-AF:DE-BFL-A:DA-DIR-GEO	g	Y215-4	pmagpy-4.2.108: demag_gui	Y215-4a
+AFP	This study												Igneous:Extrusive	Lava Flow			Rhyolite				LP-NOMAG	g	Y215-4		Y215-4a
+	This study			Y215_chrm	1	326.7	54.5	1	1	16	0	Y215-5a_LP-DIR-AF	Igneous:Extrusive	Lava Flow	lancaste 2022-03-29 11:42:33	u	Rhyolite	0.08	0	T	LP-DIR-AF:DE-BFL:DA-DIR-GEO	g	Y215-5	pmagpy-4.2.108: demag_gui	Y215-5a
+AFP	This study												Igneous:Extrusive	Lava Flow			Rhyolite				LP-NOMAG	g	Y215-5		Y215-5a
+AFP	This study												Igneous:Extrusive	Lava Flow			Rhyolite				LP-NOMAG	g	Y215-5		Y215-5b
+	This study			Y215_chrm	2	331.3	66.9	1.6	1	13	0	Y215-6a_LP-DIR-AF	Igneous:Extrusive	Lava Flow	lancaste 2022-03-31 17:12:13	u	Rhyolite	0.08	0.005	T	LP-DIR-AF:DE-BFL:DA-DIR-GEO	g	Y215-6	pmagpy-4.2.108: demag_gui	Y215-6a
+AFP	This study												Igneous:Extrusive	Lava Flow			Rhyolite				LP-NOMAG	g	Y215-6		Y215-6a
+AFP	This study												Igneous:Extrusive	Lava Flow			Rhyolite				LP-NOMAG	g	Y215-6		Y215-6b
+	This study			Y215_chrm	0.9	323	65.6	0.8	1	7	0	Y215-6b_LP-DIR-T	Igneous:Extrusive	Lava Flow		u	Rhyolite	773	523	K	LP-DIR-T:DE-BFL:DA-DIR-GEO	g	Y215-6	pmagpy-4.2.108: demag_gui	Y215-6b
+AFP	This study												Igneous:Extrusive	Lava Flow			Rhyolite				LP-NOMAG	g	Y215-7		Y215-7a
+	This study			Y215_chrm	3.9	344.4	65.7	2.6	1	11	0	Y215-7a_LP-DIR-AF	Igneous:Extrusive	Lava Flow	lancaste 2022-03-31 17:46:34	u	Rhyolite	0.08	0.01	T	LP-DIR-AF:DE-BFL:DA-DIR-GEO	g	Y215-7	pmagpy-4.2.108: demag_gui	Y215-7a
+AFP	This study												Igneous:Extrusive	Lava Flow			Rhyolite				LP-NOMAG	g	Y215-7		Y215-7b
+AFP	This study												Igneous:Extrusive	Lava Flow			Rhyolite				LP-NOMAG	g	Y215-8		Y215-8a
+	This study			Y215_chrm	0	327.4	66.2	1.1	1	14	0	Y215-8b_LP-DIR-AF	Igneous:Extrusive	Lava Flow	lancaste 2022-03-31 12:19:52	u	Rhyolite	0.08	0.0025	T	LP-DIR-AF:DE-BFL-A:DA-DIR-GEO	g	Y215-8	pmagpy-4.2.108: demag_gui	Y215-8b
+AFP	This study												Igneous:Extrusive	Lava Flow			Rhyolite				LP-NOMAG	g	Y215-8		Y215-8b
+AFP	This study												Igneous:Extrusive	Lava Flow			Rhyolite				LP-NOMAG	g	Y215-9		Y215-9a
+	This study			Y215_chrm	0	337.8	64.9	1.5	1	13	0	Y215-9a_LP-DIR-AF	Igneous:Extrusive	Lava Flow	lancaste 2022-03-29 12:17:04	u	Rhyolite	0.08	0.005	T	LP-DIR-AF:DE-BFL-A:DA-DIR-GEO	g	Y215-9	pmagpy-4.2.108: demag_gui	Y215-9a
+AFP	This study												Igneous:Extrusive	Lava Flow			Rhyolite				LP-NOMAG	g	Y215-9		Y215-9b
+	This study			Y215_chrm	0.4	345.1	64.8	0.5	1	6	0	Y215-9b_LP-DIR-T	Igneous:Extrusive	Lava Flow		u	Rhyolite	773	573	K	LP-DIR-T:DE-BFL:DA-DIR-GEO	g	Y215-9	pmagpy-4.2.108: demag_gui	Y215-9b
+	This study			Y216_chrm	0.4	322.9	62.8	0.8	1	9	0	Y216-10a_LP-DIR-T	Igneous:Extrusive	Lava Flow	lancaste 2022-07-21 16:29:55	u	Rhyolite	823	623	K	LP-DIR-T:DE-BFL:DA-DIR-GEO	g	Y216-10	pmagpy-4.2.108: demag_gui	Y216-10a
+AFP	This study												Igneous:Extrusive	Lava Flow			Rhyolite				LP-NOMAG	g	Y216-10		Y216-10a
+	This study			Y216_chrm	1.2	315.4	59.9	0.6	1	12	0	Y216-11a_LP-DIR-AF	Igneous:Extrusive	Lava Flow	lancaste 2022-04-19 18:43:19	u	Rhyolite	0.08	0.005	T	LP-DIR-AF:DE-BFL:DA-DIR-GEO	g	Y216-11	pmagpy-4.2.108: demag_gui	Y216-11a
+AFP	This study												Igneous:Extrusive	Lava Flow			Rhyolite				LP-NOMAG	g	Y216-11		Y216-11a
+	This study			Y216_chrm	0	329	61.1	0.5	1	16	0	Y216-1a_LP-DIR-AF	Igneous:Extrusive	Lava Flow	lancaste 2022-03-29 12:51:32	u	Rhyolite	0.08	0	T	LP-DIR-AF:DE-BFL-A:DA-DIR-GEO	g	Y216-1	pmagpy-4.2.108: demag_gui	Y216-1a
+AFP	This study												Igneous:Extrusive	Lava Flow			Rhyolite				LP-NOMAG	g	Y216-1		Y216-1a
+	This study			Y216_chrm	0.5	333	65	0.4	1	13	0	Y216-2a_LP-DIR-AF	Igneous:Extrusive	Lava Flow	lancaste 2022-04-19 17:38:44	u	Rhyolite	0.08	0.0025	T	LP-DIR-AF:DE-BFL:DA-DIR-GEO	g	Y216-2	pmagpy-4.2.108: demag_gui	Y216-2a
+AFP	This study												Igneous:Extrusive	Lava Flow			Rhyolite				LP-NOMAG	g	Y216-2		Y216-2a
+AFP	This study												Igneous:Extrusive	Lava Flow			Rhyolite				LP-NOMAG	g	Y216-2		Y216-2b
+	This study			Y216_chrm	1.2	333.6	66.5	0.9	1	13	0	Y216-3a_LP-DIR-AF	Igneous:Extrusive	Lava Flow	lancaste 2022-03-29 16:07:24	u	Rhyolite	0.08	0.005	T	LP-DIR-AF:DE-BFL:DA-DIR-GEO	g	Y216-3	pmagpy-4.2.108: demag_gui	Y216-3a
+AFP	This study												Igneous:Extrusive	Lava Flow			Rhyolite				LP-NOMAG	g	Y216-3		Y216-3a
+AFP	This study												Igneous:Extrusive	Lava Flow			Rhyolite				LP-NOMAG	g	Y216-3		Y216-3b
+	This study			Y216_chrm	0.4	332.9	65.7	0.6	1	13	0	Y216-4a_LP-DIR-AF	Igneous:Extrusive	Lava Flow	lancaste 2022-03-31 18:55:37	u	Rhyolite	0.08	0.005	T	LP-DIR-AF:DE-BFL:DA-DIR-GEO	g	Y216-4	pmagpy-4.2.108: demag_gui	Y216-4a
+AFP	This study												Igneous:Extrusive	Lava Flow			Rhyolite				LP-NOMAG	g	Y216-4		Y216-4a
+AFP	This study												Igneous:Extrusive	Lava Flow			Rhyolite				LP-NOMAG	g	Y216-4		Y216-4b
+AFP	This study												Igneous:Extrusive	Lava Flow			Rhyolite				LP-NOMAG	g	Y216-5		Y216-5a
+AFP	This study												Igneous:Extrusive	Lava Flow			Rhyolite				LP-NOMAG	g	Y216-6		Y216-6a
+	This study			Y216_chrm	0.8	331.5	67	0.5	1	12	0	Y216-6a_LP-DIR-AF	Igneous:Extrusive	Lava Flow	lancaste 2022-04-19 18:10:47	u	Rhyolite	0.08	0.005	T	LP-DIR-AF:DE-BFL:DA-DIR-GEO	g	Y216-6	pmagpy-4.2.108: demag_gui	Y216-6a
+AFP	This study												Igneous:Extrusive	Lava Flow			Rhyolite				LP-NOMAG	g	Y216-7		Y216-7a
+	This study			Y216_chrm	0.4	324.7	66.6	0.5	1	7	0	Y216-7a_LP-DIR-T	Igneous:Extrusive	Lava Flow	lancaste 2022-07-18 17:12:22	u	Rhyolite	788	573	K	LP-DIR-T:DE-BFL:DA-DIR-GEO	g	Y216-7	pmagpy-4.2.108: demag_gui	Y216-7a
+AFP	This study												Igneous:Extrusive	Lava Flow			Rhyolite				LP-NOMAG	g	Y216-7		Y216-7b
+AFP	This study												Igneous:Extrusive	Lava Flow			Rhyolite				LP-NOMAG	g	Y216-8		Y216-8a
+	This study			Y216_chrm	0.4	323.5	65.4	0.4	1	13	0	Y216-8a_LP-DIR-AF	Igneous:Extrusive	Lava Flow	lancaste 2022-03-31 19:30:33	u	Rhyolite	0.08	0.005	T	LP-DIR-AF:DE-BFL:DA-DIR-GEO	g	Y216-8	pmagpy-4.2.108: demag_gui	Y216-8a
+AFP	This study												Igneous:Extrusive	Lava Flow			Rhyolite				LP-NOMAG	g	Y216-8		Y216-8b
+AFP	This study												Igneous:Extrusive	Lava Flow			Rhyolite				LP-NOMAG	g	Y216-9		Y216-9a
+	This study			Y216_chrm	0.2	321.2	65.3	0.4	1	11	0	Y216-9a_LP-DIR-T	Igneous:Extrusive	Lava Flow	lancaste 2022-05-18 08:58:23	u	Rhyolite	853	523	K	LP-DIR-T:DE-BFL:DA-DIR-GEO	g	Y216-9	pmagpy-4.2.108: demag_gui	Y216-9a
+	This study			Y216_chrm	0.6	324.1	64.7	0.6	1	15	0	Y216-9b_LP-DIR-AF	Igneous:Extrusive	Lava Flow	lancaste 2022-03-31 12:54:16	u	Rhyolite	0.08	0	T	LP-DIR-AF:DE-BFL:DA-DIR-GEO	g	Y216-9	pmagpy-4.2.108: demag_gui	Y216-9b
+AFP	This study												Igneous:Extrusive	Lava Flow			Rhyolite				LP-NOMAG	g	Y216-9		Y216-9b
+	This study			Y217_chrm	1	330	60.9	1.7	1	4	0	Y217-10a_LP-DIR-AF	Igneous:Extrusive	Lava Flow	lancaste 2022-04-20 13:17:55	u	Rhyolite	0.08	0.04	T	LP-DIR-AF:DE-BFL:DA-DIR-GEO	g	Y217-10	pmagpy-4.2.108: demag_gui	Y217-10a
+AFP	This study												Igneous:Extrusive	Lava Flow			Rhyolite				LP-NOMAG	g	Y217-10		Y217-10a
+	This study			Y217_chrm	0.9	340.9	65.2	4	1	5	0	Y217-1a_LP-DIR-AF	Igneous:Extrusive	Lava Flow	lancaste 2022-04-20 12:13:45	u	Rhyolite	0.08	0.03	T	LP-DIR-AF:DE-BFL:DA-DIR-GEO	g	Y217-1	pmagpy-4.2.108: demag_gui	Y217-1a
+AFP	This study												Igneous:Extrusive	Lava Flow			Rhyolite				LP-NOMAG	g	Y217-1		Y217-1a
+AFP	This study												Igneous:Extrusive	Lava Flow			Rhyolite				LP-NOMAG	g	Y217-2		Y217-2a
+	This study			Y217_chrm	0	332.1	65.3	1.1	1	9	0	Y217-2a_LP-DIR-AF	Igneous:Extrusive	Lava Flow	lancaste 2022-03-29 16:41:52	u	Rhyolite	0.08	0.015	T	LP-DIR-AF:DE-BFL-A:DA-DIR-GEO	g	Y217-2	pmagpy-4.2.108: demag_gui	Y217-2a
+AFP	This study												Igneous:Extrusive	Lava Flow			Rhyolite				LP-NOMAG	g	Y217-2		Y217-2b
+	This study			Y217_chrm	1.5	309.9	61.6	1.2	1	9	0	Y217-2b_LP-DIR-T	Igneous:Extrusive	Lava Flow	lancaste 2022-05-18 09:00:35	u	Rhyolite	853	623	K	LP-DIR-T:DE-BFL:DA-DIR-GEO	g	Y217-2	pmagpy-4.2.108: demag_gui	Y217-2b
+AFP	This study												Igneous:Extrusive	Lava Flow			Rhyolite				LP-NOMAG	g	Y217-3		Y217-3a
+	This study			Y217_chrm	1	341.1	62.9	1	1	8	0	Y217-3a_LP-DIR-AF	Igneous:Extrusive	Lava Flow	lancaste 2022-04-06 16:00:27	u	Rhyolite	0.08	0.02	T	LP-DIR-AF:DE-BFL:DA-DIR-GEO	g	Y217-3	pmagpy-4.2.108: demag_gui	Y217-3a
+AFP	This study												Igneous:Extrusive	Lava Flow			Rhyolite				LP-NOMAG	g	Y217-4		Y217-4a
+	This study			Y217_chrm	3.1	308.7	60.1	0.6	1	9	0	Y217-4a_LP-DIR-T	Igneous:Extrusive	Lava Flow	lancaste 2022-07-21 16:32:14	u	Rhyolite	823	623	K	LP-DIR-T:DE-BFL:DA-DIR-GEO	g	Y217-4	pmagpy-4.2.108: demag_gui	Y217-4a
+AFP	This study												Igneous:Extrusive	Lava Flow			Rhyolite				LP-NOMAG	g	Y217-5		Y217-5a
+	This study	328.6	61.9	Y217_chrm		171.3	26.2	1.2	1	16	0	Y217-5a_LP-DIR-T	Igneous:Extrusive	Lava Flow	lancaste 2022-07-06 14:06:37	u	Rhyolite	0.08	0	T	LP-DIR-AF:DE-BFP:DA-DIR-GEO	g	Y217-5	pmagpy-4.2.108: demag_gui	Y217-5a
+AFP	This study												Igneous:Extrusive	Lava Flow			Rhyolite				LP-NOMAG	g	Y217-6		Y217-6a
+AFP	This study												Igneous:Extrusive	Lava Flow			Rhyolite				LP-NOMAG	g	Y217-6		Y217-6b
+	This study	327.1	64.3	Y217_chrm		34.3	-10.6	4.5	1	14	0	Y217-6b_LP-DIR-AF	Igneous:Extrusive	Lava Flow	lancaste 2022-04-20 12:45:44	u	Rhyolite	0.08	0	T	LP-DIR-AF:DE-BFP:DA-DIR-GEO	g	Y217-6	pmagpy-4.2.108: demag_gui	Y217-6b
+AFP	This study												Igneous:Extrusive	Lava Flow			Rhyolite				LP-NOMAG	g	Y217-7		Y217-7a
+	This study			Y217_chrm	0.6	315.8	66.5	0.5	1	9	0	Y217-7a_LP-DIR-AF	Igneous:Extrusive	Lava Flow	lancaste 2022-03-31 13:28:44	u	Rhyolite	0.08	0.015	T	LP-DIR-AF:DE-BFL:DA-DIR-GEO	g	Y217-7	pmagpy-4.2.108: demag_gui	Y217-7a
+AFP	This study												Igneous:Extrusive	Lava Flow			Rhyolite				LP-NOMAG	g	Y217-7		Y217-7b
+AFP	This study												Igneous:Extrusive	Lava Flow			Rhyolite				LP-NOMAG	g	Y217-8		Y217-8a
+	This study			Y217_chrm	0.6	324.9	67.4	1.1	1	9	0	Y217-8a_LP-DIR-AF	Igneous:Extrusive	Lava Flow	lancaste 2022-04-19 19:15:40	u	Rhyolite	0.08	0.0125	T	LP-DIR-AF:DE-BFL:DA-DIR-GEO	g	Y217-8	pmagpy-4.2.108: demag_gui	Y217-8a
+AFP	This study												Igneous:Extrusive	Lava Flow			Rhyolite				LP-NOMAG	g	Y217-9		Y217-9a
+	This study			Y217_chrm	1.8	335.3	68	1.4	1	5	0	Y217-9a_LP-DIR-T	Igneous:Extrusive	Lava Flow	lancaste 2022-07-06 17:02:33	u	Rhyolite	0.08	0.03	T	LP-DIR-AF:DE-BFL:DA-DIR-GEO	g	Y217-9	pmagpy-4.2.108: demag_gui	Y217-9a

@@ -1,0 +1,6 @@
+tab 	ages
+age	age_unit	citations	location	method_codes	site
+160.2	ka	this study	Mallard Lake	GM-ARAR-SC	Y2102
+159.9	ka	this study	Dry Creek	GM-ARAR-SC	Y211
+161.7	ka	this study	Elephant Back	GM-ARAR-SC	Y214
+160.8	ka	this study	Nez Perce	GM-ARAR-SC	Y215

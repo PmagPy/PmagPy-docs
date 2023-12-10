@@ -14,7 +14,7 @@ Sapienza et al. 2023 🎯
 Paleomagnetic sampling strategy design
 ^^^
 
-This JupyterBook includes notebooks to evaluate different sampling strategies for estimating paleomagnetic poles and paleosecular variation of the magnetic field based on site magnetizations. (*external link to Paleosampling JupyterBook*).
+JupyterBook with notebooks to evaluate different sampling strategies to estimate paleomagnetic poles and paleosecular variation. (*external link to Paleosampling JupyterBook*).
 :::
 
 :::{grid-item-card}
@@ -33,7 +33,7 @@ Notebooks that utilizes PmagPy and custom functions build up a site level based 
 :class-header: bg-light
 
 Slotznick et al. 2023 🛶
-Reconstructing the paleoenvironment of an oxygenated Mesoproterozoic shoreline
+The paleoenvironment of an oxygenated Mesoproterozoic shoreline
 ^^^
 
 This notebook analyzes and visualizes the results of thermal demagnetization data for paleomagnetic samples collected from the Nonesuch Formation. (*external link to Github*).
@@ -69,7 +69,7 @@ Pierce et al. 2022 🧱
 Inclination shallowing
 ^^^
 
-This notebook analyzes data from a Mesoproterozoic sandstone and applies a new approach to provide elliptical pole position uncertainty associated with inclination shallowing that incorporates output from the elongation-inclination method (*external link to Github*).
+This notebook analyzes data from a Mesoproterozoic sandstone and estimates elliptical pole position uncertainty associated with inclination shallowing using the elongation-inclination method (*external link to Github*).
 :::
 
 :::{grid-item-card}
@@ -91,7 +91,7 @@ Swanson-Hysell, 2021 🇨🇦🇺🇸
 Precambrian Laurentia paleomagnetic poles
 ^^^
 
-This notebook develops and visualizes a compilation of paleomagnetic poles for Laurentia associated with the book Ancient Supercontinents and the Paleogeography of the Earth (*external link to Github*).
+This notebook develops and visualizes a compilation of paleomagnetic poles for Precambrian Laurentia (*external link to Github*).
 :::
 
 :::{grid-item-card}
@@ -107,4 +107,4 @@ This notebook published with the paper on PmagPy illustrates capabilities of Pma
 :::
 
 ::::
-Here are the citations to the above notebooks: {cite}`Tauxe2016a`, {cite}`Swanson-Hysell2021a`,{cite}`Rose2022a`,  {cite}`Pierce2022a`, {cite}`Tauxe2022a`, {cite}`Heslop2023a`, {cite}`Slotznick2023a`, {cite}`Gallo2023a`, {cite}`Sapienza2023a`
+Here are the citations to the above notebooks: {cite}`Sapienza2023a`, {cite}`Gallo2023a`,  {cite}`Slotznick2023a`, {cite}`Heslop2023a`, {cite}`Tauxe2022a`,  {cite}`Pierce2022a`, {cite}`Rose2022a`, {cite}`Swanson-Hysell2021a`, {cite}`Tauxe2016a`
