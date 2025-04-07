@@ -1,0 +1,1292 @@
+
+<!DOCTYPE html>
+
+
+<html lang="en" data-content_root="../../" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>&lt;no title&gt; &#8212; PmagPy Documentation</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "";
+  </script>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../../_static/styles/theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+<link href="../../_static/styles/bootstrap.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+<link href="../../_static/styles/pydata-sphinx-theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+
+  
+  <link href="../../_static/vendor/fontawesome/6.5.2/css/all.min.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="../../_static/vendor/fontawesome/6.5.2/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../../_static/vendor/fontawesome/6.5.2/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../../_static/vendor/fontawesome/6.5.2/webfonts/fa-regular-400.woff2" />
+
+    <link rel="stylesheet" type="text/css" href="../../_static/pygments.css?v=03e43079" />
+    <link rel="stylesheet" type="text/css" href="../../_static/styles/sphinx-book-theme.css?v=eba8b062" />
+    <link rel="stylesheet" type="text/css" href="../../_static/togglebutton.css?v=13237357" />
+    <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css?v=76b2166b" />
+    <link rel="stylesheet" type="text/css" href="../../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/sphinx-thebe.css?v=4fa983c6" />
+    <link rel="stylesheet" type="text/css" href="../../_static/sphinx-design.min.css?v=95c83b7e" />
+  
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../../_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b" />
+<link rel="preload" as="script" href="../../_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b" />
+  <script src="../../_static/vendor/fontawesome/6.5.2/js/all.min.js?digest=dfe6caa3a7d634c4db9b"></script>
+
+    <script src="../../_static/documentation_options.js?v=9eb32ce0"></script>
+    <script src="../../_static/doctools.js?v=9a2dae69"></script>
+    <script src="../../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../../_static/clipboard.min.js?v=a7894cd8"></script>
+    <script src="../../_static/copybutton.js?v=f281be69"></script>
+    <script src="../../_static/scripts/sphinx-book-theme.js?v=887ef09a"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="../../_static/togglebutton.js?v=4a39c7ea"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script src="../../_static/design-tabs.js?v=f930bc37"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script async="async" src="../../_static/sphinx-thebe.js?v=c100c467"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'example_notebooks/template_notebooks/RockmagPy_MPMS';</script>
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <div id="pst-skip-link" class="skip-link d-print-none"><a href="#main-content">Skip to main content</a></div>
+  
+  <div id="pst-scroll-pixel-helper"></div>
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>Back to top</button>
+
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          id="pst-primary-sidebar-checkbox"/>
+  <label class="overlay overlay-primary" for="pst-primary-sidebar-checkbox"></label>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          id="pst-secondary-sidebar-checkbox"/>
+  <label class="overlay overlay-secondary" for="pst-secondary-sidebar-checkbox"></label>
+  
+  <div class="search-button__wrapper">
+    <div class="search-button__overlay"></div>
+    <div class="search-button__search-container">
+<form class="bd-search d-flex align-items-center"
+      action="../../search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         id="search-input"
+         placeholder="Search this book..."
+         aria-label="Search this book..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form></div>
+  </div>
+
+  <div class="pst-async-banner-revealer d-none">
+  <aside id="bd-header-version-warning" class="d-none d-print-none" aria-label="Version warning"></aside>
+</div>
+
+  
+    <header class="bd-header navbar navbar-expand-lg bd-navbar d-print-none">
+    </header>
+  
+
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      
+      
+        
+      
+      <div class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+
+  
+    
+  
+
+<a class="navbar-brand logo" href="../../intro.html">
+  
+  
+  
+  
+  
+    
+    
+      
+    
+    
+    <img src="../../_static/pmagpy_logo_notext.png" class="logo__image only-light" alt="PmagPy Documentation - Home"/>
+    <script>document.write(`<img src="../../_static/pmagpy_logo_notext.png" class="logo__image only-dark" alt="PmagPy Documentation - Home"/>`);</script>
+  
+  
+</a></div>
+        <div class="sidebar-primary-item">
+
+ <script>
+ document.write(`
+   <button class="btn search-button-field search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass"></i>
+    <span class="search-button__default-text">Search</span>
+    <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+   </button>
+ `);
+ </script></div>
+        <div class="sidebar-primary-item"><nav class="bd-links bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        
+        <ul class="nav bd-sidenav bd-sidenav__home-link">
+            <li class="toctree-l1">
+                <a class="reference internal" href="../../intro.html">
+                    PmagPy: An open source package for paleomagnetic data analysis
+                </a>
+            </li>
+        </ul>
+        <p aria-level="2" class="caption" role="heading"><span class="caption-text">Installation</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../installation/PmagPy_install.html">Installing <strong>PmagPy</strong></a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../installation/osx_pip.html">OSX pip install</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../installation/osx_developer.html">OSX developer install</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../installation/windows_pip.html">Windows pip install</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../installation/windows_developer.html">Windows developer install</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../installation/linux_pip.html">Linux pip install</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../installation/linux_developer.html">Linux developer install</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../installation/troubleshooting.html">Troubleshooting installation issues</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../programs/command_line_programs.html">Command line programs</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../programs/pmag_gui.html">Installing and Getting Started with Pmag GUI</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../programs/demag_gui.html">Demag GUI</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../programs/thellier_gui.html">Thellier GUI</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1"><a class="reference internal" href="../../resources/survival_skills.html">Survival computer skills</a></li>
+
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Documentation notebooks</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../../documentation_notebooks/Jupyter.html">Jupyter Notebooks</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../documentation_notebooks/PmagPy_introduction.html">Introduction to PmagPy</a></li>
+
+<li class="toctree-l1"><a class="reference internal" href="../../documentation_notebooks/PmagPy_calculations.html">Calculations with PmagPy</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../documentation_notebooks/PmagPy_plots_analysis.html">Visualizations and more analysis with PmagPy</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../documentation_notebooks/PmagPy_MagIC.html">Working with the MagIC database using PmagPy</a></li>
+
+
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Example notebooks</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../tutorial_notebooks.html">Tutorial notebooks</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../template_notebooks.html">Template notebooks</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../published_notebooks.html">Published studies notebooks</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">MagIC</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../../MagIC/MagIC.html">MagIC database and file formats</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Function docstrings</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../../api/api.html">API Reference</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">References</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../../references.html">References</a></li>
+</ul>
+
+    </div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+  </div>
+  
+  <div id="rtd-footer-container"></div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main" role="main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article d-print-none">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><button class="sidebar-toggle primary-toggle btn btn-sm" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</button></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+
+
+
+<div class="dropdown dropdown-source-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Source repositories">
+    <i class="fab fa-github"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="https://github.com/pmagpy/pmagpy-docs" target="_blank"
+   class="btn btn-sm btn-source-repository-button dropdown-item"
+   title="Source repository"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fab fa-github"></i>
+  </span>
+<span class="btn__text-container">Repository</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li><a href="https://github.com/pmagpy/pmagpy-docs/issues/new?title=Issue%20on%20page%20%2Fexample_notebooks/template_notebooks/RockmagPy_MPMS.html&body=Your%20issue%20content%20here." target="_blank"
+   class="btn btn-sm btn-source-issues-button dropdown-item"
+   title="Open an issue"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-lightbulb"></i>
+  </span>
+<span class="btn__text-container">Open issue</span>
+</a>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+
+
+<div class="dropdown dropdown-download-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Download this page">
+    <i class="fas fa-download"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="../../_sources/example_notebooks/template_notebooks/RockmagPy_MPMS.ipynb" target="_blank"
+   class="btn btn-sm btn-download-source-button dropdown-item"
+   title="Download source file"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="btn__text-container">.ipynb</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="window.print()"
+  class="btn btn-sm btn-download-pdf-button dropdown-item"
+  title="Print to PDF"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="btn__text-container">.pdf</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button"
+  title="Fullscreen mode"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="theme-switch fa-solid fa-sun fa-lg" data-mode="light"></i>
+    <i class="theme-switch fa-solid fa-moon fa-lg" data-mode="dark"></i>
+    <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"></i>
+  </button>
+`);
+</script>
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm pst-navbar-icon search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass fa-lg"></i>
+  </button>
+`);
+</script>
+<button class="sidebar-toggle secondary-toggle btn btn-sm" title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</button>
+</div></div>
+      
+    </div>
+  
+</div>
+</div>
+              
+              
+
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1><no title></h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+            <div>
+                <h2> Contents </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="simple visible nav section-nav flex-column">
+</ul>
+
+            </nav>
+        </div>
+    </div>
+</div>
+
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article">
+                  
+  <div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">pmagpy.ipmag</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">ipmag</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">ipmag</span><span class="o">.</span><span class="n">download_magic</span><span class="p">(</span><span class="s1">&#39;./example_data/MPMS/NED18-2c.TXT&#39;</span><span class="p">,</span><span class="n">print_progress</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>1  records written to file  /Users/unimos/0000_Github/PmagPy-docs/example_notebooks/template_notebooks/specimens.txt
+1  records written to file  /Users/unimos/0000_Github/PmagPy-docs/example_notebooks/template_notebooks/samples.txt
+1  records written to file  /Users/unimos/0000_Github/PmagPy-docs/example_notebooks/template_notebooks/sites.txt
+2  records written to file  /Users/unimos/0000_Github/PmagPy-docs/example_notebooks/template_notebooks/locations.txt
+5  records written to file  /Users/unimos/0000_Github/PmagPy-docs/example_notebooks/template_notebooks/measurements.txt
+811  records written to file  /Users/unimos/0000_Github/PmagPy-docs/example_notebooks/template_notebooks/measurements_1.txt
+109  records written to file  /Users/unimos/0000_Github/PmagPy-docs/example_notebooks/template_notebooks/measurements_2.txt
+WARNING:  problem in file with line: 
+meas_temp	meas_field_dc	magn_mass	magn_r2_det	timestamp
+skipping....
+WARNING:  problem in file with line: 
+10.01318	0	0.0188512354679803	0.9812937	2020:01:06:21:12:37.36
+skipping....
+WARNING:  problem in file with line: 
+15.59938	0	0.0186037280788177	0.9808056	2020:01:06:21:14:00.34
+skipping....
+WARNING:  problem in file with line: 
+20.52562	0	0.0170502857142857	0.9810171	2020:01:06:21:15:00.19
+skipping....
+WARNING:  problem in file with line: 
+25.61752	0	0.0157275389162562	0.9810411	2020:01:06:21:16:01.50
+skipping....
+WARNING:  problem in file with line: 
+30.54326	0	0.0146161339901478	0.9807312	2020:01:06:21:17:00.77
+skipping....
+WARNING:  problem in file with line: 
+35.56581	0	0.0133888197044335	0.9810219	2020:01:06:21:18:02.55
+skipping....
+WARNING:  problem in file with line: 
+40.5793	0	0.0121363034482759	0.9808902	2020:01:06:21:19:03.33
+skipping....
+WARNING:  problem in file with line: 
+46.51211	0	0.0107651980295566	0.9809298	2020:01:06:21:20:15.16
+skipping....
+WARNING:  problem in file with line: 
+50.55042	0	0.0100824472906404	0.9807711	2020:01:06:21:21:03.57
+skipping....
+WARNING:  problem in file with line: 
+55.64771	0	0.00952095763546798	0.9807897	2020:01:06:21:22:05.21
+skipping....
+WARNING:  problem in file with line: 
+60.49242	0	0.00918266798029557	0.9803639	2020:01:06:21:23:03.82
+skipping....
+WARNING:  problem in file with line: 
+65.48232	0	0.00888025615763547	0.9806039	2020:01:06:21:24:03.30
+skipping....
+WARNING:  problem in file with line: 
+70.56132	0	0.00858374384236453	0.9809044	2020:01:06:21:25:03.99
+skipping....
+WARNING:  problem in file with line: 
+75.47551	0	0.00829229556650246	0.9808033	2020:01:06:21:26:02.88
+skipping....
+WARNING:  problem in file with line: 
+80.56403	0	0.00796457931034483	0.9807926	2020:01:06:21:27:02.78
+skipping....
+WARNING:  problem in file with line: 
+85.5583	0	0.00757961773399015	0.9811282	2020:01:06:21:28:02.72
+skipping....
+WARNING:  problem in file with line: 
+90.50928	0	0.00714375960591133	0.9806031	2020:01:06:21:29:02.50
+skipping....
+WARNING:  problem in file with line: 
+95.53156	0	0.00661826600985222	0.9808705	2020:01:06:21:30:02.87
+skipping....
+WARNING:  problem in file with line: 
+100.6605	0	0.00602249458128079	0.9809119	2020:01:06:21:31:02.35
+skipping....
+WARNING:  problem in file with line: 
+106.6001	0	0.00527291822660098	0.9804117	2020:01:06:21:32:14.47
+skipping....
+WARNING:  problem in file with line: 
+110.5326	0	0.00478863842364532	0.980249	2020:01:06:21:33:01.41
+skipping....
+WARNING:  problem in file with line: 
+115.6716	0	0.00419986995073892	0.9810484	2020:01:06:21:34:01.97
+skipping....
+WARNING:  problem in file with line: 
+120.5949	0	0.00369078108374384	0.980947	2020:01:06:21:35:00.98
+skipping....
+WARNING:  problem in file with line: 
+125.5747	0	0.00329029320197044	0.9810996	2020:01:06:21:36:00.73
+skipping....
+WARNING:  problem in file with line: 
+130.5346	0	0.00299498049261084	0.9820706	2020:01:06:21:37:00.77
+skipping....
+WARNING:  problem in file with line: 
+135.6187	0	0.00277562561576355	0.9813973	2020:01:06:21:38:00.60
+skipping....
+WARNING:  problem in file with line: 
+141.5759	0	0.00255981832512315	0.9815319	2020:01:06:21:39:12.44
+skipping....
+WARNING:  problem in file with line: 
+145.5673	0	0.00244219310344828	0.9816948	2020:01:06:21:40:00.18
+skipping....
+WARNING:  problem in file with line: 
+150.5356	0	0.0023234963546798	0.9812177	2020:01:06:21:40:59.54
+skipping....
+WARNING:  problem in file with line: 
+155.5558	0	0.00221936748768473	0.9812822	2020:01:06:21:41:59.88
+skipping....
+WARNING:  problem in file with line: 
+160.6411	0	0.00213414344827586	0.9825132	2020:01:06:21:43:00.73
+skipping....
+WARNING:  problem in file with line: 
+165.5773	0	0.00207003743842365	0.9816401	2020:01:06:21:43:59.70
+skipping....
+WARNING:  problem in file with line: 
+170.5411	0	0.00201231093596059	0.9818447	2020:01:06:21:44:59.67
+skipping....
+WARNING:  problem in file with line: 
+175.5788	0	0.00196450837438424	0.9815397	2020:01:06:21:45:59.78
+skipping....
+WARNING:  problem in file with line: 
+180.529	0	0.00192474916256158	0.9811782	2020:01:06:21:46:59.58
+skipping....
+WARNING:  problem in file with line: 
+185.5589	0	0.00188685556650246	0.9818393	2020:01:06:21:47:59.99
+skipping....
+WARNING:  problem in file with line: 
+190.5625	0	0.00185042088669951	0.9824648	2020:01:06:21:48:59.75
+skipping....
+WARNING:  problem in file with line: 
+195.6148	0	0.00182358541871921	0.9819034	2020:01:06:21:49:59.47
+skipping....
+WARNING:  problem in file with line: 
+200.5496	0	0.00179533911330049	0.9819995	2020:01:06:21:50:58.56
+skipping....
+WARNING:  problem in file with line: 
+205.4866	0	0.00177022699507389	0.9826539	2020:01:06:21:51:58.36
+skipping....
+WARNING:  problem in file with line: 
+210.4723	0	0.00174683231527094	0.9816203	2020:01:06:21:52:58.24
+skipping....
+WARNING:  problem in file with line: 
+215.4731	0	0.00172502147783251	0.981507	2020:01:06:21:53:58.29
+skipping....
+WARNING:  problem in file with line: 
+220.5656	0	0.00170251507389163	0.9820809	2020:01:06:21:54:59.12
+skipping....
+WARNING:  problem in file with line: 
+225.5222	0	0.00168526896551724	0.9820637	2020:01:06:21:55:58.19
+skipping....
+WARNING:  problem in file with line: 
+230.4682	0	0.00166677477832512	0.982134	2020:01:06:21:56:57.96
+skipping....
+WARNING:  problem in file with line: 
+235.5446	0	0.00164936157635468	0.9826429	2020:01:06:21:57:58.82
+skipping....
+WARNING:  problem in file with line: 
+240.5041	0	0.0016340839408867	0.9820978	2020:01:06:21:58:57.98
+skipping....
+WARNING:  problem in file with line: 
+245.4663	0	0.00161967290640394	0.9817222	2020:01:06:21:59:57.34
+skipping....
+WARNING:  problem in file with line: 
+250.5905	0	0.00160519684729064	0.9825189	2020:01:06:22:00:59.27
+skipping....
+WARNING:  problem in file with line: 
+255.5125	0	0.00159300334975369	0.9823608	2020:01:06:22:01:58.16
+skipping....
+WARNING:  problem in file with line: 
+260.4808	0	0.00157973083743842	0.9824743	2020:01:06:22:02:57.67
+skipping....
+WARNING:  problem in file with line: 
+265.6524	0	0.00156562876847291	0.982471	2020:01:06:22:03:59.78
+skipping....
+WARNING:  problem in file with line: 
+270.4836	0	0.00155418206896552	0.9823884	2020:01:06:22:04:57.21
+skipping....
+WARNING:  problem in file with line: 
+275.5649	0	0.00154222935960591	0.981694	2020:01:06:22:05:58.52
+skipping....
+WARNING:  problem in file with line: 
+280.647	0	0.00153008748768473	0.9824116	2020:01:06:22:06:58.87
+skipping....
+WARNING:  problem in file with line: 
+285.5625	0	0.00151912433497537	0.9822901	2020:01:06:22:07:58.20
+skipping....
+WARNING:  problem in file with line: 
+290.499	0	0.00150674916256158	0.9826428	2020:01:06:22:08:58.17
+skipping....
+WARNING:  problem in file with line: 
+295.652	0	0.00149620137931034	0.9828435	2020:01:06:22:09:58.97
+skipping....
+WARNING:  problem in file with line: 
+300.0265	0	0.00147930088669951	0.9826507	2020:01:06:22:15:31.98
+skipping....
+6  records written to file  /Users/unimos/0000_Github/PmagPy-docs/example_notebooks/template_notebooks/measurements_3.txt
+WARNING:  problem in file with line: 
+meas_temp	meas_field_dc	magn_mass	magn_r2_det	timestamp
+skipping....
+WARNING:  problem in file with line: 
+9.991568	0	0.0191728472906404	0.9818217	2020:01:06:23:39:18.61
+skipping....
+WARNING:  problem in file with line: 
+15.57353	0	0.0187779940886699	0.9813871	2020:01:06:23:40:40.97
+skipping....
+WARNING:  problem in file with line: 
+20.53902	0	0.0175715822660099	0.9814526	2020:01:06:23:41:40.57
+skipping....
+WARNING:  problem in file with line: 
+25.59192	0	0.01666920591133	0.9816182	2020:01:06:23:42:42.58
+skipping....
+WARNING:  problem in file with line: 
+30.5229	0	0.0158822738916256	0.9814772	2020:01:06:23:43:41.78
+skipping....
+WARNING:  problem in file with line: 
+35.58424	0	0.0148209261083744	0.9815037	2020:01:06:23:44:43.66
+skipping....
+WARNING:  problem in file with line: 
+40.59194	0	0.0132362009852217	0.9816284	2020:01:06:23:45:44.38
+skipping....
+WARNING:  problem in file with line: 
+45.58417	0	0.0114054226600985	0.9806328	2020:01:06:23:46:45.09
+skipping....
+WARNING:  problem in file with line: 
+51.68184	0	0.00992119408866995	0.9810225	2020:01:06:23:47:58.49
+skipping....
+WARNING:  problem in file with line: 
+55.53374	0	0.00946537142857143	0.981108	2020:01:06:23:48:44.20
+skipping....
+WARNING:  problem in file with line: 
+60.60981	0	0.0091216	0.9805413	2020:01:06:23:49:45.48
+skipping....
+WARNING:  problem in file with line: 
+65.50082	0	0.00886613990147783	0.9811148	2020:01:06:23:50:44.21
+skipping....
+WARNING:  problem in file with line: 
+70.62904	0	0.00861329261083744	0.9813082	2020:01:06:23:51:45.10
+skipping....
+WARNING:  problem in file with line: 
+75.57212	0	0.00836685320197044	0.9808571	2020:01:06:23:52:44.25
+skipping....
+WARNING:  problem in file with line: 
+80.54212	0	0.00807787980295566	0.9814163	2020:01:06:23:53:43.65
+skipping....
+WARNING:  problem in file with line: 
+85.67235	0	0.0077248236453202	0.9818081	2020:01:06:23:54:44.69
+skipping....
+WARNING:  problem in file with line: 
+90.49979	0	0.00731525123152709	0.9810527	2020:01:06:23:55:43.49
+skipping....
+WARNING:  problem in file with line: 
+95.55402	0	0.00680784630541872	0.9814765	2020:01:06:23:56:43.39
+skipping....
+WARNING:  problem in file with line: 
+100.5564	0	0.00622592315270936	0.9812832	2020:01:06:23:57:42.92
+skipping....
+WARNING:  problem in file with line: 
+105.5227	0	0.00562547783251231	0.9807549	2020:01:06:23:58:42.87
+skipping....
+WARNING:  problem in file with line: 
+111.5561	0	0.00490254187192118	0.9813086	2020:01:06:23:59:55.27
+skipping....
+WARNING:  problem in file with line: 
+115.6055	0	0.00446651428571428	0.9816326	2020:01:07:00:00:43.83
+skipping....
+WARNING:  problem in file with line: 
+120.5521	0	0.00400473300492611	0.9806501	2020:01:07:00:01:41.66
+skipping....
+WARNING:  problem in file with line: 
+125.664	0	0.00363050285714286	0.9814882	2020:01:07:00:02:42.89
+skipping....
+WARNING:  problem in file with line: 
+130.5773	0	0.00337104472906404	0.9819143	2020:01:07:00:03:41.77
+skipping....
+WARNING:  problem in file with line: 
+135.5561	0	0.00316905655172414	0.98151	2020:01:07:00:04:41.57
+skipping....
+WARNING:  problem in file with line: 
+140.481	0	0.00300657261083744	0.9816569	2020:01:07:00:05:40.50
+skipping....
+WARNING:  problem in file with line: 
+146.7115	0	0.00284035389162562	0.9818864	2020:01:07:00:06:55.90
+skipping....
+WARNING:  problem in file with line: 
+150.5557	0	0.00275579743842365	0.981635	2020:01:07:00:07:41.51
+skipping....
+WARNING:  problem in file with line: 
+155.5406	0	0.00266118620689655	0.9818807	2020:01:07:00:08:40.34
+skipping....
+WARNING:  problem in file with line: 
+160.5806	0	0.00258036334975369	0.9820995	2020:01:07:00:09:41.17
+skipping....
+WARNING:  problem in file with line: 
+165.5255	0	0.00251850246305419	0.9818684	2020:01:07:00:10:41.51
+skipping....
+WARNING:  problem in file with line: 
+170.5637	0	0.00246272866995074	0.9819015	2020:01:07:00:11:40.83
+skipping....
+WARNING:  problem in file with line: 
+175.5599	0	0.00241628256157635	0.981923	2020:01:07:00:12:40.93
+skipping....
+WARNING:  problem in file with line: 
+180.4706	0	0.0023782124137931	0.9814381	2020:01:07:00:13:39.48
+skipping....
+WARNING:  problem in file with line: 
+185.5535	0	0.00234115625615764	0.9821406	2020:01:07:00:14:40.42
+skipping....
+WARNING:  problem in file with line: 
+190.636	0	0.00230808236453202	0.9824238	2020:01:07:00:15:41.74
+skipping....
+WARNING:  problem in file with line: 
+195.4763	0	0.00228256748768473	0.9820731	2020:01:07:00:16:39.31
+skipping....
+WARNING:  problem in file with line: 
+200.6574	0	0.00225481655172414	0.9825601	2020:01:07:00:17:40.53
+skipping....
+WARNING:  problem in file with line: 
+205.5923	0	0.00223039290640394	0.9825111	2020:01:07:00:18:40.21
+skipping....
+WARNING:  problem in file with line: 
+210.6164	0	0.00220827783251231	0.9820572	2020:01:07:00:19:40.86
+skipping....
+WARNING:  problem in file with line: 
+215.5812	0	0.00218748532019704	0.981971	2020:01:07:00:20:39.80
+skipping....
+WARNING:  problem in file with line: 
+220.5978	0	0.00216499231527094	0.9827151	2020:01:07:00:21:40.92
+skipping....
+WARNING:  problem in file with line: 
+225.4969	0	0.00214894896551724	0.9820859	2020:01:07:00:22:38.95
+skipping....
+WARNING:  problem in file with line: 
+230.4993	0	0.00213126344827586	0.9823686	2020:01:07:00:23:39.11
+skipping....
+WARNING:  problem in file with line: 
+235.6138	0	0.00210992866995074	0.9823817	2020:01:07:00:24:40.58
+skipping....
+WARNING:  problem in file with line: 
+240.6043	0	0.00209803270935961	0.9822741	2020:01:07:00:25:40.20
+skipping....
+WARNING:  problem in file with line: 
+245.4514	0	0.00208305812807882	0.9821526	2020:01:07:00:26:38.37
+skipping....
+WARNING:  problem in file with line: 
+250.6581	0	0.00206821556650246	0.9820852	2020:01:07:00:27:40.96
+skipping....
+WARNING:  problem in file with line: 
+255.5394	0	0.00205526266009852	0.9823672	2020:01:07:00:28:39.97
+skipping....
+WARNING:  problem in file with line: 
+260.5144	0	0.00204107270935961	0.9823974	2020:01:07:00:29:38.94
+skipping....
+WARNING:  problem in file with line: 
+265.6755	0	0.00202519369458128	0.9828069	2020:01:07:00:30:41.42
+skipping....
+WARNING:  problem in file with line: 
+270.5382	0	0.0020135357635468	0.9825389	2020:01:07:00:31:39.44
+skipping....
+WARNING:  problem in file with line: 
+275.5836	0	0.00200148532019704	0.982355	2020:01:07:00:32:39.33
+skipping....
+WARNING:  problem in file with line: 
+280.5231	0	0.00198828177339901	0.9821836	2020:01:07:00:33:39.57
+skipping....
+WARNING:  problem in file with line: 
+285.4747	0	0.00197533871921182	0.9825048	2020:01:07:00:34:38.75
+skipping....
+WARNING:  problem in file with line: 
+290.569	0	0.00196317990147783	0.9825686	2020:01:07:00:35:38.78
+skipping....
+WARNING:  problem in file with line: 
+295.5286	0	0.00195068256157635	0.9824157	2020:01:07:00:36:39.46
+skipping....
+WARNING:  problem in file with line: 
+300.0265	0	0.00193195901477832	0.9828554	2020:01:07:00:42:08.58
+skipping....
+6  records written to file  /Users/unimos/0000_Github/PmagPy-docs/example_notebooks/template_notebooks/measurements_4.txt
+WARNING:  problem in file with line: 
+meas_temp	meas_field_dc	magn_mass	magn_r2_det	timestamp
+skipping....
+WARNING:  problem in file with line: 
+299.9891	0	0.0156912669950739	0.9819986	2020:01:07:00:51:36.29
+skipping....
+WARNING:  problem in file with line: 
+294.6103	0	0.0156494620689655	0.9817138	2020:01:07:00:55:56.22
+skipping....
+WARNING:  problem in file with line: 
+289.4672	0	0.0155767133004926	0.981712	2020:01:07:00:57:17.54
+skipping....
+WARNING:  problem in file with line: 
+284.3387	0	0.0154949280788177	0.9814363	2020:01:07:00:58:22.75
+skipping....
+WARNING:  problem in file with line: 
+279.4019	0	0.0154170600985222	0.9810049	2020:01:07:00:59:24.73
+skipping....
+WARNING:  problem in file with line: 
+274.3663	0	0.0153311566502463	0.9810344	2020:01:07:01:00:29.55
+skipping....
+WARNING:  problem in file with line: 
+269.4086	0	0.015227842364532	0.9812211	2020:01:07:01:01:35.15
+skipping....
+WARNING:  problem in file with line: 
+264.3751	0	0.0151329024630542	0.9810052	2020:01:07:01:02:38.44
+skipping....
+WARNING:  problem in file with line: 
+259.4083	0	0.0150310857142857	0.9810507	2020:01:07:01:03:42.71
+skipping....
+WARNING:  problem in file with line: 
+254.3032	0	0.0149171034482759	0.9809657	2020:01:07:01:04:45.99
+skipping....
+WARNING:  problem in file with line: 
+249.2676	0	0.0148022344827586	0.9805587	2020:01:07:01:05:47.73
+skipping....
+WARNING:  problem in file with line: 
+244.3531	0	0.0146832354679803	0.9806596	2020:01:07:01:06:48.95
+skipping....
+WARNING:  problem in file with line: 
+239.2965	0	0.0145440039408867	0.9807792	2020:01:07:01:07:50.64
+skipping....
+WARNING:  problem in file with line: 
+234.3762	0	0.0144084650246305	0.9810237	2020:01:07:01:08:50.42
+skipping....
+WARNING:  problem in file with line: 
+229.2738	0	0.0142601497536946	0.9806846	2020:01:07:01:09:52.91
+skipping....
+WARNING:  problem in file with line: 
+224.3596	0	0.0141023133004926	0.9807106	2020:01:07:01:10:54.26
+skipping....
+WARNING:  problem in file with line: 
+219.3712	0	0.0139323231527094	0.9807542	2020:01:07:01:11:54.11
+skipping....
+WARNING:  problem in file with line: 
+214.3469	0	0.0137664078817734	0.9805871	2020:01:07:01:12:55.22
+skipping....
+WARNING:  problem in file with line: 
+209.3587	0	0.0135742778325123	0.9806008	2020:01:07:01:13:55.86
+skipping....
+WARNING:  problem in file with line: 
+204.3671	0	0.0133678660098522	0.9807816	2020:01:07:01:14:56.76
+skipping....
+WARNING:  problem in file with line: 
+199.3931	0	0.0131530561576355	0.9806125	2020:01:07:01:15:56.36
+skipping....
+WARNING:  problem in file with line: 
+194.4185	0	0.0129252295566502	0.9808435	2020:01:07:01:16:55.69
+skipping....
+WARNING:  problem in file with line: 
+189.3993	0	0.0126719960591133	0.9806885	2020:01:07:01:17:56.80
+skipping....
+WARNING:  problem in file with line: 
+184.3284	0	0.0124077399014778	0.9805532	2020:01:07:01:18:57.06
+skipping....
+WARNING:  problem in file with line: 
+179.4033	0	0.012136918226601	0.9802818	2020:01:07:01:19:55.23
+skipping....
+WARNING:  problem in file with line: 
+174.4048	0	0.0118194719211823	0.9805378	2020:01:07:01:20:56.24
+skipping....
+WARNING:  problem in file with line: 
+169.4365	0	0.0114932965517241	0.9805053	2020:01:07:01:21:55.58
+skipping....
+WARNING:  problem in file with line: 
+163.1419	0	0.0111591448275862	0.9815211	2020:01:07:01:23:08.27
+skipping....
+WARNING:  problem in file with line: 
+159.3837	0	0.0107933911330049	0.9802438	2020:01:07:01:23:54.77
+skipping....
+WARNING:  problem in file with line: 
+154.3412	0	0.010375475862069	0.9804223	2020:01:07:01:24:53.44
+skipping....
+WARNING:  problem in file with line: 
+149.3674	0	0.00994305418719212	0.9804273	2020:01:07:01:25:52.74
+skipping....
+WARNING:  problem in file with line: 
+144.3589	0	0.00948833497536946	0.9803653	2020:01:07:01:26:51.34
+skipping....
+WARNING:  problem in file with line: 
+139.3466	0	0.00900271921182266	0.9802666	2020:01:07:01:27:49.48
+skipping....
+WARNING:  problem in file with line: 
+134.3206	0	0.00847363940886699	0.9804405	2020:01:07:01:28:47.57
+skipping....
+WARNING:  problem in file with line: 
+129.3069	0	0.00790087881773399	0.9802085	2020:01:07:01:29:46.29
+skipping....
+WARNING:  problem in file with line: 
+124.4048	0	0.00729703251231527	0.9800493	2020:01:07:01:30:42.50
+skipping....
+WARNING:  problem in file with line: 
+119.4054	0	0.00661404137931034	0.980067	2020:01:07:01:31:39.54
+skipping....
+WARNING:  problem in file with line: 
+114.3076	0	0.00589783645320197	0.9798103	2020:01:07:01:32:36.95
+skipping....
+WARNING:  problem in file with line: 
+108.2141	0	0.00520686108374384	0.9795384	2020:01:07:01:33:45.80
+skipping....
+WARNING:  problem in file with line: 
+104.2852	0	0.00455666600985222	0.9791734	2020:01:07:01:34:29.39
+skipping....
+WARNING:  problem in file with line: 
+99.29247	0	0.00396891822660098	0.9796789	2020:01:07:01:35:23.53
+skipping....
+WARNING:  problem in file with line: 
+94.35858	0	0.00351500768472906	0.9798846	2020:01:07:01:36:15.65
+skipping....
+WARNING:  problem in file with line: 
+89.3752	0	0.00315747743842364	0.9802727	2020:01:07:01:37:08.70
+skipping....
+WARNING:  problem in file with line: 
+84.24769	0	0.00289421399014778	0.980265	2020:01:07:01:38:01.52
+skipping....
+WARNING:  problem in file with line: 
+79.34229	0	0.00271576433497537	0.9803765	2020:01:07:01:38:51.28
+skipping....
+WARNING:  problem in file with line: 
+74.18144	0	0.00258722837438424	0.9805974	2020:01:07:01:39:42.19
+skipping....
+WARNING:  problem in file with line: 
+67.96942	0	0.00249779113300493	0.9812557	2020:01:07:01:40:45.12
+skipping....
+WARNING:  problem in file with line: 
+64.17627	0	0.00244625931034483	0.9808373	2020:01:07:01:41:20.36
+skipping....
+WARNING:  problem in file with line: 
+59.16336	0	0.00241033812807882	0.9803496	2020:01:07:01:42:06.29
+skipping....
+WARNING:  problem in file with line: 
+54.23577	0	0.00238813004926108	0.9809613	2020:01:07:01:42:52.97
+skipping....
+WARNING:  problem in file with line: 
+49.38685	0	0.00237343054187192	0.9809694	2020:01:07:01:43:42.59
+skipping....
+WARNING:  problem in file with line: 
+44.33308	0	0.00236706128078818	0.9811788	2020:01:07:01:44:36.19
+skipping....
+WARNING:  problem in file with line: 
+39.36557	0	0.00236247133004926	0.9813858	2020:01:07:01:45:25.14
+skipping....
+WARNING:  problem in file with line: 
+34.30986	0	0.00235307310344828	0.9811352	2020:01:07:01:46:12.51
+skipping....
+WARNING:  problem in file with line: 
+29.25581	0	0.0023229718226601	0.9819607	2020:01:07:01:46:56.89
+skipping....
+WARNING:  problem in file with line: 
+24.05942	0	0.00230391093596059	0.9813509	2020:01:07:01:47:37.99
+skipping....
+WARNING:  problem in file with line: 
+19.67728	0	0.00230017536945813	0.9815136	2020:01:07:01:48:35.71
+skipping....
+WARNING:  problem in file with line: 
+14.01641	0	0.00230622384236453	0.9814029	2020:01:07:01:49:25.66
+skipping....
+WARNING:  problem in file with line: 
+10.0118	0	0.00231733793103448	0.9814003	2020:01:07:02:03:29.19
+skipping....
+6  records written to file  /Users/unimos/0000_Github/PmagPy-docs/example_notebooks/template_notebooks/measurements_5.txt
+WARNING:  problem in file with line: 
+meas_temp	meas_field_dc	magn_mass	magn_r2_det	timestamp
+skipping....
+WARNING:  problem in file with line: 
+10.04929	0	0.00231680157635468	0.9813665	2020:01:07:02:04:38.33
+skipping....
+WARNING:  problem in file with line: 
+15.51798	0	0.00230238857142857	0.9815163	2020:01:07:02:05:58.40
+skipping....
+WARNING:  problem in file with line: 
+20.50521	0	0.00229881300492611	0.9817228	2020:01:07:02:06:57.62
+skipping....
+WARNING:  problem in file with line: 
+25.55996	0	0.00230325517241379	0.9820449	2020:01:07:02:08:00.00
+skipping....
+WARNING:  problem in file with line: 
+30.47023	0	0.00232320472906404	0.9815245	2020:01:07:02:08:59.15
+skipping....
+WARNING:  problem in file with line: 
+35.50948	0	0.00234368078817734	0.9815704	2020:01:07:02:09:59.87
+skipping....
+WARNING:  problem in file with line: 
+40.48857	0	0.00234593142857143	0.9820541	2020:01:07:02:11:01.45
+skipping....
+WARNING:  problem in file with line: 
+45.52123	0	0.0023522202955665	0.981736	2020:01:07:02:12:01.42
+skipping....
+WARNING:  problem in file with line: 
+50.61059	0	0.00235725162561576	0.9815445	2020:01:07:02:13:03.23
+skipping....
+WARNING:  problem in file with line: 
+55.586	0	0.00236634995073892	0.9819953	2020:01:07:02:14:02.27
+skipping....
+WARNING:  problem in file with line: 
+60.52588	0	0.00238923310344828	0.9813534	2020:01:07:02:15:02.27
+skipping....
+WARNING:  problem in file with line: 
+65.50748	0	0.00241843625615763	0.9818439	2020:01:07:02:16:01.90
+skipping....
+WARNING:  problem in file with line: 
+70.64391	0	0.00246345300492611	0.9816965	2020:01:07:02:17:02.59
+skipping....
+WARNING:  problem in file with line: 
+75.46559	0	0.0025304602955665	0.9815279	2020:01:07:02:18:00.79
+skipping....
+WARNING:  problem in file with line: 
+80.59657	0	0.00262654896551724	0.9818787	2020:01:07:02:19:01.33
+skipping....
+WARNING:  problem in file with line: 
+85.5435	0	0.00287483349753695	0.90197	2020:01:07:02:20:01.39
+skipping....
+WARNING:  problem in file with line: 
+90.61974	0	0.00292820098522167	0.9817035	2020:01:07:02:21:01.47
+skipping....
+WARNING:  problem in file with line: 
+95.5965	0	0.00314909162561576	0.9818588	2020:01:07:02:22:00.55
+skipping....
+WARNING:  problem in file with line: 
+100.6065	0	0.00342059192118227	0.9822057	2020:01:07:02:23:00.79
+skipping....
+WARNING:  problem in file with line: 
+105.5791	0	0.00372463014778325	0.9815654	2020:01:07:02:24:00.13
+skipping....
+WARNING:  problem in file with line: 
+110.5482	0	0.00403708374384236	0.9813715	2020:01:07:02:24:59.84
+skipping....
+WARNING:  problem in file with line: 
+115.5537	0	0.00434182068965517	0.9820607	2020:01:07:02:26:00.15
+skipping....
+WARNING:  problem in file with line: 
+120.5016	0	0.00460703842364532	0.9819841	2020:01:07:02:26:58.35
+skipping....
+WARNING:  problem in file with line: 
+125.5205	0	0.00483901477832512	0.9822438	2020:01:07:02:27:59.22
+skipping....
+WARNING:  problem in file with line: 
+130.562	0	0.00503497931034483	0.9820521	2020:01:07:02:28:59.32
+skipping....
+WARNING:  problem in file with line: 
+135.5596	0	0.0051968315270936	0.9822943	2020:01:07:02:29:58.66
+skipping....
+WARNING:  problem in file with line: 
+140.5617	0	0.00533220886699507	0.9816022	2020:01:07:02:30:59.14
+skipping....
+WARNING:  problem in file with line: 
+145.571	0	0.00545617339901478	0.9817546	2020:01:07:02:31:59.12
+skipping....
+WARNING:  problem in file with line: 
+150.4721	0	0.00555720985221675	0.9821278	2020:01:07:02:32:57.27
+skipping....
+WARNING:  problem in file with line: 
+155.5111	0	0.00565287881773399	0.9815497	2020:01:07:02:33:58.27
+skipping....
+WARNING:  problem in file with line: 
+160.5067	0	0.00573767093596059	0.9824737	2020:01:07:02:34:58.63
+skipping....
+WARNING:  problem in file with line: 
+165.5846	0	0.00581110147783251	0.9822159	2020:01:07:02:35:58.66
+skipping....
+WARNING:  problem in file with line: 
+170.4962	0	0.00587497536945813	0.9822958	2020:01:07:02:36:57.49
+skipping....
+WARNING:  problem in file with line: 
+175.5812	0	0.00594128078817734	0.9824367	2020:01:07:02:37:58.29
+skipping....
+WARNING:  problem in file with line: 
+180.5702	0	0.00599542463054187	0.9823813	2020:01:07:02:38:57.49
+skipping....
+WARNING:  problem in file with line: 
+185.562	0	0.0060424197044335	0.9823652	2020:01:07:02:39:57.81
+skipping....
+WARNING:  problem in file with line: 
+190.5226	0	0.006085560591133	0.9826106	2020:01:07:02:40:57.74
+skipping....
+WARNING:  problem in file with line: 
+195.4926	0	0.00612492610837438	0.9826103	2020:01:07:02:41:56.64
+skipping....
+WARNING:  problem in file with line: 
+200.4618	0	0.00615468768472906	0.9826643	2020:01:07:02:42:57.65
+skipping....
+WARNING:  problem in file with line: 
+205.6031	0	0.00618664827586207	0.9827083	2020:01:07:02:43:57.55
+skipping....
+WARNING:  problem in file with line: 
+210.5055	0	0.00621446699507389	0.9825609	2020:01:07:02:44:57.34
+skipping....
+WARNING:  problem in file with line: 
+215.5506	0	0.00623612610837438	0.9825313	2020:01:07:02:45:57.63
+skipping....
+WARNING:  problem in file with line: 
+220.5735	0	0.00625413596059113	0.9826949	2020:01:07:02:46:56.99
+skipping....
+WARNING:  problem in file with line: 
+225.5518	0	0.00626909556650246	0.9825847	2020:01:07:02:47:57.24
+skipping....
+WARNING:  problem in file with line: 
+230.5078	0	0.00628331034482759	0.9824957	2020:01:07:02:48:56.78
+skipping....
+WARNING:  problem in file with line: 
+235.6	0	0.00629058522167488	0.9827411	2020:01:07:02:49:57.71
+skipping....
+WARNING:  problem in file with line: 
+240.4896	0	0.00629927487684729	0.9824204	2020:01:07:02:50:56.38
+skipping....
+WARNING:  problem in file with line: 
+245.541	0	0.00630500886699507	0.9824177	2020:01:07:02:51:57.14
+skipping....
+WARNING:  problem in file with line: 
+250.637	0	0.00630612807881773	0.9830486	2020:01:07:02:52:57.79
+skipping....
+WARNING:  problem in file with line: 
+255.5069	0	0.00630837438423645	0.9827034	2020:01:07:02:53:56.39
+skipping....
+WARNING:  problem in file with line: 
+260.4921	0	0.00630909162561576	0.9825764	2020:01:07:02:54:56.60
+skipping....
+WARNING:  problem in file with line: 
+265.6059	0	0.00630462660098522	0.9827618	2020:01:07:02:55:58.94
+skipping....
+WARNING:  problem in file with line: 
+270.5862	0	0.00629689064039409	0.9827406	2020:01:07:02:56:57.41
+skipping....
+WARNING:  problem in file with line: 
+275.6275	0	0.00629533793103448	0.9825014	2020:01:07:02:57:57.39
+skipping....
+WARNING:  problem in file with line: 
+280.6078	0	0.00628728275862069	0.9825398	2020:01:07:02:58:56.99
+skipping....
+WARNING:  problem in file with line: 
+285.5624	0	0.00627257931034483	0.9827769	2020:01:07:02:59:56.91
+skipping....
+WARNING:  problem in file with line: 
+290.5342	0	0.00626456748768473	0.9829252	2020:01:07:03:00:56.85
+skipping....
+WARNING:  problem in file with line: 
+295.6085	0	0.00625105812807882	0.9829206	2020:01:07:03:01:57.33
+skipping....
+WARNING:  problem in file with line: 
+300.0265	0	0.00622920197044335	0.9827451	2020:01:07:03:07:30.57
+skipping....
+6  records written to file  /Users/unimos/0000_Github/PmagPy-docs/example_notebooks/template_notebooks/measurements_6.txt
+</pre></div>
+</div>
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>True
+</pre></div>
+</div>
+</div>
+</div>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            name: "python3",
+            path: "./example_notebooks/template_notebooks"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+                </article>
+              
+
+              
+              
+              
+              
+                <footer class="prev-next-footer d-print-none">
+                  
+<div class="prev-next-area">
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="simple visible nav section-nav flex-column">
+</ul>
+
+  </nav></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
+  
+  <div class="footer-item">
+    
+<p class="component-author">
+By PmagPy Contributors
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+
+  <p class="copyright">
+    
+      © Copyright 2025.
+      <br/>
+    
+  </p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+</div>
+          </footer>
+        
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="../../_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b"></script>
+<script src="../../_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b"></script>
+
+  <footer class="bd-footer">
+  </footer>
+  </body>
+</html>

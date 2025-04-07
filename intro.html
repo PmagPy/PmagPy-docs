@@ -1,13 +1,12 @@
 
-
 <!DOCTYPE html>
 
 
-<html lang="en" data-content_root="" >
+<html lang="en" data-content_root="./" >
 
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
     <title>PmagPy: An open source package for paleomagnetic data analysis &#8212; PmagPy Documentation</title>
   
@@ -15,53 +14,51 @@
   
   <script data-cfasync="false">
     document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
-    document.documentElement.dataset.theme = localStorage.getItem("theme") || "light";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "";
   </script>
   
   <!-- Loaded before other Sphinx assets -->
-  <link href="_static/styles/theme.css?digest=5b4479735964841361fd" rel="stylesheet" />
-<link href="_static/styles/bootstrap.css?digest=5b4479735964841361fd" rel="stylesheet" />
-<link href="_static/styles/pydata-sphinx-theme.css?digest=5b4479735964841361fd" rel="stylesheet" />
+  <link href="_static/styles/theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+<link href="_static/styles/bootstrap.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+<link href="_static/styles/pydata-sphinx-theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
 
   
-  <link href="_static/vendor/fontawesome/6.1.2/css/all.min.css?digest=5b4479735964841361fd" rel="stylesheet" />
-  <link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.1.2/webfonts/fa-solid-900.woff2" />
-<link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.1.2/webfonts/fa-brands-400.woff2" />
-<link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.1.2/webfonts/fa-regular-400.woff2" />
+  <link href="_static/vendor/fontawesome/6.5.2/css/all.min.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.5.2/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.5.2/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.5.2/webfonts/fa-regular-400.woff2" />
 
-    <link rel="stylesheet" type="text/css" href="_static/pygments.css" />
-    <link rel="stylesheet" href="_static/styles/sphinx-book-theme.css?digest=14f4ca6b54d191a8c7657f6c759bf11a5fb86285" type="text/css" />
-    <link rel="stylesheet" type="text/css" href="_static/togglebutton.css" />
-    <link rel="stylesheet" type="text/css" href="_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=03e43079" />
+    <link rel="stylesheet" type="text/css" href="_static/styles/sphinx-book-theme.css?v=eba8b062" />
+    <link rel="stylesheet" type="text/css" href="_static/togglebutton.css?v=13237357" />
+    <link rel="stylesheet" type="text/css" href="_static/copybutton.css?v=76b2166b" />
     <link rel="stylesheet" type="text/css" href="_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
-    <link rel="stylesheet" type="text/css" href="_static/sphinx-thebe.css" />
-    <link rel="stylesheet" type="text/css" href="_static/design-style.4045f2051d55cab465a707391d5b2007.min.css" />
+    <link rel="stylesheet" type="text/css" href="_static/sphinx-thebe.css?v=4fa983c6" />
+    <link rel="stylesheet" type="text/css" href="_static/sphinx-design.min.css?v=95c83b7e" />
   
   <!-- Pre-loaded scripts that we'll load fully later -->
-  <link rel="preload" as="script" href="_static/scripts/bootstrap.js?digest=5b4479735964841361fd" />
-<link rel="preload" as="script" href="_static/scripts/pydata-sphinx-theme.js?digest=5b4479735964841361fd" />
-  <script src="_static/vendor/fontawesome/6.1.2/js/all.min.js?digest=5b4479735964841361fd"></script>
+  <link rel="preload" as="script" href="_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b" />
+<link rel="preload" as="script" href="_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b" />
+  <script src="_static/vendor/fontawesome/6.5.2/js/all.min.js?digest=dfe6caa3a7d634c4db9b"></script>
 
-    <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
-    <script src="_static/jquery.js"></script>
-    <script src="_static/underscore.js"></script>
-    <script src="_static/_sphinx_javascript_frameworks_compat.js"></script>
-    <script src="_static/doctools.js"></script>
-    <script src="_static/clipboard.min.js"></script>
-    <script src="_static/copybutton.js"></script>
-    <script src="_static/scripts/sphinx-book-theme.js?digest=5a5c038af52cf7bc1a1ec88eea08e6366ee68824"></script>
+    <script src="_static/documentation_options.js?v=9eb32ce0"></script>
+    <script src="_static/doctools.js?v=9a2dae69"></script>
+    <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="_static/clipboard.min.js?v=a7894cd8"></script>
+    <script src="_static/copybutton.js?v=f281be69"></script>
+    <script src="_static/scripts/sphinx-book-theme.js?v=887ef09a"></script>
     <script>let toggleHintShow = 'Click to show';</script>
     <script>let toggleHintHide = 'Click to hide';</script>
     <script>let toggleOpenOnPrint = 'true';</script>
-    <script src="_static/togglebutton.js"></script>
+    <script src="_static/togglebutton.js?v=4a39c7ea"></script>
     <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
-    <script src="_static/design-tabs.js"></script>
-    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
-const thebe_selector = ".thebe,.cell"
-const thebe_selector_input = "pre"
-const thebe_selector_output = ".output, .cell_output"
-</script>
-    <script async="async" src="_static/sphinx-thebe.js"></script>
+    <script src="_static/design-tabs.js?v=f930bc37"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script async="async" src="_static/sphinx-thebe.js?v=c100c467"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
+    <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
     <script>DOCUMENTATION_OPTIONS.pagename = 'intro';</script>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
@@ -75,28 +72,23 @@ const thebe_selector_output = ".output, .cell_output"
 
   
   
-  <a class="skip-link" href="#main-content">Skip to main content</a>
+  <div id="pst-skip-link" class="skip-link d-print-none"><a href="#main-content">Skip to main content</a></div>
   
   <div id="pst-scroll-pixel-helper"></div>
-
   
   <button type="button" class="btn rounded-pill" id="pst-back-to-top">
-    <i class="fa-solid fa-arrow-up"></i>
-    Back to top
-  </button>
+    <i class="fa-solid fa-arrow-up"></i>Back to top</button>
 
   
   <input type="checkbox"
           class="sidebar-toggle"
-          name="__primary"
-          id="__primary"/>
-  <label class="overlay overlay-primary" for="__primary"></label>
+          id="pst-primary-sidebar-checkbox"/>
+  <label class="overlay overlay-primary" for="pst-primary-sidebar-checkbox"></label>
   
   <input type="checkbox"
           class="sidebar-toggle"
-          name="__secondary"
-          id="__secondary"/>
-  <label class="overlay overlay-secondary" for="__secondary"></label>
+          id="pst-secondary-sidebar-checkbox"/>
+  <label class="overlay overlay-secondary" for="pst-secondary-sidebar-checkbox"></label>
   
   <div class="search-button__wrapper">
     <div class="search-button__overlay"></div>
@@ -118,12 +110,22 @@ const thebe_selector_output = ".output, .cell_output"
   <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
 </form></div>
   </div>
+
+  <div class="pst-async-banner-revealer d-none">
+  <aside id="bd-header-version-warning" class="d-none d-print-none" aria-label="Version warning"></aside>
+</div>
+
   
-    <nav class="bd-header navbar navbar-expand-lg bd-navbar">
-    </nav>
+    <header class="bd-header navbar navbar-expand-lg bd-navbar d-print-none">
+    </header>
   
+
   <div class="bd-container">
     <div class="bd-container__inner bd-page-width">
+      
+      
+      
+        
       
       <div class="bd-sidebar-primary bd-sidebar">
         
@@ -139,6 +141,8 @@ const thebe_selector_output = ".output, .cell_output"
     <div class="sidebar-primary-items__start sidebar-primary__section">
         <div class="sidebar-primary-item">
 
+  
+    
   
 
 <a class="navbar-brand logo" href="#">
@@ -157,7 +161,18 @@ const thebe_selector_output = ".output, .cell_output"
   
   
 </a></div>
-        <div class="sidebar-primary-item"><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
+        <div class="sidebar-primary-item">
+
+ <script>
+ document.write(`
+   <button class="btn search-button-field search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass"></i>
+    <span class="search-button__default-text">Search</span>
+    <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+   </button>
+ `);
+ </script></div>
+        <div class="sidebar-primary-item"><nav class="bd-links bd-docs-nav" aria-label="Main">
     <div class="bd-toc-item navbar-nav active">
         
         <ul class="nav bd-sidenav bd-sidenav__home-link">
@@ -169,7 +184,7 @@ const thebe_selector_output = ".output, .cell_output"
         </ul>
         <p aria-level="2" class="caption" role="heading"><span class="caption-text">Installation</span></p>
 <ul class="nav bd-sidenav">
-<li class="toctree-l1 has-children"><a class="reference internal" href="installation/PmagPy_install.html">Installing <strong>PmagPy</strong></a><input class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-1"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l1 has-children"><a class="reference internal" href="installation/PmagPy_install.html">Installing <strong>PmagPy</strong></a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
 <li class="toctree-l2"><a class="reference internal" href="installation/osx_pip.html">OSX pip install</a></li>
 <li class="toctree-l2"><a class="reference internal" href="installation/osx_developer.html">OSX developer install</a></li>
 <li class="toctree-l2"><a class="reference internal" href="installation/windows_pip.html">Windows pip install</a></li>
@@ -179,12 +194,12 @@ const thebe_selector_output = ".output, .cell_output"
 <li class="toctree-l2"><a class="reference internal" href="installation/troubleshooting.html">Troubleshooting installation issues</a></li>
 <li class="toctree-l2"><a class="reference internal" href="programs/command_line_programs.html">Command line programs</a></li>
 </ul>
-</li>
-<li class="toctree-l1 has-children"><a class="reference internal" href="programs/pmag_gui.html">Installing and Getting Started with Pmag GUI</a><input class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-2"><i class="fa-solid fa-chevron-down"></i></label><ul>
+</details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="programs/pmag_gui.html">Installing and Getting Started with Pmag GUI</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
 <li class="toctree-l2"><a class="reference internal" href="programs/demag_gui.html">Demag GUI</a></li>
 <li class="toctree-l2"><a class="reference internal" href="programs/thellier_gui.html">Thellier GUI</a></li>
 </ul>
-</li>
+</details></li>
 <li class="toctree-l1"><a class="reference internal" href="resources/survival_skills.html">Survival computer skills</a></li>
 
 </ul>
@@ -231,7 +246,7 @@ const thebe_selector_output = ".output, .cell_output"
 
       </div>
       
-      <main id="main-content" class="bd-main">
+      <main id="main-content" class="bd-main" role="main">
         
         
 
@@ -240,14 +255,14 @@ const thebe_selector_output = ".output, .cell_output"
           <div class="bd-content">
             <div class="bd-article-container">
               
-              <div class="bd-header-article">
+              <div class="bd-header-article d-print-none">
 <div class="header-article-items header-article__inner">
   
     <div class="header-article-items__start">
       
-        <div class="header-article-item"><label class="sidebar-toggle primary-toggle btn btn-sm" for="__primary" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+        <div class="header-article-item"><button class="sidebar-toggle primary-toggle btn btn-sm" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
   <span class="fa-solid fa-bars"></span>
-</label></div>
+</button></div>
       
     </div>
   
@@ -372,10 +387,10 @@ const thebe_selector_output = ".output, .cell_output"
 
 <script>
 document.write(`
-  <button class="btn btn-sm navbar-btn theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
-    <span class="theme-switch nav-link" data-mode="light"><i class="fa-solid fa-sun fa-lg"></i></span>
-    <span class="theme-switch nav-link" data-mode="dark"><i class="fa-solid fa-moon fa-lg"></i></span>
-    <span class="theme-switch nav-link" data-mode="auto"><i class="fa-solid fa-circle-half-stroke fa-lg"></i></span>
+  <button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="theme-switch fa-solid fa-sun fa-lg" data-mode="light"></i>
+    <i class="theme-switch fa-solid fa-moon fa-lg" data-mode="dark"></i>
+    <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"></i>
   </button>
 `);
 </script>
@@ -383,14 +398,14 @@ document.write(`
 
 <script>
 document.write(`
-  <button class="btn btn-sm navbar-btn search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <button class="btn btn-sm pst-navbar-icon search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
     <i class="fa-solid fa-magnifying-glass fa-lg"></i>
   </button>
 `);
 </script>
-<label class="sidebar-toggle secondary-toggle btn btn-sm" for="__secondary"title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+<button class="sidebar-toggle secondary-toggle btn btn-sm" title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
     <span class="fa-solid fa-list"></span>
-</label>
+</button>
 </div></div>
       
     </div>
@@ -429,10 +444,10 @@ document.write(`
               
                 
 <div id="searchbox"></div>
-                <article class="bd-article" role="main">
+                <article class="bd-article">
                   
   <section class="tex2jax_ignore mathjax_ignore" id="pmagpy-an-open-source-package-for-paleomagnetic-data-analysis">
-<h1>PmagPy: An open source package for paleomagnetic data analysis<a class="headerlink" href="#pmagpy-an-open-source-package-for-paleomagnetic-data-analysis" title="Permalink to this heading">#</a></h1>
+<h1>PmagPy: An open source package for paleomagnetic data analysis<a class="headerlink" href="#pmagpy-an-open-source-package-for-paleomagnetic-data-analysis" title="Link to this heading">#</a></h1>
 <p>PmagPy is a set of tools written in Python for the analysis of paleomagnetic data. It facilitates interpretation of demagnetization data, paleointensity data, and data from other types of rock magnetic experiments. The package is hosted on Github (<a class="github reference external" href="https://github.com/PmagPy/PmagPy">PmagPy/PmagPy</a>) and can be pip installed via PyPi (<a class="reference external" href="https://pypi.org/project/pmagpy/">https://pypi.org/project/pmagpy/</a>). PmagPy can be used to create a wide variety of useful plots. It is designed to work with the MagIC database (<a class="reference external" href="https://earthref.org/MagIC">https://earthref.org/MagIC</a>) and enables manipulation of downloaded MagIC data sets as well as preparation of new contributions for uploading to the MagIC database. Utilizing PmagPy within Jupyter notebooks enables fully documented and nicely illustrated data analysis.</p>
 <div class="sd-container-fluid sd-sphinx-override sd-mb-4 text-center docutils">
 <div class="sd-row sd-row-cols-1 sd-row-cols-xs-1 sd-row-cols-sm-1 sd-row-cols-md-2 sd-row-cols-lg-3 sd-g-3 sd-g-xs-3 sd-g-sm-3 sd-g-md-3 sd-g-lg-3 docutils">
@@ -444,7 +459,7 @@ document.write(`
 <div class="sd-card-body docutils">
 <p class="sd-card-text">Instructions for how to install PmagPy for your use case.</p>
 </div>
-<a class="sd-stretched-link reference internal" href="installation/PmagPy_install.html"><span class="doc"></span></a></div>
+<a class="sd-stretched-link sd-hide-link-text reference internal" href="installation/PmagPy_install.html"><span class="doc">Installing PmagPy</span></a></div>
 </div>
 <div class="sd-col sd-d-flex-row docutils">
 <div class="sd-card sd-sphinx-override sd-w-100 sd-shadow-sm sd-card-hover docutils">
@@ -454,7 +469,7 @@ document.write(`
 <div class="sd-card-body docutils">
 <p class="sd-card-text">See capabilities of PmagPy functions within these documentation Jupyter notebooks.</p>
 </div>
-<a class="sd-stretched-link reference internal" href="documentation_notebooks/PmagPy_introduction.html"><span class="doc"></span></a></div>
+<a class="sd-stretched-link sd-hide-link-text reference internal" href="documentation_notebooks/PmagPy_introduction.html"><span class="doc">Introduction to PmagPy</span></a></div>
 </div>
 <div class="sd-col sd-d-flex-row docutils">
 <div class="sd-card sd-sphinx-override sd-w-100 sd-shadow-sm sd-card-hover docutils">
@@ -464,7 +479,7 @@ document.write(`
 <div class="sd-card-body docutils">
 <p class="sd-card-text">See example template notebooks that analyze datasets from the MagIC database using PmagPy.</p>
 </div>
-<a class="sd-stretched-link reference internal" href="example_notebooks/template_notebooks.html"><span class="doc"></span></a></div>
+<a class="sd-stretched-link sd-hide-link-text reference internal" href="example_notebooks/template_notebooks.html"><span class="doc">Template notebooks</span></a></div>
 </div>
 <div class="sd-col sd-d-flex-row docutils">
 <div class="sd-card sd-sphinx-override sd-w-100 sd-shadow-sm sd-card-hover docutils">
@@ -474,7 +489,7 @@ document.write(`
 <div class="sd-card-body docutils">
 <p class="sd-card-text">Launch PmagPy notebooks on the Earthref JupyterHub</p>
 </div>
-<a class="sd-stretched-link reference external" href="https://jupyterhub.earthref.org/"></a></div>
+<a class="sd-stretched-link sd-hide-link-text reference external" href="https://jupyterhub.earthref.org/"><span>https://jupyterhub.earthref.org/</span></a></div>
 </div>
 <div class="sd-col sd-d-flex-row docutils">
 <div class="sd-card sd-sphinx-override sd-w-100 sd-shadow-sm sd-card-hover docutils">
@@ -484,7 +499,7 @@ document.write(`
 <div class="sd-card-body docutils">
 <p class="sd-card-text">Download and use Pmag GUI to analyze data and prepare data for MagIC.</p>
 </div>
-<a class="sd-stretched-link reference external" href="https://github.com/PmagPy/PmagPy-Standalone-OSX/releases/latest/"></a></div>
+<a class="sd-stretched-link sd-hide-link-text reference external" href="https://github.com/PmagPy/PmagPy-Standalone-OSX/releases/latest/"><span>https://github.com/PmagPy/PmagPy-Standalone-OSX/releases/latest/</span></a></div>
 </div>
 <div class="sd-col sd-d-flex-row docutils">
 <div class="sd-card sd-sphinx-override sd-w-100 sd-shadow-sm sd-card-hover docutils">
@@ -494,24 +509,24 @@ document.write(`
 <div class="sd-card-body docutils">
 <p class="sd-card-text">Develop new contributions and analyze existing datasets in the MagIC database.</p>
 </div>
-<a class="sd-stretched-link reference external" href="https://www2.earthref.org/MagIC/"></a></div>
+<a class="sd-stretched-link sd-hide-link-text reference external" href="https://www2.earthref.org/MagIC/"><span>https://www2.earthref.org/MagIC/</span></a></div>
 </div>
 </div>
 </div>
 <p>PmagPy is comprised of:</p>
 <ul class="simple">
-<li><p><strong>Function modules for paleomagnetic data analysis</strong> These function modules enable paleomagnetic data analysis (pmagpy.pmag) and plotting (pmagpy.pmagplotlib) as well as interactive higher level data analysis (pmagpy.ipmag). The functions within these modules are at the heart of the GUI and command line programs. With pmagpy as part of your Python installation (which can be accomplished through pip installation <code class="docutils literal notranslate"><span class="pre">pip</span> <span class="pre">install</span> <span class="pre">pmagpy</span></code>), these modules can be imported (e.g. <code class="docutils literal notranslate"><span class="pre">import</span> <span class="pre">pmagpy.ipmag</span> <span class="pre">as</span> <span class="pre">ipmag</span></code>). These functions can be used within Jupyter Notebooks (see examples in the <a class="reference internal" href="documentation_notebooks/PmagPy_introduction.html"><span class="doc std std-doc">documentation notebooks</span></a>) and are documented within the <a class="reference internal" href="api/api.html"><span class="doc std std-doc">API Reference</span></a>.</p></li>
-<li><p><strong>A graphical user interface (GUI) program</strong> The <a class="reference internal" href="programs/pmag_gui.html"><span class="doc std std-doc">PmagPy application</span></a> enables users to get data into the MagIC database format as well as analyze demagnetization and paleointensity data.</p></li>
+<li><p><strong>Function modules for paleomagnetic data analysis</strong> These function modules enable paleomagnetic data analysis (pmagpy.pmag) and plotting (pmagpy.pmagplotlib) as well as interactive higher level data analysis (pmagpy.ipmag). The functions within these modules are at the heart of the GUI and command line programs. With pmagpy as part of your Python installation (which can be accomplished through pip installation <code class="docutils literal notranslate"><span class="pre">pip</span> <span class="pre">install</span> <span class="pre">pmagpy</span></code>), these modules can be imported (e.g. <code class="docutils literal notranslate"><span class="pre">import</span> <span class="pre">pmagpy.ipmag</span> <span class="pre">as</span> <span class="pre">ipmag</span></code>). These functions can be used within Jupyter Notebooks (see examples in the <a class="reference internal" href="documentation_notebooks/PmagPy_introduction.html"><span class="std std-doc">documentation notebooks</span></a>) and are documented within the <a class="reference internal" href="api/api.html"><span class="doc std std-doc">API Reference</span></a>.</p></li>
+<li><p><strong>A graphical user interface (GUI) program</strong> The <a class="reference internal" href="programs/pmag_gui.html"><span class="std std-doc">PmagPy application</span></a> enables users to get data into the MagIC database format as well as analyze demagnetization and paleointensity data.</p></li>
 <li><p><strong>Command line programs</strong> The PmagPy command line programs enable all sorts of paleomagnetic data analysis and wrangling. They are contained within the programs folder of the PmagPy repository (<a class="github reference external" href="https://github.com/PmagPy/PmagPy">PmagPy/PmagPy</a>) and can be pip installed (<code class="docutils literal notranslate"><span class="pre">pip</span> <span class="pre">install</span> <span class="pre">pmagpy-cli</span></code>).</p></li>
 </ul>
 </section>
 <section class="tex2jax_ignore mathjax_ignore" id="citing-pmagpy">
-<h1>Citing PmagPy<a class="headerlink" href="#citing-pmagpy" title="Permalink to this heading">#</a></h1>
+<h1>Citing PmagPy<a class="headerlink" href="#citing-pmagpy" title="Link to this heading">#</a></h1>
 <p>Users of PmagPy should cite the open access article <span id="id1">[<a class="reference internal" href="references.html#id9" title="L. Tauxe, R. Shaar, L. Jonestrask, N.L. Swanson-Hysell, R. Minnett, A.A.P. Koppers, C.G. Constable, N. Jarboe, K. Gaastra, and L. Fairchild. PmagPy: Software package for paleomagnetic data analysis and a bridge to the Magnetics Information Consortium (MagIC) Database. Geochemistry, Geophysics, Geosystems, 17:2450-2463, 2016. doi:10.1002/2016GC006307.">Tauxe <em>et al.</em>, 2016</a>]</span>:</p>
 <p>Tauxe, L., R. Shaar, L. Jonestrask, N. L. Swanson-Hysell, R. Minnett, A. A. P. Koppers, C. G. Constable, N. Jarboe, K. Gaastra, and L. Fairchild (2016), PmagPy: Software package for paleomagnetic data analysis and a bridge to the Magnetics Information Consortium (MagIC) Database, Geochem. Geophys. Geosyst., 17, doi:<a class="reference external" href="http://dx.doi.org/10.1002/2016GC006307">10.1002/2016GC006307</a>.</p>
 </section>
 <section class="tex2jax_ignore mathjax_ignore" id="connect-with-us">
-<h1>Connect with us<a class="headerlink" href="#connect-with-us" title="Permalink to this heading">#</a></h1>
+<h1>Connect with us<a class="headerlink" href="#connect-with-us" title="Link to this heading">#</a></h1>
 <p>We are an open source community that welcomes discussion, feedback, and contributions of many kinds.</p>
 <div class="sd-container-fluid sd-sphinx-override sd-mb-4 text-center docutils">
 <div class="sd-row sd-row-cols-1 sd-row-cols-xs-1 sd-row-cols-sm-1 sd-row-cols-md-2 sd-row-cols-lg-2 sd-g-3 sd-g-xs-3 sd-g-sm-3 sd-g-md-3 sd-g-lg-3 docutils">
@@ -540,7 +555,7 @@ document.write(`
 </div>
 </section>
 <section class="tex2jax_ignore mathjax_ignore" id="analyzed-with-pmagpy">
-<h1>Analyzed with PmagPy<a class="headerlink" href="#analyzed-with-pmagpy" title="Permalink to this heading">#</a></h1>
+<h1>Analyzed with PmagPy<a class="headerlink" href="#analyzed-with-pmagpy" title="Link to this heading">#</a></h1>
 <p>Below are just a few of the hundreds of papers that have conducted analysis with PmagPy.
 You can find more on <a class="reference external" href="https://scholar.google.com/scholar?cites=16152229079597538403"><span class="sd-sphinx-override sd-badge sd-bg-primary sd-bg-text-primary">Google Scholar</span></a>.</p>
 <div class="sd-sphinx-override sd-cards-carousel sd-card-cols-3 docutils">
@@ -549,49 +564,53 @@ You can find more on <a class="reference external" href="https://scholar.google.
 <p class="sd-card-text"><strong>Moon rocks</strong></p>
 </div>
 <div class="sd-card-body text-center docutils">
-<a class="reference internal image-reference" href="_images/Nichols_2021.png"><img alt="_images/Nichols_2021.png" src="_images/Nichols_2021.png" style="height: 100px;" /></a>
+<a class="reference internal image-reference" href="_images/Nichols_2021.png"><img alt="_images/Nichols_2021.png" src="_images/Nichols_2021.png" style="height: 100px;" />
+</a>
 <p class="sd-card-text">Nature Astronomy: The palaeoinclination of the ancient lunar magnetic field from an Apollo 17 basalt <span id="id2">[<a class="reference internal" href="references.html#id12" title="Claire I. O. Nichols, Benjamin P. Weiss, Brenna L. Getzin, Harrison H. Schmitt, Annemarieke Béguin, Auriol S. P. Rae, and Jay Shah. The palaeoinclination of the ancient lunar magnetic field from an Apollo 17 basalt. Nature Astronomy, 5:1216–1223, 2021. doi:10.1038/s41550-021-01469-y.">Nichols <em>et al.</em>, 2021</a>]</span></p>
 </div>
 <div class="sd-card-footer docutils">
 <p class="sd-card-text">Explore this paper <span class="fas fa-arrow-right"></span></p>
 </div>
-<a class="sd-stretched-link reference external" href="https://www.nature.com/articles/s41550-021-01469-y"></a></div>
+<a class="sd-stretched-link sd-hide-link-text reference external" href="https://www.nature.com/articles/s41550-021-01469-y"><span>https://www.nature.com/articles/s41550-021-01469-y</span></a></div>
 <div class="sd-card sd-sphinx-override sd-m-3 sd-shadow-sm sd-card-hover docutils">
 <div class="sd-card-header bg-light text-center docutils">
 <p class="sd-card-text"><strong>Supercontinents</strong></p>
 </div>
 <div class="sd-card-body text-center docutils">
-<a class="reference internal image-reference" href="_images/Eyster_2020.png"><img alt="_images/Eyster_2020.png" src="_images/Eyster_2020.png" style="height: 100px;" /></a>
+<a class="reference internal image-reference" href="_images/Eyster_2020.png"><img alt="_images/Eyster_2020.png" src="_images/Eyster_2020.png" style="height: 100px;" />
+</a>
 <p class="sd-card-text">GSAB: Paleomagnetism of the Chuar Group…with implications for the makeup and breakup of Rodinia <span id="id3">[<a class="reference internal" href="references.html#id11" title="Athena Eyster, Benjamin P. Weiss, Karl Karlstrom, and Francis A. Macdonald. Paleomagnetism of the Chuar Group and evaluation of the late Tonian Laurentian apparent polar wander path with implications for the makeup and breakup of Rodinia. GSA Bulletin, 132:710-738, 2020. URL: http://dx.doi.org/10.1130/B32012.1, doi:10.1130/b32012.1.">Eyster <em>et al.</em>, 2020</a>]</span></p>
 </div>
 <div class="sd-card-footer docutils">
 <p class="sd-card-text">Explore this paper <span class="fas fa-arrow-right"></span></p>
 </div>
-<a class="sd-stretched-link reference external" href="https://doi.org/10.1130/B32012.1"></a></div>
+<a class="sd-stretched-link sd-hide-link-text reference external" href="https://doi.org/10.1130/B32012.1"><span>https://doi.org/10.1130/B32012.1</span></a></div>
 <div class="sd-card sd-sphinx-override sd-m-3 sd-shadow-sm sd-card-hover docutils">
 <div class="sd-card-header bg-light text-center docutils">
 <p class="sd-card-text"><strong>Ancient fields</strong></p>
 </div>
 <div class="sd-card-body text-center docutils">
-<a class="reference internal image-reference" href="_images/Jones_2020.png"><img alt="_images/Jones_2020.png" src="_images/Jones_2020.png" style="height: 100px;" /></a>
+<a class="reference internal image-reference" href="_images/Jones_2020.png"><img alt="_images/Jones_2020.png" src="_images/Jones_2020.png" style="height: 100px;" />
+</a>
 <p class="sd-card-text">G^3: Archeointensity of the Four Corners Region of the American Southwest <span id="id4">[<a class="reference internal" href="references.html#id10" title="S. A. Jones, L. Tauxe, E. Blinman, and A. Genevey. Archeointensity of the Four Corners Region of the American Southwest. Geochemistry, Geophysics, Geosystems, 2020. doi:10.1029/2018gc007509.">Jones <em>et al.</em>, 2020</a>]</span></p>
 </div>
 <div class="sd-card-footer docutils">
 <p class="sd-card-text">Explore this paper <span class="fas fa-arrow-right"></span></p>
 </div>
-<a class="sd-stretched-link reference external" href="https://doi.org/10.1029/2018GC007509"></a></div>
+<a class="sd-stretched-link sd-hide-link-text reference external" href="https://doi.org/10.1029/2018GC007509"><span>https://doi.org/10.1029/2018GC007509</span></a></div>
 </div>
 </section>
 <section class="tex2jax_ignore mathjax_ignore" id="learn-more-about-paleomagnetism">
-<h1>Learn more about paleomagnetism 📖<a class="headerlink" href="#learn-more-about-paleomagnetism" title="Permalink to this heading">#</a></h1>
+<h1>Learn more about paleomagnetism 📖<a class="headerlink" href="#learn-more-about-paleomagnetism" title="Link to this heading">#</a></h1>
 <p>The online textbook <a class="reference external" href="https://earthref.org/MagIC/books/Tauxe/Essentials/">Essentials of Paleomagnetism</a> is a place to learn more about Earth’s geomagnetic field, rock magnetism, paleomagnetism, statistics associated with paleomagnetic data, and more. The problems within the book call upon the reader to use PmagPy functions.</p>
 </section>
 <section class="tex2jax_ignore mathjax_ignore" id="acknowledgements">
-<h1>Acknowledgements<a class="headerlink" href="#acknowledgements" title="Permalink to this heading">#</a></h1>
+<h1>Acknowledgements<a class="headerlink" href="#acknowledgements" title="Link to this heading">#</a></h1>
 <div class="sd-container-fluid sd-sphinx-override sd-mb-4 docutils">
 <div class="sd-row sd-row-cols-2 sd-row-cols-xs-2 sd-row-cols-sm-2 sd-row-cols-md-2 sd-row-cols-lg-2 docutils">
 <div class="sd-col sd-d-flex-column sd-col-4 sd-col-xs-4 sd-col-sm-4 sd-col-md-4 sd-col-lg-4 docutils">
-<a class="m-auto reference internal image-reference" href="_images/NSF_logo.png"><img alt="_images/NSF_logo.png" class="m-auto" src="_images/NSF_logo.png" style="width: 150px;" /></a>
+<a class="m-auto reference internal image-reference" href="_images/NSF_logo.png"><img alt="_images/NSF_logo.png" class="m-auto" src="_images/NSF_logo.png" style="width: 150px;" />
+</a>
 </div>
 <div class="sd-col sd-d-flex-column sd-col-7 sd-col-xs-7 sd-col-sm-7 sd-col-md-7 sd-col-lg-7 docutils">
 <p>PmagPy has been developed in the context of research supported by grants from the National Science Foundation awarded to Lisa Tauxe and Nick Swanson-Hysell.
@@ -640,7 +659,7 @@ Current development is supported by the National Science Foundation through its 
               
               
               
-                <footer class="prev-next-footer">
+                <footer class="prev-next-footer d-print-none">
                   
 <div class="prev-next-area">
     <a class="right-next"
@@ -660,6 +679,7 @@ Current development is supported by the National Science Foundation through its 
             
               
                 <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
 
   <div class="sidebar-secondary-item">
   <div class="page-toc tocsection onthispage">
@@ -700,7 +720,7 @@ By PmagPy Contributors
 
   <p class="copyright">
     
-      © Copyright 2023.
+      © Copyright 2025.
       <br/>
     
   </p>
@@ -724,8 +744,8 @@ By PmagPy Contributors
   </div>
   
   <!-- Scripts loaded after <body> so the DOM is not blocked -->
-  <script src="_static/scripts/bootstrap.js?digest=5b4479735964841361fd"></script>
-<script src="_static/scripts/pydata-sphinx-theme.js?digest=5b4479735964841361fd"></script>
+  <script src="_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b"></script>
+<script src="_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b"></script>
 
   <footer class="bd-footer">
   </footer>

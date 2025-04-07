@@ -24,7 +24,7 @@ strongly recommend Anaconda.
   packages:
 
   ```
-  conda create -n pmagpy_env future wxPython cartopy pandas matplotlib requests jupyter
+  conda create -n pmagpy_env wxPython cartopy pandas matplotlib requests jupyter
   conda activate pmagpy_env
   pip install --user --upgrade pip setuptools
   conda install conda-forge::python-wget

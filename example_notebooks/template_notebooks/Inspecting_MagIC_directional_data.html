@@ -1,13 +1,12 @@
 
-
 <!DOCTYPE html>
 
 
-<html lang="en" data-content_root="" >
+<html lang="en" data-content_root="../../" >
 
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
     <title>Inspecting directional data in a MagIC contribution using PmagPy &#8212; PmagPy Documentation</title>
   
@@ -15,53 +14,49 @@
   
   <script data-cfasync="false">
     document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
-    document.documentElement.dataset.theme = localStorage.getItem("theme") || "light";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "";
   </script>
   
   <!-- Loaded before other Sphinx assets -->
-  <link href="../../_static/styles/theme.css?digest=5b4479735964841361fd" rel="stylesheet" />
-<link href="../../_static/styles/bootstrap.css?digest=5b4479735964841361fd" rel="stylesheet" />
-<link href="../../_static/styles/pydata-sphinx-theme.css?digest=5b4479735964841361fd" rel="stylesheet" />
+  <link href="../../_static/styles/theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+<link href="../../_static/styles/bootstrap.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+<link href="../../_static/styles/pydata-sphinx-theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
 
   
-  <link href="../../_static/vendor/fontawesome/6.1.2/css/all.min.css?digest=5b4479735964841361fd" rel="stylesheet" />
-  <link rel="preload" as="font" type="font/woff2" crossorigin href="../../_static/vendor/fontawesome/6.1.2/webfonts/fa-solid-900.woff2" />
-<link rel="preload" as="font" type="font/woff2" crossorigin href="../../_static/vendor/fontawesome/6.1.2/webfonts/fa-brands-400.woff2" />
-<link rel="preload" as="font" type="font/woff2" crossorigin href="../../_static/vendor/fontawesome/6.1.2/webfonts/fa-regular-400.woff2" />
+  <link href="../../_static/vendor/fontawesome/6.5.2/css/all.min.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="../../_static/vendor/fontawesome/6.5.2/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../../_static/vendor/fontawesome/6.5.2/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../../_static/vendor/fontawesome/6.5.2/webfonts/fa-regular-400.woff2" />
 
-    <link rel="stylesheet" type="text/css" href="../../_static/pygments.css" />
-    <link rel="stylesheet" href="../../_static/styles/sphinx-book-theme.css?digest=14f4ca6b54d191a8c7657f6c759bf11a5fb86285" type="text/css" />
-    <link rel="stylesheet" type="text/css" href="../../_static/togglebutton.css" />
-    <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/pygments.css?v=03e43079" />
+    <link rel="stylesheet" type="text/css" href="../../_static/styles/sphinx-book-theme.css?v=eba8b062" />
+    <link rel="stylesheet" type="text/css" href="../../_static/togglebutton.css?v=13237357" />
+    <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css?v=76b2166b" />
     <link rel="stylesheet" type="text/css" href="../../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
-    <link rel="stylesheet" type="text/css" href="../../_static/sphinx-thebe.css" />
-    <link rel="stylesheet" type="text/css" href="../../_static/design-style.4045f2051d55cab465a707391d5b2007.min.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/sphinx-thebe.css?v=4fa983c6" />
+    <link rel="stylesheet" type="text/css" href="../../_static/sphinx-design.min.css?v=95c83b7e" />
   
   <!-- Pre-loaded scripts that we'll load fully later -->
-  <link rel="preload" as="script" href="../../_static/scripts/bootstrap.js?digest=5b4479735964841361fd" />
-<link rel="preload" as="script" href="../../_static/scripts/pydata-sphinx-theme.js?digest=5b4479735964841361fd" />
-  <script src="../../_static/vendor/fontawesome/6.1.2/js/all.min.js?digest=5b4479735964841361fd"></script>
+  <link rel="preload" as="script" href="../../_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b" />
+<link rel="preload" as="script" href="../../_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b" />
+  <script src="../../_static/vendor/fontawesome/6.5.2/js/all.min.js?digest=dfe6caa3a7d634c4db9b"></script>
 
-    <script data-url_root="../../" id="documentation_options" src="../../_static/documentation_options.js"></script>
-    <script src="../../_static/jquery.js"></script>
-    <script src="../../_static/underscore.js"></script>
-    <script src="../../_static/_sphinx_javascript_frameworks_compat.js"></script>
-    <script src="../../_static/doctools.js"></script>
-    <script src="../../_static/clipboard.min.js"></script>
-    <script src="../../_static/copybutton.js"></script>
-    <script src="../../_static/scripts/sphinx-book-theme.js?digest=5a5c038af52cf7bc1a1ec88eea08e6366ee68824"></script>
+    <script src="../../_static/documentation_options.js?v=9eb32ce0"></script>
+    <script src="../../_static/doctools.js?v=9a2dae69"></script>
+    <script src="../../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../../_static/clipboard.min.js?v=a7894cd8"></script>
+    <script src="../../_static/copybutton.js?v=f281be69"></script>
+    <script src="../../_static/scripts/sphinx-book-theme.js?v=887ef09a"></script>
     <script>let toggleHintShow = 'Click to show';</script>
     <script>let toggleHintHide = 'Click to hide';</script>
     <script>let toggleOpenOnPrint = 'true';</script>
-    <script src="../../_static/togglebutton.js"></script>
+    <script src="../../_static/togglebutton.js?v=4a39c7ea"></script>
     <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
-    <script src="../../_static/design-tabs.js"></script>
-    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
-const thebe_selector = ".thebe,.cell"
-const thebe_selector_input = "pre"
-const thebe_selector_output = ".output, .cell_output"
-</script>
-    <script async="async" src="../../_static/sphinx-thebe.js"></script>
+    <script src="../../_static/design-tabs.js?v=f930bc37"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script async="async" src="../../_static/sphinx-thebe.js?v=c100c467"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
     <script>DOCUMENTATION_OPTIONS.pagename = 'example_notebooks/template_notebooks/Inspecting_MagIC_directional_data';</script>
     <link rel="index" title="Index" href="../../genindex.html" />
     <link rel="search" title="Search" href="../../search.html" />
@@ -74,28 +69,23 @@ const thebe_selector_output = ".output, .cell_output"
 
   
   
-  <a class="skip-link" href="#main-content">Skip to main content</a>
+  <div id="pst-skip-link" class="skip-link d-print-none"><a href="#main-content">Skip to main content</a></div>
   
   <div id="pst-scroll-pixel-helper"></div>
-
   
   <button type="button" class="btn rounded-pill" id="pst-back-to-top">
-    <i class="fa-solid fa-arrow-up"></i>
-    Back to top
-  </button>
+    <i class="fa-solid fa-arrow-up"></i>Back to top</button>
 
   
   <input type="checkbox"
           class="sidebar-toggle"
-          name="__primary"
-          id="__primary"/>
-  <label class="overlay overlay-primary" for="__primary"></label>
+          id="pst-primary-sidebar-checkbox"/>
+  <label class="overlay overlay-primary" for="pst-primary-sidebar-checkbox"></label>
   
   <input type="checkbox"
           class="sidebar-toggle"
-          name="__secondary"
-          id="__secondary"/>
-  <label class="overlay overlay-secondary" for="__secondary"></label>
+          id="pst-secondary-sidebar-checkbox"/>
+  <label class="overlay overlay-secondary" for="pst-secondary-sidebar-checkbox"></label>
   
   <div class="search-button__wrapper">
     <div class="search-button__overlay"></div>
@@ -117,12 +107,22 @@ const thebe_selector_output = ".output, .cell_output"
   <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
 </form></div>
   </div>
+
+  <div class="pst-async-banner-revealer d-none">
+  <aside id="bd-header-version-warning" class="d-none d-print-none" aria-label="Version warning"></aside>
+</div>
+
   
-    <nav class="bd-header navbar navbar-expand-lg bd-navbar">
-    </nav>
+    <header class="bd-header navbar navbar-expand-lg bd-navbar d-print-none">
+    </header>
   
+
   <div class="bd-container">
     <div class="bd-container__inner bd-page-width">
+      
+      
+      
+        
       
       <div class="bd-sidebar-primary bd-sidebar">
         
@@ -138,6 +138,8 @@ const thebe_selector_output = ".output, .cell_output"
     <div class="sidebar-primary-items__start sidebar-primary__section">
         <div class="sidebar-primary-item">
 
+  
+    
   
 
 <a class="navbar-brand logo" href="../../intro.html">
@@ -156,7 +158,18 @@ const thebe_selector_output = ".output, .cell_output"
   
   
 </a></div>
-        <div class="sidebar-primary-item"><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
+        <div class="sidebar-primary-item">
+
+ <script>
+ document.write(`
+   <button class="btn search-button-field search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass"></i>
+    <span class="search-button__default-text">Search</span>
+    <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+   </button>
+ `);
+ </script></div>
+        <div class="sidebar-primary-item"><nav class="bd-links bd-docs-nav" aria-label="Main">
     <div class="bd-toc-item navbar-nav active">
         
         <ul class="nav bd-sidenav bd-sidenav__home-link">
@@ -168,7 +181,7 @@ const thebe_selector_output = ".output, .cell_output"
         </ul>
         <p aria-level="2" class="caption" role="heading"><span class="caption-text">Installation</span></p>
 <ul class="nav bd-sidenav">
-<li class="toctree-l1 has-children"><a class="reference internal" href="../../installation/PmagPy_install.html">Installing <strong>PmagPy</strong></a><input class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-1"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../installation/PmagPy_install.html">Installing <strong>PmagPy</strong></a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
 <li class="toctree-l2"><a class="reference internal" href="../../installation/osx_pip.html">OSX pip install</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../installation/osx_developer.html">OSX developer install</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../installation/windows_pip.html">Windows pip install</a></li>
@@ -178,12 +191,12 @@ const thebe_selector_output = ".output, .cell_output"
 <li class="toctree-l2"><a class="reference internal" href="../../installation/troubleshooting.html">Troubleshooting installation issues</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../programs/command_line_programs.html">Command line programs</a></li>
 </ul>
-</li>
-<li class="toctree-l1 has-children"><a class="reference internal" href="../../programs/pmag_gui.html">Installing and Getting Started with Pmag GUI</a><input class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-2"><i class="fa-solid fa-chevron-down"></i></label><ul>
+</details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../programs/pmag_gui.html">Installing and Getting Started with Pmag GUI</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
 <li class="toctree-l2"><a class="reference internal" href="../../programs/demag_gui.html">Demag GUI</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../programs/thellier_gui.html">Thellier GUI</a></li>
 </ul>
-</li>
+</details></li>
 <li class="toctree-l1"><a class="reference internal" href="../../resources/survival_skills.html">Survival computer skills</a></li>
 
 </ul>
@@ -230,7 +243,7 @@ const thebe_selector_output = ".output, .cell_output"
 
       </div>
       
-      <main id="main-content" class="bd-main">
+      <main id="main-content" class="bd-main" role="main">
         
         
 
@@ -239,14 +252,14 @@ const thebe_selector_output = ".output, .cell_output"
           <div class="bd-content">
             <div class="bd-article-container">
               
-              <div class="bd-header-article">
+              <div class="bd-header-article d-print-none">
 <div class="header-article-items header-article__inner">
   
     <div class="header-article-items__start">
       
-        <div class="header-article-item"><label class="sidebar-toggle primary-toggle btn btn-sm" for="__primary" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+        <div class="header-article-item"><button class="sidebar-toggle primary-toggle btn btn-sm" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
   <span class="fa-solid fa-bars"></span>
-</label></div>
+</button></div>
       
     </div>
   
@@ -371,10 +384,10 @@ const thebe_selector_output = ".output, .cell_output"
 
 <script>
 document.write(`
-  <button class="btn btn-sm navbar-btn theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
-    <span class="theme-switch nav-link" data-mode="light"><i class="fa-solid fa-sun fa-lg"></i></span>
-    <span class="theme-switch nav-link" data-mode="dark"><i class="fa-solid fa-moon fa-lg"></i></span>
-    <span class="theme-switch nav-link" data-mode="auto"><i class="fa-solid fa-circle-half-stroke fa-lg"></i></span>
+  <button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="theme-switch fa-solid fa-sun fa-lg" data-mode="light"></i>
+    <i class="theme-switch fa-solid fa-moon fa-lg" data-mode="dark"></i>
+    <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"></i>
   </button>
 `);
 </script>
@@ -382,14 +395,14 @@ document.write(`
 
 <script>
 document.write(`
-  <button class="btn btn-sm navbar-btn search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <button class="btn btn-sm pst-navbar-icon search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
     <i class="fa-solid fa-magnifying-glass fa-lg"></i>
   </button>
 `);
 </script>
-<label class="sidebar-toggle secondary-toggle btn btn-sm" for="__secondary"title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+<button class="sidebar-toggle secondary-toggle btn btn-sm" title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
     <span class="fa-solid fa-list"></span>
-</label>
+</button>
 </div></div>
       
     </div>
@@ -431,19 +444,19 @@ document.write(`
               
                 
 <div id="searchbox"></div>
-                <article class="bd-article" role="main">
+                <article class="bd-article">
                   
   <section class="tex2jax_ignore mathjax_ignore" id="inspecting-directional-data-in-a-magic-contribution-using-pmagpy">
-<h1>Inspecting directional data in a MagIC contribution using PmagPy<a class="headerlink" href="#inspecting-directional-data-in-a-magic-contribution-using-pmagpy" title="Permalink to this heading">#</a></h1>
+<h1>Inspecting directional data in a MagIC contribution using PmagPy<a class="headerlink" href="#inspecting-directional-data-in-a-magic-contribution-using-pmagpy" title="Link to this heading">#</a></h1>
 <p>This template notebook enables inspection of the data within a MagIC contribution. We want to get the data from MagIC, import the data into our notebook, and inspect the data by making plots.</p>
 <section id="import-functions-from-pmagpy">
-<h2>Import functions from PmagPy<a class="headerlink" href="#import-functions-from-pmagpy" title="Permalink to this heading">#</a></h2>
+<h2>Import functions from PmagPy<a class="headerlink" href="#import-functions-from-pmagpy" title="Link to this heading">#</a></h2>
 <p>To start with, let’s import some functions from PmagPy:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">pmagpy.ipmag</span> <span class="k">as</span> <span class="nn">ipmag</span>
-<span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
-<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">pmagpy.ipmag</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">ipmag</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">pandas</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">pd</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">matplotlib.pyplot</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">plt</span>
 
 <span class="o">%</span><span class="k">matplotlib</span> inline
 <span class="o">%</span><span class="k">config</span> InlineBackend.figure_format=&#39;retina&#39;
@@ -453,7 +466,7 @@ document.write(`
 </div>
 </section>
 <section id="import-the-data">
-<h2>Import the data<a class="headerlink" href="#import-the-data" title="Permalink to this heading">#</a></h2>
+<h2>Import the data<a class="headerlink" href="#import-the-data" title="Link to this heading">#</a></h2>
 <p>We can use ipmag to go download the data from MagIC for us. We can do this in a couple of ways. One way is to use the doi and the function <code class="docutils literal notranslate"><span class="pre">ipmag.download_magic_from_doi()</span></code>. The other is to use the MagIC contribution ID number with the <code class="docutils literal notranslate"><span class="pre">ipmag.download_magic_from_id()</span></code> function. Let’s take the doi download approach for the study:</p>
 <blockquote>
 <div><p>Stelten, Thomas, Pivarunas, and Champion (2023). Spatio-temporal clustering of post-caldera eruptions at Yellowstone caldera: implications for volcanic hazards and pre-eruptive magma reservoir configuration. Bulletin of Volcanology 85 (10). doi:10.1007/S00445-023-01665-W.</p>
@@ -484,7 +497,7 @@ document.write(`
 </div>
 </section>
 <section id="unpacking-the-tables">
-<h2>Unpacking the tables<a class="headerlink" href="#unpacking-the-tables" title="Permalink to this heading">#</a></h2>
+<h2>Unpacking the tables<a class="headerlink" href="#unpacking-the-tables" title="Link to this heading">#</a></h2>
 <p>A MagIC contribution is a single .txt file that comprises a number of tables. In the case of this contribution, we have these tables:</p>
 <ul class="simple">
 <li><p>ages</p></li>
@@ -519,7 +532,7 @@ document.write(`
 </div>
 </section>
 <section id="visualizing-measurement-level-data">
-<h2>Visualizing measurement level data<a class="headerlink" href="#visualizing-measurement-level-data" title="Permalink to this heading">#</a></h2>
+<h2>Visualizing measurement level data<a class="headerlink" href="#visualizing-measurement-level-data" title="Link to this heading">#</a></h2>
 <p>The <code class="docutils literal notranslate"><span class="pre">ipmag.zeq_magic()</span></code> function will plot measurement data from single specimens generating:</p>
 <ul class="simple">
 <li><p>equal area plot</p></li>
@@ -536,22 +549,25 @@ document.write(`
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>1  saved in  LO:__SI:__SA:__SP:_Y2102-1a_CO:__TY:_eqarea_.png
-2  saved in  LO:__SI:__SA:__SP:_Y2102-1a_CO:__TY:_zijd_.png
-3  saved in  LO:__SI:__SA:__SP:_Y2102-1a_CO:__TY:_demag_.png
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>-I- Using online data model
+-I- Getting method codes from earthref.org
+-I- Importing controlled vocabularies from https://earthref.org
 </pre></div>
 </div>
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>(True,
- [&#39;LO:__SI:__SA:__SP:_Y2102-1a_CO:__TY:_eqarea_.png&#39;,
-  &#39;LO:__SI:__SA:__SP:_Y2102-1a_CO:__TY:_zijd_.png&#39;,
-  &#39;LO:__SI:__SA:__SP:_Y2102-1a_CO:__TY:_demag_.png&#39;])
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>(True, [])
 </pre></div>
 </div>
+<a class="reference internal image-reference" href="../../_images/3b442989763b65c9c97f8cce4a156b0c847acf12de7b93f27c2b1fd9e7974f9c.png"><img alt="../../_images/3b442989763b65c9c97f8cce4a156b0c847acf12de7b93f27c2b1fd9e7974f9c.png" src="../../_images/3b442989763b65c9c97f8cce4a156b0c847acf12de7b93f27c2b1fd9e7974f9c.png" style="width: 410px; height: 410px;" />
+</a>
+<a class="reference internal image-reference" href="../../_images/e95d3c10c23818404d1ec10528711083b355ced0aeccef40cfe325121ca1b67c.png"><img alt="../../_images/e95d3c10c23818404d1ec10528711083b355ced0aeccef40cfe325121ca1b67c.png" src="../../_images/e95d3c10c23818404d1ec10528711083b355ced0aeccef40cfe325121ca1b67c.png" style="width: 410px; height: 410px;" />
+</a>
+<a class="reference internal image-reference" href="../../_images/10992063e198b297f8c287d862167cfefaa63521b7c68b9551c2521d227b8b90.png"><img alt="../../_images/10992063e198b297f8c287d862167cfefaa63521b7c68b9551c2521d227b8b90.png" src="../../_images/10992063e198b297f8c287d862167cfefaa63521b7c68b9551c2521d227b8b90.png" style="width: 410px; height: 410px;" />
+</a>
 </div>
 </div>
 </section>
 <section id="get-specimen-list">
-<h2>Get specimen list<a class="headerlink" href="#get-specimen-list" title="Permalink to this heading">#</a></h2>
+<h2>Get specimen list<a class="headerlink" href="#get-specimen-list" title="Link to this heading">#</a></h2>
 <p>We can get lists of MagIC_names for locations, sites, samples, specimens using <code class="docutils literal notranslate"><span class="pre">ipmag.list_MagIC_names</span></code>. Let’s look at all of the specimen names.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -668,7 +684,7 @@ document.write(`
 </div>
 </section>
 <section id="plot-a-specific-specimen">
-<h2>Plot a specific specimen<a class="headerlink" href="#plot-a-specific-specimen" title="Permalink to this heading">#</a></h2>
+<h2>Plot a specific specimen<a class="headerlink" href="#plot-a-specific-specimen" title="Link to this heading">#</a></h2>
 <p>We can then have <code class="docutils literal notranslate"><span class="pre">ipmag.zeq_magic</span></code> plot a specific specimen rather than defaulting to plotting the first one.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -684,18 +700,43 @@ document.write(`
 <div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>(True, [])
 </pre></div>
 </div>
-<img alt="../../_images/fb11e463f94e6d2be29efebf1d24486ff9b8feb7f598285bb20f631f31464d6e.png" src="../../_images/fb11e463f94e6d2be29efebf1d24486ff9b8feb7f598285bb20f631f31464d6e.png" />
-<img alt="../../_images/4dbfd1bdaad17212114869aa9601cc6232162b9f71cb02c9a73eafd5957e7e4f.png" src="../../_images/4dbfd1bdaad17212114869aa9601cc6232162b9f71cb02c9a73eafd5957e7e4f.png" />
-<img alt="../../_images/55c12c5cc77ea82644c10ecba198dc7f498102a8d1279c17e36d5d2090011501.png" src="../../_images/55c12c5cc77ea82644c10ecba198dc7f498102a8d1279c17e36d5d2090011501.png" />
+<a class="reference internal image-reference" href="../../_images/292bb2884b8a8ac55dec3586bf5af288c2091f8702b6b31fab01a2ea732465e9.png"><img alt="../../_images/292bb2884b8a8ac55dec3586bf5af288c2091f8702b6b31fab01a2ea732465e9.png" src="../../_images/292bb2884b8a8ac55dec3586bf5af288c2091f8702b6b31fab01a2ea732465e9.png" style="width: 410px; height: 410px;" />
+</a>
+<a class="reference internal image-reference" href="../../_images/900b847a52f7093eb25650fdc2d0074099bbef6c7bdde95425184fa651e9ed13.png"><img alt="../../_images/900b847a52f7093eb25650fdc2d0074099bbef6c7bdde95425184fa651e9ed13.png" src="../../_images/900b847a52f7093eb25650fdc2d0074099bbef6c7bdde95425184fa651e9ed13.png" style="width: 410px; height: 410px;" />
+</a>
+<a class="reference internal image-reference" href="../../_images/5751c0812ddf968b7e8dce0209cf370978d0b8441b8cfa481a968a9fae78bede.png"><img alt="../../_images/5751c0812ddf968b7e8dce0209cf370978d0b8441b8cfa481a968a9fae78bede.png" src="../../_images/5751c0812ddf968b7e8dce0209cf370978d0b8441b8cfa481a968a9fae78bede.png" style="width: 410px; height: 410px;" />
+</a>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">specimen_to_plot</span> <span class="o">=</span> <span class="s1">&#39;Y213-5a&#39;</span>
+
+<span class="n">ipmag</span><span class="o">.</span><span class="n">zeq_magic</span><span class="p">(</span><span class="n">save_plots</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> 
+                <span class="n">input_dir_path</span><span class="o">=</span><span class="n">directory</span><span class="p">,</span>
+                <span class="n">specimen</span><span class="o">=</span><span class="n">specimen_to_plot</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>(True, [])
+</pre></div>
+</div>
+<a class="reference internal image-reference" href="../../_images/96087cfa4e271c3364e40c4c3e23ee86976d21931b47ddaacb2032649e4e5bf1.png"><img alt="../../_images/96087cfa4e271c3364e40c4c3e23ee86976d21931b47ddaacb2032649e4e5bf1.png" src="../../_images/96087cfa4e271c3364e40c4c3e23ee86976d21931b47ddaacb2032649e4e5bf1.png" style="width: 410px; height: 410px;" />
+</a>
+<a class="reference internal image-reference" href="../../_images/fc9f600fe67478de1b130eaab2d20419dab90ec1d9628209fc4ccc37a17bf90d.png"><img alt="../../_images/fc9f600fe67478de1b130eaab2d20419dab90ec1d9628209fc4ccc37a17bf90d.png" src="../../_images/fc9f600fe67478de1b130eaab2d20419dab90ec1d9628209fc4ccc37a17bf90d.png" style="width: 410px; height: 410px;" />
+</a>
+<a class="reference internal image-reference" href="../../_images/3f4bfec5cfc090ea6c34fc7da68e6885f684c9374855a7c7e41d2d7143f970b8.png"><img alt="../../_images/3f4bfec5cfc090ea6c34fc7da68e6885f684c9374855a7c7e41d2d7143f970b8.png" src="../../_images/3f4bfec5cfc090ea6c34fc7da68e6885f684c9374855a7c7e41d2d7143f970b8.png" style="width: 410px; height: 410px;" />
+</a>
 </div>
 </div>
 </section>
 <section id="visualizing-site-level-data">
-<h2>Visualizing site level data<a class="headerlink" href="#visualizing-site-level-data" title="Permalink to this heading">#</a></h2>
+<h2>Visualizing site level data<a class="headerlink" href="#visualizing-site-level-data" title="Link to this heading">#</a></h2>
 <p>Plots can also be saved by setting <code class="docutils literal notranslate"><span class="pre">save_plots</span></code> to be <code class="docutils literal notranslate"><span class="pre">True</span></code></p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">ipmag</span><span class="o">.</span><span class="n">eqarea_magic</span><span class="p">(</span><span class="n">save_plots</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> 
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">ipmag</span><span class="o">.</span><span class="n">eqarea_magic</span><span class="p">(</span><span class="n">save_plots</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> 
                    <span class="n">input_dir_path</span><span class="o">=</span><span class="n">directory</span><span class="p">,</span>
                    <span class="n">dir_path</span><span class="o">=</span><span class="n">directory</span><span class="p">,</span>
                    <span class="p">)</span>
@@ -721,7 +762,8 @@ document.write(`
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../_images/e330dbf675cf1430a0ad7d0929652c076d2b5f42fba0aec583c6bf7d9ca6323a.png" src="../../_images/e330dbf675cf1430a0ad7d0929652c076d2b5f42fba0aec583c6bf7d9ca6323a.png" />
+<a class="reference internal image-reference" href="../../_images/e330dbf675cf1430a0ad7d0929652c076d2b5f42fba0aec583c6bf7d9ca6323a.png"><img alt="../../_images/e330dbf675cf1430a0ad7d0929652c076d2b5f42fba0aec583c6bf7d9ca6323a.png" src="../../_images/e330dbf675cf1430a0ad7d0929652c076d2b5f42fba0aec583c6bf7d9ca6323a.png" style="width: 1135px; height: 1135px;" />
+</a>
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>1  saved in  MC:_19640_TY:_VGP_map.pdf
 </pre></div>
 </div>
@@ -732,10 +774,10 @@ document.write(`
 </div>
 </section>
 <section id="importing-specific-magic-tables">
-<h2>Importing specific MagIC tables<a class="headerlink" href="#importing-specific-magic-tables" title="Permalink to this heading">#</a></h2>
+<h2>Importing specific MagIC tables<a class="headerlink" href="#importing-specific-magic-tables" title="Link to this heading">#</a></h2>
 <p>The functions above <code class="docutils literal notranslate"><span class="pre">ipmag.zeq_magic</span></code>, <code class="docutils literal notranslate"><span class="pre">ipmag.eqarea_magic</span></code>, and <code class="docutils literal notranslate"><span class="pre">ipmag.vgpmap_magic</span></code> are convenience functions that are able to directly read from MagIC files. For some other functions in <code class="docutils literal notranslate"><span class="pre">PmagPy</span></code> data need to be imported to be Python objects. There is a really nice package for dealing with tabular data in Python called <code class="docutils literal notranslate"><span class="pre">pandas</span></code>. The code cell below imports this package so that we can use it. We use the typical scientific Python nomenclature of importing it for use to the shorthand <code class="docutils literal notranslate"><span class="pre">pd</span></code>.</p>
 <section id="import-the-sites-table">
-<h3>Import the sites table<a class="headerlink" href="#import-the-sites-table" title="Permalink to this heading">#</a></h3>
+<h3>Import the sites table<a class="headerlink" href="#import-the-sites-table" title="Link to this heading">#</a></h3>
 <p>We can now use pandas to import the sites table to a pandas dataframe using the function <code class="docutils literal notranslate"><span class="pre">pd.read_csv()</span></code>.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -962,7 +1004,7 @@ document.write(`
 </div>
 </section>
 <section id="plot-the-sites-and-calculate-the-fisher-mean">
-<h3>Plot the sites and calculate the Fisher mean<a class="headerlink" href="#plot-the-sites-and-calculate-the-fisher-mean" title="Permalink to this heading">#</a></h3>
+<h3>Plot the sites and calculate the Fisher mean<a class="headerlink" href="#plot-the-sites-and-calculate-the-fisher-mean" title="Link to this heading">#</a></h3>
 <p>We can extract specific columns from the dataframe by using the nomenclature <code class="docutils literal notranslate"><span class="pre">dataframe_name['column_name']</span></code>. In this case, the dataframe name is <code class="docutils literal notranslate"><span class="pre">sites</span></code> and the column name might be <code class="docutils literal notranslate"><span class="pre">dir_dec</span></code>. So <code class="docutils literal notranslate"><span class="pre">sites['dir_dec']</span></code> will give us  all the declinations.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -981,7 +1023,8 @@ document.write(`
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../_images/fc4659ad6b75e723f58a47cb0163c0787c5e20ed5a706e8f7e4aeea3dbc0c5e5.png" src="../../_images/fc4659ad6b75e723f58a47cb0163c0787c5e20ed5a706e8f7e4aeea3dbc0c5e5.png" />
+<a class="reference internal image-reference" href="../../_images/fc4659ad6b75e723f58a47cb0163c0787c5e20ed5a706e8f7e4aeea3dbc0c5e5.png"><img alt="../../_images/fc4659ad6b75e723f58a47cb0163c0787c5e20ed5a706e8f7e4aeea3dbc0c5e5.png" src="../../_images/fc4659ad6b75e723f58a47cb0163c0787c5e20ed5a706e8f7e4aeea3dbc0c5e5.png" style="width: 424px; height: 424px;" />
+</a>
 </div>
 </div>
 <div class="cell docutils container">
@@ -1011,7 +1054,8 @@ Precision parameter (k) estimate: 348.8
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../_images/925d62aae2134b9aa870d1e26f0fe530f322683e764fb1a2add7d4176707d7a0.png" src="../../_images/925d62aae2134b9aa870d1e26f0fe530f322683e764fb1a2add7d4176707d7a0.png" />
+<a class="reference internal image-reference" href="../../_images/925d62aae2134b9aa870d1e26f0fe530f322683e764fb1a2add7d4176707d7a0.png"><img alt="../../_images/925d62aae2134b9aa870d1e26f0fe530f322683e764fb1a2add7d4176707d7a0.png" src="../../_images/925d62aae2134b9aa870d1e26f0fe530f322683e764fb1a2add7d4176707d7a0.png" style="width: 424px; height: 424px;" />
+</a>
 </div>
 </div>
 </section>
@@ -1045,7 +1089,7 @@ Precision parameter (k) estimate: 348.8
               
               
               
-                <footer class="prev-next-footer">
+                <footer class="prev-next-footer d-print-none">
                   
 <div class="prev-next-area">
 </div>
@@ -1056,6 +1100,7 @@ Precision parameter (k) estimate: 348.8
             
               
                 <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
 
   <div class="sidebar-secondary-item">
   <div class="page-toc tocsection onthispage">
@@ -1099,7 +1144,7 @@ By PmagPy Contributors
 
   <p class="copyright">
     
-      © Copyright 2023.
+      © Copyright 2025.
       <br/>
     
   </p>
@@ -1123,8 +1168,8 @@ By PmagPy Contributors
   </div>
   
   <!-- Scripts loaded after <body> so the DOM is not blocked -->
-  <script src="../../_static/scripts/bootstrap.js?digest=5b4479735964841361fd"></script>
-<script src="../../_static/scripts/pydata-sphinx-theme.js?digest=5b4479735964841361fd"></script>
+  <script src="../../_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b"></script>
+<script src="../../_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b"></script>
 
   <footer class="bd-footer">
   </footer>

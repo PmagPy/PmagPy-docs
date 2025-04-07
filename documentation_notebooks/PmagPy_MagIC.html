@@ -1,13 +1,12 @@
 
-
 <!DOCTYPE html>
 
 
-<html lang="en" data-content_root="" >
+<html lang="en" data-content_root="../" >
 
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
     <title>Working with the MagIC database using PmagPy &#8212; PmagPy Documentation</title>
   
@@ -15,53 +14,49 @@
   
   <script data-cfasync="false">
     document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
-    document.documentElement.dataset.theme = localStorage.getItem("theme") || "light";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "";
   </script>
   
   <!-- Loaded before other Sphinx assets -->
-  <link href="../_static/styles/theme.css?digest=5b4479735964841361fd" rel="stylesheet" />
-<link href="../_static/styles/bootstrap.css?digest=5b4479735964841361fd" rel="stylesheet" />
-<link href="../_static/styles/pydata-sphinx-theme.css?digest=5b4479735964841361fd" rel="stylesheet" />
+  <link href="../_static/styles/theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+<link href="../_static/styles/bootstrap.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+<link href="../_static/styles/pydata-sphinx-theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
 
   
-  <link href="../_static/vendor/fontawesome/6.1.2/css/all.min.css?digest=5b4479735964841361fd" rel="stylesheet" />
-  <link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.1.2/webfonts/fa-solid-900.woff2" />
-<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.1.2/webfonts/fa-brands-400.woff2" />
-<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.1.2/webfonts/fa-regular-400.woff2" />
+  <link href="../_static/vendor/fontawesome/6.5.2/css/all.min.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.2/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.2/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.2/webfonts/fa-regular-400.woff2" />
 
-    <link rel="stylesheet" type="text/css" href="../_static/pygments.css" />
-    <link rel="stylesheet" href="../_static/styles/sphinx-book-theme.css?digest=14f4ca6b54d191a8c7657f6c759bf11a5fb86285" type="text/css" />
-    <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css" />
-    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=03e43079" />
+    <link rel="stylesheet" type="text/css" href="../_static/styles/sphinx-book-theme.css?v=eba8b062" />
+    <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css?v=13237357" />
+    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css?v=76b2166b" />
     <link rel="stylesheet" type="text/css" href="../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
-    <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css" />
-    <link rel="stylesheet" type="text/css" href="../_static/design-style.4045f2051d55cab465a707391d5b2007.min.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css?v=4fa983c6" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-design.min.css?v=95c83b7e" />
   
   <!-- Pre-loaded scripts that we'll load fully later -->
-  <link rel="preload" as="script" href="../_static/scripts/bootstrap.js?digest=5b4479735964841361fd" />
-<link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=5b4479735964841361fd" />
-  <script src="../_static/vendor/fontawesome/6.1.2/js/all.min.js?digest=5b4479735964841361fd"></script>
+  <link rel="preload" as="script" href="../_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b" />
+<link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b" />
+  <script src="../_static/vendor/fontawesome/6.5.2/js/all.min.js?digest=dfe6caa3a7d634c4db9b"></script>
 
-    <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
-    <script src="../_static/jquery.js"></script>
-    <script src="../_static/underscore.js"></script>
-    <script src="../_static/_sphinx_javascript_frameworks_compat.js"></script>
-    <script src="../_static/doctools.js"></script>
-    <script src="../_static/clipboard.min.js"></script>
-    <script src="../_static/copybutton.js"></script>
-    <script src="../_static/scripts/sphinx-book-theme.js?digest=5a5c038af52cf7bc1a1ec88eea08e6366ee68824"></script>
+    <script src="../_static/documentation_options.js?v=9eb32ce0"></script>
+    <script src="../_static/doctools.js?v=9a2dae69"></script>
+    <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../_static/clipboard.min.js?v=a7894cd8"></script>
+    <script src="../_static/copybutton.js?v=f281be69"></script>
+    <script src="../_static/scripts/sphinx-book-theme.js?v=887ef09a"></script>
     <script>let toggleHintShow = 'Click to show';</script>
     <script>let toggleHintHide = 'Click to hide';</script>
     <script>let toggleOpenOnPrint = 'true';</script>
-    <script src="../_static/togglebutton.js"></script>
+    <script src="../_static/togglebutton.js?v=4a39c7ea"></script>
     <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
-    <script src="../_static/design-tabs.js"></script>
-    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
-const thebe_selector = ".thebe,.cell"
-const thebe_selector_input = "pre"
-const thebe_selector_output = ".output, .cell_output"
-</script>
-    <script async="async" src="../_static/sphinx-thebe.js"></script>
+    <script src="../_static/design-tabs.js?v=f930bc37"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script async="async" src="../_static/sphinx-thebe.js?v=c100c467"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
     <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
     <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
     <script>DOCUMENTATION_OPTIONS.pagename = 'documentation_notebooks/PmagPy_MagIC';</script>
@@ -78,28 +73,23 @@ const thebe_selector_output = ".output, .cell_output"
 
   
   
-  <a class="skip-link" href="#main-content">Skip to main content</a>
+  <div id="pst-skip-link" class="skip-link d-print-none"><a href="#main-content">Skip to main content</a></div>
   
   <div id="pst-scroll-pixel-helper"></div>
-
   
   <button type="button" class="btn rounded-pill" id="pst-back-to-top">
-    <i class="fa-solid fa-arrow-up"></i>
-    Back to top
-  </button>
+    <i class="fa-solid fa-arrow-up"></i>Back to top</button>
 
   
   <input type="checkbox"
           class="sidebar-toggle"
-          name="__primary"
-          id="__primary"/>
-  <label class="overlay overlay-primary" for="__primary"></label>
+          id="pst-primary-sidebar-checkbox"/>
+  <label class="overlay overlay-primary" for="pst-primary-sidebar-checkbox"></label>
   
   <input type="checkbox"
           class="sidebar-toggle"
-          name="__secondary"
-          id="__secondary"/>
-  <label class="overlay overlay-secondary" for="__secondary"></label>
+          id="pst-secondary-sidebar-checkbox"/>
+  <label class="overlay overlay-secondary" for="pst-secondary-sidebar-checkbox"></label>
   
   <div class="search-button__wrapper">
     <div class="search-button__overlay"></div>
@@ -121,12 +111,20 @@ const thebe_selector_output = ".output, .cell_output"
   <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
 </form></div>
   </div>
+
+  <div class="pst-async-banner-revealer d-none">
+  <aside id="bd-header-version-warning" class="d-none d-print-none" aria-label="Version warning"></aside>
+</div>
+
   
-    <nav class="bd-header navbar navbar-expand-lg bd-navbar">
-    </nav>
+    <header class="bd-header navbar navbar-expand-lg bd-navbar d-print-none">
+    </header>
   
+
   <div class="bd-container">
     <div class="bd-container__inner bd-page-width">
+      
+      
       
       <div class="bd-sidebar-primary bd-sidebar">
         
@@ -142,6 +140,8 @@ const thebe_selector_output = ".output, .cell_output"
     <div class="sidebar-primary-items__start sidebar-primary__section">
         <div class="sidebar-primary-item">
 
+  
+    
   
 
 <a class="navbar-brand logo" href="../intro.html">
@@ -160,7 +160,18 @@ const thebe_selector_output = ".output, .cell_output"
   
   
 </a></div>
-        <div class="sidebar-primary-item"><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
+        <div class="sidebar-primary-item">
+
+ <script>
+ document.write(`
+   <button class="btn search-button-field search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass"></i>
+    <span class="search-button__default-text">Search</span>
+    <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+   </button>
+ `);
+ </script></div>
+        <div class="sidebar-primary-item"><nav class="bd-links bd-docs-nav" aria-label="Main">
     <div class="bd-toc-item navbar-nav active">
         
         <ul class="nav bd-sidenav bd-sidenav__home-link">
@@ -172,7 +183,7 @@ const thebe_selector_output = ".output, .cell_output"
         </ul>
         <p aria-level="2" class="caption" role="heading"><span class="caption-text">Installation</span></p>
 <ul class="nav bd-sidenav">
-<li class="toctree-l1 has-children"><a class="reference internal" href="../installation/PmagPy_install.html">Installing <strong>PmagPy</strong></a><input class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-1"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../installation/PmagPy_install.html">Installing <strong>PmagPy</strong></a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
 <li class="toctree-l2"><a class="reference internal" href="../installation/osx_pip.html">OSX pip install</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../installation/osx_developer.html">OSX developer install</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../installation/windows_pip.html">Windows pip install</a></li>
@@ -182,12 +193,12 @@ const thebe_selector_output = ".output, .cell_output"
 <li class="toctree-l2"><a class="reference internal" href="../installation/troubleshooting.html">Troubleshooting installation issues</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../programs/command_line_programs.html">Command line programs</a></li>
 </ul>
-</li>
-<li class="toctree-l1 has-children"><a class="reference internal" href="../programs/pmag_gui.html">Installing and Getting Started with Pmag GUI</a><input class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-2"><i class="fa-solid fa-chevron-down"></i></label><ul>
+</details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../programs/pmag_gui.html">Installing and Getting Started with Pmag GUI</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
 <li class="toctree-l2"><a class="reference internal" href="../programs/demag_gui.html">Demag GUI</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../programs/thellier_gui.html">Thellier GUI</a></li>
 </ul>
-</li>
+</details></li>
 <li class="toctree-l1"><a class="reference internal" href="../resources/survival_skills.html">Survival computer skills</a></li>
 
 </ul>
@@ -234,7 +245,7 @@ const thebe_selector_output = ".output, .cell_output"
 
       </div>
       
-      <main id="main-content" class="bd-main">
+      <main id="main-content" class="bd-main" role="main">
         
         
 
@@ -243,14 +254,14 @@ const thebe_selector_output = ".output, .cell_output"
           <div class="bd-content">
             <div class="bd-article-container">
               
-              <div class="bd-header-article">
+              <div class="bd-header-article d-print-none">
 <div class="header-article-items header-article__inner">
   
     <div class="header-article-items__start">
       
-        <div class="header-article-item"><label class="sidebar-toggle primary-toggle btn btn-sm" for="__primary" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+        <div class="header-article-item"><button class="sidebar-toggle primary-toggle btn btn-sm" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
   <span class="fa-solid fa-bars"></span>
-</label></div>
+</button></div>
       
     </div>
   
@@ -375,10 +386,10 @@ const thebe_selector_output = ".output, .cell_output"
 
 <script>
 document.write(`
-  <button class="btn btn-sm navbar-btn theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
-    <span class="theme-switch nav-link" data-mode="light"><i class="fa-solid fa-sun fa-lg"></i></span>
-    <span class="theme-switch nav-link" data-mode="dark"><i class="fa-solid fa-moon fa-lg"></i></span>
-    <span class="theme-switch nav-link" data-mode="auto"><i class="fa-solid fa-circle-half-stroke fa-lg"></i></span>
+  <button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="theme-switch fa-solid fa-sun fa-lg" data-mode="light"></i>
+    <i class="theme-switch fa-solid fa-moon fa-lg" data-mode="dark"></i>
+    <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"></i>
   </button>
 `);
 </script>
@@ -386,14 +397,14 @@ document.write(`
 
 <script>
 document.write(`
-  <button class="btn btn-sm navbar-btn search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <button class="btn btn-sm pst-navbar-icon search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
     <i class="fa-solid fa-magnifying-glass fa-lg"></i>
   </button>
 `);
 </script>
-<label class="sidebar-toggle secondary-toggle btn btn-sm" for="__secondary"title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+<button class="sidebar-toggle secondary-toggle btn btn-sm" title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
     <span class="fa-solid fa-list"></span>
-</label>
+</button>
 </div></div>
       
     </div>
@@ -491,14 +502,14 @@ document.write(`
               
                 
 <div id="searchbox"></div>
-                <article class="bd-article" role="main">
+                <article class="bd-article">
                   
   <section class="tex2jax_ignore mathjax_ignore" id="working-with-the-magic-database-using-pmagpy">
-<h1>Working with the MagIC database using PmagPy<a class="headerlink" href="#working-with-the-magic-database-using-pmagpy" title="Permalink to this heading">#</a></h1>
+<h1>Working with the MagIC database using PmagPy<a class="headerlink" href="#working-with-the-magic-database-using-pmagpy" title="Link to this heading">#</a></h1>
 <p>The Magnetics Information Consortium (MagIC) maintains a database of published rock and paleomagnetic data: <a class="reference external" href="https://www.earthref.org/MagIC">https://www.earthref.org/MagIC</a></p>
 <p>Many <strong>PmagPy</strong> scripts are designed to work with data in the MagIC format.  This notebook uses Data Model 3.0: <a class="reference external" href="https://www.earthref.org/MagIC/data-models/3.0">https://www.earthref.org/MagIC/data-models/3.0</a></p>
 <section id="overview-of-magic">
-<h2>Overview of   MagIC<a class="headerlink" href="#overview-of-magic" title="Permalink to this heading">#</a></h2>
+<h2>Overview of   MagIC<a class="headerlink" href="#overview-of-magic" title="Link to this heading">#</a></h2>
 <p>The Magnetics Information Consortium (MagIC), hosted at <a class="reference external" href="http://earthref.org/MagIC">http://earthref.org/MagIC</a> is a database that serves as a Findable, Accessible, Interoperable, Reusable (FAIR) archive for paleomagnetic and rock magnetic data. Its data model is fully described here: <a class="reference external" href="https://www2.earthref.org/MagIC/data-models/3.0">https://www2.earthref.org/MagIC/data-models/3.0</a>. Each contribution is associated with a publication via the DOI.  There are nine data tables:</p>
 <ul class="simple">
 <li><p>contribution: metadata of the associated publication.</p></li>
@@ -530,54 +541,54 @@ azimuth	azimuth_dec_correction	citations	description	dip	geologic_classes	geolog
 </div>
 </section>
 <section id="guide-to-pmagpy">
-<h2>Guide to PmagPy<a class="headerlink" href="#guide-to-pmagpy" title="Permalink to this heading">#</a></h2>
+<h2>Guide to PmagPy<a class="headerlink" href="#guide-to-pmagpy" title="Link to this heading">#</a></h2>
 <p>The notebook is one of a series of notebooks that demonstrate the functionality of PmagPy. The other notebooks are:</p>
 <ul class="simple">
-<li><p><a class="reference internal" href="PmagPy_introduction.html"><span class="doc std std-doc">PmagPy_introduction.ipynb</span></a> This notebook introduces PmagPy and lists the functions that are demonstrated in the other notebooks.</p></li>
-<li><p><a class="reference internal" href="PmagPy_calculations.html"><span class="doc std std-doc">PmagPy_calculations.ipynb</span></a> This notebook demonstrates many of the PmagPy calculation functions such as those that rotate directions, return statistical parameters, and simulate data from specified distributions.</p></li>
-<li><p><a class="reference internal" href="PmagPy_plots_analysis.html"><span class="doc std std-doc">PmagPy_plots_analysis.ipynb</span></a> This notebook demonstrates PmagPy functions that can be used to visualize data as well as those that conduct statistical tests that have associated visualizations.</p></li>
+<li><p><a class="reference internal" href="PmagPy_introduction.html"><span class="std std-doc">PmagPy_introduction.ipynb</span></a> This notebook introduces PmagPy and lists the functions that are demonstrated in the other notebooks.</p></li>
+<li><p><a class="reference internal" href="PmagPy_calculations.html"><span class="std std-doc">PmagPy_calculations.ipynb</span></a> This notebook demonstrates many of the PmagPy calculation functions such as those that rotate directions, return statistical parameters, and simulate data from specified distributions.</p></li>
+<li><p><a class="reference internal" href="PmagPy_plots_analysis.html"><span class="std std-doc">PmagPy_plots_analysis.ipynb</span></a> This notebook demonstrates PmagPy functions that can be used to visualize data as well as those that conduct statistical tests that have associated visualizations.</p></li>
 </ul>
 </section>
 <section id="customizing-this-notebook">
-<h2>Customizing this notebook<a class="headerlink" href="#customizing-this-notebook" title="Permalink to this heading">#</a></h2>
+<h2>Customizing this notebook<a class="headerlink" href="#customizing-this-notebook" title="Link to this heading">#</a></h2>
 <p>If you want to make changes to this notebook, you should make a copy (see File menu).  Otherwise each time you update <strong>PmagPy</strong>, your changes will be overwritten.</p>
 </section>
 <section id="get-started">
-<h2>Get started<a class="headerlink" href="#get-started" title="Permalink to this heading">#</a></h2>
+<h2>Get started<a class="headerlink" href="#get-started" title="Link to this heading">#</a></h2>
 <p>To use the functions in this notebook, we have to   import the <strong>PmagPy</strong> modules <strong>pmagplotlib</strong>, <strong>pmag</strong> and <strong>ipmag</strong> and some other handy functions for use in the notebook.  This is done in the following code block which must be executed before running any other code block. To execute, click on the code block and then click on the “Run” button in the menu.</p>
 <p>In order to access the example data, this notebook is meant to be run in the PmagPy-data directory (PmagPy directory for developers).</p>
 <p>Try it!  Run the code block below (click on the cell and then click ‘Run’):</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">pmagpy.pmag</span> <span class="k">as</span> <span class="nn">pmag</span>
-<span class="kn">import</span> <span class="nn">pmagpy.pmagplotlib</span> <span class="k">as</span> <span class="nn">pmagplotlib</span>
-<span class="kn">import</span> <span class="nn">pmagpy.ipmag</span> <span class="k">as</span> <span class="nn">ipmag</span>
-<span class="kn">import</span> <span class="nn">pmagpy.contribution_builder</span> <span class="k">as</span> <span class="nn">cb</span>
-<span class="kn">from</span> <span class="nn">pmagpy</span> <span class="kn">import</span> <span class="n">convert_2_magic</span> <span class="k">as</span> <span class="n">convert</span>
-<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span> <span class="c1"># our plotting buddy</span>
-<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span> <span class="c1"># the fabulous NumPy package</span>
-<span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span> <span class="c1"># and of course Pandas</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">pmagpy.pmag</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">pmag</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">pmagpy.pmagplotlib</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">pmagplotlib</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">pmagpy.ipmag</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">ipmag</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">pmagpy.contribution_builder</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">cb</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">pmagpy</span><span class="w"> </span><span class="kn">import</span> <span class="n">convert_2_magic</span> <span class="k">as</span> <span class="n">convert</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">matplotlib.pyplot</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">plt</span> <span class="c1"># our plotting buddy</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">numpy</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">np</span> <span class="c1"># the fabulous NumPy package</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">pandas</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">pd</span> <span class="c1"># and of course Pandas</span>
 <span class="c1"># test if Basemap and/or cartopy is installed</span>
 <span class="n">has_basemap</span><span class="p">,</span> <span class="n">Basemap</span> <span class="o">=</span> <span class="n">pmag</span><span class="o">.</span><span class="n">import_basemap</span><span class="p">()</span>
 <span class="n">has_cartopy</span><span class="p">,</span> <span class="n">Cartopy</span> <span class="o">=</span> <span class="n">pmag</span><span class="o">.</span><span class="n">import_cartopy</span><span class="p">()</span>
 <span class="c1"># test if xlwt is installed (allows you to export to excel)</span>
 <span class="k">try</span><span class="p">:</span>
-    <span class="kn">import</span> <span class="nn">xlwt</span>
+    <span class="kn">import</span><span class="w"> </span><span class="nn">xlwt</span>
     <span class="n">has_xlwt</span> <span class="o">=</span> <span class="kc">True</span>
 <span class="k">except</span> <span class="ne">ImportError</span><span class="p">:</span>
     <span class="n">has_xlwt</span> <span class="o">=</span> <span class="kc">False</span>
 <span class="c1"># This allows you to make matplotlib plots inside the notebook.  </span>
 <span class="o">%</span><span class="k">matplotlib</span> inline 
-<span class="kn">from</span> <span class="nn">IPython.display</span> <span class="kn">import</span> <span class="n">Image</span>
-<span class="kn">import</span> <span class="nn">os</span> <span class="c1"># import some operating system utilities</span>
-<span class="kn">import</span> <span class="nn">zipfile</span> <span class="k">as</span> <span class="nn">zf</span> <span class="c1"># import the zipfile module for unpacking zip files</span>
-<span class="kn">import</span> <span class="nn">shutil</span> <span class="k">as</span> <span class="nn">shutil</span> <span class="c1"># another useful module with system utilities</span>
-<span class="kn">import</span> <span class="nn">requests</span><span class="o">,</span> <span class="nn">pandas</span><span class="o">,</span> <span class="nn">getpass</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">IPython.display</span><span class="w"> </span><span class="kn">import</span> <span class="n">Image</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">os</span> <span class="c1"># import some operating system utilities</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">zipfile</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">zf</span> <span class="c1"># import the zipfile module for unpacking zip files</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">shutil</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">shutil</span> <span class="c1"># another useful module with system utilities</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">requests</span><span class="o">,</span><span class="w"> </span><span class="nn">pandas</span><span class="o">,</span><span class="w"> </span><span class="nn">getpass</span>
 <span class="n">api</span> <span class="o">=</span> <span class="s1">&#39;https://api.earthref.org/v1/MagIC/</span><span class="si">{}</span><span class="s1">&#39;</span>
 
 
 <span class="k">try</span><span class="p">:</span>
-    <span class="kn">import</span> <span class="nn">wget</span>
+    <span class="kn">import</span><span class="w"> </span><span class="nn">wget</span>
 <span class="k">except</span><span class="p">:</span>
     <span class="o">!</span>pip<span class="w"> </span>install<span class="w"> </span>wget
 
@@ -594,67 +605,67 @@ azimuth	azimuth_dec_correction	citations	description	dip	geologic_classes	geolog
 </section>
 </section>
 <section class="tex2jax_ignore mathjax_ignore" id="table-of-contents">
-<h1>Table of contents<a class="headerlink" href="#table-of-contents" title="Permalink to this heading">#</a></h1>
+<h1>Table of contents<a class="headerlink" href="#table-of-contents" title="Link to this heading">#</a></h1>
 <ul class="simple">
 <li><p>Functions in <strong>PmagPy_MagIC.ipynb</strong></p>
 <ul>
-<li><p><span class="xref myst">reading MagIC files</span> : reading in MagIC formatted files</p></li>
-<li><p><span class="xref myst">writing MagIC files</span> : outputing MagIC formatted files</p></li>
-<li><p><span class="xref myst">combine_magic</span> : combines two MagIC formatted files of same type</p></li>
-<li><p><span class="xref myst">convert_ages</span> : convert ages in downloaded MagIC file to Ma</p></li>
-<li><p><span class="xref myst">grab_magic_key</span> : prints out a single column from a MagIC format file</p></li>
-<li><p><span class="xref myst">magic_select</span> : selects data from MagIC format file given conditions (e.g., method_codes contain string)</p></li>
-<li><p><span class="xref myst">sites_extract</span> : makes excel or latex files from sites.txt for publications</p></li>
-<li><p><span class="xref myst">criteria_extract</span> : makes excel or latex files from criteria.txt for publications</p></li>
-<li><p><span class="xref myst">specimens_extract</span> : makes excel or latex files from specimens.txt for publications</p></li>
-<li><p><span class="xref myst">contributions</span> work with data model 3.0 MagIC contributions</p>
+<li><p><a class="reference internal" href="#magic_read"><span class="xref myst">reading MagIC files</span></a> : reading in MagIC formatted files</p></li>
+<li><p><a class="reference internal" href="#magic_write"><span class="xref myst">writing MagIC files</span></a> : outputing MagIC formatted files</p></li>
+<li><p><a class="reference internal" href="#combine_magic"><span class="xref myst">combine_magic</span></a> : combines two MagIC formatted files of same type</p></li>
+<li><p><a class="reference internal" href="#convert_ages"><span class="xref myst">convert_ages</span></a> : convert ages in downloaded MagIC file to Ma</p></li>
+<li><p><a class="reference internal" href="#grab_magic_key"><span class="xref myst">grab_magic_key</span></a> : prints out a single column from a MagIC format file</p></li>
+<li><p><a class="reference internal" href="#magic_select"><span class="xref myst">magic_select</span></a> : selects data from MagIC format file given conditions (e.g., method_codes contain string)</p></li>
+<li><p><a class="reference internal" href="#sites_extract"><span class="xref myst">sites_extract</span></a> : makes excel or latex files from sites.txt for publications</p></li>
+<li><p><a class="reference internal" href="#criteria_extract"><span class="xref myst">criteria_extract</span></a> : makes excel or latex files from criteria.txt for publications</p></li>
+<li><p><a class="reference internal" href="#specimens_extract"><span class="xref myst">specimens_extract</span></a> : makes excel or latex files from specimens.txt for publications</p></li>
+<li><p><a class="reference internal" href="#Contributions"><span class="xref myst">contributions</span></a> work with data model 3.0 MagIC contributions</p>
 <ul>
-<li><p><span class="xref myst">download_magic</span> : how to download and unpack a contribution text file from the MagIC website</p></li>
-<li><p><span class="xref myst">upload_magic</span> : prepares a directory with a MagIC contribution for uploading to MagIC</p></li>
-<li><p><span class="xref myst">cb.add_sites_to_meas_table</span> : completes a measurements data frame with the information required for plotting by site.</p></li>
-<li><p><span class="xref myst">cb.get_intensity_col</span> : finds the first non-zero type of intensity data in a measurements dataframe.</p></li>
+<li><p><a class="reference internal" href="#download_magic"><span class="xref myst">download_magic</span></a> : how to download and unpack a contribution text file from the MagIC website</p></li>
+<li><p><a class="reference internal" href="#upload_magic"><span class="xref myst">upload_magic</span></a> : prepares a directory with a MagIC contribution for uploading to MagIC</p></li>
+<li><p><a class="reference internal" href="#cb.add_sites_to_meas_table"><span class="xref myst">cb.add_sites_to_meas_table</span></a> : completes a measurements data frame with the information required for plotting by site.</p></li>
+<li><p><a class="reference internal" href="#cb.get_intensity_col"><span class="xref myst">cb.get_intensity_col</span></a> : finds the first non-zero type of intensity data in a measurements dataframe.</p></li>
 </ul>
 </li>
-<li><p><span class="xref myst">Interacting with the MagIC database</span>: downloads and uploads MagIC contributions.</p></li>
-<li><p><span class="xref myst">conversion scripts</span> : convert many laboratory measurement formats to the MagIC data model 3 format</p>
+<li><p><a class="reference internal" href="#Interacting-with-the-MagIC-database"><span class="xref myst">Interacting with the MagIC database</span></a>: downloads and uploads MagIC contributions.</p></li>
+<li><p><a class="reference internal" href="#Conversion-Scripts"><span class="xref myst">conversion scripts</span></a> : convert many laboratory measurement formats to the MagIC data model 3 format</p>
 <ul>
-<li><p><span class="xref myst">_2g_asc_magic</span> : converts 2G ascii files to MagIC</p></li>
-<li><p><span class="xref myst">_2g_bin_magic</span> : converts 2G binary files to MagIC</p></li>
-<li><p><span class="xref myst">agm_magic</span> : converts Princeton Measurements alternating gradient force magnetization (AGM) files to MagIC.</p></li>
-<li><p><span class="xref myst">bgc_magic</span> : convert Berkeley Geochronology Center files to MagIC.</p></li>
-<li><p><span class="xref myst">cit_magic</span> : convert Cal Tech format files to MagIC.</p></li>
-<li><p><span class="xref myst">generic_magic</span> : converts generic files to MagIC.</p></li>
-<li><p><span class="xref myst">huji_magic</span> : converts Hebrew University, Jerusalem, Israel files to MagIC.</p></li>
-<li><p><span class="xref myst">huji_sample_magic</span> : converts HUJI files to a MagIC format.</p></li>
-<li><p><span class="xref myst">iodp_dscr_lore</span> : converts IODP discrete measurement files to MagIC</p></li>
-<li><p><span class="xref myst">iodp_jr6_lore</span> : converts IODP JR6 measurement files to MagIC</p></li>
-<li><p><span class="xref myst">iodp_samples_csv</span> : converts IODP samples file to MagIC</p></li>
-<li><p><span class="xref myst">iodp_srm_lore</span> : converts IODP archive half measurement files to MagIC</p></li>
-<li><p><span class="xref myst">jr6_jr6_magic</span> : converts the AGICO JR6 spinner .jr6 files to MagIC</p></li>
-<li><p><span class="xref myst">jr6_txt_magic</span> : converts the AGICO JR6 .txt files to MagIC</p></li>
-<li><p><span class="xref myst">k15_magic</span> : converts 15 measurement anisotropy of magnetic susceptibility files to MagIC.</p></li>
-<li><p><span class="xref myst">kly4s_magic</span> : converts SIO KLY4S formatted files to MagIC.</p></li>
-<li><p><span class="xref myst">ldeo_magic</span> : converts Lamont-Doherty files to MagIC.</p></li>
-<li><p><span class="xref myst">livdb_magic</span> : converts Liverpool files to MagIC.</p></li>
-<li><p><span class="xref myst">mst_magic</span> : converts Curie Temperature experimental data to MagIC</p></li>
-<li><p><span class="xref myst">sio_magic</span> : converts Scripps Institution of Oceanography data files to MagIC</p></li>
-<li><p><span class="xref myst">sufar4_magic</span> : converts AGICO SUFAR program (ver.1.2.) ascii files to MagIC</p></li>
-<li><p><span class="xref myst">tdt_magic</span> : converts Thellier Tool files to MagIC</p></li>
-<li><p><span class="xref myst">utrecht_magic</span> : converts Fort Hoofddijk, Utrecht University Robot files to MagIC</p></li>
-<li><p><span class="xref myst">orientation_magic</span> : converts an “orient.txt” formatted file with field notebook information into MagIC formatted files</p></li>
-<li><p><span class="xref myst">azdip_magic</span> : converts an “azdip” formatted file to a samples.txt file format</p></li>
+<li><p><a class="reference internal" href="#_2g_asc_magic"><span class="xref myst">_2g_asc_magic</span></a> : converts 2G ascii files to MagIC</p></li>
+<li><p><a class="reference internal" href="#_2g_bin_magic"><span class="xref myst">_2g_bin_magic</span></a> : converts 2G binary files to MagIC</p></li>
+<li><p><a class="reference internal" href="#agm_magic"><span class="xref myst">agm_magic</span></a> : converts Princeton Measurements alternating gradient force magnetization (AGM) files to MagIC.</p></li>
+<li><p><a class="reference internal" href="#bgc_magic"><span class="xref myst">bgc_magic</span></a> : convert Berkeley Geochronology Center files to MagIC.</p></li>
+<li><p><a class="reference internal" href="#cit_magic"><span class="xref myst">cit_magic</span></a> : convert Cal Tech format files to MagIC.</p></li>
+<li><p><a class="reference internal" href="#generic_magic"><span class="xref myst">generic_magic</span></a> : converts generic files to MagIC.</p></li>
+<li><p><a class="reference internal" href="#huji_magic"><span class="xref myst">huji_magic</span></a> : converts Hebrew University, Jerusalem, Israel files to MagIC.</p></li>
+<li><p><a class="reference internal" href="#huji_sample_magic"><span class="xref myst">huji_sample_magic</span></a> : converts HUJI files to a MagIC format.</p></li>
+<li><p><a class="reference internal" href="#iodp_dscr_lore"><span class="xref myst">iodp_dscr_lore</span></a> : converts IODP discrete measurement files to MagIC</p></li>
+<li><p><a class="reference internal" href="#iodp_jr6_lore"><span class="xref myst">iodp_jr6_lore</span></a> : converts IODP JR6 measurement files to MagIC</p></li>
+<li><p><a class="reference internal" href="#iodp_dscr_lore"><span class="xref myst">iodp_samples_csv</span></a> : converts IODP samples file to MagIC</p></li>
+<li><p><a class="reference internal" href="#iodp_srm_lore"><span class="xref myst">iodp_srm_lore</span></a> : converts IODP archive half measurement files to MagIC</p></li>
+<li><p><a class="reference internal" href="#jr6_jr6_magic"><span class="xref myst">jr6_jr6_magic</span></a> : converts the AGICO JR6 spinner .jr6 files to MagIC</p></li>
+<li><p><a class="reference internal" href="#jr6_txt_magic"><span class="xref myst">jr6_txt_magic</span></a> : converts the AGICO JR6 .txt files to MagIC</p></li>
+<li><p><a class="reference internal" href="#k15_magic"><span class="xref myst">k15_magic</span></a> : converts 15 measurement anisotropy of magnetic susceptibility files to MagIC.</p></li>
+<li><p><a class="reference internal" href="#kly4s_magic"><span class="xref myst">kly4s_magic</span></a> : converts SIO KLY4S formatted files to MagIC.</p></li>
+<li><p><a class="reference internal" href="#ldeo_magic"><span class="xref myst">ldeo_magic</span></a> : converts Lamont-Doherty files to MagIC.</p></li>
+<li><p><a class="reference internal" href="#livdb_magic"><span class="xref myst">livdb_magic</span></a> : converts Liverpool files to MagIC.</p></li>
+<li><p><a class="reference internal" href="#mst_magic"><span class="xref myst">mst_magic</span></a> : converts Curie Temperature experimental data to MagIC</p></li>
+<li><p><a class="reference internal" href="#sio_magic"><span class="xref myst">sio_magic</span></a> : converts Scripps Institution of Oceanography data files to MagIC</p></li>
+<li><p><a class="reference internal" href="#sufar4_magic"><span class="xref myst">sufar4_magic</span></a> : converts AGICO SUFAR program (ver.1.2.) ascii files to MagIC</p></li>
+<li><p><a class="reference internal" href="#tdt_magic"><span class="xref myst">tdt_magic</span></a> : converts Thellier Tool files to MagIC</p></li>
+<li><p><a class="reference internal" href="#utrecht_magic"><span class="xref myst">utrecht_magic</span></a> : converts Fort Hoofddijk, Utrecht University Robot files to MagIC</p></li>
+<li><p><a class="reference internal" href="#orientation_magic"><span class="xref myst">orientation_magic</span></a> : converts an “orient.txt” formatted file with field notebook information into MagIC formatted files</p></li>
+<li><p><a class="reference internal" href="#azdip_magic"><span class="xref myst">azdip_magic</span></a> : converts an “azdip” formatted file to a samples.txt file format</p></li>
 </ul>
 </li>
 </ul>
 </li>
 <li><p>other handy scripts</p>
 <ul>
-<li><p><span class="xref myst">chartmaker</span> : script for making chart to guide IZZI lab experiment</p></li>
+<li><p><a class="reference internal" href="#chartmaker"><span class="xref myst">chartmaker</span></a> : script for making chart to guide IZZI lab experiment</p></li>
 </ul>
 </li>
 </ul>
 <section id="magic-read">
-<h2>magic_read<a class="headerlink" href="#magic-read" title="Permalink to this heading">#</a></h2>
+<h2>magic_read<a class="headerlink" href="#magic-read" title="Link to this heading">#</a></h2>
 <ul>
 <li><p>MagIC formatted data files can be imported to a notebook in one of two ways: a</p>
 <ul class="simple">
@@ -885,7 +896,7 @@ magic_read(infile, data=None, return_keys=False, verbose=False)
 </div>
 </section>
 <section id="pmag-magic-write">
-<h2>pmag.magic_write<a class="headerlink" href="#pmag-magic-write" title="Permalink to this heading">#</a></h2>
+<h2>pmag.magic_write<a class="headerlink" href="#pmag-magic-write" title="Link to this heading">#</a></h2>
 <ul class="simple">
 <li><p>to write a dataframe out as a MagIC table, just set dataframe=True</p></li>
 </ul>
@@ -953,7 +964,7 @@ magic_write(ofile, Recs, file_type, dataframe=False)
 </div>
 </section>
 <section id="combine-magic">
-<h2>combine_magic<a class="headerlink" href="#combine-magic" title="Permalink to this heading">#</a></h2>
+<h2>combine_magic<a class="headerlink" href="#combine-magic" title="Link to this heading">#</a></h2>
 <p><a class="reference external" href="https://earthref.org/MagIC">[MagIC Database]</a>  <a class="reference external" href="https://pmagpy.github.io/PmagPy-cli.html#combine_magic.py">[command line version]</a></p>
 <p>MagIC tables have many columns only some of which are used in a particular instance. So combining files of the same type must be done carefully to ensure that the right data come under the right headings. The program <strong>combine_magic</strong> can be used to combine any number of MagIC files from a given type.<br />
 It  reads in MagIC formatted files of a common type (e.g., sites.txt) and combines them into a single file, taking care that all the columns are preserved. For example, if there are both AF and thermal data from a study and we created a measurements.txt formatted file for each, we could use <strong>combine_magic.py</strong> on the command line to combine them together into a single measurements.txt file.   In a notebook, we use  <strong>ipmag.combine_magic()</strong>.</p>
@@ -1013,9 +1024,9 @@ combine_magic(filenames, outfile=&#39;measurements.txt&#39;, data_model=3, magic
 </div>
 </section>
 <section id="convert-ages">
-<h2>convert_ages<a class="headerlink" href="#convert-ages" title="Permalink to this heading">#</a></h2>
+<h2>convert_ages<a class="headerlink" href="#convert-ages" title="Link to this heading">#</a></h2>
 <p>Files downloaded from the MagIC search interface have ages that are in the original units, but what is often desired is for them to be in a single unit.  For example, if we searched the MagIC database for all absolute paleointensity data (records with method codes of ‘LP-PI-TRM’) from the last five million years, the data sets have a variety of age units.  We can use <strong>pmag.convert_ages()</strong>    to convert them all to millions of years.</p>
-<p>First we follow the instructions for unpacking downloaded files in <span class="xref myst">download_magic</span>.</p>
+<p>First we follow the instructions for unpacking downloaded files in <a class="reference internal" href="#download_magic"><span class="xref myst">download_magic</span></a>.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">ipmag</span><span class="o">.</span><span class="n">download_magic</span><span class="p">(</span><span class="s1">&#39;magic_downloaded_rows.txt&#39;</span><span class="p">,</span><span class="n">dir_path</span><span class="o">=</span><span class="s1">&#39;data_files/convert_ages/&#39;</span><span class="p">,</span>
@@ -1038,7 +1049,7 @@ sites  data put in  /Users/nebula/Python/PmagPy/data_files/convert_ages/sites.tx
 </div>
 </div>
 <p>After some minimal filtering using Pandas, we can convert a DataFrame to a list of dictionaries required by most PmagPy functions and use <strong>pmag.convert_ages()</strong> to convert all the ages.  The converted list of dictionaries can then be turned back into a Pandas DataFrame and either plotted or filtered further as desired.</p>
-<p>In this example, we filter for data older than the Brunhes (0.78 Ma) and younger than 5 Ma, then plot them against latitude.  We can also use <span class="xref myst">vdm_b</span> to plot the intensities expected from the present dipole moment (~80 ZAm<span class="math notranslate nohighlight">\(^2\)</span>).</p>
+<p>In this example, we filter for data older than the Brunhes (0.78 Ma) and younger than 5 Ma, then plot them against latitude.  We can also use <a class="reference internal" href="#vdm_b"><span class="xref myst">vdm_b</span></a> to plot the intensities expected from the present dipole moment (~80 ZAm<span class="math notranslate nohighlight">\(^2\)</span>).</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">help</span><span class="p">(</span><span class="n">pmag</span><span class="o">.</span><span class="n">convert_ages</span><span class="p">)</span>
@@ -1112,7 +1123,7 @@ convert_ages(Recs, data_model=3)
 <p>That is pretty awful agreement.  Someday we need to figure out what is wrong with the data or  our GAD hypothesis.</p>
 </section>
 <section id="grab-magic-key">
-<h2>grab_magic_key<a class="headerlink" href="#grab-magic-key" title="Permalink to this heading">#</a></h2>
+<h2>grab_magic_key<a class="headerlink" href="#grab-magic-key" title="Link to this heading">#</a></h2>
 <p><a class="reference external" href="https://earthref.org/MagIC">[MagIC Database]</a> <a class="reference external" href="https://pmagpy.github.io/PmagPy-cli.html#grab_magic_key.py">[command line version]</a></p>
 <p>Sometimes you want to read in a MagIC file and print out the desired key. <strong>Pandas</strong> makes this easy!  In this example, we will print out latitudes for each site record.</p>
 <div class="cell docutils container">
@@ -1141,7 +1152,7 @@ Name: lat, Length: 91, dtype: float64
 </div>
 </section>
 <section id="magic-select">
-<h2>magic_select<a class="headerlink" href="#magic-select" title="Permalink to this heading">#</a></h2>
+<h2>magic_select<a class="headerlink" href="#magic-select" title="Link to this heading">#</a></h2>
 <p><a class="reference external" href="https://earthref.org/MagIC">[MagIC Database]</a> <a class="reference external" href="https://pmagpy.github.io/PmagPy-cli.html#magic_select.py">[command line version]</a></p>
 <p>This example demonstrates how to select MagIC records that meet a certain criterion, like having a particular method code.</p>
 <p>Note:  to output into a MagIC formatted file, we can change the DataFrame to a list of dictionaries (with df.to_dict(“records”)) and
@@ -1192,7 +1203,7 @@ magic_write(ofile, Recs, file_type)
 </div>
 </section>
 <section id="sites-extract">
-<h2>sites_extract<a class="headerlink" href="#sites-extract" title="Permalink to this heading">#</a></h2>
+<h2>sites_extract<a class="headerlink" href="#sites-extract" title="Link to this heading">#</a></h2>
 <p>It is frequently desirable to format tables for publications from the MagIC formatted files.  This example is for the sites.txt formatted file.  It will create a site information table with the location and age information,  and directions and/or intenisty summary tables.  The function to call is <strong>ipmag.sites_extract()</strong>.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -1270,7 +1281,7 @@ sites_extract(site_file=&#39;sites.txt&#39;, directions_file=&#39;directions.xls
 </div>
 </section>
 <section id="criteria-extract">
-<h2>criteria_extract<a class="headerlink" href="#criteria-extract" title="Permalink to this heading">#</a></h2>
+<h2>criteria_extract<a class="headerlink" href="#criteria-extract" title="Link to this heading">#</a></h2>
 <p>This example is for the criteria.txt formatted file.  It will create a criteria  table suitable for publication in either LaTex or .csv format.  The function to call is <strong>ipmag.criteria_extract()</strong>.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -1338,7 +1349,7 @@ criteria_extract(crit_file=&#39;criteria.txt&#39;, output_file=&#39;criteria.xls
 </div>
 </section>
 <section id="specimens-extract">
-<h2>specimens_extract<a class="headerlink" href="#specimens-extract" title="Permalink to this heading">#</a></h2>
+<h2>specimens_extract<a class="headerlink" href="#specimens-extract" title="Link to this heading">#</a></h2>
 <p>Similarly, it is useful to make tables for specimen (intensity) data to include in publications.  Here are examples using a specimens.txt file.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -1410,13 +1421,13 @@ specimens_extract(spec_file=&#39;specimens.txt&#39;, output_file=&#39;specimens.
 </div>
 </section>
 <section id="contributions">
-<h2>Contributions<a class="headerlink" href="#contributions" title="Permalink to this heading">#</a></h2>
+<h2>Contributions<a class="headerlink" href="#contributions" title="Link to this heading">#</a></h2>
 <p>Here are some useful functions for working with MagIC data model 3.0 contributions.</p>
 <section id="download-magic">
-<h3>download_magic<a class="headerlink" href="#download-magic" title="Permalink to this heading">#</a></h3>
+<h3>download_magic<a class="headerlink" href="#download-magic" title="Link to this heading">#</a></h3>
 <p><a class="reference external" href="https://earthref.org/MagIC">[MagIC Database]</a>  <a class="reference external" href="https://pmagpy.github.io/PmagPy-cli.html#download_magic.py">[command line version]</a></p>
 <section id="working-with-a-public-contribution">
-<h4>Working with a public contribution:<a class="headerlink" href="#working-with-a-public-contribution" title="Permalink to this heading">#</a></h4>
+<h4>Working with a public contribution:<a class="headerlink" href="#working-with-a-public-contribution" title="Link to this heading">#</a></h4>
 <p>The programs ipmag.download_magic_from_id() and ipmag.download_magic_from_doi() download files from the MagIC website and ipmag.download_magic( ) unpacks the downloaded .txt file  into individual text files. This program has an option to also separate the contribution into separate folders for each location.</p>
 <p>As an example, download the cotribution with the DOI of 10.1029/2019GC008479.    Make a folder into which you should put the downloaded txt file (called “magic_contribution.txt”)  into it. Then use <strong>ipmag.download_magic</strong> to unpack the .txt file (magic_contribution.txt).</p>
 <div class="cell docutils container">
@@ -1576,7 +1587,7 @@ download_magic_from_id(con_id)
 <p>You could look at these data with <strong>dmag_magic</strong> for example… (see the <strong>PmagPy_plots_analysis</strong> notebook).</p>
 </section>
 <section id="working-with-a-private-contribution">
-<h4>Working with a private contribution<a class="headerlink" href="#working-with-a-private-contribution" title="Permalink to this heading">#</a></h4>
+<h4>Working with a private contribution<a class="headerlink" href="#working-with-a-private-contribution" title="Link to this heading">#</a></h4>
 <ul class="simple">
 <li><p>private contributions are data sets within MagIC that have been uploaded but are not yet attached to a peer reviewed publication.  The purpose is to allow reviewers and publishers to ensure the data quality.</p></li>
 <li><p>Once in the private contribution it is possible to download it with a ‘private key’ associated with a MagIC contribution ID number.</p></li>
@@ -1632,9 +1643,9 @@ location	location_ty
 </section>
 </section>
 <section id="upload-magic">
-<h3>upload_magic<a class="headerlink" href="#upload-magic" title="Permalink to this heading">#</a></h3>
+<h3>upload_magic<a class="headerlink" href="#upload-magic" title="Link to this heading">#</a></h3>
 <p><a class="reference external" href="https://earthref.org/MagIC">[MagIC Database]</a>  <a class="reference external" href="https://pmagpy.github.io/PmagPy-cli.html#upload_magic.py">[command line version]</a></p>
-<p>We can just turn around and try to upload the file downloaded in <span class="xref myst">download_magic</span>.  For this we use <strong>ipmag.upload_magic()</strong> in the same directory as for the download.   You can try to upload the file you create to the MagIC data base as a private contribution here: <a class="reference external" href="https://www2.earthref.org/MagIC/upload">https://www2.earthref.org/MagIC/upload</a></p>
+<p>We can just turn around and try to upload the file downloaded in <a class="reference internal" href="#download_magic"><span class="xref myst">download_magic</span></a>.  For this we use <strong>ipmag.upload_magic()</strong> in the same directory as for the download.   You can try to upload the file you create to the MagIC data base as a private contribution here: <a class="reference external" href="https://www2.earthref.org/MagIC/upload">https://www2.earthref.org/MagIC/upload</a></p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">help</span><span class="p">(</span><span class="n">ipmag</span><span class="o">.</span><span class="n">upload_magic</span><span class="p">)</span>
@@ -1744,7 +1755,7 @@ Finished preparing upload file: /Users/ltauxe/PmagPy/data_files/download_magic/G
 <p>If this were your own study, you could now go to <a class="reference external" href="https://earthref.org/MagIC">https://earthref.org/MagIC</a> and upload your contribution to a Private Workspace, validate, assign a DOI and activate!</p>
 </section>
 <section id="cb-add-sites-to-meas-table">
-<h3>cb.add_sites_to_meas_table<a class="headerlink" href="#cb-add-sites-to-meas-table" title="Permalink to this heading">#</a></h3>
+<h3>cb.add_sites_to_meas_table<a class="headerlink" href="#cb-add-sites-to-meas-table" title="Link to this heading">#</a></h3>
 <p>MagIC data model 3 took out redundant columns in the MagIC tables so the hierarchy of specimens (in the measurements and specimens tables) up to samples, sites and locations is lost.  To put these back into the measurement table, we have the function <strong>cb.add_sites_to_meas_table()</strong>, which is super handy when data analysis requires it.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -1807,7 +1818,7 @@ add_sites_to_meas_table(dir_path)
 </div>
 </section>
 <section id="cb-get-intensity-col">
-<h3>cb.get_intensity_col<a class="headerlink" href="#cb-get-intensity-col" title="Permalink to this heading">#</a></h3>
+<h3>cb.get_intensity_col<a class="headerlink" href="#cb-get-intensity-col" title="Link to this heading">#</a></h3>
 <p>The MagIC data model has several different forms of magnetization with different normalizations (moment, volume, or mass).  So to find the one used in a particular measurements table we can use this handy function.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -1850,7 +1861,7 @@ get_intensity_col(data)
 </section>
 </section>
 <section id="interacting-with-the-magic-database">
-<h2>Interacting with the MagIC database<a class="headerlink" href="#interacting-with-the-magic-database" title="Permalink to this heading">#</a></h2>
+<h2>Interacting with the MagIC database<a class="headerlink" href="#interacting-with-the-magic-database" title="Link to this heading">#</a></h2>
 <ul class="simple">
 <li><p>Downloading contributions from the MagIC database
 Contributions can be downloaded from the MagIC database in two ways, using either the contribution ID or the publication’s DOI.</p>
@@ -2138,12 +2149,12 @@ magic_contribution.txt no such file
 </section>
 </section>
 <section class="tex2jax_ignore mathjax_ignore" id="conversion-scripts">
-<h1>Conversion Scripts<a class="headerlink" href="#conversion-scripts" title="Permalink to this heading">#</a></h1>
+<h1>Conversion Scripts<a class="headerlink" href="#conversion-scripts" title="Link to this heading">#</a></h1>
 <section id="convert-2-magic">
-<h2>convert_2_magic<a class="headerlink" href="#convert-2-magic" title="Permalink to this heading">#</a></h2>
+<h2>convert_2_magic<a class="headerlink" href="#convert-2-magic" title="Link to this heading">#</a></h2>
 <p>We imported this module as <strong>convert</strong>.  It provides many functions for creating MagIC format files from non-MagIC formats. The MagIC formatted files can then be used with PmagPy programs and uploaded to the MagIC database. Let’s take a look at the options:</p>
 <section id="g-asc-magic">
-<h3>_2g_asc_magic<a class="headerlink" href="#g-asc-magic" title="Permalink to this heading">#</a></h3>
+<h3>_2g_asc_magic<a class="headerlink" href="#g-asc-magic" title="Link to this heading">#</a></h3>
 <p>To convert the ascii file exported from 2G Enterprises measurement files we use convert._2g_asc() function in the <strong>convert_2_magic</strong> module (inported as <strong>convert</strong>).</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -2322,7 +2333,7 @@ importing  OK3_15af
 </div>
 </section>
 <section id="g-bin-magic">
-<h3>_2g_bin_magic<a class="headerlink" href="#g-bin-magic" title="Permalink to this heading">#</a></h3>
+<h3>_2g_bin_magic<a class="headerlink" href="#g-bin-magic" title="Link to this heading">#</a></h3>
 <p><a class="reference external" href="https://earthref.org/MagIC">[MagIC Database]</a>  <a class="reference external" href="https://pmagpy.github.io/PmagPy-cli.html#_2g_bin_magic.py">[command line version]</a></p>
 <p>To convert the binary formatted 2G Enterprises measurement files, we  can use the function <strong>convert._2g_bin()</strong> in the <strong>convert_2_magic</strong> module (imported as <strong>convert</strong>).</p>
 <div class="cell docutils container">
@@ -2506,10 +2517,10 @@ plot_di(dec=None, inc=None, di_block=None, color=&#39;k&#39;, marker=&#39;o&#39;
 </div>
 </section>
 <section id="agm-magic">
-<h3>agm_magic<a class="headerlink" href="#agm-magic" title="Permalink to this heading">#</a></h3>
+<h3>agm_magic<a class="headerlink" href="#agm-magic" title="Link to this heading">#</a></h3>
 <p><a class="reference external" href="https://earthref.org/MagIC">[MagIC Database]</a>  <a class="reference external" href="https://pmagpy.github.io/PmagPy-cli.html#agm_magic.py">[command line version]</a></p>
 <p>This program converts Micromag hysteresis files into MagIC formatted files. Because this program creates files for uploading to the MagIC database, specimens should also have sample/site/location information, which can be provided on the command line. If this information is not available, for example if this is a synthetic specimen, specify syn= True for synthetic name.</p>
-<p>Someone named Lima Tango has measured a synthetic specimen named myspec for hysteresis and saved the data in a file named agm_magic_example.agm in the agm_magic/agm_directory folder. The backfield IRM curve for the same specimen was saved in same directory as agm_magic_example.irm. Use the function <strong>convert.agm()</strong> to convert the data into a measurements.txt output file. For the backfield IRM file, set the keyword “bak” to True.  These were measured using cgs units, so be sure to set the units key word argument properly. Combine the two output files together using the instructions for <span class="xref myst">combine_magic</span>.  The agm files can be plotted using <span class="xref myst">hysteresis_magic</span> but the back-field plots are broken.</p>
+<p>Someone named Lima Tango has measured a synthetic specimen named myspec for hysteresis and saved the data in a file named agm_magic_example.agm in the agm_magic/agm_directory folder. The backfield IRM curve for the same specimen was saved in same directory as agm_magic_example.irm. Use the function <strong>convert.agm()</strong> to convert the data into a measurements.txt output file. For the backfield IRM file, set the keyword “bak” to True.  These were measured using cgs units, so be sure to set the units key word argument properly. Combine the two output files together using the instructions for <a class="reference internal" href="#combine_magic"><span class="xref myst">combine_magic</span></a>.  The agm files can be plotted using <a class="reference internal" href="#hysteresis_magic"><span class="xref myst">hysteresis_magic</span></a> but the back-field plots are broken.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">help</span><span class="p">(</span><span class="n">convert</span><span class="o">.</span><span class="n">agm</span><span class="p">)</span>
@@ -2702,7 +2713,7 @@ agm(agm_file, dir_path=&#39;.&#39;, input_dir_path=&#39;&#39;, meas_outfile=&#39
 </div>
 </section>
 <section id="bgc-magic">
-<h3>bgc_magic<a class="headerlink" href="#bgc-magic" title="Permalink to this heading">#</a></h3>
+<h3>bgc_magic<a class="headerlink" href="#bgc-magic" title="Link to this heading">#</a></h3>
 <p><a class="reference external" href="https://earthref.org/MagIC">[MagIC Database]</a>  <a class="reference external" href="https://pmagpy.github.io/PmagPy-cli.html#bgc_magic.py">[command line version]</a></p>
 <p>Here we convert the Berkeley Geochronology Center’s AutoCore format to MagIC use <strong>convert.bgc()</strong>.</p>
 <div class="cell docutils container">
@@ -2820,7 +2831,7 @@ bgc(mag_file, dir_path=&#39;.&#39;, input_dir_path=&#39;&#39;, meas_file=&#39;me
 </div>
 </section>
 <section id="cit-magic">
-<h3>cit_magic<a class="headerlink" href="#cit-magic" title="Permalink to this heading">#</a></h3>
+<h3>cit_magic<a class="headerlink" href="#cit-magic" title="Link to this heading">#</a></h3>
 <p><a class="reference external" href="https://earthref.org/MagIC">[MagIC Database]</a>  <a class="reference external" href="https://pmagpy.github.io/PmagPy-cli.html#cit_magic.py">[command line version]</a></p>
 <p>To convert the CalTech format to MagIC, use <strong>convert.cit()</strong>.</p>
 <p>Craig Jones’ PaleoMag software package (<a class="reference external" href="http://cires.colorado.edu/people/jones.craig/PMag3.html">http://cires.colorado.edu/people/jones.craig/PMag3.html</a>) imports various file formats, including the ’CIT’ format developed for the Caltech lab and now used in magnetometer control software that ships with 2G magnetometers that utilized a vertical sample changer system. The documentation for the CIT sample format is here: <a class="reference external" href="http://cires.colorado.edu/people/jones.craig/PMag_Formats.html#SAM_format">http://cires.colorado.edu/people/jones.craig/PMag_Formats.html#SAM_format</a>. Demagnetization data for each specimen are in their own file in a directory with all the data for a site or study. These files are strictly formatted with fields determined by the character number in the line. There must be a file with the suffix ‘.sam’ in the same directory as the specimen data files which gives details about the specimens and a list of the specimen measurementfiles in the directory.</p>
@@ -3021,7 +3032,7 @@ Warning: specimen method code LP-NOMAG set.
 </div>
 </div>
 </div>
-<p>We can look at the Zijderveld, etc.  Diagrams with <span class="xref myst">zeq_magic</span>.</p>
+<p>We can look at the Zijderveld, etc.  Diagrams with <a class="reference internal" href="#zeq_magic"><span class="xref myst">zeq_magic</span></a>.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">ipmag</span><span class="o">.</span><span class="n">zeq_magic</span><span class="p">(</span><span class="n">input_dir_path</span><span class="o">=</span><span class="n">dir_path</span><span class="p">,</span> <span class="n">save_plots</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
@@ -3138,7 +3149,7 @@ Warning: specimen method code LP-NOMAG set.
 </div>
 </section>
 <section id="generic-magic">
-<h3>generic_magic<a class="headerlink" href="#generic-magic" title="Permalink to this heading">#</a></h3>
+<h3>generic_magic<a class="headerlink" href="#generic-magic" title="Link to this heading">#</a></h3>
 <p><a class="reference external" href="https://earthref.org/MagIC">[MagIC Database]</a>  <a class="reference external" href="https://pmagpy.github.io/PmagPy-cli.html#generic_magic.py">[command line version]</a></p>
 <p>If you have a data file format that is not supported, you can relabel column headers to fit the generic format as in the generic_magic example data file.</p>
 <p>To import the generic file format, use <strong>convert.generic()</strong>.</p>
@@ -3304,7 +3315,7 @@ generic(magfile=&#39;&#39;, dir_path=&#39;.&#39;, meas_file=&#39;measurements.tx
 </div>
 </section>
 <section id="huji-magic">
-<h3>huji_magic<a class="headerlink" href="#huji-magic" title="Permalink to this heading">#</a></h3>
+<h3>huji_magic<a class="headerlink" href="#huji-magic" title="Link to this heading">#</a></h3>
 <p><a class="reference external" href="https://earthref.org/MagIC">[MagIC Database]</a>  <a class="reference external" href="https://pmagpy.github.io/PmagPy-cli.html#huji_magic.py">[command line version]</a></p>
 <p>To import the Hebrew University, Jerusalem, Israel file format to MagIC, use <strong>convert.huji()</strong>.</p>
 <div class="cell docutils container">
@@ -3465,7 +3476,7 @@ huji(magfile=&#39;&#39;, dir_path=&#39;.&#39;, input_dir_path=&#39;&#39;, datafi
 </div>
 </section>
 <section id="huji-sample-magic">
-<h3>huji_sample_magic<a class="headerlink" href="#huji-sample-magic" title="Permalink to this heading">#</a></h3>
+<h3>huji_sample_magic<a class="headerlink" href="#huji-sample-magic" title="Link to this heading">#</a></h3>
 <p><a class="reference external" href="https://earthref.org/MagIC">[MagIC Database]</a>  <a class="reference external" href="https://pmagpy.github.io/PmagPy-cli.html#huji_sample_magic.py">[command line version]</a></p>
 <p>To convert a Hebrew University Jersalem, Israel sample format to MagIC, use <strong>convert.huji_sample()</strong>.</p>
 <div class="cell docutils container">
@@ -3588,7 +3599,7 @@ combine_magic(filenames, outfile=&#39;measurements.txt&#39;, data_model=3, magic
 </div>
 </section>
 <section id="iodp-dscr-lore">
-<h3>iodp_dscr_lore<a class="headerlink" href="#iodp-dscr-lore" title="Permalink to this heading">#</a></h3>
+<h3>iodp_dscr_lore<a class="headerlink" href="#iodp-dscr-lore" title="Link to this heading">#</a></h3>
 <p><a class="reference external" href="https://earthref.org/MagIC">[MagIC Database]</a>  <a class="reference external" href="https://pmagpy.github.io/PmagPy-cli.html#iodp_dscr_magic.py">[command line version]</a></p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -3616,7 +3627,7 @@ check your sample name or add to specimens table by hand
 </div>
 </section>
 <section id="iodp-jr6-lore">
-<h3>iodp_jr6_lore<a class="headerlink" href="#iodp-jr6-lore" title="Permalink to this heading">#</a></h3>
+<h3>iodp_jr6_lore<a class="headerlink" href="#iodp-jr6-lore" title="Link to this heading">#</a></h3>
 <p><a class="reference external" href="https://earthref.org/MagIC">[MagIC Database]</a>  <a class="reference external" href="https://pmagpy.github.io/PmagPy-cli.html#iodp_jr6_magic.py">[command line version]</a></p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -3641,7 +3652,7 @@ check your sample name or add to specimens table by hand
 </div>
 </section>
 <section id="iodp-srm-lore">
-<h3>iodp_srm_lore<a class="headerlink" href="#iodp-srm-lore" title="Permalink to this heading">#</a></h3>
+<h3>iodp_srm_lore<a class="headerlink" href="#iodp-srm-lore" title="Link to this heading">#</a></h3>
 <p><a class="reference external" href="https://earthref.org/MagIC">[MagIC Database]</a>  <a class="reference external" href="https://pmagpy.github.io/PmagPy-cli.html#iodp_srm_magic.py">[command line version]</a></p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -3663,9 +3674,9 @@ check your sample name or add to specimens table by hand
 </div>
 </section>
 <section id="jr6-jr6-magic">
-<h3>jr6_jr6_magic<a class="headerlink" href="#jr6-jr6-magic" title="Permalink to this heading">#</a></h3>
+<h3>jr6_jr6_magic<a class="headerlink" href="#jr6-jr6-magic" title="Link to this heading">#</a></h3>
 <p><a class="reference external" href="https://earthref.org/MagIC">[MagIC Database]</a>  <a class="reference external" href="https://pmagpy.github.io/PmagPy-cli.html#jr6_jr6_magic.py">[command line version]</a></p>
-<p>The AGICO JR6 spinner magnetometer has two output formats, the .jr6 and the .txt.  Here we illustrate the conversion of the .jr6 format.  There are data from two different studies in the example folder.  One (from Anita di Chiara) has the suffix ‘.JR6’ and the other (from Roi Granot) are lower case (.jr6’). Each file has the data from a single specimen’s experiment.  So, we can convert Anita’s data to a series of MagIC formatted measurement files, combine them with <span class="xref myst">ipmag.combine_magic</span> and look at them with Demag GUI (on the command line) or <span class="xref myst">zeq_magic</span> within the notebook.</p>
+<p>The AGICO JR6 spinner magnetometer has two output formats, the .jr6 and the .txt.  Here we illustrate the conversion of the .jr6 format.  There are data from two different studies in the example folder.  One (from Anita di Chiara) has the suffix ‘.JR6’ and the other (from Roi Granot) are lower case (.jr6’). Each file has the data from a single specimen’s experiment.  So, we can convert Anita’s data to a series of MagIC formatted measurement files, combine them with <a class="reference internal" href="#ipmag.combine_magic"><span class="xref myst">ipmag.combine_magic</span></a> and look at them with Demag GUI (on the command line) or <a class="reference internal" href="#zeq_magic"><span class="xref myst">zeq_magic</span></a> within the notebook.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">help</span><span class="p">(</span><span class="n">convert</span><span class="o">.</span><span class="n">jr6_jr6</span><span class="p">)</span>
@@ -3982,7 +3993,7 @@ measurement type unknown -01A
 </div>
 </section>
 <section id="jr6-txt-magic">
-<h3>jr6_txt_magic<a class="headerlink" href="#jr6-txt-magic" title="Permalink to this heading">#</a></h3>
+<h3>jr6_txt_magic<a class="headerlink" href="#jr6-txt-magic" title="Link to this heading">#</a></h3>
 <p><a class="reference external" href="https://earthref.org/MagIC">[MagIC Database]</a>  <a class="reference external" href="https://pmagpy.github.io/PmagPy-cli.html#jr6_txt_magic.py">[command line version]</a></p>
 <p>We can repeat the exercise for the JR6 .txt format using <strong>convert.jr6_txt()</strong>.</p>
 <div class="cell docutils container">
@@ -4148,7 +4159,7 @@ No plots could be created for specimen: AP12-03A
 </div>
 </section>
 <section id="k15-magic">
-<h3>k15_magic<a class="headerlink" href="#k15-magic" title="Permalink to this heading">#</a></h3>
+<h3>k15_magic<a class="headerlink" href="#k15-magic" title="Link to this heading">#</a></h3>
 <p><a class="reference external" href="https://earthref.org/MagIC">[MagIC Database]</a>  <a class="reference external" href="https://pmagpy.github.io/PmagPy-cli.html#k15_magic.py">[command line version]</a></p>
 <p>Someone took a set of samples from a dike margin in the Troodos Ophiolite and measured their anisotropy of magnetic susceptibility on an a Kappabridge KLY 2.0 instrument in the SIO laboratory.  An example of the  data file format is in k15_magic.</p>
 <p>The first line of each set of four has the specimen name, azimuth, plunge, and bedding strike and dip the next three lines are sets of five measurements in the 15 positions recommended by Jelinek (1977):</p>
@@ -4268,14 +4279,14 @@ Data saved to: /Users/nebula/Python/PmagPy/data_files/convert_2_magic/k15_magic/
 </div>
 </section>
 <section id="kly4s-magic">
-<h3>kly4s_magic<a class="headerlink" href="#kly4s-magic" title="Permalink to this heading">#</a></h3>
+<h3>kly4s_magic<a class="headerlink" href="#kly4s-magic" title="Link to this heading">#</a></h3>
 <p><a class="reference external" href="https://earthref.org/MagIC">[MagIC Database]</a>  <a class="reference external" href="https://pmagpy.github.io/PmagPy-cli.html#kly4s_magic.py">[command line version]</a></p>
 <p>The program AMSSpin available for downloading from <a class="reference external" href="http://earthref.org/ERDA/940/">http://earthref.org/ERDA/940/</a> generates data for the Kappabridge KLY4S spinning magnetic susceptibility instrument as described by Gee et al. (2008).</p>
 <p>Output files are in the format of the file KLY4S_magic_example.dat (found in the measurement_import/kly4s_magic folder).</p>
 <p>The columns in the example file are:</p>
 <p>Specimen S_1 S_2 S_3 S_4 S_5 S_6 χb(μSI) date time user</p>
 <p>To convert the Agico Kappabridge KLY4S files generated by the SIO labview program (written by Jeff Gee), use <strong>convert.kly4s()</strong>.
-This function will create the files needed by the MagIC database and the data can be plotted using <span class="xref myst">aniso_magic</span>.   If you were to import the sample files from the LIMS data base for these samples, you could plot them versus depth, or as equal area projections using <strong>ani_depthplot</strong> and <strong>aniso_magic</strong> respectively.</p>
+This function will create the files needed by the MagIC database and the data can be plotted using <a class="reference internal" href="#aniso_magic"><span class="xref myst">aniso_magic</span></a>.   If you were to import the sample files from the LIMS data base for these samples, you could plot them versus depth, or as equal area projections using <strong>ani_depthplot</strong> and <strong>aniso_magic</strong> respectively.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">help</span><span class="p">(</span><span class="n">convert</span><span class="o">.</span><span class="n">kly4s</span><span class="p">)</span>
@@ -4398,7 +4409,7 @@ measurement data saved in  /Users/nebula/Python/PmagPy/data_files/convert_2_magi
 </div>
 </section>
 <section id="ldeo-magic">
-<h3>ldeo_magic<a class="headerlink" href="#ldeo-magic" title="Permalink to this heading">#</a></h3>
+<h3>ldeo_magic<a class="headerlink" href="#ldeo-magic" title="Link to this heading">#</a></h3>
 <p><a class="reference external" href="https://earthref.org/MagIC">[MagIC Database]</a>  <a class="reference external" href="https://pmagpy.github.io/PmagPy-cli.html#ldeo_magic.py">[command line version]</a></p>
 <p>To convert Lamont-Doherty Earth Observatory data files to MagIC, use <strong>convert.ldeo()</strong>.</p>
 <p>NB:  this doesn’t seem to work properly at all.</p>
@@ -4526,7 +4537,7 @@ ldeo(magfile, dir_path=&#39;.&#39;, input_dir_path=&#39;&#39;, meas_file=&#39;me
 </div>
 </section>
 <section id="livdb-magic">
-<h3>livdb_magic<a class="headerlink" href="#livdb-magic" title="Permalink to this heading">#</a></h3>
+<h3>livdb_magic<a class="headerlink" href="#livdb-magic" title="Link to this heading">#</a></h3>
 <p><a class="reference external" href="https://earthref.org/MagIC">[MagIC Database]</a>  <a class="reference external" href="https://pmagpy.github.io/PmagPy-cli.html#livdb_magic.py">[command line version]</a></p>
 <p>To convert the Liverpool university database  format to MagIC use <strong>convert.livdb()</strong>.</p>
 <p>Here we have several experiment types as examples as examples.</p>
@@ -4912,10 +4923,10 @@ ATPIPV14-2A
 </div>
 </div>
 </div>
-<p>Now you can look at these data (except for MW_P) with thellier_gui or <span class="xref myst">thellier_magic</span>.</p>
+<p>Now you can look at these data (except for MW_P) with thellier_gui or <a class="reference internal" href="#thellier_magic"><span class="xref myst">thellier_magic</span></a>.</p>
 </section>
 <section id="mst-magic">
-<h3>mst_magic<a class="headerlink" href="#mst-magic" title="Permalink to this heading">#</a></h3>
+<h3>mst_magic<a class="headerlink" href="#mst-magic" title="Link to this heading">#</a></h3>
 <p><a class="reference external" href="https://earthref.org/MagIC">[MagIC Database]</a>  <a class="reference external" href="https://pmagpy.github.io/PmagPy-cli.html#mst_magic.py">[command line version]</a></p>
 <p>To convert a Curie Temperature experiment to MagIC, use <strong>convert.mst()</strong>.  The data file format should be a space delimited file with temperature and magnetization couplets.</p>
 <div class="cell docutils container">
@@ -5012,7 +5023,7 @@ results put in  /Users/nebula/Python/PmagPy/data_files/convert_2_magic/mst_magic
 </div>
 </div>
 </div>
-<p>We can now use <span class="xref myst">curie</span> to plot the data.</p>
+<p>We can now use <a class="reference internal" href="#curie"><span class="xref myst">curie</span></a> to plot the data.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">ipmag</span><span class="o">.</span><span class="n">curie</span><span class="p">(</span><span class="n">path_to_file</span><span class="o">=</span><span class="s1">&#39;data_files/convert_2_magic/mst_magic/&#39;</span><span class="p">,</span><span class="n">file_name</span><span class="o">=</span><span class="s1">&#39;measurements.txt&#39;</span><span class="p">,</span><span class="n">magic</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
@@ -5031,7 +5042,7 @@ results put in  /Users/nebula/Python/PmagPy/data_files/convert_2_magic/mst_magic
 </div>
 </section>
 <section id="pmd-magic">
-<h3>pmd_magic<a class="headerlink" href="#pmd-magic" title="Permalink to this heading">#</a></h3>
+<h3>pmd_magic<a class="headerlink" href="#pmd-magic" title="Link to this heading">#</a></h3>
 <p><a class="reference external" href="https://earthref.org/MagIC">[MagIC Database]</a>  <a class="reference external" href="https://pmagpy.github.io/PmagPy-cli.html#pmd_magic.py">[command line version]</a></p>
 <p>This format is the one used to import .PMD formatted magnetometer files (used for example in the PaleoMac software of Cogné, 2003) into the MagIC format. (See <a class="reference external" href="http://www.ipgp.fr/~cogne/pub/paleomac/PMhome.html">http://www.ipgp.fr/~cogne/pub/paleomac/PMhome.html</a> for the PaleoMac home page. The version of these files that <strong>pmd_magic</strong> expects (UCSC version) contains demagnetization data for a single specimen and has a format as in the example file in ../measurement_import/pmd_magic/PMD/ss0207a.pmd</p>
 <p>The first line is a comment line. The second line has the specimen name, the core azimuth (a=) and plunge (b=) which are assumed to be the lab arrow azimuth and plunge (Orientation scheme #4)D. The third line is a header explaining the columns in the file.</p>
@@ -5129,7 +5140,7 @@ pmd(mag_file, dir_path=&#39;.&#39;, input_dir_path=&#39;&#39;, meas_file=&#39;me
 </div>
 </section>
 <section id="sio-magic">
-<h3>sio_magic<a class="headerlink" href="#sio-magic" title="Permalink to this heading">#</a></h3>
+<h3>sio_magic<a class="headerlink" href="#sio-magic" title="Link to this heading">#</a></h3>
 <p><a class="reference external" href="https://earthref.org/MagIC">[MagIC Database]</a>  <a class="reference external" href="https://pmagpy.github.io/PmagPy-cli.html#sio_magic.py">[command line version]</a></p>
 <p>This program allows conversion of the SIO format magnetometer files to the MagIC common measurements format. The columns in the example data file are:</p>
 <p>Specimen treatment intensity declination inclination optional_string</p>
@@ -5145,7 +5156,7 @@ pmd(mag_file, dir_path=&#39;.&#39;, input_dir_path=&#39;&#39;, meas_file=&#39;me
 </div>
 </div>
 <p>As an example, we use data from Sbarbori et al. (2009) done on a set of samples from the location “Socorro”, including AF, thermal, and thellier experimental data. These were saved in sio_af_example.dat, sio_thermal_example.dat, and sio_thellier_example.dat respectively. The lab field for the thellier experiment was 25 μT and was applied along the specimen’s Z axis (phi=0,theta=90).]</p>
-<p>We can convert the example files into measurement formatted files with names like af_measurements.txt, etc. using the function <strong>convert.sio()</strong>.   Then combine them together following the instructions for  <span class="xref myst">combine_magic</span>.</p>
+<p>We can convert the example files into measurement formatted files with names like af_measurements.txt, etc. using the function <strong>convert.sio()</strong>.   Then combine them together following the instructions for  <a class="reference internal" href="#combine_magic"><span class="xref myst">combine_magic</span></a>.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">help</span><span class="p">(</span><span class="n">convert</span><span class="o">.</span><span class="n">sio</span><span class="p">)</span>
@@ -5318,7 +5329,7 @@ sio(mag_file, dir_path=&#39;.&#39;, input_dir_path=&#39;&#39;, meas_file=&#39;me
 </div>
 </section>
 <section id="sufar4-magic">
-<h3>sufar4_magic<a class="headerlink" href="#sufar4-magic" title="Permalink to this heading">#</a></h3>
+<h3>sufar4_magic<a class="headerlink" href="#sufar4-magic" title="Link to this heading">#</a></h3>
 <p><a class="reference external" href="https://earthref.org/MagIC">[MagIC Database]</a>  <a class="reference external" href="https://pmagpy.github.io/PmagPy-cli.html#sufar4_asc_magic.py">[command line version]</a></p>
 <p>The AGICO program SUFAR creates ascii txt files as output.  <strong>convert.sufar4()</strong> will convert these to the MagIC format.</p>
 <div class="cell docutils container">
@@ -5412,7 +5423,7 @@ site info put in  /Users/nebula/Python/PmagPy/data_files/convert_2_magic/sufar_a
 </div>
 </div>
 </div>
-<p>Now we can test it out with, for example, <span class="xref myst">ipmag.aniso_magic_nb()</span></p>
+<p>Now we can test it out with, for example, <a class="reference internal" href="#aniso_magic"><span class="xref myst">ipmag.aniso_magic_nb()</span></a></p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">ipmag</span><span class="o">.</span><span class="n">aniso_magic_nb</span><span class="p">(</span><span class="n">infile</span><span class="o">=</span><span class="s1">&#39;data_files/convert_2_magic/sufar_asc_magic/specimens.txt&#39;</span><span class="p">)</span>
@@ -5431,7 +5442,7 @@ site info put in  /Users/nebula/Python/PmagPy/data_files/convert_2_magic/sufar_a
 </div>
 </section>
 <section id="tdt-magic">
-<h3>tdt_magic<a class="headerlink" href="#tdt-magic" title="Permalink to this heading">#</a></h3>
+<h3>tdt_magic<a class="headerlink" href="#tdt-magic" title="Link to this heading">#</a></h3>
 <p><a class="reference external" href="https://earthref.org/MagIC">[MagIC Database]</a>  <a class="reference external" href="https://pmagpy.github.io/PmagPy-cli.html#tdt_magic.py">[command line version]</a></p>
 <p>Convertions of the Thellier Tool format of Leonhardt et al., 2004 can be done with <strong>convert.tdt()</strong>.  THERE IS A PROBLEM WITH THE XXX.4 TREATMENT STEP CONVERSION.</p>
 <div class="cell docutils container">
@@ -5525,7 +5536,7 @@ Open file:  data_files/convert_2_magic/tdt_magic/Krasa_MGH1_noAC.tdt
 </div>
 </section>
 <section id="utrecht-magic">
-<h3>utrecht_magic<a class="headerlink" href="#utrecht-magic" title="Permalink to this heading">#</a></h3>
+<h3>utrecht_magic<a class="headerlink" href="#utrecht-magic" title="Link to this heading">#</a></h3>
 <p><a class="reference external" href="https://earthref.org/MagIC">[MagIC Database]</a>  <a class="reference external" href="https://pmagpy.github.io/PmagPy-cli.html#utrecht_magic.py">[command line version]</a></p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -5631,7 +5642,7 @@ utrecht(mag_file, dir_path=&#39;.&#39;, input_dir_path=&#39;&#39;, meas_file=&#3
 </div>
 </section>
 <section id="orientation-magic">
-<h3>orientation_magic<a class="headerlink" href="#orientation-magic" title="Permalink to this heading">#</a></h3>
+<h3>orientation_magic<a class="headerlink" href="#orientation-magic" title="Link to this heading">#</a></h3>
 <p><a class="reference external" href="https://earthref.org/PmagPy/cookbook/#QQ2-1-25">[Preparing for MagIC]</a> <a class="reference external" href="https://pmagpy.github.io/PmagPy-cli.html#orientation_magic.py">[command line version]</a></p>
 <p><strong>orientation_magic</strong> is meant to import the field book data as entered into the format like in  orientation_example.txt into the MagIC format samples, sites and location tables.<br />
 Click <a class="reference external" href="https://earthref.org/PmagPy/cookbook/#field_info">here</a>  for details about the orient.txt file format. The example file used here has field information for a few sites. The samples were oriented with a Pomeroy orientation device (the default) and it is desirable to calculate the magnetic declination from the IGRF at the time of sampling (also the default). Sample names follow the rule that the sample is designated by a letter at the end of the site name (convention #1 - which is also the default). We can do this from within a notebook by calling  <strong>ipmag.orientation_magic()</strong>.</p>
@@ -5742,7 +5753,7 @@ Data saved in  /Users/nebula/Python/PmagPy/data_files/orientation_magic/samples.
 </div>
 </section>
 <section id="azdip-magic">
-<h3>azdip_magic<a class="headerlink" href="#azdip-magic" title="Permalink to this heading">#</a></h3>
+<h3>azdip_magic<a class="headerlink" href="#azdip-magic" title="Link to this heading">#</a></h3>
 <p><a class="reference external" href="https://earthref.org/MagIC">[MagIC Database]</a>  <a class="reference external" href="https://pmagpy.github.io/PmagPy-cli.html#azdip_magic.py">[command line version]</a></p>
 <p>Many paleomagnetists save orientation information in files in this format: Sample Azimuth Plunge Strike Dip (AZDIP format), where the Azimuth and Plunge are the declination and inclination of the drill direction and the strike and dip are the attitude of the sampled unit (with dip to the right of strike). Of course there are many ways to think about sample orientation and the MagIC database convention is to store the direction of the X coordinate of the specimen measurements. To convert an AzDip formatted file (example in data_files/azdip_magic/azdip_magic_example.dat), we can use <strong>ipmag.azdip_magic()</strong>.</p>
 <div class="cell docutils container">
@@ -5819,9 +5830,9 @@ Data saved in  /Users/nebula/Python/PmagPy/data_files/azdip_magic/samples.txt
 </section>
 </section>
 <section id="other-handy-scripts">
-<h2>Other handy scripts<a class="headerlink" href="#other-handy-scripts" title="Permalink to this heading">#</a></h2>
+<h2>Other handy scripts<a class="headerlink" href="#other-handy-scripts" title="Link to this heading">#</a></h2>
 <section id="chartmaker">
-<h3>chartmaker<a class="headerlink" href="#chartmaker" title="Permalink to this heading">#</a></h3>
+<h3>chartmaker<a class="headerlink" href="#chartmaker" title="Link to this heading">#</a></h3>
 <p><a class="reference external" href="https://pmagpy.github.io/PmagPy-cli.html#chartmaker.py">[command line version]</a></p>
 <p>Chartmaker makes a chart like this:</p>
 <div class="cell docutils container">
@@ -5906,11 +5917,11 @@ chart_maker(Int, Top, start=100, outfile=&#39;chart.txt&#39;)
 </section>
 </section>
 <section id="clean-up">
-<h2>Clean up<a class="headerlink" href="#clean-up" title="Permalink to this heading">#</a></h2>
+<h2>Clean up<a class="headerlink" href="#clean-up" title="Link to this heading">#</a></h2>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">glob</span>
-<span class="kn">import</span> <span class="nn">os</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">glob</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">os</span>
 <span class="c1"># remove some individual files</span>
 
 <span class="n">filenames</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;chart.txt&#39;</span><span class="p">,</span>
@@ -5930,7 +5941,7 @@ chart_maker(Int, Top, start=100, outfile=&#39;chart.txt&#39;)
 
 <span class="c1"># remove all MagIC-generated files from a given directory</span>
 
-<span class="k">def</span> <span class="nf">remove_magic_files</span><span class="p">(</span><span class="n">directory</span><span class="p">):</span>
+<span class="k">def</span><span class="w"> </span><span class="nf">remove_magic_files</span><span class="p">(</span><span class="n">directory</span><span class="p">):</span>
     <span class="n">magic_files</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;specimens.txt&#39;</span><span class="p">,</span> <span class="s1">&#39;samples.txt&#39;</span><span class="p">,</span> <span class="s1">&#39;sites.txt&#39;</span><span class="p">,</span> <span class="s1">&#39;locations.txt&#39;</span><span class="p">,</span> <span class="s1">&#39;measurements.txt&#39;</span><span class="p">,</span> 
                    <span class="s1">&#39;contribution.txt&#39;</span><span class="p">,</span> <span class="s1">&#39;ages.txt&#39;</span><span class="p">]</span>
     <span class="n">dir_files</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">listdir</span><span class="p">(</span><span class="n">directory</span><span class="p">)</span>
@@ -6005,7 +6016,7 @@ chart_maker(Int, Top, start=100, outfile=&#39;chart.txt&#39;)
               
               
               
-                <footer class="prev-next-footer">
+                <footer class="prev-next-footer d-print-none">
                   
 <div class="prev-next-area">
     <a class="left-prev"
@@ -6034,6 +6045,7 @@ chart_maker(Int, Top, start=100, outfile=&#39;chart.txt&#39;)
             
               
                 <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
 
   <div class="sidebar-secondary-item">
   <div class="page-toc tocsection onthispage">
@@ -6133,7 +6145,7 @@ By PmagPy Contributors
 
   <p class="copyright">
     
-      © Copyright 2023.
+      © Copyright 2025.
       <br/>
     
   </p>
@@ -6157,8 +6169,8 @@ By PmagPy Contributors
   </div>
   
   <!-- Scripts loaded after <body> so the DOM is not blocked -->
-  <script src="../_static/scripts/bootstrap.js?digest=5b4479735964841361fd"></script>
-<script src="../_static/scripts/pydata-sphinx-theme.js?digest=5b4479735964841361fd"></script>
+  <script src="../_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b"></script>
+<script src="../_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b"></script>
 
   <footer class="bd-footer">
   </footer>

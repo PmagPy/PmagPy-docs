@@ -1,5 +1,33 @@
 # Jupyter Notebooks
 
+Jupyter Notebooks
+EarthRef's JupyterHub Server
+EarthRef.org supports a JupyterHub server where you can run PmagPy notebooks and create your own. Login using your EarthRef(MagIC) username(handle) and password. If you don't know your EarthRef username and password, login to the MagIC website at the home page. You can login using your ORCID id or your username and password, or create an account with your ORCID id. You can then view, set, or edit your username and password by clicking on your name in the upper right of the webpage. If you created your account with an ORCID id, you will have to set your username and password before logging into the JupyterHub.
+
+The JuypterHub site can be found at jupyterhub.earthref.org.
+
+PmagPy Fundemetals
+A Juypter Notebook explaining PmagPy Online. This is a tutorial on using the EarthRef JuypterHub, PmagPy, and the MagIC database.
+A presentation of the notebook by Lisa Tauxe at the EarthCube 2020 meeting can be found at doi.org/10.1002/essoar.10504182.1.
+
+These five Jupyter notebooks for PmagPy can also be downloaded separately and describes many of the functions and uses of the PmagPy in more detail. They can be downloaded from the PmagPy GitHub website:
+Introduction
+PmagPy and MagIC
+Calculations
+Plots and Analysis
+PmagPy - Command Line Versions of PmagPy Functions
+
+Other PmagPy Notebooks
+2020 MagIC Workshop PmagPy Jupyter Notebook Tutorial
+This notebook covers how to use PmagPy in three parts. Exercise 1 looks at a typical "directional" data set and shows how to make useful plots like the equal area projection, maps of VGPs and maps of site locations. Exercise 2 shows how to get geomagnetic vectors from IGRF-like tables and several ways of looking at the data through time and space. Exercise 3 considers directional (polarity), anisotropy data and natural gamma radiation (NGR), a measure of the dominance of clay versus diatomaceous ooze in this core, as a function of depth in an IODP core.
+Demo recording on YouTube: PmagPy Using Jupyter Notebooks
+
+Tauxe el al. (2016) PmagPy Example Notebooks 
+Python Jupyter Notebooks from the 2016 G-Cubed paper describing PmagPy. Includes a notebook for taking two data sets from the MagIC database and conducting a variety of analyses on them including a fold test, a common mean test and the calculation of a combined paleomagnetic pole. This collection also includes a variety of shorter code examples that put PmagPy functions to use within the notebook environment.
+
+2017 MagIC Workshop PmagPy Tutorial
+Python Jupyter Notebooks from the 2017 MagIC Workshop by Nick Swanson-Hysell. Includes updated notebooks from the Tauxe et al. (2016) along with other notebooks.
+
 Data analysis in Python benefits from an increasingly robust ecosystem
 of packages for scientific computing and plotting. The Jupyter notebook
 is one such tool. It has gained widespread use for conducting and

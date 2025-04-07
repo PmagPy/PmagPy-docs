@@ -1,13 +1,12 @@
 
-
 <!DOCTYPE html>
 
 
-<html lang="en" data-content_root="" >
+<html lang="en" data-content_root="../" >
 
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
     <title>Introduction to PmagPy &#8212; PmagPy Documentation</title>
   
@@ -15,53 +14,49 @@
   
   <script data-cfasync="false">
     document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
-    document.documentElement.dataset.theme = localStorage.getItem("theme") || "light";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "";
   </script>
   
   <!-- Loaded before other Sphinx assets -->
-  <link href="../_static/styles/theme.css?digest=5b4479735964841361fd" rel="stylesheet" />
-<link href="../_static/styles/bootstrap.css?digest=5b4479735964841361fd" rel="stylesheet" />
-<link href="../_static/styles/pydata-sphinx-theme.css?digest=5b4479735964841361fd" rel="stylesheet" />
+  <link href="../_static/styles/theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+<link href="../_static/styles/bootstrap.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+<link href="../_static/styles/pydata-sphinx-theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
 
   
-  <link href="../_static/vendor/fontawesome/6.1.2/css/all.min.css?digest=5b4479735964841361fd" rel="stylesheet" />
-  <link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.1.2/webfonts/fa-solid-900.woff2" />
-<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.1.2/webfonts/fa-brands-400.woff2" />
-<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.1.2/webfonts/fa-regular-400.woff2" />
+  <link href="../_static/vendor/fontawesome/6.5.2/css/all.min.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.2/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.2/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.2/webfonts/fa-regular-400.woff2" />
 
-    <link rel="stylesheet" type="text/css" href="../_static/pygments.css" />
-    <link rel="stylesheet" href="../_static/styles/sphinx-book-theme.css?digest=14f4ca6b54d191a8c7657f6c759bf11a5fb86285" type="text/css" />
-    <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css" />
-    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=03e43079" />
+    <link rel="stylesheet" type="text/css" href="../_static/styles/sphinx-book-theme.css?v=eba8b062" />
+    <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css?v=13237357" />
+    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css?v=76b2166b" />
     <link rel="stylesheet" type="text/css" href="../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
-    <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css" />
-    <link rel="stylesheet" type="text/css" href="../_static/design-style.4045f2051d55cab465a707391d5b2007.min.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css?v=4fa983c6" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-design.min.css?v=95c83b7e" />
   
   <!-- Pre-loaded scripts that we'll load fully later -->
-  <link rel="preload" as="script" href="../_static/scripts/bootstrap.js?digest=5b4479735964841361fd" />
-<link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=5b4479735964841361fd" />
-  <script src="../_static/vendor/fontawesome/6.1.2/js/all.min.js?digest=5b4479735964841361fd"></script>
+  <link rel="preload" as="script" href="../_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b" />
+<link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b" />
+  <script src="../_static/vendor/fontawesome/6.5.2/js/all.min.js?digest=dfe6caa3a7d634c4db9b"></script>
 
-    <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
-    <script src="../_static/jquery.js"></script>
-    <script src="../_static/underscore.js"></script>
-    <script src="../_static/_sphinx_javascript_frameworks_compat.js"></script>
-    <script src="../_static/doctools.js"></script>
-    <script src="../_static/clipboard.min.js"></script>
-    <script src="../_static/copybutton.js"></script>
-    <script src="../_static/scripts/sphinx-book-theme.js?digest=5a5c038af52cf7bc1a1ec88eea08e6366ee68824"></script>
+    <script src="../_static/documentation_options.js?v=9eb32ce0"></script>
+    <script src="../_static/doctools.js?v=9a2dae69"></script>
+    <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../_static/clipboard.min.js?v=a7894cd8"></script>
+    <script src="../_static/copybutton.js?v=f281be69"></script>
+    <script src="../_static/scripts/sphinx-book-theme.js?v=887ef09a"></script>
     <script>let toggleHintShow = 'Click to show';</script>
     <script>let toggleHintHide = 'Click to hide';</script>
     <script>let toggleOpenOnPrint = 'true';</script>
-    <script src="../_static/togglebutton.js"></script>
+    <script src="../_static/togglebutton.js?v=4a39c7ea"></script>
     <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
-    <script src="../_static/design-tabs.js"></script>
-    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
-const thebe_selector = ".thebe,.cell"
-const thebe_selector_input = "pre"
-const thebe_selector_output = ".output, .cell_output"
-</script>
-    <script async="async" src="../_static/sphinx-thebe.js"></script>
+    <script src="../_static/design-tabs.js?v=f930bc37"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script async="async" src="../_static/sphinx-thebe.js?v=c100c467"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
     <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
     <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
     <script>DOCUMENTATION_OPTIONS.pagename = 'documentation_notebooks/PmagPy_introduction';</script>
@@ -78,28 +73,23 @@ const thebe_selector_output = ".output, .cell_output"
 
   
   
-  <a class="skip-link" href="#main-content">Skip to main content</a>
+  <div id="pst-skip-link" class="skip-link d-print-none"><a href="#main-content">Skip to main content</a></div>
   
   <div id="pst-scroll-pixel-helper"></div>
-
   
   <button type="button" class="btn rounded-pill" id="pst-back-to-top">
-    <i class="fa-solid fa-arrow-up"></i>
-    Back to top
-  </button>
+    <i class="fa-solid fa-arrow-up"></i>Back to top</button>
 
   
   <input type="checkbox"
           class="sidebar-toggle"
-          name="__primary"
-          id="__primary"/>
-  <label class="overlay overlay-primary" for="__primary"></label>
+          id="pst-primary-sidebar-checkbox"/>
+  <label class="overlay overlay-primary" for="pst-primary-sidebar-checkbox"></label>
   
   <input type="checkbox"
           class="sidebar-toggle"
-          name="__secondary"
-          id="__secondary"/>
-  <label class="overlay overlay-secondary" for="__secondary"></label>
+          id="pst-secondary-sidebar-checkbox"/>
+  <label class="overlay overlay-secondary" for="pst-secondary-sidebar-checkbox"></label>
   
   <div class="search-button__wrapper">
     <div class="search-button__overlay"></div>
@@ -121,12 +111,20 @@ const thebe_selector_output = ".output, .cell_output"
   <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
 </form></div>
   </div>
+
+  <div class="pst-async-banner-revealer d-none">
+  <aside id="bd-header-version-warning" class="d-none d-print-none" aria-label="Version warning"></aside>
+</div>
+
   
-    <nav class="bd-header navbar navbar-expand-lg bd-navbar">
-    </nav>
+    <header class="bd-header navbar navbar-expand-lg bd-navbar d-print-none">
+    </header>
   
+
   <div class="bd-container">
     <div class="bd-container__inner bd-page-width">
+      
+      
       
       <div class="bd-sidebar-primary bd-sidebar">
         
@@ -142,6 +140,8 @@ const thebe_selector_output = ".output, .cell_output"
     <div class="sidebar-primary-items__start sidebar-primary__section">
         <div class="sidebar-primary-item">
 
+  
+    
   
 
 <a class="navbar-brand logo" href="../intro.html">
@@ -160,7 +160,18 @@ const thebe_selector_output = ".output, .cell_output"
   
   
 </a></div>
-        <div class="sidebar-primary-item"><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
+        <div class="sidebar-primary-item">
+
+ <script>
+ document.write(`
+   <button class="btn search-button-field search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass"></i>
+    <span class="search-button__default-text">Search</span>
+    <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+   </button>
+ `);
+ </script></div>
+        <div class="sidebar-primary-item"><nav class="bd-links bd-docs-nav" aria-label="Main">
     <div class="bd-toc-item navbar-nav active">
         
         <ul class="nav bd-sidenav bd-sidenav__home-link">
@@ -172,7 +183,7 @@ const thebe_selector_output = ".output, .cell_output"
         </ul>
         <p aria-level="2" class="caption" role="heading"><span class="caption-text">Installation</span></p>
 <ul class="nav bd-sidenav">
-<li class="toctree-l1 has-children"><a class="reference internal" href="../installation/PmagPy_install.html">Installing <strong>PmagPy</strong></a><input class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-1"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../installation/PmagPy_install.html">Installing <strong>PmagPy</strong></a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
 <li class="toctree-l2"><a class="reference internal" href="../installation/osx_pip.html">OSX pip install</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../installation/osx_developer.html">OSX developer install</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../installation/windows_pip.html">Windows pip install</a></li>
@@ -182,12 +193,12 @@ const thebe_selector_output = ".output, .cell_output"
 <li class="toctree-l2"><a class="reference internal" href="../installation/troubleshooting.html">Troubleshooting installation issues</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../programs/command_line_programs.html">Command line programs</a></li>
 </ul>
-</li>
-<li class="toctree-l1 has-children"><a class="reference internal" href="../programs/pmag_gui.html">Installing and Getting Started with Pmag GUI</a><input class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-2"><i class="fa-solid fa-chevron-down"></i></label><ul>
+</details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../programs/pmag_gui.html">Installing and Getting Started with Pmag GUI</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
 <li class="toctree-l2"><a class="reference internal" href="../programs/demag_gui.html">Demag GUI</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../programs/thellier_gui.html">Thellier GUI</a></li>
 </ul>
-</li>
+</details></li>
 <li class="toctree-l1"><a class="reference internal" href="../resources/survival_skills.html">Survival computer skills</a></li>
 
 </ul>
@@ -234,7 +245,7 @@ const thebe_selector_output = ".output, .cell_output"
 
       </div>
       
-      <main id="main-content" class="bd-main">
+      <main id="main-content" class="bd-main" role="main">
         
         
 
@@ -243,14 +254,14 @@ const thebe_selector_output = ".output, .cell_output"
           <div class="bd-content">
             <div class="bd-article-container">
               
-              <div class="bd-header-article">
+              <div class="bd-header-article d-print-none">
 <div class="header-article-items header-article__inner">
   
     <div class="header-article-items__start">
       
-        <div class="header-article-item"><label class="sidebar-toggle primary-toggle btn btn-sm" for="__primary" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+        <div class="header-article-item"><button class="sidebar-toggle primary-toggle btn btn-sm" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
   <span class="fa-solid fa-bars"></span>
-</label></div>
+</button></div>
       
     </div>
   
@@ -375,10 +386,10 @@ const thebe_selector_output = ".output, .cell_output"
 
 <script>
 document.write(`
-  <button class="btn btn-sm navbar-btn theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
-    <span class="theme-switch nav-link" data-mode="light"><i class="fa-solid fa-sun fa-lg"></i></span>
-    <span class="theme-switch nav-link" data-mode="dark"><i class="fa-solid fa-moon fa-lg"></i></span>
-    <span class="theme-switch nav-link" data-mode="auto"><i class="fa-solid fa-circle-half-stroke fa-lg"></i></span>
+  <button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="theme-switch fa-solid fa-sun fa-lg" data-mode="light"></i>
+    <i class="theme-switch fa-solid fa-moon fa-lg" data-mode="dark"></i>
+    <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"></i>
   </button>
 `);
 </script>
@@ -386,14 +397,14 @@ document.write(`
 
 <script>
 document.write(`
-  <button class="btn btn-sm navbar-btn search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <button class="btn btn-sm pst-navbar-icon search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
     <i class="fa-solid fa-magnifying-glass fa-lg"></i>
   </button>
 `);
 </script>
-<label class="sidebar-toggle secondary-toggle btn btn-sm" for="__secondary"title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+<button class="sidebar-toggle secondary-toggle btn btn-sm" title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
     <span class="fa-solid fa-list"></span>
-</label>
+</button>
 </div></div>
       
     </div>
@@ -439,28 +450,28 @@ document.write(`
               
                 
 <div id="searchbox"></div>
-                <article class="bd-article" role="main">
+                <article class="bd-article">
                   
   <section class="tex2jax_ignore mathjax_ignore" id="introduction-to-pmagpy">
-<h1>Introduction to PmagPy<a class="headerlink" href="#introduction-to-pmagpy" title="Permalink to this heading">#</a></h1>
+<h1>Introduction to PmagPy<a class="headerlink" href="#introduction-to-pmagpy" title="Link to this heading">#</a></h1>
 <p>by Lisa Tauxe, Lori Jonestrask, Nick Swanson-Hysell and Nick Jarboe</p>
 <section id="what-is-pmagpy">
-<h2>What is <strong>PmagPy</strong>?<a class="headerlink" href="#what-is-pmagpy" title="Permalink to this heading">#</a></h2>
-<p><strong>PmagPy</strong> is a software package for analyzing paleomagnetic and rock magnetic data using Python. These notebooks demonstrate how to use <strong>PmagPy</strong> in a Jupyter notebook or Python script.  For examples of how to use PmagPy scripts on the command line, see the static version of <a class="reference external" href="https://pmagpy.github.io/PmagPy-cli.html"><strong>PmagPy_cli</strong></a>.  If you are running this notebook locally, you can click the following link to launch <span class="xref myst"><strong>PmagPy-cli.ipynb</strong></span></p>
+<h2>What is <strong>PmagPy</strong>?<a class="headerlink" href="#what-is-pmagpy" title="Link to this heading">#</a></h2>
+<p><strong>PmagPy</strong> is a software package for analyzing paleomagnetic and rock magnetic data using Python. These notebooks demonstrate how to use <strong>PmagPy</strong> in a Jupyter notebook or Python script.  For examples of how to use PmagPy scripts on the command line, see the static version of <a class="reference external" href="https://pmagpy.github.io/PmagPy-cli.html"><strong>PmagPy_cli</strong></a>.  If you are running this notebook locally, you can click the following link to launch <a class="reference internal" href="#PmagPy-cli.ipynb"><span class="xref myst"><strong>PmagPy-cli.ipynb</strong></span></a></p>
 </section>
 <section id="what-are-paleomagnetism-and-rock-magnetism">
-<h2>What are paleomagnetism and rock magnetism?<a class="headerlink" href="#what-are-paleomagnetism-and-rock-magnetism" title="Permalink to this heading">#</a></h2>
+<h2>What are paleomagnetism and rock magnetism?<a class="headerlink" href="#what-are-paleomagnetism-and-rock-magnetism" title="Link to this heading">#</a></h2>
 <p>For information on the science of paleomagnetism and rock magnetism, see textbook at: <a class="reference external" href="https://earthref.org/MagIC/books/Tauxe/Essentials/">https://earthref.org/MagIC/books/Tauxe/Essentials/</a></p>
 </section>
 <section id="using-jupyter-notebooks-for-earth-science">
-<h2>Using Jupyter notebooks for Earth Science<a class="headerlink" href="#using-jupyter-notebooks-for-earth-science" title="Permalink to this heading">#</a></h2>
+<h2>Using Jupyter notebooks for Earth Science<a class="headerlink" href="#using-jupyter-notebooks-for-earth-science" title="Link to this heading">#</a></h2>
 <p>You will need to have Python 3 and Jupyter (<a class="reference external" href="https://jupyter.org/install">https://jupyter.org/install</a>) installed on your system to run this notebook.</p>
 <p>If you already have some experience working with Python, you should be able to navigate these notebooks.</p>
 <p>If not, we have a full course in Python for Earth Scientists available on Github.  To check it out, see:</p>
 <p><a class="reference external" href="https://nbviewer.jupyter.org/github/ltauxe/Python-for-Earth-Science-Students/blob/master/Lecture_01.ipynb">https://nbviewer.jupyter.org/github/ltauxe/Python-for-Earth-Science-Students/blob/master/Lecture_01.ipynb</a></p>
 </section>
 <section id="quick-start-for-jupyter-notebooks">
-<h2>Quick start for Jupyter Notebooks<a class="headerlink" href="#quick-start-for-jupyter-notebooks" title="Permalink to this heading">#</a></h2>
+<h2>Quick start for Jupyter Notebooks<a class="headerlink" href="#quick-start-for-jupyter-notebooks" title="Link to this heading">#</a></h2>
 <ul class="simple">
 <li><p>click on a box (called a “cell”), then click on ‘Run’ in the menu bar.  That will execute the cell.</p></li>
 <li><p>there are two types of cells:  Markdown and Code - see the menu bar for the type of cell you just clicked on.</p></li>
@@ -470,207 +481,207 @@ document.write(`
 </section>
 </section>
 <section class="tex2jax_ignore mathjax_ignore" id="guide-to-pmagpy">
-<h1>Guide to PmagPy<a class="headerlink" href="#guide-to-pmagpy" title="Permalink to this heading">#</a></h1>
+<h1>Guide to PmagPy<a class="headerlink" href="#guide-to-pmagpy" title="Link to this heading">#</a></h1>
 <p>The functionality of PmagPy is demonstrated within three notebooks in this repository:</p>
 <ul class="simple">
-<li><p><a class="reference internal" href="PmagPy_calculations.html"><span class="doc std std-doc">PmagPy_calculations.ipynb</span></a> This notebook demonstrates many of the PmagPy calculation functions such as those that rotate directions, return statistical parameters, and simulate data from specified distributions.</p></li>
-<li><p><a class="reference internal" href="PmagPy_plots_analysis.html"><span class="doc std std-doc">PmagPy_plots_analysis.ipynb</span></a> This notebook demonstrates PmagPy functions that can be used to visual data as well as those that conduct statistical tests that have associated visualizations.</p></li>
-<li><p><a class="reference internal" href="PmagPy_MagIC.html"><span class="doc std std-doc">PmagPy_MagIC.ipynb</span></a> This notebook demonstrates how PmagPy can be used to read and write data to and from the MagIC database format including conversion from many individual lab measurement file formats.</p></li>
+<li><p><a class="reference internal" href="PmagPy_calculations.html"><span class="std std-doc">PmagPy_calculations.ipynb</span></a> This notebook demonstrates many of the PmagPy calculation functions such as those that rotate directions, return statistical parameters, and simulate data from specified distributions.</p></li>
+<li><p><a class="reference internal" href="PmagPy_plots_analysis.html"><span class="std std-doc">PmagPy_plots_analysis.ipynb</span></a> This notebook demonstrates PmagPy functions that can be used to visual data as well as those that conduct statistical tests that have associated visualizations.</p></li>
+<li><p><a class="reference internal" href="PmagPy_MagIC.html"><span class="std std-doc">PmagPy_MagIC.ipynb</span></a> This notebook demonstrates how PmagPy can be used to read and write data to and from the MagIC database format including conversion from many individual lab measurement file formats.</p></li>
 </ul>
 <section id="functions-demonstrated-within-pmagpy-calculations-ipynb">
-<h2>Functions demonstrated within <a class="reference internal" href="PmagPy_calculations.html"><span class="doc std std-doc">PmagPy_calculations.ipynb</span></a>:<a class="headerlink" href="#functions-demonstrated-within-pmagpy-calculations-ipynb" title="Permalink to this heading">#</a></h2>
+<h2>Functions demonstrated within <a class="reference internal" href="PmagPy_calculations.html"><span class="std std-doc">PmagPy_calculations.ipynb</span></a>:<a class="headerlink" href="#functions-demonstrated-within-pmagpy-calculations-ipynb" title="Link to this heading">#</a></h2>
 <ul class="simple">
 <li><p>Functions in <strong>PmagPy_calculations.ipynb</strong>:</p>
 <ul>
-<li><p><span class="xref myst">aarm_magic</span> : calculate AARM tensors</p></li>
-<li><p><span class="xref myst">atrm_magic</span> : calculate ATRM tensors</p></li>
-<li><p><span class="xref myst">angle</span> : calculates the angle between two vectors</p></li>
-<li><p><span class="xref myst">apwp</span> : returns predicted paleolatitudes, directions and pole latitude/longitude from apparent polar wander paths of Besse and Courtillot (2002).</p></li>
-<li><p><span class="xref myst">b_vdm</span> : converts B (in microT) and (magnetic) latitude to V(A)DM (see <span class="xref myst">vdm_b</span>)</p></li>
-<li><p><span class="xref myst">bootams</span> : calculates bootstrap statistics for tensor data</p></li>
-<li><p><span class="xref myst">cart_dir</span> : converts cartesian coordinates (x,y,z) to declination, inclination, intensity (see <span class="xref myst">dir_cart</span>)</p></li>
-<li><p><span class="xref myst">di_eq</span> : maps declination, inclinatitions to X,Y for plotting in equal area projections</p></li>
-<li><p><span class="xref myst">di_geo</span> : rotates declination, inclination in specimen coordinates to geographic coordinates</p></li>
-<li><p><span class="xref myst">di_rot</span> : rotates directions to a  coordinate system with D,I as center</p></li>
-<li><p><span class="xref myst">di_tilt</span> : rotates directions to stratigraphic coordinates</p></li>
-<li><p><span class="xref myst">di_vgp</span> : converts direction to Virtual Geomagnetic Pole (see <span class="xref myst">vgp_di</span>)</p></li>
-<li><p><span class="xref myst">dia_vgp</span> : converts direction and <span class="math notranslate nohighlight">\(\alpha_{95}\)</span> to Virtual Geomagnetic Pole and dp,dm</p></li>
-<li><p><span class="xref myst">dipole_pinc</span> : calculates inclination given latitude assuming geocentric axial dipole</p></li>
-<li><p><span class="xref myst">dipole_plat</span> : calculates latitude given inclination assuming geocentric axial dipole</p></li>
-<li><p><span class="xref myst">dir_cart</span> : converts declination, inclination, intensity to cartesian coordinates (see <span class="xref myst">cart_dir</span>)</p></li>
-<li><p><span class="xref myst">eigs_s</span> : converts eigenparameters to equivalent 6 element tensor (see <span class="xref myst">s_eigs</span>)</p></li>
-<li><p><span class="xref myst">eq_di</span> : takes X,Y from equal area projection (e.g., from digitized coordinates) and  converts to declination, inclination</p></li>
-<li><p><span class="xref myst">fcalc</span> : returns the value from an F table, given the degrees of freedom.</p></li>
-<li><p><span class="xref myst">fisher</span> : generates sets of directions drawn from Fisher distributions with vertical true mean</p></li>
-<li><p><span class="xref myst">fishrot</span> : generates sets of directions drawn from Fisher distributions with arbitrary true mean</p></li>
-<li><p><span class="xref myst">flip</span> : flips a second mode (reverse directions) to their antipodes</p></li>
-<li><p><span class="xref myst">gaussian</span> : generates data drawn from a normal distribution</p></li>
-<li><p><span class="xref myst">gobing</span> : calculates Bingham statistics from a set of directions</p></li>
-<li><p><span class="xref myst">gofish</span> : calculates Fisher statistics from a set of directions</p></li>
-<li><p><span class="xref myst">gokent</span> : calculates Kent statistics from a set of directions</p></li>
-<li><p><span class="xref myst">goprinc</span> : calculates principal directions statistics</p></li>
-<li><p><span class="xref myst">igrf</span> : calculates geomagnetic field vectors for location, age given a field model (e.g., IGRF)</p></li>
-<li><p><span class="xref myst">incfish</span> : estimates the true mean inclination from inclination only data</p></li>
-<li><p><span class="xref myst">pca</span> : calculates the best-fit line or plane for demagnetization data and associated statistics</p></li>
-<li><p><span class="xref myst">pt_rot</span> : rotates point given finite rotation pole</p></li>
-<li><p><span class="xref myst">scalc</span> : calculates  VGP scatter</p></li>
-<li><p><span class="xref myst">s_eigs</span> : takes a 6 element tensor and calculates eigen parameters (see <span class="xref myst">eigs_s</span>)</p></li>
-<li><p><span class="xref myst">s_geo</span> : rotates 6 element tensors to geographic coordinates</p></li>
-<li><p><span class="xref myst">s_hext</span> : calculates Hext statistics from 6 element tensors</p></li>
-<li><p><span class="xref myst">s_tilt</span> : rotates 6 element tensors to stratigraphic coordinates</p></li>
-<li><p><span class="xref myst">separate_directions</span> : separates a set of directions into two modes (normal and reverse)</p></li>
-<li><p><span class="xref myst">squish</span>: flattens inclination data given flattening factor (see <span class="xref myst">unsquish</span>)</p></li>
-<li><p><span class="xref myst">sundec</span> : calulates direction to sun for location, date, time and sun azimuth</p></li>
-<li><p><span class="xref myst">tk03</span> : generates sets of directions consistent with the TK03 field model</p></li>
-<li><p><span class="xref myst">uniform</span> : generates sets of uniformly distributed directions</p></li>
-<li><p><span class="xref myst">unsquish</span> : unsquishes flattened inclinations, given flattening factor (see <span class="xref myst">squish</span>)</p></li>
-<li><p><span class="xref myst">vector_mean</span> : calculates vector mean for sets of vectors (declination, inclination, intensity)</p></li>
-<li><p><span class="xref myst">vdm_b</span> : calculates intensity at given location from specified virtual dipole moment (see <span class="xref myst">b_vdm</span>)</p></li>
-<li><p><span class="xref myst">vgp_di</span> : calculates direction at given location from virtual geomagnetic pole (see <span class="xref myst">di_vgp</span>)</p></li>
-<li><p><span class="xref myst">watsons_f</span> : calculates Watson’s F statistic for testing for common mean</p></li>
+<li><p><a class="reference internal" href="#aarm_magic"><span class="xref myst">aarm_magic</span></a> : calculate AARM tensors</p></li>
+<li><p><a class="reference internal" href="#aarm_magic"><span class="xref myst">atrm_magic</span></a> : calculate ATRM tensors</p></li>
+<li><p><a class="reference internal" href="#angle"><span class="xref myst">angle</span></a> : calculates the angle between two vectors</p></li>
+<li><p><a class="reference internal" href="#apwp"><span class="xref myst">apwp</span></a> : returns predicted paleolatitudes, directions and pole latitude/longitude from apparent polar wander paths of Besse and Courtillot (2002).</p></li>
+<li><p><a class="reference internal" href="#b_vdm"><span class="xref myst">b_vdm</span></a> : converts B (in microT) and (magnetic) latitude to V(A)DM (see <a class="reference internal" href="#vdm_b"><span class="xref myst">vdm_b</span></a>)</p></li>
+<li><p><a class="reference internal" href="#bootams"><span class="xref myst">bootams</span></a> : calculates bootstrap statistics for tensor data</p></li>
+<li><p><a class="reference internal" href="#cart_dir"><span class="xref myst">cart_dir</span></a> : converts cartesian coordinates (x,y,z) to declination, inclination, intensity (see <a class="reference internal" href="#dir_cart"><span class="xref myst">dir_cart</span></a>)</p></li>
+<li><p><a class="reference internal" href="#di_eq"><span class="xref myst">di_eq</span></a> : maps declination, inclinatitions to X,Y for plotting in equal area projections</p></li>
+<li><p><a class="reference internal" href="#di_geo"><span class="xref myst">di_geo</span></a> : rotates declination, inclination in specimen coordinates to geographic coordinates</p></li>
+<li><p><a class="reference internal" href="#di_rot"><span class="xref myst">di_rot</span></a> : rotates directions to a  coordinate system with D,I as center</p></li>
+<li><p><a class="reference internal" href="#di_tilt"><span class="xref myst">di_tilt</span></a> : rotates directions to stratigraphic coordinates</p></li>
+<li><p><a class="reference internal" href="#di_vgp"><span class="xref myst">di_vgp</span></a> : converts direction to Virtual Geomagnetic Pole (see <a class="reference internal" href="#vgp_di"><span class="xref myst">vgp_di</span></a>)</p></li>
+<li><p><a class="reference internal" href="#dia_vgp"><span class="xref myst">dia_vgp</span></a> : converts direction and <span class="math notranslate nohighlight">\(\alpha_{95}\)</span> to Virtual Geomagnetic Pole and dp,dm</p></li>
+<li><p><a class="reference internal" href="#dipole_pinc"><span class="xref myst">dipole_pinc</span></a> : calculates inclination given latitude assuming geocentric axial dipole</p></li>
+<li><p><a class="reference internal" href="#dipole_plat"><span class="xref myst">dipole_plat</span></a> : calculates latitude given inclination assuming geocentric axial dipole</p></li>
+<li><p><a class="reference internal" href="#dir_cart"><span class="xref myst">dir_cart</span></a> : converts declination, inclination, intensity to cartesian coordinates (see <a class="reference internal" href="#cart_dir"><span class="xref myst">cart_dir</span></a>)</p></li>
+<li><p><a class="reference internal" href="#eigs_s"><span class="xref myst">eigs_s</span></a> : converts eigenparameters to equivalent 6 element tensor (see <a class="reference internal" href="#s_eigs"><span class="xref myst">s_eigs</span></a>)</p></li>
+<li><p><a class="reference internal" href="#eq_di"><span class="xref myst">eq_di</span></a> : takes X,Y from equal area projection (e.g., from digitized coordinates) and  converts to declination, inclination</p></li>
+<li><p><a class="reference internal" href="#fcalc"><span class="xref myst">fcalc</span></a> : returns the value from an F table, given the degrees of freedom.</p></li>
+<li><p><a class="reference internal" href="#fisher"><span class="xref myst">fisher</span></a> : generates sets of directions drawn from Fisher distributions with vertical true mean</p></li>
+<li><p><a class="reference internal" href="#fishrot"><span class="xref myst">fishrot</span></a> : generates sets of directions drawn from Fisher distributions with arbitrary true mean</p></li>
+<li><p><a class="reference internal" href="#flip"><span class="xref myst">flip</span></a> : flips a second mode (reverse directions) to their antipodes</p></li>
+<li><p><a class="reference internal" href="#gaussian"><span class="xref myst">gaussian</span></a> : generates data drawn from a normal distribution</p></li>
+<li><p><a class="reference internal" href="#gobing"><span class="xref myst">gobing</span></a> : calculates Bingham statistics from a set of directions</p></li>
+<li><p><a class="reference internal" href="#gofish"><span class="xref myst">gofish</span></a> : calculates Fisher statistics from a set of directions</p></li>
+<li><p><a class="reference internal" href="#gokent"><span class="xref myst">gokent</span></a> : calculates Kent statistics from a set of directions</p></li>
+<li><p><a class="reference internal" href="#goprinc"><span class="xref myst">goprinc</span></a> : calculates principal directions statistics</p></li>
+<li><p><a class="reference internal" href="#igrf"><span class="xref myst">igrf</span></a> : calculates geomagnetic field vectors for location, age given a field model (e.g., IGRF)</p></li>
+<li><p><a class="reference internal" href="#incfish"><span class="xref myst">incfish</span></a> : estimates the true mean inclination from inclination only data</p></li>
+<li><p><a class="reference internal" href="#pca"><span class="xref myst">pca</span></a> : calculates the best-fit line or plane for demagnetization data and associated statistics</p></li>
+<li><p><a class="reference internal" href="#pt_rot"><span class="xref myst">pt_rot</span></a> : rotates point given finite rotation pole</p></li>
+<li><p><a class="reference internal" href="#scalc"><span class="xref myst">scalc</span></a> : calculates  VGP scatter</p></li>
+<li><p><a class="reference internal" href="#s_eigs"><span class="xref myst">s_eigs</span></a> : takes a 6 element tensor and calculates eigen parameters (see <a class="reference internal" href="#eigs_s"><span class="xref myst">eigs_s</span></a>)</p></li>
+<li><p><a class="reference internal" href="#s_geo"><span class="xref myst">s_geo</span></a> : rotates 6 element tensors to geographic coordinates</p></li>
+<li><p><a class="reference internal" href="#s_hext"><span class="xref myst">s_hext</span></a> : calculates Hext statistics from 6 element tensors</p></li>
+<li><p><a class="reference internal" href="#s_tilt"><span class="xref myst">s_tilt</span></a> : rotates 6 element tensors to stratigraphic coordinates</p></li>
+<li><p><a class="reference internal" href="#separate_directions"><span class="xref myst">separate_directions</span></a> : separates a set of directions into two modes (normal and reverse)</p></li>
+<li><p><a class="reference internal" href="#squish"><span class="xref myst">squish</span></a>: flattens inclination data given flattening factor (see <a class="reference internal" href="#unsquish"><span class="xref myst">unsquish</span></a>)</p></li>
+<li><p><a class="reference internal" href="#sundec"><span class="xref myst">sundec</span></a> : calulates direction to sun for location, date, time and sun azimuth</p></li>
+<li><p><a class="reference internal" href="#tk03"><span class="xref myst">tk03</span></a> : generates sets of directions consistent with the TK03 field model</p></li>
+<li><p><a class="reference internal" href="#uniform"><span class="xref myst">uniform</span></a> : generates sets of uniformly distributed directions</p></li>
+<li><p><a class="reference internal" href="#unsquish"><span class="xref myst">unsquish</span></a> : unsquishes flattened inclinations, given flattening factor (see <a class="reference internal" href="#squish"><span class="xref myst">squish</span></a>)</p></li>
+<li><p><a class="reference internal" href="#vector_mean"><span class="xref myst">vector_mean</span></a> : calculates vector mean for sets of vectors (declination, inclination, intensity)</p></li>
+<li><p><a class="reference internal" href="#vdm_b"><span class="xref myst">vdm_b</span></a> : calculates intensity at given location from specified virtual dipole moment (see <a class="reference internal" href="#b_vdm"><span class="xref myst">b_vdm</span></a>)</p></li>
+<li><p><a class="reference internal" href="#vgp_di"><span class="xref myst">vgp_di</span></a> : calculates direction at given location from virtual geomagnetic pole (see <a class="reference internal" href="#di_vgp"><span class="xref myst">di_vgp</span></a>)</p></li>
+<li><p><a class="reference internal" href="#watsons_f"><span class="xref myst">watsons_f</span></a> : calculates Watson’s F statistic for testing for common mean</p></li>
 </ul>
 </li>
 </ul>
 </section>
 <section id="functions-demonstrated-within-pmagpy-plots-analysis-ipynb">
-<h2>Functions demonstrated within <a class="reference internal" href="PmagPy_plots_analysis.html"><span class="doc std std-doc">PmagPy_plots_analysis.ipynb</span></a>:<a class="headerlink" href="#functions-demonstrated-within-pmagpy-plots-analysis-ipynb" title="Permalink to this heading">#</a></h2>
+<h2>Functions demonstrated within <a class="reference internal" href="PmagPy_plots_analysis.html"><span class="std std-doc">PmagPy_plots_analysis.ipynb</span></a>:<a class="headerlink" href="#functions-demonstrated-within-pmagpy-plots-analysis-ipynb" title="Link to this heading">#</a></h2>
 <ul class="simple">
 <li><p>Functions in <strong>PmagPy_plots_analysis.ipynb</strong></p>
 <ul>
-<li><p><span class="xref myst">ani_depthplot</span> : plots anisotropy data against depth in stratigraphic section (Xmas tree plots)</p></li>
-<li><p><span class="xref myst">aniso_magic</span> : makes plots of anisotropy data and bootstrapped confidences</p></li>
-<li><p><span class="xref myst">biplot_magic</span> : plots different columns against each other in MagIC formatted data files</p></li>
-<li><p><span class="xref myst">chi_magic</span> : plots magnetic susceptibility data in MagIC format as function of field, frequency or temperature</p></li>
-<li><p><span class="xref myst">common_mean</span> : graphical approach to testing two sets of directions for common mean using bootstrap</p></li>
-<li><p><span class="xref myst">core_depthplot</span> : plots MagIC formatted data</p></li>
-<li><p><span class="xref myst">curie</span> : makes plots of Curie Temperature data and provides estimates for Tc</p></li>
-<li><p><span class="xref myst">dayplot_magic</span> : makes Day et al. (1977) and other plots with hysteresis statistics</p></li>
-<li><p><span class="xref myst">dmag_magic</span> : plots remanence against demagnetization step for MagIC formatted files</p></li>
-<li><p><span class="xref myst">eqarea</span> and <span class="xref myst">eqarea_magic</span> : makes equal area projections for directions</p></li>
-<li><p><span class="xref myst">eqarea_ell</span> : makes equal area projections for directions with specified confidence ellipses</p></li>
-<li><p><span class="xref myst">find_ei</span> : finds the inclination unflattening factor that unsquishes directions to match TK03 distribution</p></li>
-<li><p><span class="xref myst">fishqq</span>: makes a Quantile-Quantile plot for directions against uniform and exponential distributions</p></li>
-<li><p><span class="xref myst">foldtest</span> &amp; <span class="xref myst">foldtest_magic</span> : finds  tilt correction that maximizes concentration of directions, with bootstrap confidence bounds.</p></li>
-<li><p><span class="xref myst">forc_diagram</span>: plots FORC diagrams for both conventional and irregular FORCs</p></li>
-<li><p><span class="xref myst">hysteresis_magic</span> : makes plots of hysteresis data (not FORCs).</p></li>
-<li><p><span class="xref myst">irm_unmix</span> : analyzes IRM acquisition data in terms of coercivity distributions</p></li>
-<li><p><span class="xref myst">irmaq_magic</span> : plots IRM acquistion data</p></li>
-<li><p><span class="xref myst">lnp_magic</span> : plots lines and planes for site level data and calculates best fit mean and alpha_95</p></li>
-<li><p><span class="xref myst">lowes</span> : makes a plot of the Lowe’s spectrum for a geomagnetic field model</p></li>
-<li><p><span class="xref myst">lowrie</span> and <span class="xref myst">lowrie_magic</span> : makes plots of Lowrie’s (1990) 3D-IRM demagnetization experiments</p></li>
-<li><p><span class="xref myst">plot_cdf</span> and <span class="xref myst">plot_2cdfs</span> : makes a cumulative distribution plot of data</p></li>
-<li><p><span class="xref myst">plotdi_a</span> : makes equal are plots of directions and their <span class="math notranslate nohighlight">\(\alpha_{95}\)</span>s</p></li>
-<li><p><span class="xref myst">plot_geomagia</span> : makes plots from files downloaded from the  geomagia website</p></li>
-<li><p><span class="xref myst">plot_magic_keys</span> : plots data from MagIC formatted data files</p></li>
-<li><p><span class="xref myst">plot_ts</span> : makes a plot of the desired Geomagnetic Reversal time scale</p></li>
-<li><p><span class="xref myst">qqplot</span> : makes a Quantile-Quantile plot for data against a normal distribution</p></li>
-<li><p><span class="xref myst">qqunf</span> : makes a Quantile-Quantile plot for data against a uniform distribution</p></li>
-<li><p><span class="xref myst">quick_hyst</span> : makes hysteresis plots</p></li>
-<li><p><span class="xref myst">revtest</span> &amp; <span class="xref myst">revtest_magic</span> : performs a bootstrap reversals test</p></li>
-<li><p><span class="xref myst">thellier_magic</span> : makes plots of thellier-thellier data.</p></li>
-<li><p><span class="xref myst">watsons_v</span> : makes a graph for Watson’s V test for common mean</p></li>
-<li><p><span class="xref myst">zeq</span> and <span class="xref myst">zeq_magic</span> : makes quicky zijderveld plots for measurement data</p></li>
+<li><p><a class="reference internal" href="#ani_depthplot"><span class="xref myst">ani_depthplot</span></a> : plots anisotropy data against depth in stratigraphic section (Xmas tree plots)</p></li>
+<li><p><a class="reference internal" href="#aniso_magic"><span class="xref myst">aniso_magic</span></a> : makes plots of anisotropy data and bootstrapped confidences</p></li>
+<li><p><a class="reference internal" href="#biplot_magic"><span class="xref myst">biplot_magic</span></a> : plots different columns against each other in MagIC formatted data files</p></li>
+<li><p><a class="reference internal" href="#chi_magic"><span class="xref myst">chi_magic</span></a> : plots magnetic susceptibility data in MagIC format as function of field, frequency or temperature</p></li>
+<li><p><a class="reference internal" href="#common_mean"><span class="xref myst">common_mean</span></a> : graphical approach to testing two sets of directions for common mean using bootstrap</p></li>
+<li><p><a class="reference internal" href="#core_depthplot"><span class="xref myst">core_depthplot</span></a> : plots MagIC formatted data</p></li>
+<li><p><a class="reference internal" href="#curie"><span class="xref myst">curie</span></a> : makes plots of Curie Temperature data and provides estimates for Tc</p></li>
+<li><p><a class="reference internal" href="#dayplot_magic"><span class="xref myst">dayplot_magic</span></a> : makes Day et al. (1977) and other plots with hysteresis statistics</p></li>
+<li><p><a class="reference internal" href="#dmag_magic"><span class="xref myst">dmag_magic</span></a> : plots remanence against demagnetization step for MagIC formatted files</p></li>
+<li><p><a class="reference internal" href="#eqarea"><span class="xref myst">eqarea</span></a> and <a class="reference internal" href="#eqarea_magic"><span class="xref myst">eqarea_magic</span></a> : makes equal area projections for directions</p></li>
+<li><p><a class="reference internal" href="#eqarea_ell"><span class="xref myst">eqarea_ell</span></a> : makes equal area projections for directions with specified confidence ellipses</p></li>
+<li><p><a class="reference internal" href="#find_ei"><span class="xref myst">find_ei</span></a> : finds the inclination unflattening factor that unsquishes directions to match TK03 distribution</p></li>
+<li><p><a class="reference internal" href="#fishqq"><span class="xref myst">fishqq</span></a>: makes a Quantile-Quantile plot for directions against uniform and exponential distributions</p></li>
+<li><p><a class="reference internal" href="#foldtest"><span class="xref myst">foldtest</span></a> &amp; <a class="reference internal" href="#foldtest_magic"><span class="xref myst">foldtest_magic</span></a> : finds  tilt correction that maximizes concentration of directions, with bootstrap confidence bounds.</p></li>
+<li><p><a class="reference internal" href="#forc_diagram"><span class="xref myst">forc_diagram</span></a>: plots FORC diagrams for both conventional and irregular FORCs</p></li>
+<li><p><a class="reference internal" href="#hysteresis_magic"><span class="xref myst">hysteresis_magic</span></a> : makes plots of hysteresis data (not FORCs).</p></li>
+<li><p><a class="reference internal" href="#irm_unmix"><span class="xref myst">irm_unmix</span></a> : analyzes IRM acquisition data in terms of coercivity distributions</p></li>
+<li><p><a class="reference internal" href="#irm_magic"><span class="xref myst">irmaq_magic</span></a> : plots IRM acquistion data</p></li>
+<li><p><a class="reference internal" href="#lnp_magic"><span class="xref myst">lnp_magic</span></a> : plots lines and planes for site level data and calculates best fit mean and alpha_95</p></li>
+<li><p><a class="reference internal" href="#lowes"><span class="xref myst">lowes</span></a> : makes a plot of the Lowe’s spectrum for a geomagnetic field model</p></li>
+<li><p><a class="reference internal" href="#lowrie"><span class="xref myst">lowrie</span></a> and <a class="reference internal" href="#lowrie"><span class="xref myst">lowrie_magic</span></a> : makes plots of Lowrie’s (1990) 3D-IRM demagnetization experiments</p></li>
+<li><p><a class="reference internal" href="#plot_cdf"><span class="xref myst">plot_cdf</span></a> and <a class="reference internal" href="#plot_2cdfs"><span class="xref myst">plot_2cdfs</span></a> : makes a cumulative distribution plot of data</p></li>
+<li><p><a class="reference internal" href="#plotdi_a"><span class="xref myst">plotdi_a</span></a> : makes equal are plots of directions and their <span class="math notranslate nohighlight">\(\alpha_{95}\)</span>s</p></li>
+<li><p><a class="reference internal" href="#plot_geomagia"><span class="xref myst">plot_geomagia</span></a> : makes plots from files downloaded from the  geomagia website</p></li>
+<li><p><a class="reference internal" href="#plot_magic_keys"><span class="xref myst">plot_magic_keys</span></a> : plots data from MagIC formatted data files</p></li>
+<li><p><a class="reference internal" href="#plot_ts"><span class="xref myst">plot_ts</span></a> : makes a plot of the desired Geomagnetic Reversal time scale</p></li>
+<li><p><a class="reference internal" href="#qqplot"><span class="xref myst">qqplot</span></a> : makes a Quantile-Quantile plot for data against a normal distribution</p></li>
+<li><p><a class="reference internal" href="#qqunf"><span class="xref myst">qqunf</span></a> : makes a Quantile-Quantile plot for data against a uniform distribution</p></li>
+<li><p><a class="reference internal" href="#quick_hyst"><span class="xref myst">quick_hyst</span></a> : makes hysteresis plots</p></li>
+<li><p><a class="reference internal" href="#revtest"><span class="xref myst">revtest</span></a> &amp; <a class="reference internal" href="#revtest_magic"><span class="xref myst">revtest_magic</span></a> : performs a bootstrap reversals test</p></li>
+<li><p><a class="reference internal" href="#thellier_magic"><span class="xref myst">thellier_magic</span></a> : makes plots of thellier-thellier data.</p></li>
+<li><p><a class="reference internal" href="#watsons_v"><span class="xref myst">watsons_v</span></a> : makes a graph for Watson’s V test for common mean</p></li>
+<li><p><a class="reference internal" href="#zeq"><span class="xref myst">zeq</span></a> and <a class="reference internal" href="#zeq_magic"><span class="xref myst">zeq_magic</span></a> : makes quicky zijderveld plots for measurement data</p></li>
 </ul>
 </li>
 <li><p>Maps:</p>
 <ul>
-<li><p><span class="xref myst">cont_rot</span> : makes plots of continents after rotation to specified coordinate system</p></li>
-<li><p><span class="xref myst">plot_mag_map</span> : makes a color contour plot of geomagnetic field models</p></li>
-<li><p><span class="xref myst">plot_map_pts</span> : plots points on maps</p></li>
-<li><p><span class="xref myst">polemap_magic</span> : reads in MagIC formatted file with paleomagnetic poles and plots them</p></li>
-<li><p><span class="xref myst">vgpmap_magic</span> : reads in MagIC formatted file with virtual geomagnetic poles and plots them</p></li>
+<li><p><a class="reference internal" href="#cont_rot"><span class="xref myst">cont_rot</span></a> : makes plots of continents after rotation to specified coordinate system</p></li>
+<li><p><a class="reference internal" href="#plot_mag_map"><span class="xref myst">plot_mag_map</span></a> : makes a color contour plot of geomagnetic field models</p></li>
+<li><p><a class="reference internal" href="#plot_map_pts"><span class="xref myst">plot_map_pts</span></a> : plots points on maps</p></li>
+<li><p><a class="reference internal" href="#polemap_magic"><span class="xref myst">polemap_magic</span></a> : reads in MagIC formatted file with paleomagnetic poles and plots them</p></li>
+<li><p><a class="reference internal" href="#vgpmap_magic"><span class="xref myst">vgpmap_magic</span></a> : reads in MagIC formatted file with virtual geomagnetic poles and plots them</p></li>
 </ul>
 </li>
 </ul>
 </section>
 <section id="functions-demonstrated-within-pmagpy-magic-ipynb">
-<h2>Functions demonstrated within <a class="reference internal" href="PmagPy_MagIC.html"><span class="doc std std-doc">PmagPy_MagIC.ipynb</span></a>:<a class="headerlink" href="#functions-demonstrated-within-pmagpy-magic-ipynb" title="Permalink to this heading">#</a></h2>
+<h2>Functions demonstrated within <a class="reference internal" href="PmagPy_MagIC.html"><span class="std std-doc">PmagPy_MagIC.ipynb</span></a>:<a class="headerlink" href="#functions-demonstrated-within-pmagpy-magic-ipynb" title="Link to this heading">#</a></h2>
 <ul class="simple">
 <li><p>Functions in <strong>PmagPy_MagIC.ipynb</strong></p>
 <ul>
-<li><p><span class="xref myst">reading MagIC files</span> : reading in MagIC formatted files</p></li>
-<li><p><span class="xref myst">writing MagIC files</span> : outputing MagIC formatted files</p></li>
-<li><p><span class="xref myst">combine_magic</span> : combines two MagIC formatted files of same type</p></li>
-<li><p><span class="xref myst">convert_ages</span> : convert ages in downloaded MagIC file to Ma</p></li>
-<li><p><span class="xref myst">grab_magic_key</span> : prints out a single column from a MagIC format file</p></li>
-<li><p><span class="xref myst">magic_select</span> : selects data from MagIC format file given conditions (e.g., method_codes contain string)</p></li>
-<li><p><span class="xref myst">sites_extract</span> : makes excel or latex files from sites.txt for publications</p></li>
-<li><p><span class="xref myst">criteria_extract</span> : makes excel or latex files from criteria.txt for publications</p></li>
-<li><p><span class="xref myst">specimens_extract</span> : makes excel or latex files from specimens.txt for publications</p></li>
-<li><p><span class="xref myst">contributions</span> work with data model 3.0 MagIC contributions</p>
+<li><p><a class="reference internal" href="#magic_read"><span class="xref myst">reading MagIC files</span></a> : reading in MagIC formatted files</p></li>
+<li><p><a class="reference internal" href="#magic_write"><span class="xref myst">writing MagIC files</span></a> : outputing MagIC formatted files</p></li>
+<li><p><a class="reference internal" href="#combine_magic"><span class="xref myst">combine_magic</span></a> : combines two MagIC formatted files of same type</p></li>
+<li><p><a class="reference internal" href="#convert_ages"><span class="xref myst">convert_ages</span></a> : convert ages in downloaded MagIC file to Ma</p></li>
+<li><p><a class="reference internal" href="#grab_magic_key"><span class="xref myst">grab_magic_key</span></a> : prints out a single column from a MagIC format file</p></li>
+<li><p><a class="reference internal" href="#magic_select"><span class="xref myst">magic_select</span></a> : selects data from MagIC format file given conditions (e.g., method_codes contain string)</p></li>
+<li><p><a class="reference internal" href="#sites_extract"><span class="xref myst">sites_extract</span></a> : makes excel or latex files from sites.txt for publications</p></li>
+<li><p><a class="reference internal" href="#criteria_extract"><span class="xref myst">criteria_extract</span></a> : makes excel or latex files from criteria.txt for publications</p></li>
+<li><p><a class="reference internal" href="#specimens_extract"><span class="xref myst">specimens_extract</span></a> : makes excel or latex files from specimens.txt for publications</p></li>
+<li><p><a class="reference internal" href="#Contributions"><span class="xref myst">contributions</span></a> work with data model 3.0 MagIC contributions</p>
 <ul>
-<li><p><span class="xref myst">download_magic</span> : unpacks a contribution text file downloaded from the MagIC website</p></li>
-<li><p><span class="xref myst">upload_magic</span> : prepares a directory with a MagIC contribution for uploading to MagIC</p></li>
-<li><p><span class="xref myst">cb.add_sites_to_meas_table</span> : completes a measurements data frame with the information required for plotting by site.</p></li>
-<li><p><span class="xref myst">cb.get_intensity_col</span> : finds the first non-zero type of intensity data in a measurements dataframe.</p></li>
+<li><p><a class="reference internal" href="#download_magic"><span class="xref myst">download_magic</span></a> : unpacks a contribution text file downloaded from the MagIC website</p></li>
+<li><p><a class="reference internal" href="#upload_magic"><span class="xref myst">upload_magic</span></a> : prepares a directory with a MagIC contribution for uploading to MagIC</p></li>
+<li><p><a class="reference internal" href="#cb.add_sites_to_meas_table"><span class="xref myst">cb.add_sites_to_meas_table</span></a> : completes a measurements data frame with the information required for plotting by site.</p></li>
+<li><p><a class="reference internal" href="#cb.get_intensity_col"><span class="xref myst">cb.get_intensity_col</span></a> : finds the first non-zero type of intensity data in a measurements dataframe.</p></li>
 </ul>
 </li>
-<li><p><span class="xref myst">conversion scripts</span> : convert many laboratory measurement formats to the MagIC data model 3 format</p>
+<li><p><a class="reference internal" href="#Conversion-Scripts"><span class="xref myst">conversion scripts</span></a> : convert many laboratory measurement formats to the MagIC data model 3 format</p>
 <ul>
-<li><p><span class="xref myst">_2g_asc_magic</span> : converts 2G ascii files to MagIC</p></li>
-<li><p><span class="xref myst">_2g_bin_magic</span> : converts 2G binary files to MagIC</p></li>
-<li><p><span class="xref myst">agm_magic</span> : converts Princeton Measurements alternating gradient force magnetization (AGM) files to MagIC.</p></li>
-<li><p><span class="xref myst">bgc_magic</span> : convert Berkeley Geochronology Center files to MagIC.</p></li>
-<li><p><span class="xref myst">cit_magic</span> : convert Cal Tech format files to MagIC.</p></li>
-<li><p><span class="xref myst">generic_magic</span> : converts generic files to MagIC.</p></li>
-<li><p><span class="xref myst">huji_magic</span> : converts Hebrew University, Jerusalem, Israel files to MagIC.</p></li>
-<li><p><span class="xref myst">huji_sample_magic</span> : converts HUJI files to a MagIC format.</p></li>
-<li><p><span class="xref myst">jr6_jr6_magic</span> : converts the AGICO JR6 spinner .jr6 files to MagIC</p></li>
-<li><p><span class="xref myst">jr6_txt_magic</span> : converts the AGICO JR6 .txt files to MagIC</p></li>
-<li><p><span class="xref myst">k15_magic</span> : converts 15 measurement anisotropy of magnetic susceptibility files to MagIC.</p></li>
-<li><p><span class="xref myst">kly4s_magic</span> : converts SIO KLY4S formatted files to MagIC.</p></li>
-<li><p><span class="xref myst">ldeo_magic</span> : converts Lamont-Doherty files to MagIC.</p></li>
-<li><p><span class="xref myst">livdb_magic</span> : converts Liverpool files to MagIC.</p></li>
-<li><p><span class="xref myst">mst_magic</span> : converts Curie Temperature experimental data to MagIC</p></li>
-<li><p><span class="xref myst">sio_magic</span> : converts Scripps Institution of Oceanography data files to MagIC</p></li>
-<li><p><span class="xref myst">sufar4_magic</span> : converts AGICO SUFAR program (ver.1.2.) ascii files to MagIC</p></li>
-<li><p><span class="xref myst">tdt_magic</span> : converts Thellier Tool files to MagIC</p></li>
-<li><p><span class="xref myst">utrecht_magic</span> : converts Fort Hoofddijk, Utrecht University Robot files to MagIC</p></li>
-<li><p><span class="xref myst">orientation_magic</span> : converts an “orient.txt” formatted file with field notebook information into MagIC formatted files</p></li>
-<li><p><span class="xref myst">azdip_magic</span> : converts an “azdip” formatted file to a samples.txt file format</p></li>
+<li><p><a class="reference internal" href="#_2g_asc_magic"><span class="xref myst">_2g_asc_magic</span></a> : converts 2G ascii files to MagIC</p></li>
+<li><p><a class="reference internal" href="#_2g_bin_magic"><span class="xref myst">_2g_bin_magic</span></a> : converts 2G binary files to MagIC</p></li>
+<li><p><a class="reference internal" href="#agm_magic"><span class="xref myst">agm_magic</span></a> : converts Princeton Measurements alternating gradient force magnetization (AGM) files to MagIC.</p></li>
+<li><p><a class="reference internal" href="#bgc_magic"><span class="xref myst">bgc_magic</span></a> : convert Berkeley Geochronology Center files to MagIC.</p></li>
+<li><p><a class="reference internal" href="#cit_magic"><span class="xref myst">cit_magic</span></a> : convert Cal Tech format files to MagIC.</p></li>
+<li><p><a class="reference internal" href="#generic_magic"><span class="xref myst">generic_magic</span></a> : converts generic files to MagIC.</p></li>
+<li><p><a class="reference internal" href="#huji_magic"><span class="xref myst">huji_magic</span></a> : converts Hebrew University, Jerusalem, Israel files to MagIC.</p></li>
+<li><p><a class="reference internal" href="#huji_sample_magic"><span class="xref myst">huji_sample_magic</span></a> : converts HUJI files to a MagIC format.</p></li>
+<li><p><a class="reference internal" href="#jr6_jr6_magic"><span class="xref myst">jr6_jr6_magic</span></a> : converts the AGICO JR6 spinner .jr6 files to MagIC</p></li>
+<li><p><a class="reference internal" href="#jr6_txt_magic"><span class="xref myst">jr6_txt_magic</span></a> : converts the AGICO JR6 .txt files to MagIC</p></li>
+<li><p><a class="reference internal" href="#k15_magic"><span class="xref myst">k15_magic</span></a> : converts 15 measurement anisotropy of magnetic susceptibility files to MagIC.</p></li>
+<li><p><a class="reference internal" href="#kly4s_magic"><span class="xref myst">kly4s_magic</span></a> : converts SIO KLY4S formatted files to MagIC.</p></li>
+<li><p><a class="reference internal" href="#ldeo_magic"><span class="xref myst">ldeo_magic</span></a> : converts Lamont-Doherty files to MagIC.</p></li>
+<li><p><a class="reference internal" href="#livdb_magic"><span class="xref myst">livdb_magic</span></a> : converts Liverpool files to MagIC.</p></li>
+<li><p><a class="reference internal" href="#mst_magic"><span class="xref myst">mst_magic</span></a> : converts Curie Temperature experimental data to MagIC</p></li>
+<li><p><a class="reference internal" href="#sio_magic"><span class="xref myst">sio_magic</span></a> : converts Scripps Institution of Oceanography data files to MagIC</p></li>
+<li><p><a class="reference internal" href="#sufar4_magic"><span class="xref myst">sufar4_magic</span></a> : converts AGICO SUFAR program (ver.1.2.) ascii files to MagIC</p></li>
+<li><p><a class="reference internal" href="#tdt_magic"><span class="xref myst">tdt_magic</span></a> : converts Thellier Tool files to MagIC</p></li>
+<li><p><a class="reference internal" href="#utrecht_magic"><span class="xref myst">utrecht_magic</span></a> : converts Fort Hoofddijk, Utrecht University Robot files to MagIC</p></li>
+<li><p><a class="reference internal" href="#orientation_magic"><span class="xref myst">orientation_magic</span></a> : converts an “orient.txt” formatted file with field notebook information into MagIC formatted files</p></li>
+<li><p><a class="reference internal" href="#azdip_magic"><span class="xref myst">azdip_magic</span></a> : converts an “azdip” formatted file to a samples.txt file format</p></li>
 </ul>
 </li>
 </ul>
 </li>
 <li><p>other handy scripts</p>
 <ul>
-<li><p><span class="xref myst">chartmaker</span> : script for making chart to guide IZZI lab experiment</p></li>
+<li><p><a class="reference internal" href="#chartmaker"><span class="xref myst">chartmaker</span></a> : script for making chart to guide IZZI lab experiment</p></li>
 </ul>
 </li>
 </ul>
 </section>
 <section id="customizing-this-notebook">
-<h2>Customizing this notebook<a class="headerlink" href="#customizing-this-notebook" title="Permalink to this heading">#</a></h2>
+<h2>Customizing this notebook<a class="headerlink" href="#customizing-this-notebook" title="Link to this heading">#</a></h2>
 <p>If you want to make changes to this notebook, you should make a copy (see File menu).  Otherwise each time you update <strong>PmagPy</strong>, your changes will be overwritten.</p>
 </section>
 <section id="get-started">
-<h2>Get started<a class="headerlink" href="#get-started" title="Permalink to this heading">#</a></h2>
+<h2>Get started<a class="headerlink" href="#get-started" title="Link to this heading">#</a></h2>
 <p>To use the functions in this notebook, we have to   import the <strong>PmagPy</strong> modules <strong>pmagplotlib</strong>, <strong>pmag</strong> and <strong>ipmag</strong> and some other handy functions for use in the notebook.  This is done in the following code block which must be executed before running any other code block. To execute, click on the code block and then click on the “Run” button in the menu.</p>
 <p>In order to access the example data, this notebook is meant to be run in the PmagPy-data directory (PmagPy directory for developers).</p>
 <p>Try it!  Run the code block below (click on the cell and then click ‘Run’):</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">pmagpy.pmag</span> <span class="k">as</span> <span class="nn">pmag</span>
-<span class="kn">import</span> <span class="nn">pmagpy.pmagplotlib</span> <span class="k">as</span> <span class="nn">pmagplotlib</span>
-<span class="kn">import</span> <span class="nn">pmagpy.ipmag</span> <span class="k">as</span> <span class="nn">ipmag</span>
-<span class="kn">import</span> <span class="nn">pmagpy.contribution_builder</span> <span class="k">as</span> <span class="nn">cb</span>
-<span class="kn">from</span> <span class="nn">pmagpy</span> <span class="kn">import</span> <span class="n">convert_2_magic</span> <span class="k">as</span> <span class="n">convert</span>
-<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span> <span class="c1"># our plotting buddy</span>
-<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span> <span class="c1"># the fabulous NumPy package</span>
-<span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span> <span class="c1"># and of course Pandas</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">pmagpy.pmag</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">pmag</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">pmagpy.pmagplotlib</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">pmagplotlib</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">pmagpy.ipmag</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">ipmag</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">pmagpy.contribution_builder</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">cb</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">pmagpy</span><span class="w"> </span><span class="kn">import</span> <span class="n">convert_2_magic</span> <span class="k">as</span> <span class="n">convert</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">matplotlib.pyplot</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">plt</span> <span class="c1"># our plotting buddy</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">numpy</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">np</span> <span class="c1"># the fabulous NumPy package</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">pandas</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">pd</span> <span class="c1"># and of course Pandas</span>
 <span class="c1"># test if Basemap and/or cartopy is installed</span>
 <span class="n">has_basemap</span><span class="p">,</span> <span class="n">Basemap</span> <span class="o">=</span> <span class="n">pmag</span><span class="o">.</span><span class="n">import_basemap</span><span class="p">()</span>
 <span class="n">has_cartopy</span><span class="p">,</span> <span class="n">Cartopy</span> <span class="o">=</span> <span class="n">pmag</span><span class="o">.</span><span class="n">import_cartopy</span><span class="p">()</span>
 <span class="c1"># test if xlwt is installed (allows you to export to excel)</span>
 <span class="k">try</span><span class="p">:</span>
-    <span class="kn">import</span> <span class="nn">xlwt</span>
+    <span class="kn">import</span><span class="w"> </span><span class="nn">xlwt</span>
     <span class="n">has_xlwt</span> <span class="o">=</span> <span class="kc">True</span>
 <span class="k">except</span> <span class="ne">ImportError</span><span class="p">:</span>
     <span class="n">has_xlwt</span> <span class="o">=</span> <span class="kc">False</span>
 <span class="c1"># This allows you to make matplotlib plots inside the notebook.  </span>
 <span class="o">%</span><span class="k">matplotlib</span> inline 
-<span class="kn">from</span> <span class="nn">IPython.display</span> <span class="kn">import</span> <span class="n">Image</span>
-<span class="kn">import</span> <span class="nn">os</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">IPython.display</span><span class="w"> </span><span class="kn">import</span> <span class="n">Image</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">os</span>
 
 <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;All modules imported!&#39;</span><span class="p">)</span>
 </pre></div>
@@ -715,7 +726,7 @@ document.write(`
               
               
               
-                <footer class="prev-next-footer">
+                <footer class="prev-next-footer d-print-none">
                   
 <div class="prev-next-area">
     <a class="left-prev"
@@ -744,6 +755,7 @@ document.write(`
             
               
                 <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
 
   <div class="sidebar-secondary-item">
   <div class="page-toc tocsection onthispage">
@@ -791,7 +803,7 @@ By PmagPy Contributors
 
   <p class="copyright">
     
-      © Copyright 2023.
+      © Copyright 2025.
       <br/>
     
   </p>
@@ -815,8 +827,8 @@ By PmagPy Contributors
   </div>
   
   <!-- Scripts loaded after <body> so the DOM is not blocked -->
-  <script src="../_static/scripts/bootstrap.js?digest=5b4479735964841361fd"></script>
-<script src="../_static/scripts/pydata-sphinx-theme.js?digest=5b4479735964841361fd"></script>
+  <script src="../_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b"></script>
+<script src="../_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b"></script>
 
   <footer class="bd-footer">
   </footer>
