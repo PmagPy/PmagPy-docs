@@ -5,7 +5,6 @@ import string
 import sys
 import time
 
-from past.utils import old_div
 import numpy as np
 from numpy import random
 from numpy import linalg
@@ -1105,8 +1104,8 @@ def get_Sb(data):
             k = rec['average_k']
             L = rec['average_lat'] * np.pi / 180.  # latitude in radians
             Nsi = rec['average_nn']
-            K = old_div(k, (2. * (1. + 3. * np.sin(L)**2) /
-                            (5. - 3. * np.sin(L)**2)))
+            K = k / (2. * (1. + 3. * np.sin(L)**2) /
+                            (5. - 3. * np.sin(L)**2))
             Sw = 81. / np.sqrt(K)
         else:
             Sw, Nsi = 0, 1.
@@ -1397,8 +1396,8 @@ def dia_vgp(*args):  # new function interface by J.Holmes, SIO, 6/1/2011
         if boolmask:
             plong = plong - 2 * np.pi
 
-    dm = np.rad2deg(a95 * (old_div(np.sin(p), np.cos(dip))))
-    dp = np.rad2deg(a95 * (old_div((1 + 3 * (np.cos(p)**2)), 2)))
+    dm = np.rad2deg(a95 * (np.sin(p) / np.cos(dip)))
+    dp = np.rad2deg(a95 * ((1 + 3 * (np.cos(p)**2)) / 2))
     plat = np.rad2deg(plat)
     plong = np.rad2deg(plong)
     return plong.tolist(), plat.tolist(), dp.tolist(), dm.tolist()
@@ -1446,26 +1445,26 @@ def int_pars(x, y, vds, **kwargs):
         xy += x[i] * y[i]
         xsum += x[i]
         ysum += y[i]
-    xsig = np.sqrt(old_div((xx - (old_div(xsum**2., n))), (n - 1.)))
-    ysig = np.sqrt(old_div((yy - (old_div(ysum**2., n))), (n - 1.)))
+    xsig = np.sqrt((xx - (xsum**2 / n)) / (n - 1.))
+    ysig = np.sqrt((yy - (ysum**2 / n)) / (n - 1.))
     sum = 0
     for i in range(int(n)):
-        yer += (y[i] - old_div(ysum, n))**2.
-        xer += (x[i] - old_div(xsum, n))**2.
-        xyer += (y[i] - old_div(ysum, n)) * (x[i] - old_div(xsum, n))
-    slop = -np.sqrt(old_div(yer, xer))
+        yer += (y[i] - (ysum / n))**2.
+        xer += (x[i] - (xsum / n))**2.
+        xyer += (y[i] - (ysum / n)) * (x[i] - (xsum / n))
+    slop = -np.sqrt(yer / xer)
     pars[b_key] = slop
     s1 = 2. * yer - 2. * slop * xyer
     s2 = (n - 2.) * xer
-    sigma = np.sqrt(old_div(s1, s2))
+    sigma = np.sqrt(s1 / s2)
     pars[sigma_key] = sigma
-    s = old_div((xy - (xsum * ysum / n)), (xx - old_div((xsum**2.), n)))
-    r = old_div((s * xsig), ysig)
+    s = (xy - (xsum * ysum / n)) / (xx - (xsum**2 / n))
+    r = (s * xsig) / ysig
     pars["specimen_rsc"] = r**2.
     ytot = abs(ysum / n - slop * xsum / n)
     for i in range(int(n)):
-        xprime.append(old_div((slop * x[i] + y[i] - ytot), (2. * slop)))
-        yprime.append((old_div((slop * x[i] + y[i] - ytot), 2.)) + ytot)
+        xprime.append(((slop * x[i] + y[i] - ytot) / (2. * slop)))
+        yprime.append(((slop * x[i] + y[i] - ytot) / 2.) + ytot)
     sumdy, dy = 0, []
     dyt = abs(yprime[0] - yprime[int(n) - 1])
     for i in range((int(n) - 1)):
@@ -1591,8 +1590,7 @@ def vspec_magic(data):
                 vrec = data[i - 1]
                 vrec['measurement_dec'] = '%7.1f' % (dir[0])
                 vrec['measurement_inc'] = '%7.1f' % (dir[1])
-                vrec['measurement_magn_moment'] = '%8.3e' % (
-                    old_div(R, (i - k + 1)))
+                vrec['measurement_magn_moment'] = '%8.3e' % (R / (i - k + 1))
                 vrec['measurement_csd'] = '%7.1f' % (Fpars['csd'])
                 vrec['measurement_positions'] = '%7.1f' % (Fpars['n'])
                 vrec['measurement_description'] = 'average of multiple measurements'
@@ -1669,7 +1667,7 @@ def vspec_magic3(data):
                 vrec = data[i - 1]
                 vrec['dir_dec'] = '%7.1f' % (dir[0])
                 vrec['dir_inc'] = '%7.1f' % (dir[1])
-                vrec['magn_moment'] = '%8.3e' % (old_div(R, (i - k + 1)))
+                vrec['magn_moment'] = '%8.3e' % (R / (i - k + 1))
                 vrec['dir_csd'] = '%7.1f' % (Fpars['csd'])
                 vrec['meas_n_orient'] = '%7.1f' % (Fpars['n'])
                 descr=vrec['description']+': average of multiple measurements'
@@ -2396,16 +2394,16 @@ def dotilt(dec, inc, bed_az, bed_dip):
     """
     rad = np.pi / 180.  # converts from degrees to radians
     X = dir2cart([dec, inc, 1.])  # get cartesian coordinates of dec,inc
-# get some sines and cosines of new coordinate system
+    # get some sines and cosines of new coordinate system
     sa, ca = -np.sin(bed_az * rad), np.cos(bed_az * rad)
     cdp, sdp = np.cos(bed_dip * rad), np.sin(bed_dip * rad)
-# do the rotation
+    # do the rotation
     xc = X[0] * (sa * sa + ca * ca * cdp) + X[1] * \
         (ca * sa * (1. - cdp)) + X[2] * sdp * ca
     yc = X[0] * ca * sa * (1. - cdp) + X[1] * \
         (ca * ca + sa * sa * cdp) - X[2] * sa * sdp
     zc = X[0] * ca * sdp - X[1] * sdp * sa - X[2] * cdp
-# convert back to direction:
+    # convert back to direction:
     Dir = cart2dir([xc, yc, -zc])
     # return declination, inclination of rotated direction
     return Dir[0], Dir[1]
@@ -2413,7 +2411,7 @@ def dotilt(dec, inc, bed_az, bed_dip):
 
 def dotilt_V(indat):
     """
-    Does a tilt correction on an array with rows of dec,inc bedding dip direction and dip.
+    Does a tilt correction on an array with rows of [dec, inc, bedding dip direction, bedding dip].
 
     Parameters
     ----------
@@ -2438,16 +2436,16 @@ def dotilt_V(indat):
     X = dir2cart(Dir).transpose()  # get cartesian coordinates
     N = np.size(dec)
 
-# get some sines and cosines of new coordinate system
+    # get some sines and cosines of new coordinate system
     sa, ca = -np.sin(bed_az * rad), np.cos(bed_az * rad)
     cdp, sdp = np.cos(bed_dip * rad), np.sin(bed_dip * rad)
-# do the rotation
+    # do the rotation
     xc = X[0] * (sa * sa + ca * ca * cdp) + X[1] * \
         (ca * sa * (1. - cdp)) + X[2] * sdp * ca
     yc = X[0] * ca * sa * (1. - cdp) + X[1] * \
         (ca * ca + sa * sa * cdp) - X[2] * sa * sdp
     zc = X[0] * ca * sdp - X[1] * sdp * sa - X[2] * cdp
-# convert back to direction:
+    # convert back to direction:
     cart = np.array([xc, yc, -zc]).transpose()
     Dir = cart2dir(cart).transpose()
     # return declination, inclination arrays of rotated direction
@@ -2477,21 +2475,21 @@ def dogeo(dec, inc, az, pl):
     # put dec inc in direction list and set  length to unity
     Dir = [dec, inc, 1.]
     X = dir2cart(Dir)  # get cartesian coordinates
-#
-#   set up rotation matrix
-#
+    #
+    #   set up rotation matrix
+    #
     A1 = dir2cart([az, pl, 1.])
     A2 = dir2cart([az + 90., 0, 1.])
     A3 = dir2cart([az - 180., 90. - pl, 1.])
-#
-# do rotation
-#
+    #
+    # do rotation
+    #
     xp = A1[0] * X[0] + A2[0] * X[1] + A3[0] * X[2]
     yp = A1[1] * X[0] + A2[1] * X[1] + A3[1] * X[2]
     zp = A1[2] * X[0] + A2[2] * X[1] + A3[2] * X[2]
-#
-# transform back to dec,inc
-#
+    #
+    # transform back to dec,inc
+    #
     Dir_geo = cart2dir([xp, yp, zp])
     return Dir_geo[0], Dir_geo[1]    # send back declination and inclination
 
@@ -2564,24 +2562,21 @@ def dodirot(D, I, Dbar, Ibar):
     >>> pmag.dodirot(0,90,5,85)
     (5.0, 85.0)
     """
-    d, irot = dogeo(D, I, Dbar, 90. - Ibar)
-    drot = d - 180.
-    if drot < 360.:
-        drot = drot + 360.
-    if drot > 360.:
-        drot = drot - 360.
+    drot, irot = dogeo(D, I, Dbar, 90. - Ibar)
+    drot = (drot-180.) % 360. 
     return drot, irot
 
 
-def dodirot_V(di_block, Dbar, Ibar):
+def dodirot_V(di_array, Dbar, Ibar):
     """
-    Rotate an array of dec/inc pairs to coordinate system with Dec, Inc as 0, 90.
+    Rotate an array of declination, inclination pairs by the difference between
+    dec = 0 and inc = 90 and the provided desired mean direction
 
     Parameters
     ----------
-    di_block : array of [[Dec1,Inc1],[Dec2,Inc2],....]
-    Dbar : Declination of desired center
-    Ibar : Inclination of desired center
+    di_array : numpy array of [[Dec1,Inc1],[Dec2,Inc2],....]
+    Dbar : declination of desired mean
+    Ibar : declination of desired mean
 
     Returns
     -------
@@ -2590,19 +2585,19 @@ def dodirot_V(di_block, Dbar, Ibar):
     
     Examples
     --------
-    >>> di_block = np.array([[0,90],[0,92],[0,92]])
-    >>> pmag.dodirot_V(di_block,5,93)
-    array([[185.              ,  87.00000000000009],
-       [194.81338201697608,  88.97743662195866],
-       [194.81338201697608,  88.97743662195866]])
+    >>> di_array = np.array([[0,90],[0,90],[0,90]])
+    >>> pmag.dodirot_V(di_array,5,15)
+    array([[ 5.               , 15.000000000000002],
+        [ 5.               , 15.000000000000002],
+        [ 5.               , 15.000000000000002]])
     """
-    N = di_block.shape[0]
-    DipDir, Dip = np.ones(N, dtype=np.float).transpose(
-    )*(Dbar-180.), np.ones(N, dtype=np.float).transpose()*(90.-Ibar)
-    di_block = di_block.transpose()
-    data = np.array([di_block[0], di_block[1], DipDir, Dip]).transpose()
+    N = di_array.shape[0]
+    DipDir, Dip = np.ones(N, dtype=np.float64).transpose(
+    )*(Dbar-180.), np.ones(N, dtype=np.float64).transpose()*(90.-Ibar)
+    di_array = di_array.transpose()
+    data = np.array([di_array[0], di_array[1], DipDir, Dip]).transpose()
     drot, irot = dotilt_V(data)
-    #drot = (drot-180.) % 360.  #
+    drot = (drot-180.) % 360. 
     return np.column_stack((drot, irot))
 
 
@@ -2668,8 +2663,7 @@ def vspec(data):
                 for l in range(k - 1, i):
                     Dirdata.append([data[l][1], data[l][2], data[l][3]])
                 dir, R = vector_mean(Dirdata)
-                vdata.append([data[i - 1][0], dir[0], dir[1],
-                              old_div(R, (i - k + 1)), '1', 'g'])
+                vdata.append([data[i - 1][0], dir[0], dir[1], R / (i - k + 1), '1', 'g'])
                 step_meth.append("DE-VM")
             tr0 = data[i][0]
             k = i + 1
@@ -2781,10 +2775,10 @@ def cart2dir(cart):
     Rs = np.sqrt(Xs**2 + Ys**2 + Zs**2)  # calculate resultant vector length
     # calculate declination taking care of correct quadrants (arctan2) and
     # making modulo 360.
-    Decs = (old_div(np.arctan2(Ys, Xs), rad)) % 360.
+    Decs = (np.arctan2(Ys, Xs) / rad) % 360.
     try:
         # calculate inclination (converting to degrees) #
-        Incs = old_div(np.arcsin(old_div(Zs, Rs)), rad)
+        Incs = np.arcsin(Zs / Rs) / rad
     except:
         print('trouble in cart2dir')  # most likely division by zero somewhere
         return np.zeros(3)
@@ -2834,7 +2828,7 @@ def tauV(T):
         tr += tau
     if tr != 0:
         for i in range(3):
-            evalues[i] = old_div(evalues[i], tr)
+            evalues[i] = evalues[i] / tr
     else:
         return t, V
 # sort evalues,evectors
@@ -2974,7 +2968,7 @@ array([ 16.72583333333333 ,  31.409444444444446,   7.455555555555557,
     else:  # single vector
         degs, mins, secs = np.array(d[0]), np.array(d[1]), np.array(d[2])
         #print(degs, mins, secs)
-    dd = np.array(degs + old_div(mins, 60.) + old_div(secs, 3600.)).transpose()
+    dd = np.array(degs + (mins / 60.0) + (secs / 3600.0)).transpose()
     return dd
 
 
@@ -3088,7 +3082,7 @@ def domean(data, start, end, calculation_type):
 #
     for cart in X:
         for l in range(3):
-            cm[l] += old_div(cart[l], Nrec)
+            cm[l] += cart[l] / Nrec
     mpars["center_of_mass"] = cm
 
 #
@@ -3128,7 +3122,7 @@ def domean(data, start, end, calculation_type):
         mpars["measurement_step_max"] = indata[end0][0]
         mpars["center_of_mass"] = cm
         s1 = np.sqrt(t[0])
-        MAD = old_div(np.arctan(old_div(np.sqrt(t[1] + t[2]), s1)), rad)
+        MAD = np.arctan(np.sqrt(t[1] + t[2]) / s1) / rad
         if np.iscomplexobj(MAD):
             MAD = MAD.real
         # I think this is how it is done - i never anchor the "PCA" - check
@@ -3158,20 +3152,19 @@ def domean(data, start, end, calculation_type):
             dot = -1
         if dot > 1:
             dot = 1
-        if np.arccos(dot) > old_div(np.pi, 2.):
+        if np.arccos(dot) > (np.pi / 2.):
             for k in range(3):
                 v1[k] = -v1[k]
 #   get right direction along principal component
 #
         s1 = np.sqrt(t[0])
         Dir = cart2dir(v1)
-        MAD = old_div(np.arctan(old_div(np.sqrt(t[1] + t[2]), s1)), rad)
+        MAD = np.arctan(np.sqrt(t[1] + t[2]) / s1) / rad
         if np.iscomplexobj(MAD):
             MAD = MAD.real
     if calculation_type == "DE-BFP":
         Dir = cart2dir(v3)
-        MAD = old_div(
-            np.arctan(np.sqrt(old_div(t[2], t[1]) + old_div(t[2], t[0]))), rad)
+        MAD = (np.arctan(np.sqrt((t[2] / t[1]) + (t[2] / t[0]))) / rad)
         if np.iscomplexobj(MAD):
             MAD = MAD.real
 #
@@ -3362,7 +3355,7 @@ def PintPars(datablock, araiblock, zijdblock, start, end, accept, **kwargs):
     for k in range(len(first_Z) - 1):
         for l in range(k):
             # only go down to 10% of NRM.....
-            if old_div(first_Z[k][3], vds) > 0.1:
+            if (first_Z[k][3] / vds) > 0.1:
                 irec = first_I[l]
                 if irec[4] == 1 and first_I[l + 1][4] == 0:  # a ZI step
                     xzi = irec[3]
@@ -3399,7 +3392,7 @@ def PintPars(datablock, araiblock, zijdblock, start, end, accept, **kwargs):
                  )  # Watson test for common mean
             nf = 2. * (dup['n'] - 2.)  # number of degees of freedom
             ftest = fcalc(2, nf)
-            Frat = old_div(F, ftest)
+            Frat = F / ftest
             if Frat > 1.:
                 ZigZag = Frat  # fails zigzag on directions
                 methcode = "SM-FTEST"
@@ -3414,12 +3407,12 @@ def PintPars(datablock, araiblock, zijdblock, start, end, accept, **kwargs):
 # avoid false positives - set 3 degree slope difference here too
         if b_diff > 3 * np.pi / 180.:
             nf = n_zi + n_iz - 2.  # degrees of freedom
-            svar = old_div(((n_zi - 1.) * bzi_sig**2 +
-                            (n_iz - 1.) * biz_sig**2), nf)
-            T = old_div((b_diff), np.sqrt(
-                svar * (old_div(1.0, n_zi) + old_div(1.0, n_iz))))  # student's t
+            svar = ((n_zi - 1.) * bzi_sig**2 +
+                            (n_iz - 1.) * biz_sig**2) / nf
+            T = (b_diff) / np.sqrt(
+                svar * ((1.0 / n_zi) + (1.0 / n_iz)))  # student's t
             ttest = tcalc(nf, .05)  # t-test at 95% conf.
-            Trat = old_div(T, ttest)
+            Trat = T / ttest
             if Trat > 1 and Trat > Frat:
                 ZigZag = Trat  # fails zigzag on directions
                 methcode = "SM-TTEST"
@@ -3528,7 +3521,7 @@ def PintPars(datablock, araiblock, zijdblock, start, end, accept, **kwargs):
     NRM = zijdblock[0][3]     # NRM
 
     for k in range(len(zijdblock)):
-        DIR = [zijdblock[k][1], zijdblock[k][2], old_div(zijdblock[k][3], NRM)]
+        DIR = [zijdblock[k][1], zijdblock[k][2], (zijdblock[k][3] / NRM)]
         cart = dir2cart(DIR)
         zdata.append(np.array([cart[0], cart[1], cart[2]]))
         if k > 0:
@@ -3543,12 +3536,11 @@ def PintPars(datablock, araiblock, zijdblock, start, end, accept, **kwargs):
     # calculate the vds within the chosen segment
     vector_diffs_segment = vector_diffs[zstart:zend]
     # FRAC calculation
-    FRAC = old_div(sum(vector_diffs_segment), vds)
+    FRAC = sum(vector_diffs_segment) / vds
     pars[frac_key] = FRAC
 
     # gap_max calculation
-    max_FRAC_gap = max(
-        old_div(vector_diffs_segment, sum(vector_diffs_segment)))
+    max_FRAC_gap = max(vector_diffs_segment / sum(vector_diffs_segment))
     pars[gmax_key] = max_FRAC_gap
 
     # ---------------------------------------------------------------------
@@ -3578,8 +3570,8 @@ def PintPars(datablock, araiblock, zijdblock, start, end, accept, **kwargs):
 
     for k in range(len(NRMs)):
         index_pTRMs = PTRMs_temperatures.index(NRMs[k][0])
-        x_Arai.append(old_div(PTRMs[index_pTRMs][3], NRM))
-        y_Arai.append(old_div(NRMs[k][3], NRM))
+        x_Arai.append(PTRMs[index_pTRMs][3] / NRM)
+        y_Arai.append(NRMs[k][3] / NRM)
         t_Arai.append(NRMs[k][0])
         if NRMs[k][4] == 1:
             steps_Arai.append('ZI')
@@ -3610,9 +3602,8 @@ def PintPars(datablock, araiblock, zijdblock, start, end, accept, **kwargs):
 
                         index_zerofield = zerofield_temperatures.index(
                             ptrm_checks[k][0])
-                        x_ptrm_check.append(old_div(ptrm_checks[k][3], NRM))
-                        y_ptrm_check.append(
-                            old_div(zerofields[index_zerofield][3], NRM))
+                        x_ptrm_check.append(ptrm_checks[k][3] / NRM)
+                        y_ptrm_check.append(zerofields[index_zerofield][3] / NRM)
                         ptrm_checks_temperatures.append(ptrm_checks[k][0])
 
                         break
@@ -3651,10 +3642,8 @@ def PintPars(datablock, araiblock, zijdblock, start, end, accept, **kwargs):
 
                         index_infield = infield_temperatures.index(
                             ptrm_tail[k][0])
-                        x_tail_check.append(
-                            old_div(infields[index_infield][3], NRM))
-                        y_tail_check.append(
-                            old_div(ptrm_tail[k][3], NRM) + old_div(zerofields[index_infield][3], NRM))
+                        x_tail_check.append(infields[index_infield][3] / NRM)
+                        y_tail_check.append((ptrm_tail[k][3] / NRM) + (zerofields[index_infield][3] / NRM))
                         tail_check_temperatures.append(ptrm_tail[k][0])
 
                         break
@@ -3734,13 +3723,13 @@ def PintPars(datablock, araiblock, zijdblock, start, end, accept, **kwargs):
 
         # lower bounding line of the 'beta box'
         # y=intercept1+slop1x
-        slop1 = old_div(a1, ((old_div(a2, b2))))
+        slop1 = a1 / (a2 / b2)
         intercept1 = a1
 
         # higher bounding line of the 'beta box'
         # y=intercept2+slop2x
 
-        slop2 = old_div(a2, ((old_div(a1, b1))))
+        slop2 = a2 / (a1 / b1)
         intercept2 = a2
 
         pars['specimen_scat_bounding_line_high'] = [intercept2, slop2]
@@ -4345,7 +4334,7 @@ def dosundec(sundata):
         day = day - 1
         hrs = hrs + 24
     julian_day = julian(mon, day, year)
-    utd = old_div((hrs + old_div(min, 60.)), 24.)
+    utd = (hrs + (min / 60)) / 24
     greenwich_hour_angle, delta = gha(julian_day, utd)
     H = greenwich_hour_angle + float(sundata["lon"])
     if H > 360:
@@ -4406,22 +4395,23 @@ def gha(julian_day, f):
 # obliquity of ecliptic
     epsilon = 23.439 - 0.0000004 * d
 # right ascension (in same quadrant as lambda)
-    t = (np.tan(old_div((epsilon * rad), 2)))**2
-    r = old_div(1, rad)
+    t = (np.tan((epsilon * rad) / 2))**2
+    r = 1 / rad
     rl = lamb * rad
     alpha = lamb - r * t * np.sin(2 * rl) + \
-        (old_div(r, 2)) * t * t * np.sin(4 * rl)
+        (r / 2) * t * t * np.sin(4 * rl)
 #       alpha=mod(alpha,360.0)
 # declination
     delta = np.sin(epsilon * rad) * np.sin(lamb * rad)
-    delta = old_div(np.arcsin(delta), rad)
+    delta = np.arcsin(delta) / rad
 # equation of time
     eqt = (L - alpha)
 #
     utm = f * 24 * 60
-    H = old_div(utm, 4) + eqt + 180
+    H = (utm / 4) + eqt + 180
     H = H % 360.0
     return H, delta
+
 
 
 def julian(mon, day, year):
@@ -4512,15 +4502,15 @@ def fisher_mean(data):
         
     Examples
     --------
-    >>> data = [[-45,150],[-40,150],[-38,145]]
+    >>> data = [[150,-45],[151,-46],[145,-38],[146,-41]
     >>> pmag.fisher_mean(data)
-    {'dec': 138.94545436727873,
-     'inc': 31.699974714611297,
-     'n': 3,
-     'r': 2.9946002939178036,
-     'k': 370.39053043910616,
-     'alpha95': 6.414731246264079,
-     'csd': 4.20876891770567}    
+    {'dec': 147.87247771265734,
+    'inc': -42.52872729473035,
+    'n': 4,
+    'r': 3.9916088992115832,
+    'k': 357.52162626162925,
+    'alpha95': 4.865886096375297,
+    'csd': 4.283846101842065}   
     """
     N, fpars = len(data), {}
     
@@ -4528,6 +4518,11 @@ def fisher_mean(data):
         return {'dec': data[0][0], 
                 'inc': data[0][1]}
     
+    # use only dec, inc values even if intensity values are provided
+    # so that calculations are on unit vectors
+    for i in range(N):
+        data[i] = data[i][:2]
+
     X = np.array(dir2cart(data))
     Xbar = X.sum(axis=0)
     R = np.linalg.norm(Xbar)
@@ -4594,7 +4589,7 @@ def gausspars(data):
     if N == 1:
         return data[0], 0
     for j in range(N):
-        mean += old_div(data[j], float(N))
+        mean += data[j] / float(N)
     for j in range(N):
         d += (data[j] - mean)**2
     stdev = np.sqrt(d * (1./(float(N - 1))))
@@ -4686,11 +4681,12 @@ def weighted_mean(data):
     for x in data:
         W += x[1]  # sum of the weights
     for x in data:
-        mean += old_div((float(x[1]) * float(x[0])), float(W))
+        mean += (float(x[1]) * float(x[0])) / float(W)
     for x in data:
-        d += (old_div(float(x[1]), float(W))) * (float(x[0]) - mean)**2
-    stdev = np.sqrt(d * (old_div(1., (float(N - 1)))))
+        d += (float(x[1]) / float(W)) * (float(x[0]) - mean)**2
+    stdev = np.sqrt(d * (1 / float(N - 1)))
     return mean, stdev
+
 
 
 def lnpbykey(data, key0, key1):  # calculate a fisher mean of key1 data for a group of key0
@@ -4952,7 +4948,7 @@ def dolnp(data, direction_type_key):
             R = np.sqrt(E[0]**2 + E[1]**2 + E[2]**2)
             for c in E:
                 # set initial direction as mean of lines
-                V.append(old_div(c, R))
+                V.append(c / R)
         XV = calculate_best_fit_vectors(L, E, V, n_planes)
 # calculating overall mean direction and R
         U = E[:]
@@ -4961,7 +4957,7 @@ def dolnp(data, direction_type_key):
                 U[c] = U[c] + dir[c]
         R = np.sqrt(U[0]**2 + U[1]**2 + U[2]**2)
         for c in range(3):
-            U[c] = old_div(U[c], R)
+            U[c] = U[c] / R
 # get dec and inc of solution points on gt circles
         dirV = cart2dir(U)
 # calculate modified Fisher stats fo fit
@@ -4970,10 +4966,10 @@ def dolnp(data, direction_type_key):
         if NP < 1.1:
             NP = 1.1
         if n_total - R != 0:
-            K = old_div((NP - 1.), (n_total - R))
-            fac = (20.**(old_div(1., (NP - 1.))) - 1.)
+            K = (NP - 1.) / (n_total - R)
+            fac = (20.**(1. / (NP - 1.)) - 1.)
             fac = fac * (NP - 1.) / K
-            a = 1. - old_div(fac, R)
+            a = 1. - (fac / R)
             a95 = a
             if abs(a) > 1.0:
                 a95 = 1.
@@ -5011,7 +5007,7 @@ def vclose(L, V):
         lam = lam + V[k] * L[k]
     beta = np.sqrt(1. - lam**2)
     for k in range(3):
-        X.append((old_div((V[k] - lam * L[k]), beta)))
+        X.append(((V[k] - lam * L[k]) / beta))
     return X
 
 
@@ -5044,7 +5040,7 @@ def calculate_best_fit_vectors(L, E, V, n_planes):
                 U[c] = U[c] - XV[k][c]
             R = np.sqrt(U[0]**2 + U[1]**2 + U[2]**2)
             for c in range(3):
-                V[c] = old_div(U[c], R)
+                V[c] = U[c] / R
             XX = vclose(L[k], V)
             ang = XX[0] * XV[k][0] + XX[1] * XV[k][1] + XX[2] * XV[k][2]
             angles.append(np.arccos(ang) * 180. / np.pi)
@@ -6066,24 +6062,21 @@ def binglookup(w1i,w2i):
     w1, w2 = 0., 0.
     wstart, incr = 0.01, 0.02
     if w1i < wstart:
-        w1 = '%4.2f' % (wstart + incr/2.)
         w1 = round((wstart + incr/2.),2)
     if w2i < wstart:
-        w2 = '%4.2f' % (wstart + incr/2.)
         w2 = round((wstart + incr/2.),2)
     wnext = wstart + incr
     while wstart < 0.5:
         if w1i >= wstart and w1i < wnext:
-            w1 = '%4.2f' % (wstart + incr/2.)
             w1 = round((wstart + incr/2.),2)
         if w2i >= wstart and w2i < wnext:
-            w2 = '%4.2f' % (wstart + incr/2.)
             w2 = round((wstart + incr/2.),2)
         wstart += incr
         wnext += incr
     wnext = wstart + incr
-    k1=k1_df.loc[k1_df['w2']==w2][str(w1)].values[0]
-    k2=k2_df.loc[k2_df['w2']==w2][str(w1)].values[0]
+    w1 = '%4.2f' % w1
+    k1=k1_df.loc[k1_df['w2']==w2][w1].values[0]
+    k2=k2_df.loc[k2_df['w2']==w2][w1].values[0]
     return k1,k2
 
 def binglookup_old(w1i, w2i):
@@ -6098,13 +6091,13 @@ def binglookup_old(w1i, w2i):
     if w1i < wstart:
         w1 = '%4.2f' % (wstart + incr/2.)
     if w2i < wstart:
-        w2 = '%4.2f' % (wstart + old_div(incr, 2.))
+        w2 = '%4.2f' % (wstart + (incr / 2.))
     wnext = wstart + incr
     while wstart < 0.5:
         if w1i >= wstart and w1i < wnext:
-            w1 = '%4.2f' % (wstart + old_div(incr, 2.))
+            w1 = '%4.2f' % (wstart + (incr / 2.))
         if w2i >= wstart and w2i < wnext:
-            w2 = '%4.2f' % (wstart + old_div(incr, 2.))
+            w2 = '%4.2f' % (wstart + (incr / 2.))
         wstart += incr
         wnext += incr
     wnext = wstart + incr
@@ -6119,7 +6112,7 @@ def cdfout(data, file):
     f = open(file, "w")
     data.sort()
     for j in range(len(data)):
-        y = old_div(float(j), float(len(data)))
+        y = float(j) / float(len(data))
         out = str(data[j]) + ' ' + str(y) + '\n'
         f.write(out)
     f.close()
@@ -6183,7 +6176,7 @@ def dobingham(di_block):
 #  now for Bingham ellipses.
 #
     fac1, fac2 = -2 * N * (k1) * (w3 - w1), -2 * N * (k2) * (w3 - w2)
-    sig31, sig32 = np.sqrt(old_div(1., fac1)), np.sqrt(old_div(1., fac2))
+    sig31, sig32 = np.sqrt(1. / fac1), np.sqrt(1. / fac2)
     bpars["Zeta"], bpars["Eta"] = 2.45 * sig31 * \
         180. / np.pi, 2.45 * sig32 * 180. / np.pi
     return bpars
@@ -6270,7 +6263,9 @@ def doreverse_list(decs, incs):
 
 def doincfish(inc):
     """
-    Calculates Fisher mean inclination from inclination-only data.
+    Calculates Fisher mean inclination from inclination-only data. This function uses
+    the method of McFadden and Reid (1982), and incorporates asymmetric confidence limits
+    after McElhinny and McFadden (2000).
 
     Parameters
     ----------
@@ -6284,20 +6279,25 @@ def doincfish(inc):
         'inc' : estimated Fisher mean
         'r' : estimated Fisher R value
         'k' : estimated Fisher kappa
-        'alpha95' : estimated fisher alpha_95
+        'alpha95': estimated confidence limit
+        'upper_confidence_limit' : estimated upper confidence limit of inclination
+        'lower_confidence_limit' : estimated lower confidence limit of inclination
         'csd' : estimated circular standard deviation
 
     Examples
     --------
-    >>> pmag.doincfish([60,62,0,10])
-    {'n': 4,
-     'ginc': 33.0,
-     'inc': 39.85999999999957,
-     'r': 2.9999543668915347,
-     'k': 2.999863106921461,
-     'alpha95': 57.453002724988956,
-     'csd': 46.76643881682904}
+    >>> pmag.doincfish([62.4, 61.6, 50.2, 65.2, 53.2, 61.4, 74.0, 60.0, 52.6, 71.8])
+    {'n': 10,
+     'ginc': 61.239999999999995,
+     'inc': 62.18,
+     'r': 9.828974184785405,
+     'k': 52.623634558953846,
+     'upper_confidence_limit': 66.49823541535572,
+     'lower_confidence_limit': 55.9733682324565,
+     'alpha95': 5.2624335914496125,
+     'csd': 11.165922232016465}
     """
+
     abinc = []
     for i in inc:
         abinc.append(abs(i))
@@ -6309,13 +6309,14 @@ def doincfish(inc):
     if MI < 30:
         fpars['inc'] = MI
         fpars['k'] = 0
-        fpars['alpha95'] = 0
+        fpars['upper_confidence_limit'] = 0
+        fpars['lower_confidence_limit'] = 0
         fpars['csd'] = 0
         fpars['r'] = 0
         print('WARNING: mean inc < 30, returning gaussian mean')
         return fpars
     inc = np.array(inc)
-    coinc = np.deg2rad(90. - np.abs(inc)) # sum over all incs (but take only positive inc)
+    coinc = np.deg2rad(90. - np.abs(inc))  # sum over all incs (but take only positive inc)
     SCOi = np.cos(coinc).sum()
     SSOi = np.sin(coinc).sum()
     min_misfit,min_curvature = np.inf,0.
@@ -6328,25 +6329,30 @@ def doincfish(inc):
     if len(idx_zeros)==0:
         idx_zeros = np.argmin(abs(misfit))
         print("No zeros found to fitness function of McFadden and Reed 1982, returning absolute minimum which is at %.3f instead.\nThis likely indicates that your inclinations are too steep for this method you may wish to consider an alternate technique."%misfit[idx_zeros])
-    ML_zeros = np.array(Oo[[idx_zeros]])
+    ML_zeros = np.array(Oo[idx_zeros])
     ML_matrix = (np.ones([len(coinc),1]) @ ML_zeros.reshape(1,ML_zeros.shape[0])).T
-#    print(coinc.shape,ML_zeros.shape,ML_matrix.shape)
-    U = 0.5*N*((1/(np.cos(ML_zeros)**2))-(np.cos(ML_matrix-coinc).sum(axis=1)/(N-np.cos(ML_matrix-coinc).sum(axis=1))))
-#    print("Found Zeros: ", ML_zeros, "Second Derivative: ", U)
+    #    print(coinc.shape,ML_zeros.shape,ML_matrix.shape)
+    U = 0.5 * N * ((1 / (np.cos(ML_zeros) ** 2)) - (
+                np.cos(ML_matrix - coinc).sum(axis=1) / (N - np.cos(ML_matrix - coinc).sum(axis=1))))
+    #    print("Found Zeros: ", ML_zeros, "Second Derivative: ", U)
     Oo = ML_zeros[np.argmin(U)]
     C = np.cos(Oo-coinc).sum()
     S = np.sin(Oo-coinc).sum()
-    k = old_div((N - 1.), (2. * (N - C)))
+    k = (N - 1.) / (2. * (N - C))
     Imle = 90. - np.rad2deg(Oo)
-    fpars["inc"] = Imle
-    fpars["r"], R = 2. * C - N, 2 * C - N
+    fpars["inc"] = Imle[0]
+    fpars["r"], R = (2. * C - N), (2 * C - N)
     fpars["k"] = k
-    f = fcalc(2, N - 1)
-    a95 = 1. - (0.5) * (old_div(S, C))**2 - (old_div(f, (2. * C * k)))
-#    b=20.**(1./(N-1.)) -1.
-#    a=1.-b*(N-R)/R
-    a95=np.rad2deg(np.arccos(a95))
-    csd = old_div(81., np.sqrt(k))
+    f = fcalc(2, N - 1)  # the 'g' of MM2000
+    a95 = np.rad2deg(np.arccos(1. - (0.5) * (S / C) ** 2 - (f * (N - C)) / (C * (N - 1))))
+    # calculating the upper and lower confidence intervals
+    lower_confidence_limit = Imle[0] + (180 * S) / (np.pi * C) - a95
+    upper_confidence_limit = Imle[0] + (180 * S) / (np.pi * C) + a95
+    csd = 81. / np.sqrt(k)
+
+    # the upper and lower confidence intervals as values
+    fpars["upper_confidence_limit"] = upper_confidence_limit
+    fpars["lower_confidence_limit"] = lower_confidence_limit
     fpars["alpha95"] = a95
     fpars["csd"] = csd
     return fpars
@@ -6414,7 +6420,7 @@ def dokent(data, NN, distribution_95=False):
     T = Tmatrix(X)
     for i in range(3):
         for j in range(3):
-            T[i][j] = old_div(T[i][j], float(NN))
+            T[i][j] = T[i][j] / float(NN)
 #
 # compute B=H'TH
 #
@@ -6457,7 +6463,7 @@ def dokent(data, NN, distribution_95=False):
         xmu += xg[i][2]
         sigma1 = sigma1 + xg[i][0]**2
         sigma2 = sigma2 + xg[i][1]**2
-    xmu = old_div(xmu, float(N))
+    xmu = xmu / float(N)
     sigma1 = sigma1/float(N)
     sigma2 = sigma2/float(N)
     
@@ -6828,7 +6834,7 @@ def check_F(AniSpec):
     s[3] = float(AniSpec["anisotropy_s4"])
     s[4] = float(AniSpec["anisotropy_s5"])
     s[5] = float(AniSpec["anisotropy_s6"])
-    chibar = old_div((s[0] + s[1] + s[2]), 3.)
+    chibar = (s[0] + s[1] + s[2]) / 3.
     tau, Vdir = doseigs(s)
     t2sum = 0
     for i in range(3):
@@ -6903,8 +6909,7 @@ def doaniscorr(PmagSpecRec, AniSpec):
         M = np.array(X)
         H = np.dot(M, chi_inv)
         cDir = cart2dir(H)
-        Hunit = [old_div(H[0], cDir[2]), old_div(H[1], cDir[2]), old_div(
-            H[2], cDir[2])]  # unit vector parallel to Banc
+        Hunit = [(H[0] / cDir[2]), (H[1] / cDir[2]), (H[2] / cDir[2])]  # unit vector parallel to Banc
         Zunit = [0, 0, -1.]  # unit vector parallel to lab field
         Hpar = np.dot(chi, Hunit)  # unit vector applied along ancient field
         Zpar = np.dot(chi, Zunit)  # unit vector applied along lab field
@@ -6989,8 +6994,8 @@ def vgp_di(plat, plong, slat, slong):
     cosp = np.cos(thetaS) * np.cos(thetaP) + np.sin(thetaS) * \
         np.sin(thetaP) * np.cos(delphi)
     thetaM = np.arccos(cosp)
-    cosd = old_div((np.cos(thetaP) - np.cos(thetaM) *
-                    np.cos(thetaS)), (np.sin(thetaM) * np.sin(thetaS)))
+    cosd = (np.cos(thetaP) - np.cos(thetaM) *
+                    np.cos(thetaS)) / (np.sin(thetaM) * np.sin(thetaS))
     C = abs(1. - cosd**2)
     if C != 0:
         dec = -np.arctan(cosd/np.sqrt(abs(C))) + (np.pi/2.)
@@ -7086,7 +7091,7 @@ def dimap(D, I):
 
 # CALCULATE THE X,Y COORDINATES FOR THE EQUAL AREA PROJECTION
     # from Collinson 1983
-    R = old_div(np.sqrt(1. - X[2]), (np.sqrt(X[0]**2 + X[1]**2)))
+    R = np.sqrt(1. - X[2]) / (np.sqrt(X[0]**2 + X[1]**2))
     XY[1], XY[0] = X[0] * R, X[1] * R
 
 # RETURN XY[X,Y]
@@ -7273,14 +7278,14 @@ def adjust_ages(AgesIn):
                 AgesOut.append(agerec[0] * 1e3 / factor)
             if "Years" in agerec[1].split():
                 if agerec[1] == "Years BP":
-                    AgesOut.append(old_div(agerec[0], factor))
+                    AgesOut.append(agerec[0] / factor)
                 if agerec[1] == "Years Cal BP":
-                    AgesOut.append(old_div(agerec[0], factor))
+                    AgesOut.append(agerec[0] / factor)
                 if agerec[1] == "Years AD (+/-)":
                     # convert to years BP first
-                    AgesOut.append(old_div((1950 - agerec[0]), factor))
+                    AgesOut.append((1950 - agerec[0]) / factor)
                 if agerec[1] == "Years Cal AD (+/-)":
-                    AgesOut.append(old_div((1950 - agerec[0]), factor))
+                    AgesOut.append((1950 - agerec[0]) / factor)
     return AgesOut, age_unit
 #
 
@@ -8502,12 +8507,12 @@ def dohext(nf, sigma, s):
     tau, Vdir = doseigs(s)
     for i in range(3):
         t2sum += tau[i]**2
-    chibar = old_div((s[0] + s[1] + s[2]), 3.)
+    chibar = (s[0] + s[1] + s[2]) / 3.
     hpars['F_crit'] = '%s' % (fcalc(5, nf))
     hpars['F12_crit'] = '%s' % (fcalc(2, nf))
     hpars["F"] = 0.4 * (t2sum - 3 * chibar**2) / (sigma**2)
-    hpars["F12"] = 0.5 * (old_div((tau[0] - tau[1]), sigma))**2
-    hpars["F23"] = 0.5 * (old_div((tau[1] - tau[2]), sigma))**2
+    hpars["F12"] = 0.5 * ((tau[0] - tau[1]) / sigma)**2
+    hpars["F23"] = 0.5 * ((tau[1] - tau[2]) / sigma)**2
     hpars["v1_dec"] = Vdir[0][0]
     hpars["v1_inc"] = Vdir[0][1]
     hpars["v2_dec"] = Vdir[1][0]
@@ -8518,11 +8523,11 @@ def dohext(nf, sigma, s):
     hpars["t2"] = tau[1]
     hpars["t3"] = tau[2]
     hpars["e12"] = np.arctan(
-        old_div((f * sigma), (2 * abs(tau[0] - tau[1])))) * 180. / np.pi
+        (f * sigma) / (2 * abs(tau[0] - tau[1]))) * 180. / np.pi
     hpars["e23"] = np.arctan(
-        old_div((f * sigma), (2 * abs(tau[1] - tau[2])))) * 180. / np.pi
+        (f * sigma) / (2 * abs(tau[1] - tau[2]))) * 180. / np.pi
     hpars["e13"] = np.arctan(
-        old_div((f * sigma), (2 * abs(tau[0] - tau[2])))) * 180. / np.pi
+        (f * sigma) / (2 * abs(tau[0] - tau[2]))) * 180. / np.pi
     return hpars
 #
 #
@@ -8641,12 +8646,12 @@ def dok15_s(k15):
     A, B = design(15)  # get design matrix for 15 measurements
     sbar = np.dot(B, k15)  # get mean s
     t = (sbar[0] + sbar[1] + sbar[2])  # trace
-    bulk = old_div(t, 3.)  # bulk susceptibility
+    bulk = t / 3.  # bulk susceptibility
     Kbar = np.dot(A, sbar)  # get best fit values for K
     dels = k15 - Kbar  # get deltas
-    dels, sbar = old_div(dels, t), old_div(sbar, t)  # normalize by trace
+    dels, sbar = dels / t, sbar / t  # normalize by trace
     So = sum(dels**2)
-    sigma = np.sqrt(old_div(So, 9.))  # standard deviation
+    sigma = np.sqrt(So / 9.)  # standard deviation
     return sbar, sigma, bulk
 #
 
@@ -9652,7 +9657,7 @@ def doigrf(lon, lat, alt, date, **kwargs):
         return
     if 'mod' in list(kwargs.keys()) and kwargs['mod'] == 'ggf100k':
         incr = 200
-        #model = date - date % incr
+        model = date - date % incr
         model = date
         gh = psvcoeffs[psvmodels.index(int(model))]
         sv = (psvcoeffs[psvmodels.index(int(model + incr))] - gh)/ float(incr)
@@ -9677,12 +9682,15 @@ def doigrf(lon, lat, alt, date, **kwargs):
             incr = 50
         elif kwargs['mod'] == 'shawq2k' or kwargs['mod']=='shawqIA':
             incr = 25
+        elif kwargs['mod']=='ggk100k':
+            incr = 200
         else:
             incr = 10
         model = int(date - date % incr)
         gh = psvcoeffs[psvmodels.index(model)]
         if model + incr < 1900:
             sv = (psvcoeffs[psvmodels.index(model + incr)] - gh)/float(incr)
+         
         else:
             field2 = igrf13coeffs[models.index(1940)][0:120]
             sv = (field2 - gh)/float(1940 - model)
@@ -9815,14 +9823,13 @@ def magsyn(gh, sv, b, date, itype, alt, colat, elong):
         two = b2 * ct * ct
         three = one + two
         rho = np.sqrt(three)
-        r = np.sqrt(alt * (alt + 2.0 * rho) +
-                    old_div((a2 * one + b2 * two), three))
-        cd = old_div((alt + rho), r)
+        r = np.sqrt(alt * (alt + 2.0 * rho) + (a2 * one + b2 * two) / three)
+        cd = (alt + rho) / r
         sd = (a2 - b2) / rho * ct * st / r
         one = ct
         ct = ct * cd - st * sd
         st = st * cd + one * sd
-    ratio = old_div(6371.2, r)
+    ratio = 6371.2 / r
     rr = ratio * ratio
 #
 # compute Schmidt quasi-normal coefficients p and x(=q)
@@ -9841,7 +9848,7 @@ def magsyn(gh, sv, b, date, itype, alt, colat, elong):
         fm = m
         if k != 2:  # else go to 4
             if m == n:   # else go to 3
-                one = np.sqrt(1.0 - old_div(0.5, fm))
+                one = np.sqrt(1.0 - (0.5 / fm))
                 j = k - n - 1
                 p[k] = one * st * p[j]
                 q[k] = one * (st * q[j] + ct * p[j])
@@ -9851,8 +9858,8 @@ def magsyn(gh, sv, b, date, itype, alt, colat, elong):
                 # 3
                 gm = m * m
                 one = np.sqrt(fn * fn - gm)
-                two = old_div(np.sqrt(gn * gn - gm), one)
-                three = old_div((fn + gn), one)
+                two = np.sqrt(gn * gn - gm) / one
+                three = (fn + gn) / one
                 i = k - n
                 j = i - n + 1
                 p[k] = three * ct * p[i] - two * p[j]
@@ -11212,8 +11219,8 @@ def get_tilt(dec_geo, inc_geo, dec_tilt, inc_tilt):
     # cartesian coordites of Geographic D
     GCart = dir2cart([dec_geo, inc_geo, 1.])
     TCart = dir2cart([dec_tilt, inc_tilt, 1.])  # cartesian coordites of Tilt D
-    X = old_div((TCart[1] - GCart[1]), (GCart[0] - TCart[0]))
-    SCart[1] = np.sqrt(old_div(1, (X**2 + 1.)))
+    X = (TCart[1] - GCart[1]) / (GCart[0] - TCart[0])
+    SCart[1] = np.sqrt(1 / (X**2 + 1.))
     SCart[0] = SCart[1] * X
     SDir = cart2dir(SCart)
     DipDir = (SDir[0] - 90.) % 360.
@@ -11225,8 +11232,7 @@ def get_tilt(dec_geo, inc_geo, dec_tilt, inc_tilt):
         SCart[1]  # cosine of angle between two
     d = np.arccos(cosd)
     cosTheta = GCart[0] * TCart[0] + GCart[1] * TCart[1] + GCart[2] * TCart[2]
-    Dip = (old_div(180., np.pi)) * \
-        np.arccos(-(old_div((cosd**2 - cosTheta), np.sin(d)**2)))
+    Dip = (180. / np.pi) * np.arccos(-((cosd**2 - cosTheta) / np.sin(d)**2))
     if Dip > 90:
         Dip = -Dip
     return DipDir, Dip
@@ -11884,16 +11890,15 @@ def linreg(x, y):
         xy += x[i] * y[i]
         xsum += x[i]
         ysum += y[i]
-        xsig = np.sqrt(old_div((xx - old_div(xsum**2, n)), (n - 1.)))
-        ysig = np.sqrt(old_div((yy - old_div(ysum**2, n)), (n - 1.)))
-    linpars['slope'] = old_div(
-        (xy - (xsum * ysum / n)), (xx - old_div((xsum**2), n)))
-    linpars['b'] = old_div((ysum - linpars['slope'] * xsum), n)
-    linpars['r'] = old_div((linpars['slope'] * xsig), ysig)
+        xsig = np.sqrt((xx - (xsum**2 / n)) / (n - 1.))
+        ysig = np.sqrt((yy - (ysum**2 / n)) / (n - 1.))
+    linpars['slope'] = (xy - (xsum * ysum / n)) / (xx - (xsum**2) / n)
+    linpars['b'] = (ysum - linpars['slope'] * xsum) / n
+    linpars['r'] = (linpars['slope'] * xsig) / ysig
     for i in range(n):
         a = y[i] - linpars['b'] - linpars['slope'] * x[i]
         sum += a
-    linpars['sigma'] = old_div(sum, (n - 2.))
+    linpars['sigma'] = sum /(n - 2.)
     linpars['n'] = n
     return linpars
 
@@ -11952,16 +11957,18 @@ def unsquish(incs, f):
     Examples
     --------
     >>> incs = [63.4,59.2,73.9,85,-49.1,70.7]
-    >>> np.round(pmag.unsquish(incs,2),1)
-    array([ 45. ,  40. ,  60. ,  80.1, -30. ,  55. ])
-    
+    >>> np.round(pmag.unsquish(incs,.5),1)
+    array([ 75.9,  73.4,  81.8,  87.5, -66.6,  80.1])
+
     >>> incs=np.loadtxt('data_files/unsquish/unsquish_example.dat')
-    >>> pmag.unsquish(incs,2)
-    array([[ -5.140729823126393,  11.420796025697275],
-       [  0.900222120901553,  10.204588442982518],
-       [  2.957841023919168,   7.263099363956552],
-       [  0.100000304618348,  14.648986731143856],
-       [ 14.887975603633317,  11.476705854028246], ...
+    >>> pmag.unsquish(incs,.5)
+    array([[-19.791612533135584,  38.94002937796913 ],
+       [  3.596453939529656,  35.75555908297152 ],
+       [ 11.677464698445519,  27.012196299111633],
+       [  0.399995126240053,  46.27631997468994 ],
+       [ 46.760422847350405,  39.080596252430965],
+       [ 48.64708345693855 ,  37.07969161240791 ],
+   ... 
     """
     incs = np.radians(incs)
     I_o = np.tan(incs)/f  # divide tangent by flattening factor
@@ -11971,7 +11978,7 @@ def unsquish(incs, f):
 def get_ts(ts):
     """
     returns GPTS timescales.
-    options are:  ck95, gts04, and gts12
+    options are:  ck95, gts04, gts12, gts20
     returns timescales and Chron labels
     """
     if ts == 'ck95':
@@ -11992,7 +11999,33 @@ def get_ts(ts):
         Labels = [['C1n', 0.000], ['C1r', 0.781], ['C2n', 1.778], ['C2r', 1.945], ['C2An', 2.581], ['C2Ar', 3.596], ['C3n', 4.187], ['C3r', 5.235], ['C3An', 6.033], ['C3Ar', 6.733], ['C3Bn', 7.140], ['C3Br', 7.212], ['C4n', 7.528], ['C4r', 8.108], ['C4An', 8.771], ['C4Ar', 9.105], ['C5n', 9.786], ['C5r', 11.056], ['C5An', 12.049], ['C5Ar', 12.474], ['C5AAn', 13.032], ['C5AAr', 13.183], ['C5ABn', 13.363], ['C5ABr', 13.608], ['C5ACn', 13.739], ['C5ACr', 14.070], ['C5ADn', 14.163], ['C5ADr', 14.609], ['C5Bn', 14.775], ['C5Br', 15.160], ['C5Cn', 15.974], ['C5Cr', 16.721], ['C5Dn', 17.235], ['C5Dr', 17.533], ['C5En', 18.056], ['C5Er', 18.524], ['C6n', 18.748], ['C6r', 19.722], ['C6An', 20.040], ['C6Ar', 20.709], ['C6AAn', 21.083], ['C6AAr', 21.159], ['C6Bn', 21.767], ['C6Br', 22.268], ['C6Cn', 22.564], ['C6Cr', 23.295], ['C7n', 23.962], ['C7r', 24.474], ['C7An', 24.761], ['C7Ar', 24.984], ['C8n', 25.099], [
             'C8r', 25.987], ['C9n', 26.420], ['C9r', 27.439], ['C10n', 27.859], ['C10r', 28.278], ['C11n', 29.183], ['C11r', 29.970], ['C12n', 30.591], ['C12r', 31.034], ['C13n', 33.157], ['C13r', 33.705], ['C15n', 34.999], ['C15r', 35.294], ['C16n', 35.706], ['C16r', 36.700], ['C17n', 36.969], ['C17r', 38.333], ['C18n', 38.615], ['C18r', 40.145], ['C19n', 41.154], ['C19r', 41.390], ['C20n', 42.301], ['C20r', 43.432], ['C21n', 45.724], ['C21r', 47.349], ['C22n', 48.566], ['C22r', 49.344], ['C23n', 50.628], ['C23r', 51.833], ['C24n', 52.620], ['C24r', 53.983], ['C25n', 57.101], ['C25r', 57.656], ['C26n', 58.959], ['C26r', 59.237], ['C27n', 62.221], ['C27r', 62.517], ['C28n', 63.494], ['C28r', 64.667], ['C29n', 64.958], ['C29r', 65.688], ['C30n', 66.398], ['C30r', 68.196], ['C31n', 68.369], ['C31r', 69.269], ['C32n', 71.449], ['C32r', 73.649], ['C33n', 74.309], ['C33r', 79.900], ['C34n', 83.64]]
         return TS, Labels
-    print("Time Scale Option Not Available")
+    if ts == 'gts20':
+        TS=[ 0.   ,  0.773,  0.99 ,  1.07 ,  1.18 ,  1.215,  1.775,  1.934,
+        2.116,  2.14 ,  2.595,  3.032,  3.116,  3.207,  3.33 ,  3.596,
+        4.187,  4.3  ,  4.493,  4.631,  4.799,  4.896,  4.997,  5.235,  6.023,
+        6.272,  6.386,  6.727,  7.104,  7.214,  7.262,  7.305,  7.456,
+        7.499,  7.537,  7.65 ,  7.701,  8.125,  8.257,  8.3  ,  8.771,
+        9.105,  9.311,  9.426,  9.647,  9.721,  9.786,  9.937,  9.984,
+       11.056, 11.146, 11.188, 11.592, 11.657, 12.049, 12.174, 12.272,
+       12.474, 12.735, 12.77 , 12.829, 12.887, 13.032, 13.183, 13.363,
+       13.608, 13.739, 14.07 , 14.163, 14.609, 14.775, 14.87 , 15.032,
+       15.16, 15.974, 16.268, 16.303, 16.472, 16.543, 16.721, 17.235,
+       17.533, 17.717, 17.74 , 18.007, 18.497, 18.636, 19.535, 19.979,
+       20.182, 20.448, 20.765, 21.13 , 21.204, 21.441, 21.519, 21.691,
+       21.722, 21.806, 21.985, 22.042, 22.342, 22.621, 22.792, 22.973,
+       23.04 , 23.212, 23.318, 24.025, 24.061, 24.124, 24.459, 24.654,
+       24.766, 25.099, 25.264, 25.304, 25.987, 26.42 , 27.439, 27.859,
+       28.087, 28.141, 28.278, 29.183, 29.477, 29.527, 29.97 , 30.591,
+       30.977, 33.214, 33.726, 35.102, 35.336, 35.58 , 35.718, 35.774,
+       36.351, 36.573,37.385, 37.53 , 37.781, 37.858, 38.081, 38.398,
+       39.582, 39.666, 40.073, 41.03 , 41.18 , 42.196, 43.45 , 46.235,
+       47.76 , 48.878, 49.666, 50.767, 50.996, 51.047, 51.724, 52.54 ,
+       52.93 , 53.02 , 53.12 , 53.25 , 53.9  , 57.101, 57.656, 58.959,
+       59.237, 62.278, 62.53 , 63.537, 64.645, 64.862, 65.7  , 66.38 ,
+       68.178, 68.351, 69.271, 71.451, 71.691, 71.851, 73.651, 73.951,
+       74.051, 74.201, 79.9  , 82.875] 
+        Labels=[['C1n', 0.0], ['C1r', 0.773], ['C2n', 1.775], ['C2r', 1.934], ['C2An', 2.595], ['C2Ar', 3.596], ['C3n', 4.187], ['C3r', 5.235], ['C3An', 6.023], ['C3Ar', 6.727], ['C3Bn', 7.104], ['C3Br', 7.214], ['C4n', 7.537], ['C4r', 8.125], ['C4An', 8.771], ['C4Ar', 9.105], ['C5n', 9.786], ['C5r', 11.056], ['C5An', 12.049], ['C5Ar', 12.474], ['C5AAn', 13.032], ['C5AAr', 13.183], ['C5ABn', 13.363], ['C5ABr', 13.608], ['C5ACn', 13.739], ['C5ACr', 14.07], ['C5ADn', 14.163], ['C5ADr', 14.609], ['C5Bn', 14.775], ['C5Br', 15.16], ['C5Cn', 15.974], ['C5Cr', 16.721], ['C5Dn', 17.235], ['C5En', 18.007], ['C5Er', 18.497], ['C6n', 18.636], ['C6r', 19.535], ['C6An', 19.979], ['C6Ar', 20.765], ['C6AAn', 21.13], ['C6Bn', 21.806], ['C6Br', 22.342], ['C6Cn', 22.621], ['C6Cr', 23.318], ['C7n', 24.025], ['C7r', 24.459], ['C7An', 24.654], ['C7Ar', 24.766], ['C8n', 25.099], ['C8r', 25.987], ['C9n', 26.42], ['C9r', 27.439], ['C10n', 27.859], ['C10r', 28.278], ['C11n', 29.183], ['C11r', 29.97], ['C12n', 30.591], ['C12r', 30.977], ['C13n', 33.214], ['C13r', 33.726], ['C15n', 35.102], ['C15r', 35.336], ['C16n', 35.58], ['C16r', 36.351],['C17n', 36.573], ['C17r', 38.081], ['C18n', 38.398], ['C18r', 40.073], ['C19n', 41.03], ['C19r', 41.18], ['C20n', 42.196], ['C20r', 43.45], ['C21n', 46.235], ['C21r', 47.76], ['C22n', 48.878], ['C22r', 49.666], ['C23n', 50.767], ['C23r', 51.724], ['C24n', 52.54], ['C24r', 53.9], ['C25n', 57.101], ['C25r', 57.656], ['C26n', 58.959], ['C26r', 59.237], ['C27n', 62.278], ['C27r', 62.53], ['C28n', 63.537], ['C28r', 64.645], ['C29n', 64.862], ['C29r', 65.7], ['C30n', 66.38], ['C30r', 68.178], ['C31n', 68.351], ['C31r', 69.271], ['C32n', 71.451], ['C32r', 73.651], ['C33n', 74.201], ['C33r', 79.9]] 
+        return TS, Labels
     return
 
 
@@ -13689,6 +13722,230 @@ def fix_directories(input_dir_path, output_dir_path):
     input_dir_path = os.path.realpath(input_dir_path)
     output_dir_path = os.path.realpath(output_dir_path)
     return input_dir_path, output_dir_path
+
+
+def form_Mhat(mhat):
+    """
+    Calculate the Mhat matrix based on data set 
+    according to Equation 4 of Heslop et al., 2023.
+
+    Parameters:
+        mhat (ndarray): Cartesian coordinates of estimated sample mean direction
+
+    Returns:
+        ndarray: Mhat matrix according to the equation 4 of Heslop et al., 2023.
+
+    Raises:
+        ValueError: If the data sets have incompatible shapes.
+    """
+    b = np.matrix(mhat[0:2][:,np.newaxis])
+    c = mhat[2]
+    
+    if c==0:
+        A1 = np.eye(2)-(b*b.getH())
+    else:
+        A1 = c/np.abs(c)*np.eye(2)-c/(np.abs(c)+np.abs(c)**2)*(b*b.getH())
+        
+    A2 = -b
+    Mhat = np.hstack((A1,A2))
+    return Mhat
+
+
+def form_Ghat(X,Mhat):
+    """
+    Form the Ghat matrix based on a collection of directions X and the Mhat matrix 
+    according to Equation 5 of Heslop et al., 2023
+
+    Parameters:
+        X (ndarray): Cartesian coordinates of directions
+        Mhat (ndarray): Mhat matrix for mean direction.
+
+    Returns:
+        ndarray: Ghat matrix according to equation 5 of Heslop et al., 2023.
+
+    """
+    
+    #input - X, collection of directions (one per column)
+    #input - Mhat, Mhat matrix for mean direction
+    #output - Ghat matrix according to equation 5
+
+    n = np.shape(X)[1]
+    term1 = np.power(np.linalg.norm(np.sum(X,axis=1)/n),-2)/n
+    X = np.matrix(X)
+    Mhat_T = Mhat.getT()
+    Ghat = np.matrix(np.zeros((2,2)))
+    
+    for u in range(2):
+        for v in range(2):
+            for i in range(n):
+                Ghat[u,v] += Mhat_T[:,u].getT()*X[:,i]*X[:,i].getT()*Mhat_T[:,v]
+            Ghat[u,v] *= term1
+    
+    return Ghat
+
+def form_Q(a,b):
+    """
+    Creates the rotation matrix Q so that Qb = a 
+    (according to equations (9) and (10)Heslop et al., 2023)
+
+    Parameters:
+        a (ndarray): Destination direction (unit vector).
+        b (ndarray): Starting direction (unit vector).
+
+    Returns:
+        ndarray: Rotation matrix Q.
+
+    """
+
+    
+    #input - a, destination direction (unit vector)
+    #input - b, starting direction (unit vector)
+    #output - Q, rotation matrix so Qb = a
+    
+    a = np.matrix(a)
+    a = np.reshape(a,(3,1))
+    b = np.matrix(b)
+    b = np.reshape(b,(3,1))
+
+    c = b-a*(a.getT()*b)
+    c /= np.linalg.norm(c)
+
+    alpha = np.arccos(a.getT()*b)
+    A = a*c.getT()-c*a.getT()
+
+    Q = np.eye(3)+np.multiply(np.sin(alpha),A)+np.multiply(np.cos(alpha)-1,a*a.getT()+c*c.getT())
+    
+    return Q
+
+def find_CMDT_CR(Ahat,Tc,mhat12):
+    """
+    Find the sequence of points along the confidence region of the Common Mean Direction Test (CMDT-CR)
+    of Heslop et al., 2023. Provides a collection of points on the boundary of the 1- 𝛼
+    confidence region for the common mean direction according to the procedure in Appendix B.
+     N.B: find_CMDT_CR should only be used if null hypothesis of common mean direction cannot be rejected
+
+    Parameters:
+        Ahat (ndarray): Combined covariance matrix.
+        Tc (float): T value on the boundary of the confidence region.
+        mhat12 (ndarray): Estimated common mean direction.
+
+    Returns:
+        ndarray: Sequence of points along the confidence region.
+
+    """ 
+    #Ahat - combined covariance matrix
+    #input - Tc, T value on the boundary of the confidence region
+    #input - mhat12, estimated common mean direction
+    #output - mCI, sequence of points along confidence region
+    
+    [D,V] = np.linalg.eig(Ahat)
+    
+    idx=np.flip(np.argsort(D))
+    D = D[idx]
+    V = V[:,idx]
+        
+    mCI = np.zeros((3,201))
+    y = np.matrix(np.zeros((3,1)))
+    for i in range(201):
+            theta = i*np.pi/100
+            
+            ylen = np.zeros(201);
+            phi = np.linspace(0,np.pi/2,201)
+            for j in range(201):
+                y[0] = np.sin(phi[j])*np.cos(theta)*np.sqrt(Tc)/np.sqrt(D[0])
+                y[1] = np.sin(phi[j])*np.sin(theta)*np.sqrt(Tc)/np.sqrt(D[1])
+                y[2] = np.cos(phi[j])*np.sqrt(Tc)/np.sqrt(D[2])
+                ylen[j] = np.linalg.norm(y)
+                
+            idx = np.argsort(ylen)
+            phi0 = np.interp(1.0,ylen[idx],phi[idx]);
+            y[0] = np.sin(phi0)*np.cos(theta)*np.sqrt(Tc)/np.sqrt(D[0])
+            y[1] = np.sin(phi0)*np.sin(theta)*np.sqrt(Tc)/np.sqrt(D[1])
+            y[2] = np.cos(phi0)*np.sqrt(Tc)/np.sqrt(D[2])
+                
+            mCI[:,i] = np.ndarray.flatten(V*y)
+    
+    #Check if points are in the correct hemisphere
+    mCIbar = np.mean(mCI,axis=1)/np.linalg.norm(np.mean(mCI,axis=1))
+    if np.arctan2(np.linalg.norm(np.cross(mhat12.T,mCIbar)),np.dot(mhat12.T,mCIbar))>np.pi/2:
+        mCI *= -1
+        
+    return mCI
+
+def find_T(m,n,Mhat,Ghat):
+
+    """
+    Calculates the T value estimated from Equation 6.
+
+    Parameters:
+        m: numpy matrix representing the direction under consideration.
+        n: int, number of observations.
+        Mhat: numpy matrix representing the Mhat matrix for mean direction.
+        Ghat: numpy matrix representing the covariance matrix.
+
+    Returns:
+        numpy array: T value estimated from Equation 6 of Heslop et al., 2023
+
+    Raises:
+        None
+    """
+    
+    #input - m, direction under consideration
+    #input - n, number of observations
+    #input - Mhat, Mhat matrix for mean direction
+    #input - Ghat matrix representing covariance
+    #output - T value estimated from Equation 6
+    
+    m = np.matrix(m[:,np.newaxis])
+    
+    return np.array(n*m.getT()*Mhat.getT()*np.linalg.inv(Ghat)*Mhat*m)    
+
+def find_CR(mhat,Mhat,Ghat,n,Tc):
+    """
+    Calculates the closed confidence region boundary, mCI.
+
+    Parameters:
+        mhat: numpy array representing the mean direction of the original data set.
+        Mhat: numpy matrix representing the Mhat matrix for mean direction.
+        Ghat: numpy matrix representing the covariance matrix.
+        n: int, number of observations.
+        Tc: float, critical T value on the confidence region boundary.
+
+    Returns:
+        numpy array: closed confidence region boundary, mCI.
+
+    Raises:
+        None
+    """
+    
+    #input - mhat, mean direction of original data set
+    #input - Mhat, Mhat matrix for mean direction
+    #input - Ghat, matrix representing covariance
+    #input - n, number of observations
+    #input - Tc, critical T value on confidence region boundary
+    #output - mCI, closed confidence region boundary
+    
+    C = n*Mhat.getT()*np.linalg.inv(Ghat)*Mhat
+    [D,V] = np.linalg.eig(C)
+    
+    idx=np.flip(np.argsort(D))
+    D = D[idx]
+    V = V[:,idx]
+    
+    mCI = np.zeros((3,201))
+    y = np.matrix(np.zeros((3,1)))
+    for i in range(201):
+            theta = i*np.pi/100
+            y[0] = np.cos(theta)*np.sqrt(Tc)/np.sqrt(D[0])
+            y[1] = np.sin(theta)*np.sqrt(Tc)/np.sqrt(D[1])
+            y[2] = np.sqrt(1-y[0]**2-y[1]**2)
+            mCI[:,i] = np.ndarray.flatten(V*y)
+    
+    mCIbar = np.mean(mCI,axis=1)/np.linalg.norm(np.mean(mCI,axis=1))
+    if np.arctan2(np.linalg.norm(np.cross(mhat,mCIbar)),np.dot(mhat,mCIbar))>np.pi/2:
+        mCI *= -1
+        
+    return mCI
 
 def main():
     print("Full PmagPy documentation is available at: https://earthref.org/PmagPy/cookbook/")
