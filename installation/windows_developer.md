@@ -24,7 +24,7 @@ strongly recommend Anaconda.
   packages:
 
   ```
-  conda create -n pmagpy_env future cartopy pandas matplotlib requests jupyter
+  conda create -n pmagpy_env cartopy pandas matplotlib requests jupyter
   conda activate pmagpy_env
   conda install scripttest --channel conda-forge --no-deps
   pip install --upgrade pip setuptools

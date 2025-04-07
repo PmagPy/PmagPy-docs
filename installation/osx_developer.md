@@ -27,7 +27,7 @@ need to download Anaconda.
   packages by copying and pasting each of these lines and then running each of these lines in the terminal:
 
   ```
-  conda create -n pmagpy_env future scipy pandas matplotlib requests jupyter seaborn
+  conda create -n pmagpy_env scipy pandas matplotlib requests jupyter seaborn
   ```
 
   ```
