@@ -427,7 +427,6 @@ document.write(`
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#import-the-data">Import the data</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#unpacking-the-tables">Unpacking the tables</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#visualizing-measurement-level-data">Visualizing measurement level data</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#get-specimen-list">Get specimen list</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#plot-a-specific-specimen">Plot a specific specimen</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#visualizing-site-level-data">Visualizing site level data</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#importing-specific-magic-tables">Importing specific MagIC tables</a><ul class="nav section-nav flex-column">
@@ -467,21 +466,22 @@ document.write(`
 </section>
 <section id="import-the-data">
 <h2>Import the data<a class="headerlink" href="#import-the-data" title="Link to this heading">#</a></h2>
-<p>We can use ipmag to go download the data from MagIC for us. We can do this in a couple of ways. One way is to use the doi and the function <code class="docutils literal notranslate"><span class="pre">ipmag.download_magic_from_doi()</span></code>. The other is to use the MagIC contribution ID number with the <code class="docutils literal notranslate"><span class="pre">ipmag.download_magic_from_id()</span></code> function. Let’s take the doi download approach for the study:</p>
+<p>We can use ipmag to go download the data from MagIC for us. We can do this in a couple of ways. One way is to use the doi and the function <code class="docutils literal notranslate"><span class="pre">ipmag.download_magic_from_doi()</span></code>. The other is to use the MagIC contribution ID number with the <code class="docutils literal notranslate"><span class="pre">ipmag.download_magic_from_id()</span></code> function. Let’s take the id download approach for the study:</p>
 <blockquote>
 <div><p>Stelten, Thomas, Pivarunas, and Champion (2023). Spatio-temporal clustering of post-caldera eruptions at Yellowstone caldera: implications for volcanic hazards and pre-eruptive magma reservoir configuration. Bulletin of Volcanology 85 (10). doi:10.1007/S00445-023-01665-W.</p>
 </div></blockquote>
-<p>We can use the 10.1007/S00445-023-01665-W of the paper. This doi can be replaced with that of another study in the MagIC database.</p>
+<p>We can use the MagIC ID of <code class="docutils literal notranslate"><span class="pre">19640</span></code> for this paper which can be replaced with that of another study in the MagIC database.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">doi</span> <span class="o">=</span> <span class="s1">&#39;10.1007/S00445-023-01665-W&#39;</span>
+<span class="nb">id</span> <span class="o">=</span> <span class="s1">&#39;19640&#39;</span>
 <span class="n">directory</span> <span class="o">=</span> <span class="s1">&#39;./inspecting_MagIC_data/&#39;</span>
-<span class="n">result</span><span class="p">,</span> <span class="n">magic_file_name</span> <span class="o">=</span> <span class="n">ipmag</span><span class="o">.</span><span class="n">download_magic_from_doi</span><span class="p">(</span><span class="n">doi</span><span class="p">,</span> <span class="n">directory</span> <span class="o">=</span> <span class="n">directory</span><span class="p">)</span>
+<span class="n">result</span><span class="p">,</span> <span class="n">magic_file_name</span> <span class="o">=</span> <span class="n">ipmag</span><span class="o">.</span><span class="n">download_magic_from_id</span><span class="p">(</span><span class="nb">id</span><span class="p">,</span> <span class="n">directory</span> <span class="o">=</span> <span class="n">directory</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
 </div>
-<p>Running this function will download a file called <code class="docutils literal notranslate"><span class="pre">magic_contribution_17072.txt</span></code> in the folder that this notebook is in.</p>
+<p>Running this function will download a file called <code class="docutils literal notranslate"><span class="pre">magic_contribution_19640.txt</span></code> in the folder that this notebook is in.</p>
 <p>In the above code cell, we saved a variable <code class="docutils literal notranslate"><span class="pre">magic_file_name</span></code> that is the name of the files that was downloaded.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -563,123 +563,6 @@ document.write(`
 </a>
 <a class="reference internal image-reference" href="../../_images/10992063e198b297f8c287d862167cfefaa63521b7c68b9551c2521d227b8b90.png"><img alt="../../_images/10992063e198b297f8c287d862167cfefaa63521b7c68b9551c2521d227b8b90.png" src="../../_images/10992063e198b297f8c287d862167cfefaa63521b7c68b9551c2521d227b8b90.png" style="width: 410px; height: 410px;" />
 </a>
-</div>
-</div>
-</section>
-<section id="get-specimen-list">
-<h2>Get specimen list<a class="headerlink" href="#get-specimen-list" title="Link to this heading">#</a></h2>
-<p>We can get lists of MagIC_names for locations, sites, samples, specimens using <code class="docutils literal notranslate"><span class="pre">ipmag.list_MagIC_names</span></code>. Let’s look at all of the specimen names.</p>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">MagIC_names</span> <span class="o">=</span> <span class="n">ipmag</span><span class="o">.</span><span class="n">list_MagIC_names</span><span class="p">(</span><span class="n">directory</span><span class="p">)</span>
-<span class="n">MagIC_names</span><span class="p">[</span><span class="s1">&#39;specimens&#39;</span><span class="p">]</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[&#39;Y2102-1a&#39;,
- &#39;Y2102-2a&#39;,
- &#39;Y2102-2b&#39;,
- &#39;Y2102-3a&#39;,
- &#39;Y2102-4a&#39;,
- &#39;Y2102-5a&#39;,
- &#39;Y2102-5b&#39;,
- &#39;Y2102-6a&#39;,
- &#39;Y2102-6b&#39;,
- &#39;Y2102-7a&#39;,
- &#39;Y2102-8a&#39;,
- &#39;Y211-1a&#39;,
- &#39;Y211-2a&#39;,
- &#39;Y211-3a&#39;,
- &#39;Y211-3b&#39;,
- &#39;Y211-4a&#39;,
- &#39;Y211-5a&#39;,
- &#39;Y211-6a&#39;,
- &#39;Y211-7a&#39;,
- &#39;Y211-7b&#39;,
- &#39;Y211-8a&#39;,
- &#39;Y211-9a&#39;,
- &#39;Y213-10a&#39;,
- &#39;Y213-11a&#39;,
- &#39;Y213-1a&#39;,
- &#39;Y213-1b&#39;,
- &#39;Y213-2a&#39;,
- &#39;Y213-3a&#39;,
- &#39;Y213-4a&#39;,
- &#39;Y213-5a&#39;,
- &#39;Y213-6a&#39;,
- &#39;Y213-6b&#39;,
- &#39;Y213-7a&#39;,
- &#39;Y213-7b&#39;,
- &#39;Y213-8a&#39;,
- &#39;Y213-8b&#39;,
- &#39;Y213-9a&#39;,
- &#39;Y214-10a&#39;,
- &#39;Y214-10b&#39;,
- &#39;Y214-11a&#39;,
- &#39;Y214-11b&#39;,
- &#39;Y214-12a&#39;,
- &#39;Y214-1a&#39;,
- &#39;Y214-2a&#39;,
- &#39;Y214-3a&#39;,
- &#39;Y214-4a&#39;,
- &#39;Y214-4b&#39;,
- &#39;Y214-5a&#39;,
- &#39;Y214-5b&#39;,
- &#39;Y214-6a&#39;,
- &#39;Y214-7a&#39;,
- &#39;Y214-8a&#39;,
- &#39;Y214-9a&#39;,
- &#39;Y215-10a&#39;,
- &#39;Y215-10b&#39;,
- &#39;Y215-1a&#39;,
- &#39;Y215-1b&#39;,
- &#39;Y215-2a&#39;,
- &#39;Y215-3a&#39;,
- &#39;Y215-3b&#39;,
- &#39;Y215-4a&#39;,
- &#39;Y215-5a&#39;,
- &#39;Y215-5b&#39;,
- &#39;Y215-6a&#39;,
- &#39;Y215-6b&#39;,
- &#39;Y215-7a&#39;,
- &#39;Y215-7b&#39;,
- &#39;Y215-8a&#39;,
- &#39;Y215-8b&#39;,
- &#39;Y215-9a&#39;,
- &#39;Y215-9b&#39;,
- &#39;Y216-10a&#39;,
- &#39;Y216-11a&#39;,
- &#39;Y216-1a&#39;,
- &#39;Y216-2a&#39;,
- &#39;Y216-2b&#39;,
- &#39;Y216-3a&#39;,
- &#39;Y216-3b&#39;,
- &#39;Y216-4a&#39;,
- &#39;Y216-4b&#39;,
- &#39;Y216-5a&#39;,
- &#39;Y216-6a&#39;,
- &#39;Y216-7a&#39;,
- &#39;Y216-7b&#39;,
- &#39;Y216-8a&#39;,
- &#39;Y216-8b&#39;,
- &#39;Y216-9a&#39;,
- &#39;Y216-9b&#39;,
- &#39;Y217-10a&#39;,
- &#39;Y217-1a&#39;,
- &#39;Y217-2a&#39;,
- &#39;Y217-2b&#39;,
- &#39;Y217-3a&#39;,
- &#39;Y217-4a&#39;,
- &#39;Y217-5a&#39;,
- &#39;Y217-6a&#39;,
- &#39;Y217-6b&#39;,
- &#39;Y217-7a&#39;,
- &#39;Y217-7b&#39;,
- &#39;Y217-8a&#39;,
- &#39;Y217-9a&#39;]
-</pre></div>
-</div>
 </div>
 </div>
 </section>
@@ -1112,7 +995,6 @@ Precision parameter (k) estimate: 348.8
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#import-the-data">Import the data</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#unpacking-the-tables">Unpacking the tables</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#visualizing-measurement-level-data">Visualizing measurement level data</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#get-specimen-list">Get specimen list</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#plot-a-specific-specimen">Plot a specific specimen</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#visualizing-site-level-data">Visualizing site level data</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#importing-specific-magic-tables">Importing specific MagIC tables</a><ul class="nav section-nav flex-column">
