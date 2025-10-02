@@ -542,7 +542,7 @@ azimuth	azimuth_dec_correction	citations	description	dip	geologic_classes	geolog
 </section>
 <section id="guide-to-pmagpy">
 <h2>Guide to PmagPy<a class="headerlink" href="#guide-to-pmagpy" title="Link to this heading">#</a></h2>
-<p>The notebook is one of a series of notebooks that demonstrate the functionality of PmagPy. The other notebooks are:</p>
+<p>This notebook is one of a series of notebooks that demonstrate the functionality of PmagPy. The other notebooks are:</p>
 <ul class="simple">
 <li><p><a class="reference internal" href="PmagPy_introduction.html"><span class="std std-doc">PmagPy_introduction.ipynb</span></a> This notebook introduces PmagPy and lists the functions that are demonstrated in the other notebooks.</p></li>
 <li><p><a class="reference internal" href="PmagPy_calculations.html"><span class="std std-doc">PmagPy_calculations.ipynb</span></a> This notebook demonstrates many of the PmagPy calculation functions such as those that rotate directions, return statistical parameters, and simulate data from specified distributions.</p></li>
@@ -551,7 +551,7 @@ azimuth	azimuth_dec_correction	citations	description	dip	geologic_classes	geolog
 </section>
 <section id="customizing-this-notebook">
 <h2>Customizing this notebook<a class="headerlink" href="#customizing-this-notebook" title="Link to this heading">#</a></h2>
-<p>If you want to make changes to this notebook, you should make a copy (see File menu).  Otherwise each time you update <strong>PmagPy</strong>, your changes will be overwritten.</p>
+<p>If you are running this notebook on JupyterHub and want to make changes, you should make a copy (see File menu).  Otherwise, each time you update <strong>PmagPy</strong>, your changes will be overwritten.</p>
 </section>
 <section id="get-started">
 <h2>Get started<a class="headerlink" href="#get-started" title="Link to this heading">#</a></h2>
@@ -568,8 +568,7 @@ azimuth	azimuth_dec_correction	citations	description	dip	geologic_classes	geolog
 <span class="kn">import</span><span class="w"> </span><span class="nn">matplotlib.pyplot</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">plt</span> <span class="c1"># our plotting buddy</span>
 <span class="kn">import</span><span class="w"> </span><span class="nn">numpy</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">np</span> <span class="c1"># the fabulous NumPy package</span>
 <span class="kn">import</span><span class="w"> </span><span class="nn">pandas</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">pd</span> <span class="c1"># and of course Pandas</span>
-<span class="c1"># test if Basemap and/or cartopy is installed</span>
-<span class="n">has_basemap</span><span class="p">,</span> <span class="n">Basemap</span> <span class="o">=</span> <span class="n">pmag</span><span class="o">.</span><span class="n">import_basemap</span><span class="p">()</span>
+<span class="c1"># test if cartopy is installed</span>
 <span class="n">has_cartopy</span><span class="p">,</span> <span class="n">Cartopy</span> <span class="o">=</span> <span class="n">pmag</span><span class="o">.</span><span class="n">import_cartopy</span><span class="p">()</span>
 <span class="c1"># test if xlwt is installed (allows you to export to excel)</span>
 <span class="k">try</span><span class="p">:</span>
