@@ -591,15 +591,15 @@ document.write(`
 <li><p><a class="reference internal" href="#irm_unmix"><span class="xref myst">irm_unmix</span></a> : analyzes IRM acquisition data in terms of coercivity distributions</p></li>
 <li><p><a class="reference internal" href="#irm_magic"><span class="xref myst">irmaq_magic</span></a> : plots IRM acquistion data</p></li>
 <li><p><a class="reference internal" href="#lnp_magic"><span class="xref myst">lnp_magic</span></a> : plots lines and planes for site level data and calculates best fit mean and alpha_95</p></li>
-<li><p><a class="reference internal" href="#lowes"><span class="xref myst">lowes</span></a> : makes a plot of the Lowe’s spectrum for a geomagnetic field model</p></li>
+<li><p><a class="reference internal" href="../api/api.html#pmagpy.pmag.lowes" title="pmagpy.pmag.lowes"><span class="xref myst py py-func">lowes</span></a> : makes a plot of the Lowe’s spectrum for a geomagnetic field model</p></li>
 <li><p><a class="reference internal" href="#lowrie"><span class="xref myst">lowrie</span></a> and <a class="reference internal" href="#lowrie"><span class="xref myst">lowrie_magic</span></a> : makes plots of Lowrie’s (1990) 3D-IRM demagnetization experiments</p></li>
-<li><p><a class="reference internal" href="#plot_cdf"><span class="xref myst">plot_cdf</span></a> and <a class="reference internal" href="#plot_2cdfs"><span class="xref myst">plot_2cdfs</span></a> : makes a cumulative distribution plot of data</p></li>
+<li><p><a class="reference internal" href="../api/api.html#pmagpy.pmagplotlib.plot_cdf" title="pmagpy.pmagplotlib.plot_cdf"><span class="xref myst py py-func">plot_cdf</span></a> and <a class="reference internal" href="#plot_2cdfs"><span class="xref myst">plot_2cdfs</span></a> : makes a cumulative distribution plot of data</p></li>
 <li><p><a class="reference internal" href="#plot_di_mean"><span class="xref myst">plot_di_mean</span></a> : makes equal area plots of directions and their <span class="math notranslate nohighlight">\(\alpha_{95}\)</span>s</p></li>
 <li><p><a class="reference internal" href="#plot_geomagia"><span class="xref myst">plot_geomagia</span></a> : makes plots from files downloaded from the  geomagia website</p></li>
-<li><p><a class="reference internal" href="#plot_mag_map"><span class="xref myst">plot_mag_map</span></a> : makes a color contour plot of geomagnetic field models</p></li>
+<li><p><a class="reference internal" href="../api/api.html#pmagpy.pmagplotlib.plot_mag_map" title="pmagpy.pmagplotlib.plot_mag_map"><span class="xref myst py py-func">plot_mag_map</span></a> : makes a color contour plot of geomagnetic field models</p></li>
 <li><p><a class="reference internal" href="#plot_magic_keys"><span class="xref myst">plot_magic_keys</span></a> : plots data from MagIC formatted data files</p></li>
 <li><p><a class="reference internal" href="#plot_map_pts"><span class="xref myst">plot_map_pts</span></a> : plots points on maps</p></li>
-<li><p><a class="reference internal" href="#plot_ts"><span class="xref myst">plot_ts</span></a> : makes a plot of the desired Geomagnetic Reversal time scale</p></li>
+<li><p><a class="reference internal" href="../api/api.html#pmagpy.pmagplotlib.plot_ts" title="pmagpy.pmagplotlib.plot_ts"><span class="xref myst py py-func">plot_ts</span></a> : makes a plot of the desired Geomagnetic Reversal time scale</p></li>
 <li><p><a class="reference internal" href="#polemap_magic"><span class="xref myst">polemap_magic</span></a> : reads in MagIC formatted file with paleomagnetic poles and plots them</p></li>
 <li><p><a class="reference internal" href="#qqplot"><span class="xref myst">qqplot</span></a> : makes a Quantile-Quantile plot for data against a normal distribution</p></li>
 <li><p><a class="reference internal" href="#qqunf"><span class="xref myst">qqunf</span></a> : makes a Quantile-Quantile plot for data against a uniform distribution</p></li>
@@ -614,7 +614,7 @@ document.write(`
 <li><p>Maps:</p>
 <ul>
 <li><p><a class="reference internal" href="#cont_rot"><span class="xref myst">cont_rot</span></a> : makes plots of continents after rotation to specified coordinate system</p></li>
-<li><p><a class="reference internal" href="#plot_mag_map"><span class="xref myst">plot_mag_map</span></a> : makes a color contour plot of geomagnetic field models</p></li>
+<li><p><a class="reference internal" href="../api/api.html#pmagpy.pmagplotlib.plot_mag_map" title="pmagpy.pmagplotlib.plot_mag_map"><span class="xref myst py py-func">plot_mag_map</span></a> : makes a color contour plot of geomagnetic field models</p></li>
 <li><p><a class="reference internal" href="#plot_map_pts"><span class="xref myst">plot_map_pts</span></a> : plots points on maps</p></li>
 <li><p><a class="reference internal" href="#polemap_magic"><span class="xref myst">polemap_magic</span></a> : reads in MagIC formatted file with paleomagnetic poles and plots them</p></li>
 <li><p><a class="reference internal" href="#vgpmap_magic"><span class="xref myst">vgpmap_magic</span></a> : reads in MagIC formatted file with virtual geomagnetic poles and plots them</p></li>
@@ -3069,7 +3069,7 @@ mc01e
 <section id="find-ei">
 <h2>find_ei<a class="headerlink" href="#find-ei" title="Link to this heading">#</a></h2>
 <p><a class="reference external" href="https://earthref.org/MagIC/books/Tauxe/Essentials/WebBook3ch14.html#x15-1560008">[Essentials Chapter 14]</a> <a class="reference external" href="https://earthref.org/MagIC">[MagIC Database]</a>  <a class="reference external" href="https://pmagpy.github.io/PmagPy-cli.html#find_ei.py">[command line version]</a></p>
-<p>This program is meant to find the unflattening factor (see <a class="reference internal" href="#unsquish"><span class="xref myst">unsquish</span></a> documentation) that brings a sedimentary data set into agreement with the statistical field model TK03 of Tauxe and Kent (2004, doi: 10.1029/145GM08).  It  has been implemented for notebooks as <strong>ipmag.find_ei()</strong>.</p>
+<p>This program is meant to find the unflattening factor (see <a class="reference internal" href="../api/api.html#pmagpy.pmag.unsquish" title="pmagpy.pmag.unsquish"><span class="xref myst py py-func">unsquish</span></a> documentation) that brings a sedimentary data set into agreement with the statistical field model TK03 of Tauxe and Kent (2004, doi: 10.1029/145GM08).  It  has been implemented for notebooks as <strong>ipmag.find_ei()</strong>.</p>
 <p>A data file (data_files/find_EI/find_EI_example.dat) was prepared using the program <strong><a class="reference internal" href="#tk03"><span class="xref myst">tk03</span></a></strong>  to simulate directions at a latitude of 42<span class="math notranslate nohighlight">\(^{\circ}\)</span>. with an expected inclination of 61<span class="math notranslate nohighlight">\(^{\circ}\)</span> (which could be gotten using <strong><a class="reference internal" href="#dipole_pinc"><span class="xref myst">dipole_pinc</span></a></strong> of course.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">

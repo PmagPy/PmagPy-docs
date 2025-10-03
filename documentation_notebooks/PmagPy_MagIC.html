@@ -608,10 +608,10 @@ azimuth	azimuth_dec_correction	citations	description	dip	geologic_classes	geolog
 <ul class="simple">
 <li><p>Functions in <strong>PmagPy_MagIC.ipynb</strong></p>
 <ul>
-<li><p><a class="reference internal" href="#magic_read"><span class="xref myst">reading MagIC files</span></a> : reading in MagIC formatted files</p></li>
-<li><p><a class="reference internal" href="#magic_write"><span class="xref myst">writing MagIC files</span></a> : outputing MagIC formatted files</p></li>
+<li><p><a class="reference internal" href="../api/api.html#pmagpy.pmag.magic_read" title="pmagpy.pmag.magic_read"><span class="xref myst py py-func">reading MagIC files</span></a> : reading in MagIC formatted files</p></li>
+<li><p><a class="reference internal" href="../api/api.html#pmagpy.pmag.magic_write" title="pmagpy.pmag.magic_write"><span class="xref myst py py-func">writing MagIC files</span></a> : outputing MagIC formatted files</p></li>
 <li><p><a class="reference internal" href="#combine_magic"><span class="xref myst">combine_magic</span></a> : combines two MagIC formatted files of same type</p></li>
-<li><p><a class="reference internal" href="#convert_ages"><span class="xref myst">convert_ages</span></a> : convert ages in downloaded MagIC file to Ma</p></li>
+<li><p><a class="reference internal" href="../api/api.html#pmagpy.pmag.convert_ages" title="pmagpy.pmag.convert_ages"><span class="xref myst py py-func">convert_ages</span></a> : convert ages in downloaded MagIC file to Ma</p></li>
 <li><p><a class="reference internal" href="#grab_magic_key"><span class="xref myst">grab_magic_key</span></a> : prints out a single column from a MagIC format file</p></li>
 <li><p><a class="reference internal" href="#magic_select"><span class="xref myst">magic_select</span></a> : selects data from MagIC format file given conditions (e.g., method_codes contain string)</p></li>
 <li><p><a class="reference internal" href="#sites_extract"><span class="xref myst">sites_extract</span></a> : makes excel or latex files from sites.txt for publications</p></li>
@@ -1048,7 +1048,7 @@ sites  data put in  /Users/nebula/Python/PmagPy/data_files/convert_ages/sites.tx
 </div>
 </div>
 <p>After some minimal filtering using Pandas, we can convert a DataFrame to a list of dictionaries required by most PmagPy functions and use <strong>pmag.convert_ages()</strong> to convert all the ages.  The converted list of dictionaries can then be turned back into a Pandas DataFrame and either plotted or filtered further as desired.</p>
-<p>In this example, we filter for data older than the Brunhes (0.78 Ma) and younger than 5 Ma, then plot them against latitude.  We can also use <a class="reference internal" href="#vdm_b"><span class="xref myst">vdm_b</span></a> to plot the intensities expected from the present dipole moment (~80 ZAm<span class="math notranslate nohighlight">\(^2\)</span>).</p>
+<p>In this example, we filter for data older than the Brunhes (0.78 Ma) and younger than 5 Ma, then plot them against latitude.  We can also use <a class="reference internal" href="../api/api.html#pmagpy.pmag.vdm_b" title="pmagpy.pmag.vdm_b"><span class="xref myst py py-func">vdm_b</span></a> to plot the intensities expected from the present dipole moment (~80 ZAm<span class="math notranslate nohighlight">\(^2\)</span>).</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">help</span><span class="p">(</span><span class="n">pmag</span><span class="o">.</span><span class="n">convert_ages</span><span class="p">)</span>
