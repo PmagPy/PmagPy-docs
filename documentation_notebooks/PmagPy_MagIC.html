@@ -610,17 +610,17 @@ azimuth	azimuth_dec_correction	citations	description	dip	geologic_classes	geolog
 <ul>
 <li><p><a class="reference internal" href="../api/api.html#pmagpy.pmag.magic_read" title="pmagpy.pmag.magic_read"><span class="xref myst py py-func">reading MagIC files</span></a> : reading in MagIC formatted files</p></li>
 <li><p><a class="reference internal" href="../api/api.html#pmagpy.pmag.magic_write" title="pmagpy.pmag.magic_write"><span class="xref myst py py-func">writing MagIC files</span></a> : outputing MagIC formatted files</p></li>
-<li><p><a class="reference internal" href="#combine_magic"><span class="xref myst">combine_magic</span></a> : combines two MagIC formatted files of same type</p></li>
+<li><p><a class="reference internal" href="../api/api.html#pmagpy.ipmag.combine_magic" title="pmagpy.ipmag.combine_magic"><span class="xref myst py py-func">combine_magic</span></a> : combines two MagIC formatted files of same type</p></li>
 <li><p><a class="reference internal" href="../api/api.html#pmagpy.pmag.convert_ages" title="pmagpy.pmag.convert_ages"><span class="xref myst py py-func">convert_ages</span></a> : convert ages in downloaded MagIC file to Ma</p></li>
 <li><p><a class="reference internal" href="#grab_magic_key"><span class="xref myst">grab_magic_key</span></a> : prints out a single column from a MagIC format file</p></li>
 <li><p><a class="reference internal" href="#magic_select"><span class="xref myst">magic_select</span></a> : selects data from MagIC format file given conditions (e.g., method_codes contain string)</p></li>
-<li><p><a class="reference internal" href="#sites_extract"><span class="xref myst">sites_extract</span></a> : makes excel or latex files from sites.txt for publications</p></li>
-<li><p><a class="reference internal" href="#criteria_extract"><span class="xref myst">criteria_extract</span></a> : makes excel or latex files from criteria.txt for publications</p></li>
-<li><p><a class="reference internal" href="#specimens_extract"><span class="xref myst">specimens_extract</span></a> : makes excel or latex files from specimens.txt for publications</p></li>
+<li><p><a class="reference internal" href="../api/api.html#pmagpy.ipmag.sites_extract" title="pmagpy.ipmag.sites_extract"><span class="xref myst py py-func">sites_extract</span></a> : makes excel or latex files from sites.txt for publications</p></li>
+<li><p><a class="reference internal" href="../api/api.html#pmagpy.ipmag.criteria_extract" title="pmagpy.ipmag.criteria_extract"><span class="xref myst py py-func">criteria_extract</span></a> : makes excel or latex files from criteria.txt for publications</p></li>
+<li><p><a class="reference internal" href="../api/api.html#pmagpy.ipmag.specimens_extract" title="pmagpy.ipmag.specimens_extract"><span class="xref myst py py-func">specimens_extract</span></a> : makes excel or latex files from specimens.txt for publications</p></li>
 <li><p><a class="reference internal" href="#Contributions"><span class="xref myst">contributions</span></a> work with data model 3.0 MagIC contributions</p>
 <ul>
-<li><p><a class="reference internal" href="#download_magic"><span class="xref myst">download_magic</span></a> : how to download and unpack a contribution text file from the MagIC website</p></li>
-<li><p><a class="reference internal" href="#upload_magic"><span class="xref myst">upload_magic</span></a> : prepares a directory with a MagIC contribution for uploading to MagIC</p></li>
+<li><p><a class="reference internal" href="../api/api.html#pmagpy.ipmag.download_magic" title="pmagpy.ipmag.download_magic"><span class="xref myst py py-func">download_magic</span></a> : how to download and unpack a contribution text file from the MagIC website</p></li>
+<li><p><a class="reference internal" href="../api/api.html#pmagpy.ipmag.upload_magic" title="pmagpy.ipmag.upload_magic"><span class="xref myst py py-func">upload_magic</span></a> : prepares a directory with a MagIC contribution for uploading to MagIC</p></li>
 <li><p><a class="reference internal" href="#cb.add_sites_to_meas_table"><span class="xref myst">cb.add_sites_to_meas_table</span></a> : completes a measurements data frame with the information required for plotting by site.</p></li>
 <li><p><a class="reference internal" href="#cb.get_intensity_col"><span class="xref myst">cb.get_intensity_col</span></a> : finds the first non-zero type of intensity data in a measurements dataframe.</p></li>
 </ul>
@@ -651,8 +651,8 @@ azimuth	azimuth_dec_correction	citations	description	dip	geologic_classes	geolog
 <li><p><a class="reference internal" href="#sufar4_magic"><span class="xref myst">sufar4_magic</span></a> : converts AGICO SUFAR program (ver.1.2.) ascii files to MagIC</p></li>
 <li><p><a class="reference internal" href="#tdt_magic"><span class="xref myst">tdt_magic</span></a> : converts Thellier Tool files to MagIC</p></li>
 <li><p><a class="reference internal" href="#utrecht_magic"><span class="xref myst">utrecht_magic</span></a> : converts Fort Hoofddijk, Utrecht University Robot files to MagIC</p></li>
-<li><p><a class="reference internal" href="#orientation_magic"><span class="xref myst">orientation_magic</span></a> : converts an “orient.txt” formatted file with field notebook information into MagIC formatted files</p></li>
-<li><p><a class="reference internal" href="#azdip_magic"><span class="xref myst">azdip_magic</span></a> : converts an “azdip” formatted file to a samples.txt file format</p></li>
+<li><p><a class="reference internal" href="../api/api.html#pmagpy.ipmag.orientation_magic" title="pmagpy.ipmag.orientation_magic"><span class="xref myst py py-func">orientation_magic</span></a> : converts an “orient.txt” formatted file with field notebook information into MagIC formatted files</p></li>
+<li><p><a class="reference internal" href="../api/api.html#pmagpy.ipmag.azdip_magic" title="pmagpy.ipmag.azdip_magic"><span class="xref myst py py-func">azdip_magic</span></a> : converts an “azdip” formatted file to a samples.txt file format</p></li>
 </ul>
 </li>
 </ul>
@@ -1025,7 +1025,7 @@ combine_magic(filenames, outfile=&#39;measurements.txt&#39;, data_model=3, magic
 <section id="convert-ages">
 <h2>convert_ages<a class="headerlink" href="#convert-ages" title="Link to this heading">#</a></h2>
 <p>Files downloaded from the MagIC search interface have ages that are in the original units, but what is often desired is for them to be in a single unit.  For example, if we searched the MagIC database for all absolute paleointensity data (records with method codes of ‘LP-PI-TRM’) from the last five million years, the data sets have a variety of age units.  We can use <strong>pmag.convert_ages()</strong>    to convert them all to millions of years.</p>
-<p>First we follow the instructions for unpacking downloaded files in <a class="reference internal" href="#download_magic"><span class="xref myst">download_magic</span></a>.</p>
+<p>First we follow the instructions for unpacking downloaded files in <a class="reference internal" href="../api/api.html#pmagpy.ipmag.download_magic" title="pmagpy.ipmag.download_magic"><span class="xref myst py py-func">download_magic</span></a>.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">ipmag</span><span class="o">.</span><span class="n">download_magic</span><span class="p">(</span><span class="s1">&#39;magic_downloaded_rows.txt&#39;</span><span class="p">,</span><span class="n">dir_path</span><span class="o">=</span><span class="s1">&#39;data_files/convert_ages/&#39;</span><span class="p">,</span>
@@ -1644,7 +1644,7 @@ location	location_ty
 <section id="upload-magic">
 <h3>upload_magic<a class="headerlink" href="#upload-magic" title="Link to this heading">#</a></h3>
 <p><a class="reference external" href="https://earthref.org/MagIC">[MagIC Database]</a>  <a class="reference external" href="https://pmagpy.github.io/PmagPy-cli.html#upload_magic.py">[command line version]</a></p>
-<p>We can just turn around and try to upload the file downloaded in <a class="reference internal" href="#download_magic"><span class="xref myst">download_magic</span></a>.  For this we use <strong>ipmag.upload_magic()</strong> in the same directory as for the download.   You can try to upload the file you create to the MagIC data base as a private contribution here: <a class="reference external" href="https://www2.earthref.org/MagIC/upload">https://www2.earthref.org/MagIC/upload</a></p>
+<p>We can just turn around and try to upload the file downloaded in <a class="reference internal" href="../api/api.html#pmagpy.ipmag.download_magic" title="pmagpy.ipmag.download_magic"><span class="xref myst py py-func">download_magic</span></a>.  For this we use <strong>ipmag.upload_magic()</strong> in the same directory as for the download.   You can try to upload the file you create to the MagIC data base as a private contribution here: <a class="reference external" href="https://www2.earthref.org/MagIC/upload">https://www2.earthref.org/MagIC/upload</a></p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">help</span><span class="p">(</span><span class="n">ipmag</span><span class="o">.</span><span class="n">upload_magic</span><span class="p">)</span>
@@ -2519,7 +2519,7 @@ plot_di(dec=None, inc=None, di_block=None, color=&#39;k&#39;, marker=&#39;o&#39;
 <h3>agm_magic<a class="headerlink" href="#agm-magic" title="Link to this heading">#</a></h3>
 <p><a class="reference external" href="https://earthref.org/MagIC">[MagIC Database]</a>  <a class="reference external" href="https://pmagpy.github.io/PmagPy-cli.html#agm_magic.py">[command line version]</a></p>
 <p>This program converts Micromag hysteresis files into MagIC formatted files. Because this program creates files for uploading to the MagIC database, specimens should also have sample/site/location information, which can be provided on the command line. If this information is not available, for example if this is a synthetic specimen, specify syn= True for synthetic name.</p>
-<p>Someone named Lima Tango has measured a synthetic specimen named myspec for hysteresis and saved the data in a file named agm_magic_example.agm in the agm_magic/agm_directory folder. The backfield IRM curve for the same specimen was saved in same directory as agm_magic_example.irm. Use the function <strong>convert.agm()</strong> to convert the data into a measurements.txt output file. For the backfield IRM file, set the keyword “bak” to True.  These were measured using cgs units, so be sure to set the units key word argument properly. Combine the two output files together using the instructions for <a class="reference internal" href="#combine_magic"><span class="xref myst">combine_magic</span></a>.  The agm files can be plotted using <a class="reference internal" href="#hysteresis_magic"><span class="xref myst">hysteresis_magic</span></a> but the back-field plots are broken.</p>
+<p>Someone named Lima Tango has measured a synthetic specimen named myspec for hysteresis and saved the data in a file named agm_magic_example.agm in the agm_magic/agm_directory folder. The backfield IRM curve for the same specimen was saved in same directory as agm_magic_example.irm. Use the function <strong>convert.agm()</strong> to convert the data into a measurements.txt output file. For the backfield IRM file, set the keyword “bak” to True.  These were measured using cgs units, so be sure to set the units key word argument properly. Combine the two output files together using the instructions for <a class="reference internal" href="../api/api.html#pmagpy.ipmag.combine_magic" title="pmagpy.ipmag.combine_magic"><span class="xref myst py py-func">combine_magic</span></a>.  The agm files can be plotted using <a class="reference internal" href="../api/api.html#pmagpy.ipmag.hysteresis_magic" title="pmagpy.ipmag.hysteresis_magic"><span class="xref myst py py-func">hysteresis_magic</span></a> but the back-field plots are broken.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">help</span><span class="p">(</span><span class="n">convert</span><span class="o">.</span><span class="n">agm</span><span class="p">)</span>
@@ -3031,7 +3031,7 @@ Warning: specimen method code LP-NOMAG set.
 </div>
 </div>
 </div>
-<p>We can look at the Zijderveld, etc.  Diagrams with <a class="reference internal" href="#zeq_magic"><span class="xref myst">zeq_magic</span></a>.</p>
+<p>We can look at the Zijderveld, etc.  Diagrams with <a class="reference internal" href="../api/api.html#pmagpy.ipmag.zeq_magic" title="pmagpy.ipmag.zeq_magic"><span class="xref myst py py-func">zeq_magic</span></a>.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">ipmag</span><span class="o">.</span><span class="n">zeq_magic</span><span class="p">(</span><span class="n">input_dir_path</span><span class="o">=</span><span class="n">dir_path</span><span class="p">,</span> <span class="n">save_plots</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
@@ -3675,7 +3675,7 @@ check your sample name or add to specimens table by hand
 <section id="jr6-jr6-magic">
 <h3>jr6_jr6_magic<a class="headerlink" href="#jr6-jr6-magic" title="Link to this heading">#</a></h3>
 <p><a class="reference external" href="https://earthref.org/MagIC">[MagIC Database]</a>  <a class="reference external" href="https://pmagpy.github.io/PmagPy-cli.html#jr6_jr6_magic.py">[command line version]</a></p>
-<p>The AGICO JR6 spinner magnetometer has two output formats, the .jr6 and the .txt.  Here we illustrate the conversion of the .jr6 format.  There are data from two different studies in the example folder.  One (from Anita di Chiara) has the suffix ‘.JR6’ and the other (from Roi Granot) are lower case (.jr6’). Each file has the data from a single specimen’s experiment.  So, we can convert Anita’s data to a series of MagIC formatted measurement files, combine them with <a class="reference internal" href="#ipmag.combine_magic"><span class="xref myst">ipmag.combine_magic</span></a> and look at them with Demag GUI (on the command line) or <a class="reference internal" href="#zeq_magic"><span class="xref myst">zeq_magic</span></a> within the notebook.</p>
+<p>The AGICO JR6 spinner magnetometer has two output formats, the .jr6 and the .txt.  Here we illustrate the conversion of the .jr6 format.  There are data from two different studies in the example folder.  One (from Anita di Chiara) has the suffix ‘.JR6’ and the other (from Roi Granot) are lower case (.jr6’). Each file has the data from a single specimen’s experiment.  So, we can convert Anita’s data to a series of MagIC formatted measurement files, combine them with <a class="reference internal" href="../api/api.html#pmagpy.ipmag.combine_magic" title="pmagpy.ipmag.combine_magic"><span class="xref myst py py-func">ipmag.combine_magic</span></a> and look at them with Demag GUI (on the command line) or <a class="reference internal" href="../api/api.html#pmagpy.ipmag.zeq_magic" title="pmagpy.ipmag.zeq_magic"><span class="xref myst py py-func">zeq_magic</span></a> within the notebook.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">help</span><span class="p">(</span><span class="n">convert</span><span class="o">.</span><span class="n">jr6_jr6</span><span class="p">)</span>
@@ -4285,7 +4285,7 @@ Data saved to: /Users/nebula/Python/PmagPy/data_files/convert_2_magic/k15_magic/
 <p>The columns in the example file are:</p>
 <p>Specimen S_1 S_2 S_3 S_4 S_5 S_6 χb(μSI) date time user</p>
 <p>To convert the Agico Kappabridge KLY4S files generated by the SIO labview program (written by Jeff Gee), use <strong>convert.kly4s()</strong>.
-This function will create the files needed by the MagIC database and the data can be plotted using <a class="reference internal" href="#aniso_magic"><span class="xref myst">aniso_magic</span></a>.   If you were to import the sample files from the LIMS data base for these samples, you could plot them versus depth, or as equal area projections using <strong>ani_depthplot</strong> and <strong>aniso_magic</strong> respectively.</p>
+This function will create the files needed by the MagIC database and the data can be plotted using <a class="reference internal" href="../api/api.html#pmagpy.ipmag.aniso_magic" title="pmagpy.ipmag.aniso_magic"><span class="xref myst py py-func">aniso_magic</span></a>.   If you were to import the sample files from the LIMS data base for these samples, you could plot them versus depth, or as equal area projections using <strong>ani_depthplot</strong> and <strong>aniso_magic</strong> respectively.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">help</span><span class="p">(</span><span class="n">convert</span><span class="o">.</span><span class="n">kly4s</span><span class="p">)</span>
@@ -4922,7 +4922,7 @@ ATPIPV14-2A
 </div>
 </div>
 </div>
-<p>Now you can look at these data (except for MW_P) with thellier_gui or <a class="reference internal" href="#thellier_magic"><span class="xref myst">thellier_magic</span></a>.</p>
+<p>Now you can look at these data (except for MW_P) with thellier_gui or <a class="reference internal" href="../api/api.html#pmagpy.ipmag.thellier_magic" title="pmagpy.ipmag.thellier_magic"><span class="xref myst py py-func">thellier_magic</span></a>.</p>
 </section>
 <section id="mst-magic">
 <h3>mst_magic<a class="headerlink" href="#mst-magic" title="Link to this heading">#</a></h3>
@@ -5022,7 +5022,7 @@ results put in  /Users/nebula/Python/PmagPy/data_files/convert_2_magic/mst_magic
 </div>
 </div>
 </div>
-<p>We can now use <a class="reference internal" href="#curie"><span class="xref myst">curie</span></a> to plot the data.</p>
+<p>We can now use <a class="reference internal" href="../api/api.html#pmagpy.ipmag.curie" title="pmagpy.ipmag.curie"><span class="xref myst py py-func">curie</span></a> to plot the data.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">ipmag</span><span class="o">.</span><span class="n">curie</span><span class="p">(</span><span class="n">path_to_file</span><span class="o">=</span><span class="s1">&#39;data_files/convert_2_magic/mst_magic/&#39;</span><span class="p">,</span><span class="n">file_name</span><span class="o">=</span><span class="s1">&#39;measurements.txt&#39;</span><span class="p">,</span><span class="n">magic</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
@@ -5155,7 +5155,7 @@ pmd(mag_file, dir_path=&#39;.&#39;, input_dir_path=&#39;&#39;, meas_file=&#39;me
 </div>
 </div>
 <p>As an example, we use data from Sbarbori et al. (2009) done on a set of samples from the location “Socorro”, including AF, thermal, and thellier experimental data. These were saved in sio_af_example.dat, sio_thermal_example.dat, and sio_thellier_example.dat respectively. The lab field for the thellier experiment was 25 μT and was applied along the specimen’s Z axis (phi=0,theta=90).]</p>
-<p>We can convert the example files into measurement formatted files with names like af_measurements.txt, etc. using the function <strong>convert.sio()</strong>.   Then combine them together following the instructions for  <a class="reference internal" href="#combine_magic"><span class="xref myst">combine_magic</span></a>.</p>
+<p>We can convert the example files into measurement formatted files with names like af_measurements.txt, etc. using the function <strong>convert.sio()</strong>.   Then combine them together following the instructions for  <a class="reference internal" href="../api/api.html#pmagpy.ipmag.combine_magic" title="pmagpy.ipmag.combine_magic"><span class="xref myst py py-func">combine_magic</span></a>.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">help</span><span class="p">(</span><span class="n">convert</span><span class="o">.</span><span class="n">sio</span><span class="p">)</span>
@@ -5422,7 +5422,7 @@ site info put in  /Users/nebula/Python/PmagPy/data_files/convert_2_magic/sufar_a
 </div>
 </div>
 </div>
-<p>Now we can test it out with, for example, <a class="reference internal" href="#aniso_magic"><span class="xref myst">ipmag.aniso_magic_nb()</span></a></p>
+<p>Now we can test it out with, for example, <a class="reference internal" href="../api/api.html#pmagpy.ipmag.aniso_magic" title="pmagpy.ipmag.aniso_magic"><span class="xref myst py py-func">ipmag.aniso_magic_nb()</span></a></p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">ipmag</span><span class="o">.</span><span class="n">aniso_magic_nb</span><span class="p">(</span><span class="n">infile</span><span class="o">=</span><span class="s1">&#39;data_files/convert_2_magic/sufar_asc_magic/specimens.txt&#39;</span><span class="p">)</span>
