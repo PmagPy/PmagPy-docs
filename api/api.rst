@@ -22,5 +22,5 @@ pmagpy.pmag
 pmagpy.rockmagpy
 -----------
 
-.. automodule:: pmagpy.rockmagpy
+.. automodule:: pmagpy.rockmag
     :members:
