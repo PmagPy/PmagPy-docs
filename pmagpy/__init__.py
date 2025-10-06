@@ -4,5 +4,6 @@ import sys
 from . import pmag
 from . import ipmag
 from . import pmagplotlib
+from . import rockmagpy
 
-__all__ = [pmag, ipmag, pmagplotlib]
+__all__ = [pmag, ipmag, pmagplotlib, rockmagpy]
