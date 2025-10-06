@@ -29,7 +29,6 @@ if has_cartopy:
     from cartopy.mpl.gridliner import LONGITUDE_FORMATTER, LATITUDE_FORMATTER
     from cartopy import feature as cfeature
     from cartopy.feature import NaturalEarthFeature, LAND, COASTLINE, OCEAN, LAKES, BORDERS
-has_basemap, Basemap = pmag.import_basemap()
 
 import os
 import matplotlib
@@ -328,7 +327,7 @@ def plot_qq_norm(fignum, Y, title):
     Returns
     ___________
     d,dc : the values for D and Dc (the critical value)
-       if d>dc, likely to be normally distributed (95\% confidence)
+       if d>dc, likely to be normally distributed (95% confidence)
     """
     plt.figure(num=fignum)
     if type(Y) == list:
@@ -865,9 +864,6 @@ def plot_mag(fignum, datablock, s, num, units, norm):
     tstring = s
     plt.title(tstring)
     plt.draw()
-
-#
-#
 
 
 def plot_zed(ZED, datablock, angle, s, units):
@@ -1741,20 +1737,26 @@ def plot_ell(fignum, pars, col='k', lower=True, plot=True):
         PTS.append([pts[0], pts[1]])
         # put on an equal area projection
         R = np.sqrt(1. - abs(elli[2])) / (np.sqrt(elli[0]**2 + elli[1]**2))
-        if elli[2] <= 0:
+        if pts[1] <= 0:
             #            for i in range(3): elli[i]=-elli[i]
+            if len(X_ell) != 0:
+                X_ell.append(np.nan)
+                Y_ell.append(np.nan)
             X_up.append(elli[1] * R)
             Y_up.append(elli[0] * R)
         else:
+            if len(X_up) != 0:
+                X_up.append(np.nan)
+                Y_up.append(np.nan)
             X_ell.append(elli[1] * R)
             Y_ell.append(elli[0] * R)
     if plot == 1:
         plt.figure(num=fignum)
-        col = col[0]+'.'
+        col = col[0]
         if X_ell != []:
-            plt.plot(X_ell, Y_ell, col, markersize=3)
+            plt.plot(X_ell, Y_ell, color=col, lw=1)
         if X_up != []:
-            plt.plot(X_up, Y_up, col, markersize=3)
+            plt.plot(X_up, Y_up, color=col, lw=1, ls='--')
     else:
         return PTS
 
@@ -1881,49 +1883,6 @@ def plot_vs(fignum, Xs, c, ls):
         plt.axvline(
             x=xv, ymin=bounds[2], ymax=bounds[3], linewidth=1, color=c, linestyle=ls)
 
-
-def plot_ts(fignum, dates, ts):
-    """
-    plot the geomagnetic polarity time scale
-
-    Parameters
-    __________
-    fignum : matplotlib figure number
-    dates : bounding dates for plot
-    ts : time scale ck95, gts04, or gts12
-    """
-    vertical_plot_init(fignum, 10, 3)
-    TS, Chrons = pmag.get_ts(ts)
-    p = 1
-    X, Y = [], []
-    for d in TS:
-        if d <= dates[1]:
-            if d >= dates[0]:
-                if len(X) == 0:
-                    ind = TS.index(d)
-                    X.append(TS[ind - 1])
-                    Y.append(p % 2)
-                X.append(d)
-                Y.append(p % 2)
-                p += 1
-                X.append(d)
-                Y.append(p % 2)
-        else:
-            X.append(dates[1])
-            Y.append(p % 2)
-            plt.plot(X, Y, 'k')
-            plot_vs(fignum, dates, 'w', '-')
-            plot_hs(fignum, [1.1, -.1], 'w', '-')
-            plt.xlabel("Age (Ma): " + ts)
-            isign = -1
-            for c in Chrons:
-                off = -.1
-                isign = -1 * isign
-                if isign > 0:
-                    off = 1.05
-                if c[1] >= X[0] and c[1] < X[-1]:
-                    plt.text(c[1] - .2, off, c[0])
-            return
 
 
 def plot_hys(fignum, B, M, s):
@@ -2944,183 +2903,6 @@ def add_borders(Figs, titles, border_color='#000000', text_color='#800080', con_
                        size=10)
     return Figs
 
-
-def plot_map_basemap(fignum, lats, lons, Opts):
-    """
-    plot_map_basemap(fignum, lats,lons,Opts)
-    makes a basemap with lats/lons
-        requires working installation of Basemap
-    Parameters:
-    _______________
-    fignum : matplotlib figure number
-    lats : array or list of latitudes
-    lons : array or list of longitudes
-    Opts : dictionary of plotting options:
-        Opts.keys=
-            latmin : minimum latitude for plot
-            latmax : maximum latitude for plot
-            lonmin : minimum longitude for plot
-            lonmax : maximum longitude
-            lat_0 : central latitude
-            lon_0 : central longitude
-            proj : projection [basemap projections, e.g., moll=Mollweide, merc=Mercator, ortho=orthorhombic,
-                lcc=Lambert Conformal]
-            sym : matplotlib symbol
-            symsize : symbol size in pts
-            edge : markeredgecolor
-            pltgrid : plot the grid [1,0]
-            res :  resolution [c,l,i,h] for crude, low, intermediate, high
-            boundinglat : bounding latitude
-            sym : matplotlib symbol for plotting
-            symsize : matplotlib symbol size for plotting
-            names : list of names for lats/lons (if empty, none will be plotted)
-            pltgrd : if True, put on grid lines
-            padlat : padding of latitudes
-            padlon : padding of longitudes
-            gridspace : grid line spacing
-            details : dictionary with keys:
-                coasts : if True, plot coastlines
-                rivers : if True, plot rivers
-                states : if True, plot states
-                countries : if True, plot countries
-                ocean : if True, plot ocean
-                fancy : if True, plot etopo 20 grid
-                    NB:  etopo must be installed
-        if Opts keys not set :these are the defaults:
-           Opts={'latmin':-90,'latmax':90,'lonmin':0,'lonmax':360,'lat_0':0,'lon_0':0,'proj':'moll','sym':'ro,'symsize':5,'pltgrid':1,'res':'c','boundinglat':0.,'padlon':0,'padlat':0,'gridspace':30,'details':all False,'edge':None}
-
-    """
-    if not has_basemap:
-        print('-W- Basemap must be installed to run plot_map_basemap')
-        return
-    fig = plt.figure(num=fignum)
-    rgba_land = (255, 255, 150, 255)
-    rgba_ocean = (200, 250, 255, 255)
-    ExMer = ['sinus', 'moll', 'lcc']
-    # draw meridian labels on the bottom [left,right,top,bottom]
-    mlabels = [0, 0, 0, 1]
-    plabels = [1, 0, 0, 0]  # draw parallel labels on the left
-    # set default Options
-    Opts_defaults = {'latmin': -90, 'latmax': 90, 'lonmin': 0, 'lonmax': 360,
-                     'lat_0': 0, 'lon_0': 0, 'proj': 'moll', 'sym': 'ro', 'symsize': 5,
-                     'edge': None, 'pltgrid': 1, 'res': 'c', 'boundinglat': 0.,
-                     'padlon': 0, 'padlat': 0, 'gridspace': 30,
-                     'details': {'fancy': 0, 'coasts': 0, 'rivers': 0, 'states': 0, 'countries': 0, 'ocean': 0}}
-    for key in Opts_defaults.keys():
-        if key not in Opts.keys() and key != 'details':
-            Opts[key] = Opts_defaults[key]
-        if key == 'details':
-            if key not in Opts.keys():
-                Opts[key] = Opts_defaults[key]
-            for detail_key in Opts_defaults[key].keys():
-                if detail_key not in Opts[key].keys():
-                    Opts[key][detail_key] = Opts_defaults[key][detail_key]
-
-    if Opts['proj'] in ExMer:
-        mlabels = [0, 0, 0, 0]
-    if Opts['proj'] not in ExMer:
-        m = Basemap(projection=Opts['proj'], lat_0=Opts['lat_0'],
-                    lon_0=Opts['lon_0'], resolution=Opts['res'])
-        plabels = [0, 0, 0, 0]
-    else:
-        m = Basemap(llcrnrlon=Opts['lonmin'], llcrnrlat=Opts['latmin'], urcrnrlat=Opts['latmax'], urcrnrlon=Opts['lonmax'],
-                    projection=Opts['proj'], lat_0=Opts['lat_0'], lon_0=Opts['lon_0'], lat_ts=0., resolution=Opts['res'], boundinglat=Opts['boundinglat'])
-    if 'details' in list(Opts.keys()):
-        if Opts['details']['fancy'] == 1:
-            from mpl_toolkits.basemap import basemap_datadir
-            EDIR = basemap_datadir + "/"
-            etopo = np.loadtxt(EDIR + 'etopo20data.gz')
-            elons = np.loadtxt(EDIR + 'etopo20lons.gz')
-            elats = np.loadtxt(EDIR + 'etopo20lats.gz')
-            x, y = m(*np.meshgrid(elons, elats))
-            cs = m.contourf(x, y, etopo, 30, cmap=color_map.jet)
-        if Opts['details']['coasts'] == 1:
-            m.drawcoastlines(color='k')
-        if Opts['details']['rivers'] == 1:
-            m.drawrivers(color='b')
-        if Opts['details']['states'] == 1:
-            m.drawstates(color='r')
-        if Opts['details']['countries'] == 1:
-            m.drawcountries(color='g')
-        if Opts['details']['ocean'] == 1:
-            try:
-                m.drawlsmask(land_color=rgba_land,
-                             ocean_color=rgba_ocean, lsmask_lats=None)
-            except TypeError:
-                # this is caused by basemap function: _readlsmask
-                # interacting with numpy
-                # (a float is provided, numpy wants an int).
-                # hopefully will be fixed eventually.
-                pass
-    if Opts['pltgrid'] == 0.:
-        circles = np.arange(Opts['latmin'], Opts['latmax'] + 15., 15.)
-        meridians = np.arange(Opts['lonmin'], Opts['lonmax'] + 30., 30.)
-    elif Opts['pltgrid'] > 0:
-        if Opts['proj'] in ExMer or Opts['proj'] == 'lcc':
-            circles = np.arange(-90, 180. +
-                                Opts['gridspace'], Opts['gridspace'])
-            meridians = np.arange(0, 360., Opts['gridspace'])
-        else:
-            g = Opts['gridspace']
-            latmin, lonmin = g * \
-                int(Opts['latmin'] / g), g * \
-                int(Opts['lonmin'] / g)
-            latmax, lonmax = g * \
-                int(Opts['latmax'] / g), g * \
-                int(Opts['lonmax'] / g)
-            # circles=np.arange(latmin-2.*Opts['padlat'],latmax+2.*Opts['padlat'],Opts['gridspace'])
-            # meridians=np.arange(lonmin-2.*Opts['padlon'],lonmax+2.*Opts['padlon'],Opts['gridspace'])
-            meridians = np.arange(0, 360, 30)
-            circles = np.arange(-90, 90, 30)
-    if Opts['pltgrid'] >= 0:
-        # m.drawparallels(circles,color='black',labels=plabels)
-        # m.drawmeridians(meridians,color='black',labels=mlabels)
-        # skip the labels - they are ugly
-        m.drawparallels(circles, color='black')
-        # skip the labels - they are ugly
-        m.drawmeridians(meridians, color='black')
-        m.drawmapboundary()
-    prn_name, symsize = 0, 5
-    if 'names' in Opts.keys() and len(Opts['names']) > 0:
-        names = Opts['names']
-        if len(names) > 0:
-            prn_name = 1
-#
-    X, Y, T, k = [], [], [], 0
-    if 'symsize' in list(Opts.keys()):
-        symsize = Opts['symsize']
-    if Opts['sym'][-1] != '-':  # just plot points
-        X, Y = m(lons, lats)
-        if prn_name == 1:
-            for pt in range(len(lats)):
-                T.append(plt.text(X[pt] + 5000, Y[pt] - 5000, names[pt]))
-        m.plot(X, Y, Opts['sym'], markersize=symsize,
-               markeredgecolor=Opts['edge'])
-    else:  # for lines,  need to separate chunks using lat==100.
-        chunk = 1
-        while k < len(lats) - 1:
-            if lats[k] <= 90:  # part of string
-                x, y = m(lons[k], lats[k])
-                if x < 1e20:
-                    X.append(x)
-                if y < 1e20:
-                    Y.append(y)  # exclude off the map points
-                if prn_name == 1:
-                    T.append(plt.text(x + 5000, y - 5000, names[k]))
-                k += 1
-            else:  # need to skip 100.0s and move to next chunk
-                # plot previous chunk
-                m.plot(X, Y, Opts['sym'], markersize=symsize,
-                       markeredgecolor=Opts['edge'])
-                chunk += 1
-                while lats[k] > 90. and k < len(lats) - 1:
-                    k += 1  # skip bad points
-                X, Y, T = [], [], []
-        if len(X) > 0:
-            m.plot(X, Y, Opts['sym'], markersize=symsize,
-                   markeredgecolor=Opts['edge'])  # plot last chunk
-
-
 def plot_map(fignum, lats, lons, Opts):
     """
     makes a cartopy map  with lats/lons
@@ -3398,73 +3180,6 @@ def plot_map(fignum, lats, lons, Opts):
     if Opts['global']:
         ax.set_global()
 
-
-def plot_mag_map_basemap(fignum, element, lons, lats, element_type, cmap='RdYlBu', lon_0=0, date=""):
-    """
-    makes a color contour map of geomagnetic field element
-
-    Parameters
-    ____________
-    fignum : matplotlib figure number
-    element : field element array from pmag.do_mag_map for plotting
-    lons : longitude array from pmag.do_mag_map for plotting
-    lats : latitude array from pmag.do_mag_map for plotting
-    element_type : [B,Br,I,D] geomagnetic element type
-        B : field intensity
-        Br : radial field intensity
-        I : inclinations
-        D : declinations
-    Optional
-    _________
-        cmap : matplotlib color map
-        lon_0 : central longitude of the Hammer projection
-        date : date used for field evaluation,
-               if custom ghfile was used, supply filename
-
-
-    Effects
-    ______________
-    plots a Hammer projection color contour with  the desired field element
-    """
-    if not has_basemap:
-        print('-W- Basemap must be installed to run plot_mag_map_basemap')
-        return
-    from matplotlib import cm  # matplotlib's color map module
-    lincr = 1
-    if type(date) != str:
-        date = str(date)
-    fig = plt.figure(fignum)
-    m = Basemap(projection='hammer', lon_0=lon_0)
-    x, y = m(*meshgrid(lons, lats))
-    m.drawcoastlines()
-    if element_type == 'B':
-        levmax = element.max()+lincr
-        levmin = round(element.min()-lincr)
-        levels = np.arange(levmin, levmax, lincr)
-        cs = m.contourf(x, y, element, levels=levels, cmap=cmap)
-        plt.title('Field strength ($\mu$T): '+date)
-    if element_type == 'Br':
-        levmax = element.max()+lincr
-        levmin = round(element.min()-lincr)
-        cs = m.contourf(x, y, element, levels=np.arange(
-            levmin, levmax, lincr), cmap=cmap)
-        plt.title('Radial field strength ($\mu$T): '+date)
-    if element_type == 'I':
-        levmax = element.max()+lincr
-        levmin = round(element.min()-lincr)
-        cs = m.contourf(
-            x, y, element, levels=np.arange(-90, 100, 20), cmap=cmap)
-        m.contour(x, y, element, levels=np.arange(-80, 90, 10), colors='black')
-        plt.title('Field inclination: '+date)
-    if element_type == 'D':
-        # cs=m.contourf(x,y,element,levels=np.arange(-180,180,10),cmap=cmap)
-        cs = m.contourf(
-            x, y, element, levels=np.arange(-180, 180, 10), cmap=cmap)
-        m.contour(x, y, element, levels=np.arange(-180, 180, 10), colors='black')
-        plt.title('Field declination: '+date)
-    cbar = m.colorbar(cs, location='bottom')
-
-
 def plot_mag_map(fignum, element, lons, lats, element_type, cmap='coolwarm', lon_0=0, date="", contours=False, proj='PlateCarree', min=False,max=False):
     """
     makes a color contour map of geomagnetic field element
@@ -3541,9 +3256,9 @@ def plot_mag_map(fignum, element, lons, lats, element_type, cmap='coolwarm', lon
                         colors='black', transform=ccrs.PlateCarree())
 
         if element_type == 'Br':
-            plt.title('Radial field strength ($\mu$T): '+date)
+            plt.title(r'Radial field strength ($\mu$T): '+date)
         else:
-            plt.title('Total field strength ($\mu$T): '+date)
+            plt.title(r'Total field strength ($\mu$T): '+date)
     if element_type == 'I':
         plt.contourf(xx, yy, element,
                      levels=np.arange(-90, 90, lincr),
@@ -3668,25 +3383,36 @@ def plot_eq_cont(fignum, DIblock, color_map='coolwarm'):
     plt.axis("equal")
 
 
-def plot_ts(ax, agemin, agemax, timescale='gts12', ylabel="Age (Ma)"):
+def plot_ts(ax, agemin, agemax, step=1.0, timescale='gts20', ylabel="Age (Ma)"):
     """
-    Make a time scale plot between specified ages.
+    This function makes a time scale plot between specified ages, using timescales 
+    as defined in pmag.get_ts(). The maximum possible age is ca. 83 Ma.
 
     Parameters:
-    ------------
     ax : figure object
-    agemin : Minimum age for timescale
-    agemax : Maximum age for timescale
-    timescale : Time Scale [ default is Gradstein et al., (2012)]
-       for other options see pmag.get_ts()
-    ylabel : if set, plot as ylabel
+    agemin : (float) Minimum age for timescale in Ma
+    agemax : (float) Maximum age for timescale in Ma
+    step : (float) Y tick label spacing in Ma
+    timescale : (string) polarity time scale, default is gts20 (Gradstein et al. 2020), other options ck95, gts04, gts20
+    ylabel : (string) if set, plot as ylabel
+
+    Returns:
+        figure object
+
+    Example:
+        Creates time scale plot from 0.5 to 5.5 Ma using the gts12 timescale:
+
+        >>> fig=plt.figure(figsize=(9,12))
+        >>> ax=fig.add_subplot(121)
+        >>> pmagplotlib.plot_ts(ax, 0.5, 5.5, timescale='gts12')
     """
     ax.set_title(timescale.upper())
+    column_bnd = 0.8 # width of timescale column
     ax.axis([-.25, 1.5, agemax, agemin])
     ax.axes.get_xaxis().set_visible(False)
     # get dates and chron names for timescale
     TS, Chrons = pmag.get_ts(timescale)
-    X, Y, Y2 = [0, 1], [], []
+    X, Y, Y2 = [0, column_bnd], [], []
     cnt = 0
     if agemin < TS[1]:  # in the Brunhes
         Y = [agemin, agemin]  # minimum age
@@ -3702,20 +3428,38 @@ def plot_ts(ax, agemin, agemax, timescale='gts12', ylabel="Age (Ma)"):
             if pol:
                 # fill in every other time
                 ax.fill_between(X, Y, Y1, facecolor='black')
-    ax.plot([0, 1, 1, 0, 0], [agemin, agemin, agemax, agemax, agemin], 'k-')
-    plt.yticks(np.arange(agemin, agemax+1, 1))
+    ax.plot([0, column_bnd, column_bnd, 0, 0], [agemin, agemin, agemax, agemax, agemin], 'k-')
+    max_y_tick = agemin + np.floor((agemax-agemin)/step)*step
+    total_step = np.rint(((max_y_tick-agemin)/step)+1).astype(int)
+    ax.set_yticks(np.linspace(agemin, max_y_tick, total_step))
+    ax.set_ylim(agemin, agemax)
     if ylabel != "":
         ax.set_ylabel(ylabel)
     ax2 = ax.twinx()
+    ax2.set_yticks(ax.get_yticks())  # Synchronize y-ticks with ax
+    ax2.set_ylim(ax.get_ylim())  # Synchronize y-axis limits with ax
     ax2.axis('off')
+    # fix courtesy of aluthfian
+    within_range = [(age[1]>=agemin)&(age[1]<=agemax) for age in Chrons]
+    ticker_num = 0
     for k in range(len(Chrons)-1):
         c = Chrons[k]
         cnext = Chrons[k+1]
-        d = cnext[1]-(cnext[1]-c[1])/3.
-        if d >= agemin and d < agemax:
+        d_plot = (c[1] + cnext[1]) / 2
+        if (d_plot >= agemin) and (d_plot < agemax):
             # make the Chron boundary tick
-            ax2.plot([1, 1.5], [c[1], c[1]], 'k-')
-            ax2.text(1.05, d, c[0])
+            ax2.plot([column_bnd, 1.5], [c[1], c[1]], 'k-')
+        if ((within_range[k]==False) and (within_range[k+1]==True)) and (ticker_num == 0):
+            d_txt = agemin + 0.5*np.abs(cnext[1]-agemin)
+            ax2.text(column_bnd+0.05, d_txt, c[0], verticalalignment='center')
+            ticker_num += 1
+        elif ((within_range[k]==True) and (within_range[k+1]==False)) and (ticker_num == 1):
+            d_txt = agemax - 0.5*np.abs(agemax-c[1])
+            ax2.text(column_bnd+0.05, d_txt, c[0], verticalalignment='center')
+            ticker_num += 1
+        elif (within_range[k]==True) and (within_range[k+1]==True):
+            d_txt = cnext[1]-(cnext[1]-c[1])/2.5
+            ax2.text(column_bnd+0.05, d_txt, c[0], verticalalignment='center')
     ax2.axis([-.25, 1.5, agemax, agemin])
 
 
@@ -3879,8 +3623,7 @@ def msp_magic(spec_df,axa="",axb="",site='site',labels=['a)','b)'],save_plots=Fa
      #        transform=axb.transAxes,fontsize=fontsize)
     res=stats.linregress(Q_DSC,Bs_uT)
     ts=tinv(0.05,len(Q_DSC)-2)
-    axb.text(.1,.9,f'Bmsp =: {res.intercept:.1f} $\pm$  {.5*ts*res.intercept_stderr:.1f} $\mu$T',
-    #axb.text(.1,.9,f'Bmsp =: {res.intercept:.1f} $\pm$  {res.intercept_stderr:.1f} $\mu$T',
+    axb.text(.1,.9,rf'Bmsp =: {res.intercept:.1f} $\pm$  {.5*ts*res.intercept_stderr:.1f} $\mu$T',
             transform=axb.transAxes,fontsize=fontsize)
     
     print(f"intercept (1 sigma): {res.intercept:.1f} +/- {res.intercept_stderr:.1f}")
