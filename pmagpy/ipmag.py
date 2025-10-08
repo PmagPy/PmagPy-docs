@@ -39,7 +39,6 @@ from . import data_model3 as data_model
 from .contribution_builder import Contribution
 from . import validate_upload3 as val_up3
 from numpy.linalg import inv, eig
-has_basemap, Basemap = pmag.import_basemap()
 has_cartopy, cartopy = pmag.import_cartopy()
 
 if has_cartopy == True:
@@ -612,7 +611,7 @@ def fisher_mean_resample(alpha95=20, n=100, dec=0, inc=90, di_block=True):
     declinations = []
     inclinations = []
     k = 140.0**2 / alpha95**2
-    if di_block == True:
+    if di_block:
         for data in range(n):
             d, i = pmag.fshdev(k)
             drot, irot = pmag.dodirot(d, i, dec, inc)
@@ -971,7 +970,7 @@ def bootstrap_fold_test(Data, num_sims=1000, min_untilt=-10, max_untilt=120, bed
     plot_net(1)
     pmagplotlib.plot_di(1, Data)  # plot directions
     plt.text(-1.1, 1.15, 'Geographic')
-    if save == True:
+    if save:
         plt.savefig(os.path.join(save_folder, 'eq_geo') + '.' + fmt)
 
     D, I = pmag.dotilt_V(Data)
@@ -981,7 +980,7 @@ def bootstrap_fold_test(Data, num_sims=1000, min_untilt=-10, max_untilt=120, bed
     plot_net(2)
     pmagplotlib.plot_di(2, TCs)  # plot directions
     plt.text(-1.1, 1.15, 'Tilt-corrected')
-    if save == True:
+    if save:
         plt.savefig(os.path.join(save_folder, 'eq_tc') + '.' + fmt)
     plt.show()
     print('doing ', num_sims, ' iterations...please be patient.....')
@@ -1032,7 +1031,7 @@ def bootstrap_fold_test(Data, num_sims=1000, min_untilt=-10, max_untilt=120, bed
     print('range of all bootstrap samples: ')
     print(Untilt[0], ' - ', Untilt[-1], 'percent unfolding')
     plt.title(title)
-    if save == True:
+    if save:
         plt.savefig(os.path.join(save_folder, 'bootstrap_CDF') + '.' + fmt)
     plt.show()
 
@@ -1134,7 +1133,7 @@ def common_mean_bootstrap(Data1, Data2, NumSims=1000,
     z_overlap = pmag.interval_overlap(bounds1,bounds2)
 
     plt.tight_layout()
-    if save == True:
+    if save:
         plt.savefig(os.path.join(
             save_folder, 'common_mean_bootstrap') + '.' + fmt,
                     dpi=300,bbox_inches='tight')
@@ -1209,7 +1208,7 @@ def common_mean_bootstrap_H23(Data1, Data2, num_sims=10000, alpha=0.05, plot=Tru
     
     X1 = np.transpose(pmag.dir2cart(Data1)) # normal directions in Cartesian coordinates (one direction per column)
     
-    if reversal == True:
+    if reversal:
         X2 = -np.transpose(pmag.dir2cart(Data2)) # inverted reversed directions in Cartesian coordinates
     else:
         X2 = np.transpose(pmag.dir2cart(Data2))
@@ -1317,7 +1316,7 @@ def common_mean_bootstrap_H23(Data1, Data2, num_sims=10000, alpha=0.05, plot=Tru
         else:
             plt.text(.8,.7,'Pass',color='blue',transform=ax1.transAxes)
 
-        if save == True:
+        if save:
             plt.savefig(os.path.join(
                 save_folder, 'bootstrap_test_histogram') + '.' + fmt)
         plt.show()
@@ -1430,33 +1429,33 @@ def common_mean_watson(Data1, Data2, NumSims=5000, print_result=True, plot='no',
     D2 = (pars_2['dec'], pars_2['inc'])
     angle = pmag.angle(D1, D2)
 
-    if print_result == True:
+    if print_result:
         print("Results of Watson V test: ")
         print("")
         print("Watson's V:           " '%.1f' % (V))
         print("Critical value of V:  " '%.1f' % (Vcrit))
 
     if V < Vcrit:
-        if print_result == True:
+        if print_result:
             print('"Pass": Since V is less than Vcrit, the null hypothesis')
             print('that the two populations are drawn from distributions')
             print('that share a common mean direction can not be rejected.')
         result = 1
     elif V > Vcrit:
-        if print_result == True:
+        if print_result:
             print('"Fail": Since V is greater than Vcrit, the two means can')
             print('be distinguished at the 95% confidence level.')
         result = 0
         classification = ''
         
-    if print_result == True:
+    if print_result:
         print("")
         print("M&M1990 classification:")
         print("")
         print("Angle between data set means: " '%.1f' % (angle))
         print("Critical angle for M&M1990:   " '%.1f' % (critical_angle))
 
-    if print_result == True:
+    if print_result:
         if V > Vcrit:
             print("")
         elif V < Vcrit:
@@ -1485,7 +1484,7 @@ def common_mean_watson(Data1, Data2, NumSims=5000, print_result=True, plot='no',
         p2 = pmagplotlib.plot_vs(CDF['cdf'], [V], 'g', '-')
         p3 = pmagplotlib.plot_vs(CDF['cdf'], [Vp[k]], 'b', '--')
         # pmagplotlib.draw_figs(CDF)
-        if save == True:
+        if save:
             plt.savefig(os.path.join(
                 save_folder, 'common_mean_watson') + '.' + fmt)
         pmagplotlib.show_fig(CDF['cdf'])
@@ -1665,7 +1664,7 @@ def reversal_test_bootstrap(dec=None, inc=None, di_block=None, plot_stereo=False
 
     directions1, directions2 =pmag.flip(all_dirs)
 
-    if plot_stereo == True:
+    if plot_stereo:
         # plot equal area with two modes
         plt.figure(num=0, figsize=(4, 4))
         plot_net(0)
@@ -1772,7 +1771,7 @@ def reversal_test_MM1990(dec=None, inc=None, di_block=None, plot_CDF=False,
 
     directions1, directions2 = pmag.flip(all_dirs)
 
-    if plot_stereo == True:
+    if plot_stereo:
         # plot equal area with two modes
         plt.figure(num=0, figsize=(4, 4))
         plot_net(0)
@@ -1938,7 +1937,7 @@ def fishqq(lon=None, lat=None, di_block=None,plot=True,save=False,fmt='png',save
         D1=(D1-180.)%360 # Somehow this got lost
         Dtit = 'Mode 1 Declinations'
         Itit = 'Mode 1 Inclinations'
-        if plot == True:
+        if plot:
             plt.figure(fignum,figsize=(6, 3))
             fignum+=1
             Mu_n, Mu_ncr = pmagplotlib.plot_qq_unf(
@@ -1946,7 +1945,7 @@ def fishqq(lon=None, lat=None, di_block=None,plot=True,save=False,fmt='png',save
             Me_n, Me_ncr = pmagplotlib.plot_qq_exp(
                 QQ['exp'], I1, Itit, subplot=True)  # make plot
             plt.tight_layout()
-            if save == True:
+            if save:
                 plt.savefig(os.path.join(save_folder, 'QQ_mode1')+'.'+fmt, dpi=450)
         if Mu_n <= Mu_ncr and Me_n <= Me_ncr:
             F_n = 'Consistent with Fisher distribution'
@@ -1981,14 +1980,14 @@ def fishqq(lon=None, lat=None, di_block=None,plot=True,save=False,fmt='png',save
             Drbar = ppars['dec'] - 180.
         if ppars['inc']<0:
             Irbar['inc']=-ppars['inc']
-        if plot == True:
+        if plot:
             plt.figure(fignum,figsize=(6, 3))
             Mu_r, Mu_rcr = pmagplotlib.plot_qq_unf(
                 QQ['unf'], D2, Dtit, subplot=True)  # make plot
             Me_r, Me_rcr = pmagplotlib.plot_qq_exp(
                 QQ['exp'], I2, Itit, subplot=True)  # make plot
             plt.tight_layout()
-            if save == True:
+            if save:
                 plt.savefig(os.path.join(save_folder, 'QQ_mode2')+'.'+fmt, dpi=450)
 
         if Mu_r <= Mu_rcr and Me_r <= Me_rcr:
@@ -2087,59 +2086,71 @@ def inc_from_lat(lat):
     return inc
 
 
-def plot_net(fignum=None,tick_spacing=10):
+def plot_net(fignum=None, tick_spacing=10, ax=None):
     """
     Draws circle and tick marks for equal area projection.
-    tick_spacing: interval for declination tick marks, default is 10
+
+    Parameters:
+        fignum: int or None
+            Figure number to use for creating a new figure if no axis is provided.
+        tick_spacing: int
+            Interval for declination tick marks, default is 10.
+        ax: matplotlib.axes.Axes or None
+            Axis to plot on. If None, the current axis will be used (or created if fignum is given).
     """
-    if fignum != None:
-        plt.figure(num=fignum,)
-        plt.clf()
-    plt.axis("off")
-    Dcirc = np.arange(0, 361.)
-    Icirc = np.zeros(361, 'f')
+    if ax is None:
+        if fignum is not None:
+            plt.figure(num=fignum)
+            plt.clf()
+        ax = plt.gca()
+    ax.axis("off")
+    Dcirc = np.arange(0, 361.0)
+    Icirc = np.zeros(361, dtype=float)
     Xcirc, Ycirc = [], []
     for k in range(361):
         XY = pmag.dimap(Dcirc[k], Icirc[k])
         Xcirc.append(XY[0])
         Ycirc.append(XY[1])
-    plt.plot(Xcirc, Ycirc, 'k')
+    ax.plot(Xcirc, Ycirc, "k")
 
-# put on the tick marks
+    # Put on the tick marks
     Xsym, Ysym = [], []
     for I in range(tick_spacing, 100, tick_spacing):
-        XY = pmag.dimap(0., I)
+        XY = pmag.dimap(0.0, I)
         Xsym.append(XY[0])
         Ysym.append(XY[1])
-    plt.scatter(Xsym, Ysym, color='black',marker='_',s=10)
+    ax.scatter(Xsym, Ysym, color="black", marker="_", s=10)
+
     Xsym, Ysym = [], []
     for I in range(tick_spacing, 100, tick_spacing):
-        XY = pmag.dimap(90., I)
+        XY = pmag.dimap(90.0, I)
         Xsym.append(XY[0])
         Ysym.append(XY[1])
-    plt.scatter(Xsym, Ysym, color='black',marker='|',s=10)
+    ax.scatter(Xsym, Ysym, color="black", marker="|", s=10)
+
     Xsym, Ysym = [], []
     for I in range(tick_spacing, 90, tick_spacing):
-        XY = pmag.dimap(180., I)
+        XY = pmag.dimap(180.0, I)
         Xsym.append(XY[0])
         Ysym.append(XY[1])
-    plt.scatter(Xsym, Ysym, color='black',marker='_',s=10)
+    ax.scatter(Xsym, Ysym, color="black", marker="_", s=10)
+
     Xsym, Ysym = [], []
     for I in range(tick_spacing, 90, tick_spacing):
-        XY = pmag.dimap(270., I)
+        XY = pmag.dimap(270.0, I)
         Xsym.append(XY[0])
         Ysym.append(XY[1])
-    #plt.plot(Xsym, Ysym, 'k|')
-    plt.scatter(Xsym, Ysym, color='black',marker='|',s=10)
+    ax.scatter(Xsym, Ysym, color="black", marker="|", s=10)
+
     for D in range(0, 360, tick_spacing):
         Xtick, Ytick = [], []
         for I in range(4):
             XY = pmag.dimap(D, I)
             Xtick.append(XY[0])
             Ytick.append(XY[1])
-        plt.plot(Xtick, Ytick, 'k')
-    plt.axis("equal")
-    plt.axis((-1.05, 1.05, -1.05, 1.05))
+        ax.plot(Xtick, Ytick, "k")
+    ax.axis("equal")
+    ax.axis((-1.05, 1.05, -1.05, 1.05))
 
 
 def plot_di(dec=None, inc=None, di_block=None, color='k', marker='o', markersize=20, legend='no', label='', connect_points=False, lw=0.25, lc='k', la=0.5, title=None, edge=None, alpha=1, zorder=2):
@@ -2213,12 +2224,12 @@ def plot_di(dec=None, inc=None, di_block=None, color='k', marker='o', markersize
             color_up.append(color)
 
     if len(X_up) > 0:
-        if connect_points == True:
+        if connect_points:
             plt.plot(X_up, Y_up, ls = '-', linewidth=lw, color =lc, alpha = la, zorder=1)
         plt.scatter(X_up, Y_up, facecolors='none', edgecolors=color_up,
                     s=markersize, marker=marker, label=label,alpha=alpha, zorder=zorder)
     if len(X_down) > 0:
-        if connect_points == True:
+        if connect_points:
             plt.plot(X_down, Y_down, ls = '-', linewidth=lw, color =lc, alpha = la, zorder=1)
         plt.scatter(X_down, Y_down, facecolors=color_down, edgecolors=edge,
                     s=markersize, marker=marker, label=label,alpha=alpha, zorder=zorder)
@@ -2381,12 +2392,12 @@ def make_orthographic_map(central_longitude=0, central_latitude=0, figsize=(8, 8
         central_longitude=central_longitude, central_latitude=central_latitude)
     ax = plt.axes(projection=map_projection)
     ax.set_global()
-    if add_ocean == True:
+    if add_ocean:
         ax.add_feature(cartopy.feature.OCEAN, zorder=0, facecolor=ocean_color)
-    if add_land == True:
+    if add_land:
         ax.add_feature(cartopy.feature.LAND, zorder=0,
                        facecolor=land_color, edgecolor=land_edge_color)
-    if grid_lines == True:
+    if grid_lines:
         ax.gridlines(xlocs=lon_grid, ylocs=lat_grid, linewidth=1,
                      color='black', linestyle='dotted')
     return ax
@@ -2422,13 +2433,13 @@ def make_mollweide_map(central_longitude=0, figsize=(8, 8),
     fig = plt.figure(figsize=figsize)
     map_projection = ccrs.Mollweide(central_longitude=central_longitude)
     ax = plt.axes(projection=map_projection)
-    if add_ocean == True:
+    if add_ocean:
         ax.add_feature(cartopy.feature.OCEAN, zorder=0, facecolor=ocean_color)
-    if add_land == True:
+    if add_land:
         ax.add_feature(cartopy.feature.LAND, zorder=0,
                        facecolor=land_color, edgecolor=land_edge_color)
     ax.set_global()
-    if grid_lines == True:
+    if grid_lines:
         ax.gridlines(xlocs=lon_grid, ylocs=lat_grid)
     return ax
 
@@ -2462,15 +2473,16 @@ def make_robinson_map(central_longitude=0, figsize=(8, 8),
     fig = plt.figure(figsize=figsize)
     map_projection = ccrs.Robinson(central_longitude=central_longitude)
     ax = plt.axes(projection=map_projection)
-    if add_ocean == True:
+    if add_ocean:
         ax.add_feature(cartopy.feature.OCEAN, zorder=0, facecolor=ocean_color)
-    if add_land == True:
+    if add_land:
         ax.add_feature(cartopy.feature.LAND, zorder=0,
                        facecolor=land_color, edgecolor='black')
     ax.set_global()
-    if grid_lines == True:
+    if grid_lines:
         ax.gridlines(xlocs=lon_grid, ylocs=lat_grid)
     return ax
+
 
 def plot_pole(map_axis, plon, plat, A95, label='', color='k', edgecolor='k',
               marker='o', markersize=20, legend='no',outline=True,
@@ -2562,7 +2574,9 @@ def plot_poles(map_axis, plon, plat, A95, label='', color='k', edgecolor='k',
         >>> ipmag.plot_poles(map_axis, plons, plats, A95s, color=colors, markersize=40)
 
     """
-
+    if not has_cartopy:
+        print('-W- cartopy must be installed to run ipmag.plot_poles')
+        return
     map_axis.scatter(plon, plat, marker=marker,
                      color=color, edgecolors=edgecolor, s=markersize,
                      label=label, zorder=zorder, transform=ccrs.PlateCarree(), alpha=alpha)
@@ -2589,43 +2603,6 @@ def plot_poles(map_axis, plon, plat, A95, label='', color='k', edgecolor='k',
         plt.legend(loc=2)
 
 
-def plot_pole_basemap(mapname, plon, plat, A95, label='', color='k', edgecolor='k', marker='o', markersize=20, legend='no'):
-    """
-    This function plots a paleomagnetic pole and A95 error ellipse on whatever
-    current map projection has been set using the basemap plotting library.
-    Before this function is called, a plot needs to be initialized with code
-    that looks something like:
-    >from mpl_toolkits.basemap import Basemap
-    >mapname = Basemap(projection='ortho',lat_0=35,lon_0=200)
-    >plt.figure(figsize=(6, 6))
-    >mapname.drawcoastlines(linewidth=0.25)
-    >mapname.fillcontinents(color='bisque',lake_color='white',zorder=1)
-    >mapname.drawmapboundary(fill_color='white')
-    >mapname.drawmeridians(np.arange(0,360,30))
-    >mapname.drawparallels(np.arange(-90,90,30))
-    
-    Parameters:
-    mapname : the name of the current map that has been developed using basemap
-    plon : the longitude of the paleomagnetic pole being plotted (in degrees E)
-    plat : the latitude of the paleomagnetic pole being plotted (in degrees)
-    A95 : the A_95 confidence ellipse of the paleomagnetic pole (in degrees)
-    Optional Parameters (defaults are used if not specified)
-    -----------
-    color : the default color is black. Other colors can be chosen (e.g. 'r')
-    marker : the default is a circle. Other symbols can be chosen (e.g. 's')
-    markersize : the default is 20. Other size can be chosen
-    label : the default is no label. Labels can be assigned.
-    legend : the default is no legend ('no'). Putting 'yes' will plot a legend.
-    """
-    centerlon, centerlat = mapname(plon, plat)
-    A95_km = A95 * 111.32
-    mapname.scatter(centerlon, centerlat, marker=marker,
-                    color=color, edgecolors=edgecolor, s=markersize, label=label, zorder=101)
-    equi_basemap(mapname, plon, plat, A95_km, color)
-    if legend == 'yes':
-        plt.legend(loc=2)
-        
-        
 def plot_pole_ellipse(map_axis, dictionary, 
                       color='k', edgecolor='k', marker='s', 
                       markersize=20, label='', alpha=1.0, lw=1, lower=True, zorder=100):
@@ -2661,6 +2638,9 @@ def plot_pole_ellipse(map_axis, dictionary,
         >>> map_axis = ipmag.make_orthographic_map(central_longitude=200,central_latitude=90)
         >>> ipmag.plot_pole_ellipse(map_axis,kent_dict, color='red',markersize=40)
     """
+    if not has_cartopy:
+        print('-W- cartopy must be installed to run ipmag.plot_pole_ellipse')
+        return
     pars = []
     pars.append(dictionary['dec'])
     pars.append(dictionary['inc'])
@@ -2687,7 +2667,7 @@ def plot_pole_ellipse(map_axis, dictionary,
 def plot_pole_dp_dm(map_axis, plon, plat, slon, slat, dp, dm, pole_label='pole', site_label='site',
                     pole_color='k', pole_edgecolor='k', pole_marker='o',
                     site_color='r', site_edgecolor='r', site_marker='s',
-                    markersize=20, legend=True, transform=ccrs.PlateCarree()):
+                    markersize=20, legend=True, transform="PlateCarree"):
     """
     This function plots a paleomagnetic pole and a dp/dm confidence ellipse on a cartopy map axis.
 
@@ -2710,11 +2690,12 @@ def plot_pole_dp_dm(map_axis, plon, plat, slon, slat, dp, dm, pole_label='pole',
         pole_label : string that labels the pole.
         site_label : string that labels the site
         legend : the default is a legend (True). Putting False will suppress legend plotting.
-        transform : the default is the PlateCarree transform in Cartopy. 
-                    Other transforms can be chosen (e.g. ccrs.geodetic), but this parameter 
-                    rarely needs to be changed by the user and is included for completeness
-                    and in case of artifacts arising from the PlateCarree transform on some
-                    map projections in which case the Geodetic transform may work better.
+        transform : str or cartopy.crs.Projection, default "PlateCarree"
+            The coordinate reference system used to interpret input coordinates.
+            Can be a string ("PlateCarree" or "Geodetic") or a Cartopy CRS object
+            (e.g., ccrs.PlateCarree()). If a string is provided, it will be
+            internally mapped to the appropriate Cartopy transform. This parameter
+            rarely needs to be changed, but "Geodetic" may help in certain projections.
 
     Examples:
         >>> dec = 280
@@ -2734,14 +2715,43 @@ def plot_pole_dp_dm(map_axis, plon, plat, slon, slat, dp, dm, pole_label='pole',
     if not has_cartopy:
         print('-W- cartopy must be installed to run ipmag.plot_pole_dp_dm')
         return
+    
+    transform_map = {
+        "PlateCarree": ccrs.PlateCarree(),
+        "Geodetic": ccrs.Geodetic(),
+    }
+
+    if isinstance(transform, str):
+        if transform not in transform_map:
+            raise ValueError(f"Invalid transform '{transform}'. Choose from {list(transform_map)}.")
+        transform_obj = transform_map[transform]
+    else:
+        transform_obj = transform 
+        
     dp_km = dp*111.32
     dm_km = dm*111.32
-    map_axis.scatter(plon, plat, marker=pole_marker,
-                     color=pole_color, edgecolors=pole_edgecolor, s=markersize,
-                     label=pole_label, zorder=101, transform=ccrs.PlateCarree())
-    map_axis.scatter(slon, slat, marker=site_marker,
-                     color=site_color, edgecolors=site_edgecolor, s=markersize,
-                     label=site_label, zorder=101, transform=ccrs.PlateCarree())
+    map_axis.scatter(
+        plon,
+        plat,
+        marker=pole_marker,
+        color=pole_color,
+        edgecolors=pole_edgecolor,
+        s=markersize,
+        label=pole_label,
+        zorder=101,
+        transform=transform_obj,
+    )
+    map_axis.scatter(
+        slon,
+        slat,
+        marker=site_marker,
+        color=site_color,
+        edgecolors=site_edgecolor,
+        s=markersize,
+        label=site_label,
+        zorder=101,
+        transform=transform_obj,
+    )
     # the orientation of the ellipse needs to be determined using the
     # two laws of cosines for spherical triangles where the triangle is
     # A: site, B: north pole, C: paleomagnetic pole (see Fig. A.2 of Butler)
@@ -2784,9 +2794,9 @@ def plot_pole_dp_dm(map_axis, plon, plat, slon, slat, dp, dm, pole_label='pole',
             C_deg = np.abs(np.rad2deg(C_rad))
 
     # print(C_deg)
-    ellipse(map_axis, plon, plat, dp_km, dm_km, C_deg, color=pole_color, transform=transform)
+    ellipse(map_axis, plon, plat, dp_km, dm_km, C_deg, color=pole_color, transform=transform_obj)
 
-    if legend == True:
+    if legend:
         plt.legend(loc=2)
 
 
@@ -2838,7 +2848,7 @@ def plot_poles_colorbar(map_axis, plons, plats, A95s, colorvalues, vmin, vmax,
                markersize=markersize,filled_pole=filled_pole,outline=outline,
                fill_color=colors, fill_alpha=fill_alpha, alpha=alpha, lw=lw)
 
-    if colorbar == True:
+    if colorbar:
         sm = plt.cm.ScalarMappable(
             cmap=colormap, norm=plt.Normalize(vmin=vmin, vmax=vmax))
         sm._A = []
@@ -2892,50 +2902,10 @@ def plot_vgp(map_axis, vgp_lon=None, vgp_lat=None, di_block=None, label='', colo
                         s=markersize, color=color, label=label, zorder=zorder, 
                         alpha=alpha, transform=ccrs.PlateCarree())
     map_axis.set_global()
-    if legend == True:
+    if legend:
         plt.legend(loc=2)
 
-
-def plot_vgp_basemap(mapname, vgp_lon=None, vgp_lat=None, di_block=None, label='', color='k', marker='o', markersize=20, legend='no'):
-    """
-    This function plots a paleomagnetic pole on whatever current map projection
-    has been set using the basemap plotting library.
-    Before this function is called, a plot needs to be initialized with code
-    that looks something like:
-    >from mpl_toolkits.basemap import Basemap
-    >mapname = Basemap(projection='ortho',lat_0=35,lon_0=200)
-    >plt.figure(figsize=(6, 6))
-    >mapname.drawcoastlines(linewidth=0.25)
-    >mapname.fillcontinents(color='bisque',lake_color='white',zorder=1)
-    >mapname.drawmapboundary(fill_color='white')
-    >mapname.drawmeridians(np.arange(0,360,30))
-    >mapname.drawparallels(np.arange(-90,90,30))
-    Required Parameters
-    -----------
-    mapname : the name of the current map that has been developed using basemap
-    plon : the longitude of the paleomagnetic pole being plotted (in degrees E)
-    plat : the latitude of the paleomagnetic pole being plotted (in degrees)
-    Optional Parameters (defaults are used if not specified)
-    -----------
-    color : the color desired for the symbol and its A95 ellipse (default is 'k' aka black)
-    marker : the marker shape desired for the pole mean symbol (default is 'o' aka a circle)
-    label : the default is no label. Labels can be assigned.
-    legend : the default is no legend ('no'). Putting 'yes' will plot a legend.
-    """
-    if di_block != None:
-        di_lists = unpack_di_block(di_block)
-        if len(di_lists) == 3:
-            vgp_lon, vgp_lat, intensity = di_lists
-        if len(di_lists) == 2:
-            vgp_lon, vgp_lat = di_lists
-    centerlon, centerlat = mapname(vgp_lon, vgp_lat)
-    mapname.scatter(centerlon, centerlat, marker=marker,
-                    s=markersize, color=color, label=label, zorder=100)
-    if legend == 'yes':
-        plt.legend(loc=2)
-
-
-def vgp_calc(dataframe, tilt_correction='yes', site_lon='site_lon', site_lat='site_lat', 
+def vgp_calc(dataframe, tilt_correction='yes', site_lon='site_lon', site_lat='site_lat',
              dec_is='dec_is', inc_is='inc_is', dec_tc='dec_tc', inc_tc='inc_tc',
              recalc_label=False):
     """
@@ -3222,6 +3192,9 @@ def plot_distributions(ax, lon_samples, lat_samples, to_plot='d', resolution=100
         resolution: the resolution at which to plot the distributions
         kwargs: other keyword arguments inherited from matplotlib
     '''
+    if not has_cartopy:
+        print('-W- cartopy must be installed to run ipmag.plot_distributions')
+        return
     cmap=kwargs.get('cmap', 'viridis')
 
     artists = []
@@ -3433,7 +3406,7 @@ def shoot(lon, lat, azimuth, maxdist=None):
     return (glon2, glat2, baz)
 
 
-def equi(map_axis, centerlon, centerlat, radius, color, alpha=1.0, outline=True, fill=False):
+def equi(map_axis, centerlon, centerlat, radius, color, alpha=1.0, outline=True, fill=False, lw=1):
     """
     This function enables A95 error ellipses to be drawn in cartopy around
     paleomagnetic poles in conjunction with shoot
@@ -3470,7 +3443,7 @@ def equi(map_axis, centerlon, centerlat, radius, color, alpha=1.0, outline=True,
     # for non-filled ellipses
     if fill==False:
         plt.plot(X, Y, color=color,
-                 transform=ccrs.Geodetic(), alpha=alpha)
+                 transform=ccrs.Geodetic(), alpha=alpha, lw=lw)
 
     # for filled ellipses
     else:
@@ -3484,29 +3457,6 @@ def equi(map_axis, centerlon, centerlat, radius, color, alpha=1.0, outline=True,
                               edgecolor='none',facecolor=color,alpha=alpha,
                               transform=ccrs.Geodetic())
         map_axis.add_patch(circle_face)
-
-
-
-def equi_basemap(m, centerlon, centerlat, radius, color):
-    """
-    This function enables A95 error ellipses to be drawn in basemap around
-    paleomagnetic poles in conjunction with shoot
-    (from: http://www.geophysique.be/2011/02/20/matplotlib-basemap-tutorial-09-drawing-circles/).
-    """
-    glon1 = centerlon
-    glat1 = centerlat
-    X = []
-    Y = []
-    for azimuth in range(0, 360):
-        glon2, glat2, baz = shoot(glon1, glat1, azimuth, radius)
-        X.append(glon2)
-        Y.append(glat2)
-    X.append(X[0])
-    Y.append(Y[0])
-
-    X, Y = m(X, Y)
-    plt.plot(X, Y, color)
-
 
 def ellipse(map_axis, centerlon, centerlat, major_axis, minor_axis, angle, n=360, filled=False,
             transform=None, **kwargs):
@@ -3601,7 +3551,7 @@ def combine_magic(filenames, outfile='measurements.txt', data_model=3, magic_tab
                 magic_table))
             return False
         # figure out file type from first of files to join
-        with open(filenames[0]) as f:
+        with open(filenames[0], encoding="utf-8") as f:
             file_type = f.readline().split()[1]
         if file_type in ['er_specimens', 'er_samples', 'er_sites',
                          'er_locations', 'er_ages', 'pmag_specimens',
@@ -4518,7 +4468,7 @@ def core_depthplot(input_dir_path='.', meas_file='measurements.txt', spc_file=''
     if sum_file:
         # os.path.join(input_dir_path, sum_file)
         sum_file = pmag.resolve_file_name(sum_file, input_dir_path)
-        with open(sum_file, 'r') as fin:
+        with open(sum_file, 'r', encoding="utf-8") as fin:
             indat = fin.readlines()
         if "Core Summary" in indat[0]:
             headline = 1
@@ -5113,7 +5063,7 @@ def download_magic(infile=None, dir_path='.', input_dir_path='',
         file_type = file_type.lower()
         if file_type[-1] == "\n":
             file_type = file_type[:-1]
-        if print_progress == True:
+        if print_progress:
             print('working on: ', repr(file_type))
         if file_type not in type_list:
             type_list.append(file_type)
@@ -5164,7 +5114,7 @@ def download_magic(infile=None, dir_path='.', input_dir_path='',
                             rec[method_col] = methods[:-1]
                     NewRecs.append(rec)
                 pmag.magic_write(outfile, Recs, file_type)
-                if print_progress == True:
+                if print_progress:
                     print(file_type, " data put in ", outfile)
                 Recs = []
                 LN += 1
@@ -5213,7 +5163,7 @@ def download_magic(infile=None, dir_path='.', input_dir_path='',
                     rec[method_col] = methods[:-1]
             NewRecs.append(rec)
         pmag.magic_write(outfile, Recs, file_type)
-        if print_progress == True:
+        if print_progress:
             print(file_type, " data put in ", outfile)
     # look through locations table and create separate directories for each
     # location
@@ -5230,7 +5180,7 @@ def download_magic(infile=None, dir_path='.', input_dir_path='',
         if len(locs) > 0:  # at least one location
             # go through unique location names
             for loc_name in locs:
-                if print_progress == True:
+                if print_progress:
                     print('\nlocation_' + str(locnum) + ": ", loc_name)
                 lpath = os.path.join(dir_path, 'Location_' + str(locnum))
                 locnum += 1
@@ -5244,13 +5194,13 @@ def download_magic(infile=None, dir_path='.', input_dir_path='',
                         return False
                 for file_type in con.tables:
                     recs = con.tables[file_type].convert_to_pmag_data_list()
-                    if print_progress == True:
+                    if print_progress:
                         print(len(recs), ' read in')
                     lrecs = pmag.get_dictitem(recs, 'location', loc_name, 'T')
                     if len(lrecs) > 0:
                         outfile_name = os.path.join(lpath, file_type + ".txt")
                         pmag.magic_write(outfile_name, lrecs, file_type)
-                        if print_progress == True:
+                        if print_progress:
                             print(len(lrecs), ' stored in ', outfile_name)
     return True
 
@@ -5293,7 +5243,7 @@ def download_magic_from_id(magic_id, directory='.', share_key=""):
 
     if response.status_code == 200 and response.text:
         # Write the content to the file only if the request was successful and the content is not empty
-        with open(out_path, 'w') as file:
+        with open(out_path, 'w', encoding="utf-8") as file:
             file.write(response.text)
         print("Download successful. File saved to:", out_path)
         return True, file_name
@@ -5335,7 +5285,7 @@ def download_magic_from_doi(doi):
         for filename in contribution_zip.namelist():
             if (re.match(r'^\d+\/magic_contribution_\d+\.txt', filename)):
                 contribution_text = io.TextIOWrapper(contribution_zip.open(filename)).read()
-                with open('magic_contribution.txt', 'wt') as fh:
+                with open('magic_contribution.txt', 'wt', encoding="utf-8") as fh:
                     fh.write(contribution_text)
                 print(filename, 'extracted to magic_contribution.txt', '\n')
                 return True, ""
@@ -5344,6 +5294,7 @@ def download_magic_from_doi(doi):
 
     else:
         return False, 'Error:', response.json()['err'][0]['message'], '\n'
+
 
 def validate_with_public_endpoint(contribution_file,verbose=False):
     """
@@ -5792,6 +5743,32 @@ def upload_magic(concat=False, dir_path='.',input_dir_path='.',validate=True,ver
             return False, "Could not create an upload file", None, None
     return new_up, val_response, None, None
 
+
+def contribution_to_magic(contribution, dir_path='.'):
+    """
+    Write a contribution object to MagIC-formatted files in the specified directory.
+    Compiles these files into a upload.txt file which can be uploaded into the 
+    MagIC database using the upload_magic function.
+    
+    Parameters
+    ----------
+    contribution : Contribution
+        A contribution object containing tables to be written to a MagIC-formatted file.
+    dir_path : str
+        The directory path where the MagIC-formatted file will be written.
+    """
+    if not os.path.exists(dir_path):
+        os.makedirs(dir_path)
+        
+    contribution.tables['specimens'].write_magic_file(dir_path=dir_path)
+    contribution.tables['samples'].write_magic_file(dir_path=dir_path)
+    contribution.tables['sites'].write_magic_file(dir_path=dir_path)
+    contribution.tables['locations'].write_magic_file(dir_path=dir_path)
+    contribution.tables['measurements'].write_magic_file(dir_path=dir_path)
+    
+    upload_magic(dir_path=dir_path, input_dir_path=dir_path)
+    
+
 def create_private_contribution(username="",password=""):
     """
     Create a private contribution on earthref.org/MagIC.
@@ -5922,7 +5899,7 @@ def upload_to_private_contribution(contribution_id, upload_file,username="",pass
     response['method']='PUT'
     response['upload_file']=upload_file
     try:
-        with open(upload_file, 'rb') as f:
+        with open(upload_file, 'rb', encoding="utf-8") as f:
             upload_response = requests.put(api.format('private'),
                                           params={'id':contribution_id},
                                           auth=(username, password),
@@ -5997,7 +5974,6 @@ def validate_private_contribution(contribution_id,username="",password="",verbos
     except:
         print ('trouble validating:')
     return response
-
 
 
 def specimens_results_magic(infile='pmag_specimens.txt', measfile='magic_measurements.txt', sampfile='er_samples.txt', sitefile='er_sites.txt', agefile='er_ages.txt', specout='er_specimens.txt', sampout='pmag_samples.txt', siteout='pmag_sites.txt', resout='pmag_results.txt', critout='pmag_criteria.txt', instout='magic_instruments.txt', plotsites=False, fmt='svg', dir_path='.', cors=[], priorities=['DA-AC-ARM', 'DA-AC-TRM'], coord='g', user='', vgps_level='site', do_site_intensity=True, DefaultAge=["none"], avg_directions_by_sample=False, avg_intensities_by_sample=False, avg_all_components=False, avg_by_polarity=False, skip_directions=False, skip_intensities=False, use_sample_latitude=False, use_paleolatitude=False, use_criteria='default'):
@@ -6912,14 +6888,14 @@ def orientation_magic(or_con=1, dec_correction_con=1, dec_correction=0, bed_corr
 
     # validate input
     if '4' in samp_con[0]:
-        pattern = re.compile('[4][-]\d')
+        pattern = re.compile(r'[4][-]\d')
         result = pattern.match(samp_con)
         if not result:
             raise Exception(
                 "If using sample naming convention 4, you must provide the number of characters with which to distinguish sample from site. [4-Z] XXXX[YYY]:  YYY is sample designation with Z characters from site XXX)")
 
     if '7' in samp_con[0]:
-        pattern = re.compile('[7][-]\d')
+        pattern = re.compile(r'[7][-]\d')
         result = pattern.match(samp_con)
         if not result:
             raise Exception(
@@ -7689,9 +7665,6 @@ class Site(object):
         import os
         from matplotlib import pyplot as plt
         import pandas as pd
-        global pd
-        global plt
-        global os
         import re
         dir_name = os.path.relpath(data_path)
         self.all_file_names = os.listdir(dir_name)
@@ -8105,7 +8078,7 @@ def smooth(x, window_len, window='bartlett'):
 
     # s=numpy.r_[2*x[0]-x[window_len:1:-1],x,2*x[-1]-x[-1:-window_len:-1]]
     if window == 'flat':  # moving average
-        w = ones(window_len, 'd')
+        w = np.ones(window_len, 'd')
     else:
         w = eval('np.' + window + '(window_len)')
     y = np.convolve(w/w.sum(), s, mode='same')
@@ -8278,7 +8251,7 @@ def curie(path_to_file='.', file_name='', magic=False,
     files = {}
     for key in list(PLT.keys()):
         files[key] = str(key) + '.' + fmt
-    if save == True:
+    if save:
         for key in list(PLT.keys()):
             try:
                 plt.figure(num=PLT[key])
@@ -8398,7 +8371,7 @@ def chi_magic2(path_to_file='.', file_name='magic_measurements.txt',
                 pmagplotlib.plot_xtb(plotnum, XTB, Bs, e, f)
                 pmagplotlib.show_fig(plotnum)
                 plotnum += 1  # increment plot number
-            if save == True:
+            if save:
                 files = {}
                 PLTS = {}
                 for p in range(1, plotnum):
@@ -8569,29 +8542,29 @@ def pmag_results_extract(res_file="pmag_results.txt", crit_file="", spec_file=""
         for k in range(len(SiteCols)):
             fstring = fstring + 'r'
         sf.write(fstring + '}\n')
-        sf.write('\hline\n')
+        sf.write(r'\hline\n')
         fstring = tabstring
         for k in range(len(DirCols)):
             fstring = fstring + 'r'
         f.write(fstring + '}\n')
-        f.write('\hline\n')
+        f.write(r'\hline\n')
         fstring = tabstring
         for k in range(len(IntCols)):
             fstring = fstring + 'r'
         fI.write(fstring + '}\n')
-        fI.write('\hline\n')
+        fI.write(r'\hline\n')
         fstring = tabstring
         if crit_file:
             for k in range(len(CritKeys)):
                 fstring = fstring + 'r'
             cr.write(fstring + '}\n')
-            cr.write('\hline\n')
+            cr.write(r'\hline\n')
         if spec_file:
             fstring = tabstring
             for k in range(len(SpecCols)):
                 fstring = fstring + 'r'
             fsp.write(fstring + '}\n')
-            fsp.write('\hline\n')
+            fsp.write(r'\hline\n')
     else:   # just set the tab and line endings for tab delimited
         sep = ' \t '
         end = ''
@@ -8625,13 +8598,13 @@ def pmag_results_extract(res_file="pmag_results.txt", crit_file="", spec_file=""
         Spoutstring = Spoutstring + end + "\n"
         fsp.write(Spoutstring)
     if latex:  # put in a horizontal line in latex file
-        f.write('\hline\n')
-        sf.write('\hline\n')
-        fI.write('\hline\n')
+        f.write(r'\hline\n')
+        sf.write(r'\hline\n')
+        fI.write(r'\hline\n')
         if crit_file:
-            cr.write('\hline\n')
+            cr.write(r'\hline\n')
         if spec_file:
-            fsp.write('\hline\n')
+            fsp.write(r'\hline\n')
  # do criteria
     if crit_file:
         for crit in Crits:
@@ -8743,23 +8716,23 @@ def pmag_results_extract(res_file="pmag_results.txt", crit_file="", spec_file=""
             fsp.write(outstring.strip(sep) + end + '\n')
     #
     if latex:  # write out the tail stuff
-        f.write('\hline\n')
-        sf.write('\hline\n')
-        fI.write('\hline\n')
-        f.write('\end{longtable}\n')
-        sf.write('\end{longtable}\n')
-        fI.write('\end{longtable}\n')
-        f.write('\end{document}\n')
-        sf.write('\end{document}\n')
-        fI.write('\end{document}\n')
+        f.write(r'\hline\n')
+        sf.write(r'\hline\n')
+        fI.write(r'\hline\n')
+        f.write(r'\end{longtable}\n')
+        sf.write(r'\end{longtable}\n')
+        fI.write(r'\end{longtable}\n')
+        f.write(r'\end{document}\n')
+        sf.write(r'\end{document}\n')
+        fI.write(r'\end{document}\n')
         if spec_file:
-            fsp.write('\hline\n')
-            fsp.write('\end{longtable}\n')
-            fsp.write('\end{document}\n')
+            fsp.write(r'\hline\n')
+            fsp.write(r'\end{longtable}\n')
+            fsp.write(r'\end{document}\n')
         if crit_file:
-            cr.write('\hline\n')
-            cr.write('\end{longtable}\n')
-            cr.write('\end{document}\n')
+            cr.write(r'\hline\n')
+            cr.write(r'\end{longtable}\n')
+            cr.write(r'\end{document}\n')
     f.close()
     sf.close()
     fI.close()
@@ -8938,7 +8911,7 @@ def demag_magic(path_to_file='.', file_name='magic_measurements.txt',
                         float(sum(AVGblock[step]))/float(len(AVGblock[step])), 1, 'g'])
                 pmagplotlib.plot_mag(FIG['demag'], INTblock,
                                      title, 0, units, norm)
-        if save == True:
+        if save:
             plt.savefig(os.path.join(save_folder, title) + '.' + fmt)
         if single_plot is False:
             plt.show()
@@ -9305,7 +9278,7 @@ def find_ei(data, nb=1000, save=False, save_folder='.', fmt='svg',
     Io = ppars['inc']
     n = ppars["N"]
     Es, Is, Fs, V2s = pmag.find_f(data)
-    if site_correction == True:
+    if site_correction:
         Inc, Elong = Is[Es.index(min(Es))], Es[Es.index(min(Es))]
         flat_f = Fs[Es.index(min(Es))]
     else:
@@ -9314,7 +9287,7 @@ def find_ei(data, nb=1000, save=False, save_folder='.', fmt='svg',
 
     plt.figure(num=2, figsize=(4, 4))
     plt.plot(Is, Es, EI_color, zorder = nb+1, lw=3)
-    plt.xlabel("inclination ($^\circ$)", fontsize=12)
+    plt.xlabel(r"inclination ($^\circ$)", fontsize=12)
     plt.ylabel("elongation", fontsize=12)
     plt.ylim(.9,5)
     plt.text(Inc, Elong, ' %4.2f' % (flat_f), fontsize=12)
@@ -9329,7 +9302,7 @@ def find_ei(data, nb=1000, save=False, save_folder='.', fmt='svg',
             plt.plot(Isb, Esb, resample_EI_color, alpha=resample_EI_alpha)
         if Esb[-1] != 0:
             ppars = pmag.doprinc(bdata)
-            if site_correction == True:
+            if site_correction:
                 I.append(abs(Isb[Esb.index(min(Esb))]))
                 E.append(Esb[Esb.index(min(Esb))])
             else:
@@ -9356,7 +9329,7 @@ def find_ei(data, nb=1000, save=False, save_folder='.', fmt='svg',
 
     cdf_fig_num = 3
     plt.figure(num=cdf_fig_num, figsize=(4, 4))
-    pmagplotlib.plot_cdf(cdf_fig_num, I, 'inclination ($^\circ$)', 'r', title)
+    pmagplotlib.plot_cdf(cdf_fig_num, I, r'inclination ($^\circ$)', 'r', title)
     pmagplotlib.plot_vs(cdf_fig_num, [I[lower], I[upper]], 'b', '--')
     pmagplotlib.plot_vs(cdf_fig_num, [Inc], 'g', '-')
     pmagplotlib.plot_vs(cdf_fig_num, [Io], 'k', '-')
@@ -9479,7 +9452,7 @@ def find_ei_kent(data, site_latitude, site_longitude, kent_color='k', nb=1000, s
     # plot E/I figure
     plt.figure(num=1, figsize=(4, 4))
     plt.plot(Is, Es, EI_color, zorder = nb+1, lw=3)
-    plt.xlabel("inclination ($^\circ$)", fontsize=12)
+    plt.xlabel(r"inclination ($^\circ$)", fontsize=12)
     plt.ylabel("elongation", fontsize=12)
     plt.text(Inc, Elong, ' %4.2f' % (flat_f), fontsize=12)
 
@@ -9514,7 +9487,7 @@ def find_ei_kent(data, site_latitude, site_longitude, kent_color='k', nb=1000, s
         plt.savefig(save_folder+'/'+figprefix+'_bootstraps'+'.'+fmt, bbox_inches='tight', dpi=300)
 
     plt.figure(figsize=(4, 4))
-    pmagplotlib.plot_cdf(2, I, 'inclination ($^\circ$)', 'r', title)
+    pmagplotlib.plot_cdf(2, I, r'inclination ($^\circ$)', 'r', title)
     pmagplotlib.plot_vs(2, [I[lower], I[upper]], 'b', '--')
     pmagplotlib.plot_vs(2, [Inc], 'g', '-')
     pmagplotlib.plot_vs(2, [Io], 'k', '-')
@@ -9577,7 +9550,7 @@ def find_ei_kent(data, site_latitude, site_longitude, kent_color='k', nb=1000, s
     plt.title('%7.1f [%7.1f, %7.1f]' % (plat_mode, plat_lower, plat_upper) + '\nFit result: mu='+str(round(mu,2))+'\nstd='+str(round(std, 2)), fontsize=14)
     plt.xticks(fontsize=14)
     plt.yticks(fontsize=14)
-    plt.xlabel('paleolatitude ($^\circ$)', fontsize=16)
+    plt.xlabel(r'paleolatitude ($^\circ$)', fontsize=16)
     plt.ylabel('density', fontsize=16)
     
     if save:
@@ -9704,7 +9677,7 @@ def find_compilation_kent(plon, plat, A95, slon, slat,
     plt.hist(compilation_paleolats, alpha=0.6, density=1)
     plt.xticks(fontsize=14)
     plt.yticks(fontsize=14)
-    plt.xlabel("compilation paleolatitudes ($^\circ$)", fontsize=16)
+    plt.xlabel(r"compilation paleolatitudes ($^\circ$)", fontsize=16)
     plt.ylabel("density", fontsize=16)
 
     compilation_mean_lons = []
@@ -9748,6 +9721,194 @@ def find_compilation_kent(plon, plat, A95, slon, slat,
         results.append(f_compilation_kent_distribution_95)
     if return_paleolats:
         results.append(compilation_paleolats)
+
+    if len(results) == 1:
+        return results[0]
+    return tuple(results)
+ 
+                              
+def find_svei_kent(
+    di_block,
+    site_latitude,
+    site_longitude,
+    f_low,
+    f_high,
+    kent_color="k",
+    n=1000,
+    save=False,
+    save_folder=".",
+    figprefix="SVEI",
+    fmt="svg",
+    return_poles=False,
+    return_kent_stats=True,
+    return_paleolats=False,
+    vgp_nb=100,
+    cmap="viridis_r",
+    central_longitude=0,
+    central_latitude=0,
+):
+    """
+    Uses a uniform distribution of flattening factors (f) derived from the SVEI analysis
+    of Tauxe et al. (2024) to correct inclination shallowing in sedimentary paleomagnetic
+    data and quantify uncertainty in the resulting mean pole using a Kent distribution.
+
+    The f values are sampled uniformly from a user-defined interval (`f_low`, `f_high`) 
+    that should be determined in advance using the `find_flat` function of the SVEI 
+    module (Tauxe et al., 2024), which identifies the range of flattening factors 
+    consistent with the THG24 geomagnetic field model.
+
+    For each sampled f, the directions are "unflattened" using the tangent transformation,
+    converted to VGPs, and resampled with a Fisher distribution. The resulting distribution
+    of mean poles is summarized with a Kent distribution. Plots of corrected directions,
+    paleolatitudes, and resampled poles are optionally generated and saved.
+
+    Parameters:
+        di_block : list or array-like (a di block)
+            Nested list or array of [dec, inc] or [dec, inc, intensity] directional data.
+        site_latitude : float
+            Latitude of the paleomagnetic sampling site.
+        site_longitude : float
+            Longitude of the paleomagnetic sampling site.
+        f_low : float
+            Lower bound for flattening factor, as determined from SVEI analysis (e.g. 0.51).
+        f_high : float
+            Upper bound for flattening factor, as determined from SVEI analysis (e.g. 0.89).
+        kent_color : str, optional
+            Color of the plotted Kent ellipse (default is 'k').
+        n : int, optional
+            Number of flattening factors to sample (default is 1000).
+        save : bool, optional
+            If True, saves figures to the specified folder (default is False).
+        save_folder : str, optional
+            Directory to save plots (default is current directory).
+        figprefix : str, optional
+            Prefix for saved figure filenames (default is 'SVEI').
+        fmt : str, optional
+            Format for saved figures (e.g., 'svg', 'png') (default is 'svg').
+        return_poles : bool, optional
+            If True, returns the resampled mean pole positions (default is False).
+        return_kent_stats : bool, optional
+            If True, returns the Kent distribution statistics (default is True).
+        return_paleolats : bool, optional
+            If True, returns the distribution of calculated paleolatitudes (default is False).
+        vgp_nb : int, optional
+            Number of Fisher resamples per unflattened mean pole (default is 100).
+        cmap : str, optional
+            Colormap used to indicate f value in directional plots (default is 'viridis_r').
+        central_longitude : float, optional
+            Central longitude of the orthographic projection (default is 0).
+        central_latitude : float, optional
+            Central latitude of the orthographic projection (default is 0).
+
+    Returns:
+        Depending on flags, returns one or more of:
+        - kent_stats : dict
+            Kent distribution parameters summarizing the resampled mean poles.
+        - mean_lons, mean_lats : list of float
+            Longitudes and latitudes of resampled mean poles.
+        - paleolats : list of float
+            Paleolatitudes calculated from resampled mean poles.
+
+    Notes:
+        This function assumes the user has previously run the SVEI `find_flat` function
+        (Tauxe et al., 2024) to determine the range of flattening factors (`f_low`, `f_high`)
+        that are consistent with the THG24 GGP model for the dataset under consideration.
+    """
+    f_resample = np.random.uniform(f_low,f_high,n)
+
+    plt.figure(figsize=(4,4))
+    plot_net()
+    cNorm  = colors.Normalize(vmin=min(f_resample), vmax=max(f_resample))
+    f_scalarMap = cm.ScalarMappable(norm=cNorm, cmap=cmap)
+        
+    di_lists = unpack_di_block(di_block)
+    if len(di_lists) == 3:
+        decs, incs, intensity = di_lists
+    if len(di_lists) == 2:
+        decs, incs = di_lists
+
+    mean_lons = []
+    mean_lats = []
+    paleolats=[]
+    
+    VGPs = pmag.dia_vgp(np.array([decs, incs, np.zeros(len(decs)), np.full(len(decs), site_latitude), np.full(len(decs),site_longitude)]).T)
+    VGPs_lons, VGPs_lats = VGPs[0], VGPs[1]
+    uncorrected_pole = fisher_mean(VGPs_lons, VGPs_lats)
+    plon = uncorrected_pole['dec'] 
+    plat = uncorrected_pole['inc']
+    A95 = uncorrected_pole['alpha95']
+    
+    for f in f_resample:
+        unsquish_incs = unsquish(incs, f)
+        #unsquish_mean_dir=fisher_mean(dec=decs,inc=unsquish_incs)
+        unsquish_VGPs = pmag.dia_vgp(np.array([decs, unsquish_incs, np.zeros(len(decs)), np.full(len(decs), site_latitude), np.full(len(decs),site_longitude)]).T)
+        unsquish_lons, unsquish_lats = unsquish_VGPs[0], unsquish_VGPs[1]
+        unsquish_VGPs_mean = fisher_mean(unsquish_lons, unsquish_lats)
+        resampled_lons, resampled_lats = fisher_mean_resample(alpha95=unsquish_VGPs_mean['alpha95'], n=vgp_nb, 
+                                                        dec=unsquish_VGPs_mean['dec'], inc=unsquish_VGPs_mean['inc'], di_block=0)
+        resampled_poles = np.column_stack((resampled_lons, resampled_lats))
+        N = resampled_poles.shape[0]  # Number of rows
+        site_array = np.tile([site_longitude,site_latitude], (N, 1))
+        mean_lons.extend(resampled_lons)
+        mean_lats.extend(resampled_lats)
+        plats = 90 - pmag.angle(resampled_poles, site_array)
+        paleolats.extend(plats.tolist())
+        rgba = f_scalarMap.to_rgba(f)
+        hex_color = colors.rgb2hex(rgba)
+        plot_di(decs, unsquish_incs, color = hex_color, alpha=0.02)
+    cb = plt.colorbar(f_scalarMap, ax=plt.gca(),orientation='horizontal',fraction=0.05, pad=0.05)
+    cb.ax.tick_params(labelsize=14)
+    cb.ax.set_title(label='$f$ values', fontsize=14)
+
+    if save:
+        plt.savefig(save_folder+'/'+figprefix+'_corrected_directions'+'.'+fmt, bbox_inches='tight', dpi=300)
+
+    plat_med=np.median(paleolats)
+    plat_lower, plat_upper = np.round(np.percentile(paleolats, [2.5, 97.5]), 1)
+    mu, std = stats.norm.fit(paleolats)
+    x = np.linspace(min(paleolats), max(paleolats), 100)
+    p = stats.norm.pdf(x, mu, std)
+
+    plt.figure(figsize=(4, 4))
+    plt.hist(paleolats, bins=15, alpha=0.6, density=1)
+    plt.plot(x, p, 'k', linewidth=1)
+
+    plt.axvline(x=plat_lower, color = 'gray', ls='--')
+    plt.axvline(x=plat_upper, color = 'gray', ls='--')
+
+    plt.title('%7.1f [%7.1f, %7.1f]' % (plat_med, plat_lower, plat_upper) + '\nFit result: mu='+str(round(mu,2))+'\nstd='+str(round(std, 2)), fontsize=14)
+    plt.xticks(fontsize=14)
+    plt.yticks(fontsize=14)
+    plt.xlabel(r'paleolatitude ($^\circ$)', fontsize=16)
+    plt.ylabel('density', fontsize=16)
+        
+    if save:
+         plt.savefig(save_folder+'/'+figprefix+'_paleolatitudes'+'.'+fmt, bbox_inches='tight', dpi=300)
+        
+    plt.show()
+            
+    # plot resampled mean poles
+    m = make_orthographic_map(central_longitude, central_latitude)
+    plot_vgp(m, mean_lons, mean_lats, color='lightgrey', edge='none', markersize=5, alpha=0.02)
+        
+    kent_stats = kent_distribution_95(dec=mean_lons,inc=mean_lats) 
+    print_kent_mean(kent_stats)
+    plot_pole_ellipse(m,kent_stats, color=kent_color,label="Kent mean pole")
+    plot_pole(m, plon, plat, A95, label="uncorrected pole position", color="C0")
+    plt.legend(loc=8, fontsize=14)
+    
+    if save:
+         plt.savefig(save_folder+'/'+figprefix+'_paleolatitudes'+'.'+fmt, bbox_inches='tight', dpi=300)
+ 
+    plt.show()
+
+    results = []
+    if return_kent_stats:
+        results.append(kent_stats)
+    if return_poles:
+        results.extend([mean_lons, mean_lats])
+    if return_paleolats:
+        results.append(paleolats)
 
     if len(results) == 1:
         return results[0]
@@ -9878,7 +10039,7 @@ def plate_rate_mc(pole1_plon, pole1_plat, pole1_kappa, pole1_N, pole1_age, pole1
     plt.xlabel('Age (Ma)')
     plt.ylabel('n')
     plt.legend(loc=3)
-    if savefig == True:
+    if savefig:
         plot_extension = '_1.svg'
         plt.savefig(save_directory + figure_name + plot_extension)
     plt.show()
@@ -9939,7 +10100,7 @@ def plate_rate_mc(pole1_plon, pole1_plat, pole1_kappa, pole1_N, pole1_age, pole1
 
         plot_vgp(map_axis, pole1_MCpole_long, pole1_MCpole_lat, color='b')
         plot_vgp(map_axis, pole2_MCpole_long, pole2_MCpole_lat, color='g')
-        if savefig == True:
+        if savefig:
             plot_extension = '_2.svg'
             plt.savefig(save_directory + figure_name + plot_extension)
         plt.show()
@@ -9986,7 +10147,7 @@ def plate_rate_mc(pole1_plon, pole1_plat, pole1_kappa, pole1_N, pole1_age, pole1
         plt.ylabel('n', size=14)
         plt.xlabel('latitudinal drift rate (cm/yr)', size=14)
         # plt.xlim([0,90])
-        if savefig == True:
+        if savefig:
             plot_extension = '_3.svg'
             plt.savefig(save_directory + figure_name + plot_extension)
         plt.show()
@@ -11106,13 +11267,13 @@ def plot_aniso(fignum, aniso_df, Dir=[], PDir=[], ipar=False, ihext=True, ivec=F
         if ihext:  # plot the Hext ellipses
             ellpars = [hpars["v1_dec"], hpars["v1_inc"], hpars["e12"], hpars["v2_dec"],
                        hpars["v2_inc"], hpars["e13"], hpars["v3_dec"], hpars["v3_inc"]]
-            pmagplotlib.plot_ell(fignum+1, ellpars, 'r-,', 1, 1)
+            v1_pts = pmagplotlib.plot_ell(fignum+1, ellpars, 'r,', 1, 1)
             ellpars = [hpars["v2_dec"], hpars["v2_inc"], hpars["e23"], hpars["v3_dec"],
                        hpars["v3_inc"], hpars["e12"], hpars["v1_dec"], hpars["v1_inc"]]
-            pmagplotlib.plot_ell(fignum+1, ellpars, 'b-,', 1, 1)
+            v2_pts = pmagplotlib.plot_ell(fignum+1, ellpars, 'b,', 1, 1)
             ellpars = [hpars["v3_dec"], hpars["v3_inc"], hpars["e13"], hpars["v1_dec"],
                        hpars["v1_inc"], hpars["e23"], hpars["v2_dec"], hpars["v2_inc"]]
-            pmagplotlib.plot_ell(fignum+1, ellpars, 'k-,', 1, 1)
+            v3_pts = pmagplotlib.plot_ell(fignum+1, ellpars, 'k,', 1, 1)
             if len(Dir) > 0:   # plot the comparison direction components
                     # put in dimap and plot as white symbol with axis color?
                 plot_di(di_block=[Dir], color='green',
@@ -11176,7 +11337,7 @@ def plot_aniso(fignum, aniso_df, Dir=[], PDir=[], ipar=False, ihext=True, ivec=F
                 pmagplotlib.plot_ell(fignum+1, ellpars, 'r-,', 1, 1)
                 ellpars = [hpars["v2_dec"], hpars["v2_inc"], bpars["v2_zeta"], bpars["v2_zeta_dec"],
                            bpars["v2_zeta_inc"], bpars["v2_eta"], bpars["v2_eta_dec"], bpars["v2_eta_inc"]]
-                pmagplotlib.plot_ell(fignum+1, ellpars, 'b-,', 1, 1)
+                pmagplotlib.plot_ell(fignum+1, ellpars, 'b-,', 1, 1)    
                 ellpars = [hpars["v3_dec"], hpars["v3_inc"], bpars["v3_zeta"], bpars["v3_zeta_dec"],
                            bpars["v3_zeta_inc"], bpars["v3_eta"], bpars["v3_eta_dec"], bpars["v3_eta_inc"]]
                 pmagplotlib.plot_ell(fignum+1, ellpars, 'k-,', 1, 1)
@@ -11674,12 +11835,11 @@ def get_matrix(n_pos=6):
 
     if n_pos == 15:
             positions = [[315., 0., 1.], [225., 0., 1.], [180., 0., 1.], [135., 0., 1.], [45., 0., 1.],
-                         [90., -45., 1.], [270., -45., 1.], [270.,
-                                                             0., 1.], [270., 45., 1.], [90., 45., 1.],
+                         [90., -45., 1.], [270., -45., 1.], [270., 0., 1.], [270., 45., 1.], [90., 45., 1.],
                          [180., 45., 1.], [180., -45., 1.], [0., -90., 1.], [0, -45., 1.], [0, 45., 1.]]
     if n_pos == 9:
             positions = [[315., 0., 1.], [225., 0., 1.], [180., 0., 1.],
-        [90., -45., 1.], [270., -45., 1.], [270., 0., 1.],
+                        [90., -45., 1.], [270., -45., 1.], [270., 0., 1.],
                          [180., 45., 1.], [180., -45., 1.], [0., -90., 1.]]
 
     tmpH = np.zeros((n_pos, 3), 'f')  # define tmpH
@@ -12630,14 +12790,14 @@ def zeq_magic(meas_file='measurements.txt', spec_file='',crd='s', dir_path = "."
         spec_df = meas_df[meas_df.specimen == s]
         # remove ARM data
         spec_df = spec_df[- spec_df.method_codes.str.contains(
-            'LP-*[\w]*-ARM')]
+            r'LP-*[\w]*-ARM')]
         # split data into NRM, thermal, and af dataframes
         spec_df_nrm = spec_df[spec_df.method_codes.str.contains(
             'LT-NO')]  # get the NRM data
         spec_df_th = spec_df[spec_df.method_codes.str.contains(
             'LT-T-Z')]  # zero field thermal demag steps
         try:
-            cond = spec_df.method_codes.str.contains('(^|[\s\:])LT-PTRM')
+            cond = spec_df.method_codes.str.contains(r'(^|[\s\:])LT-PTRM')
             spec_df_th = spec_df_th[-cond]  # get rid of some pTRM steps
         except ValueError:
             keep_inds = []
@@ -13483,13 +13643,13 @@ def sites_extract(site_file='sites.txt', directions_file='directions.xls',
             if dir_file.endswith('.xls'):
                 dir_file = dir_file[:-4] + ".tex"
             directions_out = open(dir_file, 'w+', errors="backslashreplace")
-            directions_out.write('\documentclass{article}\n')
+            directions_out.write(r'\documentclass{article}\n')
             directions_out.write('\\usepackage{booktabs}\n')
             directions_out.write('\\usepackage{longtable}\n')
             directions_out.write('\\begin{document}')
             directions_out.write(dir_df.to_latex(
                 index=False, longtable=True, multicolumn=False))
-            directions_out.write('\end{document}\n')
+            directions_out.write(r'\end{document}\n')
             directions_out.close()
         else:
             dir_df.to_excel(dir_file, index=False)
@@ -13504,13 +13664,13 @@ def sites_extract(site_file='sites.txt', directions_file='directions.xls',
                 intensity_file = intensity_file[:-4] + ".tex"
             intensities_out = open(intensity_file, 'w+',
                                    errors="backslashreplace")
-            intensities_out.write('\documentclass{article}\n')
+            intensities_out.write(r'\documentclass{article}\n')
             intensities_out.write('\\usepackage{booktabs}\n')
             intensities_out.write('\\usepackage{longtable}\n')
             intensities_out.write('\\begin{document}')
             intensities_out.write(int_df.to_latex(
                 index=False, longtable=True, multicolumn=False))
-            intensities_out.write('\end{document}\n')
+            intensities_out.write(r'\end{document}\n')
             intensities_out.close()
         else:
             int_df.to_excel(intensity_file, index=False)
@@ -13542,13 +13702,13 @@ def sites_extract(site_file='sites.txt', directions_file='directions.xls',
             if info_file.endswith('.xls'):
                 info_file = info_file[:-4] + ".tex"
             info_out = open(info_file, 'w+', errors="backslashreplace")
-            info_out.write('\documentclass{article}\n')
+            info_out.write(r'\documentclass{article}\n')
             info_out.write('\\usepackage{booktabs}\n')
             info_out.write('\\usepackage{longtable}\n')
             info_out.write('\\begin{document}')
             info_out.write(nfo_df.to_latex(
                 index=False, longtable=True, multicolumn=False))
-            info_out.write('\end{document}\n')
+            info_out.write(r'\end{document}\n')
             info_out.close()
         else:
             nfo_df.to_excel(info_file, index=False)
@@ -13605,7 +13765,7 @@ def specimens_extract(spec_file='specimens.txt', output_file='specimens.xls', la
             if out_file.endswith('.xls'):
                 out_file = out_file.rsplit('.')[0] + ".tex"
             info_out = open(out_file, 'w+', errors="backslashreplace")
-            info_out.write('\documentclass{article}\n')
+            info_out.write(r'\documentclass{article}\n')
             info_out.write('\\usepackage{booktabs}\n')
             if landscape:
                 info_out.write('\\usepackage{lscape}')
@@ -13617,8 +13777,8 @@ def specimens_extract(spec_file='specimens.txt', output_file='specimens.xls', la
             info_out.write(table_df.to_latex(index=False, longtable=longtable,
                                              escape=True, multicolumn=False))
             if landscape:
-                info_out.write('\end{landscape}\n')
-            info_out.write('\end{document}\n')
+                info_out.write(r'\end{landscape}\n')
+            info_out.write(r'\end{document}\n')
             info_out.close()
         else:
             table_df.to_excel(out_file, index=False)
@@ -13680,7 +13840,7 @@ def criteria_extract(crit_file='criteria.txt', output_file='criteria.xls',
                 '>'), 'operation'] = 'minimum'
             crit_df.loc[crit_df['Operation'] == '=', 'operation'] = 'equal to'
             info_out = open(out_file, 'w+', errors="backslashreplace")
-            info_out.write('\documentclass{article}\n')
+            info_out.write(r'\documentclass{article}\n')
             info_out.write('\\usepackage{booktabs}\n')
             # info_out.write('\\usepackage{longtable}\n')
             # T1 will ensure that symbols like '<' are formatted correctly
@@ -13688,7 +13848,7 @@ def criteria_extract(crit_file='criteria.txt', output_file='criteria.xls',
             info_out.write('\\begin{document}')
             info_out.write(crit_df.to_latex(index=False, longtable=False,
                                             escape=True, multicolumn=False))
-            info_out.write('\end{document}\n')
+            info_out.write(r'\end{document}\n')
             info_out.close()
         else:
             crit_df.to_excel(out_file, index=False)
@@ -14654,7 +14814,7 @@ def chi_magic(infile="measurements.txt", dir_path=".", experiments="",
                      label='%i' % (f)+' Hz')
         plt.legend()
         plt.xlabel('Temperature (K)')
-        plt.ylabel('$\chi$ ($\mu$SI)')
+        plt.ylabel(r'$\chi$ ($\mu$SI)')
         plt.title('B = '+'%7.2e' % (b) + ' T')
 
         plotnum += 1
@@ -14674,7 +14834,7 @@ def chi_magic(infile="measurements.txt", dir_path=".", experiments="",
                      this_t.susc_chi_volume, label='%i' % (t)+' K')
         plt.legend()
         plt.xlabel('Frequency (Hz)')
-        plt.ylabel('$\chi$ ($\mu$SI)')
+        plt.ylabel(r'$\chi$ ($\mu$SI)')
         plt.title('B = '+'%7.2e' % (b) + ' T')
 
     if interactive:
@@ -15616,10 +15776,7 @@ def simul_correlation_prob(alpha, k1, k2, trials=10000, print_result=False):
     The function runs an algorithm from Bogue and Coe (1981; doi: 10.1029/JB086iB12p11883) 
     for probabilistic correlation, evaluating the probability that the similarity between 
     two paleomagnetic directions is due to simultaneous sampling of the ancient magnetic 
-    field. This can be compared with the probability that the two directions were sampled 
-    at random times with the companion function (ipmag.random_correlation_prob; to come). 
-    k1 and k2 can be estimated the kappa of the  directions, or one can use the companion 
-    function (ipmag.full_kappa; to come) as in the original publication. 
+    field. Original written in Python by S. Bogue, translated to PmagPy functionality by AFP. 
     
     Parameters:
         alpha : angle between paleomagnetic directions (site means)
@@ -15631,27 +15788,35 @@ def simul_correlation_prob(alpha, k1, k2, trials=10000, print_result=False):
     Returns:
         float 
             number indicating probability value
+
+    Example:
+        Provide an angle and two precision parameter estimates to get the probability of
+        simultaneity, compare to RC / 11 comparison from Table 2 of the original publication
+        (exact value may differ due to RNG):
+
+        >>> ipmag.simul_correlation_prob(3.6, 391, 146)
+        0.8127
     """
     #sets initial value for counters
     hit = 0
     miss = 0
     
-    #trial loop
+    # trial loop
     for i in range(trials):
-        #generates two synthetic directions, using the estimated kappas
-        lontp1,lattp1 = ipmag.fishrot(k1, 1, 0, 90, di_block=False)
-        lontp2,lattp2 = ipmag.fishrot(k2, 1, 0, 90, di_block=False)
-        #determines the angle between the generated directions 
+        # generates two synthetic directions, using the estimated kappas
+        lontp1,lattp1 = fishrot(k1, 1, 0, 90, di_block=False)
+        lontp2,lattp2 = fishrot(k2, 1, 0, 90, di_block=False)
+        # determines the angle between the generated directions
         angle=pmag.angle([lontp1[0], lattp1[0]], [lontp2[0], lattp2[0]])
-        #checks if angle between synthetic directions meets or exceeds 'known' angle from directions to be tested
-        if (angle >= alpha):
+        # checks if angle between synthetic directions meets or exceeds 'known' angle from directions to be tested
+        if angle >= alpha:
             hit = hit + 1
         else:
             miss = miss + 1
-    #calculates probability based on how often the angle between the 'real' datasets is met or exceeded
+    # calculates probability based on how often the angle between the 'real' datasets is met or exceeded
     simul_prob = 1.0 * hit / trials
     
-    if print_result == True:
+    if print_result:
         print ('The probability that directions represent simultaneous samples of the geomagnetic field is: {0:5.3f}'.format(simul_prob))
     else:
         return simul_prob
@@ -15659,25 +15824,12 @@ def simul_correlation_prob(alpha, k1, k2, trials=10000, print_result=False):
 def rand_correlation_prob(sec_var, delta1, delta2, alpha, trials=10000, print_result=False):
 
     """
-    This function does a brute force numerical simulation of the 'random' 
-    hypothesis of Bogue + Coe (1981). Basically asks and answers the question:
-    if we randomly sampled the ancient field, how frequently would we get two
-    VGPs that are both this far from the time-averaged pole and this close 
-    together?  Approach is, assume VGP1 observed first, pull a random 
-    direction from Fisher distribution about mean pole with k. If it is within
-    alpha of VGP1, hit. If not, miss. Repeat many (10,000?) times. 
-    P(Hr)1 = hit/(trials). Then, repeat this process with VGP2, getting
-    P(Hr)2. The returned probability is the average of the two.
+    The function runs an algorithm from Bogue and Coe (1981; doi: 10.1029/JB086iB12p11883) 
+    for probabilistic correlation, evaluating the probability that the similarity between 
+    two paleomagnetic directions is due to random sampling of the ancient magnetic 
+    field. Original written in Python by S. Bogue, translated to PmagPy functionality by AFP.
     
-    A version of this function was written in Python by S. Bogue, translated
-    to PmagPy functionality by A. Pivarunas
-    
-    Bogue, S.W., and Coe, R.S., 1981, Paleomagnetic correlation of Columbia 
-    River basalt flows using secular variation. Journal of Geophysical
-    Research, v. 86, p. 11883-11897.
-    
-    Parameters
-    ----------
+    Parameters:
     sec_var: kappa estimate of regional secular variation (probably 30 or 40)
     alpha: angle between paleomagnetic directions (or poles)
     delta1: distance of direction 1 from mean direction
@@ -15685,18 +15837,26 @@ def rand_correlation_prob(sec_var, delta1, delta2, alpha, trials=10000, print_re
     trials: the number of simulations, default=10,000
     print_result: the probability value printed as a sentence, default=False 
     
-    Returns
-    --------------------------
-    rand_prob 
+    Returns:
+        float 
+            number indicating probability value
     
+    Example:
+        Provide estimate of regional secular variation, angle between directions, 
+        distance of each direction from a mean direction (like GAD) to return probability
+        of random field sampling, compare to RC / 11 comparison from Table 2 of the original
+        publication (exact value may differ due to RNG):
+
+        >>> ipmag.rand_correlation_prob(40, 17.2, 20, 3.6)
+        np.float64(0.0103)
     """
 
-    #calc probability of getting vgp within alpha of vgp1
+    # calc probability of getting vgp within alpha of vgp1
     i = 0
     miss = 0
     hit = 0
     for i in range(trials):
-        dec,inc = ipmag.fishrot(sec_var, 1, 0, 0, di_block=False)
+        dec,inc = fishrot(sec_var, 1, 0, 0, di_block=False)
         angle = pmag.angle([dec[0], inc[0]], [0, delta1])
         if (angle <= alpha):
             hit = hit + 1
@@ -15711,7 +15871,7 @@ def rand_correlation_prob(sec_var, delta1, delta2, alpha, trials=10000, print_re
     hit = 0
     miss = 0
     for i in range(trials):
-        dec, inc = ipmag.fishrot(sec_var, 1, 0, 0, di_block=False)
+        dec, inc = fishrot(sec_var, 1, 0, 0, di_block=False)
         angle = pmag.angle([dec[0], inc[0]], [0,delta2])
         if (angle <= alpha):
             hit = hit + 1
@@ -15722,7 +15882,72 @@ def rand_correlation_prob(sec_var, delta1, delta2, alpha, trials=10000, print_re
     #the average of the two trials is the probability of the "random" hypothesis
     rand_prob = np.round((prand1 + prand2) / 2, 4)
    
-    if print_result == True:
+    if print_result:
         print ('The probability (average of P1 and P2) that directions represent random samples of the geomagnetic field is: {0:5.3f}'.format((prand1+prand2)/2))
     
     return rand_prob
+
+
+def MADcrit(N,alpha,niter=int(1E8)):
+    """
+    Estimate the MAD critical value at a given significance level to 
+    test a null hypothesis of random demagnetization behavior.
+    function from Heslop and Roberts, 2025, Establishing a Statistical Framework for Assessing Paleomagnetic Data Quality: A Significance Test Based on Maximum Angular Deviation doi: https://doi.org/10.1029/ 2025JB031417
+
+    Parameters
+    ----------
+    N : integer
+        Number of demagnetization points in the unanchored PCA fit.
+    alpha : float
+        Array of significance values for which the critical MAD values should be estimated.
+    niter: integer
+        Number of Monte Carlo iterations (default is 1E8).
+        Because α values of interest are in the lower tail of the MAD distribution, it is important to ensure that B is sufficiently large to sample the distribution extremes accurately.
+    Returns
+    -------
+    float
+        Array of estimated critical MAD values.
+
+    Examples
+    --------
+    >>> N = 10
+    >>> alpha = np.array([0.0001,0.001,0.01,0.05,0.1])
+    >>> MADcrit(N, alpha)
+    [19.5, 23.1, 27.6, 31.7, 33.9]
+    """
+    
+    df = N-1 #degrees of freedom of the Wishart distribution
+    X = wishart.rvs(df, scale=np.ones(3),size=niter) #Generate samples from the Wishart distribution
+    X = np.sort(np.linalg.eig(X)[0],axis=1) #find and sort the eigenvalues of each case
+    #find the MAD values and estimate critical values based on the percentiles corresponding to alpha
+    MAD_prc = np.nanpercentile(np.arctan(np.sqrt((X[:,0]+X[:,1])/X[:,2])),alpha*100) 
+    
+    return np.rad2deg(MAD_prc) #return critical values in degrees
+
+def MADcrit_95_filter(N, MAD):
+    '''
+    A convenience function to quickly filter for MADcrit values at the 95% significance level.
+    '''
+    if N < 3:
+        raise ValueError("N must be greater than 2 for MADcrit_95_filter")
+    if N > 50:
+        raise ValueError("N must be less than 51 for MADcrit_95_filter")
+    Ns = np.arange(3, 51)
+    MADcrit_95 = np.array([6.5, 14.8, 20.13, 23.8, 26.54, 28.64, 30.34,
+                            31.74, 32.93, 33.96, 34.86, 35.63,
+                            36.34, 36.95, 37.53, 38.04, 38.51,
+                            38.94, 39.34, 39.72, 40.08, 40.39,
+                            40.7, 40.99, 41.25, 41.51, 41.75,
+                            41.98, 42.18, 42.4, 42.6, 42.77,
+                            42.96, 43.13, 43.29, 43.44, 43.59,
+                            43.74, 43.87, 44.01, 44.14, 44.26,
+                            44.38, 44.5, 44.61, 44.72, 44.83,
+                            44.92])
+    MADcrit_table = pd.Series(MADcrit_95, index=Ns, name='MADcrit_95')
+    # compare a given MAD to the critical value for the given N
+    MADcrit = MADcrit_table.loc[N]
+
+    if MAD < MADcrit:
+        return True
+    else:
+        return False

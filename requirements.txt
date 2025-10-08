@@ -6,3 +6,8 @@ pmagpy
 matplotlib
 scipy
 cartopy
+bokeh
+ipywidgets
+IPython
+lmfit
+statsmodels

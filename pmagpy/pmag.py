@@ -16,7 +16,7 @@ from pmag_env import set_env
 import pandas as pd
 import SPD.lib.leastsq_jacobian as lib_k
 
-WARNINGS = {'basemap': False, 'cartopy': False}
+WARNINGS = {'cartopy': False}
 
 
 def get_version():
@@ -1140,8 +1140,8 @@ def get_sb_df(df, mm97=False):
         Ns = df.dir_n
         Ls = np.radians(df.lat)
         A95s = 140./np.sqrt(ks*Ns)
-        Sw2_n = 0.335*(A95s**2)*(2.*(1.+3.*np.sin(Ls)**2) /
-                                 (5.-3.*np.sin(Ls)**2))
+        Sw2_n = 0.335*(A95s**2)*(2.*(1.+3.*np.sin(Ls)**2)**2 /
+                                 (5.+3.*np.sin(Ls)**2))
         return np.sqrt(Sp2-Sw2_n.mean())
     else:
         return np.sqrt(Sp2)
@@ -4502,7 +4502,7 @@ def fisher_mean(data):
         
     Examples
     --------
-    >>> data = [[150,-45],[151,-46],[145,-38],[146,-41]
+    >>> data = [[150,-45],[151,-46],[145,-38],[146,-41]]
     >>> pmag.fisher_mean(data)
     {'dec': 147.87247771265734,
     'inc': -42.52872729473035,
@@ -4512,7 +4512,9 @@ def fisher_mean(data):
     'alpha95': 4.865886096375297,
     'csd': 4.283846101842065}   
     """
-    N, fpars = len(data), {}
+    data = np.asarray(data)
+    N = data.shape[0]
+    fpars = {}
     
     if N < 2: 
         return {'dec': data[0][0], 
@@ -4520,10 +4522,9 @@ def fisher_mean(data):
     
     # use only dec, inc values even if intensity values are provided
     # so that calculations are on unit vectors
-    for i in range(N):
-        data[i] = data[i][:2]
+    dir_data = data[:, :2].copy()
 
-    X = np.array(dir2cart(data))
+    X = np.array(dir2cart(dir_data))
     Xbar = X.sum(axis=0)
     R = np.linalg.norm(Xbar)
     Xbar = Xbar/R
@@ -8975,10 +8976,16 @@ def designAARM(npos):
     if npos != 9:
         print('Sorry - only 9 positions available')
         return
-    Dec = [315., 225., 180., 135., 45., 90., 270.,
-           270., 270., 90., 0., 0., 0., 180., 180.]
-    Dip = [0., 0., 0., 0., 0., -45., -45., 0.,
-           45., 45., 45., -45., -90., -45., 45.]
+    Dec = [315., 225., 180., 
+           135., 45., 90., 
+           270., 270., 270., 
+           90., 180., 180., 
+           0., 0., 0.]
+    Dip = [0., 0., 0., 
+           0., 0., -45., 
+           -45., 0., 45., 
+           45., 45., -45., 
+           -90., -45., 45.]
     index9 = [0, 1, 2, 5, 6, 7, 10, 11, 12]
     H = []
     for ind in range(15):
@@ -13355,61 +13362,6 @@ def chart_maker(Int, Top, start=100, outfile='chart.txt'):
         except:
             f.close()
     print("output stored in: chart.txt")
-
-
-def import_basemap():
-    """
-    Try to import Basemap and print out a useful help message
-    if Basemap is either not installed or is missing required
-    environment variables.
-
-    Returns
-    -------
-    has_basemap : bool
-    Basemap : Basemap package if possible else None
-    """
-    Basemap = None
-    has_basemap = True
-    has_cartopy = import_cartopy()[0]
-    try:
-        from mpl_toolkits.basemap import Basemap
-        WARNINGS['has_basemap'] = True
-    except ImportError:
-        has_basemap = False
-        # if they have installed cartopy, no warning is needed
-        if has_cartopy:
-            return has_basemap, False
-        # if they haven't installed Basemap or cartopy, they need to be warned
-        if not WARNINGS['basemap']:
-            print(
-                "-W- You haven't installed a module for plotting maps (cartopy or Basemap)")
-            print("    Recommended: install cartopy.  With conda:")
-            print("    conda install cartopy")
-            print(
-                "    For more information, see http://earthref.org/PmagPy/Cookbook#getting_python")
-    except (KeyError, FileNotFoundError):
-        has_basemap = False
-        # if cartopy is installed, no warning is needed
-        if has_cartopy:
-            return has_basemap, False
-        if not WARNINGS['basemap']:
-            print('-W- Basemap is installed but could not be imported.')
-            print('    You are probably missing a required environment variable')
-            print(
-                '    If you need to use Basemap, you will need to run this program or notebook in a conda env.')
-            print('    For more on how to create a conda env, see: https://conda.io/docs/user-guide/tasks/manage-environments.html')
-            print(
-                '    Recommended alternative: install cartopy for plotting maps.  With conda:')
-            print('    conda install cartopy')
-    if has_basemap and not has_cartopy:
-        print("-W- You have installed Basemap but not cartopy.")
-        print("    In the future, Basemap will no longer be supported.")
-        print("    To continue to make maps, install using conda:")
-        print('    conda install cartopy')
-
-    WARNINGS['basemap'] = True
-    return has_basemap, Basemap
-
 
 def import_cartopy():
     """
