@@ -4,6 +4,8 @@ This repository generates this Jupyter Book website: https://pmagpy.github.io/Pm
 
 # Developing the book content and deploying the book
 
+Github Actions are currently configured so that when changes are made to book files within the main repo that these are used to compile the book and to publish it. The book can also be built locally using the instructions below. Note that the book is currently built using Jupyter Book 1.0 (Jupyter Book 2.0 is underdevelopment and will require some changes to structure and workflow.
+
 ## Installing Jupyter Book
 
 Jupyter book can be installed via pip:
