@@ -4556,44 +4556,52 @@ def fisher_mean(data):
 
 def gausspars(data):
     """
-    Calculates gaussian statistics for data. 
-    
-    Parmeters
-    ---------
-    data : array of data 
-    
-    Returns 
+    Compute the mean and standard deviation of a one-dimensional array of numerical data.
+
+    This function calculates the arithmetic mean and the standard deviation
+    (using N - 1 in the denominator) for a single series of observations.
+
+    Parameters
+    ----------
+    data : array_like
+        One-dimensional list or array of numerical data.
+
+    Returns
     -------
-    mean : array the length of the data array  
-    stdev : second array the length of the data array
-    
+    tuple of (float, float)
+        Mean and standard deviation of the input data. The standard deviation is
+        calculated with N - 1 degrees of freedom.
+
+    Notes
+    -----
+    - If the input array is empty, returns a tuple of two empty strings.
+    - If the array contains a single observation, returns the observation as the mean
+      and 0 as the standard deviation.
+    - The standard deviation is computed using the `ddof` parameter in NumPy, which
+      stands for *delta degrees of freedom*. The divisor in the calculation is
+      ``N - ddof``, where ``N`` is the number of observations. Here, ``ddof=1`` is
+      used so that the result is the **sample standard deviation**, the conventional
+      choice when the data represent a sample from a larger population.
+
     Examples
     --------
-    >>> data=np.loadtxt('data_files/vector_mean/vector_mean_example.dat')
-    >>> pmag.gausspars(data)
-    (array([  154.72699999999995,    44.43599999999999, 23709.242399999992  ]),
-     array([  166.93766686153165 ,    19.578257988354988,
-        11563.604723319804   ]))
-          
-    >>> data = np.array([  [16.0,    43.0, 21620.33],
-           [30.5,    53.6, 12922.58],
-            [6.9,    33.2, 15780.08],
-          [352.5,    40.2, 33947.52], 
-          [354.2,    45.1, 19725.45]])
-    >>> pmag.gausspars(data)
-    (array([  152.02, 43.019999999999996, 20799.192]),
-     array([1.839818931308187e+02, 7.427112494098901e+00, 8.092252785230450e+03]))
+    >>> data = np.array([54.15, 49.08, 50.62, 49.44, 49.64])
+    >>> mean, stdev = pmag.gausspars(data)
+    >>> print("Mean:", mean)
+    >>> print("Standard deviation:", stdev)
+    Mean: 50.586
+    Standard deviation: 2.072409225997607
     """
-    N, mean, d = len(data), 0., 0.
+    data = np.asarray(data)
+    N = len(data)
+
     if N < 1:
         return "", ""
     if N == 1:
-        return data[0], 0
-    for j in range(N):
-        mean += data[j] / float(N)
-    for j in range(N):
-        d += (data[j] - mean)**2
-    stdev = np.sqrt(d * (1./(float(N - 1))))
+        return float(data[0]), 0.0
+
+    mean = np.mean(data)
+    stdev = np.std(data, ddof=1)
     return mean, stdev
 
 
@@ -7288,31 +7296,56 @@ def adjust_ages(AgesIn):
                 if agerec[1] == "Years Cal AD (+/-)":
                     AgesOut.append((1950 - agerec[0]) / factor)
     return AgesOut, age_unit
-#
 
 
 def gaussdev(mean, sigma, N=1):
     """
-    Returns a number randomly drawn from a gaussian distribution with the given mean, sigma
-    
-    Parmeters
-    ---------
-    mean : mean of the gaussian distribution from which to draw deviates
-    sigma : standard deviation of same
-    N : number of deviates desired
+    Generate random samples drawn from a Gaussian (normal) distribution.
+
+    This function samples from a normal distribution with a specified mean and
+    standard deviation, returning a NumPy array of length ``N``.
+
+    Parameters
+    ----------
+    mean : float
+        Mean (center) of the normal distribution.
+    sigma : float
+        Standard deviation of the normal distribution.
+    N : int, optional
+        Number of random samples to generate. Defaults to 1.
 
     Returns
     -------
-    N deviates from the normal distribution
-    
+    ndarray
+        NumPy array of length ``N`` containing random samples drawn from the
+        specified normal distribution. If ``N=1``, the returned array has shape
+        ``(1,)``.
+
+    Notes
+    -----
+    This function is a thin convenience wrapper around ``numpy.random.normal``.
+    Its primary purpose is to provide a default of ``N=1`` and to ensure that
+    the return value is always a NumPy array, even when generating a single
+    sample. Results will vary between runs unless a random seed is set using
+    ``np.random.seed()``.
+
     Examples
     --------
-    >>> pmag.gaussdev(5.5,1.2,6)
-    array([5.090856280215007, 3.305193918953536, 7.313490558588299,
-           5.412029315803913, 6.819820301799303, 7.632257251681613])
+    Generate six samples from a normal distribution with mean 5.5 and standard
+    deviation 1.2:
+
+    >>> np.random.seed(42)  # optional, for reproducibility
+    >>> pmag.gaussdev(5.5, 1.2, 6)
+    array([6.096056983613479, 5.334082838594578, 6.277226245720831,
+        7.327635827689631, 5.219015950331997, 5.219035651660984])
+
+    Generate a single sample:
+
+    >>> np.random.seed(42)
+    >>> pmag.gaussdev(5.5, 1.2, 1)
+    array([6.096056983613479])
     """
     return random.normal(mean, sigma, N)  # return gaussian deviate
-#
 
 
 def get_unf(N=100):
@@ -11949,37 +11982,64 @@ def squish(incs, f):
 
 
 def unsquish(incs, f):
-    """
-    Returns 'unflattened' inclination, assuming factor, f and King (1955) formula: tan (I_o) = tan (I_f)/f.
+    r"""
+    Restore (``unsquish``) inclinations using the King (1955) inclination-shallowing
+    correction.
+
+    King (1955) described the relationship between the inclination of a specimen’s
+    magnetization (:math:`I_o`, the *observed* inclination) and the inclination of
+    the field in which the magnetization was acquired (:math:`I_f`) as:
+
+    .. math::
+
+       \tan(I_o) = f \, \tan(I_f)
+
+    where :math:`f` is the flattening factor (:math:`0 < f \le 1`). When
+    :math:`f < 1`, the observed inclination is shallower than the original field
+    inclination due to compaction-related flattening.
+
+    This function inverts King's equation to estimate the original inclination from
+    observed inclinations:
+
+    .. math::
+
+       \tan(I_f) = \frac{\tan(I_o)}{f}
 
     Parameters
     ----------
-    incs : array of inclination (I_f) data to unflatten
-    f : flattening factor
+    incs : array_like
+        One-dimensional list or NumPy array of observed inclinations (:math:`I_o`)
+        in degrees, typically measured from remanent magnetization directions.
+    f : float
+        Flattening factor (:math:`0 < f \le 1`). Values less than 1 indicate
+        inclination shallowing; smaller values correspond to stronger flattening.
 
     Returns
     -------
-    I_o :  array of inclinations after unflattening
-    
+    ndarray
+        NumPy array of ``unsquished_incs`` (restored inclinations) in degrees with
+        the same shape as ``incs``.
+
     Examples
     --------
-    >>> incs = [63.4,59.2,73.9,85,-49.1,70.7]
-    >>> np.round(pmag.unsquish(incs,.5),1)
-    array([ 75.9,  73.4,  81.8,  87.5, -66.6,  80.1])
+    Basic usage with a list of observed inclinations (degrees):
 
-    >>> incs=np.loadtxt('data_files/unsquish/unsquish_example.dat')
-    >>> pmag.unsquish(incs,.5)
-    array([[-19.791612533135584,  38.94002937796913 ],
-       [  3.596453939529656,  35.75555908297152 ],
-       [ 11.677464698445519,  27.012196299111633],
-       [  0.399995126240053,  46.27631997468994 ],
-       [ 46.760422847350405,  39.080596252430965],
-       [ 48.64708345693855 ,  37.07969161240791 ],
-   ... 
+    >>> incs = [63.4, 59.2, 73.9, 85.1, -49.1, 70.7]
+    >>> unsquished = pmag.unsquish(incs, 0.6)
+    >>> print(np.round(unsquished, 1))
+    [ 73.3  70.3  80.2  87.1 -62.5  78.1]
+
+    Loading inclinations from a data file where they are stored as the second column:
+
+    >>> directions = np.loadtxt('data_files/unsquish/unsquish_example.dat')
+    >>> incs = directions[:, 1]  # extract the inclination column
+    >>> unsquished = pmag.unsquish(incs, 0.61)
+    >>> print(np.round(unsquished[:5], 1))  # show first 5 results
+    [33.5 30.5 22.7 40.6 33.7]
     """
     incs = np.radians(incs)
-    I_o = np.tan(incs)/f  # divide tangent by flattening factor
-    return np.degrees(np.arctan(I_o))
+    unsquished_incs = np.tan(incs) / f
+    return np.degrees(np.arctan(unsquished_incs))
 
 
 def get_ts(ts):
@@ -12062,37 +12122,38 @@ def execute(st, **kwargs):
 
 def initialize_acceptance_criteria(**kwargs):
     """
-    initialize acceptance criteria with NULL values for thellier_gui and demag_gui
+    Initializes a dictionary of acceptance criteria with default null values.
 
-    acceptance criteria format is doctionaries:
+    This function is used by thellier_gui and demag_gui to set up the
+    criteria for accepting or rejecting paleomagnetic data at different
+    levels (specimen, sample, site, etc.).
 
-    acceptance_criteria={}
-        acceptance_criteria[crit]={}
-            acceptance_criteria[crit]['category']=
-            acceptance_criteria[crit]['criterion_name']=
-            acceptance_criteria[crit]['value']=
-            acceptance_criteria[crit]['threshold_type']
-            acceptance_criteria[crit]['decimal_points']
+    Returns
+    -------
+    dict
+        A dictionary where each key is a specific criterion name (e.g., 'specimen_n').
+        The value for each key is another dictionary containing the metadata for that
+        criterion, with the following structure:
 
-   'category':
-       'DE-SPEC','DE-SAMP'..etc
-   'criterion_name':
-       MagIC name
-   'value':
-        a number (for 'regular criteria')
-        a string (for 'flag')
-        1 for True (if criteria is bullean)
-        0 for False (if criteria is bullean)
-        -999 means N/A
-   'threshold_type':
-       'low'for low threshold value
-       'high'for high threshold value
-        [flag1.flag2]: for flags
-        'bool' for boolean flags (can be 'g','b' or True/Flase or 1/0)
-   'decimal_points':
-       number of decimal points in rounding
-       (this is used in displaying criteria in the dialog box)
-       -999 means Exponent with 3 descimal points for floats and string for string
+        'category' : str
+            The category of the criterion (e.g., 'DE-SPEC', 'DE-SAMP').
+        'criterion_name' : str
+            The MagIC name for the criterion.
+        'value' : int, float, or str
+            The threshold value for the criterion.
+            - Numerical value for standard criteria.
+            - String for a flag.
+            - 1 for True, 0 for False for boolean criteria.
+            - -999 indicates Not Applicable (N/A).
+        'threshold_type' : str or list
+            Specifies how the threshold is applied.
+            - 'low': A lower bound (the measured value must be greater).
+            - 'high': An upper bound (the measured value must be less).
+            - list of str (e.g., ['n', 'r']): A list of acceptable flag values.
+            - 'bool': A boolean flag.
+        'decimal_points' : int
+            The number of decimal points for rounding when displaying the value.
+            - A value of -999 formats floats with an exponent and 3 decimal places.
     """
     acceptance_criteria = {}
     # --------------------------------
