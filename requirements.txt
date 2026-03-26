@@ -1,4 +1,5 @@
 jupyter-book<2
+nbformat<5.10
 matplotlib
 numpy
 pandas
