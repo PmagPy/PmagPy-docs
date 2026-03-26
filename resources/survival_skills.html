@@ -1,0 +1,726 @@
+
+<!DOCTYPE html>
+
+
+<html lang="en" data-content_root="../" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>Survival computer skills &#8212; PmagPy Documentation</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "";
+  </script>
+  <!--
+    this give us a css class that will be invisible only if js is disabled
+  -->
+  <noscript>
+    <style>
+      .pst-js-only { display: none !important; }
+
+    </style>
+  </noscript>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../_static/styles/theme.css?digest=8878045cc6db502f8baf" rel="stylesheet" />
+<link href="../_static/styles/pydata-sphinx-theme.css?digest=8878045cc6db502f8baf" rel="stylesheet" />
+
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=03e43079" />
+    <link rel="stylesheet" type="text/css" href="../_static/styles/sphinx-book-theme.css?v=3c74b3bc" />
+    <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css?v=9c3e77be" />
+    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css?v=76b2166b" />
+    <link rel="stylesheet" type="text/css" href="../_static/mystnb.11b39860a7a0cbfd473a3ad8a317855267ff0bd372690045ca344a6b62be495e.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css?v=4fa983c6" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-design.min.css?v=95c83b7e" />
+  
+  <!-- So that users can add custom icons -->
+  <script src="../_static/scripts/fontawesome.js?digest=8878045cc6db502f8baf"></script>
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../_static/scripts/bootstrap.js?digest=8878045cc6db502f8baf" />
+<link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=8878045cc6db502f8baf" />
+
+    <script src="../_static/documentation_options.js?v=9eb32ce0"></script>
+    <script src="../_static/doctools.js?v=9a2dae69"></script>
+    <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../_static/clipboard.min.js?v=a7894cd8"></script>
+    <script src="../_static/copybutton.js?v=f281be69"></script>
+    <script src="../_static/scripts/sphinx-book-theme.js?v=fab101a9"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="../_static/togglebutton.js?v=1ae7504c"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script src="../_static/design-tabs.js?v=f930bc37"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script async="async" src="../_static/sphinx-thebe.js?v=c100c467"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'resources/survival_skills';</script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="Jupyter Notebooks" href="../documentation_notebooks/Jupyter.html" />
+    <link rel="prev" title="Thellier GUI" href="../programs/thellier_gui.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+  <meta name="docsearch:version" content="" />
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <div id="pst-skip-link" class="skip-link d-print-none"><a href="#main-content">Skip to main content</a></div>
+  
+  <div id="pst-scroll-pixel-helper"></div>
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>Back to top</button>
+
+  
+  <dialog id="pst-search-dialog">
+    
+<form class="bd-search d-flex align-items-center"
+      action="../search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         placeholder="Search this book..."
+         aria-label="Search this book..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form>
+  </dialog>
+
+  <div class="pst-async-banner-revealer d-none">
+  <aside id="bd-header-version-warning" class="d-none d-print-none" aria-label="Version warning"></aside>
+</div>
+
+  
+    <header class="bd-header navbar navbar-expand-lg bd-navbar d-print-none">
+    </header>
+  
+
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      
+      
+      <dialog id="pst-primary-sidebar-modal"></dialog>
+      <div id="pst-primary-sidebar" class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+
+  
+    
+  
+
+<a class="navbar-brand logo" href="../intro.html">
+  
+  
+  
+  
+  
+    
+    
+      
+    
+    
+    <img src="../_static/pmagpy_logo_notext.png" class="logo__image only-light" alt="PmagPy Documentation - Home"/>
+    <img src="../_static/pmagpy_logo_notext.png" class="logo__image only-dark pst-js-only" alt="PmagPy Documentation - Home"/>
+  
+  
+</a></div>
+        <div class="sidebar-primary-item">
+
+<button class="btn search-button-field search-button__button pst-js-only" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+ <i class="fa-solid fa-magnifying-glass"></i>
+ <span class="search-button__default-text">Search</span>
+ <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+</button></div>
+        <div class="sidebar-primary-item"><nav class="bd-links bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        
+        <ul class="nav bd-sidenav bd-sidenav__home-link">
+            <li class="toctree-l1">
+                <a class="reference internal" href="../intro.html">
+                    PmagPy: An open source package for paleomagnetic data analysis
+                </a>
+            </li>
+        </ul>
+        <p aria-level="2" class="caption" role="heading"><span class="caption-text">Installation</span></p>
+<ul class="current nav bd-sidenav">
+<li class="toctree-l1 has-children"><a class="reference internal" href="../installation/PmagPy_install.html">Installing <strong>PmagPy</strong></a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../installation/osx_pip.html">OSX pip install</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../installation/osx_developer.html">OSX developer install</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../installation/windows_pip.html">Windows pip install</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../installation/windows_developer.html">Windows developer install</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../installation/linux_pip.html">Linux pip install</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../installation/linux_developer.html">Linux developer install</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../installation/troubleshooting.html">Troubleshooting installation issues</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../programs/command_line_programs.html">Command line programs</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../programs/pmag_gui.html">Installing and Getting Started with Pmag GUI</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../programs/demag_gui.html">Demag GUI</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../programs/thellier_gui.html">Thellier GUI</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1 current active"><a class="current reference internal" href="#">Survival computer skills</a></li>
+
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Documentation notebooks</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../documentation_notebooks/Jupyter.html">Jupyter Notebooks</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../documentation_notebooks/PmagPy_introduction.html">Introduction to PmagPy</a></li>
+
+<li class="toctree-l1"><a class="reference internal" href="../documentation_notebooks/PmagPy_calculations.html">Calculations with PmagPy</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../documentation_notebooks/PmagPy_plots_analysis.html">Visualizations and more analysis with PmagPy</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../documentation_notebooks/PmagPy_MagIC.html">Working with the MagIC database using PmagPy</a></li>
+
+
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Example notebooks</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../example_notebooks/tutorial_notebooks.html">Tutorial notebooks</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../example_notebooks/template_notebooks.html">Template notebooks</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../example_notebooks/published_notebooks.html">Published studies notebooks</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">MagIC</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../MagIC/MagIC.html">MagIC database and file formats</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Function docstrings</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../api/api.html">API Reference</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">References</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../references.html">References</a></li>
+</ul>
+
+    </div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+      <div class="sidebar-primary-item">
+<div id="ethical-ad-placement"
+      class="flat"
+      data-ea-publisher="readthedocs"
+      data-ea-type="readthedocs-sidebar"
+      data-ea-manual="true">
+</div></div>
+  </div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main" role="main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article d-print-none">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><button class="sidebar-toggle primary-toggle btn btn-sm" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</button></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+
+
+
+<div class="dropdown dropdown-source-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Source repositories">
+    <i class="fab fa-github"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="https://github.com/pmagpy/pmagpy-docs" target="_blank"
+   class="btn btn-sm btn-source-repository-button dropdown-item"
+   title="Source repository"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fab fa-github"></i>
+  </span>
+<span class="btn__text-container">Repository</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li><a href="https://github.com/pmagpy/pmagpy-docs/issues/new?title=Issue%20on%20page%20%2Fresources/survival_skills.html&body=Your%20issue%20content%20here." target="_blank"
+   class="btn btn-sm btn-source-issues-button dropdown-item"
+   title="Open an issue"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-lightbulb"></i>
+  </span>
+<span class="btn__text-container">Open issue</span>
+</a>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+
+
+<div class="dropdown dropdown-download-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Download this page">
+    <i class="fas fa-download"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="../_sources/resources/survival_skills.md" target="_blank"
+   class="btn btn-sm btn-download-source-button dropdown-item"
+   title="Download source file"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="btn__text-container">.md</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="window.print()"
+  class="btn btn-sm btn-download-pdf-button dropdown-item"
+  title="Print to PDF"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="btn__text-container">.pdf</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button pst-navbar-icon"
+  title="Fullscreen mode"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+
+
+<button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button pst-js-only" aria-label="Color mode" data-bs-title="Color mode"  data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <i class="theme-switch fa-solid fa-sun                fa-lg" data-mode="light" title="Light"></i>
+  <i class="theme-switch fa-solid fa-moon               fa-lg" data-mode="dark"  title="Dark"></i>
+  <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"  title="System Settings"></i>
+</button>
+
+
+<button class="btn btn-sm pst-navbar-icon search-button search-button__button pst-js-only" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass fa-lg"></i>
+</button>
+<button class="sidebar-toggle secondary-toggle btn btn-sm pst-navbar-icon" title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</button>
+</div></div>
+      
+    </div>
+  
+</div>
+</div>
+              
+              
+
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1>Survival computer skills</h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+            <div>
+                <h2> Contents </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#">Survival computer skills</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#finding-your-command-line">Finding your command line</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#file-systems">File systems</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#moving-around-in-the-file-system">Moving around in the file system</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#redirecting-input-and-output">Redirecting input and output</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#text-editors">Text editors</a></li>
+</ul>
+</li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#introduction-to-python-programming">Introduction to Python Programming</a></li>
+</ul>
+
+            </nav>
+        </div>
+    </div>
+</div>
+
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article">
+                  
+  <section class="tex2jax_ignore mathjax_ignore" id="survival-computer-skills">
+<h1>Survival computer skills<a class="headerlink" href="#survival-computer-skills" title="Link to this heading">#</a></h1>
+<p>The ‘Py’ part of ‘PmagPy’ stands for Python, the language in which all
+the code is written. It is not essential, but it is helpful, to
+understand a bit about computer operating systems and the Python
+language when using PmagPy because scientists should seek to
+understand what the programs they are using are doing rather than
+treating them as black boxes. As all the
+programs are open source, you have the opportunity to look into them. If
+you understand a bit about how computers work yourself, you will be able
+to follow along what the programs are doing and even modify them to work
+better for you. In this chapter, you will find a brief introduction to
+the computer skills necessary for using the programs properly. We have
+tried to make this tutorial operating system independent. All the
+examples should work equally well on Mac OS, Windows, and Unix-type
+operating systems. For a more complete explanation of the marvelous
+world of UNIX, refer to the website at
+<a class="reference external" href="http://www.tutorialspoint.com/unix/unix-quick-guide.htm">http://www.tutorialspoint.com/unix/unix-quick-guide.htm</a>. For handy
+tricks in DOS, try this link: <a class="reference external" href="http://www.c3scripts.com/tutorials/msdos">http://www.c3scripts.com/tutorials/msdos</a>.
+For resources to get started programming in Python,
+see the <a class="reference internal" href="#section-python-intro"><span class="std std-ref">Introduction to Python Programming</span></a> section.
+For now, we are interested in having
+the skills to find a command line and navigate the file system in order
+to get started with <strong>PmagPy</strong>.</p>
+<section id="finding-your-command-line">
+<span id="sect-command-line"></span><h2>Finding your command line<a class="headerlink" href="#finding-your-command-line" title="Link to this heading">#</a></h2>
+<p>If you don’t have experience with Unix-like computer (NIX) interface, you may never have
+encountered a command line. Using any of the command line programs
+requires accessing the command line. If you are using the MacOS
+operating system, look for the Terminal application in the Utilities
+folder within the Applications folder. When the Terminal application is
+launched, you will get a terminal window. The Unix (and MacOS) Bash
+shell has a $ sign as a prompt.</p>
+<a class="reference internal image-reference" href="../_images/terminal.png"><img alt="image" src="../_images/terminal.png" style="width: 600px;" />
+</a>
+<p>Under the Windows operating system, you can find your command line by
+searching for the “Command Prompt” application.</p>
+<a class="reference internal image-reference" href="../_images/cmd.jpg"><img alt="image" src="../_images/cmd.jpg" style="width: 15cm;" />
+</a>
+<p>Note that the location of this program varies on different computers, so
+you may have to hunt around a little to find yours. Also, the actual
+“prompt” will vary for different machines.</p>
+</section>
+<section id="file-systems">
+<span id="sect-file-systems"></span><h2>File systems<a class="headerlink" href="#file-systems" title="Link to this heading">#</a></h2>
+<p>When you first open a terminal window, you are in your “home” directory.
+Fundamental to all operating systems is the concept of directories and
+files. On MacOS and Windows,
+directories are depicted as “folders” and moving about is accomplished
+by clicking on the different icons. In the world of the terminal,
+the directories have names and are arranged in a hierarchical sequence
+with the top directory being the “root” directory, known as “/” (or
+<code class="docutils literal notranslate"><span class="pre">C:\</span></code> in Windows) and the file system looks something like this:</p>
+<a class="reference internal image-reference" href="../_images/filesys.jpg"><img alt="image" src="../_images/filesys.jpg" style="width: 15cm;" />
+</a>
+<p>Within the root directory, there are subdirectories (e.g.
+<strong>Applications</strong> and <strong>Users</strong> in bold face). In any directory, there
+can also be “files” (e.g. <em>dir_cart_example.dat</em>). To refer to
+directories, the operating system relies on what is called a “pathname”.
+Every object has an “absolute” pathname which is valid from anywhere on
+the computer. The absolute pathname in *NIX always begins from the root
+directory <strong>/</strong> and in DOS (the operating system working in the Windows
+command line window), it is <code class="docutils literal notranslate"><span class="pre">C:\</span></code>.</p>
+<p>The absolute pathname to the home directory <strong>lisa</strong> in the figure is
+<strong>/Users/lisa</strong>. Similarly, the absolute pathname to the directory
+containing <strong>PmagPy</strong> scripts would be <strong>/Users/lisa/PmagPy</strong>. There is
+also a “relative” pathname, which is in reference to the current
+directory (the one you are ‘sitting’ in). If user “lisa” is sitting in
+her home directory, the relative pathname for the file
+<em>dir_cart_example.dat</em> in the directory <strong>data_files</strong> would be
+<em>data_files/dir_cart/dir_cart_example.dat</em>. When using relative
+pathnames, it is useful to remember that <strong>./</strong> refers to the current
+directory and <strong>../</strong> refers to the directory “above”. Also, lisa’s home
+directory would be ~lisa, or if you are logged in as lisa
+yourself, then it is just ~.</p>
+</section>
+<section id="moving-around-in-the-file-system">
+<h2>Moving around in the file system<a class="headerlink" href="#moving-around-in-the-file-system" title="Link to this heading">#</a></h2>
+<p>Now that you have found your command line and are comfortable in your
+home directory, you can view the contents of your directory with the
+Unix command <strong>ls</strong> or the DOS command <strong>dir</strong>. You can make a new
+directory with the command</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="o">%</span> <span class="n">mkdir</span> <span class="n">NEW_DIRECTORY_NAME</span>
+</pre></div>
+</div>
+<p>This command works in both Unix and DOS environments) and you can move
+into your new directory with the command</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="o">%</span> <span class="n">cd</span> <span class="n">NEW_DIRECTORY_NAME</span>
+</pre></div>
+</div>
+<p>To move back up into the home directory, type <strong>cd ..</strong> remembering
+that <strong>..</strong> refers to the directory above. Also, <strong>cd</strong> by itself will
+transport you home from whereever you are (<em>there’s no place like
+home…</em>). You can also change to any arbitrary directory by specifying
+the full path of the destination directory.</p>
+</section>
+<section id="redirecting-input-and-output">
+<h2>Redirecting input and output<a class="headerlink" href="#redirecting-input-and-output" title="Link to this heading">#</a></h2>
+<p>Programs that operate at the command line level print output to the
+screen and read input from the keyboard. This is known as “standard
+input and output” or “standard I/O”. One of the nicest things about
+working at the command line level is the ability to redirect input and
+output. For example, instead of typing input to a program with the
+keyboard, it can be read from a file using the symbol <strong>:math:`&lt;`</strong>.
+Output can either be printed to the screen (standard output), redirected
+into a file using the symbol <code class="docutils literal notranslate"><span class="pre">&gt;</span></code>, appended to the end of a
+file with <code class="docutils literal notranslate"><span class="pre">&gt;&gt;</span></code> or used as input to another program with the
+pipe operator <code class="docutils literal notranslate"><span class="pre">|</span></code>.</p>
+</section>
+<section id="text-editors">
+<h2>Text editors<a class="headerlink" href="#text-editors" title="Link to this heading">#</a></h2>
+<p>There are many ways of editing text and the subject is beyond the scope
+of this documentation. Text editing is a blessing and a curse. You
+either love it or hate it and in the beginning, and if you are used to
+programs like Word, you will certainly hate it. (And if you are used to
+a decent text editor, you will hate Word!). But you can’t use Word
+because the output is in a weird format that no scripting languages read
+easily. So you have to use text editor that will produce a plain (ascii)
+file, like Notepad, BBEdit, Sublime Text, or Visual Studio Code.
+<a class="reference external" href="https://code.visualstudio.com/">Visual Studio Code</a> is a code editor
+that has lots of nice packages available that extend its functionality
+such as enabling Jupyter notebooks and interfacing with Github.</p>
+</section>
+</section>
+<section class="tex2jax_ignore mathjax_ignore" id="introduction-to-python-programming">
+<span id="section-python-intro"></span><h1>Introduction to Python Programming<a class="headerlink" href="#introduction-to-python-programming" title="Link to this heading">#</a></h1>
+<p>There are many resources for learning Python.
+Lisa Tauxe’s <a class="reference external" href="https://github.com/ltauxe/Python-for-Earth-Science-Students">Python
+For Earth Science
+Students</a>
+will give you a good foundation in programming Python with
+geology-specific applications. The course covers Python basics, Jupyter
+notebooks, and plotting and analysis with scientific Python libraries.
+The entire course is freely available in a <a class="reference external" href="https://github.com/ltauxe/Python-for-Earth-Science-Students">Github
+repository</a>.
+It is composed of an interactive series of lectures in the form of
+Jupyter notebooks.</p>
+<p>To get started, you will need to install Python <a class="reference external" href="https://www.anaconda.com/products/distribution">the Anaconda distribution
+is highly recommended</a>.
+Then, <a class="reference external" href="https://git-scm.com/downloads">download git</a> and follow the
+installation instructions. If you don’t know whether you have git installed,
+just type <code class="docutils literal notranslate"><span class="pre">git</span></code> on your command line and see if the help message
+appears. You can also use the helpful <a class="reference external" href="https://desktop.github.com">Github Desktop application</a> to
+interface with git and sync with Github repositories.</p>
+<ol class="arabic">
+<li><p><a class="reference external" href="https://www.anaconda.com/products/distribution">Install Python</a></p></li>
+<li><p><a class="reference external" href="https://git-scm.com/downloads">Download git</a></p></li>
+<li><p>Clone the notebook repository either through Github Desktop or at the command line (<a class="reference internal" href="#sect-command-line"><span class="std std-ref">Finding your command line</span></a>) in which case use these commands:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">git</span> <span class="n">clone</span> <span class="n">https</span><span class="p">:</span><span class="o">//</span><span class="n">github</span><span class="o">.</span><span class="n">com</span><span class="o">/</span><span class="n">ltauxe</span><span class="o">/</span><span class="n">Python</span><span class="o">-</span><span class="k">for</span><span class="o">-</span><span class="n">Earth</span><span class="o">-</span><span class="n">Science</span><span class="o">-</span><span class="n">Students</span><span class="o">.</span><span class="n">git</span>
+
+<span class="n">cd</span> <span class="n">Python</span><span class="o">-</span><span class="k">for</span><span class="o">-</span><span class="n">Earth</span><span class="o">-</span><span class="n">Science</span><span class="o">-</span><span class="n">Students</span>
+
+<span class="n">jupyter</span> <span class="n">notebook</span>
+</pre></div>
+</div>
+</li>
+</ol>
+<p>This command will open a browser window with a list of Notebooks. Click on
+Lecture 1, which overviews the course and teaches you how to run
+Notebooks. From there, you can follow the lectures in order or pick and
+choose based on your interests. Python is a lot of fun - enjoy!</p>
+</section>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            name: "python3",
+            path: "./resources"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+                </article>
+              
+
+              
+              
+              
+              
+                <footer class="prev-next-footer d-print-none">
+                  
+<div class="prev-next-area">
+    <a class="left-prev"
+       href="../programs/thellier_gui.html"
+       title="previous page">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">previous</p>
+        <p class="prev-next-title">Thellier GUI</p>
+      </div>
+    </a>
+    <a class="right-next"
+       href="../documentation_notebooks/Jupyter.html"
+       title="next page">
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">Jupyter Notebooks</p>
+      </div>
+      <i class="fa-solid fa-angle-right"></i>
+    </a>
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+                <dialog id="pst-secondary-sidebar-modal"></dialog>
+                <div id="pst-secondary-sidebar" class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+
+  <div class="sidebar-secondary-item"><div
+    id="pst-page-navigation-heading-2"
+    class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav id="pst-page-toc-nav" class="page-toc" aria-labelledby="pst-page-navigation-heading-2">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#">Survival computer skills</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#finding-your-command-line">Finding your command line</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#file-systems">File systems</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#moving-around-in-the-file-system">Moving around in the file system</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#redirecting-input-and-output">Redirecting input and output</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#text-editors">Text editors</a></li>
+</ul>
+</li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#introduction-to-python-programming">Introduction to Python Programming</a></li>
+</ul>
+
+  </nav></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
+  
+  <div class="footer-item">
+    
+<p class="component-author">
+By PmagPy Contributors
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+
+  <p class="copyright">
+    
+      © Copyright 2025.
+      <br/>
+    
+  </p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+</div>
+          </footer>
+        
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script defer src="../_static/scripts/bootstrap.js?digest=8878045cc6db502f8baf"></script>
+<script defer src="../_static/scripts/pydata-sphinx-theme.js?digest=8878045cc6db502f8baf"></script>
+
+  <footer class="bd-footer">
+  </footer>
+  </body>
+</html>

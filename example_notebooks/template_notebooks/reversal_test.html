@@ -1,0 +1,1119 @@
+
+<!DOCTYPE html>
+
+
+<html lang="en" data-content_root="../../" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>Conduct reversal tests on directional data in MagIC format using PmagPy &#8212; PmagPy Documentation</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "";
+  </script>
+  <!--
+    this give us a css class that will be invisible only if js is disabled
+  -->
+  <noscript>
+    <style>
+      .pst-js-only { display: none !important; }
+
+    </style>
+  </noscript>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../../_static/styles/theme.css?digest=8878045cc6db502f8baf" rel="stylesheet" />
+<link href="../../_static/styles/pydata-sphinx-theme.css?digest=8878045cc6db502f8baf" rel="stylesheet" />
+
+    <link rel="stylesheet" type="text/css" href="../../_static/pygments.css?v=03e43079" />
+    <link rel="stylesheet" type="text/css" href="../../_static/styles/sphinx-book-theme.css?v=3c74b3bc" />
+    <link rel="stylesheet" type="text/css" href="../../_static/togglebutton.css?v=9c3e77be" />
+    <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css?v=76b2166b" />
+    <link rel="stylesheet" type="text/css" href="../../_static/mystnb.11b39860a7a0cbfd473a3ad8a317855267ff0bd372690045ca344a6b62be495e.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/sphinx-thebe.css?v=4fa983c6" />
+    <link rel="stylesheet" type="text/css" href="../../_static/sphinx-design.min.css?v=95c83b7e" />
+  
+  <!-- So that users can add custom icons -->
+  <script src="../../_static/scripts/fontawesome.js?digest=8878045cc6db502f8baf"></script>
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../../_static/scripts/bootstrap.js?digest=8878045cc6db502f8baf" />
+<link rel="preload" as="script" href="../../_static/scripts/pydata-sphinx-theme.js?digest=8878045cc6db502f8baf" />
+
+    <script src="../../_static/documentation_options.js?v=9eb32ce0"></script>
+    <script src="../../_static/doctools.js?v=9a2dae69"></script>
+    <script src="../../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../../_static/clipboard.min.js?v=a7894cd8"></script>
+    <script src="../../_static/copybutton.js?v=f281be69"></script>
+    <script src="../../_static/scripts/sphinx-book-theme.js?v=fab101a9"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="../../_static/togglebutton.js?v=1ae7504c"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script src="../../_static/design-tabs.js?v=f930bc37"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script async="async" src="../../_static/sphinx-thebe.js?v=c100c467"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'example_notebooks/template_notebooks/reversal_test';</script>
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+  <meta name="docsearch:version" content="" />
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <div id="pst-skip-link" class="skip-link d-print-none"><a href="#main-content">Skip to main content</a></div>
+  
+  <div id="pst-scroll-pixel-helper"></div>
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>Back to top</button>
+
+  
+  <dialog id="pst-search-dialog">
+    
+<form class="bd-search d-flex align-items-center"
+      action="../../search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         placeholder="Search this book..."
+         aria-label="Search this book..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form>
+  </dialog>
+
+  <div class="pst-async-banner-revealer d-none">
+  <aside id="bd-header-version-warning" class="d-none d-print-none" aria-label="Version warning"></aside>
+</div>
+
+  
+    <header class="bd-header navbar navbar-expand-lg bd-navbar d-print-none">
+    </header>
+  
+
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      
+      
+        
+      
+      <dialog id="pst-primary-sidebar-modal"></dialog>
+      <div id="pst-primary-sidebar" class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+
+  
+    
+  
+
+<a class="navbar-brand logo" href="../../intro.html">
+  
+  
+  
+  
+  
+    
+    
+      
+    
+    
+    <img src="../../_static/pmagpy_logo_notext.png" class="logo__image only-light" alt="PmagPy Documentation - Home"/>
+    <img src="../../_static/pmagpy_logo_notext.png" class="logo__image only-dark pst-js-only" alt="PmagPy Documentation - Home"/>
+  
+  
+</a></div>
+        <div class="sidebar-primary-item">
+
+<button class="btn search-button-field search-button__button pst-js-only" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+ <i class="fa-solid fa-magnifying-glass"></i>
+ <span class="search-button__default-text">Search</span>
+ <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+</button></div>
+        <div class="sidebar-primary-item"><nav class="bd-links bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        
+        <ul class="nav bd-sidenav bd-sidenav__home-link">
+            <li class="toctree-l1">
+                <a class="reference internal" href="../../intro.html">
+                    PmagPy: An open source package for paleomagnetic data analysis
+                </a>
+            </li>
+        </ul>
+        <p aria-level="2" class="caption" role="heading"><span class="caption-text">Installation</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../installation/PmagPy_install.html">Installing <strong>PmagPy</strong></a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../installation/osx_pip.html">OSX pip install</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../installation/osx_developer.html">OSX developer install</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../installation/windows_pip.html">Windows pip install</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../installation/windows_developer.html">Windows developer install</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../installation/linux_pip.html">Linux pip install</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../installation/linux_developer.html">Linux developer install</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../installation/troubleshooting.html">Troubleshooting installation issues</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../programs/command_line_programs.html">Command line programs</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../programs/pmag_gui.html">Installing and Getting Started with Pmag GUI</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../programs/demag_gui.html">Demag GUI</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../programs/thellier_gui.html">Thellier GUI</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1"><a class="reference internal" href="../../resources/survival_skills.html">Survival computer skills</a></li>
+
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Documentation notebooks</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../../documentation_notebooks/Jupyter.html">Jupyter Notebooks</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../documentation_notebooks/PmagPy_introduction.html">Introduction to PmagPy</a></li>
+
+<li class="toctree-l1"><a class="reference internal" href="../../documentation_notebooks/PmagPy_calculations.html">Calculations with PmagPy</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../documentation_notebooks/PmagPy_plots_analysis.html">Visualizations and more analysis with PmagPy</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../documentation_notebooks/PmagPy_MagIC.html">Working with the MagIC database using PmagPy</a></li>
+
+
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Example notebooks</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../tutorial_notebooks.html">Tutorial notebooks</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../template_notebooks.html">Template notebooks</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../published_notebooks.html">Published studies notebooks</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">MagIC</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../../MagIC/MagIC.html">MagIC database and file formats</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Function docstrings</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../../api/api.html">API Reference</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">References</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../../references.html">References</a></li>
+</ul>
+
+    </div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+      <div class="sidebar-primary-item">
+<div id="ethical-ad-placement"
+      class="flat"
+      data-ea-publisher="readthedocs"
+      data-ea-type="readthedocs-sidebar"
+      data-ea-manual="true">
+</div></div>
+  </div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main" role="main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article d-print-none">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><button class="sidebar-toggle primary-toggle btn btn-sm" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</button></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+
+
+
+<div class="dropdown dropdown-source-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Source repositories">
+    <i class="fab fa-github"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="https://github.com/pmagpy/pmagpy-docs" target="_blank"
+   class="btn btn-sm btn-source-repository-button dropdown-item"
+   title="Source repository"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fab fa-github"></i>
+  </span>
+<span class="btn__text-container">Repository</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li><a href="https://github.com/pmagpy/pmagpy-docs/issues/new?title=Issue%20on%20page%20%2Fexample_notebooks/template_notebooks/reversal_test.html&body=Your%20issue%20content%20here." target="_blank"
+   class="btn btn-sm btn-source-issues-button dropdown-item"
+   title="Open an issue"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-lightbulb"></i>
+  </span>
+<span class="btn__text-container">Open issue</span>
+</a>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+
+
+<div class="dropdown dropdown-download-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Download this page">
+    <i class="fas fa-download"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="../../_sources/example_notebooks/template_notebooks/reversal_test.ipynb" target="_blank"
+   class="btn btn-sm btn-download-source-button dropdown-item"
+   title="Download source file"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="btn__text-container">.ipynb</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="window.print()"
+  class="btn btn-sm btn-download-pdf-button dropdown-item"
+  title="Print to PDF"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="btn__text-container">.pdf</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button pst-navbar-icon"
+  title="Fullscreen mode"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+
+
+<button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button pst-js-only" aria-label="Color mode" data-bs-title="Color mode"  data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <i class="theme-switch fa-solid fa-sun                fa-lg" data-mode="light" title="Light"></i>
+  <i class="theme-switch fa-solid fa-moon               fa-lg" data-mode="dark"  title="Dark"></i>
+  <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"  title="System Settings"></i>
+</button>
+
+
+<button class="btn btn-sm pst-navbar-icon search-button search-button__button pst-js-only" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass fa-lg"></i>
+</button>
+<button class="sidebar-toggle secondary-toggle btn btn-sm pst-navbar-icon" title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</button>
+</div></div>
+      
+    </div>
+  
+</div>
+</div>
+              
+              
+
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1>Conduct reversal tests on directional data in MagIC format using PmagPy</h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+            <div>
+                <h2> Contents </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#introduction">Introduction</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#change-the-magic-contribution">Change the MagIC contribution</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#apply-to-your-own-sites-txt-data">Apply to your own <code class="docutils literal notranslate"><span class="pre">sites.txt</span></code> data</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#import-packages">Import packages</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#download-and-unpack-data">Download and unpack data</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#download-magic-contribution">Download MagIC contribution</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#unpack-the-magic-file">Unpack the MagIC file</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#import-the-sites-table">Import the sites table</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#filter-by-tilt-correction">Filter by tilt correction</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#make-declination-inclination-lists">Make declination/inclination lists</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#plot-the-directions">Plot the directions</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#reversal-tests">Reversal tests</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#conduct-the-watson-common-mean-reversal-test">Conduct the Watson common mean reversal test</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#conduct-the-classic-tauxe-et-al-1991-bootstrap-reversal-test">Conduct the classic Tauxe et al. (1991) bootstrap reversal test</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#apply-the-updated-heslop-et-al-2023-bootstrap-reversal-test">Apply the updated Heslop et al. (2023) bootstrap reversal test</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#learn-about-the-reversal-test-functions">Learn about the reversal test functions</a></li>
+</ul>
+</li>
+</ul>
+            </nav>
+        </div>
+    </div>
+</div>
+
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article">
+                  
+  <section class="tex2jax_ignore mathjax_ignore" id="conduct-reversal-tests-on-directional-data-in-magic-format-using-pmagpy">
+<h1>Conduct reversal tests on directional data in MagIC format using PmagPy<a class="headerlink" href="#conduct-reversal-tests-on-directional-data-in-magic-format-using-pmagpy" title="Link to this heading">#</a></h1>
+<section id="introduction">
+<h2>Introduction<a class="headerlink" href="#introduction" title="Link to this heading">#</a></h2>
+<p>This notebook is a template for importing data and conducting reversal tests using PmagPy. You can use it on any MagIC contribution with dual polarity site data. The example that is given is on paleomagnetic directional data from the following study that is in the MagIC database (<a class="reference external" href="https://earthref.org/MagIC/19903">https://earthref.org/MagIC/19903</a>):</p>
+<blockquote>
+<div><p>Ao, An, Dekkers, Li, Xiao, Zhao, Xand Qiang (2013). Pleistocene magnetochronology of the fauna and Paleolithic sites in the Nihewan Basin: Significance for environmental and hominin evolution in North China. Quaternary Geochronology 18:78-92. doi:10.1016/J.QUAGEO.2013.06.004.</p>
+</div></blockquote>
+<section id="change-the-magic-contribution">
+<h3>Change the MagIC contribution<a class="headerlink" href="#change-the-magic-contribution" title="Link to this heading">#</a></h3>
+<p>You can change what study this notebook is applied to by changing the <code class="docutils literal notranslate"><span class="pre">magic_id</span></code> in the <strong>Download data and unpack data</strong> code cell below.</p>
+</section>
+<section id="apply-to-your-own-sites-txt-data">
+<h3>Apply to your own <code class="docutils literal notranslate"><span class="pre">sites.txt</span></code> data<a class="headerlink" href="#apply-to-your-own-sites-txt-data" title="Link to this heading">#</a></h3>
+<p>You can also substitute in your own MagIC format <code class="docutils literal notranslate"><span class="pre">sites.txt</span></code> file. To do this, skip the <strong>Download data and unpack data</strong> section and go to the <strong>Import the sites table</strong> section after running the <strong>Import packages</strong> code.</p>
+</section>
+</section>
+<section id="import-packages">
+<h2>Import packages<a class="headerlink" href="#import-packages" title="Link to this heading">#</a></h2>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">pmagpy.ipmag</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">ipmag</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">pandas</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">pd</span>
+
+<span class="o">%</span><span class="k">matplotlib</span> inline
+<span class="o">%</span><span class="k">config</span> InlineBackend.figure_format=&#39;retina&#39;
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="download-and-unpack-data">
+<h2>Download and unpack data<a class="headerlink" href="#download-and-unpack-data" title="Link to this heading">#</a></h2>
+<section id="download-magic-contribution">
+<h3>Download MagIC contribution<a class="headerlink" href="#download-magic-contribution" title="Link to this heading">#</a></h3>
+<p>We can first download the data from MagIC by providing the <code class="docutils literal notranslate"><span class="pre">magic_id</span></code>.
+If the directory name that is given is not provided, it will be created.
+In the example, the data are put into a folder within this directory that is named <code class="docutils literal notranslate"><span class="pre">reversal_test_data</span></code>.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">magic_id</span><span class="o">=</span><span class="s1">&#39;19903&#39;</span>
+<span class="n">directory</span> <span class="o">=</span> <span class="s1">&#39;./reversal_test_data&#39;</span>
+<span class="n">result</span><span class="p">,</span> <span class="n">magic_file_path</span> <span class="o">=</span> <span class="n">ipmag</span><span class="o">.</span><span class="n">download_magic_from_id</span><span class="p">(</span><span class="n">magic_id</span><span class="p">,</span> <span class="n">directory</span><span class="o">=</span><span class="n">directory</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="unpack-the-magic-file">
+<h3>Unpack the MagIC file<a class="headerlink" href="#unpack-the-magic-file" title="Link to this heading">#</a></h3>
+<p>MagIC contributions are made up of distinct tables that can be unpacked. In this case, we are going to do a reversal test on the site level data so we are particularly interested in unpacking the <code class="docutils literal notranslate"><span class="pre">sites.txt</span></code> table from the MagIC file.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">ipmag</span><span class="o">.</span><span class="n">unpack_magic</span><span class="p">(</span><span class="n">magic_file_path</span><span class="p">,</span><span class="n">dir_path</span><span class="o">=</span><span class="n">directory</span><span class="p">,</span> <span class="n">print_progress</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>1  records written to file  /Users/penokean/0000_GitHub/PmagPy-docs/example_notebooks/template_notebooks/reversal_test_data/contribution.txt
+1  records written to file  /Users/penokean/0000_GitHub/PmagPy-docs/example_notebooks/template_notebooks/reversal_test_data/locations.txt
+214  records written to file  /Users/penokean/0000_GitHub/PmagPy-docs/example_notebooks/template_notebooks/reversal_test_data/sites.txt
+214  records written to file  /Users/penokean/0000_GitHub/PmagPy-docs/example_notebooks/template_notebooks/reversal_test_data/samples.txt
+214  records written to file  /Users/penokean/0000_GitHub/PmagPy-docs/example_notebooks/template_notebooks/reversal_test_data/specimens.txt
+</pre></div>
+</div>
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>True
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="import-the-sites-table">
+<h3>Import the sites table<a class="headerlink" href="#import-the-sites-table" title="Link to this heading">#</a></h3>
+<p>We can now use pandas to import the sites table to a pandas dataframe using the function <code class="docutils literal notranslate"><span class="pre">pd.read_csv()</span></code>.</p>
+<p>We need to point <code class="docutils literal notranslate"><span class="pre">pd.read_csv()</span></code> to the file which with the above steps has the location and name of <code class="docutils literal notranslate"><span class="pre">'reversal_test/sites.txt'</span></code>. This can be changed if the file is in a different place or has a different name. For example, if it is in the same directory as the notebook it can be: <code class="docutils literal notranslate"><span class="pre">'sites.txt'</span></code></p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># change the sites_file path if you want to use a file in a different directory</span>
+<span class="n">sites_file</span> <span class="o">=</span> <span class="n">directory</span> <span class="o">+</span> <span class="s1">&#39;/sites.txt&#39;</span>
+<span class="n">sites</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="n">sites_file</span><span class="p">,</span><span class="n">sep</span><span class="o">=</span><span class="s1">&#39;</span><span class="se">\t</span><span class="s1">&#39;</span><span class="p">,</span><span class="n">header</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+<span class="n">sites</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>age_high</th>
+      <th>age_low</th>
+      <th>age_unit</th>
+      <th>citations</th>
+      <th>dir_dec</th>
+      <th>dir_inc</th>
+      <th>dir_tilt_correction</th>
+      <th>geologic_classes</th>
+      <th>geologic_types</th>
+      <th>height</th>
+      <th>lat</th>
+      <th>lithologies</th>
+      <th>location</th>
+      <th>lon</th>
+      <th>method_codes</th>
+      <th>site</th>
+      <th>vgp_lat</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>0</td>
+      <td>3</td>
+      <td>Ma</td>
+      <td>10.1016/j.quageo.2013.06.004</td>
+      <td>353.6</td>
+      <td>46.3</td>
+      <td>100</td>
+      <td>Sedimentary</td>
+      <td>Sediment Layer</td>
+      <td>-0.0</td>
+      <td>40.15</td>
+      <td>Silty Clay</td>
+      <td>Daodi Section, Nihewan Basin</td>
+      <td>114.658333</td>
+      <td>LP-DIR-T:DE-BFL</td>
+      <td>0.0</td>
+      <td>76.399711</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>0</td>
+      <td>3</td>
+      <td>Ma</td>
+      <td>10.1016/j.quageo.2013.06.004</td>
+      <td>2.6</td>
+      <td>59.7</td>
+      <td>100</td>
+      <td>Sedimentary</td>
+      <td>Sediment Layer</td>
+      <td>-2.3</td>
+      <td>40.15</td>
+      <td>Silty Clay</td>
+      <td>Daodi Section, Nihewan Basin</td>
+      <td>114.658333</td>
+      <td>LP-DIR-T:DE-BFL</td>
+      <td>2.3</td>
+      <td>87.978299</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>0</td>
+      <td>3</td>
+      <td>Ma</td>
+      <td>10.1016/j.quageo.2013.06.004</td>
+      <td>347.7</td>
+      <td>60.6</td>
+      <td>100</td>
+      <td>Sedimentary</td>
+      <td>Sediment Layer</td>
+      <td>-3.3</td>
+      <td>40.15</td>
+      <td>Silty Clay</td>
+      <td>Daodi Section, Nihewan Basin</td>
+      <td>114.658333</td>
+      <td>LP-DIR-T:DE-BFL</td>
+      <td>3.3</td>
+      <td>80.596793</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>0</td>
+      <td>3</td>
+      <td>Ma</td>
+      <td>10.1016/j.quageo.2013.06.004</td>
+      <td>338.2</td>
+      <td>44.2</td>
+      <td>100</td>
+      <td>Sedimentary</td>
+      <td>Sediment Layer</td>
+      <td>-4.3</td>
+      <td>40.15</td>
+      <td>Silty Clay</td>
+      <td>Daodi Section, Nihewan Basin</td>
+      <td>114.658333</td>
+      <td>LP-DIR-T:DE-BFL</td>
+      <td>4.3</td>
+      <td>66.955595</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>0</td>
+      <td>3</td>
+      <td>Ma</td>
+      <td>10.1016/j.quageo.2013.06.004</td>
+      <td>348.6</td>
+      <td>33.6</td>
+      <td>100</td>
+      <td>Sedimentary</td>
+      <td>Sediment Layer</td>
+      <td>-5.0</td>
+      <td>40.15</td>
+      <td>Silty Clay</td>
+      <td>Daodi Section, Nihewan Basin</td>
+      <td>114.658333</td>
+      <td>LP-DIR-T:DE-BFL</td>
+      <td>5.0</td>
+      <td>66.113052</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+</div>
+</section>
+<section id="filter-by-tilt-correction">
+<h3>Filter by tilt correction<a class="headerlink" href="#filter-by-tilt-correction" title="Link to this heading">#</a></h3>
+<p>When there are data in both geographic coordinates (without correction for bedding tilt) and data in tilt corrected coordinates, they each get their own row with different values in the <code class="docutils literal notranslate"><span class="pre">dir_tilt_correction</span></code> column:</p>
+<ul class="simple">
+<li><p>0: No tilt correction applied. The data are in the geographic coordinate system (i.e., as they are currently oriented in the field).</p></li>
+<li><p>100: Full (100%) tilt correction applied. The data are in the paleohorizontal coordinate system, meaning they have been corrected for tilting to represent their original horizontal position.</p></li>
+</ul>
+<p>In the example dataset, only the tilt-corrected values are available. As a result, all the entries have a <code class="docutils literal notranslate"><span class="pre">dir_tilt_correction</span></code> of 100.
+For completeness, we will filter and make a <code class="docutils literal notranslate"><span class="pre">sites_geo</span></code> dataframe where <code class="docutils literal notranslate"><span class="pre">dir_tilt_correction</span></code> is 0 and
+a <code class="docutils literal notranslate"><span class="pre">sites_tc</span></code> dataframe where <code class="docutils literal notranslate"><span class="pre">dir_tilt_correction</span></code> is 100. For this example, <code class="docutils literal notranslate"><span class="pre">sites_geo</span></code> will be empty, but
+it will be populated for a MagIC contribution where there are data in those coordinates.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">sites_geo</span> <span class="o">=</span> <span class="n">sites</span><span class="p">[</span><span class="n">sites</span><span class="p">[</span><span class="s1">&#39;dir_tilt_correction&#39;</span><span class="p">]</span> <span class="o">==</span> <span class="mi">0</span><span class="p">]</span>
+<span class="n">sites_tc</span> <span class="o">=</span> <span class="n">sites</span><span class="p">[</span><span class="n">sites</span><span class="p">[</span><span class="s1">&#39;dir_tilt_correction&#39;</span><span class="p">]</span> <span class="o">==</span> <span class="mi">100</span><span class="p">]</span>
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="make-declination-inclination-lists">
+<h3>Make declination/inclination lists<a class="headerlink" href="#make-declination-inclination-lists" title="Link to this heading">#</a></h3>
+<p>We can extract specific columns from the dataframe by using the nomenclature <code class="docutils literal notranslate"><span class="pre">dataframe_name['column_name']</span></code>. In this case, we want to conduct a reversal test on the data in the <code class="docutils literal notranslate"><span class="pre">sites_geo</span></code> dataframe and are interested in the directional data which are the declination column <code class="docutils literal notranslate"><span class="pre">dir_dec</span></code> and the inclination column <code class="docutils literal notranslate"><span class="pre">dir_inc</span></code>. So using the code <code class="docutils literal notranslate"><span class="pre">sites['dir_dec']</span></code> will give us all the declinations which we can assign to a variable <code class="docutils literal notranslate"><span class="pre">sites_dec</span></code>.</p>
+<p>If you wanted to do the test on the <code class="docutils literal notranslate"><span class="pre">sites_tc</span></code> data, you would switch in <code class="docutils literal notranslate"><span class="pre">sites_tc</span></code> for <code class="docutils literal notranslate"><span class="pre">sites_geo</span></code> in the text below.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">sites_dec</span> <span class="o">=</span> <span class="n">sites_tc</span><span class="p">[</span><span class="s1">&#39;dir_dec&#39;</span><span class="p">]</span>
+<span class="n">sites_inc</span> <span class="o">=</span> <span class="n">sites_tc</span><span class="p">[</span><span class="s1">&#39;dir_inc&#39;</span><span class="p">]</span>
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+</section>
+<section id="plot-the-directions">
+<h2>Plot the directions<a class="headerlink" href="#plot-the-directions" title="Link to this heading">#</a></h2>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">ipmag</span><span class="o">.</span><span class="n">plot_net</span><span class="p">()</span>
+<span class="n">ipmag</span><span class="o">.</span><span class="n">plot_di</span><span class="p">(</span><span class="n">sites_dec</span><span class="p">,</span><span class="n">sites_inc</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<a class="reference internal image-reference" href="../../_images/4e2fabd3b7e43566318848a37cc77b8a81fc0dc5a99dc22c5a54405a1f1b0851.png"><img alt="../../_images/4e2fabd3b7e43566318848a37cc77b8a81fc0dc5a99dc22c5a54405a1f1b0851.png" src="../../_images/4e2fabd3b7e43566318848a37cc77b8a81fc0dc5a99dc22c5a54405a1f1b0851.png" style="width: 630px; height: 470px;" />
+</a>
+</div>
+</div>
+</section>
+<section id="reversal-tests">
+<h2>Reversal tests<a class="headerlink" href="#reversal-tests" title="Link to this heading">#</a></h2>
+<p>Now that we have extracted the declination and inclination values, let’s conduct reversal tests on these data using the functions <code class="docutils literal notranslate"><span class="pre">ipmag.reversal_test_bootstrap</span></code> and <code class="docutils literal notranslate"><span class="pre">ipmag.reversal_test_MM1990</span></code>.</p>
+<section id="conduct-the-watson-common-mean-reversal-test">
+<h3>Conduct the Watson common mean reversal test<a class="headerlink" href="#conduct-the-watson-common-mean-reversal-test" title="Link to this heading">#</a></h3>
+<p>We can do the Watson common mean test (together with McFadden and McElhinny (1990) classification) as well:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">ipmag</span><span class="o">.</span><span class="n">reversal_test_MM1990</span><span class="p">(</span><span class="n">dec</span><span class="o">=</span><span class="n">sites_dec</span><span class="p">,</span>
+                           <span class="n">inc</span><span class="o">=</span><span class="n">sites_inc</span><span class="p">,</span>
+                           <span class="n">plot_CDF</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Results of Watson V test: 
+
+Watson&#39;s V:           4.4
+Critical value of V:  6.1
+&quot;Pass&quot;: Since V is less than Vcrit, the null hypothesis
+that the two populations are drawn from distributions
+that share a common mean direction can not be rejected.
+
+M&amp;M1990 classification:
+
+Angle between data set means: 4.4
+Critical angle for M&amp;M1990:   5.1
+The McFadden and McElhinny (1990) classification for
+this test is: &#39;B&#39;
+</pre></div>
+</div>
+<a class="reference internal image-reference" href="../../_images/6955205919f9145a28ce151ae5bf9b1ad6190bd83af7e51ab92f6bf8005747ca.png"><img alt="../../_images/6955205919f9145a28ce151ae5bf9b1ad6190bd83af7e51ab92f6bf8005747ca.png" src="../../_images/6955205919f9145a28ce151ae5bf9b1ad6190bd83af7e51ab92f6bf8005747ca.png" style="width: 345px; height: 260px;" />
+</a>
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>(1, 4.362992887306586, 5.1420809705167825, &#39;B&#39;)
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="conduct-the-classic-tauxe-et-al-1991-bootstrap-reversal-test">
+<h3>Conduct the classic Tauxe et al. (1991) bootstrap reversal test<a class="headerlink" href="#conduct-the-classic-tauxe-et-al-1991-bootstrap-reversal-test" title="Link to this heading">#</a></h3>
+<p>Let’s go ahead and do the bootstrap reversal test using this <code class="docutils literal notranslate"><span class="pre">ipmag.reversal_test_bootstrap()</span></code> function.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">result</span> <span class="o">=</span> <span class="n">ipmag</span><span class="o">.</span><span class="n">reversal_test_bootstrap</span><span class="p">(</span><span class="n">dec</span><span class="o">=</span><span class="n">sites_dec</span><span class="p">,</span>
+                                       <span class="n">inc</span><span class="o">=</span><span class="n">sites_inc</span><span class="p">,</span>
+                                       <span class="n">plot_stereo</span> <span class="o">=</span> <span class="kc">True</span><span class="p">,</span>
+                                       <span class="n">save</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span>
+                                       <span class="n">save_folder</span><span class="o">=</span><span class="n">directory</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<a class="reference internal image-reference" href="../../_images/6cd27361a6f8f12f45bf70afa60929aeeb8e9825c36dc33e499a98ce9cd10e34.png"><img alt="../../_images/6cd27361a6f8f12f45bf70afa60929aeeb8e9825c36dc33e499a98ce9cd10e34.png" src="../../_images/6cd27361a6f8f12f45bf70afa60929aeeb8e9825c36dc33e499a98ce9cd10e34.png" style="width: 390px; height: 390px;" />
+</a>
+<a class="reference internal image-reference" href="../../_images/4e024665ba772e1a3b84daff123913f3dc9ed1eff71b8896dba19ef373768d48.png"><img alt="../../_images/4e024665ba772e1a3b84daff123913f3dc9ed1eff71b8896dba19ef373768d48.png" src="../../_images/4e024665ba772e1a3b84daff123913f3dc9ed1eff71b8896dba19ef373768d48.png" style="width: 691px; height: 239px;" />
+</a>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Pass
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="apply-the-updated-heslop-et-al-2023-bootstrap-reversal-test">
+<h3>Apply the updated Heslop et al. (2023) bootstrap reversal test<a class="headerlink" href="#apply-the-updated-heslop-et-al-2023-bootstrap-reversal-test" title="Link to this heading">#</a></h3>
+<p>In the framework of the bootstrap reversal above Tauxe et al. (1991) inference comes from comparing the bootstrap-derived confidence regions for the mean directions. Heslop et al. (2023) updated the test and placed it within a null hypothesis significance testing framework. If the test statistic value is below a critical value, then the hypothesis that the populations share a common mean (for a reversal test that the antipode of one population shares a common mean with the other), cannot be rejected. In common parlance, such a result corresponds to “passing” a reversal test. In contrast, if the test statistic value exceeds the critical value the null hypothesis that the populations share a common mean can be rejected. In common parlance, such a result corresponds to “failing” a reversal test.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">result</span> <span class="o">=</span> <span class="n">ipmag</span><span class="o">.</span><span class="n">reversal_test_bootstrap_H23</span><span class="p">(</span><span class="n">sites_dec</span><span class="p">,</span> <span class="n">sites_inc</span><span class="p">,</span> <span class="n">num_sims</span><span class="o">=</span><span class="mi">1000</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Heslop et al. (2023) test statistic value = 8.22
+Heslop et al. (2023) critical test statistic value = 12.25
+Estimated p-value = 0.13
+Cannot reject null of common means at alpha = 0.05 confidence level
+</pre></div>
+</div>
+<a class="reference internal image-reference" href="../../_images/33d3ee7231d6401a5559e21032c7ebda3e3cdb1da68cc805fb891c67dd9ad6c8.png"><img alt="../../_images/33d3ee7231d6401a5559e21032c7ebda3e3cdb1da68cc805fb891c67dd9ad6c8.png" src="../../_images/33d3ee7231d6401a5559e21032c7ebda3e3cdb1da68cc805fb891c67dd9ad6c8.png" style="width: 571px; height: 439px;" />
+</a>
+</div>
+</div>
+</section>
+<section id="learn-about-the-reversal-test-functions">
+<h3>Learn about the reversal test functions<a class="headerlink" href="#learn-about-the-reversal-test-functions" title="Link to this heading">#</a></h3>
+<p>To learn more about the functions, we can type the function with a question mark after them in a code cell (e.g. <code class="docutils literal notranslate"><span class="pre">ipmag.reversal_test_bootstrap?</span></code>). Doing so gives more information about the function and shows additional parameters that are available for customizing colors and symbols as well as saving output.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>ipmag.reversal_test_bootstrap<span class="o">?</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span><span class=" -Color -Color-Red">Signature:</span>
+ipmag<span class=" -Color -Color-Blue">.</span>reversal_test_bootstrap<span class=" -Color -Color-Blue">(</span>
+    dec<span class=" -Color -Color-Blue">=</span><span class=" -Color -Color-Green">None</span><span class=" -Color -Color-Blue">,</span>
+    inc<span class=" -Color -Color-Blue">=</span><span class=" -Color -Color-Green">None</span><span class=" -Color -Color-Blue">,</span>
+    di_block<span class=" -Color -Color-Blue">=</span><span class=" -Color -Color-Green">None</span><span class=" -Color -Color-Blue">,</span>
+    plot_stereo<span class=" -Color -Color-Blue">=</span><span class=" -Color -Color-Green">False</span><span class=" -Color -Color-Blue">,</span>
+    color1<span class=" -Color -Color-Blue">=&#39;blue&#39;,</span>
+    color2<span class=" -Color -Color-Blue">=&#39;red&#39;,</span>
+    save<span class=" -Color -Color-Blue">=</span><span class=" -Color -Color-Green">False</span><span class=" -Color -Color-Blue">,</span>
+    save_folder<span class=" -Color -Color-Blue">=&#39;.&#39;,</span>
+    fmt<span class=" -Color -Color-Blue">=&#39;svg&#39;,</span>
+<span class=" -Color -Color-Blue">)</span>
+<span class=" -Color -Color-Red">Docstring:</span>
+Conduct a reversal test using bootstrap statistics (Tauxe, 2010) to
+determine whether two populations of directions could be from an antipodal
+common mean.
+
+Parameters:
+    dec: list of declinations
+    inc: list of inclinations
+    di_block: a nested list of [dec,inc]
+        A di_block can be provided in which case it will be used instead of
+        dec, inc lists.
+    plot_stereo : before plotting the CDFs, plot stereonet with the
+        bidirectionally separated data (default is False)
+    save : boolean argument to save plots (default is False)
+    save_folder : directory where plots will be saved (default is current directory, &#39;.&#39;)
+    fmt : format of saved figures (default is &#39;svg&#39;)
+
+Returns:
+    A boolean where 0 is fail and 1 is pass is returned. 
+    Plots of the cumulative distribution of Cartesian components are shown
+    an equal area plot if `plot_stereo = True`. 
+
+Examples:
+    Populations of roughly antipodal directions are developed here using
+    ``ipmag.fishrot``. These directions are combined into a single di_block
+    given that the function determines the principal component and splits the
+    data accordingly by polarity.
+
+    &gt;&gt;&gt; directions_n = ipmag.fishrot(k=20, n=30, dec=5, inc=-60)
+    &gt;&gt;&gt; directions_r = ipmag.fishrot(k=35, n=25, dec=182, inc=57)
+    &gt;&gt;&gt; directions = directions_n + directions_r
+    &gt;&gt;&gt; ipmag.reversal_test_bootstrap(di_block=directions, plot_stereo = True)
+
+    Data can also be input to the function as separate lists of dec and inc.
+    In this example, the di_block from above is split into lists of dec and inc
+    which are then used in the function:
+
+    &gt;&gt;&gt; direction_dec, direction_inc, direction_moment = ipmag.unpack_di_block(directions)
+    &gt;&gt;&gt; ipmag.reversal_test_bootstrap(dec=direction_dec,inc=direction_inc, plot_stereo = True)
+<span class=" -Color -Color-Red">File:</span>      ~/0000_GitHub/PmagPy/pmagpy/ipmag.py
+<span class=" -Color -Color-Red">Type:</span>      function
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>ipmag.reversal_test_bootstrap_H23<span class="o">?</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span><span class=" -Color -Color-Red">Signature:</span>
+ipmag<span class=" -Color -Color-Blue">.</span>reversal_test_bootstrap_H23<span class=" -Color -Color-Blue">(</span>
+    dec<span class=" -Color -Color-Blue">,</span>
+    inc<span class=" -Color -Color-Blue">,</span>
+    di_block<span class=" -Color -Color-Blue">=</span><span class=" -Color -Color-Green">None</span><span class=" -Color -Color-Blue">,</span>
+    num_sims<span class=" -Color -Color-Blue">=</span><span class=" -Color -Color-Cyan">10000</span><span class=" -Color -Color-Blue">,</span>
+    alpha<span class=" -Color -Color-Blue">=</span><span class=" -Color -Color-Cyan">0.05</span><span class=" -Color -Color-Blue">,</span>
+    plot<span class=" -Color -Color-Blue">=</span><span class=" -Color -Color-Green">True</span><span class=" -Color -Color-Blue">,</span>
+    save<span class=" -Color -Color-Blue">=</span><span class=" -Color -Color-Green">False</span><span class=" -Color -Color-Blue">,</span>
+    save_folder<span class=" -Color -Color-Blue">=&#39;.&#39;,</span>
+    fmt<span class=" -Color -Color-Blue">=&#39;svg&#39;,</span>
+<span class=" -Color -Color-Blue">)</span>
+<span class=" -Color -Color-Red">Docstring:</span>
+Bootstrap reversal test following Heslop et al. (2023).
+
+This function calls common_mean_bootstrap_H23 with directional data that have been flipped, 
+for a reversal test. The directional data can be provided either as separate 
+declination and inclination arrays or as a di_block array.
+
+Parameters:
+    dec (array): Array of declinations, only considered if di_block is None.
+    inc (array): Array of inclinations, only considered if di_block is None.
+    di_block (array, optional): Directional data as [dec, inc] for each sample. If provided, 
+                                dec and inc are ignored.
+    num_sims (int, optional): Number of bootstrap simulations. Default is 1000.
+    alpha (float, optional): Significance level for hypothesis testing. Default is 0.05.
+    plot (bool, optional): If True, produce a histogram plot of the test statistic. Default is True.
+    save (bool, optional): If True, save the histogram plot. Default is False.
+    save_folder (str, optional): Directory where the histogram plot will be saved. Default is the current directory.
+    fmt (str, optional): File format for saving the histogram plot. Default is &#39;svg&#39;.
+
+Returns:
+    tuple: Contains the following elements:
+        - result (int): 0 if null hypothesis is rejected, 1 otherwise.
+        - Lmin (float): The test statistic value.
+        - Lmin_c (float): The critical test statistic value.
+        - p (float): The p-value of the test.
+<span class=" -Color -Color-Red">File:</span>      ~/0000_GitHub/PmagPy/pmagpy/ipmag.py
+<span class=" -Color -Color-Red">Type:</span>      function
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>ipmag.reversal_test_MM1990<span class="o">?</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span><span class=" -Color -Color-Red">Signature:</span>
+ipmag<span class=" -Color -Color-Blue">.</span>reversal_test_MM1990<span class=" -Color -Color-Blue">(</span>
+    dec<span class=" -Color -Color-Blue">=</span><span class=" -Color -Color-Green">None</span><span class=" -Color -Color-Blue">,</span>
+    inc<span class=" -Color -Color-Blue">=</span><span class=" -Color -Color-Green">None</span><span class=" -Color -Color-Blue">,</span>
+    di_block<span class=" -Color -Color-Blue">=</span><span class=" -Color -Color-Green">None</span><span class=" -Color -Color-Blue">,</span>
+    plot_CDF<span class=" -Color -Color-Blue">=</span><span class=" -Color -Color-Green">False</span><span class=" -Color -Color-Blue">,</span>
+    plot_stereo<span class=" -Color -Color-Blue">=</span><span class=" -Color -Color-Green">False</span><span class=" -Color -Color-Blue">,</span>
+    save<span class=" -Color -Color-Blue">=</span><span class=" -Color -Color-Green">False</span><span class=" -Color -Color-Blue">,</span>
+    save_folder<span class=" -Color -Color-Blue">=&#39;.&#39;,</span>
+    fmt<span class=" -Color -Color-Blue">=&#39;svg&#39;,</span>
+<span class=" -Color -Color-Blue">)</span>
+<span class=" -Color -Color-Red">Docstring:</span>
+Calculates Watson&#39;s V statistic from input files through Monte Carlo
+simulation in order to test whether normal and reversed populations could
+have been drawn from a common mean. Also provides the critical angle between 
+the two sample mean directions and the corresponding McFadden and McElhinny 
+(1990) classification. This function is a wrapper around the 
+ipmag.common_mean_watson() function with the first step of splitting
+the data into two polarities using the pmag.flip() function and flipping
+the reverse direction to their antipode.
+
+ Parameters:
+    dec (list, optional): List of declinations.
+    inc (list, optional): List of inclinations.
+    di_block (list of lists, optional): Nested list of [dec,inc]. If provided, it 
+        takes precedence over separate dec and inc lists.
+    plot_CDF (bool, optional): If True, plot the CDF accompanying the results. Defaults to False.
+    plot_stereo (bool, optional): If True, plot stereonet with bidirectionally separated data. Defaults to False.
+    save (bool, optional): If True, save the plots. Defaults to False.
+    save_folder (str, optional): Directory path for saving plots. Defaults to current directory.
+    fmt (str, optional): Format of saved figures. Defaults to &#39;svg&#39;.
+
+Returns:
+    result (bool): 0 indicates fail, 1 indicates pass.
+    angle (float): Angle between the Fisher means of the two data sets.
+    critical_angle (float): Critical angle for the test to pass.
+    classification (str): MM1990 classification for a positive test.
+
+Examples:
+    Populations of roughly antipodal directions are developed here using
+    ``ipmag.fishrot``. These directions are combined into a single di_block
+    given that the function determines the principal component and splits the
+    data accordingly by polarity.
+
+    &gt;&gt;&gt; directions_n = ipmag.fishrot(k=20, n=30, dec=5, inc=-60)
+    &gt;&gt;&gt; directions_r = ipmag.fishrot(k=35, n=25, dec=182, inc=57)
+    &gt;&gt;&gt; directions = directions_n + directions_r
+    &gt;&gt;&gt; ipmag.reversal_test_MM1990(di_block=directions, plot_stereo = True)
+
+    Data can also be input to the function as separate lists of dec and inc.
+    In this example, the di_block from above is split into lists of dec and inc
+    which are then used in the function:
+
+    &gt;&gt;&gt; direction_dec, direction_inc, direction_moment = ipmag.unpack_di_block(directions)
+    &gt;&gt;&gt; ipmag.reversal_test_MM1990(dec=direction_dec,inc=direction_inc, plot_stereo = True)
+<span class=" -Color -Color-Red">File:</span>      ~/0000_GitHub/PmagPy/pmagpy/ipmag.py
+<span class=" -Color -Color-Red">Type:</span>      function
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+</section>
+</section>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            name: "python3",
+            path: "./example_notebooks/template_notebooks"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+                </article>
+              
+
+              
+              
+              
+              
+                <footer class="prev-next-footer d-print-none">
+                  
+<div class="prev-next-area">
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+                <dialog id="pst-secondary-sidebar-modal"></dialog>
+                <div id="pst-secondary-sidebar" class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+
+  <div class="sidebar-secondary-item"><div
+    id="pst-page-navigation-heading-2"
+    class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav id="pst-page-toc-nav" class="page-toc" aria-labelledby="pst-page-navigation-heading-2">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#introduction">Introduction</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#change-the-magic-contribution">Change the MagIC contribution</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#apply-to-your-own-sites-txt-data">Apply to your own <code class="docutils literal notranslate"><span class="pre">sites.txt</span></code> data</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#import-packages">Import packages</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#download-and-unpack-data">Download and unpack data</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#download-magic-contribution">Download MagIC contribution</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#unpack-the-magic-file">Unpack the MagIC file</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#import-the-sites-table">Import the sites table</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#filter-by-tilt-correction">Filter by tilt correction</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#make-declination-inclination-lists">Make declination/inclination lists</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#plot-the-directions">Plot the directions</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#reversal-tests">Reversal tests</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#conduct-the-watson-common-mean-reversal-test">Conduct the Watson common mean reversal test</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#conduct-the-classic-tauxe-et-al-1991-bootstrap-reversal-test">Conduct the classic Tauxe et al. (1991) bootstrap reversal test</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#apply-the-updated-heslop-et-al-2023-bootstrap-reversal-test">Apply the updated Heslop et al. (2023) bootstrap reversal test</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#learn-about-the-reversal-test-functions">Learn about the reversal test functions</a></li>
+</ul>
+</li>
+</ul>
+  </nav></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
+  
+  <div class="footer-item">
+    
+<p class="component-author">
+By PmagPy Contributors
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+
+  <p class="copyright">
+    
+      © Copyright 2025.
+      <br/>
+    
+  </p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+</div>
+          </footer>
+        
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script defer src="../../_static/scripts/bootstrap.js?digest=8878045cc6db502f8baf"></script>
+<script defer src="../../_static/scripts/pydata-sphinx-theme.js?digest=8878045cc6db502f8baf"></script>
+
+  <footer class="bd-footer">
+  </footer>
+  </body>
+</html>

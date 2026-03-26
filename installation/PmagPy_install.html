@@ -1,0 +1,824 @@
+
+<!DOCTYPE html>
+
+
+<html lang="en" data-content_root="../" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>Installing PmagPy &#8212; PmagPy Documentation</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "";
+  </script>
+  <!--
+    this give us a css class that will be invisible only if js is disabled
+  -->
+  <noscript>
+    <style>
+      .pst-js-only { display: none !important; }
+
+    </style>
+  </noscript>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../_static/styles/theme.css?digest=8878045cc6db502f8baf" rel="stylesheet" />
+<link href="../_static/styles/pydata-sphinx-theme.css?digest=8878045cc6db502f8baf" rel="stylesheet" />
+
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=03e43079" />
+    <link rel="stylesheet" type="text/css" href="../_static/styles/sphinx-book-theme.css?v=3c74b3bc" />
+    <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css?v=9c3e77be" />
+    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css?v=76b2166b" />
+    <link rel="stylesheet" type="text/css" href="../_static/mystnb.11b39860a7a0cbfd473a3ad8a317855267ff0bd372690045ca344a6b62be495e.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css?v=4fa983c6" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-design.min.css?v=95c83b7e" />
+  
+  <!-- So that users can add custom icons -->
+  <script src="../_static/scripts/fontawesome.js?digest=8878045cc6db502f8baf"></script>
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../_static/scripts/bootstrap.js?digest=8878045cc6db502f8baf" />
+<link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=8878045cc6db502f8baf" />
+
+    <script src="../_static/documentation_options.js?v=9eb32ce0"></script>
+    <script src="../_static/doctools.js?v=9a2dae69"></script>
+    <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../_static/clipboard.min.js?v=a7894cd8"></script>
+    <script src="../_static/copybutton.js?v=f281be69"></script>
+    <script src="../_static/scripts/sphinx-book-theme.js?v=fab101a9"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="../_static/togglebutton.js?v=1ae7504c"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script src="../_static/design-tabs.js?v=f930bc37"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script async="async" src="../_static/sphinx-thebe.js?v=c100c467"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'installation/PmagPy_install';</script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="OSX pip install" href="osx_pip.html" />
+    <link rel="prev" title="PmagPy: An open source package for paleomagnetic data analysis" href="../intro.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+  <meta name="docsearch:version" content="" />
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <div id="pst-skip-link" class="skip-link d-print-none"><a href="#main-content">Skip to main content</a></div>
+  
+  <div id="pst-scroll-pixel-helper"></div>
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>Back to top</button>
+
+  
+  <dialog id="pst-search-dialog">
+    
+<form class="bd-search d-flex align-items-center"
+      action="../search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         placeholder="Search this book..."
+         aria-label="Search this book..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form>
+  </dialog>
+
+  <div class="pst-async-banner-revealer d-none">
+  <aside id="bd-header-version-warning" class="d-none d-print-none" aria-label="Version warning"></aside>
+</div>
+
+  
+    <header class="bd-header navbar navbar-expand-lg bd-navbar d-print-none">
+    </header>
+  
+
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      
+      
+      <dialog id="pst-primary-sidebar-modal"></dialog>
+      <div id="pst-primary-sidebar" class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+
+  
+    
+  
+
+<a class="navbar-brand logo" href="../intro.html">
+  
+  
+  
+  
+  
+    
+    
+      
+    
+    
+    <img src="../_static/pmagpy_logo_notext.png" class="logo__image only-light" alt="PmagPy Documentation - Home"/>
+    <img src="../_static/pmagpy_logo_notext.png" class="logo__image only-dark pst-js-only" alt="PmagPy Documentation - Home"/>
+  
+  
+</a></div>
+        <div class="sidebar-primary-item">
+
+<button class="btn search-button-field search-button__button pst-js-only" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+ <i class="fa-solid fa-magnifying-glass"></i>
+ <span class="search-button__default-text">Search</span>
+ <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+</button></div>
+        <div class="sidebar-primary-item"><nav class="bd-links bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        
+        <ul class="nav bd-sidenav bd-sidenav__home-link">
+            <li class="toctree-l1">
+                <a class="reference internal" href="../intro.html">
+                    PmagPy: An open source package for paleomagnetic data analysis
+                </a>
+            </li>
+        </ul>
+        <p aria-level="2" class="caption" role="heading"><span class="caption-text">Installation</span></p>
+<ul class="current nav bd-sidenav">
+<li class="toctree-l1 current active has-children"><a class="current reference internal" href="#">Installing <strong>PmagPy</strong></a><details open="open"><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="osx_pip.html">OSX pip install</a></li>
+<li class="toctree-l2"><a class="reference internal" href="osx_developer.html">OSX developer install</a></li>
+<li class="toctree-l2"><a class="reference internal" href="windows_pip.html">Windows pip install</a></li>
+<li class="toctree-l2"><a class="reference internal" href="windows_developer.html">Windows developer install</a></li>
+<li class="toctree-l2"><a class="reference internal" href="linux_pip.html">Linux pip install</a></li>
+<li class="toctree-l2"><a class="reference internal" href="linux_developer.html">Linux developer install</a></li>
+<li class="toctree-l2"><a class="reference internal" href="troubleshooting.html">Troubleshooting installation issues</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../programs/command_line_programs.html">Command line programs</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../programs/pmag_gui.html">Installing and Getting Started with Pmag GUI</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../programs/demag_gui.html">Demag GUI</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../programs/thellier_gui.html">Thellier GUI</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1"><a class="reference internal" href="../resources/survival_skills.html">Survival computer skills</a></li>
+
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Documentation notebooks</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../documentation_notebooks/Jupyter.html">Jupyter Notebooks</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../documentation_notebooks/PmagPy_introduction.html">Introduction to PmagPy</a></li>
+
+<li class="toctree-l1"><a class="reference internal" href="../documentation_notebooks/PmagPy_calculations.html">Calculations with PmagPy</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../documentation_notebooks/PmagPy_plots_analysis.html">Visualizations and more analysis with PmagPy</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../documentation_notebooks/PmagPy_MagIC.html">Working with the MagIC database using PmagPy</a></li>
+
+
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Example notebooks</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../example_notebooks/tutorial_notebooks.html">Tutorial notebooks</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../example_notebooks/template_notebooks.html">Template notebooks</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../example_notebooks/published_notebooks.html">Published studies notebooks</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">MagIC</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../MagIC/MagIC.html">MagIC database and file formats</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Function docstrings</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../api/api.html">API Reference</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">References</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../references.html">References</a></li>
+</ul>
+
+    </div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+      <div class="sidebar-primary-item">
+<div id="ethical-ad-placement"
+      class="flat"
+      data-ea-publisher="readthedocs"
+      data-ea-type="readthedocs-sidebar"
+      data-ea-manual="true">
+</div></div>
+  </div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main" role="main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article d-print-none">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><button class="sidebar-toggle primary-toggle btn btn-sm" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</button></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+
+
+
+<div class="dropdown dropdown-source-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Source repositories">
+    <i class="fab fa-github"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="https://github.com/pmagpy/pmagpy-docs" target="_blank"
+   class="btn btn-sm btn-source-repository-button dropdown-item"
+   title="Source repository"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fab fa-github"></i>
+  </span>
+<span class="btn__text-container">Repository</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li><a href="https://github.com/pmagpy/pmagpy-docs/issues/new?title=Issue%20on%20page%20%2Finstallation/PmagPy_install.html&body=Your%20issue%20content%20here." target="_blank"
+   class="btn btn-sm btn-source-issues-button dropdown-item"
+   title="Open an issue"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-lightbulb"></i>
+  </span>
+<span class="btn__text-container">Open issue</span>
+</a>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+
+
+<div class="dropdown dropdown-download-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Download this page">
+    <i class="fas fa-download"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="../_sources/installation/PmagPy_install.md" target="_blank"
+   class="btn btn-sm btn-download-source-button dropdown-item"
+   title="Download source file"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="btn__text-container">.md</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="window.print()"
+  class="btn btn-sm btn-download-pdf-button dropdown-item"
+  title="Print to PDF"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="btn__text-container">.pdf</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button pst-navbar-icon"
+  title="Fullscreen mode"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+
+
+<button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button pst-js-only" aria-label="Color mode" data-bs-title="Color mode"  data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <i class="theme-switch fa-solid fa-sun                fa-lg" data-mode="light" title="Light"></i>
+  <i class="theme-switch fa-solid fa-moon               fa-lg" data-mode="dark"  title="Dark"></i>
+  <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"  title="System Settings"></i>
+</button>
+
+
+<button class="btn btn-sm pst-navbar-icon search-button search-button__button pst-js-only" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass fa-lg"></i>
+</button>
+<button class="sidebar-toggle secondary-toggle btn btn-sm pst-navbar-icon" title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</button>
+</div></div>
+      
+    </div>
+  
+</div>
+</div>
+              
+              
+
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1>Installing PmagPy</h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+            <div>
+                <h2> Contents </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#pip-install">pip install</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#standalone-gui-download">Standalone GUI download</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#osx-standalone-download">OSX Standalone download</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#windows-standalone-download">Windows Standalone download</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#linux-standalone-download">Linux Standalone download</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#pmagpy-developer-install">PmagPy developer install</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#install-help">Install help</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#details-of-setting-your-path">Details of setting your PATH</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#common-installation-problems">Common installation problems</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#os-specific-differences">OS-specific differences</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#quickstart-with-pmagpy-notebooks">Quickstart with PmagPy notebooks</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#next-steps">Next steps</a></li>
+</ul>
+            </nav>
+        </div>
+    </div>
+</div>
+
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article">
+                  
+  <section class="tex2jax_ignore mathjax_ignore" id="installing-pmagpy">
+<h1>Installing <strong>PmagPy</strong><a class="headerlink" href="#installing-pmagpy" title="Link to this heading">#</a></h1>
+<p>You have multiple options for using PmagPy.</p>
+<ul class="simple">
+<li><p>If you only want to use the graphical user interfaces (GUIs), you
+can download them as standalone programs (<a class="reference internal" href="#section-standalone-gui"><span class="std std-ref">Standalone GUI download</span></a>). The
+standalone install doesn’t require that you have Python, but is
+limited to the functionality that is available in <a class="reference internal" href="../programs/pmag_gui.html"><span class="std std-doc">Pmag GUI</span></a>
+(which includes <a class="reference internal" href="../programs/demag_gui.html"><span class="std std-doc">Demag Gui</span></a>
+and <a class="reference internal" href="../programs/thellier_gui.html"><span class="std std-doc">Thellier GUI</span></a>) without the rest of the functionality
+of PmagPy.</p></li>
+</ul>
+<p>If you want the full <strong>PmagPy</strong> functionality, you have two options:</p>
+<ul class="simple">
+<li><p>You can use pip to download and install the <strong>PmagPy</strong> function
+library and the <strong>PmagPy</strong> <a class="reference internal" href="../programs/command_line_programs.html"><span class="std std-doc">Command line programs</span></a>.</p></li>
+<li><p>If you want to actively participate in developing and modifying
+<strong>PmagPy</strong> or be linked with the most recent commits to the project,
+you will want to do a <a class="reference internal" href="#section-developer-install"><span class="std std-ref">PmagPy developer install</span></a>.</p></li>
+</ul>
+<p>An alternative way to use the pmagpy package without downloading anything,
+is to go to the Jupyter notebooks that our hosted online at our Jupyterhub:</p>
+<ul class="simple">
+<li><p>If you do not have an earthref account, go to
+<a class="reference external" href="https://earthref.org/log-in">https://earthref.org/log-in</a> and create an account with your ORCID.
+If you do not have one of those, you need to get one.</p></li>
+<li><p>Once you have logged in, go to the website:
+<a class="reference external" href="https://jupyterhub.earthref.org">https://jupyterhub.earthref.org</a> and login with your earthref
+account</p></li>
+<li><p>Click on the ‘PmagPy Online - Setup.ipynb’ link and follow the
+instructions.</p></li>
+<li><p>To learn more about Jupyter notebooks and Python, check out the
+online class for Earth Scientists:
+<a class="github reference external" href="https://github.com/ltauxe/Python-for-Earth-Science-Students">ltauxe/Python-for-Earth-Science-Students</a></p></li>
+</ul>
+<section id="pip-install">
+<span id="section-pip-install"></span><h2>pip install<a class="headerlink" href="#pip-install" title="Link to this heading">#</a></h2>
+<p>To get going with full <strong>PmagPy</strong> functionality, you can pip install the package
+within your Python environment (e.g. your conda environment):</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">pip</span> <span class="n">install</span> <span class="n">pmagpy</span>
+</pre></div>
+</div>
+<p>to get the associated command line programs, you can pip install pmag-cli</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">pip</span> <span class="n">install</span> <span class="n">pmagpy</span><span class="o">-</span><span class="n">cli</span>
+</pre></div>
+</div>
+<p>You can find more specific pip install instructions for each operating system at these pages:</p>
+<p><a class="reference internal" href="osx_pip.html"><span class="doc std std-doc">OSX pip</span></a></p>
+<p><a class="reference internal" href="windows_pip.html"><span class="doc std std-doc">Windows pip</span></a></p>
+<p><a class="reference internal" href="linux_pip.html"><span class="doc std std-doc">Linux pip</span></a></p>
+</section>
+<section id="standalone-gui-download">
+<span id="section-standalone-gui"></span><h2>Standalone GUI download<a class="headerlink" href="#standalone-gui-download" title="Link to this heading">#</a></h2>
+<p>If you do not need the full PmagPy functionality, and you only want to
+use Pmag GUI, MagIC GUI, Thellier GUI, and Demag GUI you can download
+a standalone program. You won’t need to install Python to use these
+programs.</p>
+<section id="osx-standalone-download">
+<h3>OSX Standalone download<a class="headerlink" href="#osx-standalone-download" title="Link to this heading">#</a></h3>
+<p>You can find the latest OS X standalone download here:
+<a class="github reference external" href="https://github.com/PmagPy/PmagPy-Standalone-OSX/releases/latest">PmagPy/PmagPy-Standalone-OSX</a></p>
+</section>
+<section id="windows-standalone-download">
+<h3>Windows Standalone download<a class="headerlink" href="#windows-standalone-download" title="Link to this heading">#</a></h3>
+<p>You can find the latest Windows standalone download here:
+<a class="github reference external" href="https://github.com/PmagPy/PmagPy-Standalone-Windows/releases/latest">PmagPy/PmagPy-Standalone-Windows</a></p>
+</section>
+<section id="linux-standalone-download">
+<h3>Linux Standalone download<a class="headerlink" href="#linux-standalone-download" title="Link to this heading">#</a></h3>
+<p>This binary has only been tested on a Ubuntu 14.04 (Trusty) distribution
+and might be buggy on other distributions.</p>
+<p>You can find the latest Linux standalone download here:
+<a class="github reference external" href="https://github.com/PmagPy/PmagPy-Standalone-Linux/releases/latest">PmagPy/PmagPy-Standalone-Linux</a></p>
+</section>
+</section>
+<section id="pmagpy-developer-install">
+<span id="section-developer-install"></span><h2>PmagPy developer install<a class="headerlink" href="#pmagpy-developer-install" title="Link to this heading">#</a></h2>
+<p>If you want to get into the nitty-gritty of the code such that you are
+directly working from the current version of the code in the repository, you
+should do a developer install.</p>
+<p>If you just want to use <strong>PmagPy</strong> out of the box, do a regular
+pip install. *Note*: you cannot have both a developer install and a
+pip install within the same environment.
+If you want to do a developer install, make sure you
+uninstall pmagpy/pmagpy-cli first if you have already installed them.</p>
+<p>Next, choose installation instructions based on your preferred install method
+(pip/developer) and your operating system (OSX/Windows/Linux).</p>
+<p><a class="reference internal" href="osx_developer.html"><span class="doc std std-doc">OSX developer</span></a></p>
+<p><a class="reference internal" href="windows_developer.html"><span class="doc std std-doc">Windows developer</span></a></p>
+<p><a class="reference internal" href="linux_developer.html"><span class="doc std std-doc">Linux developer</span></a></p>
+</section>
+<section id="install-help">
+<h2>Install help<a class="headerlink" href="#install-help" title="Link to this heading">#</a></h2>
+<p>Check out our guidelines on <a class="reference external" href="https://github.com/PmagPy/PmagPy/blob/master/CONTRIBUTING.md">how to contribute to
+PmagPy</a>
+for information on how to raise issues, request features, and make pull
+requests.</p>
+<section id="details-of-setting-your-path">
+<h3>Details of setting your PATH<a class="headerlink" href="#details-of-setting-your-path" title="Link to this heading">#</a></h3>
+<p>Here are the details of what the developer install script actually does.
+For OS X and Linux, it adds these lines editing $PATH to your .bashrc
+file (on recent OS X version, you may need to use .zshrc instead, see more
+info below):</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>    export PATH=/Users/***/Desktop/PmagPy/programs:$PATH
+    export PATH=/Users/***/Desktop/PmagPy/programs/conversion_scripts:$PATH
+</pre></div>
+</div>
+<p>And this line to your $PYTHONPATH to your .bashrc file:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>    export PYTHONPATH=$PYTHONPATH:/Users/***/Desktop/PmagPy/
+</pre></div>
+</div>
+<p>where *** is your username. (Of course, these lines will depend on
+exactly where you have put your PmagPy folder – if it lives on your
+home directory, your $PATH will point there:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>    export PATH=/Users/***/PmagPy/programs
+</pre></div>
+</div>
+<p>If you are using Z shell instead of bash (which is the new default for
+Mac starting with OSX Catalina), you will need to manually add the same
+$PATH and $PYTHONPATH lines to .zshrc instead of .bashrc. You can
+determine which shell you are using by looking at the text at the top of
+your Terminal window.</p>
+<p>For Windows, $PATH and $PYTHONPATH will be set in your <a class="reference external" href="https://www.java.com/en/download/help/path.xml">Control Panel
+(Environment
+Variables)</a>.</p>
+<p>In Windows 10, this is done by opening Control Panel <code class="docutils literal notranslate"><span class="pre">-&gt;</span></code> System and
+Security <code class="docutils literal notranslate"><span class="pre">-&gt;</span></code> System <code class="docutils literal notranslate"><span class="pre">-&gt;</span></code> Advanced system settings <code class="docutils literal notranslate"><span class="pre">-&gt;</span></code> Environment
+Variables. You can see details
+<a class="reference external" href="https://www.java.com/en/download/help/path.xml">here</a>. Alternatively,
+just search for “environment variables” in the Windows 10 search bar
+select “Edit the system environment variables”.</p>
+<p>To make the needed edits, you will first add to your existing PATH
+variable or create a new PATH variable with the following values:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>  C:\Users\***\Desktop\PmagPy\programs\conversion_scripts
+</pre></div>
+</div>
+<p>and</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>  C:\Users\***\Desktop\PmagPy\programs\conversion_scripts
+</pre></div>
+</div>
+<p>Next, add to your existing PYTHONPATH variable or create a new
+PYTHONPATH variable with:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>  C:\Users\***\Desktop\PmagPy
+</pre></div>
+</div>
+<p>Important: you will need to modify the above paths based on *your*
+username and the location where *you* have put the PmagPy folder. So,
+if my username is limatango and I put PmagPy in my Downloads folder, my
+path would read:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>  C:\Users\limatango\Downloads\PmagPy
+</pre></div>
+</div>
+<p>and so on.</p>
+</section>
+<section id="common-installation-problems">
+<h3>Common installation problems<a class="headerlink" href="#common-installation-problems" title="Link to this heading">#</a></h3>
+<ul>
+<li><p>Make sure you have the correct version of Python. If you run the
+command “python”, you should see a message like this:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>Python 3.7.0 (default, Jun 28 2018, 07:39:16)
+[Clang 4.0.1 (tags/RELEASE_401/final)] :: Anaconda, Inc. on darwin
+Type &quot;help&quot;, &quot;copyright&quot;, &quot;credits&quot; or &quot;license&quot; for more information.
+&gt;&gt;&gt;
+</pre></div>
+</div>
+</li>
+<li><p>If you try to run a <strong>PmagPy</strong> program and you get an <code class="docutils literal notranslate"><span class="pre">ImportError</span></code>,
+you are probably missing a required package. Go back and install all
+required, non-default packages. If the ImportError is for a
+<strong>PmagPy</strong> package, go back and make sure you installed pmagpy and
+pmagpy-cli via pip or dev_setup.py.</p></li>
+<li><p>If you are trying to run PmagPy programs and you run into an issue
+with python vs pythonw, you may need to link your python to pythonw:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>    ln -s ~/anaconda3/bin/python3 ~/anaconda3/bin/pythonw
+</pre></div>
+</div>
+</li>
+</ul>
+<p>For more help, see the <a class="reference internal" href="troubleshooting.html"><span class="std std-doc">troubleshooting section</span></a>.</p>
+</section>
+<section id="os-specific-differences">
+<h3>OS-specific differences<a class="headerlink" href="#os-specific-differences" title="Link to this heading">#</a></h3>
+<p>We try to support all platforms, but there are some quirks that will
+affect how you invoke <strong>PmagPy</strong> programs depending on your platform.
+For OSX users with a pip install, you will invoke the GUIs with a
+special syntax:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>  pmag_gui_anaconda
+</pre></div>
+</div>
+<p>For all platforms with a developer install:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>  pmag_gui.py
+</pre></div>
+</div>
+<p>For Windows users with a pip install:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>  pmag_gui
+</pre></div>
+</div>
+<p>If you see an error message like this:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>  This program needs access to the screen.
+  Please run with a Framework build of python, and only when you are
+  logged in on the main display of your Mac.
+</pre></div>
+</div>
+<p>you need to use “pmag_gui_anaconda”</p>
+<p>If you see an error message like this:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>  -bash: pmag_gui: command not found
+</pre></div>
+</div>
+<p>You are either using the wrong command for your operating system, or you
+haven’t fully installed <strong>PmagPy</strong>.</p>
+</section>
+</section>
+<section id="quickstart-with-pmagpy-notebooks">
+<h2>Quickstart with PmagPy notebooks<a class="headerlink" href="#quickstart-with-pmagpy-notebooks" title="Link to this heading">#</a></h2>
+<p>Once you have installed <strong>PmagPy</strong>, you may want to run the example
+notebooks. You can copy example data_files and launch the <strong>PmagPy</strong>
+notebooks from your command line with the following:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>    cd Desktop
+    move_data_files.py
+    cd PmagPy-data
+    jupyter notebook
+</pre></div>
+</div>
+<p>The final command (<strong>jupyter notebook</strong>) will open a browser window, and
+you can then click on the notebook you want to run (we recommend you
+start with PmagPy_introduction.ipynb).</p>
+<p>**Note**: You only have to do the move_data_files.py command once
+after initial installation and then once after each update. You should
+make a copy of any notebook (see File menu) if you want to make any
+changes as each update will overwrite the standard notebooks.</p>
+</section>
+<section id="next-steps">
+<h2>Next steps<a class="headerlink" href="#next-steps" title="Link to this heading">#</a></h2>
+<p>Where do you want to go from here?</p>
+<ul class="simple">
+<li><p><a class="reference internal" href="../MagIC/MagIC.html"><span class="std std-doc">Learn more about the <strong>MagIC</strong> database and download data.</span></a></p></li>
+<li><p><a class="reference internal" href="../programs/demag_gui.html"><span class="std std-doc">Analyze and/or upload demagnetization</span></a> and/or
+paleointensity measurement data to the <strong>MagIC</strong> database.</p></li>
+<li><p><a class="reference internal" href="../resources/survival_skills.html"><span class="std std-doc">Learn how to write your own programs in Python.</span></a></p></li>
+<li><p><a class="reference internal" href="../documentation_notebooks/PmagPy_introduction.html"><span class="std std-doc">Learn how to use Jupyter notebooks for managing your data analysis
+workflow.</span></a></p></li>
+<li><p><a class="reference internal" href="../programs/command_line_programs.html"><span class="std std-doc">Learn more about command line programs in the <strong>PmagPy</strong> software
+package.</span></a></p></li>
+</ul>
+</section>
+<div class="toctree-wrapper compound">
+</div>
+</section>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            name: "python3",
+            path: "./installation"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+                </article>
+              
+
+              
+              
+              
+              
+                <footer class="prev-next-footer d-print-none">
+                  
+<div class="prev-next-area">
+    <a class="left-prev"
+       href="../intro.html"
+       title="previous page">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">previous</p>
+        <p class="prev-next-title">PmagPy: An open source package for paleomagnetic data analysis</p>
+      </div>
+    </a>
+    <a class="right-next"
+       href="osx_pip.html"
+       title="next page">
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">OSX pip install</p>
+      </div>
+      <i class="fa-solid fa-angle-right"></i>
+    </a>
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+                <dialog id="pst-secondary-sidebar-modal"></dialog>
+                <div id="pst-secondary-sidebar" class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+
+  <div class="sidebar-secondary-item"><div
+    id="pst-page-navigation-heading-2"
+    class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav id="pst-page-toc-nav" class="page-toc" aria-labelledby="pst-page-navigation-heading-2">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#pip-install">pip install</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#standalone-gui-download">Standalone GUI download</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#osx-standalone-download">OSX Standalone download</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#windows-standalone-download">Windows Standalone download</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#linux-standalone-download">Linux Standalone download</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#pmagpy-developer-install">PmagPy developer install</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#install-help">Install help</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#details-of-setting-your-path">Details of setting your PATH</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#common-installation-problems">Common installation problems</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#os-specific-differences">OS-specific differences</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#quickstart-with-pmagpy-notebooks">Quickstart with PmagPy notebooks</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#next-steps">Next steps</a></li>
+</ul>
+  </nav></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
+  
+  <div class="footer-item">
+    
+<p class="component-author">
+By PmagPy Contributors
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+
+  <p class="copyright">
+    
+      © Copyright 2025.
+      <br/>
+    
+  </p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+</div>
+          </footer>
+        
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script defer src="../_static/scripts/bootstrap.js?digest=8878045cc6db502f8baf"></script>
+<script defer src="../_static/scripts/pydata-sphinx-theme.js?digest=8878045cc6db502f8baf"></script>
+
+  <footer class="bd-footer">
+  </footer>
+  </body>
+</html>
