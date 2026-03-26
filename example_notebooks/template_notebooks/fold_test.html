@@ -444,7 +444,7 @@
 <blockquote>
 <div><p>Swanson-Hysell, N. L., Vaughan, A. A., Mustain, M. R., and Asp, K. E. (2014). Confirmation of progressive plate motion during the Midcontinent Rift’s early magmatic stage from the Osler Volcanic Group, Ontario, Canada. <em>Geochem. Geophys. Geosyst.</em>, 15, 2039–2047. doi:<a class="reference external" href="https://doi.org/10.1002/2013GC005180">10.1002/2013GC005180</a></p>
 </div></blockquote>
-<p>The Osler Volcanic Group is a sequence of ca. 1108–1105 Ma basalt flows erupted during the Midcontinent Rift exposed along the north shore of Lake Superior. The flows have been tilted to varying degrees, providing an opportunity to test whether the remanent magnetization was acquired before tilting (a positive fold test) which supports a primary origin for the magnetization.</p>
+<p>The Osler Volcanic Group is a sequence of ca. 1108–1105 Ma basalt flows erupted during the Midcontinent Rift exposed along the north shore of Lake Superior. The flows have been tilted to varying degrees, providing an opportunity to test whether the remanent magnetization was acquired before tilting (a positive fold test) or after tilting (a negative fold test).</p>
 <p>Following the approach of Tauxe et al. (2016), we combine the reversed polarity flows from Halls (1974) at Nipigon Strait with the upper portion of the Simpson Island section from Swanson-Hysell et al. (2014) which are temporally equivalent. The varying bedding attitudes across these sites provide the structural diversity needed for a meaningful fold test.</p>
 <section id="references">
 <h3>References<a class="headerlink" href="#references" title="Link to this heading">#</a></h3>
@@ -454,14 +454,14 @@
 </ul>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">pmagpy.ipmag</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">ipmag</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">pmagpy.ipmag</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">ipmag</span>
 <span class="kn">import</span><span class="w"> </span><span class="nn">pmagpy.pmag</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">pmag</span>
 <span class="kn">import</span><span class="w"> </span><span class="nn">pandas</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">pd</span>
 <span class="kn">import</span><span class="w"> </span><span class="nn">numpy</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">np</span>
 <span class="kn">import</span><span class="w"> </span><span class="nn">matplotlib.pyplot</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">plt</span>
 
-<span class="o">%</span><span class="n">matplotlib</span> <span class="n">inline</span>
-<span class="o">%</span><span class="n">config</span> <span class="n">InlineBackend</span><span class="o">.</span><span class="n">figure_format</span><span class="o">=</span><span class="s1">&#39;retina&#39;</span>
+<span class="o">%</span><span class="k">matplotlib</span> inline
+<span class="o">%</span><span class="k">config</span> InlineBackend.figure_format=&#39;retina&#39;
 </pre></div>
 </div>
 </div>
@@ -473,20 +473,46 @@
 <p>We download the two MagIC contributions using their contribution IDs and unpack them into separate directories. The <code class="docutils literal notranslate"><span class="pre">ipmag.download_magic_from_id()</span></code> function retrieves the contribution file from the MagIC database, and <code class="docutils literal notranslate"><span class="pre">ipmag.unpack_magic()</span></code> splits the combined file into separate MagIC table files (locations.txt, sites.txt, samples.txt, etc.).</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># Halls (1974) — Nipigon Strait reversed and normal flows</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Halls (1974) — Nipigon Strait reversed and normal flows</span>
 <span class="n">halls_dir</span> <span class="o">=</span> <span class="s1">&#39;./data/Halls1974&#39;</span>
 <span class="n">result</span><span class="p">,</span> <span class="n">halls_file</span> <span class="o">=</span> <span class="n">ipmag</span><span class="o">.</span><span class="n">download_magic_from_id</span><span class="p">(</span><span class="s1">&#39;20260&#39;</span><span class="p">,</span> <span class="n">directory</span><span class="o">=</span><span class="n">halls_dir</span><span class="p">)</span>
 <span class="n">ipmag</span><span class="o">.</span><span class="n">unpack_magic</span><span class="p">(</span><span class="n">halls_file</span><span class="p">,</span> <span class="n">dir_path</span><span class="o">=</span><span class="n">halls_dir</span><span class="p">,</span> <span class="n">print_progress</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Download successful. File saved to: ./data/Halls1974/magic_contribution_20260.txt
+1  records written to file  /Users/hematite/Documents/GitHub/PmagPy-docs/example_notebooks/template_notebooks/data/Halls1974/contribution.txt
+2  records written to file  /Users/hematite/Documents/GitHub/PmagPy-docs/example_notebooks/template_notebooks/data/Halls1974/locations.txt
+60  records written to file  /Users/hematite/Documents/GitHub/PmagPy-docs/example_notebooks/template_notebooks/data/Halls1974/sites.txt
+</pre></div>
+</div>
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>True
+</pre></div>
+</div>
+</div>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># Swanson-Hysell et al. (2014) — Simpson Island section</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Swanson-Hysell et al. (2014) — Simpson Island section</span>
 <span class="n">sh_dir</span> <span class="o">=</span> <span class="s1">&#39;./data/SwansonHysell2014&#39;</span>
 <span class="n">result</span><span class="p">,</span> <span class="n">sh_file</span> <span class="o">=</span> <span class="n">ipmag</span><span class="o">.</span><span class="n">download_magic_from_id</span><span class="p">(</span><span class="s1">&#39;18693&#39;</span><span class="p">,</span> <span class="n">directory</span><span class="o">=</span><span class="n">sh_dir</span><span class="p">)</span>
 <span class="n">ipmag</span><span class="o">.</span><span class="n">unpack_magic</span><span class="p">(</span><span class="n">sh_file</span><span class="p">,</span> <span class="n">dir_path</span><span class="o">=</span><span class="n">sh_dir</span><span class="p">,</span> <span class="n">print_progress</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Download successful. File saved to: ./data/SwansonHysell2014/magic_contribution_18693.txt
+1  records written to file  /Users/hematite/Documents/GitHub/PmagPy-docs/example_notebooks/template_notebooks/data/SwansonHysell2014/contribution.txt
+6  records written to file  /Users/hematite/Documents/GitHub/PmagPy-docs/example_notebooks/template_notebooks/data/SwansonHysell2014/locations.txt
+345  records written to file  /Users/hematite/Documents/GitHub/PmagPy-docs/example_notebooks/template_notebooks/data/SwansonHysell2014/sites.txt
+1301  records written to file  /Users/hematite/Documents/GitHub/PmagPy-docs/example_notebooks/template_notebooks/data/SwansonHysell2014/samples.txt
+667  records written to file  /Users/hematite/Documents/GitHub/PmagPy-docs/example_notebooks/template_notebooks/data/SwansonHysell2014/specimens.txt
+13395  records written to file  /Users/hematite/Documents/GitHub/PmagPy-docs/example_notebooks/template_notebooks/data/SwansonHysell2014/measurements.txt
+89  records written to file  /Users/hematite/Documents/GitHub/PmagPy-docs/example_notebooks/template_notebooks/data/SwansonHysell2014/ages.txt
+</pre></div>
+</div>
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>True
 </pre></div>
 </div>
 </div>
@@ -498,7 +524,7 @@
 <p>In this contribution, the bedding orientations (<code class="docutils literal notranslate"><span class="pre">bed_dip</span></code>, <code class="docutils literal notranslate"><span class="pre">bed_dip_direction</span></code>) are on the same rows as the directional data in the sites table, so no merging is needed.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">halls_sites</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="n">halls_dir</span> <span class="o">+</span> <span class="s1">&#39;/sites.txt&#39;</span><span class="p">,</span> <span class="n">sep</span><span class="o">=</span><span class="s1">&#39;</span><span class="se">\t</span><span class="s1">&#39;</span><span class="p">,</span> <span class="n">header</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">halls_sites</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="n">halls_dir</span> <span class="o">+</span> <span class="s1">&#39;/sites.txt&#39;</span><span class="p">,</span> <span class="n">sep</span><span class="o">=</span><span class="s1">&#39;</span><span class="se">\t</span><span class="s1">&#39;</span><span class="p">,</span> <span class="n">header</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
 
 <span class="c1"># filter for reversed polarity flows in geographic coordinates</span>
 <span class="n">halls_geo</span> <span class="o">=</span> <span class="n">halls_sites</span><span class="p">[(</span><span class="n">halls_sites</span><span class="o">.</span><span class="n">dir_tilt_correction</span> <span class="o">==</span> <span class="mi">0</span><span class="p">)</span> <span class="o">&amp;</span>
@@ -509,6 +535,79 @@
 </pre></div>
 </div>
 </div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>25 reversed sites from Halls (1974)
+</pre></div>
+</div>
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>site</th>
+      <th>dir_dec</th>
+      <th>dir_inc</th>
+      <th>bed_dip_direction</th>
+      <th>bed_dip</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>11</th>
+      <td>6</td>
+      <td>112.6</td>
+      <td>-18.1</td>
+      <td>131.0</td>
+      <td>28</td>
+    </tr>
+    <tr>
+      <th>13</th>
+      <td>7</td>
+      <td>124.5</td>
+      <td>-45.3</td>
+      <td>149.0</td>
+      <td>20</td>
+    </tr>
+    <tr>
+      <th>15</th>
+      <td>8</td>
+      <td>144.3</td>
+      <td>-47.0</td>
+      <td>150.0</td>
+      <td>18</td>
+    </tr>
+    <tr>
+      <th>17</th>
+      <td>9</td>
+      <td>121.0</td>
+      <td>-39.1</td>
+      <td>145.0</td>
+      <td>20</td>
+    </tr>
+    <tr>
+      <th>19</th>
+      <td>10</td>
+      <td>129.7</td>
+      <td>-12.1</td>
+      <td>134.0</td>
+      <td>30</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
 </div>
 </section>
 <section id="load-and-filter-the-swanson-hysell-et-al-2014-data">
@@ -517,7 +616,7 @@
 <p>In this contribution, the bedding orientations are only populated on the metadata rows for each site (method code <code class="docutils literal notranslate"><span class="pre">GE-WGS84</span></code>) and are missing from the directional data rows. We propagate the bedding values across all rows for each site so that the directional rows have the bedding information they need for the fold test.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">sh_sites</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="n">sh_dir</span> <span class="o">+</span> <span class="s1">&#39;/sites.txt&#39;</span><span class="p">,</span> <span class="n">sep</span><span class="o">=</span><span class="s1">&#39;</span><span class="se">\t</span><span class="s1">&#39;</span><span class="p">,</span> <span class="n">header</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">sh_sites</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="n">sh_dir</span> <span class="o">+</span> <span class="s1">&#39;/sites.txt&#39;</span><span class="p">,</span> <span class="n">sep</span><span class="o">=</span><span class="s1">&#39;</span><span class="se">\t</span><span class="s1">&#39;</span><span class="p">,</span> <span class="n">header</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
 
 <span class="c1"># propagate bedding values to all rows for each site</span>
 <span class="n">sh_sites</span><span class="p">[[</span><span class="s1">&#39;bed_dip&#39;</span><span class="p">,</span> <span class="s1">&#39;bed_dip_direction&#39;</span><span class="p">]]</span> <span class="o">=</span> <span class="p">(</span>
@@ -534,6 +633,85 @@
 </pre></div>
 </div>
 </div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>34 upper third sites from Swanson-Hysell et al. (2014)
+</pre></div>
+</div>
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>site</th>
+      <th>height</th>
+      <th>dir_dec</th>
+      <th>dir_inc</th>
+      <th>bed_dip_direction</th>
+      <th>bed_dip</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>130</th>
+      <td>SI4(106.0 to 121.4)</td>
+      <td>2089.0</td>
+      <td>140.0</td>
+      <td>-46.6</td>
+      <td>187.0</td>
+      <td>18.0</td>
+    </tr>
+    <tr>
+      <th>134</th>
+      <td>SI4(121.4 to 127.3)</td>
+      <td>2104.4</td>
+      <td>129.6</td>
+      <td>-43.6</td>
+      <td>187.0</td>
+      <td>18.0</td>
+    </tr>
+    <tr>
+      <th>142</th>
+      <td>SI4(133.8 to 143.1)</td>
+      <td>2116.8</td>
+      <td>134.8</td>
+      <td>-52.7</td>
+      <td>187.0</td>
+      <td>18.0</td>
+    </tr>
+    <tr>
+      <th>146</th>
+      <td>SI4(160.4 to 171.1)</td>
+      <td>2143.4</td>
+      <td>163.7</td>
+      <td>-46.6</td>
+      <td>187.0</td>
+      <td>18.0</td>
+    </tr>
+    <tr>
+      <th>170</th>
+      <td>SI5a(0.0 to 9.0)</td>
+      <td>3115.0</td>
+      <td>133.7</td>
+      <td>-45.7</td>
+      <td>193.0</td>
+      <td>19.0</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
 </div>
 </section>
 <section id="combine-datasets-and-build-the-fold-test-data-array">
@@ -541,7 +719,7 @@
 <p>The function <code class="docutils literal notranslate"><span class="pre">ipmag.bootstrap_fold_test()</span></code> expects a numpy array with columns <code class="docutils literal notranslate"><span class="pre">[dec,</span> <span class="pre">inc,</span> <span class="pre">dip_direction,</span> <span class="pre">dip]</span></code> where the directional data are in geographic coordinates (uncorrected for bedding tilt). We extract these four columns from each dataset and concatenate them.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">cols</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;dir_dec&#39;</span><span class="p">,</span> <span class="s1">&#39;dir_inc&#39;</span><span class="p">,</span> <span class="s1">&#39;bed_dip_direction&#39;</span><span class="p">,</span> <span class="s1">&#39;bed_dip&#39;</span><span class="p">]</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">cols</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;dir_dec&#39;</span><span class="p">,</span> <span class="s1">&#39;dir_inc&#39;</span><span class="p">,</span> <span class="s1">&#39;bed_dip_direction&#39;</span><span class="p">,</span> <span class="s1">&#39;bed_dip&#39;</span><span class="p">]</span>
 
 <span class="n">halls_diddd</span> <span class="o">=</span> <span class="n">halls_geo</span><span class="p">[</span><span class="n">cols</span><span class="p">]</span><span class="o">.</span><span class="n">values</span>
 <span class="n">sh_diddd</span> <span class="o">=</span> <span class="n">sh_geo</span><span class="p">[</span><span class="n">cols</span><span class="p">]</span><span class="o">.</span><span class="n">values</span>
@@ -554,6 +732,12 @@
 </pre></div>
 </div>
 </div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Combined data array: 25 Halls (1974) + 34 Swanson-Hysell et al. (2014) = 59 total sites
+Array shape: (59, 4)
+</pre></div>
+</div>
+</div>
 </div>
 </section>
 <section id="visualize-the-combined-directions">
@@ -561,7 +745,7 @@
 <p>Before running the fold test, we can plot the combined dataset in both geographic (in situ) and tilt-corrected coordinates to visually assess whether tilt correction improves the clustering of directions.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># get tilt-corrected directions for comparison</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># get tilt-corrected directions for comparison</span>
 <span class="n">halls_tc</span> <span class="o">=</span> <span class="n">halls_sites</span><span class="p">[(</span><span class="n">halls_sites</span><span class="o">.</span><span class="n">dir_tilt_correction</span> <span class="o">==</span> <span class="mi">100</span><span class="p">)</span> <span class="o">&amp;</span>
                        <span class="p">(</span><span class="n">halls_sites</span><span class="o">.</span><span class="n">location</span><span class="o">.</span><span class="n">str</span><span class="o">.</span><span class="n">contains</span><span class="p">(</span><span class="s1">&#39;Lower Reversed&#39;</span><span class="p">))]</span><span class="o">.</span><span class="n">copy</span><span class="p">()</span>
 
@@ -592,6 +776,10 @@
 </pre></div>
 </div>
 </div>
+<div class="cell_output docutils container">
+<a class="reference internal image-reference" href="../../_images/72c53e49cedd149321e609da8bbda5a9a44f60100d1b44c51bdc6aa9c5d24d51.png"><img alt="../../_images/72c53e49cedd149321e609da8bbda5a9a44f60100d1b44c51bdc6aa9c5d24d51.png" src="../../_images/72c53e49cedd149321e609da8bbda5a9a44f60100d1b44c51bdc6aa9c5d24d51.png" style="width: 756px; height: 390px;" />
+</a>
+</div>
 </div>
 </section>
 <section id="compare-fisher-means-and-precision">
@@ -599,7 +787,7 @@
 <p>The ratio of the precision parameter <span class="math notranslate nohighlight">\(k\)</span> before and after tilt-correction (<span class="math notranslate nohighlight">\(k_2\)</span>/<span class="math notranslate nohighlight">\(k_1\)</span>) provides a qualitative assessment of whether tilt correction improves the grouping of directions. This ratio was at the heart of the McElhinny (1964) fold test, although that test has been shown to not be statistically robust (McFadden, 1990). We calculate it here for reference before applying the more rigorous bootstrap fold test.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">is_mean</span> <span class="o">=</span> <span class="n">ipmag</span><span class="o">.</span><span class="n">fisher_mean</span><span class="p">(</span><span class="n">combined_dec_is</span><span class="o">.</span><span class="n">tolist</span><span class="p">(),</span> <span class="n">combined_inc_is</span><span class="o">.</span><span class="n">tolist</span><span class="p">())</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">is_mean</span> <span class="o">=</span> <span class="n">ipmag</span><span class="o">.</span><span class="n">fisher_mean</span><span class="p">(</span><span class="n">combined_dec_is</span><span class="o">.</span><span class="n">tolist</span><span class="p">(),</span> <span class="n">combined_inc_is</span><span class="o">.</span><span class="n">tolist</span><span class="p">())</span>
 <span class="n">tc_mean</span> <span class="o">=</span> <span class="n">ipmag</span><span class="o">.</span><span class="n">fisher_mean</span><span class="p">(</span><span class="n">combined_dec_tc</span><span class="o">.</span><span class="n">tolist</span><span class="p">(),</span> <span class="n">combined_inc_tc</span><span class="o">.</span><span class="n">tolist</span><span class="p">())</span>
 
 <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Fisher mean of in situ (geographic) directions:&quot;</span><span class="p">)</span>
@@ -609,6 +797,23 @@
 <span class="n">ipmag</span><span class="o">.</span><span class="n">print_direction_mean</span><span class="p">(</span><span class="n">tc_mean</span><span class="p">)</span>
 <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;&#39;</span><span class="p">)</span>
 <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;k2/k1 ratio: </span><span class="si">{</span><span class="n">tc_mean</span><span class="p">[</span><span class="s1">&#39;k&#39;</span><span class="p">]</span><span class="o">/</span><span class="n">is_mean</span><span class="p">[</span><span class="s1">&#39;k&#39;</span><span class="p">]</span><span class="si">:</span><span class="s2">.2f</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Fisher mean of in situ (geographic) directions:
+Dec: 128.3  Inc: -47.6
+Number of directions in mean (n): 59
+Angular radius of 95% confidence (a_95): 4.2
+Precision parameter (k) estimate: 19.9
+
+Fisher mean of tilt-corrected directions:
+Dec: 110.9  Inc: -59.9
+Number of directions in mean (n): 59
+Angular radius of 95% confidence (a_95): 2.8
+Precision parameter (k) estimate: 43.9
+
+k2/k1 ratio: 2.20
 </pre></div>
 </div>
 </div>
@@ -625,9 +830,25 @@
 </ol>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">ipmag</span><span class="o">.</span><span class="n">bootstrap_fold_test</span><span class="p">(</span><span class="n">diddd</span><span class="p">,</span> <span class="n">num_sims</span><span class="o">=</span><span class="mi">1000</span><span class="p">,</span> <span class="n">min_untilt</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">max_untilt</span><span class="o">=</span><span class="mi">140</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">ipmag</span><span class="o">.</span><span class="n">bootstrap_fold_test</span><span class="p">(</span><span class="n">diddd</span><span class="p">,</span> <span class="n">num_sims</span><span class="o">=</span><span class="mi">1000</span><span class="p">,</span> <span class="n">min_untilt</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">max_untilt</span><span class="o">=</span><span class="mi">140</span><span class="p">)</span>
 </pre></div>
 </div>
+</div>
+<div class="cell_output docutils container">
+<a class="reference internal image-reference" href="../../_images/67902cc0781b142f87f0086bcf1ba6834459f3c15b304f7e287acd2b0e2f1d2d.png"><img alt="../../_images/67902cc0781b142f87f0086bcf1ba6834459f3c15b304f7e287acd2b0e2f1d2d.png" src="../../_images/67902cc0781b142f87f0086bcf1ba6834459f3c15b304f7e287acd2b0e2f1d2d.png" style="width: 414px; height: 434px;" />
+</a>
+<a class="reference internal image-reference" href="../../_images/528d4b33a8db3357bfd08f7211a3971ee89622a56f225ed3561e681a623f4490.png"><img alt="../../_images/528d4b33a8db3357bfd08f7211a3971ee89622a56f225ed3561e681a623f4490.png" src="../../_images/528d4b33a8db3357bfd08f7211a3971ee89622a56f225ed3561e681a623f4490.png" style="width: 414px; height: 434px;" />
+</a>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>doing  1000  iterations...please be patient.....
+
+tightest grouping of vectors obtained at (95% confidence bounds):
+100 - 134 percent unfolding
+range of all bootstrap samples: 
+64  -  139 percent unfolding
+</pre></div>
+</div>
+<a class="reference internal image-reference" href="../../_images/612c3b8c5d4f9c1bfd014be1a46c8fe8737e7de2d7ff8cfec414120a35c3a4ee.png"><img alt="../../_images/612c3b8c5d4f9c1bfd014be1a46c8fe8737e7de2d7ff8cfec414120a35c3a4ee.png" src="../../_images/612c3b8c5d4f9c1bfd014be1a46c8fe8737e7de2d7ff8cfec414120a35c3a4ee.png" style="width: 567px; height: 454px;" />
+</a>
 </div>
 </div>
 </section>
