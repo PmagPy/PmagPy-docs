@@ -40,6 +40,18 @@ This notebook conducts statistical reversal tests on directional data in MagIC f
 :::
 
 :::{grid-item-card}
+:link: template_notebooks/fold_test
+:link-type: doc
+:class-header: bg-light
+
+Fold test template 🥐
+
+^^^
+
+This notebook conducts a bootstrap fold test (Tauxe and Watson, 1994) on paleomagnetic data to test whether magnetization was acquired before tilting.
+:::
+
+:::{grid-item-card}
 :link: template_notebooks/PmagPy_iodp_HOLE_template
 :link-type: doc
 :class-header: bg-light
