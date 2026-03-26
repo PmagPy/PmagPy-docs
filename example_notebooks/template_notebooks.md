@@ -70,7 +70,18 @@ This notebook is for people wanting to download and manipulate data from an IODP
 Tsunakawa-Shaw paleointensity template 🧭🏋️
 ^^^
 
-This template enables data from Tsunakawa-Shaw method paleointensity experiments to be analyzed using PmagPy (see Yamamoto et al. 2022 for examples; https://doi.org/10.1029/2022GC010391). 
+This template enables data from Tsunakawa-Shaw method paleointensity experiments to be analyzed using PmagPy (see Yamamoto et al. 2022 for examples; https://doi.org/10.1029/2022GC010391).
+:::
+
+:::{grid-item-card}
+:link: template_notebooks/SVEI_demo
+:link-type: doc
+:class-header: bg-light
+
+SVEI demo 🤖
+^^^
+
+This template enables users to use the SVEI model (see Tauxe et al., 2024 for further information; https://doi.org/10.1029/2024JB029502).
 :::
 
 ::::
