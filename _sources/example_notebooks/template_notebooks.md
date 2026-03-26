@@ -52,6 +52,17 @@ This notebook conducts a bootstrap fold test (Tauxe and Watson, 1994) on paleoma
 :::
 
 :::{grid-item-card}
+:link: template_notebooks/conglomerate_test
+:link-type: doc
+:class-header: bg-light
+
+Conglomerate test template 🍪
+^^^
+
+This notebook applies Watson's conglomerate test to assess whether paleomagnetic directions from clasts within a conglomerate are random, testing for pre-depositional magnetization.
+:::
+
+:::{grid-item-card}
 :link: template_notebooks/PmagPy_iodp_HOLE_template
 :link-type: doc
 :class-header: bg-light
