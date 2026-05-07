@@ -52,7 +52,7 @@
     <script>let toggleHintShow = 'Click to show';</script>
     <script>let toggleHintHide = 'Click to hide';</script>
     <script>let toggleOpenOnPrint = 'true';</script>
-    <script src="../../_static/togglebutton.js?v=1ae7504c"></script>
+    <script src="../../_static/togglebutton.js?v=b8b12719"></script>
     <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
     <script src="../../_static/design-tabs.js?v=f930bc37"></script>
     <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
@@ -170,12 +170,8 @@
         <p aria-level="2" class="caption" role="heading"><span class="caption-text">Installation</span></p>
 <ul class="nav bd-sidenav">
 <li class="toctree-l1 has-children"><a class="reference internal" href="../../installation/PmagPy_install.html">Installing <strong>PmagPy</strong></a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
-<li class="toctree-l2"><a class="reference internal" href="../../installation/osx_pip.html">OSX pip install</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../../installation/osx_developer.html">OSX developer install</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../../installation/windows_pip.html">Windows pip install</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../../installation/windows_developer.html">Windows developer install</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../../installation/linux_pip.html">Linux pip install</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../../installation/linux_developer.html">Linux developer install</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../installation/pip_install.html">pip install</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../installation/developer_install.html">Developer install</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../installation/troubleshooting.html">Troubleshooting installation issues</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../programs/command_line_programs.html">Command line programs</a></li>
 </ul>
@@ -381,6 +377,33 @@
 <span class="kn">import</span><span class="w"> </span><span class="nn">SPD.lib.leastsq_jacobian</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">lib_k</span>
 
 <span class="n">WARNINGS</span> <span class="o">=</span> <span class="p">{</span><span class="s1">&#39;cartopy&#39;</span><span class="p">:</span> <span class="kc">False</span><span class="p">}</span>
+
+
+<span class="k">def</span><span class="w"> </span><span class="nf">_resolve_rng</span><span class="p">(</span><span class="n">random_seed</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;Return a numpy random Generator.</span>
+
+<span class="sd">    Parameters</span>
+<span class="sd">    ----------</span>
+<span class="sd">    random_seed : None, int, or numpy.random.Generator</span>
+<span class="sd">        If None, returns a Generator with fresh entropy (non-reproducible).</span>
+<span class="sd">        If int, returns a seeded Generator (reproducible).</span>
+<span class="sd">        If already a Generator, returns it unchanged. This allows parent</span>
+<span class="sd">        functions to thread a single Generator through call chains via the</span>
+<span class="sd">        same ``random_seed`` parameter, keeping one shared RNG state.</span>
+
+<span class="sd">    Raises</span>
+<span class="sd">    ------</span>
+<span class="sd">    TypeError</span>
+<span class="sd">        If random_seed is not None, an integer, or a numpy.random.Generator.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="k">if</span> <span class="n">random_seed</span> <span class="ow">is</span> <span class="kc">None</span> <span class="ow">or</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">random_seed</span><span class="p">,</span> <span class="p">(</span><span class="nb">int</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">integer</span><span class="p">)):</span>
+        <span class="k">return</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">default_rng</span><span class="p">(</span><span class="n">random_seed</span><span class="p">)</span>
+    <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">random_seed</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">Generator</span><span class="p">):</span>
+        <span class="k">return</span> <span class="n">random_seed</span>
+    <span class="k">raise</span> <span class="ne">TypeError</span><span class="p">(</span>
+        <span class="sa">f</span><span class="s2">&quot;random_seed must be None, an int, or a numpy.random.Generator, &quot;</span>
+        <span class="sa">f</span><span class="s2">&quot;got </span><span class="si">{</span><span class="nb">type</span><span class="p">(</span><span class="n">random_seed</span><span class="p">)</span><span class="o">.</span><span class="vm">__name__</span><span class="si">}</span><span class="s2">&quot;</span>
+    <span class="p">)</span>
 
 
 <div class="viewcode-block" id="get_version">
@@ -7106,7 +7129,7 @@
 
 <div class="viewcode-block" id="fshdev">
 <a class="viewcode-back" href="../../api/api.html#pmagpy.pmag.fshdev">[docs]</a>
-<span class="k">def</span><span class="w"> </span><span class="nf">fshdev</span><span class="p">(</span><span class="n">k</span><span class="p">):</span>
+<span class="k">def</span><span class="w"> </span><span class="nf">fshdev</span><span class="p">(</span><span class="n">k</span><span class="p">,</span> <span class="n">random_seed</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
 <span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">    Generate a random draw from a Fisher distribution with mean declination</span>
 <span class="sd">    of 0 and inclination of 90 with a specified kappa.</span>
@@ -7115,24 +7138,27 @@
 <span class="sd">    ----------</span>
 <span class="sd">    k : single number or an array of values</span>
 <span class="sd">        kappa (precision parameter) of the distribution</span>
+<span class="sd">    random_seed : None, int, or numpy.random.Generator</span>
+<span class="sd">        Seed for reproducible random number generation (default is None).</span>
 
 <span class="sd">    Returns</span>
 <span class="sd">    -------</span>
 <span class="sd">    dec, inc : declination and inclination of random Fisher distribution draw</span>
 <span class="sd">               if k is an array, dec, inc are returned as arrays, otherwise, single values</span>
-<span class="sd">    </span>
+
 <span class="sd">    Examples</span>
 <span class="sd">    --------</span>
 <span class="sd">    &gt;&gt;&gt; pmag.fshdev(8)</span>
 <span class="sd">    (334.3434290469283, 61.06963783415771)</span>
 <span class="sd">    &quot;&quot;&quot;</span>
+    <span class="n">rng</span> <span class="o">=</span> <span class="n">_resolve_rng</span><span class="p">(</span><span class="n">random_seed</span><span class="p">)</span>
     <span class="n">k</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="n">k</span><span class="p">)</span>
     <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">k</span><span class="o">.</span><span class="n">shape</span><span class="p">)</span> <span class="o">!=</span> <span class="mi">0</span><span class="p">:</span>
         <span class="n">n</span> <span class="o">=</span> <span class="n">k</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
     <span class="k">else</span><span class="p">:</span>
         <span class="n">n</span> <span class="o">=</span> <span class="mi">1</span>
-    <span class="n">R1</span> <span class="o">=</span> <span class="n">random</span><span class="o">.</span><span class="n">random</span><span class="p">(</span><span class="n">size</span><span class="o">=</span><span class="n">n</span><span class="p">)</span>
-    <span class="n">R2</span> <span class="o">=</span> <span class="n">random</span><span class="o">.</span><span class="n">random</span><span class="p">(</span><span class="n">size</span><span class="o">=</span><span class="n">n</span><span class="p">)</span>
+    <span class="n">R1</span> <span class="o">=</span> <span class="n">rng</span><span class="o">.</span><span class="n">random</span><span class="p">(</span><span class="n">size</span><span class="o">=</span><span class="n">n</span><span class="p">)</span>
+    <span class="n">R2</span> <span class="o">=</span> <span class="n">rng</span><span class="o">.</span><span class="n">random</span><span class="p">(</span><span class="n">size</span><span class="o">=</span><span class="n">n</span><span class="p">)</span>
     <span class="n">L</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">exp</span><span class="p">(</span><span class="o">-</span><span class="mi">2</span> <span class="o">*</span> <span class="n">k</span><span class="p">)</span>
     <span class="n">a</span> <span class="o">=</span> <span class="n">R1</span> <span class="o">*</span> <span class="p">(</span><span class="mi">1</span> <span class="o">-</span> <span class="n">L</span><span class="p">)</span> <span class="o">+</span> <span class="n">L</span>
     <span class="n">fac</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span><span class="o">-</span><span class="n">np</span><span class="o">.</span><span class="n">log</span><span class="p">(</span><span class="n">a</span><span class="p">)</span><span class="o">/</span><span class="p">(</span><span class="mi">2</span> <span class="o">*</span> <span class="n">k</span><span class="p">))</span>
@@ -7146,10 +7172,10 @@
 
 <div class="viewcode-block" id="kentdev">
 <a class="viewcode-back" href="../../api/api.html#pmagpy.pmag.kentdev">[docs]</a>
-<span class="k">def</span><span class="w"> </span><span class="nf">kentdev</span><span class="p">(</span><span class="n">kappa</span><span class="p">,</span> <span class="n">beta</span><span class="p">,</span> <span class="n">n</span><span class="o">=</span><span class="mi">1000</span><span class="p">):</span>
+<span class="k">def</span><span class="w"> </span><span class="nf">kentdev</span><span class="p">(</span><span class="n">kappa</span><span class="p">,</span> <span class="n">beta</span><span class="p">,</span> <span class="n">n</span><span class="o">=</span><span class="mi">1000</span><span class="p">,</span> <span class="n">random_seed</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
 <span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">    Generate a random draw from a Kent distribution with mean declination</span>
-<span class="sd">    of 0 and inclination of 90, elongated along -90 to 90 longitude </span>
+<span class="sd">    of 0 and inclination of 90, elongated along -90 to 90 longitude</span>
 <span class="sd">    with a specified kappa and beta.</span>
 
 <span class="sd">    Parameters</span>
@@ -7157,18 +7183,21 @@
 <span class="sd">    kappa : kappa (precision parameter) of the distribution</span>
 <span class="sd">    beta : beta ellipticity of the contours of equal probability of the distribution</span>
 <span class="sd">    n : number of samples to redraw</span>
+<span class="sd">    random_seed : None, int, or numpy.random.Generator</span>
+<span class="sd">        Seed for reproducible random number generation (default is None).</span>
 
 <span class="sd">    Returns</span>
 <span class="sd">    -------</span>
 <span class="sd">    dec, inc : declination and inclination of random Kent distribution draw</span>
-<span class="sd">    </span>
+
 <span class="sd">    Examples</span>
 <span class="sd">    --------</span>
 <span class="sd">    &gt;&gt;&gt; pmag.kentdev(30,0.2,3)</span>
 <span class="sd">    ([249.6338265814872, 243.60784772662754, 273.37935292238103],</span>
 <span class="sd">     [74.05222965175194, 80.43784483273899, 82.34979130960458])</span>
 <span class="sd">    &quot;&quot;&quot;</span>
-    
+    <span class="n">rng</span> <span class="o">=</span> <span class="n">_resolve_rng</span><span class="p">(</span><span class="n">random_seed</span><span class="p">)</span>
+
     <span class="c1"># initialize dec, inc lists to be reported</span>
     <span class="n">decs</span> <span class="o">=</span> <span class="p">[]</span>
     <span class="n">incs</span> <span class="o">=</span> <span class="p">[]</span>
@@ -7193,10 +7222,10 @@
     <span class="n">N</span><span class="o">=</span><span class="mi">0</span>
     
     <span class="k">while</span> <span class="n">N</span><span class="o">&lt;</span><span class="n">n</span><span class="p">:</span>
-        <span class="n">v1</span><span class="o">=</span><span class="n">random</span><span class="o">.</span><span class="n">random</span><span class="p">()</span>
-        <span class="n">v2</span><span class="o">=</span><span class="n">random</span><span class="o">.</span><span class="n">random</span><span class="p">()</span>
-        <span class="n">u1</span><span class="o">=</span><span class="n">random</span><span class="o">.</span><span class="n">random</span><span class="p">()</span>
-        <span class="n">u2</span><span class="o">=</span><span class="n">random</span><span class="o">.</span><span class="n">random</span><span class="p">()</span>
+        <span class="n">v1</span><span class="o">=</span><span class="n">rng</span><span class="o">.</span><span class="n">random</span><span class="p">()</span>
+        <span class="n">v2</span><span class="o">=</span><span class="n">rng</span><span class="o">.</span><span class="n">random</span><span class="p">()</span>
+        <span class="n">u1</span><span class="o">=</span><span class="n">rng</span><span class="o">.</span><span class="n">random</span><span class="p">()</span>
+        <span class="n">u2</span><span class="o">=</span><span class="n">rng</span><span class="o">.</span><span class="n">random</span><span class="p">()</span>
 
         <span class="k">try</span><span class="p">:</span>
             <span class="n">x1</span> <span class="o">=</span> <span class="o">-</span><span class="n">np</span><span class="o">.</span><span class="n">log</span><span class="p">(</span><span class="mi">1</span><span class="o">-</span><span class="n">v1</span><span class="o">*</span><span class="p">(</span><span class="mi">1</span><span class="o">-</span><span class="n">np</span><span class="o">.</span><span class="n">exp</span><span class="p">(</span><span class="o">-</span><span class="n">lam1</span><span class="p">)))</span><span class="o">/</span><span class="n">lam1</span>
@@ -7221,8 +7250,8 @@
         <span class="k">if</span> <span class="n">u2</span> <span class="o">&gt;</span> <span class="n">ratio2</span><span class="p">:</span>
             <span class="k">continue</span>
         
-        <span class="n">sign1</span> <span class="o">=</span> <span class="p">[</span><span class="o">-</span><span class="mi">1</span> <span class="k">if</span> <span class="n">random</span><span class="o">.</span><span class="n">random</span><span class="p">()</span><span class="o">-</span><span class="mf">0.5</span> <span class="o">&lt;</span> <span class="mi">0</span> <span class="k">else</span> <span class="mi">1</span><span class="p">][</span><span class="mi">0</span><span class="p">]</span>
-        <span class="n">sign2</span> <span class="o">=</span> <span class="p">[</span><span class="o">-</span><span class="mi">1</span> <span class="k">if</span> <span class="n">random</span><span class="o">.</span><span class="n">random</span><span class="p">()</span><span class="o">-</span><span class="mf">0.5</span> <span class="o">&lt;</span> <span class="mi">0</span> <span class="k">else</span> <span class="mi">1</span><span class="p">][</span><span class="mi">0</span><span class="p">]</span>
+        <span class="n">sign1</span> <span class="o">=</span> <span class="p">[</span><span class="o">-</span><span class="mi">1</span> <span class="k">if</span> <span class="n">rng</span><span class="o">.</span><span class="n">random</span><span class="p">()</span><span class="o">-</span><span class="mf">0.5</span> <span class="o">&lt;</span> <span class="mi">0</span> <span class="k">else</span> <span class="mi">1</span><span class="p">][</span><span class="mi">0</span><span class="p">]</span>
+        <span class="n">sign2</span> <span class="o">=</span> <span class="p">[</span><span class="o">-</span><span class="mi">1</span> <span class="k">if</span> <span class="n">rng</span><span class="o">.</span><span class="n">random</span><span class="p">()</span><span class="o">-</span><span class="mf">0.5</span> <span class="o">&lt;</span> <span class="mi">0</span> <span class="k">else</span> <span class="mi">1</span><span class="p">][</span><span class="mi">0</span><span class="p">]</span>
 
         <span class="n">x1</span><span class="o">=</span><span class="n">x1</span><span class="o">*</span><span class="n">sign1</span>
         <span class="n">x2</span><span class="o">=</span><span class="n">x2</span><span class="o">*</span><span class="n">sign2</span>
@@ -7800,7 +7829,7 @@
 
 <div class="viewcode-block" id="gaussdev">
 <a class="viewcode-back" href="../../api/api.html#pmagpy.pmag.gaussdev">[docs]</a>
-<span class="k">def</span><span class="w"> </span><span class="nf">gaussdev</span><span class="p">(</span><span class="n">mean</span><span class="p">,</span> <span class="n">sigma</span><span class="p">,</span> <span class="n">N</span><span class="o">=</span><span class="mi">1</span><span class="p">):</span>
+<span class="k">def</span><span class="w"> </span><span class="nf">gaussdev</span><span class="p">(</span><span class="n">mean</span><span class="p">,</span> <span class="n">sigma</span><span class="p">,</span> <span class="n">N</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">random_seed</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
 <span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">    Generate random samples drawn from a Gaussian (normal) distribution.</span>
 
@@ -7815,6 +7844,8 @@
 <span class="sd">        Standard deviation of the normal distribution.</span>
 <span class="sd">    N : int, optional</span>
 <span class="sd">        Number of random samples to generate. Defaults to 1.</span>
+<span class="sd">    random_seed : None, int, or numpy.random.Generator</span>
+<span class="sd">        Seed for reproducible random number generation (default is None).</span>
 
 <span class="sd">    Returns</span>
 <span class="sd">    -------</span>
@@ -7828,44 +7859,44 @@
 <span class="sd">    This function is a thin convenience wrapper around ``numpy.random.normal``.</span>
 <span class="sd">    Its primary purpose is to provide a default of ``N=1`` and to ensure that</span>
 <span class="sd">    the return value is always a NumPy array, even when generating a single</span>
-<span class="sd">    sample. Results will vary between runs unless a random seed is set using</span>
-<span class="sd">    ``np.random.seed()``.</span>
+<span class="sd">    sample. Pass an integer ``random_seed`` for reproducible results.</span>
 
 <span class="sd">    Examples</span>
 <span class="sd">    --------</span>
 <span class="sd">    Generate six samples from a normal distribution with mean 5.5 and standard</span>
 <span class="sd">    deviation 1.2:</span>
 
-<span class="sd">    &gt;&gt;&gt; np.random.seed(42)  # optional, for reproducibility</span>
-<span class="sd">    &gt;&gt;&gt; pmag.gaussdev(5.5, 1.2, 6)</span>
+<span class="sd">    &gt;&gt;&gt; pmag.gaussdev(5.5, 1.2, 6, random_seed=42)</span>
 <span class="sd">    array([6.096056983613479, 5.334082838594578, 6.277226245720831,</span>
 <span class="sd">        7.327635827689631, 5.219015950331997, 5.219035651660984])</span>
 
 <span class="sd">    Generate a single sample:</span>
 
-<span class="sd">    &gt;&gt;&gt; np.random.seed(42)</span>
-<span class="sd">    &gt;&gt;&gt; pmag.gaussdev(5.5, 1.2, 1)</span>
+<span class="sd">    &gt;&gt;&gt; pmag.gaussdev(5.5, 1.2, 1, random_seed=42)</span>
 <span class="sd">    array([6.096056983613479])</span>
 <span class="sd">    &quot;&quot;&quot;</span>
-    <span class="k">return</span> <span class="n">random</span><span class="o">.</span><span class="n">normal</span><span class="p">(</span><span class="n">mean</span><span class="p">,</span> <span class="n">sigma</span><span class="p">,</span> <span class="n">N</span><span class="p">)</span>  <span class="c1"># return gaussian deviate</span></div>
+    <span class="n">rng</span> <span class="o">=</span> <span class="n">_resolve_rng</span><span class="p">(</span><span class="n">random_seed</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">rng</span><span class="o">.</span><span class="n">normal</span><span class="p">(</span><span class="n">mean</span><span class="p">,</span> <span class="n">sigma</span><span class="p">,</span> <span class="n">N</span><span class="p">)</span></div>
 
 
 
 <div class="viewcode-block" id="get_unf">
 <a class="viewcode-back" href="../../api/api.html#pmagpy.pmag.get_unf">[docs]</a>
-<span class="k">def</span><span class="w"> </span><span class="nf">get_unf</span><span class="p">(</span><span class="n">N</span><span class="o">=</span><span class="mi">100</span><span class="p">):</span>
+<span class="k">def</span><span class="w"> </span><span class="nf">get_unf</span><span class="p">(</span><span class="n">N</span><span class="o">=</span><span class="mi">100</span><span class="p">,</span> <span class="n">random_seed</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
 <span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">    Generates N uniformly distributed directions</span>
 <span class="sd">    using the way described in Fisher et al. (1987).</span>
-<span class="sd">    </span>
+
 <span class="sd">    Parameters</span>
 <span class="sd">    ----------</span>
 <span class="sd">    N : number of directions, default is 100</span>
+<span class="sd">    random_seed : None, int, or numpy.random.Generator</span>
+<span class="sd">        Seed for reproducible random number generation (default is None).</span>
 
 <span class="sd">    Returns</span>
 <span class="sd">    -------</span>
 <span class="sd">    array of nested dec, inc pairs</span>
-<span class="sd">    </span>
+
 <span class="sd">    Examples</span>
 <span class="sd">    --------</span>
 <span class="sd">    &gt;&gt;&gt; pmag.get_unf(5)</span>
@@ -7875,10 +7906,10 @@
 <span class="sd">       [ 61.71574344812653 ,  -4.005335509042522],</span>
 <span class="sd">       [ 15.867001505749716,  -1.404412703673322]])</span>
 <span class="sd">    &quot;&quot;&quot;</span>
-<span class="c1">#</span>
+    <span class="n">rng</span> <span class="o">=</span> <span class="n">_resolve_rng</span><span class="p">(</span><span class="n">random_seed</span><span class="p">)</span>
 <span class="c1"># get uniform directions  [dec,inc]</span>
-    <span class="n">z</span> <span class="o">=</span> <span class="n">random</span><span class="o">.</span><span class="n">uniform</span><span class="p">(</span><span class="o">-</span><span class="mf">1.</span><span class="p">,</span> <span class="mf">1.</span><span class="p">,</span> <span class="n">size</span><span class="o">=</span><span class="n">N</span><span class="p">)</span>
-    <span class="n">t</span> <span class="o">=</span> <span class="n">random</span><span class="o">.</span><span class="n">uniform</span><span class="p">(</span><span class="mf">0.</span><span class="p">,</span> <span class="mf">360.</span><span class="p">,</span> <span class="n">size</span><span class="o">=</span><span class="n">N</span><span class="p">)</span>  <span class="c1"># decs</span>
+    <span class="n">z</span> <span class="o">=</span> <span class="n">rng</span><span class="o">.</span><span class="n">uniform</span><span class="p">(</span><span class="o">-</span><span class="mf">1.</span><span class="p">,</span> <span class="mf">1.</span><span class="p">,</span> <span class="n">size</span><span class="o">=</span><span class="n">N</span><span class="p">)</span>
+    <span class="n">t</span> <span class="o">=</span> <span class="n">rng</span><span class="o">.</span><span class="n">uniform</span><span class="p">(</span><span class="mf">0.</span><span class="p">,</span> <span class="mf">360.</span><span class="p">,</span> <span class="n">size</span><span class="o">=</span><span class="n">N</span><span class="p">)</span>  <span class="c1"># decs</span>
     <span class="n">i</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">arcsin</span><span class="p">(</span><span class="n">z</span><span class="p">)</span> <span class="o">*</span> <span class="mf">180.</span> <span class="o">/</span> <span class="n">np</span><span class="o">.</span><span class="n">pi</span>  <span class="c1"># incs</span>
     <span class="k">return</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="n">t</span><span class="p">,</span> <span class="n">i</span><span class="p">])</span><span class="o">.</span><span class="n">transpose</span><span class="p">()</span>
 
@@ -9437,7 +9468,7 @@
 
 <div class="viewcode-block" id="apseudo">
 <a class="viewcode-back" href="../../api/api.html#pmagpy.pmag.apseudo">[docs]</a>
-<span class="k">def</span><span class="w"> </span><span class="nf">apseudo</span><span class="p">(</span><span class="n">Ss</span><span class="p">,</span> <span class="n">ipar</span><span class="p">,</span> <span class="n">sigma</span><span class="p">):</span>
+<span class="k">def</span><span class="w"> </span><span class="nf">apseudo</span><span class="p">(</span><span class="n">Ss</span><span class="p">,</span> <span class="n">ipar</span><span class="p">,</span> <span class="n">sigma</span><span class="p">,</span> <span class="n">random_seed</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
 <span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">    This function draws a bootstrap sample of Ss, for use in pmag.s_boot.</span>
 
@@ -9446,21 +9477,23 @@
 <span class="sd">    Ss : six element tensor as a list</span>
 <span class="sd">    ipar : boolean (True, False, or zero value)</span>
 <span class="sd">    sigma : sigma of Ss</span>
+<span class="sd">    random_seed : None, int, or numpy.random.Generator</span>
+<span class="sd">        Seed for reproducible random number generation (default is None).</span>
 
 <span class="sd">    Returns</span>
 <span class="sd">    -------</span>
-<span class="sd">    BSs : array </span>
+<span class="sd">    BSs : array</span>
 <span class="sd">        bootstrap sample of Ss</span>
 
-<span class="sd">    Examples </span>
+<span class="sd">    Examples</span>
 <span class="sd">    --------</span>
 <span class="sd">    &gt;&gt;&gt; pmag.apseudo(np.array([2,2,1,6,1,1]),0,0)</span>
 <span class="sd">    array([1, 2, 1, 2, 2, 1])</span>
 <span class="sd">    &quot;&quot;&quot;</span>
-<span class="c1">#</span>
+    <span class="n">rng</span> <span class="o">=</span> <span class="n">_resolve_rng</span><span class="p">(</span><span class="n">random_seed</span><span class="p">)</span>
     <span class="n">Ss</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="n">Ss</span><span class="p">)</span>   <span class="c1"># added 9/9/22 for consistency with other functions using the variable &quot;Ss&quot;</span>
-    <span class="n">Is</span> <span class="o">=</span> <span class="n">random</span><span class="o">.</span><span class="n">randint</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="nb">len</span><span class="p">(</span><span class="n">Ss</span><span class="p">)</span> <span class="o">-</span> <span class="mi">1</span><span class="p">,</span> <span class="n">size</span><span class="o">=</span><span class="nb">len</span><span class="p">(</span><span class="n">Ss</span><span class="p">))</span>  <span class="c1"># draw N random integers</span>
-    
+    <span class="n">Is</span> <span class="o">=</span> <span class="n">rng</span><span class="o">.</span><span class="n">integers</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="nb">len</span><span class="p">(</span><span class="n">Ss</span><span class="p">),</span> <span class="n">size</span><span class="o">=</span><span class="nb">len</span><span class="p">(</span><span class="n">Ss</span><span class="p">))</span>
+
     <span class="k">if</span> <span class="ow">not</span> <span class="n">ipar</span><span class="p">:</span> <span class="c1"># ipar == 0:</span>
         <span class="n">BSs</span> <span class="o">=</span> <span class="n">Ss</span><span class="p">[</span><span class="n">Is</span><span class="p">]</span>
     <span class="k">else</span><span class="p">:</span>  <span class="c1"># need to recreate measurement - then do the parametric stuffr</span>
@@ -9468,7 +9501,7 @@
         <span class="n">K</span><span class="p">,</span> <span class="n">BSs</span> <span class="o">=</span> <span class="p">[],</span> <span class="p">[]</span>
         <span class="k">for</span> <span class="n">k</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">Ss</span><span class="p">)):</span>
             <span class="n">K</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">dot</span><span class="p">(</span><span class="n">A</span><span class="p">,</span> <span class="n">Ss</span><span class="p">[</span><span class="n">k</span><span class="p">][</span><span class="mi">0</span><span class="p">:</span><span class="mi">6</span><span class="p">]))</span>
-        <span class="n">Pars</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">normal</span><span class="p">(</span><span class="n">K</span><span class="p">,</span> <span class="n">sigma</span><span class="p">)</span>
+        <span class="n">Pars</span> <span class="o">=</span> <span class="n">rng</span><span class="o">.</span><span class="n">normal</span><span class="p">(</span><span class="n">K</span><span class="p">,</span> <span class="n">sigma</span><span class="p">)</span>
         <span class="k">for</span> <span class="n">k</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">Ss</span><span class="p">)):</span>
             <span class="n">BSs</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">dot</span><span class="p">(</span><span class="n">B</span><span class="p">,</span> <span class="n">Pars</span><span class="p">[</span><span class="n">k</span><span class="p">]))</span>
     <span class="k">return</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="n">BSs</span><span class="p">)</span></div>
@@ -9477,7 +9510,7 @@
 
 <div class="viewcode-block" id="s_boot">
 <a class="viewcode-back" href="../../api/api.html#pmagpy.pmag.s_boot">[docs]</a>
-<span class="k">def</span><span class="w"> </span><span class="nf">s_boot</span><span class="p">(</span><span class="n">Ss</span><span class="p">,</span> <span class="n">ipar</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">nb</span><span class="o">=</span><span class="mi">1000</span><span class="p">):</span>
+<span class="k">def</span><span class="w"> </span><span class="nf">s_boot</span><span class="p">(</span><span class="n">Ss</span><span class="p">,</span> <span class="n">ipar</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">nb</span><span class="o">=</span><span class="mi">1000</span><span class="p">,</span> <span class="n">random_seed</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
 <span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">    Returns bootstrap parameters for S data.</span>
 
@@ -9486,6 +9519,8 @@
 <span class="sd">    Ss : nested array of [[x11 x22 x33 x12 x23 x13],....] data</span>
 <span class="sd">    ipar : if True, do a parametric bootstrap</span>
 <span class="sd">    nb : number of bootstraps</span>
+<span class="sd">    random_seed : None, int, or numpy.random.Generator</span>
+<span class="sd">        Seed for reproducible random number generation (default is None).</span>
 
 <span class="sd">    Returns</span>
 <span class="sd">    -------</span>
@@ -9493,7 +9528,7 @@
 <span class="sd">    Vmean : average eigvectors</span>
 <span class="sd">    Taus : bootstrapped eigenvalues</span>
 <span class="sd">    Vs :  bootstrapped eigenvectors</span>
-<span class="sd">    </span>
+
 <span class="sd">    Examples</span>
 <span class="sd">    --------</span>
 <span class="sd">    &gt;&gt;&gt; Ss = [[0.33586472,0.32757074,0.33656454,0.0056526,0.00449771,-0.00036542], [0.33815295,0.32601482,0.33583224,0.00754076,0.00405271,-0.0001627],</span>
@@ -9512,23 +9547,16 @@
 <span class="sd">       [166.21187481069492, 70.40546729047502],</span>
 <span class="sd">       [295.4174263407004, 12.681162985818712]]])</span>
 <span class="sd">    &quot;&quot;&quot;</span>
-    <span class="c1">#npts = len(Ss)</span>
+    <span class="n">rng</span> <span class="o">=</span> <span class="n">_resolve_rng</span><span class="p">(</span><span class="n">random_seed</span><span class="p">)</span>
     <span class="n">Ss</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="n">Ss</span><span class="p">)</span>
     <span class="n">npts</span> <span class="o">=</span> <span class="n">Ss</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
-<span class="c1"># get average s for whole dataset</span>
     <span class="n">nf</span><span class="p">,</span> <span class="n">Sigma</span><span class="p">,</span> <span class="n">avs</span> <span class="o">=</span> <span class="n">sbar</span><span class="p">(</span><span class="n">Ss</span><span class="p">)</span>
-    <span class="n">Tmean</span><span class="p">,</span> <span class="n">Vmean</span> <span class="o">=</span> <span class="n">doseigs</span><span class="p">(</span><span class="n">avs</span><span class="p">)</span>  <span class="c1"># get eigenvectors of mean tensor</span>
-<span class="c1">#</span>
-<span class="c1"># now do bootstrap to collect Vs and taus of bootstrap means</span>
-<span class="c1">#</span>
-    <span class="n">Taus</span><span class="p">,</span> <span class="n">Vs</span> <span class="o">=</span> <span class="p">[],</span> <span class="p">[]</span>  <span class="c1"># number of bootstraps, list of bootstrap taus and eigenvectors</span>
-<span class="c1">#</span>
-    <span class="k">for</span> <span class="n">k</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="nb">int</span><span class="p">(</span><span class="nb">float</span><span class="p">(</span><span class="n">nb</span><span class="p">))):</span>  <span class="c1"># repeat nb times</span>
-        <span class="c1">#        if k%50==0:print k,&#39; out of &#39;,nb</span>
-        <span class="c1"># get a pseudosample - if ipar=1, do a parametric bootstrap</span>
-        <span class="n">BSs</span> <span class="o">=</span> <span class="n">apseudo</span><span class="p">(</span><span class="n">Ss</span><span class="p">,</span> <span class="n">ipar</span><span class="p">,</span> <span class="n">Sigma</span><span class="p">)</span>
-        <span class="n">nf</span><span class="p">,</span> <span class="n">sigma</span><span class="p">,</span> <span class="n">avbs</span> <span class="o">=</span> <span class="n">sbar</span><span class="p">(</span><span class="n">BSs</span><span class="p">)</span>  <span class="c1"># get bootstrap mean s</span>
-        <span class="n">tau</span><span class="p">,</span> <span class="n">Vdirs</span> <span class="o">=</span> <span class="n">doseigs</span><span class="p">(</span><span class="n">avbs</span><span class="p">)</span>  <span class="c1"># get bootstrap eigenparameters</span>
+    <span class="n">Tmean</span><span class="p">,</span> <span class="n">Vmean</span> <span class="o">=</span> <span class="n">doseigs</span><span class="p">(</span><span class="n">avs</span><span class="p">)</span>
+    <span class="n">Taus</span><span class="p">,</span> <span class="n">Vs</span> <span class="o">=</span> <span class="p">[],</span> <span class="p">[]</span>
+    <span class="k">for</span> <span class="n">k</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="nb">int</span><span class="p">(</span><span class="nb">float</span><span class="p">(</span><span class="n">nb</span><span class="p">))):</span>
+        <span class="n">BSs</span> <span class="o">=</span> <span class="n">apseudo</span><span class="p">(</span><span class="n">Ss</span><span class="p">,</span> <span class="n">ipar</span><span class="p">,</span> <span class="n">Sigma</span><span class="p">,</span> <span class="n">random_seed</span><span class="o">=</span><span class="n">rng</span><span class="p">)</span>
+        <span class="n">nf</span><span class="p">,</span> <span class="n">sigma</span><span class="p">,</span> <span class="n">avbs</span> <span class="o">=</span> <span class="n">sbar</span><span class="p">(</span><span class="n">BSs</span><span class="p">)</span>
+        <span class="n">tau</span><span class="p">,</span> <span class="n">Vdirs</span> <span class="o">=</span> <span class="n">doseigs</span><span class="p">(</span><span class="n">avbs</span><span class="p">)</span>
         <span class="n">Taus</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">tau</span><span class="p">)</span>
         <span class="n">Vs</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">Vdirs</span><span class="p">)</span>
     <span class="k">return</span> <span class="n">Tmean</span><span class="p">,</span> <span class="n">Vmean</span><span class="p">,</span> <span class="n">Taus</span><span class="p">,</span> <span class="n">Vs</span></div>
@@ -10160,7 +10188,7 @@
 <a class="viewcode-back" href="../../api/api.html#pmagpy.pmag.doigrf">[docs]</a>
 <span class="k">def</span><span class="w"> </span><span class="nf">doigrf</span><span class="p">(</span><span class="n">lon</span><span class="p">,</span> <span class="n">lat</span><span class="p">,</span> <span class="n">alt</span><span class="p">,</span> <span class="n">date</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
 <span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
-<span class="sd">    Calculates the interpolated (&lt;=2020) or extrapolated (&gt;2020) main field and</span>
+<span class="sd">    Calculates the interpolated (&lt;=2025) or extrapolated (&gt;2025) main field and</span>
 <span class="sd">    secular variation coefficients and passes them to the Malin and Barraclough</span>
 <span class="sd">    routine (function pmag.magsyn) to calculate the field from the coefficients.</span>
 
@@ -10196,7 +10224,7 @@
 <span class="sd">    gh : list of gauss coefficients</span>
 <span class="sd">        only if coeffs=True</span>
 
-<span class="sd">    By default, igrf13 coefficients are used between 1900 and 2020</span>
+<span class="sd">    By default, IGRF14 coefficients are used between 1900 and 2025</span>
 <span class="sd">    from http://www.ngdc.noaa.gov/IAGA/vmod/igrf.html.</span>
 
 
@@ -10224,8 +10252,7 @@
         <span class="n">lon</span> <span class="o">=</span> <span class="n">lon</span> <span class="o">+</span> <span class="mf">360.</span>
 <span class="c1"># ensure all positive east longitudes</span>
     <span class="n">itype</span> <span class="o">=</span> <span class="mi">1</span>
-    <span class="n">models</span><span class="p">,</span> <span class="n">igrf13coeffs</span> <span class="o">=</span> <span class="n">cf</span><span class="o">.</span><span class="n">get_igrf13</span><span class="p">()</span>
-    <span class="c1">#models, igrf12coeffs = cf.get_igrf12()</span>
+    <span class="n">models</span><span class="p">,</span> <span class="n">igrf14coeffs</span> <span class="o">=</span> <span class="n">cf</span><span class="o">.</span><span class="n">get_igrf14</span><span class="p">()</span>
     <span class="k">if</span> <span class="s1">&#39;mod&#39;</span> <span class="ow">in</span> <span class="nb">list</span><span class="p">(</span><span class="n">kwargs</span><span class="o">.</span><span class="n">keys</span><span class="p">()):</span>
         <span class="k">if</span> <span class="n">kwargs</span><span class="p">[</span><span class="s1">&#39;mod&#39;</span><span class="p">]</span> <span class="o">==</span> <span class="s1">&#39;arch3k&#39;</span><span class="p">:</span>
             <span class="n">psvmodels</span><span class="p">,</span> <span class="n">psvcoeffs</span> <span class="o">=</span> <span class="n">cf</span><span class="o">.</span><span class="n">get_arch3k</span><span class="p">()</span>  <span class="c1"># use ARCH3k coefficients</span>
@@ -10261,7 +10288,7 @@
         <span class="k">if</span> <span class="s1">&#39;mod&#39;</span> <span class="ow">in</span> <span class="nb">list</span><span class="p">(</span><span class="n">kwargs</span><span class="o">.</span><span class="n">keys</span><span class="p">()):</span>
             <span class="k">return</span> <span class="n">psvmodels</span><span class="p">,</span> <span class="n">psvcoeffs</span>
         <span class="k">else</span><span class="p">:</span>
-            <span class="k">return</span> <span class="n">models</span><span class="p">,</span> <span class="n">igrf13coeffs</span>
+            <span class="k">return</span> <span class="n">models</span><span class="p">,</span> <span class="n">igrf14coeffs</span>
     <span class="k">if</span> <span class="n">date</span> <span class="o">&lt;</span> <span class="o">-</span><span class="mi">100000</span><span class="p">:</span>
         <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;too old&#39;</span><span class="p">)</span>
         <span class="k">return</span>
@@ -10302,29 +10329,25 @@
             <span class="n">sv</span> <span class="o">=</span> <span class="p">(</span><span class="n">psvcoeffs</span><span class="p">[</span><span class="n">psvmodels</span><span class="o">.</span><span class="n">index</span><span class="p">(</span><span class="n">model</span> <span class="o">+</span> <span class="n">incr</span><span class="p">)]</span> <span class="o">-</span> <span class="n">gh</span><span class="p">)</span><span class="o">/</span><span class="nb">float</span><span class="p">(</span><span class="n">incr</span><span class="p">)</span>
          
         <span class="k">else</span><span class="p">:</span>
-            <span class="n">field2</span> <span class="o">=</span> <span class="n">igrf13coeffs</span><span class="p">[</span><span class="n">models</span><span class="o">.</span><span class="n">index</span><span class="p">(</span><span class="mi">1940</span><span class="p">)][</span><span class="mi">0</span><span class="p">:</span><span class="mi">120</span><span class="p">]</span>
+            <span class="n">field2</span> <span class="o">=</span> <span class="n">igrf14coeffs</span><span class="p">[</span><span class="n">models</span><span class="o">.</span><span class="n">index</span><span class="p">(</span><span class="mi">1940</span><span class="p">)][</span><span class="mi">0</span><span class="p">:</span><span class="mi">120</span><span class="p">]</span>
             <span class="n">sv</span> <span class="o">=</span> <span class="p">(</span><span class="n">field2</span> <span class="o">-</span> <span class="n">gh</span><span class="p">)</span><span class="o">/</span><span class="nb">float</span><span class="p">(</span><span class="mi">1940</span> <span class="o">-</span> <span class="n">model</span><span class="p">)</span>
         <span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="n">z</span><span class="p">,</span> <span class="n">f</span> <span class="o">=</span> <span class="n">magsyn</span><span class="p">(</span><span class="n">gh</span><span class="p">,</span> <span class="n">sv</span><span class="p">,</span> <span class="n">model</span><span class="p">,</span> <span class="n">date</span><span class="p">,</span> <span class="n">itype</span><span class="p">,</span> <span class="n">alt</span><span class="p">,</span> <span class="n">colat</span><span class="p">,</span> <span class="n">lon</span><span class="p">)</span>
     <span class="k">else</span><span class="p">:</span>
         <span class="n">model</span> <span class="o">=</span> <span class="n">date</span> <span class="o">-</span> <span class="n">date</span> <span class="o">%</span> <span class="mi">5</span>
-        <span class="k">if</span> <span class="n">date</span> <span class="o">&lt;=</span><span class="mi">2025</span><span class="p">:</span>
-            <span class="n">gh</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="n">igrf13coeffs</span><span class="p">[</span><span class="n">models</span><span class="o">.</span><span class="n">index</span><span class="p">(</span><span class="n">model</span><span class="p">)])</span>
-            <span class="k">if</span> <span class="n">date</span><span class="o">&lt;</span><span class="mi">2025</span><span class="p">:</span>
-                <span class="n">sv</span> <span class="o">=</span> <span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="n">igrf13coeffs</span><span class="p">[</span><span class="n">models</span><span class="o">.</span><span class="n">index</span><span class="p">(</span><span class="n">model</span> <span class="o">+</span> <span class="mi">5</span><span class="p">)])</span> <span class="o">-</span> <span class="n">gh</span><span class="p">)</span><span class="o">/</span><span class="mf">5.</span>
+        <span class="k">if</span> <span class="n">date</span> <span class="o">&lt;=</span><span class="mi">2030</span><span class="p">:</span>
+            <span class="n">gh</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="n">igrf14coeffs</span><span class="p">[</span><span class="n">models</span><span class="o">.</span><span class="n">index</span><span class="p">(</span><span class="n">model</span><span class="p">)])</span>
+            <span class="k">if</span> <span class="n">date</span><span class="o">&lt;</span><span class="mi">2030</span><span class="p">:</span>
+                <span class="n">sv</span> <span class="o">=</span> <span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="n">igrf14coeffs</span><span class="p">[</span><span class="n">models</span><span class="o">.</span><span class="n">index</span><span class="p">(</span><span class="n">model</span> <span class="o">+</span> <span class="mi">5</span><span class="p">)])</span> <span class="o">-</span> <span class="n">gh</span><span class="p">)</span><span class="o">/</span><span class="mf">5.</span>
             <span class="k">else</span><span class="p">:</span>
-                <span class="n">sv</span> <span class="o">=</span> <span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">igrf13coeffs</span><span class="p">[</span><span class="n">models</span><span class="o">.</span><span class="n">index</span><span class="p">(</span><span class="n">model</span><span class="p">)])))</span>
+                <span class="n">sv</span> <span class="o">=</span> <span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">igrf14coeffs</span><span class="p">[</span><span class="n">models</span><span class="o">.</span><span class="n">index</span><span class="p">(</span><span class="n">model</span><span class="p">)])))</span>
             <span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="n">z</span><span class="p">,</span> <span class="n">f</span> <span class="o">=</span> <span class="n">magsyn</span><span class="p">(</span><span class="n">gh</span><span class="p">,</span> <span class="n">sv</span><span class="p">,</span> <span class="n">model</span><span class="p">,</span> <span class="n">date</span><span class="p">,</span> <span class="n">itype</span><span class="p">,</span> <span class="n">alt</span><span class="p">,</span> <span class="n">colat</span><span class="p">,</span> <span class="n">lon</span><span class="p">)</span>
         <span class="k">else</span><span class="p">:</span>
-            <span class="nb">print</span> <span class="p">(</span><span class="s1">&#39;model not available past 2025&#39;</span><span class="p">)</span>
+            <span class="nb">print</span> <span class="p">(</span><span class="s1">&#39;model not available past 2030&#39;</span><span class="p">)</span>
             <span class="n">x</span><span class="p">,</span><span class="n">y</span><span class="p">,</span><span class="n">z</span><span class="p">,</span><span class="n">f</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span>
-        <span class="c1">#    gh = igrf13coeffs[models.index(2020)]</span>
-        <span class="c1">#    sv = np.array(igrf13coeffs[models.index(2020.2)])</span>
-        <span class="c1">#    x, y, z, f = magsyn(gh, sv, model, date, itype, alt, colat, lon)</span>
     <span class="k">if</span> <span class="s1">&#39;coeffs&#39;</span> <span class="ow">in</span> <span class="nb">list</span><span class="p">(</span><span class="n">kwargs</span><span class="o">.</span><span class="n">keys</span><span class="p">()):</span>
         <span class="k">return</span> <span class="n">gh</span>
     <span class="k">return</span> <span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="n">z</span><span class="p">,</span> <span class="n">f</span></div>
 
-<span class="c1">#</span>
 
 
 <div class="viewcode-block" id="unpack">
@@ -10486,7 +10509,6 @@
         <span class="n">one</span> <span class="o">=</span> <span class="p">(</span><span class="n">gh</span><span class="p">[</span><span class="n">l</span> <span class="o">-</span> <span class="mi">1</span><span class="p">]</span> <span class="o">+</span> <span class="n">sv</span><span class="p">[</span><span class="n">ll</span> <span class="o">+</span> <span class="n">l</span> <span class="o">-</span> <span class="mi">1</span><span class="p">]</span> <span class="o">*</span> <span class="n">t</span><span class="p">)</span> <span class="o">*</span> <span class="n">rr</span>
         <span class="k">if</span> <span class="n">m</span> <span class="o">!=</span> <span class="mi">0</span><span class="p">:</span>  <span class="c1"># else go to 7</span>
             <span class="n">two</span> <span class="o">=</span> <span class="p">(</span><span class="n">gh</span><span class="p">[</span><span class="n">l</span><span class="p">]</span> <span class="o">+</span> <span class="n">sv</span><span class="p">[</span><span class="n">ll</span> <span class="o">+</span> <span class="n">l</span><span class="p">]</span> <span class="o">*</span> <span class="n">t</span><span class="p">)</span> <span class="o">*</span> <span class="n">rr</span>
-            <span class="n">two</span> <span class="o">=</span> <span class="p">(</span><span class="n">gh</span><span class="p">[</span><span class="n">l</span><span class="p">])</span> <span class="o">*</span> <span class="n">rr</span>
             <span class="n">three</span> <span class="o">=</span> <span class="n">one</span> <span class="o">*</span> <span class="n">cl</span><span class="p">[</span><span class="n">m</span> <span class="o">-</span> <span class="mi">1</span><span class="p">]</span> <span class="o">+</span> <span class="n">two</span> <span class="o">*</span> <span class="n">sl</span><span class="p">[</span><span class="n">m</span> <span class="o">-</span> <span class="mi">1</span><span class="p">]</span>
             <span class="n">x</span> <span class="o">=</span> <span class="n">x</span> <span class="o">+</span> <span class="n">three</span> <span class="o">*</span> <span class="n">q</span><span class="p">[</span><span class="n">k</span><span class="p">]</span>
             <span class="n">z</span> <span class="o">=</span> <span class="n">z</span> <span class="o">-</span> <span class="p">(</span><span class="n">fn</span> <span class="o">+</span> <span class="mf">1.0</span><span class="p">)</span> <span class="o">*</span> <span class="n">three</span> <span class="o">*</span> <span class="n">p</span><span class="p">[</span><span class="n">k</span><span class="p">]</span>
@@ -12148,15 +12170,14 @@
 
 <div class="viewcode-block" id="mktk03">
 <a class="viewcode-back" href="../../api/api.html#pmagpy.pmag.mktk03">[docs]</a>
-<span class="k">def</span><span class="w"> </span><span class="nf">mktk03</span><span class="p">(</span><span class="n">terms</span><span class="p">,</span> <span class="n">seed</span><span class="p">,</span> <span class="n">G2</span><span class="p">,</span> <span class="n">G3</span><span class="p">,</span><span class="n">G1</span><span class="o">=-</span><span class="mf">18e3</span><span class="p">,</span><span class="n">verbose</span><span class="o">=</span><span class="kc">False</span><span class="p">):</span>
+<span class="k">def</span><span class="w"> </span><span class="nf">mktk03</span><span class="p">(</span><span class="n">terms</span><span class="p">,</span> <span class="n">G2</span><span class="p">,</span> <span class="n">G3</span><span class="p">,</span> <span class="n">G1</span><span class="o">=-</span><span class="mf">18e3</span><span class="p">,</span> <span class="n">verbose</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">random_seed</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
 <span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">    Generates a list of gauss coefficients drawn from the TK03 distribution.</span>
-<span class="sd">    </span>
+
 <span class="sd">    Parameters</span>
 <span class="sd">    ----------</span>
 <span class="sd">    terms : int</span>
 <span class="sd">            number of terms to return</span>
-<span class="sd">    seed : random seed</span>
 <span class="sd">    G2 : int</span>
 <span class="sd">         ratio of axial quadrupole term to dipole term</span>
 <span class="sd">    G3 : int</span>
@@ -12164,14 +12185,15 @@
 <span class="sd">    G1 : float</span>
 <span class="sd">         value of the axial dipole, default is -18e3 (in nT)</span>
 <span class="sd">    verbose : default is False</span>
-<span class="sd">    </span>
+<span class="sd">    random_seed : None, int, or numpy.random.Generator</span>
+<span class="sd">        Seed for reproducible random number generation (default is None).</span>
+
 <span class="sd">    Returns</span>
 <span class="sd">    -------</span>
 <span class="sd">    gh : list</span>
 <span class="sd">        list of l,m,g,h field model generated by TK03</span>
 <span class="sd">    &quot;&quot;&quot;</span>
-<span class="c1"># random.seed(n)</span>
-    <span class="n">n</span> <span class="o">=</span> <span class="n">seed</span>
+    <span class="n">rng</span> <span class="o">=</span> <span class="n">_resolve_rng</span><span class="p">(</span><span class="n">random_seed</span><span class="p">)</span>
     <span class="n">gh</span> <span class="o">=</span> <span class="p">[]</span>
     <span class="n">g10</span><span class="p">,</span> <span class="n">beta</span><span class="p">,</span> <span class="n">afact</span> <span class="o">=</span> <span class="n">G1</span><span class="p">,</span> <span class="mf">3.8</span><span class="p">,</span> <span class="mf">2.4</span>
     <span class="n">g20</span> <span class="o">=</span> <span class="n">G2</span> <span class="o">*</span> <span class="n">g10</span>
@@ -12179,13 +12201,13 @@
     <span class="n">alpha</span> <span class="o">=</span> <span class="n">g10</span><span class="o">/</span><span class="n">afact</span>
     <span class="n">s1</span> <span class="o">=</span> <span class="n">s_l</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="n">alpha</span><span class="o">=</span><span class="n">alpha</span><span class="p">)</span>
     <span class="n">s10</span> <span class="o">=</span> <span class="n">beta</span> <span class="o">*</span> <span class="n">s1</span>
-    <span class="n">gnew</span> <span class="o">=</span> <span class="n">random</span><span class="o">.</span><span class="n">normal</span><span class="p">(</span><span class="n">g10</span><span class="p">,</span> <span class="n">s10</span><span class="p">)</span>
-    <span class="k">if</span> <span class="n">verbose</span><span class="p">:</span> 
+    <span class="n">gnew</span> <span class="o">=</span> <span class="n">rng</span><span class="o">.</span><span class="n">normal</span><span class="p">(</span><span class="n">g10</span><span class="p">,</span> <span class="n">s10</span><span class="p">)</span>
+    <span class="k">if</span> <span class="n">verbose</span><span class="p">:</span>
         <span class="nb">print</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="n">gnew</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span>
     <span class="n">gh</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">gnew</span><span class="p">)</span>
-    <span class="n">gh</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">random</span><span class="o">.</span><span class="n">normal</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="n">s1</span><span class="p">))</span>
+    <span class="n">gh</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">rng</span><span class="o">.</span><span class="n">normal</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="n">s1</span><span class="p">))</span>
     <span class="n">gnew</span> <span class="o">=</span> <span class="n">gh</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span>
-    <span class="n">gh</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">random</span><span class="o">.</span><span class="n">normal</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="n">s1</span><span class="p">))</span>
+    <span class="n">gh</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">rng</span><span class="o">.</span><span class="n">normal</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="n">s1</span><span class="p">))</span>
     <span class="n">hnew</span> <span class="o">=</span> <span class="n">gh</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span>
     <span class="k">if</span> <span class="n">verbose</span><span class="p">:</span>
         <span class="nb">print</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="n">gnew</span><span class="p">,</span> <span class="n">hnew</span><span class="p">)</span>
@@ -12200,12 +12222,12 @@
             <span class="n">j</span> <span class="o">=</span> <span class="p">(</span><span class="n">l</span> <span class="o">-</span> <span class="n">m</span><span class="p">)</span> <span class="o">%</span> <span class="mi">2</span>
             <span class="k">if</span> <span class="n">j</span> <span class="o">==</span> <span class="mi">1</span><span class="p">:</span> <span class="c1"># dipole family</span>
                 <span class="n">s</span> <span class="o">=</span> <span class="n">s</span> <span class="o">*</span> <span class="n">beta</span>
-            <span class="n">gh</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">random</span><span class="o">.</span><span class="n">normal</span><span class="p">(</span><span class="n">OFF</span><span class="p">,</span> <span class="n">s</span><span class="p">))</span>
+            <span class="n">gh</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">rng</span><span class="o">.</span><span class="n">normal</span><span class="p">(</span><span class="n">OFF</span><span class="p">,</span> <span class="n">s</span><span class="p">))</span>
             <span class="n">gnew</span> <span class="o">=</span> <span class="n">gh</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span>
             <span class="k">if</span> <span class="n">m</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
                 <span class="n">hnew</span> <span class="o">=</span> <span class="mi">0</span>
             <span class="k">else</span><span class="p">:</span>
-                <span class="n">gh</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">random</span><span class="o">.</span><span class="n">normal</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="n">s</span><span class="p">))</span>
+                <span class="n">gh</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">rng</span><span class="o">.</span><span class="n">normal</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="n">s</span><span class="p">))</span>
                 <span class="n">hnew</span> <span class="o">=</span> <span class="n">gh</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span>
             <span class="k">if</span> <span class="n">verbose</span><span class="p">:</span>
                 <span class="nb">print</span><span class="p">(</span><span class="n">l</span><span class="p">,</span> <span class="n">m</span><span class="p">,</span> <span class="n">gnew</span><span class="p">,</span> <span class="n">hnew</span><span class="p">)</span>
@@ -12280,13 +12302,14 @@
 <span class="sd">    Parameters</span>
 <span class="sd">    ----------</span>
 <span class="sd">    DIs : nested list of dec, inc lists (known as a di_block)</span>
-<span class="sd">    random_seed : set random seed for reproducible number generation (default is None)</span>
+<span class="sd">    random_seed : None, int, or numpy.random.Generator</span>
+<span class="sd">        Seed for reproducible random number generation (default is None).</span>
 
 <span class="sd">    Returns</span>
 <span class="sd">    -------</span>
 <span class="sd">    Bootstrap_directions : nested list of dec, inc lists that have been</span>
 <span class="sd">    bootstrapped resampled</span>
-<span class="sd">    </span>
+
 <span class="sd">    Examples</span>
 <span class="sd">    --------</span>
 <span class="sd">    &gt;&gt;&gt; di_block = ([[-45,150],</span>
@@ -12297,9 +12320,8 @@
 <span class="sd">       [-40, 150],</span>
 <span class="sd">       [-45, 150]])</span>
 <span class="sd">    &quot;&quot;&quot;</span>
-    <span class="k">if</span> <span class="n">random_seed</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
-        <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">seed</span><span class="p">(</span><span class="n">random_seed</span><span class="p">)</span>
-    <span class="n">Inds</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">randint</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">DIs</span><span class="p">),</span> <span class="n">size</span><span class="o">=</span><span class="nb">len</span><span class="p">(</span><span class="n">DIs</span><span class="p">))</span>
+    <span class="n">rng</span> <span class="o">=</span> <span class="n">_resolve_rng</span><span class="p">(</span><span class="n">random_seed</span><span class="p">)</span>
+    <span class="n">Inds</span> <span class="o">=</span> <span class="n">rng</span><span class="o">.</span><span class="n">integers</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">DIs</span><span class="p">),</span> <span class="n">size</span><span class="o">=</span><span class="nb">len</span><span class="p">(</span><span class="n">DIs</span><span class="p">))</span>
     <span class="n">D</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="n">DIs</span><span class="p">)</span>
     <span class="k">return</span> <span class="n">D</span><span class="p">[</span><span class="n">Inds</span><span class="p">]</span></div>
 
@@ -12307,19 +12329,21 @@
 
 <div class="viewcode-block" id="di_boot">
 <a class="viewcode-back" href="../../api/api.html#pmagpy.pmag.di_boot">[docs]</a>
-<span class="k">def</span><span class="w"> </span><span class="nf">di_boot</span><span class="p">(</span><span class="n">DIs</span><span class="p">,</span> <span class="n">nb</span><span class="o">=</span><span class="mi">5000</span><span class="p">):</span>
+<span class="k">def</span><span class="w"> </span><span class="nf">di_boot</span><span class="p">(</span><span class="n">DIs</span><span class="p">,</span> <span class="n">nb</span><span class="o">=</span><span class="mi">5000</span><span class="p">,</span> <span class="n">random_seed</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
 <span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">    Returns bootstrap means for Directional data.</span>
-<span class="sd">     </span>
+
 <span class="sd">    Parameters</span>
 <span class="sd">    ----------</span>
 <span class="sd">    DIs : nested list of Dec,Inc pairs</span>
 <span class="sd">    nb : number of bootstrap pseudosamples, default is 5000</span>
+<span class="sd">    random_seed : None, int, or numpy.random.Generator</span>
+<span class="sd">        Seed for reproducible random number generation (default is None).</span>
 
 <span class="sd">    Returns</span>
 <span class="sd">    -------</span>
 <span class="sd">    BDIs : nested list of bootstrapped mean Dec,Inc pairs</span>
-<span class="sd">    </span>
+
 <span class="sd">    Examples</span>
 <span class="sd">    --------</span>
 <span class="sd">    &gt;&gt;&gt; di_block = ([[-45,150],</span>
@@ -12332,16 +12356,11 @@
 <span class="sd">     [136.66619627955163, 30.021001931432338],</span>
 <span class="sd">     [139.58053739971953, 33.378250658618654]]</span>
 <span class="sd">    &quot;&quot;&quot;</span>
-<span class="c1">#</span>
-<span class="c1"># now do bootstrap to collect BDIs  bootstrap means</span>
-<span class="c1">#</span>
-    <span class="n">BDIs</span> <span class="o">=</span> <span class="p">[]</span>  <span class="c1"># number of bootstraps, list of bootstrap directions</span>
-<span class="c1">#</span>
-
-    <span class="k">for</span> <span class="n">k</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">nb</span><span class="p">):</span>  <span class="c1"># repeat nb times</span>
-        <span class="c1">#        if k%50==0:print k,&#39; out of &#39;,nb</span>
-        <span class="n">pDIs</span> <span class="o">=</span> <span class="n">pseudo</span><span class="p">(</span><span class="n">DIs</span><span class="p">)</span>  <span class="c1"># get a pseudosample</span>
-        <span class="n">bfpars</span> <span class="o">=</span> <span class="n">fisher_mean</span><span class="p">(</span><span class="n">pDIs</span><span class="p">)</span>  <span class="c1"># get bootstrap mean bootstrap sample</span>
+    <span class="n">rng</span> <span class="o">=</span> <span class="n">_resolve_rng</span><span class="p">(</span><span class="n">random_seed</span><span class="p">)</span>
+    <span class="n">BDIs</span> <span class="o">=</span> <span class="p">[]</span>
+    <span class="k">for</span> <span class="n">k</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">nb</span><span class="p">):</span>
+        <span class="n">pDIs</span> <span class="o">=</span> <span class="n">pseudo</span><span class="p">(</span><span class="n">DIs</span><span class="p">,</span> <span class="n">random_seed</span><span class="o">=</span><span class="n">rng</span><span class="p">)</span>
+        <span class="n">bfpars</span> <span class="o">=</span> <span class="n">fisher_mean</span><span class="p">(</span><span class="n">pDIs</span><span class="p">)</span>
         <span class="n">BDIs</span><span class="o">.</span><span class="n">append</span><span class="p">([</span><span class="n">bfpars</span><span class="p">[</span><span class="s1">&#39;dec&#39;</span><span class="p">],</span> <span class="n">bfpars</span><span class="p">[</span><span class="s1">&#39;inc&#39;</span><span class="p">]])</span>
     <span class="k">return</span> <span class="n">BDIs</span></div>
 
@@ -12349,7 +12368,7 @@
 
 <div class="viewcode-block" id="dir_df_boot">
 <a class="viewcode-back" href="../../api/api.html#pmagpy.pmag.dir_df_boot">[docs]</a>
-<span class="k">def</span><span class="w"> </span><span class="nf">dir_df_boot</span><span class="p">(</span><span class="n">dir_df</span><span class="p">,</span> <span class="n">nb</span><span class="o">=</span><span class="mi">5000</span><span class="p">,</span> <span class="n">par</span><span class="o">=</span><span class="kc">False</span><span class="p">):</span>
+<span class="k">def</span><span class="w"> </span><span class="nf">dir_df_boot</span><span class="p">(</span><span class="n">dir_df</span><span class="p">,</span> <span class="n">nb</span><span class="o">=</span><span class="mi">5000</span><span class="p">,</span> <span class="n">par</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">random_seed</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
 <span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">    Performs a bootstrap for direction DataFrame with optional parametric bootstrap</span>
 
@@ -12363,11 +12382,13 @@
 <span class="sd">        dir_k : Fisher k statistic for mean</span>
 <span class="sd">    nb : number of bootstraps, default is 5000</span>
 <span class="sd">    par : if True, do a parameteric bootstrap</span>
+<span class="sd">    random_seed : None, int, or numpy.random.Generator</span>
+<span class="sd">        Seed for reproducible random number generation (default is None).</span>
 
 <span class="sd">    Returns</span>
 <span class="sd">    -------</span>
 <span class="sd">    BDIs : nested list of bootstrapped mean Dec,Inc pairs</span>
-<span class="sd">    </span>
+
 <span class="sd">    Examples</span>
 <span class="sd">    --------</span>
 <span class="sd">    &gt;&gt;&gt; dir_df = pd.DataFrame()</span>
@@ -12378,7 +12399,7 @@
 <span class="sd">     [52.15562660104691, 14.523345688004293],</span>
 <span class="sd">     [214.5976992675414, 49.79280429500907],</span>
 <span class="sd">     [119.6384153360684, 86.17066958304461]]</span>
-<span class="sd">     </span>
+
 <span class="sd">    &gt;&gt;&gt; dir_df[&#39;dir_n&#39;] = [4,15,2,36,55]</span>
 <span class="sd">    &gt;&gt;&gt; dir_df[&#39;dir_k&#39;] = [1.2,3.0,0.4,0.4,0.8]</span>
 <span class="sd">    &gt;&gt;&gt; pmag.dir_df_boot(dir_df,3,par=True)</span>
@@ -12386,18 +12407,19 @@
 <span class="sd">     [278.5836582875345, 25.159165079114043],</span>
 <span class="sd">     [276.59474232833645, -22.88695795286902]]</span>
 <span class="sd">    &quot;&quot;&quot;</span>
+    <span class="n">rng</span> <span class="o">=</span> <span class="n">_resolve_rng</span><span class="p">(</span><span class="n">random_seed</span><span class="p">)</span>
     <span class="n">N</span> <span class="o">=</span> <span class="n">dir_df</span><span class="o">.</span><span class="n">dir_dec</span><span class="o">.</span><span class="n">values</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>  <span class="c1"># number of data points</span>
     <span class="n">BDIs</span> <span class="o">=</span> <span class="p">[]</span>
     <span class="k">for</span> <span class="n">k</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">nb</span><span class="p">):</span>
-        <span class="n">pdir_df</span> <span class="o">=</span> <span class="n">dir_df</span><span class="o">.</span><span class="n">sample</span><span class="p">(</span><span class="n">n</span><span class="o">=</span><span class="n">N</span><span class="p">,</span> <span class="n">replace</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>  <span class="c1"># bootstrap pseudosample</span>
-        <span class="n">pdir_df</span><span class="o">.</span><span class="n">reset_index</span><span class="p">(</span><span class="n">inplace</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>  <span class="c1"># reset the index</span>
+        <span class="n">indices</span> <span class="o">=</span> <span class="n">rng</span><span class="o">.</span><span class="n">integers</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="n">N</span><span class="p">,</span> <span class="n">size</span><span class="o">=</span><span class="n">N</span><span class="p">)</span>
+        <span class="n">pdir_df</span> <span class="o">=</span> <span class="n">dir_df</span><span class="o">.</span><span class="n">iloc</span><span class="p">[</span><span class="n">indices</span><span class="p">]</span><span class="o">.</span><span class="n">reset_index</span><span class="p">(</span><span class="n">drop</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
         <span class="k">if</span> <span class="n">par</span><span class="p">:</span>  <span class="c1"># do a parametric bootstrap</span>
             <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="n">pdir_df</span><span class="o">.</span><span class="n">index</span><span class="p">:</span>  <span class="c1"># set through the pseudosample</span>
                 <span class="n">n</span> <span class="o">=</span> <span class="n">pdir_df</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="n">i</span><span class="p">,</span> <span class="s1">&#39;dir_n&#39;</span><span class="p">]</span>  <span class="c1"># get number of samples/site</span>
                 <span class="c1"># get ks for each sample</span>
                 <span class="n">ks</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">ones</span><span class="p">(</span><span class="n">shape</span><span class="o">=</span><span class="n">n</span><span class="p">)</span><span class="o">*</span><span class="n">pdir_df</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="n">i</span><span class="p">,</span> <span class="s1">&#39;dir_k&#39;</span><span class="p">]</span>
                 <span class="c1"># draw a fisher distributed set of directions</span>
-                <span class="n">decs</span><span class="p">,</span> <span class="n">incs</span> <span class="o">=</span> <span class="n">fshdev</span><span class="p">(</span><span class="n">ks</span><span class="p">)</span>
+                <span class="n">decs</span><span class="p">,</span> <span class="n">incs</span> <span class="o">=</span> <span class="n">fshdev</span><span class="p">(</span><span class="n">ks</span><span class="p">,</span> <span class="n">random_seed</span><span class="o">=</span><span class="n">rng</span><span class="p">)</span>
                 <span class="n">di_block</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">column_stack</span><span class="p">((</span><span class="n">decs</span><span class="p">,</span> <span class="n">incs</span><span class="p">))</span>
                 <span class="c1">#  rotate them to the mean</span>
                 <span class="n">di_block</span> <span class="o">=</span> <span class="n">dodirot_V</span><span class="p">(</span>
@@ -12474,16 +12496,25 @@
 
 <div class="viewcode-block" id="pseudosample">
 <a class="viewcode-back" href="../../api/api.html#pmagpy.pmag.pseudosample">[docs]</a>
-<span class="k">def</span><span class="w"> </span><span class="nf">pseudosample</span><span class="p">(</span><span class="n">x</span><span class="p">):</span>
+<span class="k">def</span><span class="w"> </span><span class="nf">pseudosample</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">random_seed</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
 <span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
-<span class="sd">    Draw a bootstrap sample of x</span>
+<span class="sd">    Draw a bootstrap sample of x.</span>
+
+<span class="sd">    Parameters</span>
+<span class="sd">    ----------</span>
+<span class="sd">    x : list</span>
+<span class="sd">        Data to bootstrap resample.</span>
+<span class="sd">    random_seed : None, int, or numpy.random.Generator</span>
+<span class="sd">        Seed for reproducible random number generation (default is None).</span>
+
+<span class="sd">    Returns</span>
+<span class="sd">    -------</span>
+<span class="sd">    BXs : list</span>
+<span class="sd">        Bootstrap sample of x (same length as x).</span>
 <span class="sd">    &quot;&quot;&quot;</span>
-<span class="c1">#</span>
-    <span class="n">BXs</span> <span class="o">=</span> <span class="p">[]</span>
-    <span class="k">for</span> <span class="n">k</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">x</span><span class="p">)):</span>
-        <span class="n">ind</span> <span class="o">=</span> <span class="n">random</span><span class="o">.</span><span class="n">randint</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="nb">len</span><span class="p">(</span><span class="n">x</span><span class="p">)</span> <span class="o">-</span> <span class="mi">1</span><span class="p">)</span>
-        <span class="n">BXs</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">x</span><span class="p">[</span><span class="n">ind</span><span class="p">])</span>
-    <span class="k">return</span> <span class="n">BXs</span></div>
+    <span class="n">rng</span> <span class="o">=</span> <span class="n">_resolve_rng</span><span class="p">(</span><span class="n">random_seed</span><span class="p">)</span>
+    <span class="n">Inds</span> <span class="o">=</span> <span class="n">rng</span><span class="o">.</span><span class="n">integers</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="nb">len</span><span class="p">(</span><span class="n">x</span><span class="p">),</span> <span class="n">size</span><span class="o">=</span><span class="nb">len</span><span class="p">(</span><span class="n">x</span><span class="p">))</span>
+    <span class="k">return</span> <span class="p">[</span><span class="n">x</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="n">Inds</span><span class="p">]</span></div>
 
 
 
@@ -13889,7 +13920,8 @@
 
 <div class="viewcode-block" id="scalc_vgp_df">
 <a class="viewcode-back" href="../../api/api.html#pmagpy.pmag.scalc_vgp_df">[docs]</a>
-<span class="k">def</span><span class="w"> </span><span class="nf">scalc_vgp_df</span><span class="p">(</span><span class="n">vgp_df</span><span class="p">,</span> <span class="n">anti</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">rev</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">cutoff</span><span class="o">=</span><span class="mf">180.</span><span class="p">,</span> <span class="n">kappa</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">n</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">spin</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">v</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">boot</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">mm97</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">nb</span><span class="o">=</span><span class="mi">1000</span><span class="p">,</span><span class="n">verbose</span><span class="o">=</span><span class="kc">True</span><span class="p">):</span>
+<span class="k">def</span><span class="w"> </span><span class="nf">scalc_vgp_df</span><span class="p">(</span><span class="n">vgp_df</span><span class="p">,</span> <span class="n">anti</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">rev</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">cutoff</span><span class="o">=</span><span class="mf">180.</span><span class="p">,</span> <span class="n">kappa</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">n</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">spin</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">v</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">boot</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">mm97</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">nb</span><span class="o">=</span><span class="mi">1000</span><span class="p">,</span> <span class="n">verbose</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span>
+                 <span class="n">random_seed</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
 <span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">    Calculates Sf for a dataframe with VGP Lat., and optional Fisher&#39;s k,</span>
 <span class="sd">    site latitude and N information can be used to correct for within site</span>
@@ -13924,6 +13956,8 @@
 <span class="sd">        number of bootstrapped pseudosamples for confidence estimate</span>
 <span class="sd">    verbose : Boolean</span>
 <span class="sd">        if True, print messages</span>
+<span class="sd">    random_seed : None, int, or numpy.random.Generator, optional</span>
+<span class="sd">        Seed for reproducible bootstrap resampling (default None).</span>
 
 <span class="sd">    Returns</span>
 <span class="sd">    -------</span>
@@ -13968,8 +14002,10 @@
     <span class="n">N</span> <span class="o">=</span> <span class="n">vgp_df</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
     <span class="n">SBs</span><span class="p">,</span> <span class="n">low</span><span class="p">,</span> <span class="n">high</span> <span class="o">=</span> <span class="p">[],</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span>
     <span class="k">if</span> <span class="n">boot</span><span class="p">:</span>
+        <span class="n">rng</span> <span class="o">=</span> <span class="n">_resolve_rng</span><span class="p">(</span><span class="n">random_seed</span><span class="p">)</span>
         <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">nb</span><span class="p">):</span>  <span class="c1"># now do bootstrap</span>
-            <span class="n">bs_df</span> <span class="o">=</span> <span class="n">vgp_df</span><span class="o">.</span><span class="n">sample</span><span class="p">(</span><span class="n">n</span><span class="o">=</span><span class="n">N</span><span class="p">,</span> <span class="n">replace</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+            <span class="n">idx</span> <span class="o">=</span> <span class="n">rng</span><span class="o">.</span><span class="n">integers</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="n">N</span><span class="p">,</span> <span class="n">N</span><span class="p">)</span>
+            <span class="n">bs_df</span> <span class="o">=</span> <span class="n">vgp_df</span><span class="o">.</span><span class="n">iloc</span><span class="p">[</span><span class="n">idx</span><span class="p">]</span>
             <span class="n">Sb_bs</span> <span class="o">=</span> <span class="n">get_sb_df</span><span class="p">(</span><span class="n">bs_df</span><span class="p">)</span>
             <span class="n">SBs</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">Sb_bs</span><span class="p">)</span>
         <span class="n">SBs</span><span class="o">.</span><span class="n">sort</span><span class="p">()</span>
@@ -14489,14 +14525,14 @@
 <span class="sd">    Raises:</span>
 <span class="sd">        ValueError: If the data sets have incompatible shapes.</span>
 <span class="sd">    &quot;&quot;&quot;</span>
-    <span class="n">b</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">matrix</span><span class="p">(</span><span class="n">mhat</span><span class="p">[</span><span class="mi">0</span><span class="p">:</span><span class="mi">2</span><span class="p">][:,</span><span class="n">np</span><span class="o">.</span><span class="n">newaxis</span><span class="p">])</span>
+    <span class="n">b</span> <span class="o">=</span> <span class="n">mhat</span><span class="p">[</span><span class="mi">0</span><span class="p">:</span><span class="mi">2</span><span class="p">][:,</span><span class="n">np</span><span class="o">.</span><span class="n">newaxis</span><span class="p">]</span><span class="o">.</span><span class="n">astype</span><span class="p">(</span><span class="nb">float</span><span class="p">)</span>
     <span class="n">c</span> <span class="o">=</span> <span class="n">mhat</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span>
-    
+
     <span class="k">if</span> <span class="n">c</span><span class="o">==</span><span class="mi">0</span><span class="p">:</span>
-        <span class="n">A1</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">eye</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span><span class="o">-</span><span class="p">(</span><span class="n">b</span><span class="o">*</span><span class="n">b</span><span class="o">.</span><span class="n">getH</span><span class="p">())</span>
+        <span class="n">A1</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">eye</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span><span class="o">-</span><span class="p">(</span><span class="n">b</span> <span class="o">@</span> <span class="n">b</span><span class="o">.</span><span class="n">conj</span><span class="p">()</span><span class="o">.</span><span class="n">T</span><span class="p">)</span>
     <span class="k">else</span><span class="p">:</span>
-        <span class="n">A1</span> <span class="o">=</span> <span class="n">c</span><span class="o">/</span><span class="n">np</span><span class="o">.</span><span class="n">abs</span><span class="p">(</span><span class="n">c</span><span class="p">)</span><span class="o">*</span><span class="n">np</span><span class="o">.</span><span class="n">eye</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span><span class="o">-</span><span class="n">c</span><span class="o">/</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">abs</span><span class="p">(</span><span class="n">c</span><span class="p">)</span><span class="o">+</span><span class="n">np</span><span class="o">.</span><span class="n">abs</span><span class="p">(</span><span class="n">c</span><span class="p">)</span><span class="o">**</span><span class="mi">2</span><span class="p">)</span><span class="o">*</span><span class="p">(</span><span class="n">b</span><span class="o">*</span><span class="n">b</span><span class="o">.</span><span class="n">getH</span><span class="p">())</span>
-        
+        <span class="n">A1</span> <span class="o">=</span> <span class="n">c</span><span class="o">/</span><span class="n">np</span><span class="o">.</span><span class="n">abs</span><span class="p">(</span><span class="n">c</span><span class="p">)</span><span class="o">*</span><span class="n">np</span><span class="o">.</span><span class="n">eye</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span><span class="o">-</span><span class="n">c</span><span class="o">/</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">abs</span><span class="p">(</span><span class="n">c</span><span class="p">)</span><span class="o">+</span><span class="n">np</span><span class="o">.</span><span class="n">abs</span><span class="p">(</span><span class="n">c</span><span class="p">)</span><span class="o">**</span><span class="mi">2</span><span class="p">)</span><span class="o">*</span><span class="p">(</span><span class="n">b</span> <span class="o">@</span> <span class="n">b</span><span class="o">.</span><span class="n">conj</span><span class="p">()</span><span class="o">.</span><span class="n">T</span><span class="p">)</span>
+
     <span class="n">A2</span> <span class="o">=</span> <span class="o">-</span><span class="n">b</span>
     <span class="n">Mhat</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">hstack</span><span class="p">((</span><span class="n">A1</span><span class="p">,</span><span class="n">A2</span><span class="p">))</span>
     <span class="k">return</span> <span class="n">Mhat</span></div>
@@ -14525,16 +14561,16 @@
 
     <span class="n">n</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">shape</span><span class="p">(</span><span class="n">X</span><span class="p">)[</span><span class="mi">1</span><span class="p">]</span>
     <span class="n">term1</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">power</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">linalg</span><span class="o">.</span><span class="n">norm</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">sum</span><span class="p">(</span><span class="n">X</span><span class="p">,</span><span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span><span class="o">/</span><span class="n">n</span><span class="p">),</span><span class="o">-</span><span class="mi">2</span><span class="p">)</span><span class="o">/</span><span class="n">n</span>
-    <span class="n">X</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">matrix</span><span class="p">(</span><span class="n">X</span><span class="p">)</span>
-    <span class="n">Mhat_T</span> <span class="o">=</span> <span class="n">Mhat</span><span class="o">.</span><span class="n">getT</span><span class="p">()</span>
-    <span class="n">Ghat</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">matrix</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">((</span><span class="mi">2</span><span class="p">,</span><span class="mi">2</span><span class="p">)))</span>
-    
+    <span class="n">X</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">asarray</span><span class="p">(</span><span class="n">X</span><span class="p">,</span> <span class="n">dtype</span><span class="o">=</span><span class="nb">float</span><span class="p">)</span>
+    <span class="n">Mhat_T</span> <span class="o">=</span> <span class="n">Mhat</span><span class="o">.</span><span class="n">T</span>
+    <span class="n">Ghat</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">((</span><span class="mi">2</span><span class="p">,</span><span class="mi">2</span><span class="p">))</span>
+
     <span class="k">for</span> <span class="n">u</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">2</span><span class="p">):</span>
         <span class="k">for</span> <span class="n">v</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">2</span><span class="p">):</span>
             <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">n</span><span class="p">):</span>
-                <span class="n">Ghat</span><span class="p">[</span><span class="n">u</span><span class="p">,</span><span class="n">v</span><span class="p">]</span> <span class="o">+=</span> <span class="n">Mhat_T</span><span class="p">[:,</span><span class="n">u</span><span class="p">]</span><span class="o">.</span><span class="n">getT</span><span class="p">()</span><span class="o">*</span><span class="n">X</span><span class="p">[:,</span><span class="n">i</span><span class="p">]</span><span class="o">*</span><span class="n">X</span><span class="p">[:,</span><span class="n">i</span><span class="p">]</span><span class="o">.</span><span class="n">getT</span><span class="p">()</span><span class="o">*</span><span class="n">Mhat_T</span><span class="p">[:,</span><span class="n">v</span><span class="p">]</span>
+                <span class="n">Ghat</span><span class="p">[</span><span class="n">u</span><span class="p">,</span><span class="n">v</span><span class="p">]</span> <span class="o">+=</span> <span class="p">(</span><span class="n">Mhat_T</span><span class="p">[:,</span><span class="n">u</span><span class="p">]</span> <span class="o">@</span> <span class="n">X</span><span class="p">[:,</span><span class="n">i</span><span class="p">])</span> <span class="o">*</span> <span class="p">(</span><span class="n">X</span><span class="p">[:,</span><span class="n">i</span><span class="p">]</span> <span class="o">@</span> <span class="n">Mhat_T</span><span class="p">[:,</span><span class="n">v</span><span class="p">])</span>
             <span class="n">Ghat</span><span class="p">[</span><span class="n">u</span><span class="p">,</span><span class="n">v</span><span class="p">]</span> <span class="o">*=</span> <span class="n">term1</span>
-    
+
     <span class="k">return</span> <span class="n">Ghat</span></div>
 
 
@@ -14559,19 +14595,17 @@
     <span class="c1">#input - b, starting direction (unit vector)</span>
     <span class="c1">#output - Q, rotation matrix so Qb = a</span>
     
-    <span class="n">a</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">matrix</span><span class="p">(</span><span class="n">a</span><span class="p">)</span>
-    <span class="n">a</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">reshape</span><span class="p">(</span><span class="n">a</span><span class="p">,(</span><span class="mi">3</span><span class="p">,</span><span class="mi">1</span><span class="p">))</span>
-    <span class="n">b</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">matrix</span><span class="p">(</span><span class="n">b</span><span class="p">)</span>
-    <span class="n">b</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">reshape</span><span class="p">(</span><span class="n">b</span><span class="p">,(</span><span class="mi">3</span><span class="p">,</span><span class="mi">1</span><span class="p">))</span>
+    <span class="n">a</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">asarray</span><span class="p">(</span><span class="n">a</span><span class="p">,</span> <span class="n">dtype</span><span class="o">=</span><span class="nb">float</span><span class="p">)</span><span class="o">.</span><span class="n">reshape</span><span class="p">(</span><span class="mi">3</span><span class="p">,</span><span class="mi">1</span><span class="p">)</span>
+    <span class="n">b</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">asarray</span><span class="p">(</span><span class="n">b</span><span class="p">,</span> <span class="n">dtype</span><span class="o">=</span><span class="nb">float</span><span class="p">)</span><span class="o">.</span><span class="n">reshape</span><span class="p">(</span><span class="mi">3</span><span class="p">,</span><span class="mi">1</span><span class="p">)</span>
 
-    <span class="n">c</span> <span class="o">=</span> <span class="n">b</span><span class="o">-</span><span class="n">a</span><span class="o">*</span><span class="p">(</span><span class="n">a</span><span class="o">.</span><span class="n">getT</span><span class="p">()</span><span class="o">*</span><span class="n">b</span><span class="p">)</span>
+    <span class="n">c</span> <span class="o">=</span> <span class="n">b</span> <span class="o">-</span> <span class="n">a</span> <span class="o">@</span> <span class="p">(</span><span class="n">a</span><span class="o">.</span><span class="n">T</span> <span class="o">@</span> <span class="n">b</span><span class="p">)</span>
     <span class="n">c</span> <span class="o">/=</span> <span class="n">np</span><span class="o">.</span><span class="n">linalg</span><span class="o">.</span><span class="n">norm</span><span class="p">(</span><span class="n">c</span><span class="p">)</span>
 
-    <span class="n">alpha</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">arccos</span><span class="p">(</span><span class="n">a</span><span class="o">.</span><span class="n">getT</span><span class="p">()</span><span class="o">*</span><span class="n">b</span><span class="p">)</span>
-    <span class="n">A</span> <span class="o">=</span> <span class="n">a</span><span class="o">*</span><span class="n">c</span><span class="o">.</span><span class="n">getT</span><span class="p">()</span><span class="o">-</span><span class="n">c</span><span class="o">*</span><span class="n">a</span><span class="o">.</span><span class="n">getT</span><span class="p">()</span>
+    <span class="n">alpha</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">arccos</span><span class="p">(</span><span class="n">a</span><span class="o">.</span><span class="n">T</span> <span class="o">@</span> <span class="n">b</span><span class="p">)</span>
+    <span class="n">A</span> <span class="o">=</span> <span class="n">a</span> <span class="o">@</span> <span class="n">c</span><span class="o">.</span><span class="n">T</span> <span class="o">-</span> <span class="n">c</span> <span class="o">@</span> <span class="n">a</span><span class="o">.</span><span class="n">T</span>
 
-    <span class="n">Q</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">eye</span><span class="p">(</span><span class="mi">3</span><span class="p">)</span><span class="o">+</span><span class="n">np</span><span class="o">.</span><span class="n">multiply</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">sin</span><span class="p">(</span><span class="n">alpha</span><span class="p">),</span><span class="n">A</span><span class="p">)</span><span class="o">+</span><span class="n">np</span><span class="o">.</span><span class="n">multiply</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">cos</span><span class="p">(</span><span class="n">alpha</span><span class="p">)</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span><span class="n">a</span><span class="o">*</span><span class="n">a</span><span class="o">.</span><span class="n">getT</span><span class="p">()</span><span class="o">+</span><span class="n">c</span><span class="o">*</span><span class="n">c</span><span class="o">.</span><span class="n">getT</span><span class="p">())</span>
-    
+    <span class="n">Q</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">eye</span><span class="p">(</span><span class="mi">3</span><span class="p">)</span><span class="o">+</span><span class="n">np</span><span class="o">.</span><span class="n">multiply</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">sin</span><span class="p">(</span><span class="n">alpha</span><span class="p">),</span><span class="n">A</span><span class="p">)</span><span class="o">+</span><span class="n">np</span><span class="o">.</span><span class="n">multiply</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">cos</span><span class="p">(</span><span class="n">alpha</span><span class="p">)</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="n">a</span> <span class="o">@</span> <span class="n">a</span><span class="o">.</span><span class="n">T</span> <span class="o">+</span> <span class="n">c</span> <span class="o">@</span> <span class="n">c</span><span class="o">.</span><span class="n">T</span><span class="p">)</span>
+
     <span class="k">return</span> <span class="n">Q</span></div>
 
 
@@ -14605,10 +14639,10 @@
     <span class="n">V</span> <span class="o">=</span> <span class="n">V</span><span class="p">[:,</span><span class="n">idx</span><span class="p">]</span>
         
     <span class="n">mCI</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">((</span><span class="mi">3</span><span class="p">,</span><span class="mi">201</span><span class="p">))</span>
-    <span class="n">y</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">matrix</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">((</span><span class="mi">3</span><span class="p">,</span><span class="mi">1</span><span class="p">)))</span>
+    <span class="n">y</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">((</span><span class="mi">3</span><span class="p">,</span><span class="mi">1</span><span class="p">))</span>
     <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">201</span><span class="p">):</span>
             <span class="n">theta</span> <span class="o">=</span> <span class="n">i</span><span class="o">*</span><span class="n">np</span><span class="o">.</span><span class="n">pi</span><span class="o">/</span><span class="mi">100</span>
-            
+
             <span class="n">ylen</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">(</span><span class="mi">201</span><span class="p">)</span>
             <span class="n">phi</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="n">np</span><span class="o">.</span><span class="n">pi</span><span class="o">/</span><span class="mi">2</span><span class="p">,</span><span class="mi">201</span><span class="p">)</span>
             <span class="k">for</span> <span class="n">j</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">201</span><span class="p">):</span>
@@ -14616,14 +14650,14 @@
                 <span class="n">y</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">sin</span><span class="p">(</span><span class="n">phi</span><span class="p">[</span><span class="n">j</span><span class="p">])</span><span class="o">*</span><span class="n">np</span><span class="o">.</span><span class="n">sin</span><span class="p">(</span><span class="n">theta</span><span class="p">)</span><span class="o">*</span><span class="n">np</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span><span class="n">Tc</span><span class="p">)</span><span class="o">/</span><span class="n">np</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span><span class="n">D</span><span class="p">[</span><span class="mi">1</span><span class="p">])</span>
                 <span class="n">y</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">cos</span><span class="p">(</span><span class="n">phi</span><span class="p">[</span><span class="n">j</span><span class="p">])</span><span class="o">*</span><span class="n">np</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span><span class="n">Tc</span><span class="p">)</span><span class="o">/</span><span class="n">np</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span><span class="n">D</span><span class="p">[</span><span class="mi">2</span><span class="p">])</span>
                 <span class="n">ylen</span><span class="p">[</span><span class="n">j</span><span class="p">]</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linalg</span><span class="o">.</span><span class="n">norm</span><span class="p">(</span><span class="n">y</span><span class="p">)</span>
-                
+
             <span class="n">idx</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">argsort</span><span class="p">(</span><span class="n">ylen</span><span class="p">)</span>
             <span class="n">phi0</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">interp</span><span class="p">(</span><span class="mf">1.0</span><span class="p">,</span><span class="n">ylen</span><span class="p">[</span><span class="n">idx</span><span class="p">],</span><span class="n">phi</span><span class="p">[</span><span class="n">idx</span><span class="p">])</span>
             <span class="n">y</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">sin</span><span class="p">(</span><span class="n">phi0</span><span class="p">)</span><span class="o">*</span><span class="n">np</span><span class="o">.</span><span class="n">cos</span><span class="p">(</span><span class="n">theta</span><span class="p">)</span><span class="o">*</span><span class="n">np</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span><span class="n">Tc</span><span class="p">)</span><span class="o">/</span><span class="n">np</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span><span class="n">D</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span>
             <span class="n">y</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">sin</span><span class="p">(</span><span class="n">phi0</span><span class="p">)</span><span class="o">*</span><span class="n">np</span><span class="o">.</span><span class="n">sin</span><span class="p">(</span><span class="n">theta</span><span class="p">)</span><span class="o">*</span><span class="n">np</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span><span class="n">Tc</span><span class="p">)</span><span class="o">/</span><span class="n">np</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span><span class="n">D</span><span class="p">[</span><span class="mi">1</span><span class="p">])</span>
             <span class="n">y</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">cos</span><span class="p">(</span><span class="n">phi0</span><span class="p">)</span><span class="o">*</span><span class="n">np</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span><span class="n">Tc</span><span class="p">)</span><span class="o">/</span><span class="n">np</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span><span class="n">D</span><span class="p">[</span><span class="mi">2</span><span class="p">])</span>
-                
-            <span class="n">mCI</span><span class="p">[:,</span><span class="n">i</span><span class="p">]</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">ndarray</span><span class="o">.</span><span class="n">flatten</span><span class="p">(</span><span class="n">V</span><span class="o">*</span><span class="n">y</span><span class="p">)</span>
+
+            <span class="n">mCI</span><span class="p">[:,</span><span class="n">i</span><span class="p">]</span> <span class="o">=</span> <span class="p">(</span><span class="n">V</span> <span class="o">@</span> <span class="n">y</span><span class="p">)</span><span class="o">.</span><span class="n">ravel</span><span class="p">()</span>
     
     <span class="c1">#Check if points are in the correct hemisphere</span>
     <span class="n">mCIbar</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="n">mCI</span><span class="p">,</span><span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span><span class="o">/</span><span class="n">np</span><span class="o">.</span><span class="n">linalg</span><span class="o">.</span><span class="n">norm</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="n">mCI</span><span class="p">,</span><span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">))</span>
@@ -14659,9 +14693,13 @@
     <span class="c1">#input - Ghat matrix representing covariance</span>
     <span class="c1">#output - T value estimated from Equation 6</span>
     
-    <span class="n">m</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">matrix</span><span class="p">(</span><span class="n">m</span><span class="p">[:,</span><span class="n">np</span><span class="o">.</span><span class="n">newaxis</span><span class="p">])</span>
-    
-    <span class="k">return</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="n">n</span><span class="o">*</span><span class="n">m</span><span class="o">.</span><span class="n">getT</span><span class="p">()</span><span class="o">*</span><span class="n">Mhat</span><span class="o">.</span><span class="n">getT</span><span class="p">()</span><span class="o">*</span><span class="n">np</span><span class="o">.</span><span class="n">linalg</span><span class="o">.</span><span class="n">inv</span><span class="p">(</span><span class="n">Ghat</span><span class="p">)</span><span class="o">*</span><span class="n">Mhat</span><span class="o">*</span><span class="n">m</span><span class="p">)</span>    </div>
+    <span class="n">m</span> <span class="o">=</span> <span class="n">m</span><span class="p">[:,</span><span class="n">np</span><span class="o">.</span><span class="n">newaxis</span><span class="p">]</span><span class="o">.</span><span class="n">astype</span><span class="p">(</span><span class="nb">float</span><span class="p">)</span>
+
+    <span class="k">if</span> <span class="ow">not</span> <span class="n">np</span><span class="o">.</span><span class="n">isfinite</span><span class="p">(</span><span class="n">Ghat</span><span class="p">)</span><span class="o">.</span><span class="n">all</span><span class="p">():</span>
+        <span class="k">return</span> <span class="n">np</span><span class="o">.</span><span class="n">inf</span>
+    <span class="k">if</span> <span class="n">np</span><span class="o">.</span><span class="n">linalg</span><span class="o">.</span><span class="n">cond</span><span class="p">(</span><span class="n">Ghat</span><span class="p">)</span> <span class="o">&gt;</span> <span class="mf">1e12</span><span class="p">:</span>
+        <span class="k">return</span> <span class="n">np</span><span class="o">.</span><span class="n">inf</span>
+    <span class="k">return</span> <span class="p">(</span><span class="n">n</span> <span class="o">*</span> <span class="n">m</span><span class="o">.</span><span class="n">T</span> <span class="o">@</span> <span class="n">Mhat</span><span class="o">.</span><span class="n">T</span> <span class="o">@</span> <span class="n">np</span><span class="o">.</span><span class="n">linalg</span><span class="o">.</span><span class="n">inv</span><span class="p">(</span><span class="n">Ghat</span><span class="p">)</span> <span class="o">@</span> <span class="n">Mhat</span> <span class="o">@</span> <span class="n">m</span><span class="p">)</span><span class="o">.</span><span class="n">item</span><span class="p">()</span></div>
 
 
 <div class="viewcode-block" id="find_CR">
@@ -14691,21 +14729,21 @@
     <span class="c1">#input - Tc, critical T value on confidence region boundary</span>
     <span class="c1">#output - mCI, closed confidence region boundary</span>
     
-    <span class="n">C</span> <span class="o">=</span> <span class="n">n</span><span class="o">*</span><span class="n">Mhat</span><span class="o">.</span><span class="n">getT</span><span class="p">()</span><span class="o">*</span><span class="n">np</span><span class="o">.</span><span class="n">linalg</span><span class="o">.</span><span class="n">inv</span><span class="p">(</span><span class="n">Ghat</span><span class="p">)</span><span class="o">*</span><span class="n">Mhat</span>
+    <span class="n">C</span> <span class="o">=</span> <span class="n">n</span> <span class="o">*</span> <span class="n">Mhat</span><span class="o">.</span><span class="n">T</span> <span class="o">@</span> <span class="n">np</span><span class="o">.</span><span class="n">linalg</span><span class="o">.</span><span class="n">inv</span><span class="p">(</span><span class="n">Ghat</span><span class="p">)</span> <span class="o">@</span> <span class="n">Mhat</span>
     <span class="p">[</span><span class="n">D</span><span class="p">,</span><span class="n">V</span><span class="p">]</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linalg</span><span class="o">.</span><span class="n">eig</span><span class="p">(</span><span class="n">C</span><span class="p">)</span>
-    
+
     <span class="n">idx</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">flip</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">argsort</span><span class="p">(</span><span class="n">D</span><span class="p">))</span>
     <span class="n">D</span> <span class="o">=</span> <span class="n">D</span><span class="p">[</span><span class="n">idx</span><span class="p">]</span>
     <span class="n">V</span> <span class="o">=</span> <span class="n">V</span><span class="p">[:,</span><span class="n">idx</span><span class="p">]</span>
-    
+
     <span class="n">mCI</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">((</span><span class="mi">3</span><span class="p">,</span><span class="mi">201</span><span class="p">))</span>
-    <span class="n">y</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">matrix</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">((</span><span class="mi">3</span><span class="p">,</span><span class="mi">1</span><span class="p">)))</span>
+    <span class="n">y</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">((</span><span class="mi">3</span><span class="p">,</span><span class="mi">1</span><span class="p">))</span>
     <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">201</span><span class="p">):</span>
             <span class="n">theta</span> <span class="o">=</span> <span class="n">i</span><span class="o">*</span><span class="n">np</span><span class="o">.</span><span class="n">pi</span><span class="o">/</span><span class="mi">100</span>
             <span class="n">y</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">cos</span><span class="p">(</span><span class="n">theta</span><span class="p">)</span><span class="o">*</span><span class="n">np</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span><span class="n">Tc</span><span class="p">)</span><span class="o">/</span><span class="n">np</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span><span class="n">D</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span>
             <span class="n">y</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">sin</span><span class="p">(</span><span class="n">theta</span><span class="p">)</span><span class="o">*</span><span class="n">np</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span><span class="n">Tc</span><span class="p">)</span><span class="o">/</span><span class="n">np</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span><span class="n">D</span><span class="p">[</span><span class="mi">1</span><span class="p">])</span>
             <span class="n">y</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span><span class="mi">1</span><span class="o">-</span><span class="n">y</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">**</span><span class="mi">2</span><span class="o">-</span><span class="n">y</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">**</span><span class="mi">2</span><span class="p">)</span>
-            <span class="n">mCI</span><span class="p">[:,</span><span class="n">i</span><span class="p">]</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">ndarray</span><span class="o">.</span><span class="n">flatten</span><span class="p">(</span><span class="n">V</span><span class="o">*</span><span class="n">y</span><span class="p">)</span>
+            <span class="n">mCI</span><span class="p">[:,</span><span class="n">i</span><span class="p">]</span> <span class="o">=</span> <span class="p">(</span><span class="n">V</span> <span class="o">@</span> <span class="n">y</span><span class="p">)</span><span class="o">.</span><span class="n">ravel</span><span class="p">()</span>
     
     <span class="n">mCIbar</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="n">mCI</span><span class="p">,</span><span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span><span class="o">/</span><span class="n">np</span><span class="o">.</span><span class="n">linalg</span><span class="o">.</span><span class="n">norm</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="n">mCI</span><span class="p">,</span><span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">))</span>
     <span class="k">if</span> <span class="n">np</span><span class="o">.</span><span class="n">arctan2</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">linalg</span><span class="o">.</span><span class="n">norm</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">cross</span><span class="p">(</span><span class="n">mhat</span><span class="p">,</span><span class="n">mCIbar</span><span class="p">)),</span><span class="n">np</span><span class="o">.</span><span class="n">dot</span><span class="p">(</span><span class="n">mhat</span><span class="p">,</span><span class="n">mCIbar</span><span class="p">))</span><span class="o">&gt;</span><span class="n">np</span><span class="o">.</span><span class="n">pi</span><span class="o">/</span><span class="mi">2</span><span class="p">:</span>

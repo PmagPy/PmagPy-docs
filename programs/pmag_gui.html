@@ -53,7 +53,7 @@
     <script>let toggleHintShow = 'Click to show';</script>
     <script>let toggleHintHide = 'Click to hide';</script>
     <script>let toggleOpenOnPrint = 'true';</script>
-    <script src="../_static/togglebutton.js?v=1ae7504c"></script>
+    <script src="../_static/togglebutton.js?v=b8b12719"></script>
     <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
     <script src="../_static/design-tabs.js?v=f930bc37"></script>
     <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
@@ -173,12 +173,8 @@
         <p aria-level="2" class="caption" role="heading"><span class="caption-text">Installation</span></p>
 <ul class="current nav bd-sidenav">
 <li class="toctree-l1 has-children"><a class="reference internal" href="../installation/PmagPy_install.html">Installing <strong>PmagPy</strong></a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
-<li class="toctree-l2"><a class="reference internal" href="../installation/osx_pip.html">OSX pip install</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../installation/osx_developer.html">OSX developer install</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../installation/windows_pip.html">Windows pip install</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../installation/windows_developer.html">Windows developer install</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../installation/linux_pip.html">Linux pip install</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../installation/linux_developer.html">Linux developer install</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../installation/pip_install.html">pip install</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../installation/developer_install.html">Developer install</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../installation/troubleshooting.html">Troubleshooting installation issues</a></li>
 <li class="toctree-l2"><a class="reference internal" href="command_line_programs.html">Command line programs</a></li>
 </ul>
@@ -529,7 +525,7 @@ for <a class="reference internal" href="#generic_magic.py"><span class="xref mys
 <li><p>In your <a class="reference internal" href="#Project_Directory"><span class="xref myst">ThisProject</span></a> directory there are
 three files with AF, Thermal, and Thellier measurement data of
 specimens from site sr01 (a lava flow site) of
-<span id="id1">Tauxe <em>et al.</em> [<a class="reference internal" href="../references.html#id13" title="Lisa Tauxe, Casey Luskin, Peter Selkin, Phillip Gans, and Andy Calvert. Paleomagnetic results from the Snake River Plain: Contribution to the time-averaged field global database. Geochemistry, Geophysics, Geosystems, 2004. URL: https://doi.org/10.1029%2F2003gc000661, doi:10.1029/2003gc000661.">2004</a>]</span>. There is also a file with sample
+<span class="bibtex-citation" id="id1">Tauxe <em>et al.</em> [<a class="reference internal" href="../references.html#id13" title="Lisa Tauxe, Casey Luskin, Peter Selkin, Phillip Gans, and Andy Calvert. Paleomagnetic results from the Snake River Plain: Contribution to the time-averaged field global database. Geochemistry, Geophysics, Geosystems, 2004. URL: https://doi.org/10.1029%2F2003gc000661, doi:10.1029/2003gc000661.">2004</a>]</span>. There is also a file with sample
 orientation, location and other metadata typical for a paleomagnetic
 study.</p></li>
 <li><p>Press the [Convert magnetometer files to MagIC format] button. If no
@@ -771,7 +767,7 @@ Here are a few instructions that can be used as a quick start for using
 Thellier GUI.</p>
 <p>You can customize which selection criteria you need under Preferences
 <span class="math notranslate nohighlight">\(=&gt;\)</span> Specimen paleointensity statistics (from SPD list). This uses
-the <span id="id2">Paterson <em>et al.</em> [<a class="reference internal" href="../references.html#id14" title="Greig A. Paterson, Lisa Tauxe, Andrew J. Biggin, Ron Shaar, and Lori C. Jonestrask. On improving the selection of thellier-type paleointensity data. Geochemistry, Geophysics, Geosystems, 15(4):1180–1192, 2014. URL: http://dx.doi.org/10.1002/2013GC005135, doi:10.1002/2013GC005135.">2014</a>]</span> definitions of paleointensity
+the <span class="bibtex-citation" id="id2">Paterson <em>et al.</em> [<a class="reference internal" href="../references.html#id14" title="Greig A. Paterson, Lisa Tauxe, Andrew J. Biggin, Ron Shaar, and Lori C. Jonestrask. On improving the selection of thellier-type paleointensity data. Geochemistry, Geophysics, Geosystems, 15(4):1180–1192, 2014. URL: http://dx.doi.org/10.1002/2013GC005135, doi:10.1002/2013GC005135.">2014</a>]</span> definitions of paleointensity
 statistices. Next, select bounds for the statistics under [Analysis]
 <span class="math notranslate nohighlight">\(=&gt;\)</span>[Acceptance criteria] <span class="math notranslate nohighlight">\(=&gt;\)</span> [Change acceptance
 criteria].</p>
@@ -817,7 +813,7 @@ data from a particular reference, simply substitute the digital object
 identifier (DOI) in your browser window:</p>
 <p><a class="reference external" href="http://earthref.org/MAGIC/doi/10.1029/2003GC000661">http://earthref.org/MAGIC/doi/10.1029/2003GC000661</a></p>
 <p>The above DOI will find the data for the paper by
-<span id="id3">Tauxe <em>et al.</em> [<a class="reference internal" href="../references.html#id13" title="Lisa Tauxe, Casey Luskin, Peter Selkin, Phillip Gans, and Andy Calvert. Paleomagnetic results from the Snake River Plain: Contribution to the time-averaged field global database. Geochemistry, Geophysics, Geosystems, 2004. URL: https://doi.org/10.1029%2F2003gc000661, doi:10.1029/2003gc000661.">2004</a>]</span>. [This may fail in Safari; if so, use an
+<span class="bibtex-citation" id="id3">Tauxe <em>et al.</em> [<a class="reference internal" href="../references.html#id13" title="Lisa Tauxe, Casey Luskin, Peter Selkin, Phillip Gans, and Andy Calvert. Paleomagnetic results from the Snake River Plain: Contribution to the time-averaged field global database. Geochemistry, Geophysics, Geosystems, 2004. URL: https://doi.org/10.1029%2F2003gc000661, doi:10.1029/2003gc000661.">2004</a>]</span>. [This may fail in Safari; if so, use an
 alternative browser like Firefox or Chrome.] To download the data,
 simply click on the file icon labeled “Download”. This will save a file
 to your downloads folder. To unpack this file after downloading it from

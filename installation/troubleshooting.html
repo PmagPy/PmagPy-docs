@@ -53,7 +53,7 @@
     <script>let toggleHintShow = 'Click to show';</script>
     <script>let toggleHintHide = 'Click to hide';</script>
     <script>let toggleOpenOnPrint = 'true';</script>
-    <script src="../_static/togglebutton.js?v=1ae7504c"></script>
+    <script src="../_static/togglebutton.js?v=b8b12719"></script>
     <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
     <script src="../_static/design-tabs.js?v=f930bc37"></script>
     <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
@@ -64,7 +64,7 @@
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
     <link rel="next" title="Command line programs" href="../programs/command_line_programs.html" />
-    <link rel="prev" title="Linux developer install" href="linux_developer.html" />
+    <link rel="prev" title="Developer install" href="developer_install.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
   <meta name="docsearch:version" content="" />
@@ -171,12 +171,8 @@
         <p aria-level="2" class="caption" role="heading"><span class="caption-text">Installation</span></p>
 <ul class="current nav bd-sidenav">
 <li class="toctree-l1 current active has-children"><a class="reference internal" href="PmagPy_install.html">Installing <strong>PmagPy</strong></a><details open="open"><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul class="current">
-<li class="toctree-l2"><a class="reference internal" href="osx_pip.html">OSX pip install</a></li>
-<li class="toctree-l2"><a class="reference internal" href="osx_developer.html">OSX developer install</a></li>
-<li class="toctree-l2"><a class="reference internal" href="windows_pip.html">Windows pip install</a></li>
-<li class="toctree-l2"><a class="reference internal" href="windows_developer.html">Windows developer install</a></li>
-<li class="toctree-l2"><a class="reference internal" href="linux_pip.html">Linux pip install</a></li>
-<li class="toctree-l2"><a class="reference internal" href="linux_developer.html">Linux developer install</a></li>
+<li class="toctree-l2"><a class="reference internal" href="pip_install.html">pip install</a></li>
+<li class="toctree-l2"><a class="reference internal" href="developer_install.html">Developer install</a></li>
 <li class="toctree-l2 current active"><a class="current reference internal" href="#">Troubleshooting installation issues</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../programs/command_line_programs.html">Command line programs</a></li>
 </ul>
@@ -409,19 +405,12 @@
             </div>
             <nav aria-label="Page">
                 <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#problems-with-installing-python">Problems with installing Python</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#wxpython-is-not-installed">wxPython is not installed</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#troubleshooting-a-pip-install">Troubleshooting a pip install</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#troubleshooting-a-developer-install">Troubleshooting a developer install</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#path-for-windows">PATH for Windows</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#path-for-osx-or-linux">PATH for OSX or Linux</a></li>
-</ul>
-</li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#problem-with-a-pmagpy-dependency">Problem with a PmagPy dependency</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#problems-with-a-specific-program">Problems with a specific program</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#thellier-auto-interpreter-crashes-with-a-segmentation-fault-on-mac">Thellier auto_interpreter crashes with a Segmentation Fault (on Mac).</a></li>
-</ul>
-</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#verify-python-is-installed-correctly">Verify Python is installed correctly</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#importerror-no-module-named-wx-or-similar-wxpython-errors"><code class="docutils literal notranslate"><span class="pre">ImportError:</span> <span class="pre">No</span> <span class="pre">module</span> <span class="pre">named</span> <span class="pre">wx</span></code> (or similar wxPython errors)</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#command-not-found-after-a-pip-install"><code class="docutils literal notranslate"><span class="pre">command</span> <span class="pre">not</span> <span class="pre">found</span></code> after a pip install</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#command-not-found-after-a-developer-install"><code class="docutils literal notranslate"><span class="pre">command</span> <span class="pre">not</span> <span class="pre">found</span></code> after a developer install</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#mac-specific-scripts-in-programs-are-not-executable">Mac-specific: scripts in <code class="docutils literal notranslate"><span class="pre">programs/</span></code> are not executable</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#wrong-version-of-a-dependency">Wrong version of a dependency</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#wrong-python-in-jupyter-notebook">Wrong Python in Jupyter notebook</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#other-problems">Other problems</a></li>
 </ul>
@@ -437,145 +426,99 @@
                   
   <section class="tex2jax_ignore mathjax_ignore" id="troubleshooting-installation-issues">
 <h1>Troubleshooting installation issues<a class="headerlink" href="#troubleshooting-installation-issues" title="Link to this heading">#</a></h1>
-<section id="problems-with-installing-python">
-<h2>Problems with installing Python<a class="headerlink" href="#problems-with-installing-python" title="Link to this heading">#</a></h2>
-<p>First, please test that you have successfully installed the correct
-Python distribution.</p>
-<p>Find your command line (Terminal for Mac users, Command Prompt for
-Windows users) and type <code class="docutils literal notranslate"><span class="pre">python</span></code>. You should see something like this:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$ python
-Python 3.9.13 (main, Aug 25 2022, 18:29:29) 
-[Clang 12.0.0 ] :: Anaconda, Inc. on darwin
+<section id="verify-python-is-installed-correctly">
+<h2>Verify Python is installed correctly<a class="headerlink" href="#verify-python-is-installed-correctly" title="Link to this heading">#</a></h2>
+<p>In a terminal, type <code class="docutils literal notranslate"><span class="pre">python</span></code> (or <code class="docutils literal notranslate"><span class="pre">python3</span></code>). You should see something like:</p>
+<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>Python 3.10.13 | packaged by conda-forge | (main, Oct 26 2023, 18:07:37)
+[Clang 16.0.6 ] on darwin
 Type &quot;help&quot;, &quot;copyright&quot;, &quot;credits&quot; or &quot;license&quot; for more information.
 </pre></div>
 </div>
-<p>If you get an error message, or you don’t see “Anaconda” in the initial
-message, you should go to the <a class="reference internal" href="#getting_python"><span class="xref myst">installing
-Python</span></a> section and follow the instructions there.</p>
+<p>Press <code class="docutils literal notranslate"><span class="pre">Ctrl-D</span></code> (or type <code class="docutils literal notranslate"><span class="pre">quit()</span></code>) to exit. If you get an error like <code class="docutils literal notranslate"><span class="pre">command</span> <span class="pre">not</span> <span class="pre">found</span></code>, see the <a class="reference internal" href="pip_install.html"><span class="std std-doc">pip install instructions</span></a> for setting up Python via conda or miniforge.</p>
 </section>
-<section id="wxpython-is-not-installed">
-<h2>wxPython is not installed<a class="headerlink" href="#wxpython-is-not-installed" title="Link to this heading">#</a></h2>
-<p>If you only have the core packages installed with the Anaconda
-distribution (plus the PmagPy package you just installed), you may get
-the following ImportError when attempting to execute “<a class="reference external" href="http://eqarea.py">eqarea.py</a> -h”:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="ne">ImportError</span><span class="p">:</span> <span class="n">No</span> <span class="n">module</span> <span class="n">named</span> <span class="n">wx</span>
+<section id="importerror-no-module-named-wx-or-similar-wxpython-errors">
+<h2><code class="docutils literal notranslate"><span class="pre">ImportError:</span> <span class="pre">No</span> <span class="pre">module</span> <span class="pre">named</span> <span class="pre">wx</span></code> (or similar wxPython errors)<a class="headerlink" href="#importerror-no-module-named-wx-or-similar-wxpython-errors" title="Link to this heading">#</a></h2>
+<p>The PmagPy GUIs depend on wxPython. If it’s missing, the cleanest fix is to install it from conda-forge into your active environment:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>conda<span class="w"> </span>install<span class="w"> </span>-c<span class="w"> </span>conda-forge<span class="w"> </span>wxpython
 </pre></div>
 </div>
-<p>To correct this error, execute at the command line:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">pip</span> <span class="n">install</span> <span class="o">--</span><span class="n">upgrade</span> <span class="o">-</span><span class="n">f</span> <span class="n">https</span><span class="p">:</span><span class="o">//</span><span class="n">wxpython</span><span class="o">.</span><span class="n">org</span><span class="o">/</span><span class="n">Phoenix</span><span class="o">/</span><span class="n">snapshot</span><span class="o">-</span><span class="n">builds</span><span class="o">/</span> <span class="n">wxPython</span>
+<p>On Linux specifically, conda-forge wxpython is by far the most reliable choice — pip-installed wxPython on Linux requires a long list of system libraries (<code class="docutils literal notranslate"><span class="pre">libgtk-3-dev</span></code>, <code class="docutils literal notranslate"><span class="pre">libgstreamer1.0-0</span></code>, etc.) and the right wheel for your distribution.</p>
+<p>If you see <code class="docutils literal notranslate"><span class="pre">ImportError:</span> <span class="pre">libwx_gtk3u_core-3.0.so.0:</span> <span class="pre">cannot</span> <span class="pre">open</span> <span class="pre">shared</span> <span class="pre">object</span> <span class="pre">file</span></code> after a non-conda wxPython install, switch to the conda-forge package as above.</p>
+</section>
+<section id="command-not-found-after-a-pip-install">
+<h2><code class="docutils literal notranslate"><span class="pre">command</span> <span class="pre">not</span> <span class="pre">found</span></code> after a pip install<a class="headerlink" href="#command-not-found-after-a-pip-install" title="Link to this heading">#</a></h2>
+<p>If you installed PmagPy with pip but get an error like:</p>
+<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>-bash: pmag_gui: command not found
 </pre></div>
 </div>
-</section>
-<section id="troubleshooting-a-pip-install">
-<h2>Troubleshooting a pip install<a class="headerlink" href="#troubleshooting-a-pip-install" title="Link to this heading">#</a></h2>
-<p>If you installed with pip, but you have this error message or similar
-when you try to run a program:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="o">-</span><span class="n">bash</span><span class="p">:</span> <span class="n">eqarea</span><span class="o">.</span><span class="n">py</span><span class="p">:</span> <span class="n">command</span> <span class="ow">not</span> <span class="n">found</span>
+<p>…check that PmagPy and its CLI package are actually installed:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>pip<span class="w"> </span>list<span class="w"> </span><span class="p">|</span><span class="w"> </span>grep<span class="w"> </span>pmagpy
 </pre></div>
 </div>
-<p>Make sure you are running the <a class="reference internal" href="#which_command"><span class="xref myst">correct command</span></a> for
-your operating system and <strong>PmagPy</strong> install.</p>
-<p>Once you have the correct command, if you still see that error message,
-this probably means that you have not correctly installed PmagPy. On
-your command line, try:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">pip</span> <span class="nb">list</span>
+<p>You should see both <code class="docutils literal notranslate"><span class="pre">pmagpy</span></code> and <code class="docutils literal notranslate"><span class="pre">pmagpy-cli</span></code>. If either is missing, install them:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>pip<span class="w"> </span>install<span class="w"> </span>--upgrade<span class="w"> </span>pmagpy
+pip<span class="w"> </span>install<span class="w"> </span>--upgrade<span class="w"> </span>pmagpy-cli
 </pre></div>
 </div>
-<p>You should see both pmagpy-(version_number) and
-pmagpy-cli-(version_number) on that list. If you don’t see them, go
-ahead and reinstall:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">pip</span> <span class="n">install</span> <span class="o">--</span><span class="n">upgrade</span> <span class="o">--</span><span class="n">force</span><span class="o">-</span><span class="n">reinstall</span> <span class="o">--</span><span class="n">no</span><span class="o">-</span><span class="n">cache</span><span class="o">-</span><span class="nb">dir</span> <span class="o">--</span><span class="n">no</span><span class="o">-</span><span class="n">deps</span> <span class="n">pmagpy</span>
-<span class="n">pip</span> <span class="n">install</span> <span class="o">--</span><span class="n">upgrade</span> <span class="o">--</span><span class="n">force</span><span class="o">-</span><span class="n">reinstall</span> <span class="o">--</span><span class="n">no</span><span class="o">-</span><span class="n">cache</span><span class="o">-</span><span class="nb">dir</span> <span class="o">--</span><span class="n">no</span><span class="o">-</span><span class="n">deps</span> <span class="n">pmagpy</span><span class="o">-</span><span class="n">cli</span>
-</pre></div>
-</div>
-<p>Fully uninstalling and reinstalling can occasionally fix other problems
-as well!</p>
-</section>
-<section id="troubleshooting-a-developer-install">
-<h2>Troubleshooting a developer install<a class="headerlink" href="#troubleshooting-a-developer-install" title="Link to this heading">#</a></h2>
-<p>For more information on the developer install, you can run:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">dev_setup</span><span class="o">.</span><span class="n">py</span> <span class="o">-</span><span class="n">h</span>
-</pre></div>
-</div>
-<p>You can also check the specific <a class="reference internal" href="#getting_python"><span class="xref myst">install
-instructions</span></a>.</p>
-<p>For Mac users with a developer install, it is possible that you need to
-make the python scripts executable. On the command line in the
-PmagPy/programs directory, run the command: chmod a+x *.py</p>
-<section id="path-for-windows">
-<h3>PATH for Windows<a class="headerlink" href="#path-for-windows" title="Link to this heading">#</a></h3>
-<p>If you are trying to get a developer install to work on Windows, and you
-want to set/check your $PATH manually, see <a class="reference external" href="http://www.mathworks.com/matlabcentral/answers/94933-how-do-i-set-my-system-path-under-windows">Setting your Path in
-Windows</a>.
-More information about adding <strong>PmagPy</strong> to your $PATH is available
-<a class="reference internal" href="#setting_path"><span class="xref myst">here</span></a>.</p>
-</section>
-<section id="path-for-osx-or-linux">
-<h3>PATH for OSX or Linux<a class="headerlink" href="#path-for-osx-or-linux" title="Link to this heading">#</a></h3>
-<p>You can test if your PATH has been properly set with this command:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>echo $PATH
-</pre></div>
-</div>
-<p>If you don’t see PmagPy, PmagPy/programs, and
-PmagPy/programs/conversion_scripts somewhere in the output, you have not
-successfully completed a developer install.</p>
-<p>If for some reason you need to add PmagPy to your $PATH manually, you
-can find more general information about setting $PATH
-<a class="reference external" href="https://stackoverflow.com/questions/14637979/how-to-permanently-set-path-on-linux-unix">here</a>,
-and specific information about adding <strong>PmagPy</strong> to your $PATH
-<a class="reference internal" href="#setting_path"><span class="xref myst">here</span></a>.</p>
-</section>
-</section>
-<section id="problem-with-a-pmagpy-dependency">
-<h2>Problem with a PmagPy dependency<a class="headerlink" href="#problem-with-a-pmagpy-dependency" title="Link to this heading">#</a></h2>
-<p><strong>PmagPy</strong> depends on a variety of Python packages. Sometimes you will
-run into problems if you have the wrong version of a dependency. You may
-get an ImportError or a SyntaxError in these cases. You can check the
-list of correct dependencies on
-<a class="reference external" href="https://github.com/PmagPy/PmagPy/blob/master/environment.yml">Github</a>.</p>
-<p>You can see what package versions you are running by using the command
-“conda list” (or “pip list” if you have a non-Anaconda Python). You can
-then compare with our list, and upgrade or downgrade if necessary. For
-example: “conda install pandas=0.24.2”.</p>
-</section>
-<section id="problems-with-a-specific-program">
-<h2>Problems with a specific program<a class="headerlink" href="#problems-with-a-specific-program" title="Link to this heading">#</a></h2>
-<section id="thellier-auto-interpreter-crashes-with-a-segmentation-fault-on-mac">
-<h3>Thellier auto_interpreter crashes with a Segmentation Fault (on Mac).<a class="headerlink" href="#thellier-auto-interpreter-crashes-with-a-segmentation-fault-on-mac" title="Link to this heading">#</a></h3>
-<p>NB: This should no longer be a problem with matplotlib 2.0 and higher.</p>
+<p>You may also need to use a different command name depending on your platform:</p>
 <ul class="simple">
-<li><p>This error is caused by a version issue with one of PmagPy’s
-dependencies, matplotlib. There are two ways to solve this problem.</p></li>
-<li><p>Recommended: upgrade matplotlib with the command “conda upgrade
-matplotlib”</p></li>
-<li><p>Alternative: download and use the <a class="reference internal" href="#standalone"><span class="xref myst">standalone Pmag
-GUI</span></a> distribution to access Thellier GUI.</p></li>
+<li><p>macOS: <code class="docutils literal notranslate"><span class="pre">pmag_gui_anaconda</span></code> (or <code class="docutils literal notranslate"><span class="pre">pmag_gui.py</span></code>)</p></li>
+<li><p>Linux: <code class="docutils literal notranslate"><span class="pre">pmag_gui.py</span></code></p></li>
+<li><p>Windows: <code class="docutils literal notranslate"><span class="pre">pmag_gui</span></code> (no <code class="docutils literal notranslate"><span class="pre">.py</span></code>)</p></li>
 </ul>
+<p>If <code class="docutils literal notranslate"><span class="pre">pmag_gui.py</span></code> raises a <code class="docutils literal notranslate"><span class="pre">This</span> <span class="pre">program</span> <span class="pre">needs</span> <span class="pre">access</span> <span class="pre">to</span> <span class="pre">the</span> <span class="pre">screen.</span> <span class="pre">Please</span> <span class="pre">run</span> <span class="pre">with</span> <span class="pre">a</span> <span class="pre">Framework</span> <span class="pre">build</span> <span class="pre">of</span> <span class="pre">python</span></code> error on macOS, use <code class="docutils literal notranslate"><span class="pre">pmag_gui_anaconda</span></code>.</p>
 </section>
+<section id="command-not-found-after-a-developer-install">
+<h2><code class="docutils literal notranslate"><span class="pre">command</span> <span class="pre">not</span> <span class="pre">found</span></code> after a developer install<a class="headerlink" href="#command-not-found-after-a-developer-install" title="Link to this heading">#</a></h2>
+<p>If you cloned the repo and did <code class="docutils literal notranslate"><span class="pre">pip</span> <span class="pre">install</span> <span class="pre">-e</span> <span class="pre">.</span></code> but the GUI commands aren’t found from arbitrary directories, that’s expected — <code class="docutils literal notranslate"><span class="pre">pip</span> <span class="pre">install</span> <span class="pre">-e</span> <span class="pre">.</span></code> only installs the <code class="docutils literal notranslate"><span class="pre">pmagpy</span></code> library, not the CLI commands. Two options:</p>
+<ul class="simple">
+<li><p>Navigate to the <code class="docutils literal notranslate"><span class="pre">programs/</span></code> directory in your clone and run the script directly: <code class="docutils literal notranslate"><span class="pre">cd</span> <span class="pre">PmagPy/programs</span> <span class="pre">&amp;&amp;</span> <span class="pre">python</span> <span class="pre">pmag_gui.py</span></code></p></li>
+<li><p>Install pmagpy-cli editably as well: from the PmagPy directory, run <code class="docutils literal notranslate"><span class="pre">python</span> <span class="pre">command_line_setup.py</span> <span class="pre">develop</span></code>. After that, <code class="docutils literal notranslate"><span class="pre">pmag_gui.py</span></code> (or the platform equivalent) works from any directory.</p></li>
+</ul>
+<p>See the <a class="reference internal" href="developer_install.html"><span class="std std-doc">developer install instructions</span></a> for details on the three patterns.</p>
+</section>
+<section id="mac-specific-scripts-in-programs-are-not-executable">
+<h2>Mac-specific: scripts in <code class="docutils literal notranslate"><span class="pre">programs/</span></code> are not executable<a class="headerlink" href="#mac-specific-scripts-in-programs-are-not-executable" title="Link to this heading">#</a></h2>
+<p>For Mac users with a developer install, you may need to make the Python scripts executable:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="nb">cd</span><span class="w"> </span>PmagPy/programs
+chmod<span class="w"> </span>a+x<span class="w"> </span>*.py
+</pre></div>
+</div>
+</section>
+<section id="wrong-version-of-a-dependency">
+<h2>Wrong version of a dependency<a class="headerlink" href="#wrong-version-of-a-dependency" title="Link to this heading">#</a></h2>
+<p>If you get an <code class="docutils literal notranslate"><span class="pre">ImportError</span></code> or unexpected behavior, you may have the wrong version of a dependency. Check what versions you have installed:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>pip<span class="w"> </span>list
+</pre></div>
+</div>
+<p>(or <code class="docutils literal notranslate"><span class="pre">conda</span> <span class="pre">list</span></code> if you installed dependencies via conda.) The expected runtime dependencies are listed in <a class="reference external" href="https://github.com/PmagPy/PmagPy/blob/master/environment.yml"><code class="docutils literal notranslate"><span class="pre">environment.yml</span></code></a> and in <code class="docutils literal notranslate"><span class="pre">setup.py</span></code>’s <code class="docutils literal notranslate"><span class="pre">install_requires</span></code>. Upgrade or downgrade as needed:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>pip<span class="w"> </span>install<span class="w"> </span><span class="s1">&#39;pandas&gt;=2.0&#39;</span>
+</pre></div>
+</div>
 </section>
 <section id="wrong-python-in-jupyter-notebook">
 <h2>Wrong Python in Jupyter notebook<a class="headerlink" href="#wrong-python-in-jupyter-notebook" title="Link to this heading">#</a></h2>
-<p>If your jupyter notebook is calling the wrong version of python (i.e.,
-using the OSX verion of python instead of Anaconda python), do this:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">unlink</span> <span class="o">/</span><span class="n">usr</span><span class="o">/</span><span class="n">local</span><span class="o">/</span><span class="nb">bin</span><span class="o">/</span><span class="n">python</span>
-<span class="n">ln</span> <span class="o">-</span><span class="n">s</span> <span class="o">/</span><span class="n">Users</span><span class="o">/</span><span class="n">USERNAME</span><span class="o">/</span><span class="n">anaconda3</span><span class="o">/</span><span class="nb">bin</span><span class="o">/</span><span class="n">python</span> <span class="o">/</span><span class="n">usr</span><span class="o">/</span><span class="n">local</span><span class="o">/</span><span class="nb">bin</span><span class="o">/</span><span class="n">python</span>
+<p>If your Jupyter notebook is calling the wrong Python interpreter (for example, system Python instead of the one in your conda environment), the cleanest fix is to install Jupyter inside the right environment:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>conda<span class="w"> </span>activate<span class="w"> </span>pmagpy_env
+conda<span class="w"> </span>install<span class="w"> </span>-c<span class="w"> </span>conda-forge<span class="w"> </span>jupyterlab
 </pre></div>
 </div>
-<p>and this:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">unlink</span> <span class="o">/</span><span class="n">usr</span><span class="o">/</span><span class="n">local</span><span class="o">/</span><span class="nb">bin</span><span class="o">/</span><span class="n">pythonw</span>
-<span class="n">ln</span> <span class="o">-</span><span class="n">s</span> <span class="o">/</span><span class="n">Users</span><span class="o">/</span><span class="n">USERNAME</span><span class="o">/</span><span class="n">anaconda3</span><span class="o">/</span><span class="nb">bin</span><span class="o">/</span><span class="n">pythonw</span> <span class="o">/</span><span class="n">usr</span><span class="o">/</span><span class="n">local</span><span class="o">/</span><span class="nb">bin</span><span class="o">/</span><span class="n">pythonw</span>
+<p>Then launch with <code class="docutils literal notranslate"><span class="pre">jupyter</span> <span class="pre">lab</span></code> from inside the activated environment. The kernel will use the active environment’s Python.</p>
+<p>If you specifically need to register an environment as a named kernel:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>conda<span class="w"> </span>activate<span class="w"> </span>pmagpy_env
+python<span class="w"> </span>-m<span class="w"> </span>ipykernel<span class="w"> </span>install<span class="w"> </span>--user<span class="w"> </span>--name<span class="w"> </span>pmagpy_env<span class="w"> </span>--display-name<span class="w"> </span><span class="s2">&quot;PmagPy&quot;</span>
 </pre></div>
 </div>
-<p>where USERNAME is your username.</p>
 </section>
 <section id="other-problems">
 <h2>Other problems<a class="headerlink" href="#other-problems" title="Link to this heading">#</a></h2>
-<p>Report a problem not listed above on
-<a class="reference external" href="https://github.com/PmagPy/PmagPy/issues/new">Github</a>.
-Please include the following information: 1) the
-version of PmagPy that you are using, 2) your operating system, 3) any
-error messages that you got, 4) the datafile that is giving trouble, if
-relevant.</p>
+<p>Report a problem not listed above on <a class="reference external" href="https://github.com/PmagPy/PmagPy/issues/new">GitHub</a>. Please include:</p>
+<ol class="arabic simple">
+<li><p>The version of PmagPy you are using (<code class="docutils literal notranslate"><span class="pre">pip</span> <span class="pre">show</span> <span class="pre">pmagpy</span></code>).</p></li>
+<li><p>Your operating system.</p></li>
+<li><p>The full error message and traceback.</p></li>
+<li><p>The data file that is giving trouble, if relevant.</p></li>
+</ol>
 </section>
 </section>
 
@@ -610,12 +553,12 @@ relevant.</p>
                   
 <div class="prev-next-area">
     <a class="left-prev"
-       href="linux_developer.html"
+       href="developer_install.html"
        title="previous page">
       <i class="fa-solid fa-angle-left"></i>
       <div class="prev-next-info">
         <p class="prev-next-subtitle">previous</p>
-        <p class="prev-next-title">Linux developer install</p>
+        <p class="prev-next-title">Developer install</p>
       </div>
     </a>
     <a class="right-next"
@@ -645,19 +588,12 @@ relevant.</p>
   </div>
   <nav id="pst-page-toc-nav" class="page-toc" aria-labelledby="pst-page-navigation-heading-2">
     <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#problems-with-installing-python">Problems with installing Python</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#wxpython-is-not-installed">wxPython is not installed</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#troubleshooting-a-pip-install">Troubleshooting a pip install</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#troubleshooting-a-developer-install">Troubleshooting a developer install</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#path-for-windows">PATH for Windows</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#path-for-osx-or-linux">PATH for OSX or Linux</a></li>
-</ul>
-</li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#problem-with-a-pmagpy-dependency">Problem with a PmagPy dependency</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#problems-with-a-specific-program">Problems with a specific program</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#thellier-auto-interpreter-crashes-with-a-segmentation-fault-on-mac">Thellier auto_interpreter crashes with a Segmentation Fault (on Mac).</a></li>
-</ul>
-</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#verify-python-is-installed-correctly">Verify Python is installed correctly</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#importerror-no-module-named-wx-or-similar-wxpython-errors"><code class="docutils literal notranslate"><span class="pre">ImportError:</span> <span class="pre">No</span> <span class="pre">module</span> <span class="pre">named</span> <span class="pre">wx</span></code> (or similar wxPython errors)</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#command-not-found-after-a-pip-install"><code class="docutils literal notranslate"><span class="pre">command</span> <span class="pre">not</span> <span class="pre">found</span></code> after a pip install</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#command-not-found-after-a-developer-install"><code class="docutils literal notranslate"><span class="pre">command</span> <span class="pre">not</span> <span class="pre">found</span></code> after a developer install</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#mac-specific-scripts-in-programs-are-not-executable">Mac-specific: scripts in <code class="docutils literal notranslate"><span class="pre">programs/</span></code> are not executable</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#wrong-version-of-a-dependency">Wrong version of a dependency</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#wrong-python-in-jupyter-notebook">Wrong Python in Jupyter notebook</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#other-problems">Other problems</a></li>
 </ul>

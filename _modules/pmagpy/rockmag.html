@@ -52,7 +52,7 @@
     <script>let toggleHintShow = 'Click to show';</script>
     <script>let toggleHintHide = 'Click to hide';</script>
     <script>let toggleOpenOnPrint = 'true';</script>
-    <script src="../../_static/togglebutton.js?v=1ae7504c"></script>
+    <script src="../../_static/togglebutton.js?v=b8b12719"></script>
     <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
     <script src="../../_static/design-tabs.js?v=f930bc37"></script>
     <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
@@ -170,12 +170,8 @@
         <p aria-level="2" class="caption" role="heading"><span class="caption-text">Installation</span></p>
 <ul class="nav bd-sidenav">
 <li class="toctree-l1 has-children"><a class="reference internal" href="../../installation/PmagPy_install.html">Installing <strong>PmagPy</strong></a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
-<li class="toctree-l2"><a class="reference internal" href="../../installation/osx_pip.html">OSX pip install</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../../installation/osx_developer.html">OSX developer install</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../../installation/windows_pip.html">Windows pip install</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../../installation/windows_developer.html">Windows developer install</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../../installation/linux_pip.html">Linux pip install</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../../installation/linux_developer.html">Linux developer install</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../installation/pip_install.html">pip install</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../installation/developer_install.html">Developer install</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../installation/troubleshooting.html">Troubleshooting installation issues</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../programs/command_line_programs.html">Command line programs</a></li>
 </ul>
@@ -374,6 +370,8 @@
 <span class="kn">import</span><span class="w"> </span><span class="nn">matplotlib.pyplot</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">plt</span>
 <span class="kn">import</span><span class="w"> </span><span class="nn">matplotlib.colors</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">colors</span>
 <span class="kn">import</span><span class="w"> </span><span class="nn">matplotlib.patches</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">patches</span>
+
+<span class="kn">from</span><span class="w"> </span><span class="nn">pmagpy.pmag</span><span class="w"> </span><span class="kn">import</span> <span class="n">_resolve_rng</span>
 
 <span class="k">try</span><span class="p">:</span>
     <span class="kn">import</span><span class="w"> </span><span class="nn">ipywidgets</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">widgets</span>
@@ -5534,7 +5532,7 @@
 
 <div class="viewcode-block" id="backfield_MaxUnmix">
 <a class="viewcode-back" href="../../api/api.html#pmagpy.rockmag.backfield_MaxUnmix">[docs]</a>
-<span class="k">def</span><span class="w"> </span><span class="nf">backfield_MaxUnmix</span><span class="p">(</span><span class="n">field</span><span class="p">,</span> <span class="n">magnetization</span><span class="p">,</span> <span class="n">n_comps</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">parameters</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">skewed</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">n_resample</span><span class="o">=</span><span class="mi">100</span><span class="p">,</span> <span class="n">proportion</span><span class="o">=</span><span class="mf">0.95</span><span class="p">,</span> <span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span> <span class="mi">6</span><span class="p">)):</span>
+<span class="k">def</span><span class="w"> </span><span class="nf">backfield_MaxUnmix</span><span class="p">(</span><span class="n">field</span><span class="p">,</span> <span class="n">magnetization</span><span class="p">,</span> <span class="n">n_comps</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">parameters</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">skewed</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">n_resample</span><span class="o">=</span><span class="mi">100</span><span class="p">,</span> <span class="n">proportion</span><span class="o">=</span><span class="mf">0.95</span><span class="p">,</span> <span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span> <span class="mi">6</span><span class="p">),</span> <span class="n">random_seed</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
 <span class="w">    </span><span class="sd">&#39;&#39;&#39;</span>
 <span class="sd">    function for performing the MaxUnmix backfield unmixing algorithm</span>
 <span class="sd">        The components are modelled as skew-normal distributions</span>
@@ -5562,11 +5560,15 @@
 <span class="sd">        The actual number of resampled points per iteration is calculated as int(len(field) * proportion)</span>
 <span class="sd">    n_comps : int, optional</span>
 <span class="sd">        The number of components to be used for the unmixing. The default is 1.</span>
+<span class="sd">    random_seed : None, int, or numpy.random.Generator, optional</span>
+<span class="sd">        Seed for reproducible bootstrap resampling (default None).</span>
 <span class="sd">    &#39;&#39;&#39;</span>
 
+    <span class="k">assert</span> <span class="n">parameters</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">,</span> <span class="sa">f</span><span class="s2">&quot;parameters should not be None&quot;</span>
     <span class="k">assert</span> <span class="nb">len</span><span class="p">(</span><span class="n">parameters</span><span class="p">)</span> <span class="o">==</span> <span class="n">n_comps</span><span class="p">,</span> <span class="sa">f</span><span class="s2">&quot;Number of rows in parameters (</span><span class="si">{</span><span class="nb">len</span><span class="p">(</span><span class="n">parameters</span><span class="p">)</span><span class="si">}</span><span class="s2">) should be equal to n_comps (</span><span class="si">{</span><span class="n">n_comps</span><span class="si">}</span><span class="s2">)&quot;</span>
     <span class="k">assert</span> <span class="n">proportion</span> <span class="o">&gt;</span> <span class="mi">0</span> <span class="ow">and</span> <span class="n">proportion</span> <span class="o">&lt;=</span> <span class="mi">1</span><span class="p">,</span> <span class="sa">f</span><span class="s2">&quot;proportion should be between 0 and 1, but got </span><span class="si">{</span><span class="n">proportion</span><span class="si">}</span><span class="s2">&quot;</span>
-    <span class="k">assert</span> <span class="n">parameters</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">,</span> <span class="sa">f</span><span class="s2">&quot;parameters should not be None&quot;</span>
+
+    <span class="n">rng</span> <span class="o">=</span> <span class="n">_resolve_rng</span><span class="p">(</span><span class="n">random_seed</span><span class="p">)</span>
 
     <span class="n">field</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="n">field</span><span class="p">)</span>
     <span class="n">magnetization</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="n">magnetization</span><span class="p">)</span>
@@ -5582,7 +5584,7 @@
     <span class="n">all_parameters</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">((</span><span class="n">n_resample</span><span class="p">,</span> <span class="n">n_comps</span><span class="p">,</span> <span class="mi">4</span><span class="p">))</span>
     <span class="k">for</span> <span class="nb">iter</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">n_resample</span><span class="p">):</span>
         <span class="c1"># bootstrap resample with replacement of the data</span>
-        <span class="n">index_resample</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">choice</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">B</span><span class="p">),</span> <span class="n">size</span><span class="o">=</span><span class="nb">int</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">B</span><span class="p">)</span> <span class="o">*</span> <span class="n">proportion</span><span class="p">),</span> <span class="n">replace</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+        <span class="n">index_resample</span> <span class="o">=</span> <span class="n">rng</span><span class="o">.</span><span class="n">choice</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">B</span><span class="p">),</span> <span class="n">size</span><span class="o">=</span><span class="nb">int</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">B</span><span class="p">)</span> <span class="o">*</span> <span class="n">proportion</span><span class="p">),</span> <span class="n">replace</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
         <span class="n">B_resample</span> <span class="o">=</span> <span class="n">B</span><span class="p">[</span><span class="n">index_resample</span><span class="p">]</span>
         <span class="n">dMdB_resample</span> <span class="o">=</span> <span class="n">dMdB</span><span class="p">[</span><span class="n">index_resample</span><span class="p">]</span>
 

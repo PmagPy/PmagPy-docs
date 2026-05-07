@@ -52,7 +52,7 @@
     <script>let toggleHintShow = 'Click to show';</script>
     <script>let toggleHintHide = 'Click to hide';</script>
     <script>let toggleOpenOnPrint = 'true';</script>
-    <script src="../../_static/togglebutton.js?v=1ae7504c"></script>
+    <script src="../../_static/togglebutton.js?v=b8b12719"></script>
     <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
     <script src="../../_static/design-tabs.js?v=f930bc37"></script>
     <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
@@ -170,12 +170,8 @@
         <p aria-level="2" class="caption" role="heading"><span class="caption-text">Installation</span></p>
 <ul class="nav bd-sidenav">
 <li class="toctree-l1 has-children"><a class="reference internal" href="../../installation/PmagPy_install.html">Installing <strong>PmagPy</strong></a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
-<li class="toctree-l2"><a class="reference internal" href="../../installation/osx_pip.html">OSX pip install</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../../installation/osx_developer.html">OSX developer install</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../../installation/windows_pip.html">Windows pip install</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../../installation/windows_developer.html">Windows developer install</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../../installation/linux_pip.html">Linux pip install</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../../installation/linux_developer.html">Linux developer install</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../installation/pip_install.html">pip install</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../installation/developer_install.html">Developer install</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../installation/troubleshooting.html">Troubleshooting installation issues</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../programs/command_line_programs.html">Command line programs</a></li>
 </ul>
@@ -436,13 +432,15 @@
 
 <span class="sd">    &quot;&quot;&quot;</span>
     <span class="n">is_win</span> <span class="o">=</span> <span class="kc">True</span> <span class="k">if</span> <span class="n">sys</span><span class="o">.</span><span class="n">platform</span> <span class="ow">in</span> <span class="p">[</span><span class="s1">&#39;win32&#39;</span><span class="p">,</span> <span class="s1">&#39;win64&#39;</span><span class="p">]</span> <span class="k">else</span> <span class="kc">False</span>
-    <span class="k">if</span> <span class="ow">not</span> <span class="n">is_win</span><span class="p">:</span>
+    <span class="k">if</span> <span class="n">set_env</span><span class="o">.</span><span class="n">IS_NOTEBOOK</span><span class="p">:</span>
+        <span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+    <span class="k">elif</span> <span class="ow">not</span> <span class="n">is_win</span><span class="p">:</span>
         <span class="n">plt</span><span class="o">.</span><span class="n">ion</span><span class="p">()</span>
         <span class="k">for</span> <span class="n">fig</span> <span class="ow">in</span> <span class="nb">list</span><span class="p">(</span><span class="n">FIGS</span><span class="o">.</span><span class="n">keys</span><span class="p">()):</span>
             <span class="n">plt</span><span class="o">.</span><span class="n">draw</span><span class="p">()</span>
             <span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
         <span class="n">plt</span><span class="o">.</span><span class="n">ioff</span><span class="p">()</span>
-    <span class="k">if</span> <span class="n">is_win</span><span class="p">:</span>
+    <span class="k">else</span><span class="p">:</span>
         <span class="c1"># this style basically works for Windows</span>
         <span class="n">plt</span><span class="o">.</span><span class="n">draw</span><span class="p">()</span>
         <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;You must manually close all plots to continue&quot;</span><span class="p">)</span>
@@ -548,7 +546,7 @@
 <span class="sd">    fignum : matplotlib figure number</span>
 <span class="sd">    &quot;&quot;&quot;</span>
     <span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">num</span><span class="o">=</span><span class="n">fignum</span><span class="p">)</span>
-    <span class="n">plt</span><span class="o">.</span><span class="n">axis</span><span class="p">(</span><span class="s1">&#39;equal&#39;</span><span class="p">)</span></div>
+    <span class="n">plt</span><span class="o">.</span><span class="n">gca</span><span class="p">()</span><span class="o">.</span><span class="n">set_aspect</span><span class="p">(</span><span class="s1">&#39;equal&#39;</span><span class="p">)</span></div>
 
 
 
@@ -943,7 +941,7 @@
         <span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">Xtick</span><span class="p">,</span> <span class="n">Ytick</span><span class="p">,</span> <span class="s1">&#39;k&#39;</span><span class="p">)</span>
     <span class="n">BoxX</span><span class="p">,</span> <span class="n">BoxY</span> <span class="o">=</span> <span class="p">[</span><span class="o">-</span><span class="mf">1.1</span><span class="p">,</span> <span class="mf">1.1</span><span class="p">,</span> <span class="mf">1.1</span><span class="p">,</span> <span class="o">-</span><span class="mf">1.1</span><span class="p">,</span> <span class="o">-</span><span class="mf">1.1</span><span class="p">],</span> <span class="p">[</span><span class="o">-</span><span class="mf">1.1</span><span class="p">,</span> <span class="o">-</span><span class="mf">1.1</span><span class="p">,</span> <span class="mf">1.1</span><span class="p">,</span> <span class="mf">1.1</span><span class="p">,</span> <span class="o">-</span><span class="mf">1.1</span><span class="p">]</span>
     <span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">BoxX</span><span class="p">,</span> <span class="n">BoxY</span><span class="p">,</span> <span class="s1">&#39;k-&#39;</span><span class="p">,</span> <span class="n">linewidth</span><span class="o">=</span><span class="mf">.5</span><span class="p">)</span>
-    <span class="n">plt</span><span class="o">.</span><span class="n">axis</span><span class="p">(</span><span class="s2">&quot;equal&quot;</span><span class="p">)</span></div>
+    <span class="n">plt</span><span class="o">.</span><span class="n">gca</span><span class="p">()</span><span class="o">.</span><span class="n">set_aspect</span><span class="p">(</span><span class="s2">&quot;equal&quot;</span><span class="p">)</span></div>
 
 
 
@@ -1073,7 +1071,8 @@
 <span class="sd">    __________</span>
 <span class="sd">    fignum : matplotlib figure number</span>
 <span class="sd">    datablock : nested list of [step, dec, inc, M (Am2), type, quality]</span>
-<span class="sd">                where type is a string, either &#39;ZI&#39; or &#39;IZ&#39; for IZZI experiments</span>
+<span class="sd">                (type indicates the IZZI step for paleointensity experiments —</span>
+<span class="sd">                &#39;ZI&#39;/&#39;IZ&#39; or 1/0; empty string for pure demagnetization data)</span>
 <span class="sd">    angle : desired rotation in the horizontal plane (0 puts X on X axis)</span>
 <span class="sd">    s : specimen name</span>
 <span class="sd">    norm : if True, normalize to initial magnetization = unity</span>
@@ -1113,7 +1112,9 @@
     <span class="n">gXYZ</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">pmag</span><span class="o">.</span><span class="n">dir2cart</span><span class="p">(</span><span class="n">forVDS</span><span class="p">))</span>
     <span class="n">gXYZ</span><span class="o">.</span><span class="n">columns</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;X&#39;</span><span class="p">,</span> <span class="s1">&#39;Y&#39;</span><span class="p">,</span> <span class="s1">&#39;Z&#39;</span><span class="p">]</span>
     <span class="n">amax</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">maximum</span><span class="p">(</span><span class="n">gXYZ</span><span class="o">.</span><span class="n">X</span><span class="o">.</span><span class="n">max</span><span class="p">(),</span> <span class="n">gXYZ</span><span class="o">.</span><span class="n">Z</span><span class="o">.</span><span class="n">max</span><span class="p">())</span>
+    <span class="n">amax</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">maximum</span><span class="p">(</span><span class="n">amax</span><span class="p">,</span> <span class="n">gXYZ</span><span class="o">.</span><span class="n">Y</span><span class="o">.</span><span class="n">max</span><span class="p">())</span>
     <span class="n">amin</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">minimum</span><span class="p">(</span><span class="n">gXYZ</span><span class="o">.</span><span class="n">X</span><span class="o">.</span><span class="n">min</span><span class="p">(),</span> <span class="n">gXYZ</span><span class="o">.</span><span class="n">Z</span><span class="o">.</span><span class="n">min</span><span class="p">())</span>
+    <span class="n">amin</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">minimum</span><span class="p">(</span><span class="n">amin</span><span class="p">,</span> <span class="n">gXYZ</span><span class="o">.</span><span class="n">Y</span><span class="o">.</span><span class="n">min</span><span class="p">())</span>
     <span class="k">if</span> <span class="n">amin</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">:</span>
         <span class="n">amin</span> <span class="o">=</span> <span class="mi">0</span>
     <span class="n">bXYZ</span> <span class="o">=</span> <span class="n">pmag</span><span class="o">.</span><span class="n">dir2cart</span><span class="p">(</span><span class="n">bdata</span><span class="p">[[</span><span class="s1">&#39;dec&#39;</span><span class="p">,</span> <span class="s1">&#39;inc&#39;</span><span class="p">,</span> <span class="s1">&#39;int&#39;</span><span class="p">]]</span><span class="o">.</span><span class="n">values</span><span class="p">)</span><span class="o">.</span><span class="n">transpose</span><span class="p">()</span>
@@ -1128,10 +1129,12 @@
     <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">bXYZ</span><span class="p">)</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">:</span>
         <span class="n">plt</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span><span class="n">bXYZ</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="n">bXYZ</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span> <span class="n">marker</span><span class="o">=</span><span class="s1">&#39;d&#39;</span><span class="p">,</span> <span class="n">c</span><span class="o">=</span><span class="s1">&#39;y&#39;</span><span class="p">,</span> <span class="n">s</span><span class="o">=</span><span class="mi">30</span><span class="p">)</span>
         <span class="n">plt</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span><span class="n">bXYZ</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="n">bXYZ</span><span class="p">[</span><span class="mi">2</span><span class="p">],</span> <span class="n">marker</span><span class="o">=</span><span class="s1">&#39;d&#39;</span><span class="p">,</span> <span class="n">c</span><span class="o">=</span><span class="s1">&#39;y&#39;</span><span class="p">,</span> <span class="n">s</span><span class="o">=</span><span class="mi">30</span><span class="p">)</span>
-    <span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">gXYZ</span><span class="p">[</span><span class="s1">&#39;X&#39;</span><span class="p">],</span> <span class="n">gXYZ</span><span class="p">[</span><span class="s1">&#39;Y&#39;</span><span class="p">],</span> <span class="s1">&#39;ro&#39;</span><span class="p">)</span>
-    <span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">gXYZ</span><span class="p">[</span><span class="s1">&#39;X&#39;</span><span class="p">],</span> <span class="n">gXYZ</span><span class="p">[</span><span class="s1">&#39;Z&#39;</span><span class="p">],</span> <span class="s1">&#39;ws&#39;</span><span class="p">,</span> <span class="n">markeredgecolor</span><span class="o">=</span><span class="s1">&#39;blue&#39;</span><span class="p">)</span>
-    <span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">gXYZ</span><span class="p">[</span><span class="s1">&#39;X&#39;</span><span class="p">],</span> <span class="n">gXYZ</span><span class="p">[</span><span class="s1">&#39;Y&#39;</span><span class="p">],</span> <span class="s1">&#39;r-&#39;</span><span class="p">)</span>
-    <span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">gXYZ</span><span class="p">[</span><span class="s1">&#39;X&#39;</span><span class="p">],</span> <span class="n">gXYZ</span><span class="p">[</span><span class="s1">&#39;Z&#39;</span><span class="p">],</span> <span class="s1">&#39;b-&#39;</span><span class="p">)</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">gXYZ</span><span class="p">[</span><span class="s1">&#39;X&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">values</span><span class="p">,</span> <span class="n">gXYZ</span><span class="p">[</span><span class="s1">&#39;Y&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">values</span><span class="p">,</span> <span class="s1">&#39;ro&#39;</span><span class="p">)</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">gXYZ</span><span class="p">[</span><span class="s1">&#39;X&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">values</span><span class="p">,</span> <span class="n">gXYZ</span><span class="p">[</span><span class="s1">&#39;Z&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">values</span><span class="p">,</span> <span class="s1">&#39;ws&#39;</span><span class="p">,</span> <span class="n">markeredgecolor</span><span class="o">=</span><span class="s1">&#39;blue&#39;</span><span class="p">)</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">gXYZ</span><span class="p">[</span><span class="s1">&#39;X&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">values</span><span class="p">,</span> <span class="n">gXYZ</span><span class="p">[</span><span class="s1">&#39;Y&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">values</span><span class="p">,</span> <span class="s1">&#39;r-&#39;</span><span class="p">)</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">gXYZ</span><span class="p">[</span><span class="s1">&#39;X&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">values</span><span class="p">,</span> <span class="n">gXYZ</span><span class="p">[</span><span class="s1">&#39;Z&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">values</span><span class="p">,</span> <span class="s1">&#39;b-&#39;</span><span class="p">)</span>
+    
+
     <span class="k">for</span> <span class="n">k</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">gXYZ</span><span class="p">)):</span>
         <span class="n">plt</span><span class="o">.</span><span class="n">annotate</span><span class="p">(</span><span class="nb">str</span><span class="p">(</span><span class="n">k</span><span class="p">),</span> <span class="p">(</span><span class="n">gXYZ</span><span class="p">[</span><span class="s1">&#39;X&#39;</span><span class="p">][</span><span class="n">k</span><span class="p">],</span> <span class="n">gXYZ</span><span class="p">[</span><span class="s1">&#39;Z&#39;</span><span class="p">]</span>
                               <span class="p">[</span><span class="n">k</span><span class="p">]),</span> <span class="n">ha</span><span class="o">=</span><span class="s1">&#39;left&#39;</span><span class="p">,</span> <span class="n">va</span><span class="o">=</span><span class="s1">&#39;bottom&#39;</span><span class="p">)</span>
@@ -1151,7 +1154,7 @@
     <span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s1">&#39;Circles: Y; Squares: Z&#39;</span><span class="p">)</span>
     <span class="n">tstring</span> <span class="o">=</span> <span class="n">s</span> <span class="o">+</span> <span class="s1">&#39;: NRM = &#39;</span> <span class="o">+</span> <span class="s1">&#39;</span><span class="si">%9.2e</span><span class="s1">&#39;</span> <span class="o">%</span> <span class="p">(</span><span class="n">datablock</span><span class="p">[</span><span class="mi">0</span><span class="p">][</span><span class="mi">3</span><span class="p">])</span>
     <span class="n">plt</span><span class="o">.</span><span class="n">axis</span><span class="p">([</span><span class="n">amin</span><span class="p">,</span> <span class="n">amax</span><span class="p">,</span> <span class="n">amax</span><span class="p">,</span> <span class="n">amin</span><span class="p">])</span>
-    <span class="n">plt</span><span class="o">.</span><span class="n">axis</span><span class="p">(</span><span class="s2">&quot;equal&quot;</span><span class="p">)</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">gca</span><span class="p">()</span><span class="o">.</span><span class="n">set_aspect</span><span class="p">(</span><span class="s2">&quot;equal&quot;</span><span class="p">)</span>
     <span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="n">tstring</span><span class="p">)</span></div>
 
 <span class="c1">#</span>
@@ -1294,7 +1297,9 @@
 <span class="sd">        eqarea : figure number for equal area projection</span>
 <span class="sd">        zijd   : figure number for  zijderveld plot</span>
 <span class="sd">        demag :  figure number for magnetization against demag step</span>
-<span class="sd">        datablock : nested list of [step, dec, inc, M (Am2), quality]</span>
+<span class="sd">        datablock : nested list of [step, dec, inc, M (Am2), type, quality]</span>
+<span class="sd">            (type indicates the IZZI step for paleointensity experiments —</span>
+<span class="sd">            &#39;ZI&#39;/&#39;IZ&#39; or 1/0; empty string for pure demagnetization data)</span>
 <span class="sd">        step : units assumed in SI</span>
 <span class="sd">        M    : units assumed Am2</span>
 <span class="sd">        quality : [g,b], good or bad measurement; if bad will be marked as such</span>
@@ -1458,7 +1463,7 @@
 
         <span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">px</span><span class="p">,</span> <span class="n">py</span><span class="p">,</span> <span class="s1">&#39;g&#39;</span><span class="p">,</span> <span class="n">linewidth</span><span class="o">=</span><span class="mi">2</span><span class="p">)</span>
         <span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">px</span><span class="p">,</span> <span class="n">pz</span><span class="p">,</span> <span class="s1">&#39;g&#39;</span><span class="p">,</span> <span class="n">linewidth</span><span class="o">=</span><span class="mi">2</span><span class="p">)</span>
-        <span class="n">plt</span><span class="o">.</span><span class="n">axis</span><span class="p">(</span><span class="s2">&quot;equal&quot;</span><span class="p">)</span>
+        <span class="n">plt</span><span class="o">.</span><span class="n">gca</span><span class="p">()</span><span class="o">.</span><span class="n">set_aspect</span><span class="p">(</span><span class="s2">&quot;equal&quot;</span><span class="p">)</span>
     <span class="k">else</span><span class="p">:</span>
         <span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">num</span><span class="o">=</span><span class="n">ZED</span><span class="p">[</span><span class="s1">&#39;eqarea&#39;</span><span class="p">])</span>
         <span class="n">XY</span> <span class="o">=</span> <span class="n">pmag</span><span class="o">.</span><span class="n">dimap</span><span class="p">(</span><span class="n">StartDir</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="n">StartDir</span><span class="p">[</span><span class="mi">1</span><span class="p">])</span>
@@ -1473,7 +1478,7 @@
         <span class="n">plot_circ</span><span class="p">(</span><span class="n">ZED</span><span class="p">[</span><span class="s1">&#39;eqarea&#39;</span><span class="p">],</span> <span class="n">pole</span><span class="p">,</span> <span class="mf">90.</span><span class="p">,</span> <span class="s1">&#39;g&#39;</span><span class="p">)</span>
         <span class="n">plt</span><span class="o">.</span><span class="n">xlim</span><span class="p">((</span><span class="o">-</span><span class="mf">1.</span><span class="p">,</span> <span class="mf">1.</span><span class="p">))</span>
         <span class="n">plt</span><span class="o">.</span><span class="n">ylim</span><span class="p">((</span><span class="o">-</span><span class="mf">1.</span><span class="p">,</span> <span class="mf">1.</span><span class="p">))</span>
-        <span class="n">plt</span><span class="o">.</span><span class="n">axis</span><span class="p">(</span><span class="s2">&quot;equal&quot;</span><span class="p">)</span></div>
+        <span class="n">plt</span><span class="o">.</span><span class="n">gca</span><span class="p">()</span><span class="o">.</span><span class="n">set_aspect</span><span class="p">(</span><span class="s2">&quot;equal&quot;</span><span class="p">)</span></div>
 
         <span class="c1">#plt.draw()</span>
 
@@ -1746,7 +1751,7 @@
         <span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">num</span><span class="o">=</span><span class="n">Figs</span><span class="p">[</span><span class="s1">&#39;zijd&#39;</span><span class="p">])</span>
         <span class="n">plt</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span><span class="n">zx</span><span class="p">,</span> <span class="n">zy</span><span class="p">,</span> <span class="n">marker</span><span class="o">=</span><span class="s1">&#39;d&#39;</span><span class="p">,</span> <span class="n">s</span><span class="o">=</span><span class="mi">100</span><span class="p">,</span> <span class="n">c</span><span class="o">=</span><span class="s1">&#39;y&#39;</span><span class="p">)</span>
         <span class="n">plt</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span><span class="n">zx</span><span class="p">,</span> <span class="n">zz</span><span class="p">,</span> <span class="n">marker</span><span class="o">=</span><span class="s1">&#39;d&#39;</span><span class="p">,</span> <span class="n">s</span><span class="o">=</span><span class="mi">100</span><span class="p">,</span> <span class="n">c</span><span class="o">=</span><span class="s1">&#39;y&#39;</span><span class="p">)</span>
-        <span class="n">plt</span><span class="o">.</span><span class="n">axis</span><span class="p">(</span><span class="s2">&quot;equal&quot;</span><span class="p">)</span>
+        <span class="n">plt</span><span class="o">.</span><span class="n">gca</span><span class="p">()</span><span class="o">.</span><span class="n">set_aspect</span><span class="p">(</span><span class="s2">&quot;equal&quot;</span><span class="p">)</span>
     <span class="n">ax</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">first_I</span><span class="p">[</span><span class="mi">0</span><span class="p">][</span><span class="mi">3</span><span class="p">]</span> <span class="o">/</span> <span class="n">first_Z</span><span class="p">[</span><span class="mi">0</span><span class="p">][</span><span class="mi">3</span><span class="p">])</span>
     <span class="n">ax</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">first_I</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">][</span><span class="mi">3</span><span class="p">]</span> <span class="o">/</span> <span class="n">first_Z</span><span class="p">[</span><span class="mi">0</span><span class="p">][</span><span class="mi">3</span><span class="p">])</span>
     <span class="n">ay</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">first_Z</span><span class="p">[</span><span class="mi">0</span><span class="p">][</span><span class="mi">3</span><span class="p">]</span> <span class="o">/</span> <span class="n">first_Z</span><span class="p">[</span><span class="mi">0</span><span class="p">][</span><span class="mi">3</span><span class="p">])</span>
@@ -1942,7 +1947,7 @@
 <span class="c1">#   put on the directions</span>
 <span class="c1">#</span>
     <span class="n">plot_di</span><span class="p">(</span><span class="n">fignum</span><span class="p">,</span> <span class="n">DIblock</span><span class="p">)</span>  <span class="c1"># plot directions</span>
-    <span class="n">plt</span><span class="o">.</span><span class="n">axis</span><span class="p">(</span><span class="s2">&quot;equal&quot;</span><span class="p">)</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">gca</span><span class="p">()</span><span class="o">.</span><span class="n">set_aspect</span><span class="p">(</span><span class="s2">&quot;equal&quot;</span><span class="p">)</span>
     <span class="n">plt</span><span class="o">.</span><span class="n">text</span><span class="p">(</span><span class="o">-</span><span class="mf">1.1</span><span class="p">,</span> <span class="mf">1.15</span><span class="p">,</span> <span class="n">s</span><span class="p">)</span>
     <span class="n">plt</span><span class="o">.</span><span class="n">draw</span><span class="p">()</span></div>
 
@@ -1972,7 +1977,7 @@
 <span class="c1">#   put on the directions</span>
 <span class="c1">#</span>
     <span class="n">plot_di_sym</span><span class="p">(</span><span class="n">fignum</span><span class="p">,</span> <span class="n">DIblock</span><span class="p">,</span> <span class="n">sym</span><span class="p">)</span>  <span class="c1"># plot directions with symbols in sym</span>
-    <span class="n">plt</span><span class="o">.</span><span class="n">axis</span><span class="p">(</span><span class="s2">&quot;equal&quot;</span><span class="p">)</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">gca</span><span class="p">()</span><span class="o">.</span><span class="n">set_aspect</span><span class="p">(</span><span class="s2">&quot;equal&quot;</span><span class="p">)</span>
     <span class="n">plt</span><span class="o">.</span><span class="n">text</span><span class="p">(</span><span class="o">-</span><span class="mf">1.1</span><span class="p">,</span> <span class="mf">1.15</span><span class="p">,</span> <span class="n">s</span><span class="p">)</span></div>
 
 <span class="c1">#</span>
@@ -2037,7 +2042,7 @@
     <span class="n">sym</span> <span class="o">=</span> <span class="p">{</span><span class="s1">&#39;lower&#39;</span><span class="p">:</span> <span class="p">[</span><span class="s1">&#39;^&#39;</span><span class="p">,</span> <span class="s1">&#39;g&#39;</span><span class="p">],</span> <span class="s1">&#39;upper&#39;</span><span class="p">:</span> <span class="p">[</span><span class="s1">&#39;^&#39;</span><span class="p">,</span> <span class="s1">&#39;y&#39;</span><span class="p">]}</span>
     <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">pTblock</span><span class="p">)</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">:</span>
         <span class="n">plot_di_sym</span><span class="p">(</span><span class="n">fignum</span><span class="p">,</span> <span class="n">pTblock</span><span class="p">,</span> <span class="n">sym</span><span class="p">)</span>  <span class="c1"># plot pTRM directions</span>
-    <span class="n">plt</span><span class="o">.</span><span class="n">axis</span><span class="p">(</span><span class="s2">&quot;equal&quot;</span><span class="p">)</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">gca</span><span class="p">()</span><span class="o">.</span><span class="n">set_aspect</span><span class="p">(</span><span class="s2">&quot;equal&quot;</span><span class="p">)</span>
     <span class="n">plt</span><span class="o">.</span><span class="n">text</span><span class="p">(</span><span class="o">-</span><span class="mf">1.1</span><span class="p">,</span> <span class="mf">1.15</span><span class="p">,</span> <span class="n">s</span><span class="p">)</span></div>
 
 
@@ -2122,7 +2127,7 @@
             <span class="n">Y</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">XY</span><span class="p">[</span><span class="mi">1</span><span class="p">])</span>
         <span class="n">plt</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span><span class="n">X</span><span class="p">,</span> <span class="n">Y</span><span class="p">,</span> <span class="n">s</span><span class="o">=</span><span class="n">symsize</span><span class="p">,</span>
                     <span class="n">marker</span><span class="o">=</span><span class="n">symb</span><span class="p">[</span><span class="n">VEC</span><span class="p">],</span> <span class="n">c</span><span class="o">=</span><span class="n">col</span><span class="p">[</span><span class="n">VEC</span><span class="p">],</span> <span class="n">edgecolors</span><span class="o">=</span><span class="s1">&#39;none&#39;</span><span class="p">)</span>
-    <span class="n">plt</span><span class="o">.</span><span class="n">axis</span><span class="p">(</span><span class="s2">&quot;equal&quot;</span><span class="p">)</span></div>
+    <span class="n">plt</span><span class="o">.</span><span class="n">gca</span><span class="p">()</span><span class="o">.</span><span class="n">set_aspect</span><span class="p">(</span><span class="s2">&quot;equal&quot;</span><span class="p">)</span></div>
 
 <span class="c1">#</span>
 
@@ -4044,7 +4049,7 @@
         <span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="s1">&#39;w-&#39;</span><span class="p">,</span> <span class="n">linewidth</span><span class="o">=</span><span class="mi">26</span><span class="p">)</span>
         <span class="n">x</span><span class="p">,</span> <span class="n">y</span> <span class="o">=</span> <span class="p">[],</span> <span class="p">[]</span>
     <span class="c1"># the axes</span>
-    <span class="n">plt</span><span class="o">.</span><span class="n">axis</span><span class="p">(</span><span class="s2">&quot;equal&quot;</span><span class="p">)</span></div>
+    <span class="n">plt</span><span class="o">.</span><span class="n">gca</span><span class="p">()</span><span class="o">.</span><span class="n">set_aspect</span><span class="p">(</span><span class="s2">&quot;equal&quot;</span><span class="p">)</span></div>
 
 
 

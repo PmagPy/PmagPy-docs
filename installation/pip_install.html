@@ -8,7 +8,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
-    <title>OSX developer install &#8212; PmagPy Documentation</title>
+    <title>pip install &#8212; PmagPy Documentation</title>
   
   
   
@@ -53,18 +53,18 @@
     <script>let toggleHintShow = 'Click to show';</script>
     <script>let toggleHintHide = 'Click to hide';</script>
     <script>let toggleOpenOnPrint = 'true';</script>
-    <script src="../_static/togglebutton.js?v=1ae7504c"></script>
+    <script src="../_static/togglebutton.js?v=b8b12719"></script>
     <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
     <script src="../_static/design-tabs.js?v=f930bc37"></script>
     <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
     <script async="async" src="../_static/sphinx-thebe.js?v=c100c467"></script>
     <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
     <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
-    <script>DOCUMENTATION_OPTIONS.pagename = 'installation/osx_developer';</script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'installation/pip_install';</script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
-    <link rel="next" title="Windows pip install" href="windows_pip.html" />
-    <link rel="prev" title="OSX pip install" href="osx_pip.html" />
+    <link rel="next" title="Developer install" href="developer_install.html" />
+    <link rel="prev" title="Installing PmagPy" href="PmagPy_install.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
   <meta name="docsearch:version" content="" />
@@ -171,12 +171,8 @@
         <p aria-level="2" class="caption" role="heading"><span class="caption-text">Installation</span></p>
 <ul class="current nav bd-sidenav">
 <li class="toctree-l1 current active has-children"><a class="reference internal" href="PmagPy_install.html">Installing <strong>PmagPy</strong></a><details open="open"><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul class="current">
-<li class="toctree-l2"><a class="reference internal" href="osx_pip.html">OSX pip install</a></li>
-<li class="toctree-l2 current active"><a class="current reference internal" href="#">OSX developer install</a></li>
-<li class="toctree-l2"><a class="reference internal" href="windows_pip.html">Windows pip install</a></li>
-<li class="toctree-l2"><a class="reference internal" href="windows_developer.html">Windows developer install</a></li>
-<li class="toctree-l2"><a class="reference internal" href="linux_pip.html">Linux pip install</a></li>
-<li class="toctree-l2"><a class="reference internal" href="linux_developer.html">Linux developer install</a></li>
+<li class="toctree-l2 current active"><a class="current reference internal" href="#">pip install</a></li>
+<li class="toctree-l2"><a class="reference internal" href="developer_install.html">Developer install</a></li>
 <li class="toctree-l2"><a class="reference internal" href="troubleshooting.html">Troubleshooting installation issues</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../programs/command_line_programs.html">Command line programs</a></li>
 </ul>
@@ -293,7 +289,7 @@
       
       
       
-      <li><a href="https://github.com/pmagpy/pmagpy-docs/issues/new?title=Issue%20on%20page%20%2Finstallation/osx_developer.html&body=Your%20issue%20content%20here." target="_blank"
+      <li><a href="https://github.com/pmagpy/pmagpy-docs/issues/new?title=Issue%20on%20page%20%2Finstallation/pip_install.html&body=Your%20issue%20content%20here." target="_blank"
    class="btn btn-sm btn-source-issues-button dropdown-item"
    title="Open an issue"
    data-bs-placement="left" data-bs-toggle="tooltip"
@@ -323,7 +319,7 @@
       
       
       
-      <li><a href="../_sources/installation/osx_developer.md" target="_blank"
+      <li><a href="../_sources/installation/pip_install.md" target="_blank"
    class="btn btn-sm btn-download-source-button dropdown-item"
    title="Download source file"
    data-bs-placement="left" data-bs-toggle="tooltip"
@@ -399,7 +395,7 @@
               
 
 <div id="jb-print-docs-body" class="onlyprint">
-    <h1>OSX developer install</h1>
+    <h1>pip install</h1>
     <!-- Table of contents -->
     <div id="print-main-content">
         <div id="jb-print-toc">
@@ -409,12 +405,22 @@
             </div>
             <nav aria-label="Page">
                 <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#install-python">Install Python</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#test-your-python">Test your python</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#install-pmagpy">Install PmagPy</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#test-pmagpy">Test PmagPy</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#finishing-up">Finishing up</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#keeping-pmagpy-up-to-date">Keeping PmagPy up-to-date</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#recommended-approach-conda-environment-pip-install">Recommended approach: conda environment + pip install</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#step-1-install-conda-if-you-don-t-have-it">Step 1: Install conda (if you don’t have it)</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#step-2-create-a-pmagpy-environment">Step 2: Create a PmagPy environment</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#step-3-install-pmagpy">Step 3: Install PmagPy</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#simpler-alternative-pure-pip">Simpler alternative: pure pip</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#test-the-install">Test the install</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#platform-notes">Platform notes</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#macos">macOS</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#windows">Windows</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#linux">Linux</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#accessing-example-data-files">Accessing example data files</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#keeping-pmagpy-up-to-date">Keeping PmagPy up to date</a></li>
 </ul>
             </nav>
         </div>
@@ -426,175 +432,137 @@
 <div id="searchbox"></div>
                 <article class="bd-article">
                   
-  <section class="tex2jax_ignore mathjax_ignore" id="osx-developer-install">
-<h1>OSX developer install<a class="headerlink" href="#osx-developer-install" title="Link to this heading">#</a></h1>
-<p>These are the install instructions for OSX/developer.</p>
-<section id="install-python">
-<h2>Install Python<a class="headerlink" href="#install-python" title="Link to this heading">#</a></h2>
-<p>First, you will need to download a scientific Python distribution. We
-strongly recommend Anaconda. Be warned, your computer comes with a
-version of Python already installed; but this pre-installed version does
-NOT have everything you will need to run <strong>PmagPy</strong>, so you will still
-need to download Anaconda.</p>
-<ul>
-<li><p>Download and install <a class="reference external" href="https://www.anaconda.com/download">Anaconda Python
-3</a>.</p></li>
-<li><p>Note: if you already installed Anaconda Python, and then you upgrade
-to OSX Catalina, you may need to reinstall Anaconda. In general, if
-you run into errors with your Anaconda Python environment, it can
-save time to simply <a class="reference external" href="https://docs.anaconda.com/anaconda/install/uninstall/">uninstall and
-reinstall</a>.</p></li>
-<li><p>Open your command line (Terminal). See <a class="reference external" href="https://earthref.org/PmagPy/cookbook/#command_line">this Cookbook
-section</a> for
-more information on finding your command line.</p></li>
-<li><p>Create and activate a new conda Python environment with some required
-packages by copying and pasting each of these lines and then running each of these lines in the terminal:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">conda</span> <span class="n">create</span> <span class="o">-</span><span class="n">n</span> <span class="n">pmagpy_env</span> <span class="n">scipy</span> <span class="n">pandas</span> <span class="n">matplotlib</span> <span class="n">requests</span> <span class="n">jupyter</span> <span class="n">seaborn</span>
+  <section class="tex2jax_ignore mathjax_ignore" id="pip-install">
+<h1>pip install<a class="headerlink" href="#pip-install" title="Link to this heading">#</a></h1>
+<p>These are the install instructions for PmagPy. There are two main ways to install:</p>
+<ul class="simple">
+<li><p>The <strong>recommended way</strong> uses two tools — <code class="docutils literal notranslate"><span class="pre">conda</span></code> (which manages your Python environment) and <code class="docutils literal notranslate"><span class="pre">pip</span></code> (which installs PmagPy itself). This is the most reliable approach across macOS, Windows, and Linux, especially if you’ll be using PmagPy regularly on your own computer.</p></li>
+<li><p>A <strong>simpler way</strong> uses only <code class="docutils literal notranslate"><span class="pre">pip</span></code>. This works well in cloud-based notebook environments like Google Colab, where the Python environment is already set up for you.</p></li>
+</ul>
+<p>If you’re not sure which to choose, go with the recommended way. Don’t worry if some of the terms below are new — the steps are spelled out and you don’t need a Python background to follow them.</p>
+<section id="recommended-approach-conda-environment-pip-install">
+<span id="section-recommended-install"></span><h2>Recommended approach: conda environment + pip install<a class="headerlink" href="#recommended-approach-conda-environment-pip-install" title="Link to this heading">#</a></h2>
+<p>This approach has two parts:</p>
+<ol class="arabic simple">
+<li><p>Create a clean Python environment using <strong>conda</strong>, with the larger scientific Python packages (NumPy, matplotlib, cartopy, etc.) installed up front.</p></li>
+<li><p>Use <strong>pip</strong> to install <code class="docutils literal notranslate"><span class="pre">pmagpy</span></code> and <code class="docutils literal notranslate"><span class="pre">pmagpy-cli</span></code> on top.</p></li>
+</ol>
+<p>Doing it this way avoids many of the install problems that come up when packages with native (non-Python) components — like cartopy and wxPython — are installed by pip alone. Conda handles those packages more reliably.</p>
+<section id="step-1-install-conda-if-you-don-t-have-it">
+<h3>Step 1: Install conda (if you don’t have it)<a class="headerlink" href="#step-1-install-conda-if-you-don-t-have-it" title="Link to this heading">#</a></h3>
+<p>If you don’t already have a conda-based Python distribution on your computer, install one:</p>
+<ul class="simple">
+<li><p><a class="reference external" href="https://github.com/conda-forge/miniforge">miniforge</a> — a small, fast installer (recommended)</p></li>
+<li><p><a class="reference external" href="https://www.anaconda.com/download">Anaconda</a> — a larger distribution with a graphical installer</p></li>
+</ul>
+<p>Either one provides the <code class="docutils literal notranslate"><span class="pre">conda</span></code> command you’ll use below. You only need to do this once per computer.</p>
+</section>
+<section id="step-2-create-a-pmagpy-environment">
+<h3>Step 2: Create a PmagPy environment<a class="headerlink" href="#step-2-create-a-pmagpy-environment" title="Link to this heading">#</a></h3>
+<p>Open a terminal:</p>
+<ul class="simple">
+<li><p>macOS: open <strong>Terminal</strong></p></li>
+<li><p>Linux: open <strong>Terminal</strong></p></li>
+<li><p>Windows: open <strong>Anaconda Prompt</strong> (search for it in the Start menu)</p></li>
+</ul>
+<p>Then run this command, which creates a new environment called <code class="docutils literal notranslate"><span class="pre">pmagpy_env</span></code> and installs the packages PmagPy needs:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>conda<span class="w"> </span>create<span class="w"> </span>-n<span class="w"> </span>pmagpy_env<span class="w"> </span>-c<span class="w"> </span>conda-forge<span class="w"> </span><span class="nv">python</span><span class="o">=</span><span class="m">3</span>.10<span class="w"> </span><span class="se">\</span>
+<span class="w">    </span>numpy<span class="w"> </span>scipy<span class="w"> </span>matplotlib<span class="w"> </span>pandas<span class="w"> </span><span class="se">\</span>
+<span class="w">    </span>cartopy<span class="w"> </span>shapely<span class="w"> </span><span class="se">\</span>
+<span class="w">    </span>wxpython<span class="w"> </span>pyqt<span class="w"> </span>jupyterlab
 </pre></div>
 </div>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">conda</span> <span class="n">activate</span> <span class="n">pmagpy_env</span>
+<p>This may take a few minutes the first time. The <code class="docutils literal notranslate"><span class="pre">-c</span> <span class="pre">conda-forge</span></code> part tells conda to use the conda-forge community package channel, which has the most reliable versions of these packages.</p>
+<p>When it finishes, activate the environment:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>conda<span class="w"> </span>activate<span class="w"> </span>pmagpy_env
 </pre></div>
 </div>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">pip</span> <span class="n">install</span> <span class="o">--</span><span class="n">user</span> <span class="o">--</span><span class="n">upgrade</span> <span class="n">pip</span> <span class="n">setuptools</span>
+<p>Each time you open a new terminal window and want to use PmagPy, you’ll need to run that <code class="docutils literal notranslate"><span class="pre">conda</span> <span class="pre">activate</span> <span class="pre">pmagpy_env</span></code> command again. To leave the environment, run <code class="docutils literal notranslate"><span class="pre">conda</span> <span class="pre">deactivate</span></code>.</p>
+</section>
+<section id="step-3-install-pmagpy">
+<h3>Step 3: Install PmagPy<a class="headerlink" href="#step-3-install-pmagpy" title="Link to this heading">#</a></h3>
+<p>With the <code class="docutils literal notranslate"><span class="pre">pmagpy_env</span></code> environment active, install PmagPy and its command-line tools from PyPI:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>pip<span class="w"> </span>install<span class="w"> </span>--upgrade<span class="w"> </span>pmagpy
+pip<span class="w"> </span>install<span class="w"> </span>--upgrade<span class="w"> </span>pmagpy-cli
 </pre></div>
 </div>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">pip</span> <span class="n">install</span> <span class="n">wxpython</span>
+<p>That’s it — PmagPy is installed.</p>
+</section>
+</section>
+<section id="simpler-alternative-pure-pip">
+<span id="section-pure-pip-install"></span><h2>Simpler alternative: pure pip<a class="headerlink" href="#simpler-alternative-pure-pip" title="Link to this heading">#</a></h2>
+<p>If you don’t want to use conda — for example, you’re working in Google Colab, JupyterHub, or a lightweight Python environment — you can install PmagPy with pip alone:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>pip<span class="w"> </span>install<span class="w"> </span>--upgrade<span class="w"> </span>pmagpy<span class="o">[</span>maps<span class="o">]</span>
+pip<span class="w"> </span>install<span class="w"> </span>--upgrade<span class="w"> </span>pmagpy-cli
 </pre></div>
 </div>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">conda</span> <span class="n">install</span> <span class="o">-</span><span class="n">c</span> <span class="n">conda</span><span class="o">-</span><span class="n">forge</span> <span class="n">cartopy</span>
+<p>The <code class="docutils literal notranslate"><span class="pre">[maps]</span></code> part adds support for making maps (cartopy and shapely). This works on most platforms but can occasionally hit problems on Linux, where cartopy needs system libraries that pip can’t always install. If that happens, switch to the recommended conda approach above.</p>
+<p>For a quick install in Google Colab where you don’t need maps:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="err">!</span><span class="n">pip</span> <span class="n">install</span> <span class="n">pmagpy</span>
 </pre></div>
 </div>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">conda</span> <span class="n">install</span> <span class="n">conda</span><span class="o">-</span><span class="n">forge</span><span class="p">::</span><span class="n">python</span><span class="o">-</span><span class="n">wget</span>
+</section>
+<section id="test-the-install">
+<h2>Test the install<a class="headerlink" href="#test-the-install" title="Link to this heading">#</a></h2>
+<p>Make sure your <code class="docutils literal notranslate"><span class="pre">pmagpy_env</span></code> environment is active (run <code class="docutils literal notranslate"><span class="pre">conda</span> <span class="pre">activate</span> <span class="pre">pmagpy_env</span></code> if it isn’t), then type this in your terminal:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>python<span class="w"> </span>-c<span class="w"> </span><span class="s2">&quot;from pmagpy import pmag; print(pmag.angle([350.0,10.0],[320.0,20.0]))&quot;</span>
 </pre></div>
 </div>
-</li>
-<li><p>You have now created a new environment called “pmagpy_env” and
-activated it. This gives you a Python environment with the packages
-you need to run PmagPy programs. Each time you want to use PmagPy,
-you will open your Terminal and then run:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">conda</span> <span class="n">activate</span> <span class="n">pmagpy_env</span>
+<p>You should see something like <code class="docutils literal notranslate"><span class="pre">[30.59060998]</span></code> printed back.</p>
+<p>To test the GUIs, with the environment active, run:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>pmag_gui.py
 </pre></div>
 </div>
-<p>You can also deactivate the environment using:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">conda</span> <span class="n">deactivate</span>
+<p>The GUI may take 30 seconds or more to start the first time. If the window doesn’t open, see the <a class="reference internal" href="troubleshooting.html"><span class="std std-doc">troubleshooting page</span></a>.</p>
+</section>
+<section id="platform-notes">
+<h2>Platform notes<a class="headerlink" href="#platform-notes" title="Link to this heading">#</a></h2>
+<p>The steps above work on macOS, Windows, and Linux. The notes below cover a few platform-specific quirks worth knowing about.</p>
+<section id="macos">
+<h3>macOS<a class="headerlink" href="#macos" title="Link to this heading">#</a></h3>
+<p>If you see this error when trying to launch a GUI:</p>
+<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>This program needs access to the screen.
+Please run with a Framework build of python...
 </pre></div>
 </div>
-<p>You must always activate your pmagpy environment when you open a new
-Terminal window if you want to use PmagPy in that window. To learn
-more about managing conda environments, etc., see the Anaconda
-documentation and
-<a class="reference external" href="https://know.continuum.io/rs/387-XNW-688/images/conda-cheatsheet.pdf">cheatsheet</a>.</p>
-</li>
-<li><p>When running these commands you may see some warnings about
-dependencies, but you can just ignore them!</p></li>
-<li><p>If a package fails to install, you may need to use “sudo”: i.e.,
-<code class="docutils literal notranslate"><span class="pre">sudo</span> <span class="pre">pip</span> <span class="pre">install</span> <span class="pre">scripttest</span></code>. You will then be asked for your
-computer password.</p></li>
+<p>…use <code class="docutils literal notranslate"><span class="pre">pmag_gui_anaconda</span></code> (instead of <code class="docutils literal notranslate"><span class="pre">pmag_gui.py</span></code>) to launch the GUI. This is a long-standing macOS quirk for wxPython programs.</p>
+</section>
+<section id="windows">
+<h3>Windows<a class="headerlink" href="#windows" title="Link to this heading">#</a></h3>
+<ul class="simple">
+<li><p>During Anaconda installation, choose “Just Me” rather than “All Users”.</p></li>
+<li><p>Use the <strong>Anaconda Prompt</strong> (not the regular Command Prompt). Search for it in the Start menu.</p></li>
+<li><p>The GUI launcher on Windows is called <code class="docutils literal notranslate"><span class="pre">pmag_gui</span></code> (no <code class="docutils literal notranslate"><span class="pre">.py</span></code> at the end).</p></li>
 </ul>
 </section>
-<section id="test-your-python">
-<h2>Test your python<a class="headerlink" href="#test-your-python" title="Link to this heading">#</a></h2>
-<p>To make sure that you have installed Python successfully, type
-<code class="docutils literal notranslate"><span class="pre">python</span></code> on your command line. You should see something like this:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">Python</span> <span class="mf">3.7.11</span> <span class="p">(</span><span class="n">default</span><span class="p">,</span> <span class="n">Jul</span> <span class="mi">27</span> <span class="mi">2021</span><span class="p">,</span> <span class="mi">07</span><span class="p">:</span><span class="mi">03</span><span class="p">:</span><span class="mi">16</span><span class="p">)</span>
-<span class="p">[</span><span class="n">Clang</span> <span class="mf">10.0.0</span> <span class="p">]</span> <span class="p">::</span> <span class="n">Anaconda</span><span class="p">,</span> <span class="n">Inc</span><span class="o">.</span> <span class="n">on</span> <span class="n">darwin</span>
-<span class="n">Type</span> <span class="s2">&quot;help&quot;</span><span class="p">,</span> <span class="s2">&quot;copyright&quot;</span><span class="p">,</span> <span class="s2">&quot;credits&quot;</span> <span class="ow">or</span> <span class="s2">&quot;license&quot;</span> <span class="k">for</span> <span class="n">more</span> <span class="n">information</span><span class="o">.</span>
-<span class="o">&gt;&gt;&gt;</span>
-</pre></div>
-</div>
-<p>(Press control-D to exit)</p>
+<section id="linux">
+<h3>Linux<a class="headerlink" href="#linux" title="Link to this heading">#</a></h3>
+<p>The conda approach in step 2 above is strongly recommended on Linux. Installing wxPython through pip on Linux often runs into trouble because it needs several system libraries (graphics toolkit headers, etc.) and a wheel file specific to your Linux distribution. The conda-forge <code class="docutils literal notranslate"><span class="pre">wxpython</span></code> package handles all of this for you.</p>
 </section>
-<section id="install-pmagpy">
-<h2>Install PmagPy<a class="headerlink" href="#install-pmagpy" title="Link to this heading">#</a></h2>
-<p>Here are the steps to clone and install <strong>PmagPy</strong>.</p>
-<ul>
-<li><p><strong>PmagPy</strong> has been most extensively tested using the bash shell (not
-csh, zsh, etc.). However, bash is no longer the default for OSX. The
-new default shell (zsh) should work, but if you run into trouble and
-need to switch, you can <a class="reference external" href="https://support.apple.com/guide/terminal/change-the-default-shell-trml113/mac">follow these
-instructions</a>.
-Select Terminal <code class="docutils literal notranslate"><span class="pre">--&gt;</span></code> Preferences <code class="docutils literal notranslate"><span class="pre">--&gt;</span></code> General, and choose
-“default login shell”. Restart Terminal, and you’ll be ready to go.</p></li>
-<li><p>Download and <a class="reference external" href="https://git-scm.com/downloads">install git</a></p></li>
-<li><p>Navigate to the directory where you want to put the PmagPy folder,
-then run:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">git</span> <span class="n">clone</span> <span class="n">https</span><span class="p">:</span><span class="o">//</span><span class="n">github</span><span class="o">.</span><span class="n">com</span><span class="o">/</span><span class="n">PmagPy</span><span class="o">/</span><span class="n">PmagPy</span><span class="o">.</span><span class="n">git</span>
-</pre></div>
-</div>
-</li>
-<li><p>You should now have a full local copy of the PmagPy repository.
-Change directories into PmagPy:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">cd</span> <span class="n">PmagPy</span>
-</pre></div>
-</div>
-</li>
-<li><p>Next, you need to add PmagPy to your PATH so that the PmagPy programs
-can be called from any directory. Try running:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">python</span> <span class="n">dev_setup</span><span class="o">.</span><span class="n">py</span> <span class="n">install</span>
-</pre></div>
-</div>
-</li>
-<li><p>If you have problems with the install, run <code class="docutils literal notranslate"><span class="pre">python</span> <span class="pre">dev_setup.py</span> <span class="pre">-h</span></code>
-for more information. You can also set your <a class="reference external" href="https://earthref.org/PmagPy/cookbook/#setting_path">PATH
-manually</a> if
-dev_setup.py fails.</p></li>
-<li><p>After completing the developer install, you should restart your
-command line.</p></li>
-</ul>
 </section>
-<section id="test-pmagpy">
-<h2>Test PmagPy<a class="headerlink" href="#test-pmagpy" title="Link to this heading">#</a></h2>
-<p>Test core functionality:</p>
-<ul>
-<li><p>On your command line, type “python” to start the interpreter. You
-will import pmagpy and then run a simple calculation. Importing
-pmagpy may take over a minute the first time, so be patient! It will
-be much faster in subsequent runs.</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span><span class="w"> </span><span class="nn">pmagpy</span><span class="w"> </span><span class="kn">import</span> <span class="n">pmag</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="n">pmag</span><span class="o">.</span><span class="n">angle</span><span class="p">([</span><span class="mf">350.0</span><span class="p">,</span><span class="mf">10.0</span><span class="p">],[</span><span class="mf">320.0</span><span class="p">,</span><span class="mf">20.0</span><span class="p">])</span>
-<span class="go">array([30.59060998])</span>
-<span class="gp">&gt;&gt;&gt;</span>
+<section id="accessing-example-data-files">
+<h2>Accessing example data files<a class="headerlink" href="#accessing-example-data-files" title="Link to this heading">#</a></h2>
+<p>PmagPy ships with example data files used in the documentation and in the textbook <a class="reference external" href="http://earthref.org/MAGIC/books/Tauxe/Essentials/WebBook3.html">Essentials of Paleomagnetism</a>. To copy them to your current working directory, navigate to the directory where you want them and run:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>move_data_files.py
 </pre></div>
 </div>
-</li>
-</ul>
-<p>Test the GUIs:</p>
-<ul>
-<li><p>On the command line, open Pmag GUI by running:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">pmag_gui</span><span class="o">.</span><span class="n">py</span>
-</pre></div>
-</div>
-</li>
-</ul>
-<p>Remember that the program may be very slow to initialize the first time!
-You may also need to resize the GUI window. If the program doesn’t open
-or you get an error message, go back and carefully follow the install
-instructions to make sure you didn’t miss a step. If you still have a
-problem, try the <a class="reference external" href="https://earthref.org/PmagPy/cookbook/#trouble">Troubleshooting
-section</a>. If you don’t
-find an answer there, check out the existing <a class="reference external" href="https://github.com/PmagPy/PmagPy/issues">Github
-issues</a> and create a new one
-if necessary.</p>
-</section>
-<section id="finishing-up">
-<h2>Finishing up<a class="headerlink" href="#finishing-up" title="Link to this heading">#</a></h2>
-<p>Accessing example data files:</p>
-<p>There are many data files used in the examples of programs and for use
-with the textbook <a class="reference external" href="http://earthref.org/MAGIC/books/Tauxe/Essentials/WebBook3.html">Essentials of
-Paleomagnetism</a>.
-You can find these in PmagPy/data_files.</p>
+<p>(If you have a <a class="reference internal" href="developer_install.html"><span class="std std-doc">developer install</span></a>, the data files are already in the cloned repository at <code class="docutils literal notranslate"><span class="pre">PmagPy/data_files</span></code> and you don’t need this step.)</p>
 </section>
 <section id="keeping-pmagpy-up-to-date">
-<h2>Keeping PmagPy up-to-date<a class="headerlink" href="#keeping-pmagpy-up-to-date" title="Link to this heading">#</a></h2>
-<p>You will want to stay up to date with <strong>PmagPy</strong> development. To update
-your developer install, you will just need to navigate to the <strong>PmagPy</strong>
-directory and run:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">git</span> <span class="n">pull</span>
+<h2>Keeping PmagPy up to date<a class="headerlink" href="#keeping-pmagpy-up-to-date" title="Link to this heading">#</a></h2>
+<p>To upgrade to the latest released version:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>pip<span class="w"> </span>install<span class="w"> </span>--upgrade<span class="w"> </span>pmagpy
+pip<span class="w"> </span>install<span class="w"> </span>--upgrade<span class="w"> </span>pmagpy-cli
 </pre></div>
 </div>
-<p>This will grab all of the latest code from
-<a class="reference external" href="https://github.com/PmagPy/PmagPy">Github</a>, and will be immediately
-available to you.</p>
+<p>To check what version you have installed:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>pip<span class="w"> </span>show<span class="w"> </span>pmagpy
+</pre></div>
+</div>
+<p>To uninstall:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>pip<span class="w"> </span>uninstall<span class="w"> </span>pmagpy<span class="w"> </span>pmagpy-cli
+</pre></div>
+</div>
 </section>
 </section>
 
@@ -629,20 +597,20 @@ available to you.</p>
                   
 <div class="prev-next-area">
     <a class="left-prev"
-       href="osx_pip.html"
+       href="PmagPy_install.html"
        title="previous page">
       <i class="fa-solid fa-angle-left"></i>
       <div class="prev-next-info">
         <p class="prev-next-subtitle">previous</p>
-        <p class="prev-next-title">OSX pip install</p>
+        <p class="prev-next-title">Installing <strong>PmagPy</strong></p>
       </div>
     </a>
     <a class="right-next"
-       href="windows_pip.html"
+       href="developer_install.html"
        title="next page">
       <div class="prev-next-info">
         <p class="prev-next-subtitle">next</p>
-        <p class="prev-next-title">Windows pip install</p>
+        <p class="prev-next-title">Developer install</p>
       </div>
       <i class="fa-solid fa-angle-right"></i>
     </a>
@@ -664,12 +632,22 @@ available to you.</p>
   </div>
   <nav id="pst-page-toc-nav" class="page-toc" aria-labelledby="pst-page-navigation-heading-2">
     <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#install-python">Install Python</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#test-your-python">Test your python</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#install-pmagpy">Install PmagPy</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#test-pmagpy">Test PmagPy</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#finishing-up">Finishing up</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#keeping-pmagpy-up-to-date">Keeping PmagPy up-to-date</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#recommended-approach-conda-environment-pip-install">Recommended approach: conda environment + pip install</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#step-1-install-conda-if-you-don-t-have-it">Step 1: Install conda (if you don’t have it)</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#step-2-create-a-pmagpy-environment">Step 2: Create a PmagPy environment</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#step-3-install-pmagpy">Step 3: Install PmagPy</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#simpler-alternative-pure-pip">Simpler alternative: pure pip</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#test-the-install">Test the install</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#platform-notes">Platform notes</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#macos">macOS</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#windows">Windows</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#linux">Linux</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#accessing-example-data-files">Accessing example data files</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#keeping-pmagpy-up-to-date">Keeping PmagPy up to date</a></li>
 </ul>
   </nav></div>
 
