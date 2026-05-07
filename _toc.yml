@@ -8,12 +8,8 @@ parts:
     chapters:
     - file: installation/PmagPy_install.md
       sections:
-      - file: installation/osx_pip.md
-      - file: installation/osx_developer.md
-      - file: installation/windows_pip.md
-      - file: installation/windows_developer.md
-      - file: installation/linux_pip.md
-      - file: installation/linux_developer.md
+      - file: installation/pip_install.md
+      - file: installation/developer_install.md
       - file: installation/troubleshooting.md
       - file: programs/command_line_programs
     - file: programs/pmag_gui
