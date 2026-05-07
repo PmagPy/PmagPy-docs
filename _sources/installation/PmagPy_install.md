@@ -45,9 +45,8 @@ If you only want to use Pmag GUI, MagIC GUI, Thellier GUI, and Demag GUI, you ca
 
 - macOS: <https://github.com/PmagPy/PmagPy-Standalone-OSX/releases/latest>
 - Windows: <https://github.com/PmagPy/PmagPy-Standalone-Windows/releases/latest>
-- Linux: <https://github.com/PmagPy/PmagPy-Standalone-Linux/releases/latest>
 
-The Linux binary has been tested on Ubuntu 14.04 (Trusty) and may behave inconsistently on other distributions.
+Standalone GUI binaries are available only for macOS and Windows. Linux users should use the [pip install](pip_install.md) instead — it works smoothly on Linux when combined with conda for the GUI dependencies.
 
 (section_developer_install)=
 ## PmagPy developer install

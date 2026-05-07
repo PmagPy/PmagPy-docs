@@ -29,7 +29,7 @@ The Pmag GUI program can be downloaded at these links:
 
 *You may need to click through a warning about unidentified developers.*
 
-[PmagPy standalone GUI Linux](https://github.com/PmagPy/PmagPy-Standalone-Linux/releases/latest/)
+Standalone GUI binaries are available only for macOS and Windows. Linux users should use the [pip install](../installation/pip_install.md) and launch the GUI as `pmag_gui.py`.
 
 **Note that these applications take a long time to load. When you open the application, it can look like nothing is happening for a while before opening. Please be patient.**
 
