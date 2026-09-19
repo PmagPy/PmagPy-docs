@@ -27,8 +27,8 @@
   </noscript>
   
   <!-- Loaded before other Sphinx assets -->
-  <link href="../../_static/styles/theme.css?digest=8878045cc6db502f8baf" rel="stylesheet" />
-<link href="../../_static/styles/pydata-sphinx-theme.css?digest=8878045cc6db502f8baf" rel="stylesheet" />
+  <link href="../../_static/styles/theme.css?digest=55c26ed414f5f8a31ebb" rel="stylesheet" />
+<link href="../../_static/styles/pydata-sphinx-theme.css?digest=55c26ed414f5f8a31ebb" rel="stylesheet" />
 
     <link rel="stylesheet" type="text/css" href="../../_static/pygments.css?v=03e43079" />
     <link rel="stylesheet" type="text/css" href="../../_static/styles/sphinx-book-theme.css?v=3c74b3bc" />
@@ -39,10 +39,10 @@
     <link rel="stylesheet" type="text/css" href="../../_static/sphinx-design.min.css?v=95c83b7e" />
   
   <!-- So that users can add custom icons -->
-  <script src="../../_static/scripts/fontawesome.js?digest=8878045cc6db502f8baf"></script>
+  <script defer src="../../_static/scripts/fontawesome.js?digest=55c26ed414f5f8a31ebb"></script>
   <!-- Pre-loaded scripts that we'll load fully later -->
-  <link rel="preload" as="script" href="../../_static/scripts/bootstrap.js?digest=8878045cc6db502f8baf" />
-<link rel="preload" as="script" href="../../_static/scripts/pydata-sphinx-theme.js?digest=8878045cc6db502f8baf" />
+  <link rel="preload" as="script" href="../../_static/scripts/bootstrap.js?digest=55c26ed414f5f8a31ebb" />
+<link rel="preload" as="script" href="../../_static/scripts/pydata-sphinx-theme.js?digest=55c26ed414f5f8a31ebb" />
 
     <script src="../../_static/documentation_options.js?v=9eb32ce0"></script>
     <script src="../../_static/doctools.js?v=9a2dae69"></script>
@@ -61,25 +61,32 @@
     <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
     <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
     <script>DOCUMENTATION_OPTIONS.pagename = 'example_notebooks/template_notebooks/PmagPy_iodp_HOLE_template';</script>
+    <script>DOCUMENTATION_OPTIONS.search_as_you_type = false;</script>
     <link rel="index" title="Index" href="../../genindex.html" />
     <link rel="search" title="Search" href="../../search.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
   <meta name="docsearch:version" content="" />
+  
+    
+    <script src="../../_static/searchtools.js"></script>
+    <script src="../../_static/language_data.js"></script>
+    <script src="../../searchindex.js"></script>
+  
   </head>
-  
-  
-  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
-
+  <body data-default-mode="">
   
   
   <div id="pst-skip-link" class="skip-link d-print-none"><a href="#main-content">Skip to main content</a></div>
+
   
   <div id="pst-scroll-pixel-helper"></div>
   
   <button type="button" class="btn rounded-pill" id="pst-back-to-top">
     <i class="fa-solid fa-arrow-up"></i>Back to top</button>
-
+  
+  
+  
   
   <dialog id="pst-search-dialog">
     
@@ -105,7 +112,51 @@
 </div>
 
   
-    <header class="bd-header navbar navbar-expand-lg bd-navbar d-print-none">
+    <header id="pst-header" class="bd-header navbar navbar-expand-lg bd-navbar d-print-none">
+<div class="bd-header__inner bd-page-width">
+  <button class="pst-navbar-icon sidebar-toggle primary-toggle" aria-label="Site navigation">
+    <span class="fa-solid fa-bars"></span>
+  </button>
+  
+  
+  <div class="col-lg-9 navbar-header-items">
+    
+    
+    <div class="navbar-header-items__end">
+      
+        <div class="navbar-item navbar-persistent--container">
+          
+
+<button class="btn search-button-field search-button__button pst-js-only" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+ <i class="fa-solid fa-magnifying-glass"></i>
+ <span class="search-button__default-text">Search</span>
+ <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+</button>
+        </div>
+      
+      
+    </div>
+    
+  </div>
+  
+  
+    <div class="navbar-persistent--mobile">
+
+<button class="btn search-button-field search-button__button pst-js-only" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+ <i class="fa-solid fa-magnifying-glass"></i>
+ <span class="search-button__default-text">Search</span>
+ <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+</button>
+    </div>
+  
+
+  
+    <button class="pst-navbar-icon sidebar-toggle secondary-toggle" aria-label="On this page">
+      <span class="fa-solid fa-outdent"></span>
+    </button>
+  
+</div>
+
     </header>
   
 
@@ -184,6 +235,7 @@
 </details></li>
 <li class="toctree-l1"><a class="reference internal" href="../../resources/survival_skills.html">Survival computer skills</a></li>
 
+<li class="toctree-l1"><a class="reference internal" href="../../resources/reproducible_random_sampling.html">Reproducible random sampling in PmagPy</a></li>
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Documentation notebooks</span></p>
 <ul class="nav bd-sidenav">
@@ -404,10 +456,10 @@
                 <h2> Contents </h2>
             </div>
             <nav aria-label="Page">
-                <ul class="visible nav section-nav flex-column">
+                <ul class="pst-show_toc_level nav section-nav flex-column">
 <li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#">Data reduction for paleomagnetic data aboard the JOIDES Resolution</a></li>
 <li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#table-of-contents">Table of Contents</a></li>
-<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#preliminaries">Preliminaries</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#preliminaries">Preliminaries</a><ul class="pst-show_toc_level nav section-nav flex-column">
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#make-the-sample-tables">Make the sample tables</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#convert-the-srm-archive-half-data-for-the-hole">Convert the SRM archive half data for the Hole</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#convert-srm-discrete-sample-data-to-magic">Convert SRM discrete sample data to MagIC:</a></li>
@@ -469,7 +521,7 @@ help(MODULE.FUNCTION)  in the cell below.    For example click on the cell below
 <section id="table-of-contents">
 <h1>Table of Contents<a class="headerlink" href="#table-of-contents" title="Link to this heading">#</a></h1>
 <ul class="simple">
-<li><p><a class="reference internal" href="#preliminaries"><span class="xref myst">Preliminaries</span></a> : import required packages, set up directory structure and set file names</p></li>
+<li><p><a class="reference internal" href="#preliminaries">Preliminaries</a> : import required packages, set up directory structure and set file names</p></li>
 <li><p><a class="reference internal" href="#sample"><span class="xref myst">Make sample tables</span></a> : parse downloaded sample table to standard format</p></li>
 <li><p><a class="reference internal" href="#archives"><span class="xref myst">Archive measurements</span></a> : parse downloaded srm archive measurements and perform editing functions</p></li>
 <li><p><a class="reference internal" href="#discretes"><span class="xref myst">Discrete sample measurements</span></a> : parse downloaded discrete sample data</p></li>
@@ -501,17 +553,17 @@ help(MODULE.FUNCTION)  in the cell below.    For example click on the cell below
 <span class="o">%</span><span class="k">matplotlib</span> inline 
 <span class="kn">from</span><span class="w"> </span><span class="nn">importlib</span><span class="w"> </span><span class="kn">import</span> <span class="n">reload</span>
 <span class="kn">import</span><span class="w"> </span><span class="nn">warnings</span> 
-<span class="n">warnings</span><span class="o">.</span><span class="n">filterwarnings</span><span class="p">(</span><span class="s2">&quot;ignore&quot;</span><span class="p">)</span>
+<span class="n">warnings</span><span class="o">.</span><span class="n">filterwarnings</span><span class="p">(</span><span class="s2">"ignore"</span><span class="p">)</span>
 <span class="n">meas_files</span><span class="p">,</span><span class="n">spec_files</span><span class="p">,</span><span class="n">samp_files</span><span class="p">,</span><span class="n">site_files</span><span class="o">=</span><span class="p">[],[],[],[]</span> <span class="c1"># holders for magic file names</span>
 <span class="kn">import</span><span class="w"> </span><span class="nn">os</span>
 
 
 
 <span class="c1"># Modify these for your expedition</span>
-<span class="n">exp_name</span><span class="p">,</span><span class="n">exp_description</span><span class="o">=</span><span class="s2">&quot;&quot;</span><span class="p">,</span><span class="s2">&quot;&quot;</span> <span class="c1"># e.g., &#39;IODP Expedition 382&#39;,&#39;Iceberg Alley&#39;</span>
+<span class="n">exp_name</span><span class="p">,</span><span class="n">exp_description</span><span class="o">=</span><span class="s2">""</span><span class="p">,</span><span class="s2">""</span> <span class="c1"># e.g., 'IODP Expedition 382','Iceberg Alley'</span>
 
 <span class="c1"># Edit these for each hole.  In the following, HOLE refers to the current hole. </span>
-<span class="n">hole</span><span class="o">=</span><span class="s2">&quot;&quot;</span> <span class="c1"># e.g., U999A</span>
+<span class="n">hole</span><span class="o">=</span><span class="s2">""</span> <span class="c1"># e.g., U999A</span>
 
 <span class="c1"># edit these for the current hole - get it from Hole summary on LORE</span>
 <span class="n">hole_lat</span><span class="p">,</span><span class="n">hole_lon</span><span class="o">=</span><span class="mi">0</span><span class="o">+</span><span class="mi">0</span><span class="o">/</span><span class="mi">60</span><span class="p">,</span><span class="mi">0</span><span class="o">+</span><span class="mi">0</span><span class="o">/</span><span class="mi">60</span> <span class="c1"># e.g., -57+26.5335/60,-43+21.4723/60 </span>
@@ -522,12 +574,12 @@ help(MODULE.FUNCTION)  in the cell below.    For example click on the cell below
 
 <span class="c1"># set up the directory structure for this hole</span>
 <span class="c1"># these are default locations and variables - do not change them. </span>
-<span class="n">jr6_dir</span><span class="o">=</span><span class="n">hole</span><span class="o">+</span><span class="s1">&#39;/JR6_data&#39;</span>
-<span class="n">kly4s_dir</span><span class="o">=</span><span class="n">hole</span><span class="o">+</span><span class="s1">&#39;/KLY4S_data&#39;</span>
-<span class="n">srm_archive_dir</span><span class="o">=</span><span class="n">hole</span><span class="o">+</span><span class="s1">&#39;/SRM_archive_data&#39;</span>
-<span class="n">srm_discrete_dir</span><span class="o">=</span><span class="n">hole</span><span class="o">+</span><span class="s1">&#39;/SRM_discrete_data&#39;</span>
-<span class="n">magic_dir</span><span class="o">=</span><span class="n">hole</span><span class="o">+</span><span class="s1">&#39;/&#39;</span><span class="o">+</span><span class="n">hole</span><span class="o">+</span><span class="s1">&#39;_MagIC&#39;</span>
-<span class="n">dscr_file</span><span class="o">=</span><span class="s2">&quot;&quot;</span> <span class="c1"># if no discrete samples, this stays blank</span>
+<span class="n">jr6_dir</span><span class="o">=</span><span class="n">hole</span><span class="o">+</span><span class="s1">'/JR6_data'</span>
+<span class="n">kly4s_dir</span><span class="o">=</span><span class="n">hole</span><span class="o">+</span><span class="s1">'/KLY4S_data'</span>
+<span class="n">srm_archive_dir</span><span class="o">=</span><span class="n">hole</span><span class="o">+</span><span class="s1">'/SRM_archive_data'</span>
+<span class="n">srm_discrete_dir</span><span class="o">=</span><span class="n">hole</span><span class="o">+</span><span class="s1">'/SRM_discrete_data'</span>
+<span class="n">magic_dir</span><span class="o">=</span><span class="n">hole</span><span class="o">+</span><span class="s1">'/'</span><span class="o">+</span><span class="n">hole</span><span class="o">+</span><span class="s1">'_MagIC'</span>
+<span class="n">dscr_file</span><span class="o">=</span><span class="s2">""</span> <span class="c1"># if no discrete samples, this stays blank</span>
 
 
 
@@ -540,7 +592,7 @@ help(MODULE.FUNCTION)  in the cell below.    For example click on the cell below
         <span class="n">os</span><span class="o">.</span><span class="n">mkdir</span><span class="p">(</span><span class="n">srm_archive_dir</span><span class="p">)</span>
         <span class="n">os</span><span class="o">.</span><span class="n">mkdir</span><span class="p">(</span><span class="n">srm_discrete_dir</span><span class="p">)</span>
         <span class="n">os</span><span class="o">.</span><span class="n">mkdir</span><span class="p">(</span><span class="n">magic_dir</span><span class="p">)</span>
-        <span class="n">os</span><span class="o">.</span><span class="n">mkdir</span><span class="p">(</span><span class="s1">&#39;Figures&#39;</span><span class="p">)</span>
+        <span class="n">os</span><span class="o">.</span><span class="n">mkdir</span><span class="p">(</span><span class="s1">'Figures'</span><span class="p">)</span>
 
 <span class="c1">#After mkdir has been run,  you can </span>
 <span class="c1"># 1) download all the files you need  </span>
@@ -551,31 +603,31 @@ help(MODULE.FUNCTION)  in the cell below.    For example click on the cell below
 <span class="c1"># Put these downloaded file into the HOLE directory (after mkdir has been executed)</span>
 
 <span class="c1"># required for downhole direction plot.  Put the file in the HOLE directory</span>
-<span class="n">section_summary_file</span><span class="o">=</span><span class="s2">&quot;&quot;</span> <span class="c1"># set this to the downloaded summary file (e.g., &quot;Section Summary_15_5_2019.csv&quot;)</span>
+<span class="n">section_summary_file</span><span class="o">=</span><span class="s2">""</span> <span class="c1"># set this to the downloaded summary file (e.g., "Section Summary_15_5_2019.csv")</span>
 <span class="k">if</span> <span class="n">section_summary_file</span><span class="p">:</span> <span class="c1"># add the path to the summary file, if set.  </span>
-    <span class="n">summary_file</span><span class="o">=</span><span class="n">hole</span><span class="o">+</span><span class="s1">&#39;/&#39;</span><span class="o">+</span><span class="n">section_summary_file</span> 
+    <span class="n">summary_file</span><span class="o">=</span><span class="n">hole</span><span class="o">+</span><span class="s1">'/'</span><span class="o">+</span><span class="n">section_summary_file</span> 
 <span class="c1"># required for downhole AMS plot.   Put the file in the HOLE directory</span>
-<span class="n">core_summary_file</span><span class="o">=</span><span class="s2">&quot;&quot;</span> <span class="c1"># set this to the downloaded Core summary file (e.g., &quot;Core Summary_15_4_2019.csv&quot;)</span>
+<span class="n">core_summary_file</span><span class="o">=</span><span class="s2">""</span> <span class="c1"># set this to the downloaded Core summary file (e.g., "Core Summary_15_4_2019.csv")</span>
 <span class="c1"># required for unpacking LIMS discrete sample data. Put the file in the HOLE directory</span>
-<span class="n">samp_file</span><span class="o">=</span><span class="s2">&quot;&quot;</span> <span class="c1"># set this to   your sample file (e.g., samp_file=&#39;samples_5_4_2019.csv&#39; )</span>
+<span class="n">samp_file</span><span class="o">=</span><span class="s2">""</span> <span class="c1"># set this to   your sample file (e.g., samp_file='samples_5_4_2019.csv' )</span>
 
 
 <span class="c1"># Put these files into the designated subdirectories in the HOLE directory:</span>
 <span class="c1"># required for unpacking SRM archive measurements file.  It should be in HOLE/SRM_archive_data/</span>
-<span class="n">srm_archive_file</span><span class="o">=</span><span class="s2">&quot;&quot;</span>   <span class="c1"># set this to your srm archive file from LIMS (e.g., &quot;srmsection_1_4_2019.csv&quot;)</span>
+<span class="n">srm_archive_file</span><span class="o">=</span><span class="s2">""</span>   <span class="c1"># set this to your srm archive file from LIMS (e.g., "srmsection_1_4_2019.csv")</span>
 
 <span class="c1"># required for unpacking SRM discrete measurements file.  It should be in HOLE/SRM_discrete_data/</span>
-<span class="n">srm_discrete_file</span><span class="o">=</span> <span class="s1">&#39;&#39;</span> <span class="c1"># SRM discrete measurements file (e.g., &quot;srmdiscrete_7_4_2019.csv&quot;)</span>
+<span class="n">srm_discrete_file</span><span class="o">=</span> <span class="s1">''</span> <span class="c1"># SRM discrete measurements file (e.g., "srmdiscrete_7_4_2019.csv")</span>
 <span class="c1"># required for unpacking SRM discrete measurements with OFFLINE TREATMENTS.  Put in:  HOLE/SRM_archive_data/</span>
 <span class="c1"># NB: you also need the srm_discrete_file set</span>
-<span class="n">dscr_ex_file</span><span class="o">=</span><span class="s1">&#39;&#39;</span> <span class="c1"># SRM discrete extended file (e.g., &quot;ex-srm_26_4_2019.csv&quot;)</span>
+<span class="n">dscr_ex_file</span><span class="o">=</span><span class="s1">''</span> <span class="c1"># SRM discrete extended file (e.g., "ex-srm_26_4_2019.csv")</span>
 
 <span class="c1"># needed for unpacking JR-6 measurement data. Put the file in HOLE/JR6_data/ directory</span>
-<span class="n">jr6_file</span><span class="o">=</span><span class="s1">&#39;&#39;</span> <span class="c1"># JR6 data file from LORE (e.g., &quot;spinner_1_4_2019.csv&quot;)</span>
+<span class="n">jr6_file</span><span class="o">=</span><span class="s1">''</span> <span class="c1"># JR6 data file from LORE (e.g., "spinner_1_4_2019.csv")</span>
 
 <span class="c1"># required for unpackying Kappabridge data.  be sure to download the expanded file from LORE.  </span>
 <span class="c1"># Put it in HOLE/KLY4S_data/   </span>
-<span class="n">kly4s_file</span><span class="o">=</span><span class="s1">&#39;&#39;</span> <span class="c1"># set this to the downloaded file (e.g., &quot;ex-kappa_15_4_2019.csv&quot;)</span>
+<span class="n">kly4s_file</span><span class="o">=</span><span class="s1">''</span> <span class="c1"># set this to the downloaded file (e.g., "ex-kappa_15_4_2019.csv")</span>
 </pre></div>
 </div>
 </div>
@@ -597,18 +649,18 @@ help(MODULE.FUNCTION)  in the cell below.    For example click on the cell below
 
 <span class="k">if</span> <span class="n">samp_file</span><span class="p">:</span>
     
-    <span class="n">comp_depth_key</span><span class="o">=</span><span class="s1">&#39;Top depth CSF-B (m)&#39;</span>
+    <span class="n">comp_depth_key</span><span class="o">=</span><span class="s1">'Top depth CSF-B (m)'</span>
 <span class="c1"># do the heavy lifting: </span>
-    <span class="n">convert</span><span class="o">.</span><span class="n">iodp_samples_csv</span><span class="p">(</span><span class="n">samp_file</span><span class="p">,</span><span class="n">input_dir_path</span><span class="o">=</span><span class="n">hole</span><span class="p">,</span><span class="n">spec_file</span><span class="o">=</span><span class="s1">&#39;lims_specimens.txt&#39;</span><span class="p">,</span>\
-                         <span class="n">samp_file</span><span class="o">=</span><span class="s1">&#39;lims_samples.txt&#39;</span><span class="p">,</span><span class="n">site_file</span><span class="o">=</span><span class="s1">&#39;lims_sites.txt&#39;</span><span class="p">,</span>\
+    <span class="n">convert</span><span class="o">.</span><span class="n">iodp_samples_csv</span><span class="p">(</span><span class="n">samp_file</span><span class="p">,</span><span class="n">input_dir_path</span><span class="o">=</span><span class="n">hole</span><span class="p">,</span><span class="n">spec_file</span><span class="o">=</span><span class="s1">'lims_specimens.txt'</span><span class="p">,</span>\
+                         <span class="n">samp_file</span><span class="o">=</span><span class="s1">'lims_samples.txt'</span><span class="p">,</span><span class="n">site_file</span><span class="o">=</span><span class="s1">'lims_sites.txt'</span><span class="p">,</span>\
                          <span class="n">dir_path</span><span class="o">=</span><span class="n">magic_dir</span><span class="p">,</span><span class="n">comp_depth_key</span><span class="o">=</span><span class="n">comp_depth_key</span><span class="p">,</span>\
                 <span class="n">exp_name</span><span class="o">=</span><span class="n">exp_name</span><span class="p">,</span><span class="n">exp_desc</span><span class="o">=</span><span class="n">exp_description</span><span class="p">,</span><span class="n">lat</span><span class="o">=</span><span class="n">hole_lat</span><span class="p">,</span>\
                 <span class="n">lon</span><span class="o">=</span><span class="n">hole_lon</span><span class="p">)</span>
 <span class="c1"># this collects the file names that were created so they can be combined with others, e.g., those</span>
 <span class="c1"># from the archive half measurements which are not in the sample table. </span>
-    <span class="k">if</span> <span class="s1">&#39;lims_specimens.txt&#39;</span> <span class="ow">not</span> <span class="ow">in</span> <span class="n">spec_files</span><span class="p">:</span><span class="n">spec_files</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="s1">&#39;lims_specimens.txt&#39;</span><span class="p">)</span>
-    <span class="k">if</span> <span class="s1">&#39;lims_samples.txt&#39;</span> <span class="ow">not</span> <span class="ow">in</span> <span class="n">samp_files</span><span class="p">:</span><span class="n">samp_files</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="s1">&#39;lims_samples.txt&#39;</span><span class="p">)</span>
-    <span class="k">if</span> <span class="s1">&#39;lims_sites.txt&#39;</span> <span class="ow">not</span> <span class="ow">in</span> <span class="n">site_files</span><span class="p">:</span><span class="n">site_files</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="s1">&#39;lims_sites.txt&#39;</span><span class="p">)</span>
+    <span class="k">if</span> <span class="s1">'lims_specimens.txt'</span> <span class="ow">not</span> <span class="ow">in</span> <span class="n">spec_files</span><span class="p">:</span><span class="n">spec_files</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="s1">'lims_specimens.txt'</span><span class="p">)</span>
+    <span class="k">if</span> <span class="s1">'lims_samples.txt'</span> <span class="ow">not</span> <span class="ow">in</span> <span class="n">samp_files</span><span class="p">:</span><span class="n">samp_files</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="s1">'lims_samples.txt'</span><span class="p">)</span>
+    <span class="k">if</span> <span class="s1">'lims_sites.txt'</span> <span class="ow">not</span> <span class="ow">in</span> <span class="n">site_files</span><span class="p">:</span><span class="n">site_files</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="s1">'lims_sites.txt'</span><span class="p">)</span>
 <span class="c1"># do it again to make copies for use with demag_gui</span>
     <span class="n">convert</span><span class="o">.</span><span class="n">iodp_samples_csv</span><span class="p">(</span><span class="n">samp_file</span><span class="p">,</span><span class="n">input_dir_path</span><span class="o">=</span><span class="n">hole</span><span class="p">,</span>\
                          <span class="n">dir_path</span><span class="o">=</span><span class="n">magic_dir</span><span class="p">,</span><span class="n">comp_depth_key</span><span class="o">=</span><span class="n">comp_depth_key</span><span class="p">,</span>\
@@ -631,20 +683,20 @@ help(MODULE.FUNCTION)  in the cell below.    For example click on the cell below
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span> 
-<span class="c1"># Fill in the name of your srm archive half measruement file (e.g., samp_file=&#39;samples_5_4_2019.csv&#39; )</span>
+<span class="c1"># Fill in the name of your srm archive half measruement file (e.g., samp_file='samples_5_4_2019.csv' )</span>
 <span class="c1"># Make sure the archive measurement file is in your HOLE directory. </span>
 <span class="c1"># Note:  this program will not run if the file is in use</span>
 
 <span class="k">if</span> <span class="n">srm_archive_file</span><span class="p">:</span>
  
-    <span class="n">comp_depth_key</span><span class="o">=</span><span class="s1">&#39;Depth CSF-B (m)&#39;</span>
+    <span class="n">comp_depth_key</span><span class="o">=</span><span class="s1">'Depth CSF-B (m)'</span>
 
-    <span class="n">convert</span><span class="o">.</span><span class="n">iodp_srm_lore</span><span class="p">(</span><span class="n">srm_archive_file</span><span class="p">,</span><span class="n">meas_file</span><span class="o">=</span><span class="s1">&#39;srm_arch_measurements.txt&#39;</span><span class="p">,</span> <span class="n">comp_depth_key</span><span class="o">=</span><span class="n">comp_depth_key</span><span class="p">,</span>\
+    <span class="n">convert</span><span class="o">.</span><span class="n">iodp_srm_lore</span><span class="p">(</span><span class="n">srm_archive_file</span><span class="p">,</span><span class="n">meas_file</span><span class="o">=</span><span class="s1">'srm_arch_measurements.txt'</span><span class="p">,</span> <span class="n">comp_depth_key</span><span class="o">=</span><span class="n">comp_depth_key</span><span class="p">,</span>\
                   <span class="n">dir_path</span><span class="o">=</span><span class="n">magic_dir</span><span class="p">,</span><span class="n">input_dir_path</span><span class="o">=</span><span class="n">srm_archive_dir</span><span class="p">,</span><span class="n">lat</span><span class="o">=</span><span class="n">hole_lat</span><span class="p">,</span><span class="n">lon</span><span class="o">=</span><span class="n">hole_lon</span><span class="p">)</span>
-    <span class="k">if</span> <span class="s1">&#39;srm_arch_measurements.txt&#39;</span> <span class="ow">not</span> <span class="ow">in</span> <span class="n">meas_files</span><span class="p">:</span><span class="n">meas_files</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="s1">&#39;srm_arch_measurements.txt&#39;</span><span class="p">)</span>
-    <span class="k">if</span> <span class="s1">&#39;srm_arch_specimens.txt&#39;</span> <span class="ow">not</span> <span class="ow">in</span> <span class="n">spec_files</span><span class="p">:</span><span class="n">spec_files</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="s1">&#39;srm_arch_specimens.txt&#39;</span><span class="p">)</span>
-    <span class="k">if</span> <span class="s1">&#39;srm_arch_samples.txt&#39;</span> <span class="ow">not</span> <span class="ow">in</span> <span class="n">samp_files</span><span class="p">:</span><span class="n">samp_files</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="s1">&#39;srm_arch_samples.txt&#39;</span><span class="p">)</span>
-    <span class="k">if</span> <span class="s1">&#39;srm_arch_sites.txt&#39;</span> <span class="ow">not</span> <span class="ow">in</span> <span class="n">site_files</span><span class="p">:</span><span class="n">site_files</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="s1">&#39;srm_arch_sites.txt&#39;</span><span class="p">)</span>
+    <span class="k">if</span> <span class="s1">'srm_arch_measurements.txt'</span> <span class="ow">not</span> <span class="ow">in</span> <span class="n">meas_files</span><span class="p">:</span><span class="n">meas_files</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="s1">'srm_arch_measurements.txt'</span><span class="p">)</span>
+    <span class="k">if</span> <span class="s1">'srm_arch_specimens.txt'</span> <span class="ow">not</span> <span class="ow">in</span> <span class="n">spec_files</span><span class="p">:</span><span class="n">spec_files</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="s1">'srm_arch_specimens.txt'</span><span class="p">)</span>
+    <span class="k">if</span> <span class="s1">'srm_arch_samples.txt'</span> <span class="ow">not</span> <span class="ow">in</span> <span class="n">samp_files</span><span class="p">:</span><span class="n">samp_files</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="s1">'srm_arch_samples.txt'</span><span class="p">)</span>
+    <span class="k">if</span> <span class="s1">'srm_arch_sites.txt'</span> <span class="ow">not</span> <span class="ow">in</span> <span class="n">site_files</span><span class="p">:</span><span class="n">site_files</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="s1">'srm_arch_sites.txt'</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -664,7 +716,7 @@ help(MODULE.FUNCTION)  in the cell below.    For example click on the cell below
 </ul>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># to execute this cell, set False to True. turn it back to False so you don&#39;t rerun this by accident. </span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># to execute this cell, set False to True. turn it back to False so you don't rerun this by accident. </span>
 
 <span class="n">remove_ends</span><span class="o">=</span><span class="kc">True</span>
 <span class="n">remove_desclogic_disturbance</span><span class="o">=</span><span class="kc">False</span>
@@ -711,10 +763,10 @@ help(MODULE.FUNCTION)  in the cell below.    For example click on the cell below
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">if</span> <span class="n">srm_discrete_file</span><span class="p">:</span>
 
-    <span class="n">convert</span><span class="o">.</span><span class="n">iodp_dscr_lore</span><span class="p">(</span><span class="n">srm_discrete_file</span><span class="p">,</span><span class="n">meas_file</span><span class="o">=</span><span class="s1">&#39;srm_dscr_measurements.txt&#39;</span><span class="p">,</span> \
-                  <span class="n">dir_path</span><span class="o">=</span><span class="n">magic_dir</span><span class="p">,</span><span class="n">input_dir_path</span><span class="o">=</span><span class="n">srm_discrete_dir</span><span class="p">,</span><span class="n">spec_file</span><span class="o">=</span><span class="s1">&#39;lims_specimens.txt&#39;</span><span class="p">)</span>
-    <span class="k">if</span> <span class="s1">&#39;srm_dscr_measurements.txt&#39;</span> <span class="ow">not</span> <span class="ow">in</span> <span class="n">meas_files</span><span class="p">:</span><span class="n">meas_files</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="s1">&#39;srm_dscr_measurements.txt&#39;</span><span class="p">)</span>
-    <span class="n">dscr_file</span><span class="o">=</span><span class="s1">&#39;srm_dscr_measurements.txt&#39;</span>
+    <span class="n">convert</span><span class="o">.</span><span class="n">iodp_dscr_lore</span><span class="p">(</span><span class="n">srm_discrete_file</span><span class="p">,</span><span class="n">meas_file</span><span class="o">=</span><span class="s1">'srm_dscr_measurements.txt'</span><span class="p">,</span> \
+                  <span class="n">dir_path</span><span class="o">=</span><span class="n">magic_dir</span><span class="p">,</span><span class="n">input_dir_path</span><span class="o">=</span><span class="n">srm_discrete_dir</span><span class="p">,</span><span class="n">spec_file</span><span class="o">=</span><span class="s1">'lims_specimens.txt'</span><span class="p">)</span>
+    <span class="k">if</span> <span class="s1">'srm_dscr_measurements.txt'</span> <span class="ow">not</span> <span class="ow">in</span> <span class="n">meas_files</span><span class="p">:</span><span class="n">meas_files</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="s1">'srm_dscr_measurements.txt'</span><span class="p">)</span>
+    <span class="n">dscr_file</span><span class="o">=</span><span class="s1">'srm_dscr_measurements.txt'</span>
 </pre></div>
 </div>
 </div>
@@ -743,14 +795,14 @@ IRM:1000</p></li>
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">if</span> <span class="n">dscr_ex_file</span> <span class="ow">and</span> <span class="n">srm_discrete_file</span><span class="p">:</span>
 
 
-    <span class="n">convert</span><span class="o">.</span><span class="n">iodp_dscr_lore</span><span class="p">(</span><span class="n">srm_discrete_file</span><span class="p">,</span><span class="n">dscr_ex_file</span><span class="o">=</span><span class="n">dscr_ex_file</span><span class="p">,</span><span class="n">meas_file</span><span class="o">=</span><span class="s1">&#39;srm_dscr_measurements.txt&#39;</span><span class="p">,</span> \
-                  <span class="n">dir_path</span><span class="o">=</span><span class="n">magic_dir</span><span class="p">,</span><span class="n">input_dir_path</span><span class="o">=</span><span class="n">srm_discrete_dir</span><span class="p">,</span><span class="n">spec_file</span><span class="o">=</span><span class="s1">&#39;lims_specimens.txt&#39;</span><span class="p">,</span>\
-                      <span class="n">offline_meas_file</span><span class="o">=</span><span class="s1">&#39;srm_dscr_offline_measurements.txt&#39;</span><span class="p">)</span>
-    <span class="k">if</span> <span class="s1">&#39;srm_dscr_measurements.txt&#39;</span> <span class="ow">not</span> <span class="ow">in</span> <span class="n">meas_files</span><span class="p">:</span><span class="n">meas_files</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="s1">&#39;srm_dscr_measurements.txt&#39;</span><span class="p">)</span>
-    <span class="k">if</span> <span class="s1">&#39;srm_dscr_offline_measurements.txt&#39;</span> <span class="ow">not</span> <span class="ow">in</span> <span class="n">meas_files</span><span class="p">:</span><span class="n">meas_files</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="s1">&#39;srm_dscr_offline_measurments.txt&#39;</span><span class="p">)</span>
-    <span class="n">ipmag</span><span class="o">.</span><span class="n">combine_magic</span><span class="p">([</span><span class="s1">&#39;srm_dscr_measurements.txt&#39;</span><span class="p">,</span><span class="s1">&#39;srm_dscr_offline_measurements.txt&#39;</span><span class="p">],</span>
-                        <span class="n">outfile</span><span class="o">=</span><span class="s1">&#39;dscr_measurements.txt&#39;</span><span class="p">,</span><span class="n">dir_path</span><span class="o">=</span><span class="n">magic_dir</span><span class="p">)</span>
-    <span class="n">dscr_file</span><span class="o">=</span><span class="s1">&#39;dscr_measurements.txt&#39;</span>    
+    <span class="n">convert</span><span class="o">.</span><span class="n">iodp_dscr_lore</span><span class="p">(</span><span class="n">srm_discrete_file</span><span class="p">,</span><span class="n">dscr_ex_file</span><span class="o">=</span><span class="n">dscr_ex_file</span><span class="p">,</span><span class="n">meas_file</span><span class="o">=</span><span class="s1">'srm_dscr_measurements.txt'</span><span class="p">,</span> \
+                  <span class="n">dir_path</span><span class="o">=</span><span class="n">magic_dir</span><span class="p">,</span><span class="n">input_dir_path</span><span class="o">=</span><span class="n">srm_discrete_dir</span><span class="p">,</span><span class="n">spec_file</span><span class="o">=</span><span class="s1">'lims_specimens.txt'</span><span class="p">,</span>\
+                      <span class="n">offline_meas_file</span><span class="o">=</span><span class="s1">'srm_dscr_offline_measurements.txt'</span><span class="p">)</span>
+    <span class="k">if</span> <span class="s1">'srm_dscr_measurements.txt'</span> <span class="ow">not</span> <span class="ow">in</span> <span class="n">meas_files</span><span class="p">:</span><span class="n">meas_files</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="s1">'srm_dscr_measurements.txt'</span><span class="p">)</span>
+    <span class="k">if</span> <span class="s1">'srm_dscr_offline_measurements.txt'</span> <span class="ow">not</span> <span class="ow">in</span> <span class="n">meas_files</span><span class="p">:</span><span class="n">meas_files</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="s1">'srm_dscr_offline_measurments.txt'</span><span class="p">)</span>
+    <span class="n">ipmag</span><span class="o">.</span><span class="n">combine_magic</span><span class="p">([</span><span class="s1">'srm_dscr_measurements.txt'</span><span class="p">,</span><span class="s1">'srm_dscr_offline_measurements.txt'</span><span class="p">],</span>
+                        <span class="n">outfile</span><span class="o">=</span><span class="s1">'dscr_measurements.txt'</span><span class="p">,</span><span class="n">dir_path</span><span class="o">=</span><span class="n">magic_dir</span><span class="p">)</span>
+    <span class="n">dscr_file</span><span class="o">=</span><span class="s1">'dscr_measurements.txt'</span>    
 </pre></div>
 </div>
 </div>
@@ -760,7 +812,7 @@ IRM:1000</p></li>
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">if</span> <span class="n">dscr_file</span><span class="p">:</span>
     <span class="n">ipmag</span><span class="o">.</span><span class="n">zeq_magic</span><span class="p">(</span><span class="n">meas_file</span><span class="o">=</span><span class="n">dscr_file</span><span class="p">,</span>\
-                <span class="n">spec_file</span><span class="o">=</span><span class="s1">&#39;lims_specimens.txt&#39;</span><span class="p">,</span><span class="n">input_dir_path</span><span class="o">=</span><span class="n">magic_dir</span><span class="p">,</span><span class="n">n_plots</span><span class="o">=</span><span class="s2">&quot;all&quot;</span><span class="p">,</span><span class="n">save_plots</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+                <span class="n">spec_file</span><span class="o">=</span><span class="s1">'lims_specimens.txt'</span><span class="p">,</span><span class="n">input_dir_path</span><span class="o">=</span><span class="n">magic_dir</span><span class="p">,</span><span class="n">n_plots</span><span class="o">=</span><span class="s2">"all"</span><span class="p">,</span><span class="n">save_plots</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -772,14 +824,14 @@ IRM:1000</p></li>
 <span class="n">max_field</span><span class="o">=</span><span class="mi">0</span> <span class="c1"># set this to your peak field (in tesla) to execute this</span>
 
 <span class="k">if</span> <span class="n">max_field</span><span class="p">:</span>
-    <span class="n">srm_dscr_df</span><span class="o">=</span><span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="n">magic_dir</span><span class="o">+</span><span class="s1">&#39;/&#39;</span><span class="o">+</span><span class="n">dscr_file</span><span class="p">,</span><span class="n">sep</span><span class="o">=</span><span class="s1">&#39;</span><span class="se">\t</span><span class="s1">&#39;</span><span class="p">,</span><span class="n">header</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+    <span class="n">srm_dscr_df</span><span class="o">=</span><span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="n">magic_dir</span><span class="o">+</span><span class="s1">'/'</span><span class="o">+</span><span class="n">dscr_file</span><span class="p">,</span><span class="n">sep</span><span class="o">=</span><span class="s1">'</span><span class="se">\t</span><span class="s1">'</span><span class="p">,</span><span class="n">header</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
     <span class="n">srm_dmag</span><span class="o">=</span><span class="n">srm_dscr_df</span><span class="p">[</span><span class="n">srm_dscr_df</span><span class="o">.</span><span class="n">treat_ac_field</span><span class="o">&gt;=</span><span class="n">max_field</span><span class="p">]</span> <span class="c1"># find all the demag specimens</span>
     <span class="n">spc_list</span><span class="o">=</span><span class="n">srm_dmag</span><span class="o">.</span><span class="n">specimen</span><span class="o">.</span><span class="n">unique</span><span class="p">()</span>
 
     <span class="k">for</span> <span class="n">spc</span> <span class="ow">in</span> <span class="n">spc_list</span><span class="p">:</span>
         <span class="n">ipmag</span><span class="o">.</span><span class="n">zeq_magic</span><span class="p">(</span><span class="n">meas_file</span><span class="o">=</span><span class="n">dscr_file</span><span class="p">,</span><span class="n">specimen</span><span class="o">=</span><span class="n">spc</span><span class="p">,</span><span class="n">fignum</span><span class="o">=</span><span class="n">cnt</span><span class="p">,</span>\
-                <span class="n">spec_file</span><span class="o">=</span><span class="s1">&#39;lims_specimens.txt&#39;</span><span class="p">,</span><span class="n">input_dir_path</span><span class="o">=</span><span class="n">magic_dir</span><span class="p">,</span><span class="n">save_plots</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span>
-                       <span class="n">fmt</span><span class="o">=</span><span class="s1">&#39;svg&#39;</span><span class="p">)</span>
+                <span class="n">spec_file</span><span class="o">=</span><span class="s1">'lims_specimens.txt'</span><span class="p">,</span><span class="n">input_dir_path</span><span class="o">=</span><span class="n">magic_dir</span><span class="p">,</span><span class="n">save_plots</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span>
+                       <span class="n">fmt</span><span class="o">=</span><span class="s1">'svg'</span><span class="p">)</span>
         <span class="n">cnt</span><span class="o">+=</span><span class="mi">3</span><span class="p">;</span>
 </pre></div>
 </div>
@@ -796,10 +848,10 @@ IRM:1000</p></li>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">if</span> <span class="n">jr6_file</span><span class="p">:</span>
-    <span class="n">convert</span><span class="o">.</span><span class="n">iodp_jr6_lore</span><span class="p">(</span><span class="n">jr6_file</span><span class="p">,</span><span class="n">meas_file</span><span class="o">=</span><span class="s1">&#39;jr6_measurements.txt&#39;</span><span class="p">,</span><span class="n">dir_path</span><span class="o">=</span><span class="n">magic_dir</span><span class="p">,</span>\
-                     <span class="n">input_dir_path</span><span class="o">=</span><span class="n">jr6_dir</span><span class="p">,</span><span class="n">spec_file</span><span class="o">=</span><span class="s1">&#39;lims_specimens.txt&#39;</span><span class="p">,</span><span class="n">noave</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
-    <span class="k">if</span> <span class="s1">&#39;jr6_measurements.txt&#39;</span> <span class="ow">not</span> <span class="ow">in</span> <span class="n">meas_files</span><span class="p">:</span><span class="n">meas_files</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="s1">&#39;jr6_measurements.txt&#39;</span><span class="p">)</span>
-    <span class="n">dscr_file</span><span class="o">=</span><span class="s1">&#39;jr6_measurements.txt&#39;</span>
+    <span class="n">convert</span><span class="o">.</span><span class="n">iodp_jr6_lore</span><span class="p">(</span><span class="n">jr6_file</span><span class="p">,</span><span class="n">meas_file</span><span class="o">=</span><span class="s1">'jr6_measurements.txt'</span><span class="p">,</span><span class="n">dir_path</span><span class="o">=</span><span class="n">magic_dir</span><span class="p">,</span>\
+                     <span class="n">input_dir_path</span><span class="o">=</span><span class="n">jr6_dir</span><span class="p">,</span><span class="n">spec_file</span><span class="o">=</span><span class="s1">'lims_specimens.txt'</span><span class="p">,</span><span class="n">noave</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+    <span class="k">if</span> <span class="s1">'jr6_measurements.txt'</span> <span class="ow">not</span> <span class="ow">in</span> <span class="n">meas_files</span><span class="p">:</span><span class="n">meas_files</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="s1">'jr6_measurements.txt'</span><span class="p">)</span>
+    <span class="n">dscr_file</span><span class="o">=</span><span class="s1">'jr6_measurements.txt'</span>
 </pre></div>
 </div>
 </div>
@@ -808,19 +860,19 @@ IRM:1000</p></li>
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># combine srm and jr6 data, we can combine the data here:</span>
 <span class="k">if</span> <span class="n">jr6_file</span> <span class="ow">and</span> <span class="n">srm_discrete_file</span><span class="p">:</span>
-    <span class="n">ipmag</span><span class="o">.</span><span class="n">combine_magic</span><span class="p">([</span><span class="s1">&#39;srm_dscr_measurements.txt&#39;</span><span class="p">,</span><span class="s1">&#39;jr6_measurements.txt&#39;</span><span class="p">],</span>
-                        <span class="n">outfile</span><span class="o">=</span><span class="s1">&#39;dscr_measurements.txt&#39;</span><span class="p">,</span><span class="n">dir_path</span><span class="o">=</span><span class="n">magic_dir</span><span class="p">)</span>
-    <span class="n">dscr_file</span><span class="o">=</span><span class="s1">&#39;dscr_measurements.txt&#39;</span>
+    <span class="n">ipmag</span><span class="o">.</span><span class="n">combine_magic</span><span class="p">([</span><span class="s1">'srm_dscr_measurements.txt'</span><span class="p">,</span><span class="s1">'jr6_measurements.txt'</span><span class="p">],</span>
+                        <span class="n">outfile</span><span class="o">=</span><span class="s1">'dscr_measurements.txt'</span><span class="p">,</span><span class="n">dir_path</span><span class="o">=</span><span class="n">magic_dir</span><span class="p">)</span>
+    <span class="n">dscr_file</span><span class="o">=</span><span class="s1">'dscr_measurements.txt'</span>
 <span class="n">max_field</span><span class="o">=</span><span class="mi">0</span> <span class="c1"># set this to your peak field (in tesla) to execute this</span>
 <span class="k">if</span> <span class="n">max_field</span><span class="p">:</span>
     <span class="n">cnt</span><span class="o">=</span><span class="mi">1</span>
-    <span class="n">dscr_df</span><span class="o">=</span><span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="n">magic_dir</span><span class="o">+</span><span class="s1">&#39;/dscr_measurements.txt&#39;</span><span class="p">,</span><span class="n">sep</span><span class="o">=</span><span class="s1">&#39;</span><span class="se">\t</span><span class="s1">&#39;</span><span class="p">,</span><span class="n">header</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+    <span class="n">dscr_df</span><span class="o">=</span><span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="n">magic_dir</span><span class="o">+</span><span class="s1">'/dscr_measurements.txt'</span><span class="p">,</span><span class="n">sep</span><span class="o">=</span><span class="s1">'</span><span class="se">\t</span><span class="s1">'</span><span class="p">,</span><span class="n">header</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
     <span class="n">dmag_df</span><span class="o">=</span><span class="n">dscr_df</span><span class="p">[</span><span class="n">dscr_df</span><span class="o">.</span><span class="n">treat_ac_field</span><span class="o">&gt;=</span><span class="n">max_field</span><span class="p">]</span> <span class="c1"># find all the demag specimens</span>
     <span class="n">spc_list</span><span class="o">=</span><span class="n">dmag_df</span><span class="o">.</span><span class="n">specimen</span><span class="o">.</span><span class="n">unique</span><span class="p">()</span>
 
     <span class="k">for</span> <span class="n">spc</span> <span class="ow">in</span> <span class="n">spc_list</span><span class="p">:</span>
-        <span class="n">ipmag</span><span class="o">.</span><span class="n">zeq_magic</span><span class="p">(</span><span class="n">meas_file</span><span class="o">=</span><span class="s1">&#39;dscr_measurements.txt&#39;</span><span class="p">,</span><span class="n">specimen</span><span class="o">=</span><span class="n">spc</span><span class="p">,</span><span class="n">fignum</span><span class="o">=</span><span class="n">cnt</span><span class="p">,</span>\
-                <span class="n">spec_file</span><span class="o">=</span><span class="s1">&#39;lims_specimens.txt&#39;</span><span class="p">,</span><span class="n">input_dir_path</span><span class="o">=</span><span class="n">magic_dir</span><span class="p">,</span><span class="n">save_plots</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+        <span class="n">ipmag</span><span class="o">.</span><span class="n">zeq_magic</span><span class="p">(</span><span class="n">meas_file</span><span class="o">=</span><span class="s1">'dscr_measurements.txt'</span><span class="p">,</span><span class="n">specimen</span><span class="o">=</span><span class="n">spc</span><span class="p">,</span><span class="n">fignum</span><span class="o">=</span><span class="n">cnt</span><span class="p">,</span>\
+                <span class="n">spec_file</span><span class="o">=</span><span class="s1">'lims_specimens.txt'</span><span class="p">,</span><span class="n">input_dir_path</span><span class="o">=</span><span class="n">magic_dir</span><span class="p">,</span><span class="n">save_plots</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
         <span class="n">cnt</span><span class="o">+=</span><span class="mi">3</span><span class="p">;</span>
 </pre></div>
 </div>
@@ -839,11 +891,11 @@ IRM:1000</p></li>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">if</span> <span class="n">kly4s_file</span><span class="p">:</span>
-    <span class="n">convert</span><span class="o">.</span><span class="n">iodp_kly4s_lore</span><span class="p">(</span><span class="n">kly4s_file</span><span class="p">,</span> <span class="n">meas_out</span><span class="o">=</span><span class="s1">&#39;kly4s_measurements.txt&#39;</span><span class="p">,</span> 
-           <span class="n">spec_infile</span><span class="o">=</span><span class="s1">&#39;lims_specimens.txt&#39;</span><span class="p">,</span> <span class="n">spec_out</span><span class="o">=</span><span class="s1">&#39;kly4s_specimens.txt&#39;</span><span class="p">,</span>
+    <span class="n">convert</span><span class="o">.</span><span class="n">iodp_kly4s_lore</span><span class="p">(</span><span class="n">kly4s_file</span><span class="p">,</span> <span class="n">meas_out</span><span class="o">=</span><span class="s1">'kly4s_measurements.txt'</span><span class="p">,</span> 
+           <span class="n">spec_infile</span><span class="o">=</span><span class="s1">'lims_specimens.txt'</span><span class="p">,</span> <span class="n">spec_out</span><span class="o">=</span><span class="s1">'kly4s_specimens.txt'</span><span class="p">,</span>
            <span class="n">dir_path</span><span class="o">=</span><span class="n">magic_dir</span><span class="p">,</span> <span class="n">input_dir_path</span><span class="o">=</span><span class="n">kly4s_dir</span><span class="p">,</span><span class="n">actual_volume</span><span class="o">=</span><span class="mi">7</span><span class="p">)</span>
-    <span class="k">if</span> <span class="s1">&#39;kly4s_measurements.txt&#39;</span> <span class="ow">not</span> <span class="ow">in</span> <span class="n">meas_files</span><span class="p">:</span><span class="n">meas_files</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="s1">&#39;kly4s_measurements.txt&#39;</span><span class="p">)</span>
-    <span class="k">if</span> <span class="s1">&#39;kly4s_specimens.txt&#39;</span> <span class="ow">not</span> <span class="ow">in</span> <span class="n">meas_files</span><span class="p">:</span><span class="n">meas_files</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="s1">&#39;kly4s_specimens.txt&#39;</span><span class="p">)</span>
+    <span class="k">if</span> <span class="s1">'kly4s_measurements.txt'</span> <span class="ow">not</span> <span class="ow">in</span> <span class="n">meas_files</span><span class="p">:</span><span class="n">meas_files</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="s1">'kly4s_measurements.txt'</span><span class="p">)</span>
+    <span class="k">if</span> <span class="s1">'kly4s_specimens.txt'</span> <span class="ow">not</span> <span class="ow">in</span> <span class="n">meas_files</span><span class="p">:</span><span class="n">meas_files</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="s1">'kly4s_specimens.txt'</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -852,11 +904,11 @@ IRM:1000</p></li>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">if</span> <span class="kc">False</span><span class="p">:</span>
-    <span class="n">ipmag</span><span class="o">.</span><span class="n">ani_depthplot</span><span class="p">(</span><span class="n">spec_file</span><span class="o">=</span><span class="s1">&#39;kly4s_specimens.txt&#39;</span><span class="p">,</span> <span class="n">dir_path</span><span class="o">=</span><span class="n">magic_dir</span><span class="p">,</span> 
-                    <span class="n">samp_file</span><span class="o">=</span><span class="s1">&#39;lims_samples.txt&#39;</span><span class="p">,</span><span class="n">site_file</span><span class="o">=</span><span class="s1">&#39;lims_sites.txt&#39;</span><span class="p">,</span>
-                   <span class="n">dmin</span><span class="o">=-</span><span class="mi">1</span><span class="p">,</span><span class="n">dmax</span><span class="o">=-</span><span class="mi">1</span><span class="p">,</span><span class="n">meas_file</span><span class="o">=</span><span class="s1">&#39;kly4s_measurements.txt&#39;</span><span class="p">,</span>
+    <span class="n">ipmag</span><span class="o">.</span><span class="n">ani_depthplot</span><span class="p">(</span><span class="n">spec_file</span><span class="o">=</span><span class="s1">'kly4s_specimens.txt'</span><span class="p">,</span> <span class="n">dir_path</span><span class="o">=</span><span class="n">magic_dir</span><span class="p">,</span> 
+                    <span class="n">samp_file</span><span class="o">=</span><span class="s1">'lims_samples.txt'</span><span class="p">,</span><span class="n">site_file</span><span class="o">=</span><span class="s1">'lims_sites.txt'</span><span class="p">,</span>
+                   <span class="n">dmin</span><span class="o">=-</span><span class="mi">1</span><span class="p">,</span><span class="n">dmax</span><span class="o">=-</span><span class="mi">1</span><span class="p">,</span><span class="n">meas_file</span><span class="o">=</span><span class="s1">'kly4s_measurements.txt'</span><span class="p">,</span>
                    <span class="n">sum_file</span><span class="o">=</span><span class="n">core_summary_file</span><span class="p">)</span>
-    <span class="n">plt</span><span class="o">.</span><span class="n">savefig</span><span class="p">(</span><span class="s1">&#39;Figures/&#39;</span><span class="o">+</span><span class="n">hole</span><span class="o">+</span><span class="s1">&#39;_anisotropy_xmastree.pdf&#39;</span><span class="p">)</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">savefig</span><span class="p">(</span><span class="s1">'Figures/'</span><span class="o">+</span><span class="n">hole</span><span class="o">+</span><span class="s1">'_anisotropy_xmastree.pdf'</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -866,7 +918,7 @@ To save the plots, sset save_plots to True.  for different options, try (help(ip
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">if</span> <span class="kc">False</span><span class="p">:</span>
-    <span class="n">ipmag</span><span class="o">.</span><span class="n">aniso_magic_nb</span><span class="p">(</span><span class="n">infile</span><span class="o">=</span><span class="n">magic_dir</span><span class="o">+</span><span class="s1">&#39;/kly4s_specimens.txt&#39;</span><span class="p">,</span>\
+    <span class="n">ipmag</span><span class="o">.</span><span class="n">aniso_magic_nb</span><span class="p">(</span><span class="n">infile</span><span class="o">=</span><span class="n">magic_dir</span><span class="o">+</span><span class="s1">'/kly4s_specimens.txt'</span><span class="p">,</span>\
                      <span class="n">verbose</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span><span class="n">save_plots</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span><span class="n">ihext</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span><span class="n">iboot</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span><span class="n">ivec</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
 </pre></div>
 </div>
@@ -882,39 +934,39 @@ To save the plots, sset save_plots to True.  for different options, try (help(ip
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">if</span> <span class="n">dscr_file</span><span class="p">:</span> <span class="c1"># checks for discrete measurements, adds depths, etc. </span>
-    <span class="n">srm_dscr_df</span><span class="o">=</span><span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="n">magic_dir</span><span class="o">+</span><span class="s1">&#39;/&#39;</span><span class="o">+</span><span class="n">dscr_file</span><span class="p">,</span><span class="n">sep</span><span class="o">=</span><span class="s1">&#39;</span><span class="se">\t</span><span class="s1">&#39;</span><span class="p">,</span><span class="n">header</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+    <span class="n">srm_dscr_df</span><span class="o">=</span><span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="n">magic_dir</span><span class="o">+</span><span class="s1">'/'</span><span class="o">+</span><span class="n">dscr_file</span><span class="p">,</span><span class="n">sep</span><span class="o">=</span><span class="s1">'</span><span class="se">\t</span><span class="s1">'</span><span class="p">,</span><span class="n">header</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
     <span class="n">dscr_df</span><span class="o">=</span><span class="n">srm_dscr_df</span><span class="o">.</span><span class="n">copy</span><span class="p">(</span><span class="n">deep</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
-    <span class="n">dscr_df</span><span class="o">=</span><span class="n">dscr_df</span><span class="p">[</span><span class="n">srm_dscr_df</span><span class="p">[</span><span class="s1">&#39;treat_ac_field&#39;</span><span class="p">]</span><span class="o">==</span><span class="n">demag_step</span><span class="p">]</span>
-    <span class="n">depth_data</span><span class="o">=</span><span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="n">magic_dir</span><span class="o">+</span><span class="s1">&#39;/lims_sites.txt&#39;</span><span class="p">,</span><span class="n">sep</span><span class="o">=</span><span class="s1">&#39;</span><span class="se">\t</span><span class="s1">&#39;</span><span class="p">,</span><span class="n">header</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
-    <span class="n">depth_data</span><span class="p">[</span><span class="s1">&#39;specimen&#39;</span><span class="p">]</span><span class="o">=</span><span class="n">depth_data</span><span class="p">[</span><span class="s1">&#39;site&#39;</span><span class="p">]</span>
-    <span class="n">depth_data</span><span class="o">=</span><span class="n">depth_data</span><span class="p">[[</span><span class="s1">&#39;specimen&#39;</span><span class="p">,</span><span class="s1">&#39;core_depth&#39;</span><span class="p">]]</span>
-    <span class="n">depth_data</span><span class="o">.</span><span class="n">sort_values</span><span class="p">(</span><span class="n">by</span><span class="o">=</span><span class="s1">&#39;specimen&#39;</span><span class="p">)</span>
-    <span class="n">dscr_df</span><span class="o">=</span><span class="n">pd</span><span class="o">.</span><span class="n">merge</span><span class="p">(</span><span class="n">dscr_df</span><span class="p">,</span><span class="n">depth_data</span><span class="p">,</span><span class="n">on</span><span class="o">=</span><span class="s1">&#39;specimen&#39;</span><span class="p">)</span>
+    <span class="n">dscr_df</span><span class="o">=</span><span class="n">dscr_df</span><span class="p">[</span><span class="n">srm_dscr_df</span><span class="p">[</span><span class="s1">'treat_ac_field'</span><span class="p">]</span><span class="o">==</span><span class="n">demag_step</span><span class="p">]</span>
+    <span class="n">depth_data</span><span class="o">=</span><span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="n">magic_dir</span><span class="o">+</span><span class="s1">'/lims_sites.txt'</span><span class="p">,</span><span class="n">sep</span><span class="o">=</span><span class="s1">'</span><span class="se">\t</span><span class="s1">'</span><span class="p">,</span><span class="n">header</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+    <span class="n">depth_data</span><span class="p">[</span><span class="s1">'specimen'</span><span class="p">]</span><span class="o">=</span><span class="n">depth_data</span><span class="p">[</span><span class="s1">'site'</span><span class="p">]</span>
+    <span class="n">depth_data</span><span class="o">=</span><span class="n">depth_data</span><span class="p">[[</span><span class="s1">'specimen'</span><span class="p">,</span><span class="s1">'core_depth'</span><span class="p">]]</span>
+    <span class="n">depth_data</span><span class="o">.</span><span class="n">sort_values</span><span class="p">(</span><span class="n">by</span><span class="o">=</span><span class="s1">'specimen'</span><span class="p">)</span>
+    <span class="n">dscr_df</span><span class="o">=</span><span class="n">pd</span><span class="o">.</span><span class="n">merge</span><span class="p">(</span><span class="n">dscr_df</span><span class="p">,</span><span class="n">depth_data</span><span class="p">,</span><span class="n">on</span><span class="o">=</span><span class="s1">'specimen'</span><span class="p">)</span>
 <span class="k">else</span><span class="p">:</span>
-    <span class="n">dscr_df</span><span class="o">=</span><span class="s2">&quot;&quot;</span> <span class="c1"># if no discrete samples.  </span>
+    <span class="n">dscr_df</span><span class="o">=</span><span class="s2">""</span> <span class="c1"># if no discrete samples.  </span>
 
 <span class="k">if</span> <span class="n">section_summary_file</span><span class="p">:</span>
-    <span class="n">arch_demag_step</span><span class="o">=</span><span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="n">hole</span><span class="o">+</span><span class="s1">&#39;/&#39;</span><span class="o">+</span><span class="n">hole</span><span class="o">+</span><span class="s1">&#39;_arch_demag_step.csv&#39;</span><span class="p">)</span>
-    <span class="n">adj_dec_df</span><span class="o">=</span><span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="n">hole</span><span class="o">+</span><span class="s1">&#39;/&#39;</span><span class="o">+</span><span class="n">hole</span><span class="o">+</span><span class="s1">&#39;_dec_adjusted.csv&#39;</span><span class="p">)</span>
-<span class="c1">#Let&#39;s get the section boundaries.  </span>
+    <span class="n">arch_demag_step</span><span class="o">=</span><span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="n">hole</span><span class="o">+</span><span class="s1">'/'</span><span class="o">+</span><span class="n">hole</span><span class="o">+</span><span class="s1">'_arch_demag_step.csv'</span><span class="p">)</span>
+    <span class="n">adj_dec_df</span><span class="o">=</span><span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="n">hole</span><span class="o">+</span><span class="s1">'/'</span><span class="o">+</span><span class="n">hole</span><span class="o">+</span><span class="s1">'_dec_adjusted.csv'</span><span class="p">)</span>
+<span class="c1">#Let's get the section boundaries.  </span>
 <span class="c1"># edit the file name for the Section Summary table downloaded from LIMS</span>
 
 
     <span class="n">summary_df</span><span class="o">=</span><span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="n">summary_file</span><span class="p">)</span>
-    <span class="n">summary_df</span><span class="o">.</span><span class="n">dropna</span><span class="p">(</span><span class="n">subset</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;Sect&#39;</span><span class="p">],</span><span class="n">inplace</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
-    <span class="k">if</span> <span class="nb">type</span><span class="p">(</span><span class="n">summary_df</span><span class="o">.</span><span class="n">Sect</span><span class="p">)</span><span class="o">!=</span><span class="s1">&#39;str&#39;</span><span class="p">:</span>
-        <span class="n">summary_df</span><span class="o">.</span><span class="n">Sect</span><span class="o">=</span><span class="n">summary_df</span><span class="o">.</span><span class="n">Sect</span><span class="o">.</span><span class="n">astype</span><span class="p">(</span><span class="s1">&#39;int64&#39;</span><span class="p">)</span>
-        <span class="n">summary_df</span><span class="o">.</span><span class="n">Sect</span><span class="o">=</span><span class="n">summary_df</span><span class="o">.</span><span class="n">Sect</span><span class="o">.</span><span class="n">astype</span><span class="p">(</span><span class="s1">&#39;str&#39;</span><span class="p">)</span>
+    <span class="n">summary_df</span><span class="o">.</span><span class="n">dropna</span><span class="p">(</span><span class="n">subset</span><span class="o">=</span><span class="p">[</span><span class="s1">'Sect'</span><span class="p">],</span><span class="n">inplace</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+    <span class="k">if</span> <span class="nb">type</span><span class="p">(</span><span class="n">summary_df</span><span class="o">.</span><span class="n">Sect</span><span class="p">)</span><span class="o">!=</span><span class="s1">'str'</span><span class="p">:</span>
+        <span class="n">summary_df</span><span class="o">.</span><span class="n">Sect</span><span class="o">=</span><span class="n">summary_df</span><span class="o">.</span><span class="n">Sect</span><span class="o">.</span><span class="n">astype</span><span class="p">(</span><span class="s1">'int64'</span><span class="p">)</span>
+        <span class="n">summary_df</span><span class="o">.</span><span class="n">Sect</span><span class="o">=</span><span class="n">summary_df</span><span class="o">.</span><span class="n">Sect</span><span class="o">.</span><span class="n">astype</span><span class="p">(</span><span class="s1">'str'</span><span class="p">)</span>
 
-    <span class="n">summary_df</span><span class="o">=</span><span class="n">summary_df</span><span class="p">[</span><span class="n">summary_df</span><span class="p">[</span><span class="s1">&#39;Sect&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">str</span><span class="o">.</span><span class="n">contains</span><span class="p">(</span><span class="s1">&#39;CC&#39;</span><span class="p">)</span><span class="o">==</span><span class="kc">False</span><span class="p">]</span>
-    <span class="n">max_depth</span><span class="o">=</span><span class="n">arch_demag_step</span><span class="p">[</span><span class="s1">&#39;core_depth&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">max</span><span class="p">()</span>
+    <span class="n">summary_df</span><span class="o">=</span><span class="n">summary_df</span><span class="p">[</span><span class="n">summary_df</span><span class="p">[</span><span class="s1">'Sect'</span><span class="p">]</span><span class="o">.</span><span class="n">str</span><span class="o">.</span><span class="n">contains</span><span class="p">(</span><span class="s1">'CC'</span><span class="p">)</span><span class="o">==</span><span class="kc">False</span><span class="p">]</span>
+    <span class="n">max_depth</span><span class="o">=</span><span class="n">arch_demag_step</span><span class="p">[</span><span class="s1">'core_depth'</span><span class="p">]</span><span class="o">.</span><span class="n">max</span><span class="p">()</span>
 
-    <span class="n">summary_df</span><span class="o">=</span><span class="n">summary_df</span><span class="p">[</span><span class="n">summary_df</span><span class="p">[</span><span class="s1">&#39;Top depth CSF-A (m)&#39;</span><span class="p">]</span><span class="o">&lt;</span><span class="n">max_depth</span><span class="p">]</span>
-    <span class="n">sect_depths</span><span class="o">=</span><span class="n">summary_df</span><span class="p">[</span><span class="s1">&#39;Top depth CSF-A (m)&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">values</span>
-    <span class="n">summary_df</span><span class="p">[</span><span class="s1">&#39;Core&#39;</span><span class="p">]</span><span class="o">=</span><span class="n">summary_df</span><span class="p">[</span><span class="s1">&#39;Core&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">astype</span><span class="p">(</span><span class="s1">&#39;int&#39;</span><span class="p">)</span>
-    <span class="n">labels</span><span class="o">=</span><span class="n">summary_df</span><span class="p">[</span><span class="s1">&#39;Core&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">astype</span><span class="p">(</span><span class="s1">&#39;str&#39;</span><span class="p">)</span><span class="o">+</span><span class="n">summary_df</span><span class="p">[</span><span class="s1">&#39;Type&#39;</span><span class="p">]</span><span class="o">+</span><span class="s1">&#39;-&#39;</span><span class="o">+</span><span class="n">summary_df</span><span class="p">[</span><span class="s1">&#39;Sect&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">astype</span><span class="p">(</span><span class="s1">&#39;str&#39;</span><span class="p">)</span>
+    <span class="n">summary_df</span><span class="o">=</span><span class="n">summary_df</span><span class="p">[</span><span class="n">summary_df</span><span class="p">[</span><span class="s1">'Top depth CSF-A (m)'</span><span class="p">]</span><span class="o">&lt;</span><span class="n">max_depth</span><span class="p">]</span>
+    <span class="n">sect_depths</span><span class="o">=</span><span class="n">summary_df</span><span class="p">[</span><span class="s1">'Top depth CSF-A (m)'</span><span class="p">]</span><span class="o">.</span><span class="n">values</span>
+    <span class="n">summary_df</span><span class="p">[</span><span class="s1">'Core'</span><span class="p">]</span><span class="o">=</span><span class="n">summary_df</span><span class="p">[</span><span class="s1">'Core'</span><span class="p">]</span><span class="o">.</span><span class="n">astype</span><span class="p">(</span><span class="s1">'int'</span><span class="p">)</span>
+    <span class="n">labels</span><span class="o">=</span><span class="n">summary_df</span><span class="p">[</span><span class="s1">'Core'</span><span class="p">]</span><span class="o">.</span><span class="n">astype</span><span class="p">(</span><span class="s1">'str'</span><span class="p">)</span><span class="o">+</span><span class="n">summary_df</span><span class="p">[</span><span class="s1">'Type'</span><span class="p">]</span><span class="o">+</span><span class="s1">'-'</span><span class="o">+</span><span class="n">summary_df</span><span class="p">[</span><span class="s1">'Sect'</span><span class="p">]</span><span class="o">.</span><span class="n">astype</span><span class="p">(</span><span class="s1">'str'</span><span class="p">)</span>
 
-    <span class="n">arch_demag_step</span><span class="o">=</span><span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="n">hole</span><span class="o">+</span><span class="s1">&#39;/&#39;</span><span class="o">+</span><span class="n">hole</span><span class="o">+</span><span class="s1">&#39;_arch_demag_step.csv&#39;</span><span class="p">)</span>
+    <span class="n">arch_demag_step</span><span class="o">=</span><span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="n">hole</span><span class="o">+</span><span class="s1">'/'</span><span class="o">+</span><span class="n">hole</span><span class="o">+</span><span class="s1">'_arch_demag_step.csv'</span><span class="p">)</span>
     <span class="n">interval</span><span class="o">=</span><span class="mi">100</span> <span class="c1"># how to divide up the plots</span>
     <span class="n">depth_min</span><span class="p">,</span><span class="n">depth_max</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span><span class="n">interval</span>
     <span class="n">fignum</span><span class="o">=</span><span class="mi">1</span>
@@ -936,10 +988,10 @@ To save the plots, sset save_plots to True.  for different options, try (help(ip
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">if</span> <span class="kc">False</span><span class="p">:</span> <span class="c1"># when ready to upload, you can set this to true to make upload file. </span>
-    <span class="n">ipmag</span><span class="o">.</span><span class="n">combine_magic</span><span class="p">(</span><span class="n">spec_files</span><span class="p">,</span><span class="n">outfile</span><span class="o">=</span><span class="s1">&#39;specimens.txt&#39;</span><span class="p">,</span><span class="n">dir_path</span><span class="o">=</span><span class="n">magic_dir</span><span class="p">)</span>
-    <span class="n">ipmag</span><span class="o">.</span><span class="n">combine_magic</span><span class="p">(</span><span class="n">samp_files</span><span class="p">,</span><span class="n">outfile</span><span class="o">=</span><span class="s1">&#39;samples.txt&#39;</span><span class="p">,</span><span class="n">dir_path</span><span class="o">=</span><span class="n">magic_dir</span><span class="p">)</span>
-    <span class="n">ipmag</span><span class="o">.</span><span class="n">combine_magic</span><span class="p">(</span><span class="n">site_files</span><span class="p">,</span><span class="n">outfile</span><span class="o">=</span><span class="s1">&#39;sites.txt&#39;</span><span class="p">,</span><span class="n">dir_path</span><span class="o">=</span><span class="n">magic_dir</span><span class="p">)</span>
-    <span class="n">ipmag</span><span class="o">.</span><span class="n">combine_magic</span><span class="p">(</span><span class="n">meas_files</span><span class="p">,</span><span class="n">outfile</span><span class="o">=</span><span class="s1">&#39;measurements.txt&#39;</span><span class="p">,</span><span class="n">dir_path</span><span class="o">=</span><span class="n">magic_dir</span><span class="p">)</span>
+    <span class="n">ipmag</span><span class="o">.</span><span class="n">combine_magic</span><span class="p">(</span><span class="n">spec_files</span><span class="p">,</span><span class="n">outfile</span><span class="o">=</span><span class="s1">'specimens.txt'</span><span class="p">,</span><span class="n">dir_path</span><span class="o">=</span><span class="n">magic_dir</span><span class="p">)</span>
+    <span class="n">ipmag</span><span class="o">.</span><span class="n">combine_magic</span><span class="p">(</span><span class="n">samp_files</span><span class="p">,</span><span class="n">outfile</span><span class="o">=</span><span class="s1">'samples.txt'</span><span class="p">,</span><span class="n">dir_path</span><span class="o">=</span><span class="n">magic_dir</span><span class="p">)</span>
+    <span class="n">ipmag</span><span class="o">.</span><span class="n">combine_magic</span><span class="p">(</span><span class="n">site_files</span><span class="p">,</span><span class="n">outfile</span><span class="o">=</span><span class="s1">'sites.txt'</span><span class="p">,</span><span class="n">dir_path</span><span class="o">=</span><span class="n">magic_dir</span><span class="p">)</span>
+    <span class="n">ipmag</span><span class="o">.</span><span class="n">combine_magic</span><span class="p">(</span><span class="n">meas_files</span><span class="p">,</span><span class="n">outfile</span><span class="o">=</span><span class="s1">'measurements.txt'</span><span class="p">,</span><span class="n">dir_path</span><span class="o">=</span><span class="n">magic_dir</span><span class="p">)</span>
     <span class="n">ipmag</span><span class="o">.</span><span class="n">upload_magic</span><span class="p">()</span>
 </pre></div>
 </div>
@@ -995,10 +1047,10 @@ To save the plots, sset save_plots to True.  for different options, try (help(ip
     <i class="fa-solid fa-list"></i> Contents
   </div>
   <nav id="pst-page-toc-nav" class="page-toc" aria-labelledby="pst-page-navigation-heading-2">
-    <ul class="visible nav section-nav flex-column">
+    <ul class="pst-show_toc_level nav section-nav flex-column">
 <li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#">Data reduction for paleomagnetic data aboard the JOIDES Resolution</a></li>
 <li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#table-of-contents">Table of Contents</a></li>
-<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#preliminaries">Preliminaries</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#preliminaries">Preliminaries</a><ul class="pst-show_toc_level nav section-nav flex-column">
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#make-the-sample-tables">Make the sample tables</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#convert-the-srm-archive-half-data-for-the-hole">Convert the SRM archive half data for the Hole</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#convert-srm-discrete-sample-data-to-magic">Convert SRM discrete sample data to MagIC:</a></li>
@@ -1057,8 +1109,8 @@ By PmagPy Contributors
   </div>
   
   <!-- Scripts loaded after <body> so the DOM is not blocked -->
-  <script defer src="../../_static/scripts/bootstrap.js?digest=8878045cc6db502f8baf"></script>
-<script defer src="../../_static/scripts/pydata-sphinx-theme.js?digest=8878045cc6db502f8baf"></script>
+  <script defer src="../../_static/scripts/bootstrap.js?digest=55c26ed414f5f8a31ebb"></script>
+<script defer src="../../_static/scripts/pydata-sphinx-theme.js?digest=55c26ed414f5f8a31ebb"></script>
 
   <footer class="bd-footer">
   </footer>

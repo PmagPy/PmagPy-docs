@@ -27,8 +27,8 @@
   </noscript>
   
   <!-- Loaded before other Sphinx assets -->
-  <link href="../../_static/styles/theme.css?digest=8878045cc6db502f8baf" rel="stylesheet" />
-<link href="../../_static/styles/pydata-sphinx-theme.css?digest=8878045cc6db502f8baf" rel="stylesheet" />
+  <link href="../../_static/styles/theme.css?digest=55c26ed414f5f8a31ebb" rel="stylesheet" />
+<link href="../../_static/styles/pydata-sphinx-theme.css?digest=55c26ed414f5f8a31ebb" rel="stylesheet" />
 
     <link rel="stylesheet" type="text/css" href="../../_static/pygments.css?v=03e43079" />
     <link rel="stylesheet" type="text/css" href="../../_static/styles/sphinx-book-theme.css?v=3c74b3bc" />
@@ -39,10 +39,10 @@
     <link rel="stylesheet" type="text/css" href="../../_static/sphinx-design.min.css?v=95c83b7e" />
   
   <!-- So that users can add custom icons -->
-  <script src="../../_static/scripts/fontawesome.js?digest=8878045cc6db502f8baf"></script>
+  <script defer src="../../_static/scripts/fontawesome.js?digest=55c26ed414f5f8a31ebb"></script>
   <!-- Pre-loaded scripts that we'll load fully later -->
-  <link rel="preload" as="script" href="../../_static/scripts/bootstrap.js?digest=8878045cc6db502f8baf" />
-<link rel="preload" as="script" href="../../_static/scripts/pydata-sphinx-theme.js?digest=8878045cc6db502f8baf" />
+  <link rel="preload" as="script" href="../../_static/scripts/bootstrap.js?digest=55c26ed414f5f8a31ebb" />
+<link rel="preload" as="script" href="../../_static/scripts/pydata-sphinx-theme.js?digest=55c26ed414f5f8a31ebb" />
 
     <script src="../../_static/documentation_options.js?v=9eb32ce0"></script>
     <script src="../../_static/doctools.js?v=9a2dae69"></script>
@@ -61,25 +61,32 @@
     <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
     <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
     <script>DOCUMENTATION_OPTIONS.pagename = 'example_notebooks/tutorial_notebooks/MagIC_workshop_demo';</script>
+    <script>DOCUMENTATION_OPTIONS.search_as_you_type = false;</script>
     <link rel="index" title="Index" href="../../genindex.html" />
     <link rel="search" title="Search" href="../../search.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
   <meta name="docsearch:version" content="" />
+  
+    
+    <script src="../../_static/searchtools.js"></script>
+    <script src="../../_static/language_data.js"></script>
+    <script src="../../searchindex.js"></script>
+  
   </head>
-  
-  
-  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
-
+  <body data-default-mode="">
   
   
   <div id="pst-skip-link" class="skip-link d-print-none"><a href="#main-content">Skip to main content</a></div>
+
   
   <div id="pst-scroll-pixel-helper"></div>
   
   <button type="button" class="btn rounded-pill" id="pst-back-to-top">
     <i class="fa-solid fa-arrow-up"></i>Back to top</button>
-
+  
+  
+  
   
   <dialog id="pst-search-dialog">
     
@@ -105,7 +112,51 @@
 </div>
 
   
-    <header class="bd-header navbar navbar-expand-lg bd-navbar d-print-none">
+    <header id="pst-header" class="bd-header navbar navbar-expand-lg bd-navbar d-print-none">
+<div class="bd-header__inner bd-page-width">
+  <button class="pst-navbar-icon sidebar-toggle primary-toggle" aria-label="Site navigation">
+    <span class="fa-solid fa-bars"></span>
+  </button>
+  
+  
+  <div class="col-lg-9 navbar-header-items">
+    
+    
+    <div class="navbar-header-items__end">
+      
+        <div class="navbar-item navbar-persistent--container">
+          
+
+<button class="btn search-button-field search-button__button pst-js-only" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+ <i class="fa-solid fa-magnifying-glass"></i>
+ <span class="search-button__default-text">Search</span>
+ <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+</button>
+        </div>
+      
+      
+    </div>
+    
+  </div>
+  
+  
+    <div class="navbar-persistent--mobile">
+
+<button class="btn search-button-field search-button__button pst-js-only" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+ <i class="fa-solid fa-magnifying-glass"></i>
+ <span class="search-button__default-text">Search</span>
+ <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+</button>
+    </div>
+  
+
+  
+    <button class="pst-navbar-icon sidebar-toggle secondary-toggle" aria-label="On this page">
+      <span class="fa-solid fa-outdent"></span>
+    </button>
+  
+</div>
+
     </header>
   
 
@@ -184,6 +235,7 @@
 </details></li>
 <li class="toctree-l1"><a class="reference internal" href="../../resources/survival_skills.html">Survival computer skills</a></li>
 
+<li class="toctree-l1"><a class="reference internal" href="../../resources/reproducible_random_sampling.html">Reproducible random sampling in PmagPy</a></li>
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Documentation notebooks</span></p>
 <ul class="nav bd-sidenav">
@@ -404,10 +456,10 @@
                 <h2> Contents </h2>
             </div>
             <nav aria-label="Page">
-                <ul class="visible nav section-nav flex-column">
+                <ul class="pst-show_toc_level nav section-nav flex-column">
 <li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#">2020 MagIC Workshop PmagPy notebook demo</a></li>
 <li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#overview-of-demonstration">Overview of demonstration</a></li>
-<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#exercise-1">Exercise 1</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#exercise-1">Exercise 1</a><ul class="pst-show_toc_level nav section-nav flex-column">
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#equal-area-net-example">Equal area net example</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#map-of-vgps">Map of VGPs</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#bootstrap-reversals-test">Bootstrap reversals test</a></li>
@@ -415,11 +467,11 @@
 </ul>
 </li>
 <li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#exercise-2">Exercise 2:</a></li>
-<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#exercise-3">Exercise 3</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#exercise-3">Exercise 3</a><ul class="pst-show_toc_level nav section-nav flex-column">
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#download-and-unpack-the-data">Download and unpack the data</a></li>
 </ul>
 </li>
-<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#magstrat-figure">Magstrat figure</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#magstrat-figure">Magstrat figure</a><ul class="pst-show_toc_level nav section-nav flex-column">
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#christmas-tree-of-anisotropy">“Christmas tree” of anisotropy</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#plotting-external-results">Plotting External Results</a></li>
 </ul>
@@ -440,7 +492,7 @@
 <h1>2020 MagIC Workshop PmagPy notebook demo<a class="headerlink" href="#magic-workshop-pmagpy-notebook-demo" title="Link to this heading">#</a></h1>
 <ul class="simple">
 <li><p>Go to the jupyter-hub website at <a class="reference external" href="https://jupyterhub.earthref.org/">https://jupyterhub.earthref.org/</a> to run this online.  You will have to log in to the earthref website with your ORCID, but then you will have a workspace to use this and the other PmagPy jupyter notebooks.</p></li>
-<li><p>Alternatively, you can  put this notebook in a working directory on your own laptop.  You would then have to install Python and the  PmagPy software package on your computer (if you have not already done so).  The instructions for that are here: <a class="reference external" href="https://earthref.org/PmagPy/cookbook/">https://earthref.org/PmagPy/cookbook/</a>.  Follow  the instructions for  “Full PmagPy install and update” through section 1.4 (Quickstart with PmagPy notebooks).  This notebook is in  the collection of PmagPy notebooks.</p></li>
+<li><p>Alternatively, you can  put this notebook in a working directory on your own laptop.  You would then have to install Python and the  PmagPy software package on your computer (if you have not already done so).  The instructions for that are here: <a class="reference external" href="https://pmagpy.github.io/PmagPy-docs/installation/PmagPy_install.html">https://pmagpy.github.io/PmagPy-docs/installation/PmagPy_install.html</a>.  Follow  the instructions for  “Full PmagPy install and update” through section 1.4 (Quickstart with PmagPy notebooks).  This notebook is in  the collection of PmagPy notebooks.</p></li>
 <li><p>Click on the cell below and then click on ‘Run’ from the menu above to import the desired functionality</p></li>
 </ul>
 <div class="cell docutils container">
@@ -471,12 +523,12 @@
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># set up the directory structure for this notebook, if not already present:</span>
 <span class="n">dirs</span><span class="o">=</span><span class="n">os</span><span class="o">.</span><span class="n">listdir</span><span class="p">()</span> <span class="c1"># get a list of directories in this one</span>
-<span class="k">if</span> <span class="s1">&#39;MagIC_example_1&#39;</span> <span class="ow">not</span> <span class="ow">in</span> <span class="n">dirs</span><span class="p">:</span>
-    <span class="n">os</span><span class="o">.</span><span class="n">mkdir</span><span class="p">(</span><span class="s2">&quot;MagIC_example_1&quot;</span><span class="p">)</span>
-<span class="k">if</span> <span class="s1">&#39;MagIC_example_2&#39;</span> <span class="ow">not</span> <span class="ow">in</span> <span class="n">dirs</span><span class="p">:</span>
-    <span class="n">os</span><span class="o">.</span><span class="n">mkdir</span><span class="p">(</span><span class="s2">&quot;MagIC_example_2&quot;</span><span class="p">)</span>
-<span class="k">if</span> <span class="s1">&#39;MagIC_example_3&#39;</span> <span class="ow">not</span> <span class="ow">in</span> <span class="n">dirs</span><span class="p">:</span>
-    <span class="n">os</span><span class="o">.</span><span class="n">mkdir</span><span class="p">(</span><span class="s2">&quot;MagIC_example_3&quot;</span><span class="p">)</span>
+<span class="k">if</span> <span class="s1">'MagIC_example_1'</span> <span class="ow">not</span> <span class="ow">in</span> <span class="n">dirs</span><span class="p">:</span>
+    <span class="n">os</span><span class="o">.</span><span class="n">mkdir</span><span class="p">(</span><span class="s2">"MagIC_example_1"</span><span class="p">)</span>
+<span class="k">if</span> <span class="s1">'MagIC_example_2'</span> <span class="ow">not</span> <span class="ow">in</span> <span class="n">dirs</span><span class="p">:</span>
+    <span class="n">os</span><span class="o">.</span><span class="n">mkdir</span><span class="p">(</span><span class="s2">"MagIC_example_2"</span><span class="p">)</span>
+<span class="k">if</span> <span class="s1">'MagIC_example_3'</span> <span class="ow">not</span> <span class="ow">in</span> <span class="n">dirs</span><span class="p">:</span>
+    <span class="n">os</span><span class="o">.</span><span class="n">mkdir</span><span class="p">(</span><span class="s2">"MagIC_example_3"</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -531,7 +583,7 @@ download_magic_from_id(con_id)
     ---------
     result : bool
     message : str
-        Error message if download didn&#39;t succeed
+        Error message if download didn't succeed
 </pre></div>
 </div>
 </div>
@@ -539,11 +591,11 @@ download_magic_from_id(con_id)
 <p>Let’s try the contribution ID way first:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">dir_path</span><span class="o">=</span><span class="s1">&#39;MagIC_example_1&#39;</span> <span class="c1"># set the path to the correct working directory</span>
-<span class="n">magic_id</span><span class="o">=</span><span class="s1">&#39;16676&#39;</span> <span class="c1"># set the magic ID number</span>
-<span class="n">magic_contribution</span><span class="o">=</span><span class="s1">&#39;magic_contribution_&#39;</span><span class="o">+</span><span class="n">magic_id</span><span class="o">+</span><span class="s1">&#39;.txt&#39;</span> <span class="c1"># set the file name string</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">dir_path</span><span class="o">=</span><span class="s1">'MagIC_example_1'</span> <span class="c1"># set the path to the correct working directory</span>
+<span class="n">magic_id</span><span class="o">=</span><span class="s1">'16676'</span> <span class="c1"># set the magic ID number</span>
+<span class="n">magic_contribution</span><span class="o">=</span><span class="s1">'magic_contribution_'</span><span class="o">+</span><span class="n">magic_id</span><span class="o">+</span><span class="s1">'.txt'</span> <span class="c1"># set the file name string</span>
 <span class="n">ipmag</span><span class="o">.</span><span class="n">download_magic_from_id</span><span class="p">(</span><span class="n">magic_id</span><span class="p">)</span> <span class="c1"># download the contribution from MagIC</span>
-<span class="n">os</span><span class="o">.</span><span class="n">rename</span><span class="p">(</span><span class="n">magic_contribution</span><span class="p">,</span> <span class="n">dir_path</span><span class="o">+</span><span class="s1">&#39;/&#39;</span><span class="o">+</span><span class="n">magic_contribution</span><span class="p">)</span> <span class="c1"># move the contribution to the directory</span>
+<span class="n">os</span><span class="o">.</span><span class="n">rename</span><span class="p">(</span><span class="n">magic_contribution</span><span class="p">,</span> <span class="n">dir_path</span><span class="o">+</span><span class="s1">'/'</span><span class="o">+</span><span class="n">magic_contribution</span><span class="p">)</span> <span class="c1"># move the contribution to the directory</span>
 <span class="n">ipmag</span><span class="o">.</span><span class="n">download_magic</span><span class="p">(</span><span class="n">magic_contribution</span><span class="p">,</span><span class="n">dir_path</span><span class="o">=</span><span class="n">dir_path</span><span class="p">,</span><span class="n">print_progress</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span> <span class="c1"># unpack the file</span>
 </pre></div>
 </div>
@@ -567,11 +619,11 @@ download_magic_from_id(con_id)
 <p>Now let’s try to do this with the API for DOIs:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">dir_path</span><span class="o">=</span><span class="s1">&#39;MagIC_example_1&#39;</span> <span class="c1"># set the path to the correct working directory</span>
-<span class="n">reference_doi</span><span class="o">=</span><span class="s1">&#39;10.1029/2019GC008479&#39;</span>
-<span class="n">magic_contribution</span><span class="o">=</span><span class="s1">&#39;magic_contribution.txt&#39;</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">dir_path</span><span class="o">=</span><span class="s1">'MagIC_example_1'</span> <span class="c1"># set the path to the correct working directory</span>
+<span class="n">reference_doi</span><span class="o">=</span><span class="s1">'10.1029/2019GC008479'</span>
+<span class="n">magic_contribution</span><span class="o">=</span><span class="s1">'magic_contribution.txt'</span>
 <span class="n">ipmag</span><span class="o">.</span><span class="n">download_magic_from_doi</span><span class="p">(</span><span class="n">reference_doi</span><span class="p">)</span>
-<span class="n">os</span><span class="o">.</span><span class="n">rename</span><span class="p">(</span><span class="n">magic_contribution</span><span class="p">,</span> <span class="n">dir_path</span><span class="o">+</span><span class="s1">&#39;/&#39;</span><span class="o">+</span><span class="n">magic_contribution</span><span class="p">)</span>
+<span class="n">os</span><span class="o">.</span><span class="n">rename</span><span class="p">(</span><span class="n">magic_contribution</span><span class="p">,</span> <span class="n">dir_path</span><span class="o">+</span><span class="s1">'/'</span><span class="o">+</span><span class="n">magic_contribution</span><span class="p">)</span>
 <span class="n">ipmag</span><span class="o">.</span><span class="n">download_magic</span><span class="p">(</span><span class="n">magic_contribution</span><span class="p">,</span><span class="n">dir_path</span><span class="o">=</span><span class="n">dir_path</span><span class="p">,</span><span class="n">print_progress</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
 </pre></div>
 </div>
@@ -610,27 +662,27 @@ download_magic_from_id(con_id)
 <div class="cell_output docutils container">
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Help on function eqarea_magic in module pmagpy.ipmag:
 
-eqarea_magic(in_file=&#39;sites.txt&#39;, dir_path=&#39;.&#39;, input_dir_path=&#39;&#39;, spec_file=&#39;specimens.txt&#39;, samp_file=&#39;samples.txt&#39;, site_file=&#39;sites.txt&#39;, loc_file=&#39;locations.txt&#39;, plot_by=&#39;all&#39;, crd=&#39;g&#39;, ignore_tilt=False, save_plots=True, fmt=&#39;svg&#39;, contour=False, color_map=&#39;coolwarm&#39;, plot_ell=&#39;&#39;, n_plots=5, interactive=False, contribution=None, source_table=&#39;sites&#39;, image_records=False)
+eqarea_magic(in_file='sites.txt', dir_path='.', input_dir_path='', spec_file='specimens.txt', samp_file='samples.txt', site_file='sites.txt', loc_file='locations.txt', plot_by='all', crd='g', ignore_tilt=False, save_plots=True, fmt='svg', contour=False, color_map='coolwarm', plot_ell='', n_plots=5, interactive=False, contribution=None, source_table='sites', image_records=False)
     makes equal area projections from declination/inclination data
     
     Parameters
     ----------
-    in_file : str, default &quot;sites.txt&quot;
+    in_file : str, default "sites.txt"
     dir_path : str
-        output directory, default &quot;.&quot;
+        output directory, default "."
     input_dir_path : str
-        input file directory (if different from dir_path), default &quot;&quot;
+        input file directory (if different from dir_path), default ""
     spec_file : str
-        input specimen file name, default &quot;specimens.txt&quot;
+        input specimen file name, default "specimens.txt"
     samp_file: str
-        input sample file name, default &quot;samples.txt&quot;
+        input sample file name, default "samples.txt"
     site_file : str
-        input site file name, default &quot;sites.txt&quot;
+        input site file name, default "sites.txt"
     loc_file : str
-        input location file name, default &quot;locations.txt&quot;
+        input location file name, default "locations.txt"
     plot_by : str
-        [spc, sam, sit, loc, all] (specimen, sample, site, location, all), default &quot;all&quot;
-    crd : [&#39;s&#39;,&#39;g&#39;,&#39;t&#39;], coordinate system for plotting whereby:
+        [spc, sam, sit, loc, all] (specimen, sample, site, location, all), default "all"
+    crd : ['s','g','t'], coordinate system for plotting whereby:
         s : specimen coordinates, aniso_tile_correction = -1
         g : geographic coordinates, aniso_tile_correction = 0 (default)
         t : tilt corrected coordinates, aniso_tile_correction = 100
@@ -639,18 +691,18 @@ eqarea_magic(in_file=&#39;sites.txt&#39;, dir_path=&#39;.&#39;, input_dir_path=&
     save_plots : bool
         plot and save non-interactively, default True
     fmt : str
-        [&quot;png&quot;, &quot;svg&quot;, &quot;pdf&quot;, &quot;jpg&quot;], default &quot;svg&quot;
+        ["png", "svg", "pdf", "jpg"], default "svg"
     contour : bool
         plot as color contour
     colormap : str
-        color map for contour plotting, default &quot;coolwarm&quot;
+        color map for contour plotting, default "coolwarm"
         see cartopy documentation for more options
     plot_ell : str
         [F,K,B,Be,Bv] plot Fisher, Kent, Bingham, Bootstrap ellipses or Bootstrap eigenvectors
-        default &quot;&quot; plots none
+        default "" plots none
     n_plots : int
         maximum number of plots to make, default 5
-        if you want to make all possible plots, specify &quot;all&quot;
+        if you want to make all possible plots, specify "all"
     interactive : bool, default False
         interactively plot and display for each specimen
         (this is best used on the command line or in the Python interpreter)
@@ -658,9 +710,9 @@ eqarea_magic(in_file=&#39;sites.txt&#39;, dir_path=&#39;.&#39;, input_dir_path=&
         if provided, use Contribution object instead of reading in
         data from files
     source_table : table to get plot data from (only needed with contribution argument)
-        for example, you could specify source_table=&quot;measurements&quot; and plot_by=&quot;sites&quot;
+        for example, you could specify source_table="measurements" and plot_by="sites"
         to plot measurement data by site.
-        default &quot;sites&quot;
+        default "sites"
     image_records : generate and return a record for each image in a list of dicts
         which can be ingested by pmag.magic_write
         bool, default False
@@ -714,32 +766,32 @@ All
 <div class="cell_output docutils container">
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Help on function vgpmap_magic in module pmagpy.ipmag:
 
-vgpmap_magic(dir_path=&#39;.&#39;, results_file=&#39;sites.txt&#39;, crd=&#39;&#39;, sym=&#39;ro&#39;, size=8, rsym=&#39;g^&#39;, rsize=8, fmt=&#39;pdf&#39;, res=&#39;c&#39;, proj=&#39;ortho&#39;, flip=False, anti=False, fancy=False, ell=False, ages=False, lat_0=0, lon_0=0, save_plots=True, interactive=False, contribution=None, image_records=False)
+vgpmap_magic(dir_path='.', results_file='sites.txt', crd='', sym='ro', size=8, rsym='g^', rsize=8, fmt='pdf', res='c', proj='ortho', flip=False, anti=False, fancy=False, ell=False, ages=False, lat_0=0, lon_0=0, save_plots=True, interactive=False, contribution=None, image_records=False)
     makes a map of vgps and a95/dp,dm for site means in a sites table
     
     Parameters
     ----------
-    dir_path : str, default &quot;.&quot;
+    dir_path : str, default "."
         input directory path
-    results_file : str, default &quot;sites.txt&quot;
+    results_file : str, default "sites.txt"
         name of MagIC format sites file
-    crd : str, default &quot;&quot;
+    crd : str, default ""
        coordinate system [g, t] (geographic, tilt_corrected)
-    sym : str, default &quot;ro&quot;
+    sym : str, default "ro"
         symbol color and shape, default red circles
         (see matplotlib documentation for more color/shape options)
     size : int, default 8
         symbol size
-    rsym : str, default &quot;g^&quot;
+    rsym : str, default "g^"
         symbol for plotting reverse poles
         (see matplotlib documentation for more color/shape options)
     rsize : int, default 8
         symbol size for reverse poles
-    fmt : str, default &quot;pdf&quot;
-        format for figures, [&quot;svg&quot;, &quot;jpg&quot;, &quot;pdf&quot;, &quot;png&quot;]
-    res : str, default &quot;c&quot;
+    fmt : str, default "pdf"
+        format for figures, ["svg", "jpg", "pdf", "png"]
+    res : str, default "c"
         resolution [c, l, i, h] (crude, low, intermediate, high)
-    proj : str, default &quot;ortho&quot;
+    proj : str, default "ortho"
         ortho = orthographic
         lcc = lambert conformal
         moll = molweide
@@ -778,13 +830,13 @@ vgpmap_magic(dir_path=&#39;.&#39;, results_file=&#39;sites.txt&#39;, crd=&#39;&#
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">dir_path</span><span class="o">=</span><span class="s1">&#39;MagIC_example_1&#39;</span> <span class="c1"># set the path to your working directory</span>
-<span class="n">ipmag</span><span class="o">.</span><span class="n">vgpmap_magic</span><span class="p">(</span><span class="n">dir_path</span><span class="o">=</span><span class="n">dir_path</span><span class="p">,</span><span class="n">size</span><span class="o">=</span><span class="mi">50</span><span class="p">,</span><span class="n">flip</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span><span class="n">save_plots</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span><span class="n">lat_0</span><span class="o">=</span><span class="mi">60</span><span class="p">,</span><span class="n">rsym</span><span class="o">=</span><span class="s1">&#39;b^&#39;</span><span class="p">,</span><span class="n">rsize</span><span class="o">=</span><span class="mi">50</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">dir_path</span><span class="o">=</span><span class="s1">'MagIC_example_1'</span> <span class="c1"># set the path to your working directory</span>
+<span class="n">ipmag</span><span class="o">.</span><span class="n">vgpmap_magic</span><span class="p">(</span><span class="n">dir_path</span><span class="o">=</span><span class="n">dir_path</span><span class="p">,</span><span class="n">size</span><span class="o">=</span><span class="mi">50</span><span class="p">,</span><span class="n">flip</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span><span class="n">save_plots</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span><span class="n">lat_0</span><span class="o">=</span><span class="mi">60</span><span class="p">,</span><span class="n">rsym</span><span class="o">=</span><span class="s1">'b^'</span><span class="p">,</span><span class="n">rsize</span><span class="o">=</span><span class="mi">50</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&#39;table_column&#39; &lt;class &#39;KeyError&#39;&gt;
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>'table_column' &lt;class 'KeyError'&gt;
 -W- File /Users/ltauxe/Meetings_2020/MagIC_Workshop/MagIC_example_1/criteria.txt is missing required information
 </pre></div>
 </div>
@@ -806,7 +858,7 @@ vgpmap_magic(dir_path=&#39;.&#39;, results_file=&#39;sites.txt&#39;, crd=&#39;&#
 <div class="cell_output docutils container">
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Help on function reversal_test_bootstrap in module pmagpy.ipmag:
 
-reversal_test_bootstrap(dec=None, inc=None, di_block=None, plot_stereo=False, save=False, save_folder=&#39;.&#39;, fmt=&#39;svg&#39;)
+reversal_test_bootstrap(dec=None, inc=None, di_block=None, plot_stereo=False, save=False, save_folder='.', fmt='svg')
     Conduct a reversal test using bootstrap statistics (Tauxe, 2010) to
     determine whether two populations of directions could be from an antipodal
     common mean.
@@ -823,8 +875,8 @@ reversal_test_bootstrap(dec=None, inc=None, di_block=None, plot_stereo=False, sa
     plot_stereo : before plotting the CDFs, plot stereonet with the
         bidirectionally separated data (default is False)
     save : boolean argument to save plots (default is False)
-    save_folder : directory where plots will be saved (default is current directory, &#39;.&#39;)
-    fmt : format of saved figures (default is &#39;svg&#39;)
+    save_folder : directory where plots will be saved (default is current directory, '.')
+    fmt : format of saved figures (default is 'svg')
     
     Returns
     -------
@@ -856,8 +908,8 @@ reversal_test_bootstrap(dec=None, inc=None, di_block=None, plot_stereo=False, sa
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># read in the data into a Pandas DataFrame</span>
-<span class="n">dir_path</span><span class="o">=</span><span class="s1">&#39;MagIC_example_1&#39;</span> <span class="c1"># set the path to your working directory</span>
-<span class="n">sites_df</span><span class="o">=</span><span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="n">dir_path</span><span class="o">+</span><span class="s1">&#39;/sites.txt&#39;</span><span class="p">,</span><span class="n">sep</span><span class="o">=</span><span class="s1">&#39;</span><span class="se">\t</span><span class="s1">&#39;</span><span class="p">,</span><span class="n">header</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+<span class="n">dir_path</span><span class="o">=</span><span class="s1">'MagIC_example_1'</span> <span class="c1"># set the path to your working directory</span>
+<span class="n">sites_df</span><span class="o">=</span><span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="n">dir_path</span><span class="o">+</span><span class="s1">'/sites.txt'</span><span class="p">,</span><span class="n">sep</span><span class="o">=</span><span class="s1">'</span><span class="se">\t</span><span class="s1">'</span><span class="p">,</span><span class="n">header</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
 <span class="c1"># pick out the declinations and inclinations</span>
 <span class="n">decs</span><span class="o">=</span><span class="n">sites_df</span><span class="o">.</span><span class="n">dir_dec</span><span class="o">.</span><span class="n">values</span>
 <span class="n">incs</span><span class="o">=</span><span class="n">sites_df</span><span class="o">.</span><span class="n">dir_inc</span><span class="o">.</span><span class="n">values</span>
@@ -935,8 +987,8 @@ plot_map(fignum, lats, lons, Opts)
             padlon : padding of longitudes
             gridspace : grid line spacing
             global : global projection [default is True]
-            oceancolor : &#39;azure&#39;
-            landcolor : &#39;bisque&#39; [choose any of the valid color names for matplotlib
+            oceancolor : 'azure'
+            landcolor : 'bisque' [choose any of the valid color names for matplotlib
               see https://matplotlib.org/examples/color/named_colors.html
             details : dictionary with keys:
                 coasts : if True, plot coastlines
@@ -948,7 +1000,7 @@ plot_map(fignum, lats, lons, Opts)
                 fancy : if True, plot etopo 20 grid
                     NB:  etopo must be installed
         if Opts keys not set :these are the defaults:
-           Opts={&#39;latmin&#39;:-90,&#39;latmax&#39;:90,&#39;lonmin&#39;:0,&#39;lonmax&#39;:360,&#39;lat_0&#39;:0,&#39;lon_0&#39;:0,&#39;proj&#39;:&#39;moll&#39;,&#39;sym&#39;:&#39;ro,&#39;symsize&#39;:5,&#39;edge&#39;:&#39;black&#39;,&#39;pltgrid&#39;:1,&#39;res&#39;:&#39;c&#39;,&#39;boundinglat&#39;:0.,&#39;padlon&#39;:0,&#39;padlat&#39;:0,&#39;gridspace&#39;:30,&#39;details&#39;:all False,&#39;edge&#39;:None,&#39;cmap&#39;:&#39;jet&#39;,&#39;fancy&#39;:0,&#39;zone&#39;:&#39;&#39;,&#39;south&#39;:False,&#39;oceancolor&#39;:&#39;azure&#39;,&#39;landcolor&#39;:&#39;bisque&#39;}
+           Opts={'latmin':-90,'latmax':90,'lonmin':0,'lonmax':360,'lat_0':0,'lon_0':0,'proj':'moll','sym':'ro,'symsize':5,'edge':'black','pltgrid':1,'res':'c','boundinglat':0.,'padlon':0,'padlat':0,'gridspace':30,'details':all False,'edge':None,'cmap':'jet','fancy':0,'zone':'','south':False,'oceancolor':'azure','landcolor':'bisque'}
 </pre></div>
 </div>
 </div>
@@ -956,31 +1008,31 @@ plot_map(fignum, lats, lons, Opts)
 <p>NB: the most recent PmagPy version fixes the scale issue - but it is SLOW at high resolution… so set Opts[‘res’] to ‘c’ for crude for a quick look.  if you want to be dazzled - set it to ‘h’ but be prepared to wait for a while…  ‘i’ for intermediate is probably good enough for most purposes (50m resolution)</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">dir_path</span><span class="o">=</span><span class="s1">&#39;MagIC_example_1&#39;</span> <span class="c1"># set the path to your working directory</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">dir_path</span><span class="o">=</span><span class="s1">'MagIC_example_1'</span> <span class="c1"># set the path to your working directory</span>
 <span class="c1"># read in the data file:</span>
-<span class="n">site_df</span><span class="o">=</span><span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="n">dir_path</span><span class="o">+</span><span class="s1">&#39;/sites.txt&#39;</span><span class="p">,</span><span class="n">sep</span><span class="o">=</span><span class="s1">&#39;</span><span class="se">\t</span><span class="s1">&#39;</span><span class="p">,</span><span class="n">header</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+<span class="n">site_df</span><span class="o">=</span><span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="n">dir_path</span><span class="o">+</span><span class="s1">'/sites.txt'</span><span class="p">,</span><span class="n">sep</span><span class="o">=</span><span class="s1">'</span><span class="se">\t</span><span class="s1">'</span><span class="p">,</span><span class="n">header</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
 <span class="c1"># pick out the longitudes and latitudes</span>
-<span class="n">lons</span><span class="o">=</span><span class="n">site_df</span><span class="p">[</span><span class="s1">&#39;lon&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">values</span>
-<span class="n">lats</span><span class="o">=</span><span class="n">site_df</span><span class="p">[</span><span class="s1">&#39;lat&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">values</span>
+<span class="n">lons</span><span class="o">=</span><span class="n">site_df</span><span class="p">[</span><span class="s1">'lon'</span><span class="p">]</span><span class="o">.</span><span class="n">values</span>
+<span class="n">lats</span><span class="o">=</span><span class="n">site_df</span><span class="p">[</span><span class="s1">'lat'</span><span class="p">]</span><span class="o">.</span><span class="n">values</span>
 <span class="c1"># set some options</span>
 <span class="n">Opts</span><span class="o">=</span><span class="p">{}</span>
-<span class="n">Opts</span><span class="p">[</span><span class="s1">&#39;sym&#39;</span><span class="p">]</span><span class="o">=</span><span class="s1">&#39;r*&#39;</span> <span class="c1"># sets the symbol to white dots</span>
-<span class="n">Opts</span><span class="p">[</span><span class="s1">&#39;symsize&#39;</span><span class="p">]</span><span class="o">=</span><span class="mi">100</span> <span class="c1"># sets symbol size to 3 pts</span>
-<span class="n">Opts</span><span class="p">[</span><span class="s1">&#39;proj&#39;</span><span class="p">]</span><span class="o">=</span><span class="s1">&#39;lcc&#39;</span> <span class="c1"># Lambert Conformal projection</span>
-<span class="n">Opts</span><span class="p">[</span><span class="s1">&#39;pltgrid&#39;</span><span class="p">]</span><span class="o">=</span><span class="kc">True</span>
-<span class="n">Opts</span><span class="p">[</span><span class="s1">&#39;lat_0&#39;</span><span class="p">]</span><span class="o">=</span><span class="mi">33</span>
-<span class="n">Opts</span><span class="p">[</span><span class="s1">&#39;lon_0&#39;</span><span class="p">]</span><span class="o">=</span><span class="mi">35</span>
-<span class="n">Opts</span><span class="p">[</span><span class="s1">&#39;latmin&#39;</span><span class="p">]</span><span class="o">=</span><span class="mi">29</span>
-<span class="n">Opts</span><span class="p">[</span><span class="s1">&#39;latmax&#39;</span><span class="p">]</span><span class="o">=</span><span class="mi">35</span>
-<span class="n">Opts</span><span class="p">[</span><span class="s1">&#39;lonmin&#39;</span><span class="p">]</span><span class="o">=</span><span class="mi">32</span>
-<span class="n">Opts</span><span class="p">[</span><span class="s1">&#39;lonmax&#39;</span><span class="p">]</span><span class="o">=</span><span class="mi">37</span>
-<span class="n">Opts</span><span class="p">[</span><span class="s1">&#39;gridspace&#39;</span><span class="p">]</span><span class="o">=</span><span class="mi">1</span>
-<span class="n">Opts</span><span class="p">[</span><span class="s1">&#39;details&#39;</span><span class="p">]</span><span class="o">=</span><span class="p">{}</span>
-<span class="n">Opts</span><span class="p">[</span><span class="s1">&#39;details&#39;</span><span class="p">][</span><span class="s1">&#39;coasts&#39;</span><span class="p">]</span><span class="o">=</span><span class="kc">True</span>
-<span class="n">Opts</span><span class="p">[</span><span class="s1">&#39;details&#39;</span><span class="p">][</span><span class="s1">&#39;ocean&#39;</span><span class="p">]</span><span class="o">=</span><span class="kc">True</span>
-<span class="n">Opts</span><span class="p">[</span><span class="s1">&#39;details&#39;</span><span class="p">][</span><span class="s1">&#39;countries&#39;</span><span class="p">]</span><span class="o">=</span><span class="kc">True</span>
-<span class="n">Opts</span><span class="p">[</span><span class="s1">&#39;global&#39;</span><span class="p">]</span><span class="o">=</span><span class="kc">False</span>
-<span class="n">Opts</span><span class="p">[</span><span class="s1">&#39;res&#39;</span><span class="p">]</span><span class="o">=</span><span class="s1">&#39;i&#39;</span>
+<span class="n">Opts</span><span class="p">[</span><span class="s1">'sym'</span><span class="p">]</span><span class="o">=</span><span class="s1">'r*'</span> <span class="c1"># sets the symbol to white dots</span>
+<span class="n">Opts</span><span class="p">[</span><span class="s1">'symsize'</span><span class="p">]</span><span class="o">=</span><span class="mi">100</span> <span class="c1"># sets symbol size to 3 pts</span>
+<span class="n">Opts</span><span class="p">[</span><span class="s1">'proj'</span><span class="p">]</span><span class="o">=</span><span class="s1">'lcc'</span> <span class="c1"># Lambert Conformal projection</span>
+<span class="n">Opts</span><span class="p">[</span><span class="s1">'pltgrid'</span><span class="p">]</span><span class="o">=</span><span class="kc">True</span>
+<span class="n">Opts</span><span class="p">[</span><span class="s1">'lat_0'</span><span class="p">]</span><span class="o">=</span><span class="mi">33</span>
+<span class="n">Opts</span><span class="p">[</span><span class="s1">'lon_0'</span><span class="p">]</span><span class="o">=</span><span class="mi">35</span>
+<span class="n">Opts</span><span class="p">[</span><span class="s1">'latmin'</span><span class="p">]</span><span class="o">=</span><span class="mi">29</span>
+<span class="n">Opts</span><span class="p">[</span><span class="s1">'latmax'</span><span class="p">]</span><span class="o">=</span><span class="mi">35</span>
+<span class="n">Opts</span><span class="p">[</span><span class="s1">'lonmin'</span><span class="p">]</span><span class="o">=</span><span class="mi">32</span>
+<span class="n">Opts</span><span class="p">[</span><span class="s1">'lonmax'</span><span class="p">]</span><span class="o">=</span><span class="mi">37</span>
+<span class="n">Opts</span><span class="p">[</span><span class="s1">'gridspace'</span><span class="p">]</span><span class="o">=</span><span class="mi">1</span>
+<span class="n">Opts</span><span class="p">[</span><span class="s1">'details'</span><span class="p">]</span><span class="o">=</span><span class="p">{}</span>
+<span class="n">Opts</span><span class="p">[</span><span class="s1">'details'</span><span class="p">][</span><span class="s1">'coasts'</span><span class="p">]</span><span class="o">=</span><span class="kc">True</span>
+<span class="n">Opts</span><span class="p">[</span><span class="s1">'details'</span><span class="p">][</span><span class="s1">'ocean'</span><span class="p">]</span><span class="o">=</span><span class="kc">True</span>
+<span class="n">Opts</span><span class="p">[</span><span class="s1">'details'</span><span class="p">][</span><span class="s1">'countries'</span><span class="p">]</span><span class="o">=</span><span class="kc">True</span>
+<span class="n">Opts</span><span class="p">[</span><span class="s1">'global'</span><span class="p">]</span><span class="o">=</span><span class="kc">False</span>
+<span class="n">Opts</span><span class="p">[</span><span class="s1">'res'</span><span class="p">]</span><span class="o">=</span><span class="s1">'i'</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="mi">1</span><span class="p">,(</span><span class="mi">10</span><span class="p">,</span><span class="mi">10</span><span class="p">))</span> <span class="c1"># optional - make a map</span>
 
 <span class="n">pmagplotlib</span><span class="o">.</span><span class="n">plot_map</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="n">lats</span><span class="p">,</span> <span class="n">lons</span><span class="p">,</span> <span class="n">Opts</span><span class="p">)</span>
@@ -1048,7 +1100,7 @@ pinc(lat)
 <div class="cell_output docutils container">
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Help on function igrf in module pmagpy.ipmag:
 
-igrf(input_list, mod=&#39;&#39;, ghfile=&#39;&#39;)
+igrf(input_list, mod='', ghfile='')
     Determine Declination, Inclination and Intensity from the IGRF model.
     (http://www.ngdc.noaa.gov/IAGA/vmod/igrf.html)
     
@@ -1058,10 +1110,10 @@ igrf(input_list, mod=&#39;&#39;, ghfile=&#39;&#39;)
         date must be in decimal year format XXXX.XXXX (Common Era)
         altitude is in kilometers
     mod :  desired model
-        &quot;&quot; : Use the IGRF
+        "" : Use the IGRF
         custom : use values supplied in ghfile
         or choose from this list
-        [&#39;arch3k&#39;,&#39;cals3k&#39;,&#39;pfm9k&#39;,&#39;hfm10k&#39;,&#39;cals10k.2&#39;,&#39;cals10k.1b&#39;]
+        ['arch3k','cals3k','pfm9k','hfm10k','cals10k.2','cals10k.1b']
         where:
             arch3k (Korte et al., 2009)
             cals3k (Korte and Constable, 2011)
@@ -1110,7 +1162,7 @@ Intensity: 46239.890 nT
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">mod</span><span class="o">=</span><span class="s1">&#39;cals10k.2&#39;</span> <span class="c1"># set model to Constable et al. (2016) cals10k.2</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">mod</span><span class="o">=</span><span class="s1">'cals10k.2'</span> <span class="c1"># set model to Constable et al. (2016) cals10k.2</span>
 <span class="n">lat</span><span class="p">,</span><span class="n">lon</span><span class="p">,</span><span class="n">alt</span><span class="o">=</span><span class="mi">33</span><span class="p">,</span><span class="o">-</span><span class="mi">117</span><span class="p">,</span><span class="mi">0</span>  <span class="c1"># set location information</span>
 <span class="n">gad_inc</span><span class="o">=</span><span class="n">pmag</span><span class="o">.</span><span class="n">pinc</span><span class="p">(</span><span class="n">lat</span><span class="p">)</span> <span class="c1"># get the GAD inclination at the latitude</span>
 <span class="n">dates</span><span class="o">=</span><span class="nb">range</span><span class="p">(</span><span class="o">-</span><span class="mi">8000</span><span class="p">,</span><span class="mi">2050</span><span class="p">,</span><span class="mi">50</span><span class="p">)</span> <span class="c1"># get a list of desired dates</span>
@@ -1118,22 +1170,22 @@ Intensity: 46239.890 nT
 <span class="k">for</span> <span class="n">d</span> <span class="ow">in</span> <span class="n">dates</span><span class="p">:</span> <span class="c1"># step through the date list</span>
     <span class="n">local</span><span class="o">=</span><span class="n">ipmag</span><span class="o">.</span><span class="n">igrf</span><span class="p">([</span><span class="n">d</span><span class="p">,</span> <span class="n">alt</span><span class="p">,</span> <span class="n">lat</span><span class="p">,</span> <span class="n">lon</span><span class="p">],</span><span class="n">mod</span><span class="o">=</span><span class="n">mod</span><span class="p">)</span> <span class="c1"># get the vector at that place and time</span>
     <span class="n">local_vectors</span><span class="o">.</span><span class="n">append</span><span class="p">([</span><span class="n">d</span><span class="p">,</span><span class="n">local</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span><span class="n">local</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span><span class="n">local</span><span class="p">[</span><span class="mi">2</span><span class="p">]])</span> <span class="c1"># append it to the container of field vectors</span>
-<span class="n">df</span><span class="o">=</span><span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">local_vectors</span><span class="p">,</span><span class="n">columns</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;Date&#39;</span><span class="p">,</span><span class="s1">&#39;Dec&#39;</span><span class="p">,</span><span class="s1">&#39;Inc&#39;</span><span class="p">,</span><span class="s1">&#39;B_nT&#39;</span><span class="p">])</span> <span class="c1"># make a Pandas DataFrame</span>
-<span class="n">df</span><span class="p">[</span><span class="s1">&#39;B_uT&#39;</span><span class="p">]</span><span class="o">=</span><span class="n">df</span><span class="p">[</span><span class="s1">&#39;B_nT&#39;</span><span class="p">]</span><span class="o">*</span><span class="mf">1e-3</span> <span class="c1"># convert from nanotesla to microtesla</span>
-<span class="n">df</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="n">df</span><span class="p">[</span><span class="s1">&#39;Dec&#39;</span><span class="p">]</span><span class="o">&gt;</span><span class="mi">180</span><span class="p">,</span><span class="s1">&#39;Dec&#39;</span><span class="p">]</span><span class="o">=</span><span class="n">df</span><span class="p">[</span><span class="s1">&#39;Dec&#39;</span><span class="p">]</span><span class="o">-</span><span class="mf">360.</span> <span class="c1"># make declinations centered around 0 </span>
+<span class="n">df</span><span class="o">=</span><span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">local_vectors</span><span class="p">,</span><span class="n">columns</span><span class="o">=</span><span class="p">[</span><span class="s1">'Date'</span><span class="p">,</span><span class="s1">'Dec'</span><span class="p">,</span><span class="s1">'Inc'</span><span class="p">,</span><span class="s1">'B_nT'</span><span class="p">])</span> <span class="c1"># make a Pandas DataFrame</span>
+<span class="n">df</span><span class="p">[</span><span class="s1">'B_uT'</span><span class="p">]</span><span class="o">=</span><span class="n">df</span><span class="p">[</span><span class="s1">'B_nT'</span><span class="p">]</span><span class="o">*</span><span class="mf">1e-3</span> <span class="c1"># convert from nanotesla to microtesla</span>
+<span class="n">df</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="n">df</span><span class="p">[</span><span class="s1">'Dec'</span><span class="p">]</span><span class="o">&gt;</span><span class="mi">180</span><span class="p">,</span><span class="s1">'Dec'</span><span class="p">]</span><span class="o">=</span><span class="n">df</span><span class="p">[</span><span class="s1">'Dec'</span><span class="p">]</span><span class="o">-</span><span class="mf">360.</span> <span class="c1"># make declinations centered around 0 </span>
 <span class="n">fig</span><span class="o">=</span><span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="mi">1</span><span class="p">,(</span><span class="mi">8</span><span class="p">,</span><span class="mi">8</span><span class="p">))</span> <span class="c1"># make a figure object</span>
 <span class="n">ax1</span><span class="o">=</span><span class="n">fig</span><span class="o">.</span><span class="n">add_subplot</span><span class="p">(</span><span class="mi">311</span><span class="p">)</span> <span class="c1"># add subplots (3 rows, one column, plot 1)</span>
 <span class="n">ax2</span><span class="o">=</span><span class="n">fig</span><span class="o">.</span><span class="n">add_subplot</span><span class="p">(</span><span class="mi">312</span><span class="p">)</span> <span class="c1"># plot 2</span>
 <span class="n">ax3</span><span class="o">=</span><span class="n">fig</span><span class="o">.</span><span class="n">add_subplot</span><span class="p">(</span><span class="mi">313</span><span class="p">)</span> <span class="c1"># plot 3</span>
-<span class="n">ax1</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">df</span><span class="p">[</span><span class="s1">&#39;Date&#39;</span><span class="p">],</span><span class="n">df</span><span class="p">[</span><span class="s1">&#39;Dec&#39;</span><span class="p">])</span> <span class="c1"># plot declination against date</span>
-<span class="n">ax1</span><span class="o">.</span><span class="n">axhline</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="n">color</span><span class="o">=</span><span class="s1">&#39;black&#39;</span><span class="p">,</span><span class="n">linestyle</span><span class="o">=</span><span class="s1">&#39;dotted&#39;</span><span class="p">)</span> <span class="c1"># make a horizontal black line at 0</span>
-<span class="n">ax2</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">df</span><span class="p">[</span><span class="s1">&#39;Date&#39;</span><span class="p">],</span><span class="n">df</span><span class="p">[</span><span class="s1">&#39;Inc&#39;</span><span class="p">])</span> <span class="c1"># plot inclination against date</span>
-<span class="n">ax2</span><span class="o">.</span><span class="n">axhline</span><span class="p">(</span><span class="n">gad_inc</span><span class="p">,</span><span class="n">color</span><span class="o">=</span><span class="s1">&#39;black&#39;</span><span class="p">,</span><span class="n">linestyle</span><span class="o">=</span><span class="s1">&#39;dotted&#39;</span><span class="p">)</span>
-<span class="n">ax3</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">df</span><span class="p">[</span><span class="s1">&#39;Date&#39;</span><span class="p">],</span><span class="n">df</span><span class="p">[</span><span class="s1">&#39;B_uT&#39;</span><span class="p">])</span> <span class="c1"># plot microtesla against date</span>
-<span class="n">ax1</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="sa">r</span><span class="s1">&#39;Declination ($^{\circ}$)&#39;</span><span class="p">)</span> <span class="c1"># y label on plot 1</span>
-<span class="n">ax2</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="s1">&#39;Inclination&#39;</span><span class="p">)</span><span class="c1"># y label on plot 2</span>
-<span class="n">ax3</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="s1">&#39;Intensity&#39;</span><span class="p">)</span><span class="c1"># y label on plot 3</span>
-<span class="n">ax3</span><span class="o">.</span><span class="n">set_xlabel</span><span class="p">(</span><span class="s1">&#39;Age (+/- AD)&#39;</span><span class="p">);</span> <span class="c1"># x label on bottom plot (3)</span>
+<span class="n">ax1</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">df</span><span class="p">[</span><span class="s1">'Date'</span><span class="p">],</span><span class="n">df</span><span class="p">[</span><span class="s1">'Dec'</span><span class="p">])</span> <span class="c1"># plot declination against date</span>
+<span class="n">ax1</span><span class="o">.</span><span class="n">axhline</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="n">color</span><span class="o">=</span><span class="s1">'black'</span><span class="p">,</span><span class="n">linestyle</span><span class="o">=</span><span class="s1">'dotted'</span><span class="p">)</span> <span class="c1"># make a horizontal black line at 0</span>
+<span class="n">ax2</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">df</span><span class="p">[</span><span class="s1">'Date'</span><span class="p">],</span><span class="n">df</span><span class="p">[</span><span class="s1">'Inc'</span><span class="p">])</span> <span class="c1"># plot inclination against date</span>
+<span class="n">ax2</span><span class="o">.</span><span class="n">axhline</span><span class="p">(</span><span class="n">gad_inc</span><span class="p">,</span><span class="n">color</span><span class="o">=</span><span class="s1">'black'</span><span class="p">,</span><span class="n">linestyle</span><span class="o">=</span><span class="s1">'dotted'</span><span class="p">)</span>
+<span class="n">ax3</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">df</span><span class="p">[</span><span class="s1">'Date'</span><span class="p">],</span><span class="n">df</span><span class="p">[</span><span class="s1">'B_uT'</span><span class="p">])</span> <span class="c1"># plot microtesla against date</span>
+<span class="n">ax1</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="sa">r</span><span class="s1">'Declination ($^{\circ}$)'</span><span class="p">)</span> <span class="c1"># y label on plot 1</span>
+<span class="n">ax2</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="s1">'Inclination'</span><span class="p">)</span><span class="c1"># y label on plot 2</span>
+<span class="n">ax3</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="s1">'Intensity'</span><span class="p">)</span><span class="c1"># y label on plot 3</span>
+<span class="n">ax3</span><span class="o">.</span><span class="n">set_xlabel</span><span class="p">(</span><span class="s1">'Age (+/- AD)'</span><span class="p">);</span> <span class="c1"># x label on bottom plot (3)</span>
 </pre></div>
 </div>
 </div>
@@ -1150,7 +1202,7 @@ Intensity: 46239.890 nT
 <div class="cell_output docutils container">
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Help on function do_mag_map in module pmagpy.pmag:
 
-do_mag_map(date, lon_0=0, alt=0, file=&#39;&#39;, mod=&#39;cals10k&#39;, resolution=&#39;low&#39;)
+do_mag_map(date, lon_0=0, alt=0, file='', mod='cals10k', resolution='low')
     returns lists of declination, inclination and intensities for lat/lon grid for
     desired model and date.
     
@@ -1160,11 +1212,11 @@ do_mag_map(date, lon_0=0, alt=0, file=&#39;&#39;, mod=&#39;cals10k&#39;, resolut
     
     Optional Parameters:
     ______________
-    mod  = model to use (&#39;arch3k&#39;,&#39;cals3k&#39;,&#39;pfm9k&#39;,&#39;hfm10k&#39;,&#39;cals10k.2&#39;,&#39;shadif14k&#39;,&#39;cals10k.1b&#39;,&#39;custom&#39;)
+    mod  = model to use ('arch3k','cals3k','pfm9k','hfm10k','cals10k.2','shadif14k','cals10k.1b','custom')
     file = l m g h formatted filefor custom model
     lon_0 : central longitude for Hammer projection
     alt  = altitude
-    resolution = [&#39;low&#39;,&#39;high&#39;] default is low
+    resolution = ['low','high'] default is low
     
     Returns:
     ______________
@@ -1187,7 +1239,7 @@ do_mag_map(date, lon_0=0, alt=0, file=&#39;&#39;, mod=&#39;cals10k&#39;, resolut
 <div class="cell_output docutils container">
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Help on function plot_mag_map in module pmagpy.pmagplotlib:
 
-plot_mag_map(fignum, element, lons, lats, element_type, cmap=&#39;coolwarm&#39;, lon_0=0, date=&#39;&#39;, contours=False, proj=&#39;PlateCarree&#39;)
+plot_mag_map(fignum, element, lons, lats, element_type, cmap='coolwarm', lon_0=0, date='', contours=False, proj='PlateCarree')
     makes a color contour map of geomagnetic field element
     
     Parameters
@@ -1204,7 +1256,7 @@ plot_mag_map(fignum, element, lons, lats, element_type, cmap=&#39;coolwarm&#39;,
     Optional
     _________
     contours : plot the contour lines on top of the heat map if True
-    proj : cartopy projection [&#39;PlateCarree&#39;,&#39;Mollweide&#39;]
+    proj : cartopy projection ['PlateCarree','Mollweide']
            NB: The Mollweide projection can only be reliably with cartopy=0.17.0; otherwise use lon_0=0.  Also, for declinations, PlateCarree is recommended.
     cmap : matplotlib color map - see https://matplotlib.org/examples/color/colormaps_reference.html for options
     lon_0 : central longitude of the Mollweide projection
@@ -1221,7 +1273,7 @@ plot_mag_map(fignum, element, lons, lats, element_type, cmap=&#39;coolwarm&#39;,
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># define some useful parameters</span>
-<span class="n">date</span><span class="p">,</span><span class="n">mod</span><span class="p">,</span><span class="n">lon_0</span><span class="p">,</span><span class="n">alt</span><span class="p">,</span><span class="n">ghfile</span><span class="o">=</span><span class="mi">2019</span><span class="p">,</span><span class="s1">&#39;cals10k.2&#39;</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="s2">&quot;&quot;</span> <span class="c1"># only date is required</span>
+<span class="n">date</span><span class="p">,</span><span class="n">mod</span><span class="p">,</span><span class="n">lon_0</span><span class="p">,</span><span class="n">alt</span><span class="p">,</span><span class="n">ghfile</span><span class="o">=</span><span class="mi">2019</span><span class="p">,</span><span class="s1">'cals10k.2'</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="s2">""</span> <span class="c1"># only date is required</span>
 <span class="n">Ds</span><span class="p">,</span><span class="n">Is</span><span class="p">,</span><span class="n">Bs</span><span class="p">,</span><span class="n">Brs</span><span class="p">,</span><span class="n">lons</span><span class="p">,</span><span class="n">lats</span><span class="o">=</span><span class="n">pmag</span><span class="o">.</span><span class="n">do_mag_map</span><span class="p">(</span><span class="n">date</span><span class="p">,</span><span class="n">mod</span><span class="o">=</span><span class="n">mod</span><span class="p">,</span><span class="n">lon_0</span><span class="o">=</span><span class="n">lon_0</span><span class="p">,</span><span class="n">alt</span><span class="o">=</span><span class="n">alt</span><span class="p">,</span><span class="n">file</span><span class="o">=</span><span class="n">ghfile</span><span class="p">)</span> <span class="c1"># get the global data</span>
 </pre></div>
 </div>
@@ -1236,7 +1288,7 @@ plot_mag_map(fignum, element, lons, lats, element_type, cmap=&#39;coolwarm&#39;,
 <div class="cell_output docutils container">
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Help on function plot_mag_map in module pmagpy.pmagplotlib:
 
-plot_mag_map(fignum, element, lons, lats, element_type, cmap=&#39;coolwarm&#39;, lon_0=0, date=&#39;&#39;, contours=False, proj=&#39;PlateCarree&#39;, min=20, max=80)
+plot_mag_map(fignum, element, lons, lats, element_type, cmap='coolwarm', lon_0=0, date='', contours=False, proj='PlateCarree', min=20, max=80)
     makes a color contour map of geomagnetic field element
     
     Parameters
@@ -1253,7 +1305,7 @@ plot_mag_map(fignum, element, lons, lats, element_type, cmap=&#39;coolwarm&#39;,
     Optional
     _________
     contours : plot the contour lines on top of the heat map if True
-    proj : cartopy projection [&#39;PlateCarree&#39;,&#39;Mollweide&#39;]
+    proj : cartopy projection ['PlateCarree','Mollweide']
            NB: The Mollweide projection can only be reliably with cartopy=0.17.0; otherwise use lon_0=0.  Also, for declinations, PlateCarree is recommended.
     cmap : matplotlib color map - see https://matplotlib.org/examples/color/colormaps_reference.html for options
     lon_0 : central longitude of the Mollweide projection
@@ -1273,10 +1325,10 @@ plot_mag_map(fignum, element, lons, lats, element_type, cmap=&#39;coolwarm&#39;,
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">cmap</span><span class="o">=</span><span class="s1">&#39;jet&#39;</span> <span class="c1"># nice color map for contourf</span>
-<span class="n">pmagplotlib</span><span class="o">.</span><span class="n">plot_mag_map</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="n">Bs</span><span class="p">,</span><span class="n">lons</span><span class="p">,</span><span class="n">lats</span><span class="p">,</span><span class="s1">&#39;B&#39;</span><span class="p">,</span><span class="n">cmap</span><span class="o">=</span><span class="n">cmap</span><span class="p">,</span><span class="n">date</span><span class="o">=</span><span class="n">date</span><span class="p">,</span><span class="n">proj</span><span class="o">=</span><span class="s1">&#39;Mollweide&#39;</span><span class="p">,</span><span class="n">contours</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span> <span class="c1"># plot the field strength</span>
-<span class="n">pmagplotlib</span><span class="o">.</span><span class="n">plot_mag_map</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span><span class="n">Is</span><span class="p">,</span><span class="n">lons</span><span class="p">,</span><span class="n">lats</span><span class="p">,</span><span class="s1">&#39;I&#39;</span><span class="p">,</span><span class="n">cmap</span><span class="o">=</span><span class="n">cmap</span><span class="p">,</span><span class="n">date</span><span class="o">=</span><span class="n">date</span><span class="p">,</span><span class="n">proj</span><span class="o">=</span><span class="s1">&#39;Mollweide&#39;</span><span class="p">,</span><span class="n">contours</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span><span class="c1"># plot the inclination</span>
-<span class="n">pmagplotlib</span><span class="o">.</span><span class="n">plot_mag_map</span><span class="p">(</span><span class="mi">3</span><span class="p">,</span><span class="n">Ds</span><span class="p">,</span><span class="n">lons</span><span class="p">,</span><span class="n">lats</span><span class="p">,</span><span class="s1">&#39;D&#39;</span><span class="p">,</span><span class="n">cmap</span><span class="o">=</span><span class="n">cmap</span><span class="p">,</span><span class="n">date</span><span class="o">=</span><span class="n">date</span><span class="p">,</span><span class="n">contours</span><span class="o">=</span><span class="kc">True</span><span class="p">);</span><span class="c1"># plot the declination    </span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">cmap</span><span class="o">=</span><span class="s1">'jet'</span> <span class="c1"># nice color map for contourf</span>
+<span class="n">pmagplotlib</span><span class="o">.</span><span class="n">plot_mag_map</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="n">Bs</span><span class="p">,</span><span class="n">lons</span><span class="p">,</span><span class="n">lats</span><span class="p">,</span><span class="s1">'B'</span><span class="p">,</span><span class="n">cmap</span><span class="o">=</span><span class="n">cmap</span><span class="p">,</span><span class="n">date</span><span class="o">=</span><span class="n">date</span><span class="p">,</span><span class="n">proj</span><span class="o">=</span><span class="s1">'Mollweide'</span><span class="p">,</span><span class="n">contours</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span> <span class="c1"># plot the field strength</span>
+<span class="n">pmagplotlib</span><span class="o">.</span><span class="n">plot_mag_map</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span><span class="n">Is</span><span class="p">,</span><span class="n">lons</span><span class="p">,</span><span class="n">lats</span><span class="p">,</span><span class="s1">'I'</span><span class="p">,</span><span class="n">cmap</span><span class="o">=</span><span class="n">cmap</span><span class="p">,</span><span class="n">date</span><span class="o">=</span><span class="n">date</span><span class="p">,</span><span class="n">proj</span><span class="o">=</span><span class="s1">'Mollweide'</span><span class="p">,</span><span class="n">contours</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span><span class="c1"># plot the inclination</span>
+<span class="n">pmagplotlib</span><span class="o">.</span><span class="n">plot_mag_map</span><span class="p">(</span><span class="mi">3</span><span class="p">,</span><span class="n">Ds</span><span class="p">,</span><span class="n">lons</span><span class="p">,</span><span class="n">lats</span><span class="p">,</span><span class="s1">'D'</span><span class="p">,</span><span class="n">cmap</span><span class="o">=</span><span class="n">cmap</span><span class="p">,</span><span class="n">date</span><span class="o">=</span><span class="n">date</span><span class="p">,</span><span class="n">contours</span><span class="o">=</span><span class="kc">True</span><span class="p">);</span><span class="c1"># plot the declination    </span>
 </pre></div>
 </div>
 </div>
@@ -1290,29 +1342,29 @@ plot_mag_map(fignum, element, lons, lats, element_type, cmap=&#39;coolwarm&#39;,
 takes too much time, especially when there are many people logged onto the jupyter-hub web site.  So we will just illustrate how it is done, then tantalize you with a higher resolution movie that you are free to make as you will.  on your own computer or after the workshop.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">dir_path</span><span class="o">=</span><span class="s1">&#39;MagIC_example_2&#39;</span> <span class="c1"># set the directory path name</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">dir_path</span><span class="o">=</span><span class="s1">'MagIC_example_2'</span> <span class="c1"># set the directory path name</span>
 <span class="n">files</span><span class="o">=</span><span class="n">os</span><span class="o">.</span><span class="n">listdir</span><span class="p">(</span><span class="n">dir_path</span><span class="p">)</span> <span class="c1"># get a list of the directory</span>
 <span class="k">for</span> <span class="n">f</span> <span class="ow">in</span> <span class="n">files</span><span class="p">:</span>
-    <span class="k">if</span> <span class="s1">&#39;.png&#39;</span> <span class="ow">in</span> <span class="n">f</span><span class="p">:</span><span class="n">os</span><span class="o">.</span><span class="n">remove</span><span class="p">(</span><span class="n">dir_path</span><span class="o">+</span><span class="s1">&#39;/&#39;</span><span class="o">+</span><span class="n">f</span><span class="p">)</span> <span class="c1"># delete all the existing .png files in that directory</span>
-<span class="n">mod</span><span class="p">,</span><span class="n">lon_0</span><span class="p">,</span><span class="n">alt</span><span class="p">,</span><span class="n">ghfile</span><span class="o">=</span><span class="s1">&#39;cals10k.2&#39;</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="s2">&quot;&quot;</span> <span class="c1"># define the variables </span>
-<span class="n">cmap</span><span class="p">,</span><span class="n">title</span><span class="o">=</span><span class="s1">&#39;jet&#39;</span><span class="p">,</span><span class="s1">&#39;Intensity&#39;</span> <span class="c1"># nice color map for contourf</span>
+    <span class="k">if</span> <span class="s1">'.png'</span> <span class="ow">in</span> <span class="n">f</span><span class="p">:</span><span class="n">os</span><span class="o">.</span><span class="n">remove</span><span class="p">(</span><span class="n">dir_path</span><span class="o">+</span><span class="s1">'/'</span><span class="o">+</span><span class="n">f</span><span class="p">)</span> <span class="c1"># delete all the existing .png files in that directory</span>
+<span class="n">mod</span><span class="p">,</span><span class="n">lon_0</span><span class="p">,</span><span class="n">alt</span><span class="p">,</span><span class="n">ghfile</span><span class="o">=</span><span class="s1">'cals10k.2'</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="s2">""</span> <span class="c1"># define the variables </span>
+<span class="n">cmap</span><span class="p">,</span><span class="n">title</span><span class="o">=</span><span class="s1">'jet'</span><span class="p">,</span><span class="s1">'Intensity'</span> <span class="c1"># nice color map for contourf</span>
 <span class="n">fignum</span><span class="o">=</span><span class="mi">1</span>
 <span class="n">dates</span><span class="o">=</span><span class="nb">range</span><span class="p">(</span><span class="o">-</span><span class="mi">1000</span><span class="p">,</span><span class="mi">2100</span><span class="p">,</span><span class="mi">500</span><span class="p">)</span> <span class="c1"># make maps for these years.  </span>
 <span class="c1"># to make a high resolution, smooth movie, uncomment this line</span>
 <span class="c1">#dates=range(-1000,2100,50) # make maps for these years.  </span>
 <span class="n">lon_0</span><span class="o">=</span><span class="mi">0</span> <span class="c1"># center the maps at the Greenwich meridian</span>
-<span class="n">element</span><span class="o">=</span><span class="s1">&#39;B&#39;</span> <span class="c1"># let&#39;s do field strength</span>
+<span class="n">element</span><span class="o">=</span><span class="s1">'B'</span> <span class="c1"># let's do field strength</span>
 <span class="k">for</span> <span class="n">date</span> <span class="ow">in</span> <span class="n">dates</span><span class="p">:</span>  <span class="c1"># step through the loop</span>
 
     <span class="n">Ds</span><span class="p">,</span><span class="n">Is</span><span class="p">,</span><span class="n">Bs</span><span class="p">,</span><span class="n">Brs</span><span class="p">,</span><span class="n">lons</span><span class="p">,</span><span class="n">lats</span><span class="o">=</span><span class="n">pmag</span><span class="o">.</span><span class="n">do_mag_map</span><span class="p">(</span><span class="n">date</span><span class="p">,</span><span class="n">mod</span><span class="o">=</span><span class="n">mod</span><span class="p">,</span><span class="n">lon_0</span><span class="o">=</span><span class="n">lon_0</span><span class="p">,</span><span class="n">alt</span><span class="o">=</span><span class="n">alt</span><span class="p">,</span><span class="n">file</span><span class="o">=</span><span class="n">ghfile</span><span class="p">)</span>
-    <span class="n">pmagplotlib</span><span class="o">.</span><span class="n">plot_mag_map</span><span class="p">(</span><span class="n">fignum</span><span class="p">,</span><span class="n">Bs</span><span class="p">,</span><span class="n">lons</span><span class="p">,</span><span class="n">lats</span><span class="p">,</span><span class="s1">&#39;B&#39;</span><span class="p">,</span><span class="n">cmap</span><span class="o">=</span><span class="n">cmap</span><span class="p">,</span><span class="n">date</span><span class="o">=</span><span class="n">date</span><span class="p">,</span><span class="n">proj</span><span class="o">=</span><span class="s1">&#39;Mollweide&#39;</span><span class="p">,</span>
+    <span class="n">pmagplotlib</span><span class="o">.</span><span class="n">plot_mag_map</span><span class="p">(</span><span class="n">fignum</span><span class="p">,</span><span class="n">Bs</span><span class="p">,</span><span class="n">lons</span><span class="p">,</span><span class="n">lats</span><span class="p">,</span><span class="s1">'B'</span><span class="p">,</span><span class="n">cmap</span><span class="o">=</span><span class="n">cmap</span><span class="p">,</span><span class="n">date</span><span class="o">=</span><span class="n">date</span><span class="p">,</span><span class="n">proj</span><span class="o">=</span><span class="s1">'Mollweide'</span><span class="p">,</span>
                              <span class="nb">min</span><span class="o">=</span><span class="mi">15</span><span class="p">,</span><span class="nb">max</span><span class="o">=</span><span class="mi">100</span><span class="p">,</span><span class="n">contours</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span> <span class="c1"># plot the field strength</span>
     <span class="n">figstr</span><span class="o">=</span><span class="nb">str</span><span class="p">(</span><span class="n">fignum</span><span class="p">)</span>
-    <span class="k">while</span> <span class="nb">len</span><span class="p">(</span><span class="n">figstr</span><span class="p">)</span><span class="o">&lt;</span><span class="mi">4</span><span class="p">:</span><span class="n">figstr</span><span class="o">=</span><span class="s1">&#39;0&#39;</span><span class="o">+</span><span class="n">figstr</span>
+    <span class="k">while</span> <span class="nb">len</span><span class="p">(</span><span class="n">figstr</span><span class="p">)</span><span class="o">&lt;</span><span class="mi">4</span><span class="p">:</span><span class="n">figstr</span><span class="o">=</span><span class="s1">'0'</span><span class="o">+</span><span class="n">figstr</span>
     
-    <span class="n">plt</span><span class="o">.</span><span class="n">savefig</span><span class="p">(</span><span class="n">dir_path</span><span class="o">+</span><span class="s1">&#39;/&#39;</span> <span class="o">+</span><span class="n">title</span><span class="o">.</span><span class="n">strip</span><span class="p">()</span><span class="o">+</span><span class="s1">&#39;_&#39;</span><span class="o">+</span><span class="n">figstr</span><span class="o">+</span><span class="s1">&#39;.png&#39;</span><span class="p">)</span> <span class="c1"># saves the  figure. to a folder</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">savefig</span><span class="p">(</span><span class="n">dir_path</span><span class="o">+</span><span class="s1">'/'</span> <span class="o">+</span><span class="n">title</span><span class="o">.</span><span class="n">strip</span><span class="p">()</span><span class="o">+</span><span class="s1">'_'</span><span class="o">+</span><span class="n">figstr</span><span class="o">+</span><span class="s1">'.png'</span><span class="p">)</span> <span class="c1"># saves the  figure. to a folder</span>
     <span class="n">fignum</span><span class="o">+=</span><span class="mi">1</span>
-    <span class="nb">print</span> <span class="p">(</span><span class="s1">&#39;figure saved as: &#39;</span><span class="p">,</span><span class="n">title</span><span class="o">.</span><span class="n">strip</span><span class="p">()</span><span class="o">+</span><span class="s1">&#39;_&#39;</span><span class="o">+</span><span class="n">figstr</span><span class="o">+</span><span class="s1">&#39;.png&#39;</span><span class="p">)</span>
+    <span class="nb">print</span> <span class="p">(</span><span class="s1">'figure saved as: '</span><span class="p">,</span><span class="n">title</span><span class="o">.</span><span class="n">strip</span><span class="p">()</span><span class="o">+</span><span class="s1">'_'</span><span class="o">+</span><span class="n">figstr</span><span class="o">+</span><span class="s1">'.png'</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -1338,21 +1390,21 @@ figure saved as:  Intensity_0007.png
 <p>Now we can make the animated gif from these png files</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">filenames</span><span class="o">=</span><span class="nb">sorted</span><span class="p">(</span><span class="n">os</span><span class="o">.</span><span class="n">listdir</span><span class="p">(</span><span class="s1">&#39;MagIC_example_2/&#39;</span><span class="p">))</span> <span class="c1"># listing of the directory</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">filenames</span><span class="o">=</span><span class="nb">sorted</span><span class="p">(</span><span class="n">os</span><span class="o">.</span><span class="n">listdir</span><span class="p">(</span><span class="s1">'MagIC_example_2/'</span><span class="p">))</span> <span class="c1"># listing of the directory</span>
 <span class="n">images</span> <span class="o">=</span> <span class="p">[]</span> <span class="c1"># make a container to put the image files in</span>
 <span class="k">for</span> <span class="n">file</span> <span class="ow">in</span> <span class="n">filenames</span><span class="p">:</span> <span class="c1"># step through all the maps</span>
-    <span class="k">if</span> <span class="s1">&#39;.png&#39;</span> <span class="ow">in</span> <span class="n">file</span><span class="p">:</span> <span class="c1"># skip some of the nasty hidden files</span>
-        <span class="n">filename</span><span class="o">=</span><span class="s1">&#39;MagIC_example_2/&#39;</span><span class="o">+</span><span class="n">file</span> <span class="c1"># make filename from the folder name and the file name</span>
+    <span class="k">if</span> <span class="s1">'.png'</span> <span class="ow">in</span> <span class="n">file</span><span class="p">:</span> <span class="c1"># skip some of the nasty hidden files</span>
+        <span class="n">filename</span><span class="o">=</span><span class="s1">'MagIC_example_2/'</span><span class="o">+</span><span class="n">file</span> <span class="c1"># make filename from the folder name and the file name</span>
         <span class="n">images</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">imageio</span><span class="o">.</span><span class="n">imread</span><span class="p">(</span><span class="n">filename</span><span class="p">))</span> <span class="c1"># read it in and stuff in the container</span>
-<span class="n">kargs</span><span class="o">=</span><span class="p">{</span> <span class="s1">&#39;duration&#39;</span><span class="p">:</span><span class="mf">.3</span><span class="p">}</span> <span class="c1"># .2 second delay between frames</span>
-<span class="n">imageio</span><span class="o">.</span><span class="n">mimsave</span><span class="p">(</span><span class="s1">&#39;MagIC_example_2/Bmovie.gif&#39;</span><span class="p">,</span> <span class="n">images</span><span class="p">,</span><span class="s1">&#39;GIF&#39;</span><span class="p">,</span><span class="o">**</span><span class="n">kargs</span><span class="p">)</span> <span class="c1"># save to an animated gif.  </span>
+<span class="n">kargs</span><span class="o">=</span><span class="p">{</span> <span class="s1">'duration'</span><span class="p">:</span><span class="mf">.3</span><span class="p">}</span> <span class="c1"># .2 second delay between frames</span>
+<span class="n">imageio</span><span class="o">.</span><span class="n">mimsave</span><span class="p">(</span><span class="s1">'MagIC_example_2/Bmovie.gif'</span><span class="p">,</span> <span class="n">images</span><span class="p">,</span><span class="s1">'GIF'</span><span class="p">,</span><span class="o">**</span><span class="n">kargs</span><span class="p">)</span> <span class="c1"># save to an animated gif.  </span>
 </pre></div>
 </div>
 </div>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">Image</span><span class="p">(</span><span class="n">filename</span><span class="o">=</span><span class="s2">&quot;MagIC_example_2/Bmovie.gif&quot;</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">Image</span><span class="p">(</span><span class="n">filename</span><span class="o">=</span><span class="s2">"MagIC_example_2/Bmovie.gif"</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -1366,7 +1418,7 @@ You can do this too if you have the patience (perhaps not when dozens of other f
 <p>dates=range(-1000,2100,50) # make maps for these years.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">Image</span><span class="p">(</span><span class="n">filename</span><span class="o">=</span><span class="s2">&quot;MagIC_example_2/BigMovie.gif&quot;</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">Image</span><span class="p">(</span><span class="n">filename</span><span class="o">=</span><span class="s2">"MagIC_example_2/BigMovie.gif"</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -1395,13 +1447,13 @@ You can do this too if you have the patience (perhaps not when dozens of other f
 <h2>Download and unpack the data<a class="headerlink" href="#download-and-unpack-the-data" title="Link to this heading">#</a></h2>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">dir_path</span><span class="o">=</span><span class="s1">&#39;MagIC_example_3&#39;</span> <span class="c1"># set the path to your working directory</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">dir_path</span><span class="o">=</span><span class="s1">'MagIC_example_3'</span> <span class="c1"># set the path to your working directory</span>
 <span class="n">depth_min</span><span class="p">,</span> <span class="n">depth_max</span><span class="o">=</span> <span class="mi">40</span><span class="p">,</span> <span class="mi">160</span> <span class="c1"># set the core depth bounds as required</span>
 <span class="c1"># First get the file from MagIC into your working directory:</span>
-<span class="n">magic_id</span><span class="o">=</span><span class="s1">&#39;16761&#39;</span>
-<span class="n">magic_contribution</span><span class="o">=</span><span class="s1">&#39;magic_contribution_&#39;</span><span class="o">+</span><span class="n">magic_id</span><span class="o">+</span><span class="s1">&#39;.txt&#39;</span> <span class="c1"># set the file name string</span>
+<span class="n">magic_id</span><span class="o">=</span><span class="s1">'16761'</span>
+<span class="n">magic_contribution</span><span class="o">=</span><span class="s1">'magic_contribution_'</span><span class="o">+</span><span class="n">magic_id</span><span class="o">+</span><span class="s1">'.txt'</span> <span class="c1"># set the file name string</span>
 <span class="n">ipmag</span><span class="o">.</span><span class="n">download_magic_from_id</span><span class="p">(</span><span class="n">magic_id</span><span class="p">)</span> <span class="c1"># download the contribution from MagIC</span>
-<span class="n">os</span><span class="o">.</span><span class="n">rename</span><span class="p">(</span><span class="n">magic_contribution</span><span class="p">,</span> <span class="n">dir_path</span><span class="o">+</span><span class="s1">&#39;/&#39;</span><span class="o">+</span><span class="n">magic_contribution</span><span class="p">)</span> <span class="c1"># move the contribution to the directory</span>
+<span class="n">os</span><span class="o">.</span><span class="n">rename</span><span class="p">(</span><span class="n">magic_contribution</span><span class="p">,</span> <span class="n">dir_path</span><span class="o">+</span><span class="s1">'/'</span><span class="o">+</span><span class="n">magic_contribution</span><span class="p">)</span> <span class="c1"># move the contribution to the directory</span>
 <span class="n">ipmag</span><span class="o">.</span><span class="n">download_magic</span><span class="p">(</span><span class="n">magic_contribution</span><span class="p">,</span><span class="n">dir_path</span><span class="o">=</span><span class="n">dir_path</span><span class="p">,</span><span class="n">print_progress</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span> <span class="c1"># unpack the file</span>
 </pre></div>
 </div>
@@ -1441,34 +1493,34 @@ You can do this too if you have the patience (perhaps not when dozens of other f
 </ul>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">dir_path</span><span class="o">=</span><span class="s1">&#39;MagIC_example_3&#39;</span> <span class="c1"># set the path to your working directory</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">dir_path</span><span class="o">=</span><span class="s1">'MagIC_example_3'</span> <span class="c1"># set the path to your working directory</span>
 <span class="n">depth_min</span><span class="p">,</span> <span class="n">depth_max</span><span class="o">=</span> <span class="mi">40</span><span class="p">,</span> <span class="mi">160</span> <span class="c1"># set the core depth bounds as required</span>
 <span class="c1"># read in the required data tables:</span>
-<span class="n">meas_df</span><span class="o">=</span><span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="n">dir_path</span><span class="o">+</span><span class="s1">&#39;/measurements.txt&#39;</span><span class="p">,</span><span class="n">sep</span><span class="o">=</span><span class="s1">&#39;</span><span class="se">\t</span><span class="s1">&#39;</span><span class="p">,</span><span class="n">header</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
-<span class="n">site_df</span><span class="o">=</span><span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="n">dir_path</span><span class="o">+</span><span class="s1">&#39;/sites.txt&#39;</span><span class="p">,</span><span class="n">sep</span><span class="o">=</span><span class="s1">&#39;</span><span class="se">\t</span><span class="s1">&#39;</span><span class="p">,</span><span class="n">header</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
-<span class="n">spec_df</span><span class="o">=</span><span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="n">dir_path</span><span class="o">+</span><span class="s1">&#39;/specimens.txt&#39;</span><span class="p">,</span><span class="n">sep</span><span class="o">=</span><span class="s1">&#39;</span><span class="se">\t</span><span class="s1">&#39;</span><span class="p">,</span><span class="n">header</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
-<span class="n">ages_df</span><span class="o">=</span><span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="n">dir_path</span><span class="o">+</span><span class="s1">&#39;/ages.txt&#39;</span><span class="p">,</span><span class="n">sep</span><span class="o">=</span><span class="s1">&#39;</span><span class="se">\t</span><span class="s1">&#39;</span><span class="p">,</span><span class="n">header</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+<span class="n">meas_df</span><span class="o">=</span><span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="n">dir_path</span><span class="o">+</span><span class="s1">'/measurements.txt'</span><span class="p">,</span><span class="n">sep</span><span class="o">=</span><span class="s1">'</span><span class="se">\t</span><span class="s1">'</span><span class="p">,</span><span class="n">header</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+<span class="n">site_df</span><span class="o">=</span><span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="n">dir_path</span><span class="o">+</span><span class="s1">'/sites.txt'</span><span class="p">,</span><span class="n">sep</span><span class="o">=</span><span class="s1">'</span><span class="se">\t</span><span class="s1">'</span><span class="p">,</span><span class="n">header</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+<span class="n">spec_df</span><span class="o">=</span><span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="n">dir_path</span><span class="o">+</span><span class="s1">'/specimens.txt'</span><span class="p">,</span><span class="n">sep</span><span class="o">=</span><span class="s1">'</span><span class="se">\t</span><span class="s1">'</span><span class="p">,</span><span class="n">header</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+<span class="n">ages_df</span><span class="o">=</span><span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="n">dir_path</span><span class="o">+</span><span class="s1">'/ages.txt'</span><span class="p">,</span><span class="n">sep</span><span class="o">=</span><span class="s1">'</span><span class="se">\t</span><span class="s1">'</span><span class="p">,</span><span class="n">header</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
 <span class="c1"># filter the ages table for method codes that indicate paleomagnetic reversals:</span>
-<span class="n">ages_df</span><span class="o">=</span><span class="n">ages_df</span><span class="p">[</span><span class="n">ages_df</span><span class="p">[</span><span class="s1">&#39;method_codes&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">str</span><span class="o">.</span><span class="n">contains</span><span class="p">(</span><span class="s1">&#39;PMAG&#39;</span><span class="p">)]</span>
+<span class="n">ages_df</span><span class="o">=</span><span class="n">ages_df</span><span class="p">[</span><span class="n">ages_df</span><span class="p">[</span><span class="s1">'method_codes'</span><span class="p">]</span><span class="o">.</span><span class="n">str</span><span class="o">.</span><span class="n">contains</span><span class="p">(</span><span class="s1">'PMAG'</span><span class="p">)]</span>
 <span class="c1"># filter the measurements for the 20 mT (.02 T) step</span>
-<span class="n">meas_df</span><span class="o">.</span><span class="n">dropna</span><span class="p">(</span><span class="n">subset</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;treat_ac_field&#39;</span><span class="p">],</span><span class="n">inplace</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
-<span class="n">meas_20mT</span><span class="o">=</span><span class="n">meas_df</span><span class="p">[</span><span class="n">meas_df</span><span class="p">[</span><span class="s1">&#39;treat_ac_field&#39;</span><span class="p">]</span><span class="o">==</span><span class="mf">0.02</span><span class="p">]</span> 
+<span class="n">meas_df</span><span class="o">.</span><span class="n">dropna</span><span class="p">(</span><span class="n">subset</span><span class="o">=</span><span class="p">[</span><span class="s1">'treat_ac_field'</span><span class="p">],</span><span class="n">inplace</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+<span class="n">meas_20mT</span><span class="o">=</span><span class="n">meas_df</span><span class="p">[</span><span class="n">meas_df</span><span class="p">[</span><span class="s1">'treat_ac_field'</span><span class="p">]</span><span class="o">==</span><span class="mf">0.02</span><span class="p">]</span> 
 <span class="c1"># make the site key in the measurements and specimens dataframes</span>
-<span class="n">meas_20mT</span><span class="p">[</span><span class="s1">&#39;site&#39;</span><span class="p">]</span><span class="o">=</span><span class="n">meas_20mT</span><span class="p">[</span><span class="s1">&#39;specimen&#39;</span><span class="p">]</span>
-<span class="n">spec_df</span><span class="p">[</span><span class="s1">&#39;site&#39;</span><span class="p">]</span><span class="o">=</span><span class="n">spec_df</span><span class="p">[</span><span class="s1">&#39;specimen&#39;</span><span class="p">]</span>
+<span class="n">meas_20mT</span><span class="p">[</span><span class="s1">'site'</span><span class="p">]</span><span class="o">=</span><span class="n">meas_20mT</span><span class="p">[</span><span class="s1">'specimen'</span><span class="p">]</span>
+<span class="n">spec_df</span><span class="p">[</span><span class="s1">'site'</span><span class="p">]</span><span class="o">=</span><span class="n">spec_df</span><span class="p">[</span><span class="s1">'specimen'</span><span class="p">]</span>
 <span class="c1"># we only want the core depth out of the sites dataframe, so we can pare it down like this:</span>
-<span class="n">depth_df</span><span class="o">=</span><span class="n">site_df</span><span class="p">[[</span><span class="s1">&#39;site&#39;</span><span class="p">,</span><span class="s1">&#39;core_depth&#39;</span><span class="p">]]</span>
+<span class="n">depth_df</span><span class="o">=</span><span class="n">site_df</span><span class="p">[[</span><span class="s1">'site'</span><span class="p">,</span><span class="s1">'core_depth'</span><span class="p">]]</span>
 <span class="c1"># merge the specimen, depth dataframes</span>
-<span class="n">spec_df</span><span class="o">=</span><span class="n">pd</span><span class="o">.</span><span class="n">merge</span><span class="p">(</span><span class="n">spec_df</span><span class="p">,</span><span class="n">depth_df</span><span class="p">,</span><span class="n">on</span><span class="o">=</span><span class="s1">&#39;site&#39;</span><span class="p">)</span>
+<span class="n">spec_df</span><span class="o">=</span><span class="n">pd</span><span class="o">.</span><span class="n">merge</span><span class="p">(</span><span class="n">spec_df</span><span class="p">,</span><span class="n">depth_df</span><span class="p">,</span><span class="n">on</span><span class="o">=</span><span class="s1">'site'</span><span class="p">)</span>
 <span class="c1"># merge the measurements, depth dataframes</span>
-<span class="n">meas_20mT</span><span class="o">=</span><span class="n">pd</span><span class="o">.</span><span class="n">merge</span><span class="p">(</span><span class="n">meas_20mT</span><span class="p">,</span><span class="n">depth_df</span><span class="p">,</span><span class="n">on</span><span class="o">=</span><span class="s1">&#39;site&#39;</span><span class="p">)</span>
+<span class="n">meas_20mT</span><span class="o">=</span><span class="n">pd</span><span class="o">.</span><span class="n">merge</span><span class="p">(</span><span class="n">meas_20mT</span><span class="p">,</span><span class="n">depth_df</span><span class="p">,</span><span class="n">on</span><span class="o">=</span><span class="s1">'site'</span><span class="p">)</span>
 <span class="c1"># filter for the desired depth range: </span>
-<span class="n">spec_df</span><span class="o">=</span><span class="n">spec_df</span><span class="p">[(</span><span class="n">spec_df</span><span class="p">[</span><span class="s1">&#39;core_depth&#39;</span><span class="p">]</span><span class="o">&gt;</span><span class="n">depth_min</span><span class="p">)</span><span class="o">&amp;</span><span class="p">(</span><span class="n">spec_df</span><span class="p">[</span><span class="s1">&#39;core_depth&#39;</span><span class="p">]</span><span class="o">&lt;</span><span class="n">depth_max</span><span class="p">)]</span>
-<span class="n">meas_20mT</span><span class="o">=</span><span class="n">meas_20mT</span><span class="p">[(</span><span class="n">meas_20mT</span><span class="p">[</span><span class="s1">&#39;core_depth&#39;</span><span class="p">]</span><span class="o">&gt;</span><span class="n">depth_min</span><span class="p">)</span><span class="o">&amp;</span><span class="p">(</span><span class="n">meas_20mT</span><span class="p">[</span><span class="s1">&#39;core_depth&#39;</span><span class="p">]</span><span class="o">&lt;</span><span class="n">depth_max</span><span class="p">)]</span>
+<span class="n">spec_df</span><span class="o">=</span><span class="n">spec_df</span><span class="p">[(</span><span class="n">spec_df</span><span class="p">[</span><span class="s1">'core_depth'</span><span class="p">]</span><span class="o">&gt;</span><span class="n">depth_min</span><span class="p">)</span><span class="o">&amp;</span><span class="p">(</span><span class="n">spec_df</span><span class="p">[</span><span class="s1">'core_depth'</span><span class="p">]</span><span class="o">&lt;</span><span class="n">depth_max</span><span class="p">)]</span>
+<span class="n">meas_20mT</span><span class="o">=</span><span class="n">meas_20mT</span><span class="p">[(</span><span class="n">meas_20mT</span><span class="p">[</span><span class="s1">'core_depth'</span><span class="p">]</span><span class="o">&gt;</span><span class="n">depth_min</span><span class="p">)</span><span class="o">&amp;</span><span class="p">(</span><span class="n">meas_20mT</span><span class="p">[</span><span class="s1">'core_depth'</span><span class="p">]</span><span class="o">&lt;</span><span class="n">depth_max</span><span class="p">)]</span>
 <span class="c1"># note that the age table has only height (not depth), so these numbers are the opposite</span>
-<span class="n">ages_df</span><span class="o">=</span><span class="n">ages_df</span><span class="p">[(</span><span class="n">ages_df</span><span class="p">[</span><span class="s1">&#39;tiepoint_height&#39;</span><span class="p">]</span><span class="o">&lt;-</span><span class="n">depth_min</span><span class="p">)</span><span class="o">&amp;</span><span class="p">(</span><span class="n">ages_df</span><span class="p">[</span><span class="s1">&#39;tiepoint_height&#39;</span><span class="p">]</span><span class="o">&gt;-</span><span class="n">depth_max</span><span class="p">)]</span>
+<span class="n">ages_df</span><span class="o">=</span><span class="n">ages_df</span><span class="p">[(</span><span class="n">ages_df</span><span class="p">[</span><span class="s1">'tiepoint_height'</span><span class="p">]</span><span class="o">&lt;-</span><span class="n">depth_min</span><span class="p">)</span><span class="o">&amp;</span><span class="p">(</span><span class="n">ages_df</span><span class="p">[</span><span class="s1">'tiepoint_height'</span><span class="p">]</span><span class="o">&gt;-</span><span class="n">depth_max</span><span class="p">)]</span>
 <span class="c1"># get the site latitude (there is only one)</span>
-<span class="n">lat</span><span class="o">=</span><span class="n">site_df</span><span class="p">[</span><span class="s1">&#39;lat&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">unique</span><span class="p">()[</span><span class="mi">0</span><span class="p">]</span>
+<span class="n">lat</span><span class="o">=</span><span class="n">site_df</span><span class="p">[</span><span class="s1">'lat'</span><span class="p">]</span><span class="o">.</span><span class="n">unique</span><span class="p">()[</span><span class="mi">0</span><span class="p">]</span>
 </pre></div>
 </div>
 </div>
@@ -1477,18 +1529,18 @@ You can do this too if you have the patience (perhaps not when dozens of other f
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">fig</span><span class="o">=</span><span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="mi">1</span><span class="p">,(</span><span class="mi">9</span><span class="p">,</span><span class="mi">12</span><span class="p">))</span> <span class="c1"># make the figure</span>
 <span class="n">ax1</span><span class="o">=</span><span class="n">fig</span><span class="o">.</span><span class="n">add_subplot</span><span class="p">(</span><span class="mi">131</span><span class="p">)</span> <span class="c1"># make the first of three subplots</span>
-<span class="n">pmagplotlib</span><span class="o">.</span><span class="n">plot_ts</span><span class="p">(</span><span class="n">ax1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">7</span><span class="p">,</span><span class="n">timescale</span><span class="o">=</span><span class="s1">&#39;gts12&#39;</span><span class="p">)</span> <span class="c1"># plot on the time scale</span>
+<span class="n">pmagplotlib</span><span class="o">.</span><span class="n">plot_ts</span><span class="p">(</span><span class="n">ax1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">7</span><span class="p">,</span><span class="n">timescale</span><span class="o">=</span><span class="s1">'gts12'</span><span class="p">)</span> <span class="c1"># plot on the time scale</span>
 <span class="n">ax2</span><span class="o">=</span><span class="n">fig</span><span class="o">.</span><span class="n">add_subplot</span><span class="p">(</span><span class="mi">132</span><span class="p">)</span> <span class="c1"># make the second of three subplots</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">meas_20mT</span><span class="o">.</span><span class="n">dir_inc</span><span class="p">,</span><span class="n">meas_20mT</span><span class="o">.</span><span class="n">core_depth</span><span class="p">,</span><span class="s1">&#39;bo&#39;</span><span class="p">,</span><span class="n">markeredgecolor</span><span class="o">=</span><span class="s1">&#39;black&#39;</span><span class="p">,</span><span class="n">alpha</span><span class="o">=</span><span class="mf">.5</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">spec_df</span><span class="o">.</span><span class="n">dir_inc</span><span class="p">,</span><span class="n">spec_df</span><span class="o">.</span><span class="n">core_depth</span><span class="p">,</span><span class="s1">&#39;r^&#39;</span><span class="p">,</span><span class="n">markeredgecolor</span><span class="o">=</span><span class="s1">&#39;black&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">meas_20mT</span><span class="o">.</span><span class="n">dir_inc</span><span class="p">,</span><span class="n">meas_20mT</span><span class="o">.</span><span class="n">core_depth</span><span class="p">,</span><span class="s1">'bo'</span><span class="p">,</span><span class="n">markeredgecolor</span><span class="o">=</span><span class="s1">'black'</span><span class="p">,</span><span class="n">alpha</span><span class="o">=</span><span class="mf">.5</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">spec_df</span><span class="o">.</span><span class="n">dir_inc</span><span class="p">,</span><span class="n">spec_df</span><span class="o">.</span><span class="n">core_depth</span><span class="p">,</span><span class="s1">'r^'</span><span class="p">,</span><span class="n">markeredgecolor</span><span class="o">=</span><span class="s1">'black'</span><span class="p">)</span>
 
 <span class="n">plt</span><span class="o">.</span><span class="n">ylim</span><span class="p">(</span><span class="n">depth_max</span><span class="p">,</span><span class="n">depth_min</span><span class="p">)</span>
 <span class="c1"># calculate the geocentric axial dipole field for the site latitude</span>
 <span class="n">gad</span><span class="o">=</span><span class="n">pmag</span><span class="o">.</span><span class="n">pinc</span><span class="p">(</span><span class="n">lat</span><span class="p">)</span> <span class="c1"># tan (I) = 2 tan (lat)</span>
 <span class="c1"># put it on the plot as a green dashed line</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">axvline</span><span class="p">(</span><span class="n">gad</span><span class="p">,</span><span class="n">color</span><span class="o">=</span><span class="s1">&#39;green&#39;</span><span class="p">,</span><span class="n">linestyle</span><span class="o">=</span><span class="s1">&#39;dashed&#39;</span><span class="p">,</span><span class="n">linewidth</span><span class="o">=</span><span class="mi">2</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">axvline</span><span class="p">(</span><span class="o">-</span><span class="n">gad</span><span class="p">,</span><span class="n">color</span><span class="o">=</span><span class="s1">&#39;green&#39;</span><span class="p">,</span><span class="n">linestyle</span><span class="o">=</span><span class="s1">&#39;dashed&#39;</span><span class="p">,</span><span class="n">linewidth</span><span class="o">=</span><span class="mi">2</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s1">&#39;Inclinations&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">axvline</span><span class="p">(</span><span class="n">gad</span><span class="p">,</span><span class="n">color</span><span class="o">=</span><span class="s1">'green'</span><span class="p">,</span><span class="n">linestyle</span><span class="o">=</span><span class="s1">'dashed'</span><span class="p">,</span><span class="n">linewidth</span><span class="o">=</span><span class="mi">2</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">axvline</span><span class="p">(</span><span class="o">-</span><span class="n">gad</span><span class="p">,</span><span class="n">color</span><span class="o">=</span><span class="s1">'green'</span><span class="p">,</span><span class="n">linestyle</span><span class="o">=</span><span class="s1">'dashed'</span><span class="p">,</span><span class="n">linewidth</span><span class="o">=</span><span class="mi">2</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s1">'Inclinations'</span><span class="p">)</span>
 <span class="n">pmagplotlib</span><span class="o">.</span><span class="n">label_tiepoints</span><span class="p">(</span><span class="n">ax2</span><span class="p">,</span><span class="mi">100</span><span class="p">,</span><span class="n">ages_df</span><span class="o">.</span><span class="n">tiepoint</span><span class="o">.</span><span class="n">values</span><span class="p">,</span><span class="o">-</span><span class="mi">1</span><span class="o">*</span><span class="n">ages_df</span><span class="o">.</span><span class="n">tiepoint_height</span><span class="o">.</span><span class="n">values</span><span class="p">,</span><span class="n">lines</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
 <span class="c1">#</span>
 </pre></div>
@@ -1512,30 +1564,30 @@ You can do this too if you have the patience (perhaps not when dozens of other f
 <div class="cell_output docutils container">
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Help on function ani_depthplot in module pmagpy.ipmag:
 
-ani_depthplot(spec_file=&#39;specimens.txt&#39;, samp_file=&#39;samples.txt&#39;, meas_file=&#39;measurements.txt&#39;, site_file=&#39;sites.txt&#39;, age_file=&#39;&#39;, sum_file=&#39;&#39;, fmt=&#39;svg&#39;, dmin=-1, dmax=-1, depth_scale=&#39;core_depth&#39;, dir_path=&#39;.&#39;, contribution=None)
+ani_depthplot(spec_file='specimens.txt', samp_file='samples.txt', meas_file='measurements.txt', site_file='sites.txt', age_file='', sum_file='', fmt='svg', dmin=-1, dmax=-1, depth_scale='core_depth', dir_path='.', contribution=None)
     returns matplotlib figure with anisotropy data plotted against depth
-    available depth scales: &#39;composite_depth&#39;, &#39;core_depth&#39; or &#39;age&#39; (you must provide an age file to use this option).
+    available depth scales: 'composite_depth', 'core_depth' or 'age' (you must provide an age file to use this option).
     You must provide valid specimens and sites files, and either a samples or an ages file.
     You may additionally provide measurements and a summary file (csv).
     
     Parameters
     ----------
-    spec_file : str, default &quot;specimens.txt&quot;
-    samp_file : str, default &quot;samples.txt&quot;
-    meas_file : str, default &quot;measurements.txt&quot;
-    site_file : str, default &quot;sites.txt&quot;
-    age_file : str, default &quot;&quot;
-    sum_file : str, default &quot;&quot;
-    fmt : str, default &quot;svg&quot;
-        format for figures, [&quot;svg&quot;, &quot;jpg&quot;, &quot;pdf&quot;, &quot;png&quot;]
+    spec_file : str, default "specimens.txt"
+    samp_file : str, default "samples.txt"
+    meas_file : str, default "measurements.txt"
+    site_file : str, default "sites.txt"
+    age_file : str, default ""
+    sum_file : str, default ""
+    fmt : str, default "svg"
+        format for figures, ["svg", "jpg", "pdf", "png"]
     dmin : number, default -1
         minimum depth to plot (if -1, default to plotting all)
     dmax : number, default -1
         maximum depth to plot (if -1, default to plotting all)
-    depth_scale : str, default &quot;core_depth&quot;
-        scale to plot, [&#39;composite_depth&#39;, &#39;core_depth&#39;, &#39;age&#39;].
-        if &#39;age&#39; is selected, you must provide an ages file.
-    dir_path : str, default &quot;.&quot;
+    depth_scale : str, default "core_depth"
+        scale to plot, ['composite_depth', 'core_depth', 'age'].
+        if 'age' is selected, you must provide an ages file.
+    dir_path : str, default "."
         directory for input files
     contribution : cb.Contribution, default None
         if provided, use Contribution object instead of reading in
@@ -1573,27 +1625,27 @@ ani_depthplot(spec_file=&#39;specimens.txt&#39;, samp_file=&#39;samples.txt&#39;
 </ul>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">dir_path</span><span class="o">=</span><span class="s1">&#39;MagIC_example_3&#39;</span> <span class="c1"># set the path to your working directory</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">dir_path</span><span class="o">=</span><span class="s1">'MagIC_example_3'</span> <span class="c1"># set the path to your working directory</span>
 <span class="n">depth_min</span><span class="p">,</span> <span class="n">depth_max</span><span class="o">=</span> <span class="mi">40</span><span class="p">,</span> <span class="mi">160</span> <span class="c1"># set the core depth bounds as required</span>
 <span class="c1"># read in the data files and filter for desired columns</span>
-<span class="n">site_df</span><span class="o">=</span><span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="n">dir_path</span><span class="o">+</span><span class="s1">&#39;/sites.txt&#39;</span><span class="p">,</span><span class="n">sep</span><span class="o">=</span><span class="s1">&#39;</span><span class="se">\t</span><span class="s1">&#39;</span><span class="p">,</span><span class="n">header</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
-<span class="n">site_df</span><span class="o">=</span><span class="n">site_df</span><span class="p">[[</span><span class="s1">&#39;site&#39;</span><span class="p">,</span><span class="s1">&#39;core_depth&#39;</span><span class="p">,</span><span class="s1">&#39;external_results&#39;</span><span class="p">]]</span>
+<span class="n">site_df</span><span class="o">=</span><span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="n">dir_path</span><span class="o">+</span><span class="s1">'/sites.txt'</span><span class="p">,</span><span class="n">sep</span><span class="o">=</span><span class="s1">'</span><span class="se">\t</span><span class="s1">'</span><span class="p">,</span><span class="n">header</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+<span class="n">site_df</span><span class="o">=</span><span class="n">site_df</span><span class="p">[[</span><span class="s1">'site'</span><span class="p">,</span><span class="s1">'core_depth'</span><span class="p">,</span><span class="s1">'external_results'</span><span class="p">]]</span>
 
-<span class="n">anis_df</span><span class="o">=</span><span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="n">dir_path</span><span class="o">+</span><span class="s1">&#39;/specimens.txt&#39;</span><span class="p">,</span><span class="n">sep</span><span class="o">=</span><span class="s1">&#39;</span><span class="se">\t</span><span class="s1">&#39;</span><span class="p">,</span><span class="n">header</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
-<span class="n">anis_df</span><span class="p">[</span><span class="s1">&#39;site&#39;</span><span class="p">]</span><span class="o">=</span><span class="n">anis_df</span><span class="p">[</span><span class="s1">&#39;specimen&#39;</span><span class="p">]</span>
-<span class="n">anis_df</span><span class="o">.</span><span class="n">dropna</span><span class="p">(</span><span class="n">subset</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;aniso_v1&#39;</span><span class="p">],</span><span class="n">inplace</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+<span class="n">anis_df</span><span class="o">=</span><span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="n">dir_path</span><span class="o">+</span><span class="s1">'/specimens.txt'</span><span class="p">,</span><span class="n">sep</span><span class="o">=</span><span class="s1">'</span><span class="se">\t</span><span class="s1">'</span><span class="p">,</span><span class="n">header</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+<span class="n">anis_df</span><span class="p">[</span><span class="s1">'site'</span><span class="p">]</span><span class="o">=</span><span class="n">anis_df</span><span class="p">[</span><span class="s1">'specimen'</span><span class="p">]</span>
+<span class="n">anis_df</span><span class="o">.</span><span class="n">dropna</span><span class="p">(</span><span class="n">subset</span><span class="o">=</span><span class="p">[</span><span class="s1">'aniso_v1'</span><span class="p">],</span><span class="n">inplace</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
 <span class="c1"># merge with sites and filter for the depth</span>
-<span class="n">anis_df</span><span class="o">=</span><span class="n">pd</span><span class="o">.</span><span class="n">merge</span><span class="p">(</span><span class="n">anis_df</span><span class="p">,</span><span class="n">site_df</span><span class="p">,</span><span class="n">on</span><span class="o">=</span><span class="s1">&#39;site&#39;</span><span class="p">)</span>
+<span class="n">anis_df</span><span class="o">=</span><span class="n">pd</span><span class="o">.</span><span class="n">merge</span><span class="p">(</span><span class="n">anis_df</span><span class="p">,</span><span class="n">site_df</span><span class="p">,</span><span class="n">on</span><span class="o">=</span><span class="s1">'site'</span><span class="p">)</span>
 <span class="n">anis_df</span><span class="o">=</span><span class="n">anis_df</span><span class="p">[(</span><span class="n">anis_df</span><span class="o">.</span><span class="n">core_depth</span><span class="o">&gt;</span><span class="n">depth_min</span><span class="p">)</span><span class="o">&amp;</span><span class="p">(</span><span class="n">anis_df</span><span class="o">.</span><span class="n">core_depth</span><span class="o">&lt;</span><span class="n">depth_max</span><span class="p">)]</span>
 
 
 <span class="c1"># unpack the eigenparameters from aniso_v1,aniso_v2 and aniso_v3 and pick out the eigenvalues</span>
-<span class="n">anis_df</span><span class="p">[</span><span class="s1">&#39;tau1&#39;</span><span class="p">]</span><span class="o">=</span><span class="n">anis_df</span><span class="p">[</span><span class="s1">&#39;aniso_v1&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">str</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s1">&#39;:&#39;</span><span class="p">,</span><span class="n">expand</span><span class="o">=</span><span class="kc">True</span><span class="p">)[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">astype</span><span class="p">(</span><span class="s1">&#39;float&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">values</span>
-<span class="n">anis_df</span><span class="p">[</span><span class="s1">&#39;tau2&#39;</span><span class="p">]</span><span class="o">=</span><span class="n">anis_df</span><span class="p">[</span><span class="s1">&#39;aniso_v2&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">str</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s1">&#39;:&#39;</span><span class="p">,</span><span class="n">expand</span><span class="o">=</span><span class="kc">True</span><span class="p">)[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">astype</span><span class="p">(</span><span class="s1">&#39;float&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">values</span>
-<span class="n">anis_df</span><span class="p">[</span><span class="s1">&#39;tau3&#39;</span><span class="p">]</span><span class="o">=</span><span class="n">anis_df</span><span class="p">[</span><span class="s1">&#39;aniso_v3&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">str</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s1">&#39;:&#39;</span><span class="p">,</span><span class="n">expand</span><span class="o">=</span><span class="kc">True</span><span class="p">)[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">astype</span><span class="p">(</span><span class="s1">&#39;float&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">values</span>
+<span class="n">anis_df</span><span class="p">[</span><span class="s1">'tau1'</span><span class="p">]</span><span class="o">=</span><span class="n">anis_df</span><span class="p">[</span><span class="s1">'aniso_v1'</span><span class="p">]</span><span class="o">.</span><span class="n">str</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s1">':'</span><span class="p">,</span><span class="n">expand</span><span class="o">=</span><span class="kc">True</span><span class="p">)[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">astype</span><span class="p">(</span><span class="s1">'float'</span><span class="p">)</span><span class="o">.</span><span class="n">values</span>
+<span class="n">anis_df</span><span class="p">[</span><span class="s1">'tau2'</span><span class="p">]</span><span class="o">=</span><span class="n">anis_df</span><span class="p">[</span><span class="s1">'aniso_v2'</span><span class="p">]</span><span class="o">.</span><span class="n">str</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s1">':'</span><span class="p">,</span><span class="n">expand</span><span class="o">=</span><span class="kc">True</span><span class="p">)[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">astype</span><span class="p">(</span><span class="s1">'float'</span><span class="p">)</span><span class="o">.</span><span class="n">values</span>
+<span class="n">anis_df</span><span class="p">[</span><span class="s1">'tau3'</span><span class="p">]</span><span class="o">=</span><span class="n">anis_df</span><span class="p">[</span><span class="s1">'aniso_v3'</span><span class="p">]</span><span class="o">.</span><span class="n">str</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s1">':'</span><span class="p">,</span><span class="n">expand</span><span class="o">=</span><span class="kc">True</span><span class="p">)[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">astype</span><span class="p">(</span><span class="s1">'float'</span><span class="p">)</span><span class="o">.</span><span class="n">values</span>
 
 <span class="c1"># unpack external results data</span>
-<span class="n">site_df</span><span class="p">[</span><span class="s1">&#39;ngr&#39;</span><span class="p">]</span><span class="o">=</span><span class="n">site_df</span><span class="p">[</span><span class="s1">&#39;external_results&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">str</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s1">&#39;:&#39;</span><span class="p">,</span><span class="n">expand</span><span class="o">=</span><span class="kc">True</span><span class="p">)[</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">astype</span><span class="p">(</span><span class="s1">&#39;float&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">values</span>
+<span class="n">site_df</span><span class="p">[</span><span class="s1">'ngr'</span><span class="p">]</span><span class="o">=</span><span class="n">site_df</span><span class="p">[</span><span class="s1">'external_results'</span><span class="p">]</span><span class="o">.</span><span class="n">str</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s1">':'</span><span class="p">,</span><span class="n">expand</span><span class="o">=</span><span class="kc">True</span><span class="p">)[</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">astype</span><span class="p">(</span><span class="s1">'float'</span><span class="p">)</span><span class="o">.</span><span class="n">values</span>
 
 <span class="c1"># make the plots</span>
 
@@ -1603,21 +1655,21 @@ ani_depthplot(spec_file=&#39;specimens.txt&#39;, samp_file=&#39;samples.txt&#39;
 <span class="n">ax2</span><span class="o">=</span><span class="n">fig</span><span class="o">.</span><span class="n">add_subplot</span><span class="p">(</span><span class="mi">122</span><span class="p">)</span> <span class="c1"># make the second of two subplots</span>
 
 <span class="c1"># plot the eigenvalues with the usual symbols</span>
-<span class="n">ax1</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">anis_df</span><span class="p">[</span><span class="s1">&#39;tau1&#39;</span><span class="p">],</span><span class="n">anis_df</span><span class="p">[</span><span class="s1">&#39;core_depth&#39;</span><span class="p">],</span><span class="s1">&#39;rs&#39;</span><span class="p">)</span> <span class="c1"># red square</span>
-<span class="n">ax1</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">anis_df</span><span class="p">[</span><span class="s1">&#39;tau2&#39;</span><span class="p">],</span><span class="n">anis_df</span><span class="p">[</span><span class="s1">&#39;core_depth&#39;</span><span class="p">],</span><span class="s1">&#39;b^&#39;</span><span class="p">)</span> <span class="c1"># blue triangle</span>
-<span class="n">ax1</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">anis_df</span><span class="p">[</span><span class="s1">&#39;tau3&#39;</span><span class="p">],</span><span class="n">anis_df</span><span class="p">[</span><span class="s1">&#39;core_depth&#39;</span><span class="p">],</span><span class="s1">&#39;ko&#39;</span><span class="p">)</span> <span class="c1"># black circle</span>
+<span class="n">ax1</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">anis_df</span><span class="p">[</span><span class="s1">'tau1'</span><span class="p">],</span><span class="n">anis_df</span><span class="p">[</span><span class="s1">'core_depth'</span><span class="p">],</span><span class="s1">'rs'</span><span class="p">)</span> <span class="c1"># red square</span>
+<span class="n">ax1</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">anis_df</span><span class="p">[</span><span class="s1">'tau2'</span><span class="p">],</span><span class="n">anis_df</span><span class="p">[</span><span class="s1">'core_depth'</span><span class="p">],</span><span class="s1">'b^'</span><span class="p">)</span> <span class="c1"># blue triangle</span>
+<span class="n">ax1</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">anis_df</span><span class="p">[</span><span class="s1">'tau3'</span><span class="p">],</span><span class="n">anis_df</span><span class="p">[</span><span class="s1">'core_depth'</span><span class="p">],</span><span class="s1">'ko'</span><span class="p">)</span> <span class="c1"># black circle</span>
 <span class="n">ax1</span><span class="o">.</span><span class="n">set_ylim</span><span class="p">(</span><span class="n">depth_max</span><span class="p">,</span><span class="n">depth_min</span><span class="p">)</span> <span class="c1"># set the y axis limits</span>
-<span class="n">ax1</span><span class="o">.</span><span class="n">set_xlabel</span><span class="p">(</span><span class="s1">&#39;Eigenvalues&#39;</span><span class="p">)</span>
+<span class="n">ax1</span><span class="o">.</span><span class="n">set_xlabel</span><span class="p">(</span><span class="s1">'Eigenvalues'</span><span class="p">)</span>
 
 <span class="c1"># plot the ngr data as a black line</span>
-<span class="n">ax2</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">site_df</span><span class="p">[</span><span class="s1">&#39;ngr&#39;</span><span class="p">],</span><span class="n">site_df</span><span class="p">[</span><span class="s1">&#39;core_depth&#39;</span><span class="p">],</span><span class="s1">&#39;k-&#39;</span><span class="p">)</span>
+<span class="n">ax2</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">site_df</span><span class="p">[</span><span class="s1">'ngr'</span><span class="p">],</span><span class="n">site_df</span><span class="p">[</span><span class="s1">'core_depth'</span><span class="p">],</span><span class="s1">'k-'</span><span class="p">)</span>
 <span class="n">ax2</span><span class="o">.</span><span class="n">set_ylim</span><span class="p">(</span><span class="n">depth_max</span><span class="p">,</span><span class="n">depth_min</span><span class="p">)</span> <span class="c1"># set the y axis limits</span>
 <span class="c1"># shade in the high NGR regions - these are the clay dominated layers with higher anisotropy</span>
-<span class="n">y2</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">ones</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">site_df</span><span class="p">[</span><span class="s1">&#39;ngr&#39;</span><span class="p">]))</span><span class="o">*</span><span class="n">site_df</span><span class="p">[</span><span class="s1">&#39;ngr&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">median</span><span class="p">()</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">fill_betweenx</span><span class="p">(</span><span class="n">site_df</span><span class="p">[</span><span class="s1">&#39;core_depth&#39;</span><span class="p">],</span><span class="n">site_df</span><span class="p">[</span><span class="s1">&#39;ngr&#39;</span><span class="p">],</span> <span class="n">y2</span><span class="p">,</span>\
-                  <span class="n">where</span> <span class="o">=</span> <span class="n">site_df</span><span class="p">[</span><span class="s1">&#39;ngr&#39;</span><span class="p">]</span><span class="o">&gt;=</span><span class="n">y2</span><span class="p">,</span> <span class="n">facecolor</span><span class="o">=</span><span class="s1">&#39;grey&#39;</span><span class="p">)</span>
-<span class="n">ax2</span><span class="o">.</span><span class="n">axvline</span><span class="p">(</span><span class="n">site_df</span><span class="p">[</span><span class="s1">&#39;ngr&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">median</span><span class="p">())</span> <span class="c1"># draw a vertical line up the median values</span>
-<span class="n">ax2</span><span class="o">.</span><span class="n">set_xlabel</span><span class="p">(</span><span class="s1">&#39;NGR&#39;</span><span class="p">);</span> <span class="c1"># label the X axis</span>
+<span class="n">y2</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">ones</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">site_df</span><span class="p">[</span><span class="s1">'ngr'</span><span class="p">]))</span><span class="o">*</span><span class="n">site_df</span><span class="p">[</span><span class="s1">'ngr'</span><span class="p">]</span><span class="o">.</span><span class="n">median</span><span class="p">()</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">fill_betweenx</span><span class="p">(</span><span class="n">site_df</span><span class="p">[</span><span class="s1">'core_depth'</span><span class="p">],</span><span class="n">site_df</span><span class="p">[</span><span class="s1">'ngr'</span><span class="p">],</span> <span class="n">y2</span><span class="p">,</span>\
+                  <span class="n">where</span> <span class="o">=</span> <span class="n">site_df</span><span class="p">[</span><span class="s1">'ngr'</span><span class="p">]</span><span class="o">&gt;=</span><span class="n">y2</span><span class="p">,</span> <span class="n">facecolor</span><span class="o">=</span><span class="s1">'grey'</span><span class="p">)</span>
+<span class="n">ax2</span><span class="o">.</span><span class="n">axvline</span><span class="p">(</span><span class="n">site_df</span><span class="p">[</span><span class="s1">'ngr'</span><span class="p">]</span><span class="o">.</span><span class="n">median</span><span class="p">())</span> <span class="c1"># draw a vertical line up the median values</span>
+<span class="n">ax2</span><span class="o">.</span><span class="n">set_xlabel</span><span class="p">(</span><span class="s1">'NGR'</span><span class="p">);</span> <span class="c1"># label the X axis</span>
 </pre></div>
 </div>
 </div>
@@ -1675,10 +1727,10 @@ ani_depthplot(spec_file=&#39;specimens.txt&#39;, samp_file=&#39;samples.txt&#39;
     <i class="fa-solid fa-list"></i> Contents
   </div>
   <nav id="pst-page-toc-nav" class="page-toc" aria-labelledby="pst-page-navigation-heading-2">
-    <ul class="visible nav section-nav flex-column">
+    <ul class="pst-show_toc_level nav section-nav flex-column">
 <li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#">2020 MagIC Workshop PmagPy notebook demo</a></li>
 <li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#overview-of-demonstration">Overview of demonstration</a></li>
-<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#exercise-1">Exercise 1</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#exercise-1">Exercise 1</a><ul class="pst-show_toc_level nav section-nav flex-column">
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#equal-area-net-example">Equal area net example</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#map-of-vgps">Map of VGPs</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#bootstrap-reversals-test">Bootstrap reversals test</a></li>
@@ -1686,11 +1738,11 @@ ani_depthplot(spec_file=&#39;specimens.txt&#39;, samp_file=&#39;samples.txt&#39;
 </ul>
 </li>
 <li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#exercise-2">Exercise 2:</a></li>
-<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#exercise-3">Exercise 3</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#exercise-3">Exercise 3</a><ul class="pst-show_toc_level nav section-nav flex-column">
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#download-and-unpack-the-data">Download and unpack the data</a></li>
 </ul>
 </li>
-<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#magstrat-figure">Magstrat figure</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#magstrat-figure">Magstrat figure</a><ul class="pst-show_toc_level nav section-nav flex-column">
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#christmas-tree-of-anisotropy">“Christmas tree” of anisotropy</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#plotting-external-results">Plotting External Results</a></li>
 </ul>
@@ -1744,8 +1796,8 @@ By PmagPy Contributors
   </div>
   
   <!-- Scripts loaded after <body> so the DOM is not blocked -->
-  <script defer src="../../_static/scripts/bootstrap.js?digest=8878045cc6db502f8baf"></script>
-<script defer src="../../_static/scripts/pydata-sphinx-theme.js?digest=8878045cc6db502f8baf"></script>
+  <script defer src="../../_static/scripts/bootstrap.js?digest=55c26ed414f5f8a31ebb"></script>
+<script defer src="../../_static/scripts/pydata-sphinx-theme.js?digest=55c26ed414f5f8a31ebb"></script>
 
   <footer class="bd-footer">
   </footer>

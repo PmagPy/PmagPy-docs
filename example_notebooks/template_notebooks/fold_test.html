@@ -27,8 +27,8 @@
   </noscript>
   
   <!-- Loaded before other Sphinx assets -->
-  <link href="../../_static/styles/theme.css?digest=8878045cc6db502f8baf" rel="stylesheet" />
-<link href="../../_static/styles/pydata-sphinx-theme.css?digest=8878045cc6db502f8baf" rel="stylesheet" />
+  <link href="../../_static/styles/theme.css?digest=55c26ed414f5f8a31ebb" rel="stylesheet" />
+<link href="../../_static/styles/pydata-sphinx-theme.css?digest=55c26ed414f5f8a31ebb" rel="stylesheet" />
 
     <link rel="stylesheet" type="text/css" href="../../_static/pygments.css?v=03e43079" />
     <link rel="stylesheet" type="text/css" href="../../_static/styles/sphinx-book-theme.css?v=3c74b3bc" />
@@ -39,10 +39,10 @@
     <link rel="stylesheet" type="text/css" href="../../_static/sphinx-design.min.css?v=95c83b7e" />
   
   <!-- So that users can add custom icons -->
-  <script src="../../_static/scripts/fontawesome.js?digest=8878045cc6db502f8baf"></script>
+  <script defer src="../../_static/scripts/fontawesome.js?digest=55c26ed414f5f8a31ebb"></script>
   <!-- Pre-loaded scripts that we'll load fully later -->
-  <link rel="preload" as="script" href="../../_static/scripts/bootstrap.js?digest=8878045cc6db502f8baf" />
-<link rel="preload" as="script" href="../../_static/scripts/pydata-sphinx-theme.js?digest=8878045cc6db502f8baf" />
+  <link rel="preload" as="script" href="../../_static/scripts/bootstrap.js?digest=55c26ed414f5f8a31ebb" />
+<link rel="preload" as="script" href="../../_static/scripts/pydata-sphinx-theme.js?digest=55c26ed414f5f8a31ebb" />
 
     <script src="../../_static/documentation_options.js?v=9eb32ce0"></script>
     <script src="../../_static/doctools.js?v=9a2dae69"></script>
@@ -63,25 +63,32 @@
     <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
     <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
     <script>DOCUMENTATION_OPTIONS.pagename = 'example_notebooks/template_notebooks/fold_test';</script>
+    <script>DOCUMENTATION_OPTIONS.search_as_you_type = false;</script>
     <link rel="index" title="Index" href="../../genindex.html" />
     <link rel="search" title="Search" href="../../search.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
   <meta name="docsearch:version" content="" />
+  
+    
+    <script src="../../_static/searchtools.js"></script>
+    <script src="../../_static/language_data.js"></script>
+    <script src="../../searchindex.js"></script>
+  
   </head>
-  
-  
-  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
-
+  <body data-default-mode="">
   
   
   <div id="pst-skip-link" class="skip-link d-print-none"><a href="#main-content">Skip to main content</a></div>
+
   
   <div id="pst-scroll-pixel-helper"></div>
   
   <button type="button" class="btn rounded-pill" id="pst-back-to-top">
     <i class="fa-solid fa-arrow-up"></i>Back to top</button>
-
+  
+  
+  
   
   <dialog id="pst-search-dialog">
     
@@ -107,7 +114,51 @@
 </div>
 
   
-    <header class="bd-header navbar navbar-expand-lg bd-navbar d-print-none">
+    <header id="pst-header" class="bd-header navbar navbar-expand-lg bd-navbar d-print-none">
+<div class="bd-header__inner bd-page-width">
+  <button class="pst-navbar-icon sidebar-toggle primary-toggle" aria-label="Site navigation">
+    <span class="fa-solid fa-bars"></span>
+  </button>
+  
+  
+  <div class="col-lg-9 navbar-header-items">
+    
+    
+    <div class="navbar-header-items__end">
+      
+        <div class="navbar-item navbar-persistent--container">
+          
+
+<button class="btn search-button-field search-button__button pst-js-only" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+ <i class="fa-solid fa-magnifying-glass"></i>
+ <span class="search-button__default-text">Search</span>
+ <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+</button>
+        </div>
+      
+      
+    </div>
+    
+  </div>
+  
+  
+    <div class="navbar-persistent--mobile">
+
+<button class="btn search-button-field search-button__button pst-js-only" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+ <i class="fa-solid fa-magnifying-glass"></i>
+ <span class="search-button__default-text">Search</span>
+ <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+</button>
+    </div>
+  
+
+  
+    <button class="pst-navbar-icon sidebar-toggle secondary-toggle" aria-label="On this page">
+      <span class="fa-solid fa-outdent"></span>
+    </button>
+  
+</div>
+
     </header>
   
 
@@ -186,6 +237,7 @@
 </details></li>
 <li class="toctree-l1"><a class="reference internal" href="../../resources/survival_skills.html">Survival computer skills</a></li>
 
+<li class="toctree-l1"><a class="reference internal" href="../../resources/reproducible_random_sampling.html">Reproducible random sampling in PmagPy</a></li>
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Documentation notebooks</span></p>
 <ul class="nav bd-sidenav">
@@ -406,7 +458,7 @@
                 <h2> Contents </h2>
             </div>
             <nav aria-label="Page">
-                <ul class="visible nav section-nav flex-column">
+                <ul class="pst-show_toc_level nav section-nav flex-column">
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#introduction">Introduction</a><ul class="nav section-nav flex-column">
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#references">References</a></li>
 </ul>
@@ -457,7 +509,7 @@
 <span class="kn">import</span><span class="w"> </span><span class="nn">matplotlib.pyplot</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">plt</span>
 
 <span class="o">%</span><span class="k">matplotlib</span> inline
-<span class="o">%</span><span class="k">config</span> InlineBackend.figure_format=&#39;retina&#39;
+<span class="o">%</span><span class="k">config</span> InlineBackend.figure_format='retina'
 </pre></div>
 </div>
 </div>
@@ -470,8 +522,8 @@
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Halls (1974) — Nipigon Strait reversed and normal flows</span>
-<span class="n">halls_dir</span> <span class="o">=</span> <span class="s1">&#39;./data/Halls1974&#39;</span>
-<span class="n">result</span><span class="p">,</span> <span class="n">halls_file</span> <span class="o">=</span> <span class="n">ipmag</span><span class="o">.</span><span class="n">download_magic_from_id</span><span class="p">(</span><span class="s1">&#39;20260&#39;</span><span class="p">,</span> <span class="n">directory</span><span class="o">=</span><span class="n">halls_dir</span><span class="p">)</span>
+<span class="n">halls_dir</span> <span class="o">=</span> <span class="s1">'./data/Halls1974'</span>
+<span class="n">result</span><span class="p">,</span> <span class="n">halls_file</span> <span class="o">=</span> <span class="n">ipmag</span><span class="o">.</span><span class="n">download_magic_from_id</span><span class="p">(</span><span class="s1">'20260'</span><span class="p">,</span> <span class="n">directory</span><span class="o">=</span><span class="n">halls_dir</span><span class="p">)</span>
 <span class="n">ipmag</span><span class="o">.</span><span class="n">unpack_magic</span><span class="p">(</span><span class="n">halls_file</span><span class="p">,</span> <span class="n">dir_path</span><span class="o">=</span><span class="n">halls_dir</span><span class="p">,</span> <span class="n">print_progress</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
 </pre></div>
 </div>
@@ -491,8 +543,8 @@
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Swanson-Hysell et al. (2014) — Simpson Island section</span>
-<span class="n">sh_dir</span> <span class="o">=</span> <span class="s1">&#39;./data/SwansonHysell2014&#39;</span>
-<span class="n">result</span><span class="p">,</span> <span class="n">sh_file</span> <span class="o">=</span> <span class="n">ipmag</span><span class="o">.</span><span class="n">download_magic_from_id</span><span class="p">(</span><span class="s1">&#39;18693&#39;</span><span class="p">,</span> <span class="n">directory</span><span class="o">=</span><span class="n">sh_dir</span><span class="p">)</span>
+<span class="n">sh_dir</span> <span class="o">=</span> <span class="s1">'./data/SwansonHysell2014'</span>
+<span class="n">result</span><span class="p">,</span> <span class="n">sh_file</span> <span class="o">=</span> <span class="n">ipmag</span><span class="o">.</span><span class="n">download_magic_from_id</span><span class="p">(</span><span class="s1">'18693'</span><span class="p">,</span> <span class="n">directory</span><span class="o">=</span><span class="n">sh_dir</span><span class="p">)</span>
 <span class="n">ipmag</span><span class="o">.</span><span class="n">unpack_magic</span><span class="p">(</span><span class="n">sh_file</span><span class="p">,</span> <span class="n">dir_path</span><span class="o">=</span><span class="n">sh_dir</span><span class="p">,</span> <span class="n">print_progress</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
 </pre></div>
 </div>
@@ -520,14 +572,14 @@
 <p>In this contribution, the bedding orientations (<code class="docutils literal notranslate"><span class="pre">bed_dip</span></code>, <code class="docutils literal notranslate"><span class="pre">bed_dip_direction</span></code>) are on the same rows as the directional data in the sites table, so no merging is needed.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">halls_sites</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="n">halls_dir</span> <span class="o">+</span> <span class="s1">&#39;/sites.txt&#39;</span><span class="p">,</span> <span class="n">sep</span><span class="o">=</span><span class="s1">&#39;</span><span class="se">\t</span><span class="s1">&#39;</span><span class="p">,</span> <span class="n">header</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">halls_sites</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="n">halls_dir</span> <span class="o">+</span> <span class="s1">'/sites.txt'</span><span class="p">,</span> <span class="n">sep</span><span class="o">=</span><span class="s1">'</span><span class="se">\t</span><span class="s1">'</span><span class="p">,</span> <span class="n">header</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
 
 <span class="c1"># filter for reversed polarity flows in geographic coordinates</span>
 <span class="n">halls_geo</span> <span class="o">=</span> <span class="n">halls_sites</span><span class="p">[(</span><span class="n">halls_sites</span><span class="o">.</span><span class="n">dir_tilt_correction</span> <span class="o">==</span> <span class="mi">0</span><span class="p">)</span> <span class="o">&amp;</span>
-                        <span class="p">(</span><span class="n">halls_sites</span><span class="o">.</span><span class="n">location</span><span class="o">.</span><span class="n">str</span><span class="o">.</span><span class="n">contains</span><span class="p">(</span><span class="s1">&#39;Lower Reversed&#39;</span><span class="p">))]</span><span class="o">.</span><span class="n">copy</span><span class="p">()</span>
+                        <span class="p">(</span><span class="n">halls_sites</span><span class="o">.</span><span class="n">location</span><span class="o">.</span><span class="n">str</span><span class="o">.</span><span class="n">contains</span><span class="p">(</span><span class="s1">'Lower Reversed'</span><span class="p">))]</span><span class="o">.</span><span class="n">copy</span><span class="p">()</span>
 
-<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;</span><span class="si">{</span><span class="nb">len</span><span class="p">(</span><span class="n">halls_geo</span><span class="p">)</span><span class="si">}</span><span class="s1"> reversed sites from Halls (1974)&#39;</span><span class="p">)</span>
-<span class="n">halls_geo</span><span class="p">[[</span><span class="s1">&#39;site&#39;</span><span class="p">,</span> <span class="s1">&#39;dir_dec&#39;</span><span class="p">,</span> <span class="s1">&#39;dir_inc&#39;</span><span class="p">,</span> <span class="s1">&#39;bed_dip_direction&#39;</span><span class="p">,</span> <span class="s1">&#39;bed_dip&#39;</span><span class="p">]]</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">'</span><span class="si">{</span><span class="nb">len</span><span class="p">(</span><span class="n">halls_geo</span><span class="p">)</span><span class="si">}</span><span class="s1"> reversed sites from Halls (1974)'</span><span class="p">)</span>
+<span class="n">halls_geo</span><span class="p">[[</span><span class="s1">'site'</span><span class="p">,</span> <span class="s1">'dir_dec'</span><span class="p">,</span> <span class="s1">'dir_inc'</span><span class="p">,</span> <span class="s1">'bed_dip_direction'</span><span class="p">,</span> <span class="s1">'bed_dip'</span><span class="p">]]</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
 </pre></div>
 </div>
 </div>
@@ -612,11 +664,11 @@
 <p>In this contribution, the bedding orientations are only populated on the metadata rows for each site (method code <code class="docutils literal notranslate"><span class="pre">GE-WGS84</span></code>) and are missing from the directional data rows. We propagate the bedding values across all rows for each site so that the directional rows have the bedding information they need for the fold test.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">sh_sites</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="n">sh_dir</span> <span class="o">+</span> <span class="s1">&#39;/sites.txt&#39;</span><span class="p">,</span> <span class="n">sep</span><span class="o">=</span><span class="s1">&#39;</span><span class="se">\t</span><span class="s1">&#39;</span><span class="p">,</span> <span class="n">header</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">sh_sites</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="n">sh_dir</span> <span class="o">+</span> <span class="s1">'/sites.txt'</span><span class="p">,</span> <span class="n">sep</span><span class="o">=</span><span class="s1">'</span><span class="se">\t</span><span class="s1">'</span><span class="p">,</span> <span class="n">header</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
 
 <span class="c1"># propagate bedding values to all rows for each site</span>
-<span class="n">sh_sites</span><span class="p">[[</span><span class="s1">&#39;bed_dip&#39;</span><span class="p">,</span> <span class="s1">&#39;bed_dip_direction&#39;</span><span class="p">]]</span> <span class="o">=</span> <span class="p">(</span>
-    <span class="n">sh_sites</span><span class="o">.</span><span class="n">groupby</span><span class="p">(</span><span class="s1">&#39;site&#39;</span><span class="p">)[[</span><span class="s1">&#39;bed_dip&#39;</span><span class="p">,</span> <span class="s1">&#39;bed_dip_direction&#39;</span><span class="p">]]</span><span class="o">.</span><span class="n">transform</span><span class="p">(</span><span class="s1">&#39;first&#39;</span><span class="p">)</span>
+<span class="n">sh_sites</span><span class="p">[[</span><span class="s1">'bed_dip'</span><span class="p">,</span> <span class="s1">'bed_dip_direction'</span><span class="p">]]</span> <span class="o">=</span> <span class="p">(</span>
+    <span class="n">sh_sites</span><span class="o">.</span><span class="n">groupby</span><span class="p">(</span><span class="s1">'site'</span><span class="p">)[[</span><span class="s1">'bed_dip'</span><span class="p">,</span> <span class="s1">'bed_dip_direction'</span><span class="p">]]</span><span class="o">.</span><span class="n">transform</span><span class="p">(</span><span class="s1">'first'</span><span class="p">)</span>
 <span class="p">)</span>
 
 <span class="c1"># filter for geographic coordinates in the upper third of the section</span>
@@ -624,8 +676,8 @@
                   <span class="p">(</span><span class="n">sh_sites</span><span class="o">.</span><span class="n">dir_dec</span><span class="o">.</span><span class="n">notna</span><span class="p">())</span> <span class="o">&amp;</span>
                   <span class="p">(</span><span class="n">sh_sites</span><span class="o">.</span><span class="n">height</span> <span class="o">&gt;</span> <span class="mi">2082</span><span class="p">)]</span><span class="o">.</span><span class="n">copy</span><span class="p">()</span>
 
-<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;</span><span class="si">{</span><span class="nb">len</span><span class="p">(</span><span class="n">sh_geo</span><span class="p">)</span><span class="si">}</span><span class="s1"> upper third sites from Swanson-Hysell et al. (2014)&#39;</span><span class="p">)</span>
-<span class="n">sh_geo</span><span class="p">[[</span><span class="s1">&#39;site&#39;</span><span class="p">,</span> <span class="s1">&#39;height&#39;</span><span class="p">,</span> <span class="s1">&#39;dir_dec&#39;</span><span class="p">,</span> <span class="s1">&#39;dir_inc&#39;</span><span class="p">,</span> <span class="s1">&#39;bed_dip_direction&#39;</span><span class="p">,</span> <span class="s1">&#39;bed_dip&#39;</span><span class="p">]]</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">'</span><span class="si">{</span><span class="nb">len</span><span class="p">(</span><span class="n">sh_geo</span><span class="p">)</span><span class="si">}</span><span class="s1"> upper third sites from Swanson-Hysell et al. (2014)'</span><span class="p">)</span>
+<span class="n">sh_geo</span><span class="p">[[</span><span class="s1">'site'</span><span class="p">,</span> <span class="s1">'height'</span><span class="p">,</span> <span class="s1">'dir_dec'</span><span class="p">,</span> <span class="s1">'dir_inc'</span><span class="p">,</span> <span class="s1">'bed_dip_direction'</span><span class="p">,</span> <span class="s1">'bed_dip'</span><span class="p">]]</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
 </pre></div>
 </div>
 </div>
@@ -715,16 +767,16 @@
 <p>The function <code class="docutils literal notranslate"><span class="pre">ipmag.bootstrap_fold_test()</span></code> expects a numpy array with columns <code class="docutils literal notranslate"><span class="pre">[dec,</span> <span class="pre">inc,</span> <span class="pre">dip_direction,</span> <span class="pre">dip]</span></code> where the directional data are in geographic coordinates (uncorrected for bedding tilt). We extract these four columns from each dataset and concatenate them.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">cols</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;dir_dec&#39;</span><span class="p">,</span> <span class="s1">&#39;dir_inc&#39;</span><span class="p">,</span> <span class="s1">&#39;bed_dip_direction&#39;</span><span class="p">,</span> <span class="s1">&#39;bed_dip&#39;</span><span class="p">]</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">cols</span> <span class="o">=</span> <span class="p">[</span><span class="s1">'dir_dec'</span><span class="p">,</span> <span class="s1">'dir_inc'</span><span class="p">,</span> <span class="s1">'bed_dip_direction'</span><span class="p">,</span> <span class="s1">'bed_dip'</span><span class="p">]</span>
 
 <span class="n">halls_diddd</span> <span class="o">=</span> <span class="n">halls_geo</span><span class="p">[</span><span class="n">cols</span><span class="p">]</span><span class="o">.</span><span class="n">values</span>
 <span class="n">sh_diddd</span> <span class="o">=</span> <span class="n">sh_geo</span><span class="p">[</span><span class="n">cols</span><span class="p">]</span><span class="o">.</span><span class="n">values</span>
 
 <span class="c1"># combine the two datasets</span>
 <span class="n">diddd</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">concatenate</span><span class="p">([</span><span class="n">halls_diddd</span><span class="p">,</span> <span class="n">sh_diddd</span><span class="p">])</span>
-<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;Combined data array: </span><span class="si">{</span><span class="nb">len</span><span class="p">(</span><span class="n">halls_diddd</span><span class="p">)</span><span class="si">}</span><span class="s1"> Halls (1974) + &#39;</span>
-      <span class="sa">f</span><span class="s1">&#39;</span><span class="si">{</span><span class="nb">len</span><span class="p">(</span><span class="n">sh_diddd</span><span class="p">)</span><span class="si">}</span><span class="s1"> Swanson-Hysell et al. (2014) = </span><span class="si">{</span><span class="nb">len</span><span class="p">(</span><span class="n">diddd</span><span class="p">)</span><span class="si">}</span><span class="s1"> total sites&#39;</span><span class="p">)</span>
-<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;Array shape: </span><span class="si">{</span><span class="n">diddd</span><span class="o">.</span><span class="n">shape</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">'Combined data array: </span><span class="si">{</span><span class="nb">len</span><span class="p">(</span><span class="n">halls_diddd</span><span class="p">)</span><span class="si">}</span><span class="s1"> Halls (1974) + '</span>
+      <span class="sa">f</span><span class="s1">'</span><span class="si">{</span><span class="nb">len</span><span class="p">(</span><span class="n">sh_diddd</span><span class="p">)</span><span class="si">}</span><span class="s1"> Swanson-Hysell et al. (2014) = </span><span class="si">{</span><span class="nb">len</span><span class="p">(</span><span class="n">diddd</span><span class="p">)</span><span class="si">}</span><span class="s1"> total sites'</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">'Array shape: </span><span class="si">{</span><span class="n">diddd</span><span class="o">.</span><span class="n">shape</span><span class="si">}</span><span class="s1">'</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -743,7 +795,7 @@ Array shape: (59, 4)
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># get tilt-corrected directions for comparison</span>
 <span class="n">halls_tc</span> <span class="o">=</span> <span class="n">halls_sites</span><span class="p">[(</span><span class="n">halls_sites</span><span class="o">.</span><span class="n">dir_tilt_correction</span> <span class="o">==</span> <span class="mi">100</span><span class="p">)</span> <span class="o">&amp;</span>
-                       <span class="p">(</span><span class="n">halls_sites</span><span class="o">.</span><span class="n">location</span><span class="o">.</span><span class="n">str</span><span class="o">.</span><span class="n">contains</span><span class="p">(</span><span class="s1">&#39;Lower Reversed&#39;</span><span class="p">))]</span><span class="o">.</span><span class="n">copy</span><span class="p">()</span>
+                       <span class="p">(</span><span class="n">halls_sites</span><span class="o">.</span><span class="n">location</span><span class="o">.</span><span class="n">str</span><span class="o">.</span><span class="n">contains</span><span class="p">(</span><span class="s1">'Lower Reversed'</span><span class="p">))]</span><span class="o">.</span><span class="n">copy</span><span class="p">()</span>
 
 <span class="n">sh_tc</span> <span class="o">=</span> <span class="n">sh_sites</span><span class="p">[(</span><span class="n">sh_sites</span><span class="o">.</span><span class="n">dir_tilt_correction</span> <span class="o">==</span> <span class="mi">100</span><span class="p">)</span> <span class="o">&amp;</span>
                  <span class="p">(</span><span class="n">sh_sites</span><span class="o">.</span><span class="n">dir_dec</span><span class="o">.</span><span class="n">notna</span><span class="p">())</span> <span class="o">&amp;</span>
@@ -759,13 +811,13 @@ Array shape: (59, 4)
 
 <span class="n">plt</span><span class="o">.</span><span class="n">sca</span><span class="p">(</span><span class="n">axes</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span>
 <span class="n">ipmag</span><span class="o">.</span><span class="n">plot_net</span><span class="p">()</span>
-<span class="n">ipmag</span><span class="o">.</span><span class="n">plot_di</span><span class="p">(</span><span class="n">combined_dec_is</span><span class="p">,</span> <span class="n">combined_inc_is</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;r&#39;</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s1">&#39;Geographic (in situ)&#39;</span><span class="p">)</span>
+<span class="n">ipmag</span><span class="o">.</span><span class="n">plot_di</span><span class="p">(</span><span class="n">combined_dec_is</span><span class="p">,</span> <span class="n">combined_inc_is</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">'r'</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s1">'Geographic (in situ)'</span><span class="p">)</span>
 
 <span class="n">plt</span><span class="o">.</span><span class="n">sca</span><span class="p">(</span><span class="n">axes</span><span class="p">[</span><span class="mi">1</span><span class="p">])</span>
 <span class="n">ipmag</span><span class="o">.</span><span class="n">plot_net</span><span class="p">()</span>
-<span class="n">ipmag</span><span class="o">.</span><span class="n">plot_di</span><span class="p">(</span><span class="n">combined_dec_tc</span><span class="p">,</span> <span class="n">combined_inc_tc</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;b&#39;</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s1">&#39;Tilt-corrected&#39;</span><span class="p">)</span>
+<span class="n">ipmag</span><span class="o">.</span><span class="n">plot_di</span><span class="p">(</span><span class="n">combined_dec_tc</span><span class="p">,</span> <span class="n">combined_inc_tc</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">'b'</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s1">'Tilt-corrected'</span><span class="p">)</span>
 
 <span class="n">plt</span><span class="o">.</span><span class="n">tight_layout</span><span class="p">()</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
@@ -786,13 +838,13 @@ Array shape: (59, 4)
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">is_mean</span> <span class="o">=</span> <span class="n">ipmag</span><span class="o">.</span><span class="n">fisher_mean</span><span class="p">(</span><span class="n">combined_dec_is</span><span class="o">.</span><span class="n">tolist</span><span class="p">(),</span> <span class="n">combined_inc_is</span><span class="o">.</span><span class="n">tolist</span><span class="p">())</span>
 <span class="n">tc_mean</span> <span class="o">=</span> <span class="n">ipmag</span><span class="o">.</span><span class="n">fisher_mean</span><span class="p">(</span><span class="n">combined_dec_tc</span><span class="o">.</span><span class="n">tolist</span><span class="p">(),</span> <span class="n">combined_inc_tc</span><span class="o">.</span><span class="n">tolist</span><span class="p">())</span>
 
-<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Fisher mean of in situ (geographic) directions:&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">"Fisher mean of in situ (geographic) directions:"</span><span class="p">)</span>
 <span class="n">ipmag</span><span class="o">.</span><span class="n">print_direction_mean</span><span class="p">(</span><span class="n">is_mean</span><span class="p">)</span>
-<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;&#39;</span><span class="p">)</span>
-<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Fisher mean of tilt-corrected directions:&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">''</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">"Fisher mean of tilt-corrected directions:"</span><span class="p">)</span>
 <span class="n">ipmag</span><span class="o">.</span><span class="n">print_direction_mean</span><span class="p">(</span><span class="n">tc_mean</span><span class="p">)</span>
-<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;&#39;</span><span class="p">)</span>
-<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;k2/k1 ratio: </span><span class="si">{</span><span class="n">tc_mean</span><span class="p">[</span><span class="s1">&#39;k&#39;</span><span class="p">]</span><span class="o">/</span><span class="n">is_mean</span><span class="p">[</span><span class="s1">&#39;k&#39;</span><span class="p">]</span><span class="si">:</span><span class="s2">.2f</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">''</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">"k2/k1 ratio: </span><span class="si">{</span><span class="n">tc_mean</span><span class="p">[</span><span class="s1">'k'</span><span class="p">]</span><span class="o">/</span><span class="n">is_mean</span><span class="p">[</span><span class="s1">'k'</span><span class="p">]</span><span class="si">:</span><span class="s2">.2f</span><span class="si">}</span><span class="s2">"</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -897,7 +949,7 @@ range of all bootstrap samples:
     <i class="fa-solid fa-list"></i> Contents
   </div>
   <nav id="pst-page-toc-nav" class="page-toc" aria-labelledby="pst-page-navigation-heading-2">
-    <ul class="visible nav section-nav flex-column">
+    <ul class="pst-show_toc_level nav section-nav flex-column">
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#introduction">Introduction</a><ul class="nav section-nav flex-column">
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#references">References</a></li>
 </ul>
@@ -957,8 +1009,8 @@ By PmagPy Contributors
   </div>
   
   <!-- Scripts loaded after <body> so the DOM is not blocked -->
-  <script defer src="../../_static/scripts/bootstrap.js?digest=8878045cc6db502f8baf"></script>
-<script defer src="../../_static/scripts/pydata-sphinx-theme.js?digest=8878045cc6db502f8baf"></script>
+  <script defer src="../../_static/scripts/bootstrap.js?digest=55c26ed414f5f8a31ebb"></script>
+<script defer src="../../_static/scripts/pydata-sphinx-theme.js?digest=55c26ed414f5f8a31ebb"></script>
 
   <footer class="bd-footer">
   </footer>
