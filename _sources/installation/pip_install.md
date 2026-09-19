@@ -70,7 +70,7 @@ That's it — PmagPy is installed.
 If you don't want to use conda — for example, you're working in Google Colab, JupyterHub, or a lightweight Python environment — you can install PmagPy with pip alone:
 
 ```bash
-pip install --upgrade pmagpy[maps]
+pip install --upgrade "pmagpy[maps]"
 pip install --upgrade pmagpy-cli
 ```
 

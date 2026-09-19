@@ -465,7 +465,7 @@
 </li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#running-the-command-line-programs">Running the command-line programs</a><ul class="nav section-nav flex-column">
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#pattern-a-navigate-and-run-simplest">Pattern A: Navigate and run (simplest)</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#pattern-b-editable-install-of-pmagpy-cli">Pattern B: Editable install of pmagpy-cli</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#pattern-b-editable-install-of-pmagpy-cli-not-currently-available">Pattern B: Editable install of pmagpy-cli (not currently available)</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#pattern-c-editable-library-released-cli">Pattern C: Editable library + released CLI</a></li>
 </ul>
 </li>
@@ -527,10 +527,10 @@ conda<span class="w"> </span>activate<span class="w"> </span>pmagpy_dev
 <section id="step-3-install-in-editable-mode">
 <h3>Step 3: Install in editable mode<a class="headerlink" href="#step-3-install-in-editable-mode" title="Link to this heading">#</a></h3>
 <p>From the PmagPy directory:</p>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>pip<span class="w"> </span>install<span class="w"> </span>-e<span class="w"> </span>.<span class="o">[</span>maps<span class="o">]</span>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>pip<span class="w"> </span>install<span class="w"> </span>-e<span class="w"> </span><span class="s2">".[maps]"</span>
 </pre></div>
 </div>
-<p>The <code class="docutils literal notranslate"><span class="pre">-e</span></code> flag installs PmagPy as an <em>editable</em> package — Python imports from your cloned repo directly, so any code changes (or <code class="docutils literal notranslate"><span class="pre">git</span> <span class="pre">pull</span></code>) take effect immediately without reinstalling. The <code class="docutils literal notranslate"><span class="pre">[maps]</span></code> part adds cartopy and shapely; you can drop it if you already installed those via conda above and would like pip to leave them alone.</p>
+<p>The <code class="docutils literal notranslate"><span class="pre">-e</span></code> flag installs PmagPy as an <em>editable</em> package — Python imports from your cloned repo directly, so any code changes (or <code class="docutils literal notranslate"><span class="pre">git</span> <span class="pre">pull</span></code>) take effect immediately without reinstalling. The <code class="docutils literal notranslate"><span class="pre">[maps]</span></code> part adds cartopy and shapely; you can drop it if you already installed those via conda above and would like pip to leave them alone. The quotes keep zsh (the macOS default shell) from treating the square brackets as a glob pattern.</p>
 </section>
 </section>
 <section id="running-the-command-line-programs">
@@ -545,19 +545,14 @@ python<span class="w"> </span>pmag_gui.py
 </div>
 <p>No second install, no PATH changes. This is a fine default for most contributors.</p>
 </section>
-<section id="pattern-b-editable-install-of-pmagpy-cli">
-<h3>Pattern B: Editable install of pmagpy-cli<a class="headerlink" href="#pattern-b-editable-install-of-pmagpy-cli" title="Link to this heading">#</a></h3>
-<p>To make <code class="docutils literal notranslate"><span class="pre">pmag_gui.py</span></code>, <code class="docutils literal notranslate"><span class="pre">magic_gui.py</span></code>, etc. available as commands from anywhere, install pmagpy-cli editably as well. From the PmagPy directory:</p>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>python<span class="w"> </span>command_line_setup.py<span class="w"> </span>develop
-</pre></div>
-</div>
-<p>(<code class="docutils literal notranslate"><span class="pre">pip</span> <span class="pre">install</span> <span class="pre">-e</span> <span class="pre">.</span></code> doesn’t work here because pip only looks at <code class="docutils literal notranslate"><span class="pre">setup.py</span></code>, while pmagpy-cli is built from <code class="docutils literal notranslate"><span class="pre">command_line_setup.py</span></code>. The <code class="docutils literal notranslate"><span class="pre">setup.py</span> <span class="pre">develop</span></code> form is the older editable-install command that pip’s <code class="docutils literal notranslate"><span class="pre">-e</span></code> was originally built around — it still works.)</p>
-<p>After this, the GUI launchers and command-line conversion scripts work from any directory and reflect your edits to <code class="docutils literal notranslate"><span class="pre">programs/</span></code> and <code class="docutils literal notranslate"><span class="pre">dialogs/</span></code> immediately.</p>
+<section id="pattern-b-editable-install-of-pmagpy-cli-not-currently-available">
+<h3>Pattern B: Editable install of pmagpy-cli (not currently available)<a class="headerlink" href="#pattern-b-editable-install-of-pmagpy-cli-not-currently-available" title="Link to this heading">#</a></h3>
+<p>The command-line programs are packaged separately as <code class="docutils literal notranslate"><span class="pre">pmagpy-cli</span></code> from <code class="docutils literal notranslate"><span class="pre">command_line_setup.py</span></code>, and <code class="docutils literal notranslate"><span class="pre">pip</span> <span class="pre">install</span> <span class="pre">-e</span> <span class="pre">.</span></code> only reads <code class="docutils literal notranslate"><span class="pre">setup.py</span></code>. The older <code class="docutils literal notranslate"><span class="pre">python</span> <span class="pre">command_line_setup.py</span> <span class="pre">develop</span></code> route is deprecated by setuptools and, with current versions (setuptools 80 and later), no longer installs the program entry points, so there is at present no working editable install of the CLI. Use Pattern A to run the programs from the repository, or Pattern C to pair the editable library with the released CLI.</p>
 </section>
 <section id="pattern-c-editable-library-released-cli">
 <h3>Pattern C: Editable library + released CLI<a class="headerlink" href="#pattern-c-editable-library-released-cli" title="Link to this heading">#</a></h3>
 <p>If you only edit library code (not the GUIs), you can have an editable install of the library <em>and</em> the released CLI side by side:</p>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>pip<span class="w"> </span>install<span class="w"> </span>-e<span class="w"> </span>.<span class="o">[</span>maps<span class="o">]</span>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>pip<span class="w"> </span>install<span class="w"> </span>-e<span class="w"> </span><span class="s2">".[maps]"</span>
 pip<span class="w"> </span>install<span class="w"> </span>pmagpy-cli
 </pre></div>
 </div>
@@ -584,7 +579,7 @@ pip<span class="w"> </span>install<span class="w"> </span>pmagpy-cli
 </pre></div>
 </div>
 <p>Because the install is editable, the next <code class="docutils literal notranslate"><span class="pre">import</span> <span class="pre">pmagpy</span></code> will use the updated code — no reinstall needed. The exception is when <code class="docutils literal notranslate"><span class="pre">setup.py</span></code> itself changes (for example, new dependencies are added), in which case rerun:</p>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>pip<span class="w"> </span>install<span class="w"> </span>-e<span class="w"> </span>.<span class="o">[</span>maps<span class="o">]</span>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>pip<span class="w"> </span>install<span class="w"> </span>-e<span class="w"> </span><span class="s2">".[maps]"</span>
 </pre></div>
 </div>
 </section>
@@ -623,7 +618,7 @@ pip<span class="w"> </span>install<span class="w"> </span>pmagpy-cli
 </section>
 <section id="note-on-dev-setup-py">
 <h2>Note on dev_setup.py<a class="headerlink" href="#note-on-dev-setup-py" title="Link to this heading">#</a></h2>
-<p>Older PmagPy documentation referenced a <code class="docutils literal notranslate"><span class="pre">dev_setup.py</span></code> script that adds the cloned repo’s <code class="docutils literal notranslate"><span class="pre">programs/</span></code> and <code class="docutils literal notranslate"><span class="pre">programs/conversion_scripts/</span></code> directories to your shell <code class="docutils literal notranslate"><span class="pre">PATH</span></code> and adds the repo root to <code class="docutils literal notranslate"><span class="pre">PYTHONPATH</span></code> by editing <code class="docutils literal notranslate"><span class="pre">~/.bashrc</span></code> / <code class="docutils literal notranslate"><span class="pre">~/.bash_profile</span></code> / <code class="docutils literal notranslate"><span class="pre">~/.profile</span></code>. This script still exists in the repository and still works, but it predates the modern <code class="docutils literal notranslate"><span class="pre">pip</span> <span class="pre">install</span> <span class="pre">-e</span> <span class="pre">.</span></code> approach above and is no longer the recommended way. The patterns above (especially Pattern A or B for running the CLI tools) accomplish the same goal more cleanly.</p>
+<p>Older PmagPy documentation referenced a <code class="docutils literal notranslate"><span class="pre">dev_setup.py</span></code> script that put the cloned repository on <code class="docutils literal notranslate"><span class="pre">PYTHONPATH</span></code> and its <code class="docutils literal notranslate"><span class="pre">programs/</span></code> directories on <code class="docutils literal notranslate"><span class="pre">PATH</span></code> by editing <code class="docutils literal notranslate"><span class="pre">~/.bashrc</span></code>, <code class="docutils literal notranslate"><span class="pre">~/.bash_profile</span></code> and <code class="docutils literal notranslate"><span class="pre">~/.profile</span></code>. The script was removed from the repository in September 2026 in favor of the editable install above. If you ran it in the past, you can delete the block it added to those files (the lines mentioning <code class="docutils literal notranslate"><span class="pre">PMAGPATHS</span></code> and <code class="docutils literal notranslate"><span class="pre">PmagPy/programs</span></code>); an editable install does not need them.</p>
 </section>
 <section id="see-also">
 <h2>See also<a class="headerlink" href="#see-also" title="Link to this heading">#</a></h2>
@@ -709,7 +704,7 @@ pip<span class="w"> </span>install<span class="w"> </span>pmagpy-cli
 </li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#running-the-command-line-programs">Running the command-line programs</a><ul class="nav section-nav flex-column">
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#pattern-a-navigate-and-run-simplest">Pattern A: Navigate and run (simplest)</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#pattern-b-editable-install-of-pmagpy-cli">Pattern B: Editable install of pmagpy-cli</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#pattern-b-editable-install-of-pmagpy-cli-not-currently-available">Pattern B: Editable install of pmagpy-cli (not currently available)</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#pattern-c-editable-library-released-cli">Pattern C: Editable library + released CLI</a></li>
 </ul>
 </li>

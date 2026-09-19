@@ -27,7 +27,7 @@ pip install pmagpy
 Or, to also get the optional mapping libraries (cartopy and shapely) for map-making functions:
 
 ```bash
-pip install pmagpy[maps]
+pip install "pmagpy[maps]"
 ```
 
 To get the associated command-line programs, install `pmagpy-cli`:

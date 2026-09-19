@@ -42,10 +42,10 @@ You now have a full local copy of the PmagPy source.
 From the PmagPy directory:
 
 ```bash
-pip install -e .[maps]
+pip install -e ".[maps]"
 ```
 
-The `-e` flag installs PmagPy as an *editable* package — Python imports from your cloned repo directly, so any code changes (or `git pull`) take effect immediately without reinstalling. The `[maps]` part adds cartopy and shapely; you can drop it if you already installed those via conda above and would like pip to leave them alone.
+The `-e` flag installs PmagPy as an *editable* package — Python imports from your cloned repo directly, so any code changes (or `git pull`) take effect immediately without reinstalling. The `[maps]` part adds cartopy and shapely; you can drop it if you already installed those via conda above and would like pip to leave them alone. The quotes keep zsh (the macOS default shell) from treating the square brackets as a glob pattern.
 
 ## Running the command-line programs
 
@@ -62,24 +62,16 @@ python pmag_gui.py
 
 No second install, no PATH changes. This is a fine default for most contributors.
 
-### Pattern B: Editable install of pmagpy-cli
+### Pattern B: Editable install of pmagpy-cli (not currently available)
 
-To make `pmag_gui.py`, `magic_gui.py`, etc. available as commands from anywhere, install pmagpy-cli editably as well. From the PmagPy directory:
-
-```bash
-python command_line_setup.py develop
-```
-
-(`pip install -e .` doesn't work here because pip only looks at `setup.py`, while pmagpy-cli is built from `command_line_setup.py`. The `setup.py develop` form is the older editable-install command that pip's `-e` was originally built around — it still works.)
-
-After this, the GUI launchers and command-line conversion scripts work from any directory and reflect your edits to `programs/` and `dialogs/` immediately.
+The command-line programs are packaged separately as `pmagpy-cli` from `command_line_setup.py`, and `pip install -e .` only reads `setup.py`. The older `python command_line_setup.py develop` route is deprecated by setuptools and, with current versions (setuptools 80 and later), no longer installs the program entry points, so there is at present no working editable install of the CLI. Use Pattern A to run the programs from the repository, or Pattern C to pair the editable library with the released CLI.
 
 ### Pattern C: Editable library + released CLI
 
 If you only edit library code (not the GUIs), you can have an editable install of the library *and* the released CLI side by side:
 
 ```bash
-pip install -e .[maps]
+pip install -e ".[maps]"
 pip install pmagpy-cli
 ```
 
@@ -114,7 +106,7 @@ git pull
 Because the install is editable, the next `import pmagpy` will use the updated code — no reinstall needed. The exception is when `setup.py` itself changes (for example, new dependencies are added), in which case rerun:
 
 ```bash
-pip install -e .[maps]
+pip install -e ".[maps]"
 ```
 
 ## Working with branches
@@ -147,7 +139,7 @@ Your editable install will now import from that branch's code. Switching branche
 
 ## Note on dev_setup.py
 
-Older PmagPy documentation referenced a `dev_setup.py` script that adds the cloned repo's `programs/` and `programs/conversion_scripts/` directories to your shell `PATH` and adds the repo root to `PYTHONPATH` by editing `~/.bashrc` / `~/.bash_profile` / `~/.profile`. This script still exists in the repository and still works, but it predates the modern `pip install -e .` approach above and is no longer the recommended way. The patterns above (especially Pattern A or B for running the CLI tools) accomplish the same goal more cleanly.
+Older PmagPy documentation referenced a `dev_setup.py` script that put the cloned repository on `PYTHONPATH` and its `programs/` directories on `PATH` by editing `~/.bashrc`, `~/.bash_profile` and `~/.profile`. The script was removed from the repository in September 2026 in favor of the editable install above. If you ran it in the past, you can delete the block it added to those files (the lines mentioning `PMAGPATHS` and `PmagPy/programs`); an editable install does not need them.
 
 ## See also
 
