@@ -37,3 +37,5 @@ sphinx:
   - 'sphinx.ext.viewcode'
   config:
     bibtex_reference_style: author_year
+    # generate #anchors for headings so the notebooks' [name](#name) links resolve
+    myst_heading_anchors: 4

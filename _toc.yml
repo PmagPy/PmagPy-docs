@@ -17,6 +17,7 @@ parts:
       - file: programs/demag_gui
       - file: programs/thellier_gui
     - file: resources/survival_skills.md
+    - file: resources/reproducible_random_sampling.md
   - caption: Documentation notebooks
     chapters:
     - file: documentation_notebooks/Jupyter.md
