@@ -58,7 +58,7 @@ If `pmag_gui.py` raises a `This program needs access to the screen. Please run w
 If you cloned the repo and did `pip install -e .` but the GUI commands aren't found from arbitrary directories, that's expected — `pip install -e .` only installs the `pmagpy` library, not the CLI commands. Two options:
 
 - Navigate to the `programs/` directory in your clone and run the script directly: `cd PmagPy/programs && python pmag_gui.py`
-- Install pmagpy-cli editably as well: from the PmagPy directory, run `python command_line_setup.py develop`. After that, `pmag_gui.py` (or the platform equivalent) works from any directory.
+- Install the released CLI alongside your editable library with `pip install pmagpy-cli`, or run the programs from the `programs/` directory of your clone (see the developer install page).
 
 See the [developer install instructions](developer_install.md) for details on the three patterns.
 
