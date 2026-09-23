@@ -8,7 +8,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
-    <title>Installing PmagPy &#8212; PmagPy Documentation</title>
+    <title>RockmagPy notebooks &#8212; PmagPy Documentation</title>
   
   
   
@@ -60,12 +60,14 @@
     <script async="async" src="../_static/sphinx-thebe.js?v=c100c467"></script>
     <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
     <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
-    <script>DOCUMENTATION_OPTIONS.pagename = 'installation/PmagPy_install';</script>
+    <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
+    <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'rockmagpy/rockmagpy_notebooks';</script>
     <script>DOCUMENTATION_OPTIONS.search_as_you_type = false;</script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
-    <link rel="next" title="pip install" href="pip_install.html" />
-    <link rel="prev" title="PmagPy: An open source package for paleomagnetic data analysis" href="../intro.html" />
+    <link rel="next" title="MagIC database and file formats" href="../MagIC/MagIC.html" />
+    <link rel="prev" title="Published studies notebooks" href="../example_notebooks/published_notebooks.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
   <meta name="docsearch:version" content="" />
@@ -220,11 +222,11 @@
             </li>
         </ul>
         <p aria-level="2" class="caption" role="heading"><span class="caption-text">Installation</span></p>
-<ul class="current nav bd-sidenav">
-<li class="toctree-l1 current active has-children"><a class="current reference internal" href="#">Installing <strong>PmagPy</strong></a><details open="open"><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
-<li class="toctree-l2"><a class="reference internal" href="pip_install.html">pip install</a></li>
-<li class="toctree-l2"><a class="reference internal" href="developer_install.html">Developer install</a></li>
-<li class="toctree-l2"><a class="reference internal" href="troubleshooting.html">Troubleshooting installation issues</a></li>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1 has-children"><a class="reference internal" href="../installation/PmagPy_install.html">Installing <strong>PmagPy</strong></a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../installation/pip_install.html">pip install</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../installation/developer_install.html">Developer install</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../installation/troubleshooting.html">Troubleshooting installation issues</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../programs/command_line_programs.html">Command line programs</a></li>
 </ul>
 </details></li>
@@ -255,8 +257,8 @@
 <li class="toctree-l1"><a class="reference internal" href="../example_notebooks/published_notebooks.html">Published studies notebooks</a></li>
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">RockmagPy</span></p>
-<ul class="nav bd-sidenav">
-<li class="toctree-l1"><a class="reference internal" href="../rockmagpy/rockmagpy_notebooks.html">RockmagPy notebooks</a></li>
+<ul class="current nav bd-sidenav">
+<li class="toctree-l1 current active"><a class="current reference internal" href="#">RockmagPy notebooks</a></li>
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">MagIC</span></p>
 <ul class="nav bd-sidenav">
@@ -345,7 +347,7 @@
       
       
       
-      <li><a href="https://github.com/pmagpy/pmagpy-docs/issues/new?title=Issue%20on%20page%20%2Finstallation/PmagPy_install.html&body=Your%20issue%20content%20here." target="_blank"
+      <li><a href="https://github.com/pmagpy/pmagpy-docs/issues/new?title=Issue%20on%20page%20%2Frockmagpy/rockmagpy_notebooks.html&body=Your%20issue%20content%20here." target="_blank"
    class="btn btn-sm btn-source-issues-button dropdown-item"
    title="Open an issue"
    data-bs-placement="left" data-bs-toggle="tooltip"
@@ -375,7 +377,7 @@
       
       
       
-      <li><a href="../_sources/installation/PmagPy_install.md" target="_blank"
+      <li><a href="../_sources/rockmagpy/rockmagpy_notebooks.md" target="_blank"
    class="btn btn-sm btn-download-source-button dropdown-item"
    title="Download source file"
    data-bs-placement="left" data-bs-toggle="tooltip"
@@ -451,7 +453,7 @@
               
 
 <div id="jb-print-docs-body" class="onlyprint">
-    <h1>Installing PmagPy</h1>
+    <h1>RockmagPy notebooks</h1>
     <!-- Table of contents -->
     <div id="print-main-content">
         <div id="jb-print-toc">
@@ -461,11 +463,8 @@
             </div>
             <nav aria-label="Page">
                 <ul class="pst-show_toc_level nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#pip-install">pip install</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#standalone-gui-download">Standalone GUI download</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#pmagpy-developer-install">PmagPy developer install</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#getting-help">Getting help</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#next-steps">Next steps</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#what-is-there">What is there</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#running-the-notebooks">Running the notebooks</a></li>
 </ul>
             </nav>
         </div>
@@ -477,72 +476,32 @@
 <div id="searchbox"></div>
                 <article class="bd-article">
                   
-  <section class="tex2jax_ignore mathjax_ignore" id="installing-pmagpy">
-<h1>Installing <strong>PmagPy</strong><a class="headerlink" href="#installing-pmagpy" title="Link to this heading">#</a></h1>
-<p>You have several options for using PmagPy, depending on what you want to do with it.</p>
-<ul class="simple">
-<li><p>If you only want the graphical user interfaces (GUIs) — <a class="reference internal" href="../programs/pmag_gui.html"><span class="std std-doc">Pmag GUI</span></a>, <a class="reference internal" href="../programs/demag_gui.html"><span class="std std-doc">Demag GUI</span></a>, and <a class="reference internal" href="../programs/thellier_gui.html"><span class="std std-doc">Thellier GUI</span></a> — without the rest of PmagPy’s functionality, you can download a standalone application that doesn’t require Python (see <a class="reference internal" href="#section-standalone-gui"><span class="std std-ref">Standalone GUI download</span></a>).</p></li>
-<li><p>If you want the full PmagPy library, the <a class="reference internal" href="../programs/command_line_programs.html"><span class="std std-doc">command-line programs</span></a>, and the ability to use PmagPy in Jupyter notebooks, do a <a class="reference internal" href="pip_install.html"><span class="std std-doc">pip install</span></a>.</p></li>
-<li><p>If you want to actively contribute to PmagPy or follow the latest commits between releases, do a <a class="reference internal" href="developer_install.html"><span class="std std-doc">developer install</span></a> from a local clone of the repository.</p></li>
-</ul>
-<p>You can also use PmagPy without installing anything by going to the Jupyter notebooks hosted at the EarthRef JupyterHub:</p>
-<ul class="simple">
-<li><p>If you don’t have an EarthRef account, go to <a class="reference external" href="https://earthref.org/log-in">https://earthref.org/log-in</a> and create one with your ORCID. (If you don’t have an ORCID, you can create one there too.)</p></li>
-<li><p>Once logged in, go to <a class="reference external" href="https://jupyterhub.earthref.org">https://jupyterhub.earthref.org</a> and log in with your EarthRef account.</p></li>
-<li><p>Click on the <code class="docutils literal notranslate"><span class="pre">PmagPy</span> <span class="pre">Online</span> <span class="pre">-</span> <span class="pre">Setup.ipynb</span></code> link and follow the instructions.</p></li>
-<li><p>To learn more about Jupyter notebooks and Python, the <a class="reference external" href="https://github.com/ltauxe/Python-for-Earth-Science-Students">Python for Earth Sciences</a> class is a good starting point.</p></li>
-</ul>
-<section id="pip-install">
-<span id="section-pip-install"></span><h2>pip install<a class="headerlink" href="#pip-install" title="Link to this heading">#</a></h2>
-<p>If you already have a working Python environment on your computer or in a cloud environment like Google Colab, you can install PmagPy with:</p>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>pip<span class="w"> </span>install<span class="w"> </span>pmagpy
-</pre></div>
+  <section class="tex2jax_ignore mathjax_ignore" id="rockmagpy-notebooks">
+<h1>RockmagPy notebooks<a class="headerlink" href="#rockmagpy-notebooks" title="Link to this heading">#</a></h1>
+<p>The <code class="docutils literal notranslate"><span class="pre">pmagpy.rockmag</span></code> module (RockmagPy) provides functions for processing and interpreting rock magnetic experiments. It is documented through a separate collection of Jupyter notebooks, rendered as a website at</p>
+<p>👉 <strong><a class="reference external" href="https://pmagpy.github.io/RockmagPy-notebooks">https://pmagpy.github.io/RockmagPy-notebooks</a></strong></p>
+<p>with the notebooks themselves in the <a class="reference external" href="https://github.com/PmagPy/RockmagPy-notebooks">RockmagPy-notebooks repository</a>. The notebooks work from MagIC-format measurement tables, so the same workflow applies to data downloaded from MagIC and to new data being prepared for contribution. The functions are also listed in the <a class="reference internal" href="../api/api.html"><span class="doc std std-doc">API Reference</span></a> on this site.</p>
+<div class="warning admonition">
+<p class="admonition-title">Under active development</p>
+<p>RockmagPy is under active development. Function names, arguments, and outputs may change; backward compatibility is not guaranteed for <code class="docutils literal notranslate"><span class="pre">pmagpy.rockmag</span></code> at this time.</p>
 </div>
-<p>Or, to also get the optional mapping libraries (cartopy and shapely) for map-making functions:</p>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>pip<span class="w"> </span>install<span class="w"> </span><span class="s2">"pmagpy[maps]"</span>
-</pre></div>
-</div>
-<p>To get the associated command-line programs, install <code class="docutils literal notranslate"><span class="pre">pmagpy-cli</span></code>:</p>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>pip<span class="w"> </span>install<span class="w"> </span>pmagpy-cli
-</pre></div>
-</div>
-<p>For guidance on getting set up a Python environment with the necessary dependencies, the <a class="reference internal" href="pip_install.html"><span class="std std-doc">pip install</span></a> page walks through the recommended approach (<code class="docutils literal notranslate"><span class="pre">conda</span></code> for the scientific Python packages, then <code class="docutils literal notranslate"><span class="pre">pip</span></code> for PmagPy on top) along with notes for macOS, Windows, and Linux.</p>
-</section>
-<section id="standalone-gui-download">
-<span id="section-standalone-gui"></span><h2>Standalone GUI download<a class="headerlink" href="#standalone-gui-download" title="Link to this heading">#</a></h2>
-<p>If you only want to use Pmag GUI, MagIC GUI, Thellier GUI, and Demag GUI, you can download a standalone application that doesn’t require Python.</p>
+<section id="what-is-there">
+<h2>What is there<a class="headerlink" href="#what-is-there" title="Link to this heading">#</a></h2>
 <ul class="simple">
-<li><p>macOS: <a class="github reference external" href="https://github.com/PmagPy/PmagPy-Standalone-OSX/releases/latest">PmagPy/PmagPy-Standalone-OSX</a></p></li>
-<li><p>Windows: <a class="github reference external" href="https://github.com/PmagPy/PmagPy-Standalone-Windows/releases/latest">PmagPy/PmagPy-Standalone-Windows</a></p></li>
-</ul>
-<p>Standalone GUI binaries are available only for macOS and Windows. Linux users should use the <a class="reference internal" href="pip_install.html"><span class="std std-doc">pip install</span></a> instead — it works smoothly on Linux when combined with conda for the GUI dependencies.</p>
-</section>
-<section id="pmagpy-developer-install">
-<span id="section-developer-install"></span><h2>PmagPy developer install<a class="headerlink" href="#pmagpy-developer-install" title="Link to this heading">#</a></h2>
-<p>If you want to work directly from the current code in the repository — to contribute, follow development between releases, or test a feature branch — do a <a class="reference internal" href="developer_install.html"><span class="std std-doc">developer install</span></a>.</p>
-<p>If you have an existing pip install in the same Python environment, uninstall it first to avoid conflicts:</p>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>pip<span class="w"> </span>uninstall<span class="w"> </span>pmagpy<span class="w"> </span>pmagpy-cli
-</pre></div>
-</div>
-</section>
-<section id="getting-help">
-<h2>Getting help<a class="headerlink" href="#getting-help" title="Link to this heading">#</a></h2>
-<p>If you run into trouble during installation, see the <a class="reference internal" href="troubleshooting.html"><span class="std std-doc">troubleshooting</span></a> page.</p>
-<p>To report a bug or request a feature, open a <a class="reference external" href="https://github.com/PmagPy/PmagPy/issues">GitHub issue</a>. For broader contribution questions, including how to submit pull requests, see the <a class="reference external" href="https://github.com/PmagPy/PmagPy/blob/master/CONTRIBUTING.md">contribution guidelines</a>.</p>
-</section>
-<section id="next-steps">
-<h2>Next steps<a class="headerlink" href="#next-steps" title="Link to this heading">#</a></h2>
-<p>Once you have PmagPy installed:</p>
-<ul class="simple">
-<li><p><a class="reference internal" href="../MagIC/MagIC.html"><span class="std std-doc">Learn more about the <strong>MagIC</strong> database and download data.</span></a></p></li>
-<li><p><a class="reference internal" href="../programs/demag_gui.html"><span class="std std-doc">Analyze and/or upload demagnetization</span></a> and/or paleointensity measurement data to the <strong>MagIC</strong> database.</p></li>
-<li><p><a class="reference internal" href="../resources/survival_skills.html"><span class="std std-doc">Learn how to write your own programs in Python.</span></a></p></li>
-<li><p><a class="reference internal" href="../documentation_notebooks/PmagPy_introduction.html"><span class="std std-doc">Learn how to use Jupyter notebooks for managing your data analysis workflow.</span></a></p></li>
-<li><p><a class="reference internal" href="../programs/command_line_programs.html"><span class="std std-doc">Learn more about command-line programs in the <strong>PmagPy</strong> software package.</span></a></p></li>
+<li><p><strong>Nuts and bolts</strong> — getting started, and unpacking a MagIC contribution into the tables the notebooks use.</p></li>
+<li><p><strong>Hysteresis and backfield</strong> — processing of hysteresis loops following the protocol of Jackson and Solheid (2010): symmetry-based centering and quality statistics, drift correction, a loop-closure statistic, high-field linearity tests, and linear or approach-to-saturation fitting for <span class="math notranslate nohighlight">\(\chi_{HF}\)</span> and <span class="math notranslate nohighlight">\(M_s\)</span>, in batch and as a step-by-step walk-through; backfield (remanent coercivity) curves; coercivity unmixing by least squares and by a Bayesian approach; and Day, Néel and squareness–coercivity summary plots.</p></li>
+<li><p><strong>FORC diagrams</strong> — first-order reversal curve processing, smoothing (including variable smoothing after VARIFORC), and plotting.</p></li>
+<li><p><strong>Low-temperature (MPMS) experiments</strong> — DC remanence on cooling and warming (RTSIRM, FC/ZFC), AC susceptibility, estimation of the Verwey transition temperature, goethite fitting, and a signal blender for building intuition about mixed assemblages.</p></li>
+<li><p><strong>Thermomagnetic experiments</strong> — high-temperature susceptibility and Curie temperature estimation.</p></li>
+<li><p><strong>Anisotropy</strong> — anisotropy of magnetic susceptibility plots, with background on the tensor and its parameters.</p></li>
+<li><p><strong>Rock Magnetic Bestiary</strong> — notebooks that process reference materials measured at the Institute for Rock Magnetism (e.g. siderite, the titanomagnetite series), for comparison with natural samples.</p></li>
+<li><p><strong>API reference</strong> — a reference sheet for the <code class="docutils literal notranslate"><span class="pre">pmagpy.rockmag</span></code> functions used throughout the notebooks.</p></li>
 </ul>
 </section>
-<div class="toctree-wrapper compound">
-</div>
+<section id="running-the-notebooks">
+<h2>Running the notebooks<a class="headerlink" href="#running-the-notebooks" title="Link to this heading">#</a></h2>
+<p>The notebooks can be run on the <a class="reference external" href="https://jupyterhub.earthref.org/">EarthRef JupyterHub</a> or locally with PmagPy installed (see <a class="reference internal" href="../installation/PmagPy_install.html"><span class="std std-doc">Installation</span></a>); several depend on optional packages listed in the RockmagPy-notebooks repository.</p>
+</section>
 </section>
 
     <script type="text/x-thebe-config">
@@ -558,7 +517,7 @@
         },
         kernelOptions: {
             name: "python3",
-            path: "./installation"
+            path: "./rockmagpy"
         },
         predefinedOutput: true
     }
@@ -576,20 +535,20 @@
                   
 <div class="prev-next-area">
     <a class="left-prev"
-       href="../intro.html"
+       href="../example_notebooks/published_notebooks.html"
        title="previous page">
       <i class="fa-solid fa-angle-left"></i>
       <div class="prev-next-info">
         <p class="prev-next-subtitle">previous</p>
-        <p class="prev-next-title">PmagPy: An open source package for paleomagnetic data analysis</p>
+        <p class="prev-next-title">Published studies notebooks</p>
       </div>
     </a>
     <a class="right-next"
-       href="pip_install.html"
+       href="../MagIC/MagIC.html"
        title="next page">
       <div class="prev-next-info">
         <p class="prev-next-subtitle">next</p>
-        <p class="prev-next-title">pip install</p>
+        <p class="prev-next-title">MagIC database and file formats</p>
       </div>
       <i class="fa-solid fa-angle-right"></i>
     </a>
@@ -611,11 +570,8 @@
   </div>
   <nav id="pst-page-toc-nav" class="page-toc" aria-labelledby="pst-page-navigation-heading-2">
     <ul class="pst-show_toc_level nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#pip-install">pip install</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#standalone-gui-download">Standalone GUI download</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#pmagpy-developer-install">PmagPy developer install</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#getting-help">Getting help</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#next-steps">Next steps</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#what-is-there">What is there</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#running-the-notebooks">Running the notebooks</a></li>
 </ul>
   </nav></div>
 

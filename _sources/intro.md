@@ -56,6 +56,16 @@ Launch PmagPy notebooks on the Earthref JupyterHub
 :::
 
 :::{grid-item-card}
+:link: https://pmagpy.github.io/RockmagPy-notebooks
+:class-header: bg-light
+
+RockmagPy notebooks 🧲
+^^^
+
+Process and interpret rock magnetic experiments (hysteresis, backfield, FORC, low-temperature, thermomagnetic, anisotropy) with the `pmagpy.rockmag` module.
+:::
+
+:::{grid-item-card}
 :link: https://github.com/PmagPy/PmagPy-Standalone-OSX/releases/latest/
 :class-header: bg-light
 
@@ -80,6 +90,7 @@ Develop new contributions and analyze existing datasets in the MagIC database.
 PmagPy is comprised of:
 
 - **Function modules for paleomagnetic data analysis** These function modules enable paleomagnetic data analysis (pmagpy.pmag) and plotting (pmagpy.pmagplotlib) as well as interactive higher level data analysis (pmagpy.ipmag). The functions within these modules are at the heart of the GUI and command line programs. With pmagpy as part of your Python installation (which can be accomplished through pip installation ```pip install pmagpy```), these modules can be imported (e.g. ```import pmagpy.ipmag as ipmag```). These functions can be used within Jupyter Notebooks (see examples in the [documentation notebooks](./documentation_notebooks/PmagPy_introduction.ipynb)) and are documented within the [API Reference](./api/api).
+- **A rock magnetism module (pmagpy.rockmag)** Functions for processing and interpreting rock magnetic experiments: hysteresis loops and backfield curves, coercivity unmixing, FORC diagrams, low-temperature MPMS remanence and susceptibility, thermomagnetic curves, and anisotropy of magnetic susceptibility. These are demonstrated in the [RockmagPy notebooks](https://pmagpy.github.io/RockmagPy-notebooks) (see the [overview](./rockmagpy/rockmagpy_notebooks.md)) and documented in the [API Reference](./api/api).
 - **A graphical user interface (GUI) program** The [PmagPy application](./programs/pmag_gui.md) enables users to get data into the MagIC database format as well as analyze demagnetization and paleointensity data.
 - **Command line programs** The PmagPy command line programs enable all sorts of paleomagnetic data analysis and wrangling. They are contained within the programs folder of the PmagPy repository (https://github.com/PmagPy/PmagPy) and can be pip installed (```pip install pmagpy-cli```).
 
