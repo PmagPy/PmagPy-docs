@@ -30,6 +30,9 @@ parts:
     - file: example_notebooks/tutorial_notebooks
     - file: example_notebooks/template_notebooks
     - file: example_notebooks/published_notebooks
+  - caption: RockmagPy
+    chapters:
+    - file: rockmagpy/rockmagpy_notebooks.md
   - caption: MagIC
     chapters:
     - file: MagIC/MagIC
