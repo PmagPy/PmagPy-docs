@@ -36,7 +36,7 @@
     <link rel="stylesheet" type="text/css" href="../_static/copybutton.css?v=76b2166b" />
     <link rel="stylesheet" type="text/css" href="../_static/mystnb.11b39860a7a0cbfd473a3ad8a317855267ff0bd372690045ca344a6b62be495e.css" />
     <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css?v=4fa983c6" />
-    <link rel="stylesheet" type="text/css" href="../_static/sphinx-design.min.css?v=95c83b7e" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-design.min.css?v=6a604523" />
   
   <!-- So that users can add custom icons -->
   <script defer src="../_static/scripts/fontawesome.js?digest=55c26ed414f5f8a31ebb"></script>
@@ -55,7 +55,7 @@
     <script>let toggleOpenOnPrint = 'true';</script>
     <script src="../_static/togglebutton.js?v=b8b12719"></script>
     <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
-    <script src="../_static/design-tabs.js?v=f930bc37"></script>
+    <script data-sd-tabs-storage-prefix="sphinx-design-tab-id-" src="../_static/design-tabs.js?v=fcb327ea"></script>
     <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
     <script async="async" src="../_static/sphinx-thebe.js?v=c100c467"></script>
     <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
@@ -462,6 +462,7 @@
             <nav aria-label="Page">
                 <ul class="pst-show_toc_level nav section-nav flex-column">
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#verify-python-is-installed-correctly">Verify Python is installed correctly</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#pip-reports-that-the-python-version-is-unsupported"><code class="docutils literal notranslate"><span class="pre">pip</span></code> reports that the Python version is unsupported</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#importerror-no-module-named-wx-or-similar-wxpython-errors"><code class="docutils literal notranslate"><span class="pre">ImportError:</span> <span class="pre">No</span> <span class="pre">module</span> <span class="pre">named</span> <span class="pre">wx</span></code> (or similar wxPython errors)</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#command-not-found-after-a-pip-install"><code class="docutils literal notranslate"><span class="pre">command</span> <span class="pre">not</span> <span class="pre">found</span></code> after a pip install</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#command-not-found-after-a-developer-install"><code class="docutils literal notranslate"><span class="pre">command</span> <span class="pre">not</span> <span class="pre">found</span></code> after a developer install</a></li>
@@ -484,13 +485,20 @@
 <h1>Troubleshooting installation issues<a class="headerlink" href="#troubleshooting-installation-issues" title="Link to this heading">#</a></h1>
 <section id="verify-python-is-installed-correctly">
 <h2>Verify Python is installed correctly<a class="headerlink" href="#verify-python-is-installed-correctly" title="Link to this heading">#</a></h2>
-<p>In a terminal, type <code class="docutils literal notranslate"><span class="pre">python</span></code> (or <code class="docutils literal notranslate"><span class="pre">python3</span></code>). You should see something like:</p>
-<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>Python 3.10.13 | packaged by conda-forge | (main, Oct 26 2023, 18:07:37)
-[Clang 16.0.6 ] on darwin
-Type "help", "copyright", "credits" or "license" for more information.
+<p>PmagPy and <code class="docutils literal notranslate"><span class="pre">pmagpy-cli</span></code> require Python 3.12 or later. In a terminal, type <code class="docutils literal notranslate"><span class="pre">python</span> <span class="pre">--version</span></code> (or <code class="docutils literal notranslate"><span class="pre">python3</span> <span class="pre">--version</span></code>) to check the version. For example:</p>
+<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>Python 3.12.0
 </pre></div>
 </div>
-<p>Press <code class="docutils literal notranslate"><span class="pre">Ctrl-D</span></code> (or type <code class="docutils literal notranslate"><span class="pre">quit()</span></code>) to exit. If you get an error like <code class="docutils literal notranslate"><span class="pre">command</span> <span class="pre">not</span> <span class="pre">found</span></code>, see the <a class="reference internal" href="pip_install.html"><span class="std std-doc">pip install instructions</span></a> for setting up Python via conda or miniforge.</p>
+<p>If the version is older than 3.12, create or activate a Python 3.12+ environment as described in the <a class="reference internal" href="pip_install.html"><span class="std std-doc">pip install instructions</span></a>. If you get an error like <code class="docutils literal notranslate"><span class="pre">command</span> <span class="pre">not</span> <span class="pre">found</span></code>, see those instructions for setting up Python via conda or miniforge.</p>
+</section>
+<section id="pip-reports-that-the-python-version-is-unsupported">
+<h2><code class="docutils literal notranslate"><span class="pre">pip</span></code> reports that the Python version is unsupported<a class="headerlink" href="#pip-reports-that-the-python-version-is-unsupported" title="Link to this heading">#</a></h2>
+<p>Check that pip is using Python 3.12 or later:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>python<span class="w"> </span>--version
+python<span class="w"> </span>-m<span class="w"> </span>pip<span class="w"> </span>--version
+</pre></div>
+</div>
+<p>If you have multiple Python installations, activate the correct conda environment before installing. Use <code class="docutils literal notranslate"><span class="pre">python</span> <span class="pre">-m</span> <span class="pre">pip</span> <span class="pre">install</span> <span class="pre">...</span></code> to make sure pip runs under the active Python interpreter.</p>
 </section>
 <section id="importerror-no-module-named-wx-or-similar-wxpython-errors">
 <h2><code class="docutils literal notranslate"><span class="pre">ImportError:</span> <span class="pre">No</span> <span class="pre">module</span> <span class="pre">named</span> <span class="pre">wx</span></code> (or similar wxPython errors)<a class="headerlink" href="#importerror-no-module-named-wx-or-similar-wxpython-errors" title="Link to this heading">#</a></h2>
@@ -645,6 +653,7 @@ python<span class="w"> </span>-m<span class="w"> </span>ipykernel<span class="w"
   <nav id="pst-page-toc-nav" class="page-toc" aria-labelledby="pst-page-navigation-heading-2">
     <ul class="pst-show_toc_level nav section-nav flex-column">
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#verify-python-is-installed-correctly">Verify Python is installed correctly</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#pip-reports-that-the-python-version-is-unsupported"><code class="docutils literal notranslate"><span class="pre">pip</span></code> reports that the Python version is unsupported</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#importerror-no-module-named-wx-or-similar-wxpython-errors"><code class="docutils literal notranslate"><span class="pre">ImportError:</span> <span class="pre">No</span> <span class="pre">module</span> <span class="pre">named</span> <span class="pre">wx</span></code> (or similar wxPython errors)</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#command-not-found-after-a-pip-install"><code class="docutils literal notranslate"><span class="pre">command</span> <span class="pre">not</span> <span class="pre">found</span></code> after a pip install</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#command-not-found-after-a-developer-install"><code class="docutils literal notranslate"><span class="pre">command</span> <span class="pre">not</span> <span class="pre">found</span></code> after a developer install</a></li>

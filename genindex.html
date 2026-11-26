@@ -35,7 +35,7 @@
     <link rel="stylesheet" type="text/css" href="_static/copybutton.css?v=76b2166b" />
     <link rel="stylesheet" type="text/css" href="_static/mystnb.11b39860a7a0cbfd473a3ad8a317855267ff0bd372690045ca344a6b62be495e.css" />
     <link rel="stylesheet" type="text/css" href="_static/sphinx-thebe.css?v=4fa983c6" />
-    <link rel="stylesheet" type="text/css" href="_static/sphinx-design.min.css?v=95c83b7e" />
+    <link rel="stylesheet" type="text/css" href="_static/sphinx-design.min.css?v=6a604523" />
   
   <!-- So that users can add custom icons -->
   <script defer src="_static/scripts/fontawesome.js?digest=55c26ed414f5f8a31ebb"></script>
@@ -54,7 +54,7 @@
     <script>let toggleOpenOnPrint = 'true';</script>
     <script src="_static/togglebutton.js?v=b8b12719"></script>
     <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
-    <script src="_static/design-tabs.js?v=f930bc37"></script>
+    <script data-sd-tabs-storage-prefix="sphinx-design-tab-id-" src="_static/design-tabs.js?v=fcb327ea"></script>
     <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
     <script async="async" src="_static/sphinx-thebe.js?v=c100c467"></script>
     <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
@@ -466,19 +466,19 @@
 </li>
       <li><a href="api/api.html#pmagpy.pmag.adjust_to_360">adjust_to_360() (in module pmagpy.pmag)</a>
 </li>
-      <li><a href="api/api.html#pmagpy.pmag.adjust_val_to_360">adjust_val_to_360() (in module pmagpy.pmag)</a>
-</li>
   </ul></td>
   <td style="width: 33%; vertical-align: top;"><ul>
+      <li><a href="api/api.html#pmagpy.pmag.adjust_val_to_360">adjust_val_to_360() (in module pmagpy.pmag)</a>
+</li>
       <li><a href="api/api.html#pmagpy.pmag.age_to_BP">age_to_BP() (in module pmagpy.pmag)</a>
 </li>
       <li><a href="api/api.html#pmagpy.rockmag.aggregate_by_class">aggregate_by_class() (in module pmagpy.rockmag)</a>
 </li>
+      <li><a href="api/api.html#pmagpy.pmag.anchored_line_stored_as_vector_mean">anchored_line_stored_as_vector_mean() (in module pmagpy.pmag)</a>
+</li>
       <li><a href="api/api.html#pmagpy.pmag.angle">angle() (in module pmagpy.pmag)</a>
 </li>
       <li><a href="api/api.html#pmagpy.ipmag.ani_depthplot">ani_depthplot() (in module pmagpy.ipmag)</a>
-</li>
-      <li><a href="api/api.html#pmagpy.ipmag.ani_depthplot2">ani_depthplot2() (in module pmagpy.ipmag)</a>
 </li>
       <li><a href="api/api.html#pmagpy.ipmag.aniso_magic">aniso_magic() (in module pmagpy.ipmag)</a>
 </li>
@@ -491,8 +491,6 @@
       <li><a href="api/api.html#pmagpy.pmag.apwp">apwp() (in module pmagpy.pmag)</a>
 </li>
       <li><a href="api/api.html#pmagpy.ipmag.atrm_magic">atrm_magic() (in module pmagpy.ipmag)</a>
-</li>
-      <li><a href="api/api.html#pmagpy.ipmag.atrm_magic_dm2">atrm_magic_dm2() (in module pmagpy.ipmag)</a>
 </li>
       <li><a href="api/api.html#pmagpy.ipmag.azdip_magic">azdip_magic() (in module pmagpy.ipmag)</a>
 </li>
@@ -552,8 +550,6 @@
 </li>
       <li><a href="api/api.html#pmagpy.ipmag.chi_magic">chi_magic() (in module pmagpy.ipmag)</a>
 </li>
-      <li><a href="api/api.html#pmagpy.ipmag.chi_magic2">chi_magic2() (in module pmagpy.ipmag)</a>
-</li>
       <li><a href="api/api.html#pmagpy.rockmag.chi_SP">chi_SP() (in module pmagpy.rockmag)</a>
 </li>
       <li><a href="api/api.html#pmagpy.pmag.circ">circ() (in module pmagpy.pmag)</a>
@@ -561,6 +557,10 @@
       <li><a href="api/api.html#pmagpy.rockmag.clean_out_na">clean_out_na() (in module pmagpy.rockmag)</a>
 </li>
       <li><a href="api/api.html#pmagpy.pmag.cleanup">cleanup() (in module pmagpy.pmag)</a>
+</li>
+      <li><a href="api/api.html#pmagpy.pmagplotlib.clearFIG">clearFIG() (in module pmagpy.pmagplotlib)</a>
+</li>
+      <li><a href="api/api.html#pmagpy.rockmag.closure_mean_se_by_noise_propagation">closure_mean_se_by_noise_propagation() (in module pmagpy.rockmag)</a>
 </li>
       <li><a href="api/api.html#pmagpy.rockmag.coercivity_curve_components">coercivity_curve_components() (in module pmagpy.rockmag)</a>
 </li>
@@ -578,10 +578,10 @@
 </li>
       <li><a href="api/api.html#pmagpy.rockmag.collapse_hyst_field_plateaus">collapse_hyst_field_plateaus() (in module pmagpy.rockmag)</a>
 </li>
-      <li><a href="api/api.html#pmagpy.ipmag.combine_magic">combine_magic() (in module pmagpy.ipmag)</a>
-</li>
   </ul></td>
   <td style="width: 33%; vertical-align: top;"><ul>
+      <li><a href="api/api.html#pmagpy.ipmag.combine_magic">combine_magic() (in module pmagpy.ipmag)</a>
+</li>
       <li><a href="api/api.html#pmagpy.ipmag.common_mean_bayes">common_mean_bayes() (in module pmagpy.ipmag)</a>
 </li>
       <li><a href="api/api.html#pmagpy.ipmag.common_mean_bootstrap">common_mean_bootstrap() (in module pmagpy.ipmag)</a>
@@ -669,8 +669,6 @@
       <li><a href="api/api.html#pmagpy.pmag.dimap_V">dimap_V() (in module pmagpy.pmag)</a>
 </li>
       <li><a href="api/api.html#pmagpy.pmag.dir2cart">dir2cart() (in module pmagpy.pmag)</a>
-</li>
-      <li><a href="api/api.html#pmagpy.pmag.Dir_anis_corr">Dir_anis_corr() (in module pmagpy.pmag)</a>
 </li>
       <li><a href="api/api.html#pmagpy.pmag.dir_df_boot">dir_df_boot() (in module pmagpy.pmag)</a>
 </li>
@@ -936,23 +934,45 @@
   <td style="width: 33%; vertical-align: top;"><ul>
       <li><a href="api/api.html#pmagpy.ipmag.histplot">histplot() (in module pmagpy.ipmag)</a>
 </li>
+      <li><a href="api/api.html#pmagpy.rockmag.hyst_approach_to_saturation_fit">hyst_approach_to_saturation_fit() (in module pmagpy.rockmag)</a>
+</li>
+      <li><a href="api/api.html#pmagpy.rockmag.hyst_approach_to_saturation_model">hyst_approach_to_saturation_model() (in module pmagpy.rockmag)</a>
+</li>
+      <li><a href="api/api.html#pmagpy.rockmag.hyst_closure_se">hyst_closure_se() (in module pmagpy.rockmag)</a>
+</li>
+      <li><a href="api/api.html#pmagpy.rockmag.hyst_closure_test">hyst_closure_test() (in module pmagpy.rockmag)</a>
+</li>
+      <li><a href="api/api.html#pmagpy.rockmag.hyst_coercivity">hyst_coercivity() (in module pmagpy.rockmag)</a>
+</li>
+      <li><a href="api/api.html#pmagpy.rockmag.hyst_drift_correction">hyst_drift_correction() (in module pmagpy.rockmag)</a>
+</li>
+      <li><a href="api/api.html#pmagpy.rockmag.hyst_hf_linearity_stats">hyst_hf_linearity_stats() (in module pmagpy.rockmag)</a>
+</li>
       <li><a href="api/api.html#pmagpy.rockmag.hyst_HF_nonlinear_optimization">hyst_HF_nonlinear_optimization() (in module pmagpy.rockmag)</a>
+</li>
+      <li><a href="api/api.html#pmagpy.rockmag.hyst_linear_fit_anova">hyst_linear_fit_anova() (in module pmagpy.rockmag)</a>
+</li>
+  </ul></td>
+  <td style="width: 33%; vertical-align: top;"><ul>
+      <li><a href="api/api.html#pmagpy.rockmag.hyst_linear_hf_fit">hyst_linear_hf_fit() (in module pmagpy.rockmag)</a>
 </li>
       <li><a href="api/api.html#pmagpy.rockmag.hyst_linearity_test">hyst_linearity_test() (in module pmagpy.rockmag)</a>
 </li>
       <li><a href="api/api.html#pmagpy.rockmag.hyst_loop_centering">hyst_loop_centering() (in module pmagpy.rockmag)</a>
 </li>
-  </ul></td>
-  <td style="width: 33%; vertical-align: top;"><ul>
       <li><a href="api/api.html#pmagpy.rockmag.hyst_loop_centering_iterative">hyst_loop_centering_iterative() (in module pmagpy.rockmag)</a>
 </li>
+      <li><a href="api/api.html#pmagpy.rockmag.hyst_loop_components">hyst_loop_components() (in module pmagpy.rockmag)</a>
+</li>
       <li><a href="api/api.html#pmagpy.rockmag.hyst_loop_saturation_test">hyst_loop_saturation_test() (in module pmagpy.rockmag)</a>
+</li>
+      <li><a href="api/api.html#pmagpy.rockmag.hyst_quality_factor">hyst_quality_factor() (in module pmagpy.rockmag)</a>
+</li>
+      <li><a href="api/api.html#pmagpy.rockmag.hyst_saturation_test">hyst_saturation_test() (in module pmagpy.rockmag)</a>
 </li>
       <li><a href="api/api.html#pmagpy.rockmag.hyst_slope_correction">hyst_slope_correction() (in module pmagpy.rockmag)</a>
 </li>
       <li><a href="api/api.html#pmagpy.ipmag.hysteresis_magic">hysteresis_magic() (in module pmagpy.ipmag)</a>
-</li>
-      <li><a href="api/api.html#pmagpy.ipmag.hysteresis_magic2">hysteresis_magic2() (in module pmagpy.ipmag)</a>
 </li>
   </ul></td>
 </tr></table>
@@ -1022,11 +1042,15 @@
 </li>
       <li><a href="api/api.html#pmagpy.ipmag.lat_from_pole">lat_from_pole() (in module pmagpy.ipmag)</a>
 </li>
-  </ul></td>
-  <td style="width: 33%; vertical-align: top;"><ul>
       <li><a href="api/api.html#pmagpy.rockmag.linear_HF_fit">linear_HF_fit() (in module pmagpy.rockmag)</a>
 </li>
+  </ul></td>
+  <td style="width: 33%; vertical-align: top;"><ul>
+      <li><a href="api/api.html#pmagpy.rockmag.linear_HF_fit_stats">linear_HF_fit_stats() (in module pmagpy.rockmag)</a>
+</li>
       <li><a href="api/api.html#pmagpy.pmag.linreg">linreg() (in module pmagpy.pmag)</a>
+</li>
+      <li><a href="api/api.html#pmagpy.ipmag.load_magic_contribution">load_magic_contribution() (in module pmagpy.ipmag)</a>
 </li>
       <li><a href="api/api.html#pmagpy.rockmag.loop_closure_test">loop_closure_test() (in module pmagpy.rockmag)</a>
 </li>
@@ -1151,7 +1175,7 @@
 </li>
       <li><a href="api/api.html#pmagpy.ipmag.plate_rate_mc">plate_rate_mc() (in module pmagpy.ipmag)</a>
 </li>
-      <li><a href="api/api.html#pmagpy.pmagplotlib.plot3d_init">plot3d_init() (in module pmagpy.pmagplotlib)</a>
+      <li><a href="api/api.html#pmagpy.pmagplotlib.plot_anis">plot_anis() (in module pmagpy.pmagplotlib)</a>
 </li>
       <li><a href="api/api.html#pmagpy.ipmag.plot_aniso">plot_aniso() (in module pmagpy.ipmag)</a>
 </li>
@@ -1177,6 +1201,8 @@
 </li>
       <li><a href="api/api.html#pmagpy.rockmag.plot_coercivity_unmixing">plot_coercivity_unmixing() (in module pmagpy.rockmag)</a>
 </li>
+      <li><a href="api/api.html#pmagpy.pmagplotlib.plot_com">plot_com() (in module pmagpy.pmagplotlib)</a>
+</li>
       <li><a href="api/api.html#pmagpy.pmagplotlib.plot_conf">plot_conf() (in module pmagpy.pmagplotlib)</a>
 </li>
       <li><a href="api/api.html#pmagpy.rockmag.plot_curie_estimates">plot_curie_estimates() (in module pmagpy.rockmag)</a>
@@ -1194,18 +1220,26 @@
       <li><a href="api/api.html#pmagpy.pmagplotlib.plot_delta_m">plot_delta_m() (in module pmagpy.pmagplotlib)</a>
 </li>
       <li><a href="api/api.html#pmagpy.ipmag.plot_di">plot_di() (in module pmagpy.ipmag)</a>
+
+      <ul>
+        <li><a href="api/api.html#pmagpy.pmagplotlib.plot_di">(in module pmagpy.pmagplotlib)</a>
 </li>
+      </ul></li>
       <li><a href="api/api.html#pmagpy.ipmag.plot_di_mean">plot_di_mean() (in module pmagpy.ipmag)</a>
 </li>
       <li><a href="api/api.html#pmagpy.ipmag.plot_di_mean_bingham">plot_di_mean_bingham() (in module pmagpy.ipmag)</a>
 </li>
       <li><a href="api/api.html#pmagpy.ipmag.plot_di_mean_ellipse">plot_di_mean_ellipse() (in module pmagpy.ipmag)</a>
 </li>
+      <li><a href="api/api.html#pmagpy.pmagplotlib.plot_di_sym">plot_di_sym() (in module pmagpy.pmagplotlib)</a>
+</li>
       <li><a href="api/api.html#pmagpy.pmagplotlib.plot_dir">plot_dir() (in module pmagpy.pmagplotlib)</a>
 </li>
       <li><a href="api/api.html#pmagpy.ipmag.plot_distributions">plot_distributions() (in module pmagpy.ipmag)</a>
 </li>
       <li><a href="api/api.html#pmagpy.ipmag.plot_dmag">plot_dmag() (in module pmagpy.ipmag)</a>
+</li>
+      <li><a href="api/api.html#pmagpy.pmagplotlib.plot_ei">plot_ei() (in module pmagpy.pmagplotlib)</a>
 </li>
       <li><a href="api/api.html#pmagpy.pmagplotlib.plot_ell">plot_ell() (in module pmagpy.pmagplotlib)</a>
 </li>
@@ -1236,8 +1270,6 @@
       <li><a href="api/api.html#pmagpy.pmagplotlib.plot_irm">plot_irm() (in module pmagpy.pmagplotlib)</a>
 </li>
       <li><a href="api/api.html#pmagpy.pmagplotlib.plot_lnp">plot_lnp() (in module pmagpy.pmagplotlib)</a>
-</li>
-      <li><a href="api/api.html#pmagpy.pmagplotlib.plot_ltc">plot_ltc() (in module pmagpy.pmagplotlib)</a>
 </li>
       <li><a href="api/api.html#pmagpy.rockmag.plot_M_T">plot_M_T() (in module pmagpy.rockmag)</a>
 </li>
@@ -1295,7 +1327,11 @@
 </li>
       <li><a href="api/api.html#pmagpy.pmagplotlib.plot_strat">plot_strat() (in module pmagpy.pmagplotlib)</a>
 </li>
+      <li><a href="api/api.html#pmagpy.pmagplotlib.plot_tds">plot_tds() (in module pmagpy.pmagplotlib)</a>
+</li>
       <li><a href="api/api.html#pmagpy.pmagplotlib.plot_teq">plot_teq() (in module pmagpy.pmagplotlib)</a>
+</li>
+      <li><a href="api/api.html#pmagpy.pmagplotlib.plot_trm">plot_trm() (in module pmagpy.pmagplotlib)</a>
 </li>
       <li><a href="api/api.html#pmagpy.pmagplotlib.plot_ts">plot_ts() (in module pmagpy.pmagplotlib)</a>
 </li>
@@ -1306,6 +1342,8 @@
       <li><a href="api/api.html#pmagpy.rockmag.plot_unmixing_posterior">plot_unmixing_posterior() (in module pmagpy.rockmag)</a>
 </li>
       <li><a href="api/api.html#pmagpy.rockmag.plot_unmixing_tradeoff">plot_unmixing_tradeoff() (in module pmagpy.rockmag)</a>
+</li>
+      <li><a href="api/api.html#pmagpy.pmagplotlib.plot_v2s">plot_v2s() (in module pmagpy.pmagplotlib)</a>
 </li>
       <li><a href="api/api.html#pmagpy.ipmag.plot_vgp">plot_vgp() (in module pmagpy.ipmag)</a>
 </li>
@@ -1433,6 +1471,8 @@
 </li>
       <li><a href="api/api.html#pmagpy.rockmag.sanitize_hyst_inputs">sanitize_hyst_inputs() (in module pmagpy.rockmag)</a>
 </li>
+      <li><a href="api/api.html#pmagpy.pmagplotlib.save_or_quit">save_or_quit() (in module pmagpy.pmagplotlib)</a>
+</li>
       <li><a href="api/api.html#pmagpy.pmagplotlib.save_plots">save_plots() (in module pmagpy.pmagplotlib)</a>
 </li>
       <li><a href="api/api.html#pmagpy.ipmag.sb_vgp_calc">sb_vgp_calc() (in module pmagpy.ipmag)</a>
@@ -1447,6 +1487,8 @@
 </li>
       <li><a href="api/api.html#pmagpy.rockmag.SD_MD_mixture">SD_MD_mixture() (in module pmagpy.rockmag)</a>
 </li>
+      <li><a href="api/api.html#pmagpy.ipmag.select_demag_records">select_demag_records() (in module pmagpy.ipmag)</a>
+</li>
       <li><a href="api/api.html#pmagpy.rockmag.select_n_components">select_n_components() (in module pmagpy.rockmag)</a>
 </li>
       <li><a href="api/api.html#pmagpy.ipmag.separate_directions">separate_directions() (in module pmagpy.ipmag)</a>
@@ -1459,16 +1501,18 @@
 </li>
       <li><a href="api/api.html#pmagpy.ipmag.shoot">shoot() (in module pmagpy.ipmag)</a>
 </li>
+      <li><a href="api/api.html#pmagpy.pmagplotlib.show_fig">show_fig() (in module pmagpy.pmagplotlib)</a>
+</li>
       <li><a href="api/api.html#pmagpy.ipmag.simul_correlation_prob">simul_correlation_prob() (in module pmagpy.ipmag)</a>
 </li>
       <li><a href="api/api.html#pmagpy.ipmag.Site">Site (class in pmagpy.ipmag)</a>
 </li>
+  </ul></td>
+  <td style="width: 33%; vertical-align: top;"><ul>
       <li><a href="api/api.html#pmagpy.ipmag.sites_extract">sites_extract() (in module pmagpy.ipmag)</a>
 </li>
       <li><a href="api/api.html#pmagpy.rockmag.skewnormal_cdf">skewnormal_cdf() (in module pmagpy.rockmag)</a>
 </li>
-  </ul></td>
-  <td style="width: 33%; vertical-align: top;"><ul>
       <li><a href="api/api.html#pmagpy.rockmag.skewnormal_pdf">skewnormal_pdf() (in module pmagpy.rockmag)</a>
 </li>
       <li><a href="api/api.html#pmagpy.rockmag.skewnormal_stats">skewnormal_stats() (in module pmagpy.rockmag)</a>
@@ -1569,8 +1613,6 @@
       </ul></li>
       <li><a href="api/api.html#pmagpy.ipmag.upload_magic">upload_magic() (in module pmagpy.ipmag)</a>
 </li>
-      <li><a href="api/api.html#pmagpy.ipmag.upload_magic2">upload_magic2() (in module pmagpy.ipmag)</a>
-</li>
       <li><a href="api/api.html#pmagpy.ipmag.upload_to_private_contribution">upload_to_private_contribution() (in module pmagpy.ipmag)</a>
 </li>
   </ul></td>
@@ -1593,12 +1635,14 @@
 </li>
       <li><a href="api/api.html#pmagpy.pmag.vector_mean">vector_mean() (in module pmagpy.pmag)</a>
 </li>
-      <li><a href="api/api.html#pmagpy.rockmag.verwey_estimate">verwey_estimate() (in module pmagpy.rockmag)</a>
+      <li><a href="api/api.html#pmagpy.pmagplotlib.vertical_plot_init">vertical_plot_init() (in module pmagpy.pmagplotlib)</a>
 </li>
-      <li><a href="api/api.html#pmagpy.rockmag.verwey_estimate_interactive">verwey_estimate_interactive() (in module pmagpy.rockmag)</a>
+      <li><a href="api/api.html#pmagpy.rockmag.verwey_estimate">verwey_estimate() (in module pmagpy.rockmag)</a>
 </li>
   </ul></td>
   <td style="width: 33%; vertical-align: top;"><ul>
+      <li><a href="api/api.html#pmagpy.rockmag.verwey_estimate_interactive">verwey_estimate_interactive() (in module pmagpy.rockmag)</a>
+</li>
       <li><a href="api/api.html#pmagpy.rockmag.verwey_estimate_multiple_specimens">verwey_estimate_multiple_specimens() (in module pmagpy.rockmag)</a>
 </li>
       <li><a href="api/api.html#pmagpy.rockmag.verwey_specimen_method_selection_interactive">verwey_specimen_method_selection_interactive() (in module pmagpy.rockmag)</a>
@@ -1612,8 +1656,6 @@
       <li><a href="api/api.html#pmagpy.ipmag.vgpmap_magic">vgpmap_magic() (in module pmagpy.ipmag)</a>
 </li>
       <li><a href="api/api.html#pmagpy.pmag.vocab_convert">vocab_convert() (in module pmagpy.pmag)</a>
-</li>
-      <li><a href="api/api.html#pmagpy.pmag.vspec">vspec() (in module pmagpy.pmag)</a>
 </li>
       <li><a href="api/api.html#pmagpy.pmag.vspec_magic">vspec_magic() (in module pmagpy.pmag)</a>
 </li>

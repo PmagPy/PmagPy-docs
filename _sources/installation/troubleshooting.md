@@ -2,15 +2,24 @@
 
 ## Verify Python is installed correctly
 
-In a terminal, type `python` (or `python3`). You should see something like:
+PmagPy and `pmagpy-cli` require Python 3.12 or later. In a terminal, type `python --version` (or `python3 --version`) to check the version. For example:
 
 ```text
-Python 3.10.13 | packaged by conda-forge | (main, Oct 26 2023, 18:07:37)
-[Clang 16.0.6 ] on darwin
-Type "help", "copyright", "credits" or "license" for more information.
+Python 3.12.0
 ```
 
-Press `Ctrl-D` (or type `quit()`) to exit. If you get an error like `command not found`, see the [pip install instructions](pip_install.md) for setting up Python via conda or miniforge.
+If the version is older than 3.12, create or activate a Python 3.12+ environment as described in the [pip install instructions](pip_install.md). If you get an error like `command not found`, see those instructions for setting up Python via conda or miniforge.
+
+## `pip` reports that the Python version is unsupported
+
+Check that pip is using Python 3.12 or later:
+
+```bash
+python --version
+python -m pip --version
+```
+
+If you have multiple Python installations, activate the correct conda environment before installing. Use `python -m pip install ...` to make sure pip runs under the active Python interpreter.
 
 ## `ImportError: No module named wx` (or similar wxPython errors)
 

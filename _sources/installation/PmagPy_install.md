@@ -18,7 +18,7 @@ You can also use PmagPy without installing anything by going to the Jupyter note
 (section_pip_install)=
 ## pip install
 
-If you already have a working Python environment on your computer or in a cloud environment like Google Colab, you can install PmagPy with:
+PmagPy and `pmagpy-cli` require Python 3.12 or later. If you already have a compatible Python environment on your computer or in a cloud environment like Google Colab, you can install PmagPy with:
 
 ```bash
 pip install pmagpy

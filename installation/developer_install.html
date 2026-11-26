@@ -36,7 +36,7 @@
     <link rel="stylesheet" type="text/css" href="../_static/copybutton.css?v=76b2166b" />
     <link rel="stylesheet" type="text/css" href="../_static/mystnb.11b39860a7a0cbfd473a3ad8a317855267ff0bd372690045ca344a6b62be495e.css" />
     <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css?v=4fa983c6" />
-    <link rel="stylesheet" type="text/css" href="../_static/sphinx-design.min.css?v=95c83b7e" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-design.min.css?v=6a604523" />
   
   <!-- So that users can add custom icons -->
   <script defer src="../_static/scripts/fontawesome.js?digest=55c26ed414f5f8a31ebb"></script>
@@ -55,7 +55,7 @@
     <script>let toggleOpenOnPrint = 'true';</script>
     <script src="../_static/togglebutton.js?v=b8b12719"></script>
     <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
-    <script src="../_static/design-tabs.js?v=f930bc37"></script>
+    <script data-sd-tabs-storage-prefix="sphinx-design-tab-id-" src="../_static/design-tabs.js?v=fcb327ea"></script>
     <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
     <script async="async" src="../_static/sphinx-thebe.js?v=c100c467"></script>
     <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
@@ -462,8 +462,8 @@
             <nav aria-label="Page">
                 <ul class="pst-show_toc_level nav section-nav flex-column">
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#recommended-approach">Recommended approach</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#step-1-create-a-conda-environment">Step 1: Create a conda environment</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#step-2-clone-pmagpy">Step 2: Clone PmagPy</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#step-1-clone-pmagpy">Step 1: Clone PmagPy</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#step-2-create-a-conda-environment">Step 2: Create a conda environment</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#step-3-install-in-editable-mode">Step 3: Install in editable mode</a></li>
 </ul>
 </li>
@@ -503,24 +503,12 @@
 <h2>Recommended approach<a class="headerlink" href="#recommended-approach" title="Link to this heading">#</a></h2>
 <p>The same three-step pattern works on macOS, Windows, and Linux:</p>
 <ol class="arabic simple">
-<li><p>Create a conda environment with the scientific Python packages and GUI libraries.</p></li>
 <li><p>Clone the PmagPy repository.</p></li>
+<li><p>Create a conda environment with the scientific Python packages and GUI libraries.</p></li>
 <li><p>Install pmagpy as an <em>editable</em> package with <code class="docutils literal notranslate"><span class="pre">pip</span> <span class="pre">install</span> <span class="pre">-e</span> <span class="pre">.</span></code> so your imports point at the cloned repo.</p></li>
 </ol>
-<section id="step-1-create-a-conda-environment">
-<h3>Step 1: Create a conda environment<a class="headerlink" href="#step-1-create-a-conda-environment" title="Link to this heading">#</a></h3>
-<p>If you don’t already have a conda-based Python distribution, install <a class="reference external" href="https://github.com/conda-forge/miniforge">miniforge</a> (recommended) or <a class="reference external" href="https://www.anaconda.com/download">Anaconda</a>.</p>
-<p>Create a fresh environment with the dependencies that benefit most from conda-forge:</p>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>conda<span class="w"> </span>create<span class="w"> </span>-n<span class="w"> </span>pmagpy_dev<span class="w"> </span>-c<span class="w"> </span>conda-forge<span class="w"> </span><span class="nv">python</span><span class="o">=</span><span class="m">3</span>.10<span class="w"> </span><span class="se">\</span>
-<span class="w">    </span>numpy<span class="w"> </span>scipy<span class="w"> </span>matplotlib<span class="w"> </span>pandas<span class="w"> </span><span class="se">\</span>
-<span class="w">    </span>cartopy<span class="w"> </span>shapely<span class="w"> </span><span class="se">\</span>
-<span class="w">    </span>wxpython<span class="w"> </span>pyqt<span class="w"> </span>jupyterlab
-conda<span class="w"> </span>activate<span class="w"> </span>pmagpy_dev
-</pre></div>
-</div>
-</section>
-<section id="step-2-clone-pmagpy">
-<h3>Step 2: Clone PmagPy<a class="headerlink" href="#step-2-clone-pmagpy" title="Link to this heading">#</a></h3>
+<section id="step-1-clone-pmagpy">
+<h3>Step 1: Clone PmagPy<a class="headerlink" href="#step-1-clone-pmagpy" title="Link to this heading">#</a></h3>
 <p>If you don’t have git, <a class="reference external" href="https://git-scm.com/downloads">install it</a> first. Then change to the directory where you want the PmagPy folder, and clone:</p>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>git<span class="w"> </span>clone<span class="w"> </span>https://github.com/PmagPy/PmagPy.git
 <span class="nb">cd</span><span class="w"> </span>PmagPy
@@ -528,13 +516,22 @@ conda<span class="w"> </span>activate<span class="w"> </span>pmagpy_dev
 </div>
 <p>You now have a full local copy of the PmagPy source.</p>
 </section>
+<section id="step-2-create-a-conda-environment">
+<h3>Step 2: Create a conda environment<a class="headerlink" href="#step-2-create-a-conda-environment" title="Link to this heading">#</a></h3>
+<p>If you don’t already have a conda-based Python distribution, install <a class="reference external" href="https://github.com/conda-forge/miniforge">miniforge</a> (recommended) or <a class="reference external" href="https://www.anaconda.com/download">Anaconda</a>. From the PmagPy directory, create the development environment from the repository’s <code class="docutils literal notranslate"><span class="pre">environment.yml</span></code>:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>conda<span class="w"> </span>env<span class="w"> </span>create<span class="w"> </span>-f<span class="w"> </span>environment.yml<span class="w"> </span>-n<span class="w"> </span>pmagpy_dev
+conda<span class="w"> </span>activate<span class="w"> </span>pmagpy_dev
+</pre></div>
+</div>
+<p>This installs Python 3.12 and the scientific, mapping, GUI, notebook, and test dependencies used by PmagPy. PmagPy requires Python 3.12 or later.</p>
+</section>
 <section id="step-3-install-in-editable-mode">
 <h3>Step 3: Install in editable mode<a class="headerlink" href="#step-3-install-in-editable-mode" title="Link to this heading">#</a></h3>
 <p>From the PmagPy directory:</p>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>pip<span class="w"> </span>install<span class="w"> </span>-e<span class="w"> </span><span class="s2">".[maps]"</span>
 </pre></div>
 </div>
-<p>The <code class="docutils literal notranslate"><span class="pre">-e</span></code> flag installs PmagPy as an <em>editable</em> package — Python imports from your cloned repo directly, so any code changes (or <code class="docutils literal notranslate"><span class="pre">git</span> <span class="pre">pull</span></code>) take effect immediately without reinstalling. The <code class="docutils literal notranslate"><span class="pre">[maps]</span></code> part adds cartopy and shapely; you can drop it if you already installed those via conda above and would like pip to leave them alone. The quotes keep zsh (the macOS default shell) from treating the square brackets as a glob pattern.</p>
+<p>The <code class="docutils literal notranslate"><span class="pre">-e</span></code> flag installs PmagPy as an <em>editable</em> package — Python imports from your cloned repo directly, so any code changes (or <code class="docutils literal notranslate"><span class="pre">git</span> <span class="pre">pull</span></code>) take effect immediately without reinstalling. The <code class="docutils literal notranslate"><span class="pre">[maps]</span></code> part adds cartopy and shapely; you can drop it if you would like pip to leave the conda-installed mapping libraries alone. The quotes keep zsh (the macOS default shell) from treating the square brackets as a glob pattern.</p>
 </section>
 </section>
 <section id="running-the-command-line-programs">
@@ -551,7 +548,7 @@ python<span class="w"> </span>pmag_gui.py
 </section>
 <section id="pattern-b-editable-install-of-pmagpy-cli-not-currently-available">
 <h3>Pattern B: Editable install of pmagpy-cli (not currently available)<a class="headerlink" href="#pattern-b-editable-install-of-pmagpy-cli-not-currently-available" title="Link to this heading">#</a></h3>
-<p>The command-line programs are packaged separately as <code class="docutils literal notranslate"><span class="pre">pmagpy-cli</span></code> from <code class="docutils literal notranslate"><span class="pre">command_line_setup.py</span></code>, and <code class="docutils literal notranslate"><span class="pre">pip</span> <span class="pre">install</span> <span class="pre">-e</span> <span class="pre">.</span></code> only reads <code class="docutils literal notranslate"><span class="pre">setup.py</span></code>. The older <code class="docutils literal notranslate"><span class="pre">python</span> <span class="pre">command_line_setup.py</span> <span class="pre">develop</span></code> route is deprecated by setuptools and, with current versions (setuptools 80 and later), no longer installs the program entry points, so there is at present no working editable install of the CLI. Use Pattern A to run the programs from the repository, or Pattern C to pair the editable library with the released CLI.</p>
+<p>The command-line programs are packaged separately as <code class="docutils literal notranslate"><span class="pre">pmagpy-cli</span></code> from <code class="docutils literal notranslate"><span class="pre">command_line_setup.py</span></code>, and <code class="docutils literal notranslate"><span class="pre">pip</span> <span class="pre">install</span> <span class="pre">-e</span> <span class="pre">.</span></code> only reads <code class="docutils literal notranslate"><span class="pre">setup.py</span></code>. The older <code class="docutils literal notranslate"><span class="pre">python</span> <span class="pre">command_line_setup.py</span> <span class="pre">develop</span></code> route is deprecated by setuptools and no longer installs the program entry points with current setuptools, so there is at present no working editable install of the CLI. Use Pattern A to run the programs from the repository, or Pattern C to pair the editable library with the released CLI.</p>
 </section>
 <section id="pattern-c-editable-library-released-cli">
 <h3>Pattern C: Editable library + released CLI<a class="headerlink" href="#pattern-c-editable-library-released-cli" title="Link to this heading">#</a></h3>
@@ -597,6 +594,7 @@ pip<span class="w"> </span>install<span class="w"> </span>pmagpy-cli
 </section>
 <section id="platform-notes">
 <h2>Platform notes<a class="headerlink" href="#platform-notes" title="Link to this heading">#</a></h2>
+<p>PmagPy and <code class="docutils literal notranslate"><span class="pre">pmagpy-cli</span></code> require Python 3.12 or later.</p>
 <section id="macos">
 <h3>macOS<a class="headerlink" href="#macos" title="Link to this heading">#</a></h3>
 <ul class="simple">
@@ -701,8 +699,8 @@ pip<span class="w"> </span>install<span class="w"> </span>pmagpy-cli
   <nav id="pst-page-toc-nav" class="page-toc" aria-labelledby="pst-page-navigation-heading-2">
     <ul class="pst-show_toc_level nav section-nav flex-column">
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#recommended-approach">Recommended approach</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#step-1-create-a-conda-environment">Step 1: Create a conda environment</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#step-2-clone-pmagpy">Step 2: Clone PmagPy</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#step-1-clone-pmagpy">Step 1: Clone PmagPy</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#step-2-create-a-conda-environment">Step 2: Create a conda environment</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#step-3-install-in-editable-mode">Step 3: Install in editable mode</a></li>
 </ul>
 </li>

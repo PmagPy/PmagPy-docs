@@ -35,7 +35,7 @@
     <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css?v=76b2166b" />
     <link rel="stylesheet" type="text/css" href="../../_static/mystnb.11b39860a7a0cbfd473a3ad8a317855267ff0bd372690045ca344a6b62be495e.css" />
     <link rel="stylesheet" type="text/css" href="../../_static/sphinx-thebe.css?v=4fa983c6" />
-    <link rel="stylesheet" type="text/css" href="../../_static/sphinx-design.min.css?v=95c83b7e" />
+    <link rel="stylesheet" type="text/css" href="../../_static/sphinx-design.min.css?v=6a604523" />
   
   <!-- So that users can add custom icons -->
   <script defer src="../../_static/scripts/fontawesome.js?digest=55c26ed414f5f8a31ebb"></script>
@@ -54,7 +54,7 @@
     <script>let toggleOpenOnPrint = 'true';</script>
     <script src="../../_static/togglebutton.js?v=b8b12719"></script>
     <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
-    <script src="../../_static/design-tabs.js?v=f930bc37"></script>
+    <script data-sd-tabs-storage-prefix="sphinx-design-tab-id-" src="../../_static/design-tabs.js?v=fcb327ea"></script>
     <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
     <script async="async" src="../../_static/sphinx-thebe.js?v=c100c467"></script>
     <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
@@ -411,16 +411,14 @@
                 <article class="bd-article">
                   
   <h1>Source code for pmagpy.pmag</h1><div class="highlight"><pre>
-<span></span><span class="kn">import</span><span class="w"> </span><span class="nn">codecs</span>
-<span class="kn">import</span><span class="w"> </span><span class="nn">math</span>
+<span></span><span class="kn">import</span><span class="w"> </span><span class="nn">math</span>
 <span class="kn">import</span><span class="w"> </span><span class="nn">os</span>
-<span class="kn">import</span><span class="w"> </span><span class="nn">string</span>
 <span class="kn">import</span><span class="w"> </span><span class="nn">sys</span>
 <span class="kn">import</span><span class="w"> </span><span class="nn">time</span>
 <span class="kn">import</span><span class="w"> </span><span class="nn">importlib</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">warnings</span>
 
 <span class="kn">import</span><span class="w"> </span><span class="nn">numpy</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">np</span>
-<span class="kn">from</span><span class="w"> </span><span class="nn">numpy</span><span class="w"> </span><span class="kn">import</span> <span class="n">random</span>
 <span class="kn">from</span><span class="w"> </span><span class="nn">numpy</span><span class="w"> </span><span class="kn">import</span> <span class="n">linalg</span>
 <span class="kn">import</span><span class="w"> </span><span class="nn">pandas</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">pd</span>
 <span class="kn">from</span><span class="w"> </span><span class="nn">.mapping</span><span class="w"> </span><span class="kn">import</span> <span class="n">map_magic</span>
@@ -892,7 +890,7 @@
 <div class="viewcode-block" id="convert_ages">
 <a class="viewcode-back" href="../../api/api.html#pmagpy.pmag.convert_ages">[docs]</a>
 <span class="k">def</span><span class="w"> </span><span class="nf">convert_ages</span><span class="p">(</span><span class="n">Recs</span><span class="p">,</span> <span class="n">data_model</span><span class="o">=</span><span class="mi">3</span><span class="p">):</span>
-<span class="w">    </span><span class="sd">"""</span>
+<span class="w">    </span><span class="sa">r</span><span class="sd">"""</span>
 <span class="sd">    Converts ages in a list of dictionaries to units of Millions of years ago, Ma. </span>
 <span class="sd">    </span>
 <span class="sd">    Parameters</span>
@@ -1913,7 +1911,7 @@
     <span class="n">y_Arai</span><span class="o">=</span><span class="n">first_Z</span><span class="p">[</span><span class="mi">3</span><span class="p">]</span><span class="o">/</span><span class="n">first_Z</span><span class="p">[</span><span class="mi">3</span><span class="p">][</span><span class="mi">0</span><span class="p">]</span>
     <span class="n">krv_data</span><span class="o">=</span><span class="n">lib_k</span><span class="o">.</span><span class="n">AraiCurvature</span><span class="p">(</span><span class="n">x</span><span class="o">=</span><span class="n">x_Arai</span><span class="p">,</span><span class="n">y</span><span class="o">=</span><span class="n">y_Arai</span><span class="p">)</span>
     <span class="n">pars</span><span class="p">[</span><span class="s1">'int_k'</span><span class="p">]</span><span class="o">=</span><span class="n">krv_data</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
-    <span class="n">pars</span><span class="p">[</span><span class="s1">'int_k_sse'</span><span class="p">]</span><span class="o">=</span><span class="n">krv_data</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span>
+    <span class="n">pars</span><span class="p">[</span><span class="s1">'int_k_sse'</span><span class="p">]</span><span class="o">=</span><span class="n">krv_data</span><span class="p">[</span><span class="mi">3</span><span class="p">]</span>
     <span class="c1"># segment</span>
     <span class="k">if</span> <span class="s1">'start'</span> <span class="ow">in</span> <span class="n">kwargs</span><span class="o">.</span><span class="n">keys</span><span class="p">()</span> <span class="ow">and</span> <span class="s1">'end'</span> <span class="ow">in</span> <span class="n">kwargs</span><span class="o">.</span><span class="n">keys</span><span class="p">():</span>
         <span class="n">start</span><span class="o">=</span><span class="n">kwargs</span><span class="p">[</span><span class="s1">'start'</span><span class="p">]</span>
@@ -1922,7 +1920,7 @@
         <span class="n">y_Arai_segment</span> <span class="o">=</span> <span class="n">y_Arai</span><span class="p">[</span><span class="n">start</span><span class="p">:</span><span class="n">end</span> <span class="o">+</span> <span class="mi">1</span><span class="p">]</span>  <span class="c1"># chosen segent in the Arai plot</span>
         <span class="n">krv_data</span><span class="o">=</span><span class="n">lib_k</span><span class="o">.</span><span class="n">AraiCurvature</span><span class="p">(</span><span class="n">x</span><span class="o">=</span><span class="n">x_Arai_segment</span><span class="p">,</span><span class="n">y</span><span class="o">=</span><span class="n">y_Arai_segment</span><span class="p">)</span>
         <span class="n">pars</span><span class="p">[</span><span class="s1">'int_k_prime'</span><span class="p">]</span><span class="o">=</span><span class="n">krv_data</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
-        <span class="n">pars</span><span class="p">[</span><span class="s1">'int_k_prime_sse'</span><span class="p">]</span><span class="o">=</span><span class="n">krv_data</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span>
+        <span class="n">pars</span><span class="p">[</span><span class="s1">'int_k_prime_sse'</span><span class="p">]</span><span class="o">=</span><span class="n">krv_data</span><span class="p">[</span><span class="mi">3</span><span class="p">]</span>
     <span class="k">return</span> <span class="n">pars</span>
 
 <div class="viewcode-block" id="dovds">
@@ -2334,7 +2332,7 @@
 <span class="sd">        all lines in the file</span>
 <span class="sd">    """</span>
     <span class="k">try</span><span class="p">:</span>
-        <span class="k">with</span> <span class="n">codecs</span><span class="o">.</span><span class="n">open</span><span class="p">(</span><span class="n">infile</span><span class="p">,</span> <span class="s2">"r"</span><span class="p">,</span> <span class="s2">"utf-8"</span><span class="p">)</span> <span class="k">as</span> <span class="n">f</span><span class="p">:</span>
+        <span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="n">infile</span><span class="p">,</span> <span class="s2">"r"</span><span class="p">,</span> <span class="n">encoding</span><span class="o">=</span><span class="s2">"utf-8"</span><span class="p">)</span> <span class="k">as</span> <span class="n">f</span><span class="p">:</span>
             <span class="n">lines</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="n">f</span><span class="o">.</span><span class="n">readlines</span><span class="p">())</span>
     <span class="c1"># file might not exist</span>
     <span class="k">except</span> <span class="ne">FileNotFoundError</span><span class="p">:</span>
@@ -2345,7 +2343,7 @@
     <span class="c1"># encoding might be wrong</span>
     <span class="k">except</span> <span class="ne">UnicodeDecodeError</span><span class="p">:</span>
         <span class="k">try</span><span class="p">:</span>
-            <span class="k">with</span> <span class="n">codecs</span><span class="o">.</span><span class="n">open</span><span class="p">(</span><span class="n">infile</span><span class="p">,</span> <span class="s2">"r"</span><span class="p">,</span> <span class="s2">"Latin-1"</span><span class="p">)</span> <span class="k">as</span> <span class="n">f</span><span class="p">:</span>
+            <span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="n">infile</span><span class="p">,</span> <span class="s2">"r"</span><span class="p">,</span> <span class="n">encoding</span><span class="o">=</span><span class="s2">"Latin-1"</span><span class="p">)</span> <span class="k">as</span> <span class="n">f</span><span class="p">:</span>
                 <span class="nb">print</span><span class="p">(</span>
                     <span class="s1">'-I- Using less strict decoding for </span><span class="si">{}</span><span class="s1">, output may have formatting errors'</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">infile</span><span class="p">))</span>
                 <span class="n">lines</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="n">f</span><span class="o">.</span><span class="n">readlines</span><span class="p">())</span>
@@ -2356,9 +2354,10 @@
     <span class="k">except</span> <span class="ne">Exception</span> <span class="k">as</span> <span class="n">ex</span><span class="p">:</span>
         <span class="nb">print</span><span class="p">(</span><span class="s2">"-W- "</span><span class="p">,</span> <span class="nb">type</span><span class="p">(</span><span class="n">ex</span><span class="p">),</span> <span class="n">ex</span><span class="p">)</span>
         <span class="k">return</span> <span class="p">[]</span>
-    <span class="c1"># don't leave a blank line at the end</span>
+    <span class="c1"># don't leave a blank line at the end; an empty file (e.g. one left by</span>
+    <span class="c1"># an interrupted write) gives an empty list, not an IndexError</span>
     <span class="n">i</span> <span class="o">=</span> <span class="mi">0</span>
-    <span class="k">while</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="mi">10</span><span class="p">:</span>
+    <span class="k">while</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="mi">10</span> <span class="ow">and</span> <span class="n">lines</span><span class="p">:</span>
         <span class="k">if</span> <span class="ow">not</span> <span class="nb">len</span><span class="p">(</span><span class="n">lines</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">strip</span><span class="p">(</span><span class="s2">"</span><span class="se">\n</span><span class="s2">"</span><span class="p">)</span><span class="o">.</span><span class="n">strip</span><span class="p">(</span><span class="s2">"</span><span class="se">\t</span><span class="s2">"</span><span class="p">)):</span>
             <span class="n">lines</span> <span class="o">=</span> <span class="n">lines</span><span class="p">[:</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span>
             <span class="n">i</span> <span class="o">+=</span> <span class="mi">1</span>
@@ -3089,19 +3088,32 @@
 <span class="sd">    ----------</span>
 <span class="sd">    D1 : Direction 1 as an array of [declination, inclination] pair or pairs</span>
 <span class="sd">    D2 : Direction 2 as an array of [declination, inclination] pair or pairs</span>
+<span class="sd">        Any third column (intensity) is ignored. D1 and D2 must have the same</span>
+<span class="sd">        number of directions, or one of them must be a single direction that</span>
+<span class="sd">        is compared against every direction in the other.</span>
 
 <span class="sd">    Returns</span>
 <span class="sd">    -------</span>
-<span class="sd">    angle : single-element array </span>
-<span class="sd">        angle between the input directions</span>
+<span class="sd">    angles : array</span>
+<span class="sd">        angle in degrees between each pair of directions, with one element</span>
+<span class="sd">        per pair</span>
+
+<span class="sd">    Raises</span>
+<span class="sd">    ------</span>
+<span class="sd">    ValueError</span>
+<span class="sd">        if D1 and D2 contain different numbers of directions and neither is</span>
+<span class="sd">        a single direction</span>
 
 <span class="sd">    Examples</span>
 <span class="sd">    --------</span>
 <span class="sd">    &gt;&gt;&gt; pmag.angle([350.0,10.0],[320.0,20.0])</span>
 <span class="sd">    array([ 30.59060998])</span>
-<span class="sd">    </span>
+
 <span class="sd">    &gt;&gt;&gt; pmag.angle([[350.0,10.0],[320.0,20.0]],[[345,13],[340,14]])</span>
 <span class="sd">    array([ 5.744522410794302, 20.026413431433475])</span>
+
+<span class="sd">    &gt;&gt;&gt; pmag.angle([[350.0,10.0],[320.0,20.0]],[345,13])</span>
+<span class="sd">    array([ 5.744522410794302, 24.938515705411056])</span>
 <span class="sd">    """</span>
     <span class="n">D1</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="n">D1</span><span class="p">)</span>
     <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">D1</span><span class="o">.</span><span class="n">shape</span><span class="p">)</span> <span class="o">&gt;</span> <span class="mi">1</span><span class="p">:</span>
@@ -3115,13 +3127,13 @@
         <span class="n">D2</span> <span class="o">=</span> <span class="n">D2</span><span class="p">[:</span><span class="mi">2</span><span class="p">]</span>
     <span class="n">X1</span> <span class="o">=</span> <span class="n">dir2cart</span><span class="p">(</span><span class="n">D1</span><span class="p">)</span>  <span class="c1"># convert to cartesian from polar</span>
     <span class="n">X2</span> <span class="o">=</span> <span class="n">dir2cart</span><span class="p">(</span><span class="n">D2</span><span class="p">)</span>
-    <span class="n">angles</span> <span class="o">=</span> <span class="p">[]</span>  <span class="c1"># set up a list for angles</span>
-    <span class="k">for</span> <span class="n">k</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">X1</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">0</span><span class="p">]):</span>  <span class="c1"># single vector</span>
-        <span class="n">angle</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">arccos</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">dot</span><span class="p">(</span><span class="n">X1</span><span class="p">[</span><span class="n">k</span><span class="p">],</span> <span class="n">X2</span><span class="p">[</span><span class="n">k</span><span class="p">]))</span> <span class="o">*</span> \
-            <span class="mf">180.</span> <span class="o">/</span> <span class="n">np</span><span class="o">.</span><span class="n">pi</span>  <span class="c1"># take the dot product</span>
-        <span class="n">angle</span> <span class="o">=</span> <span class="n">angle</span> <span class="o">%</span> <span class="mf">360.</span>
-        <span class="n">angles</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">angle</span><span class="p">)</span>
-    <span class="k">return</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="n">angles</span><span class="p">)</span></div>
+    <span class="k">if</span> <span class="n">X1</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">!=</span> <span class="n">X2</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="ow">and</span> <span class="mi">1</span> <span class="ow">not</span> <span class="ow">in</span> <span class="p">(</span><span class="n">X1</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="n">X2</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">0</span><span class="p">]):</span>
+        <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s2">"D1 and D2 must contain the same number of directions "</span>
+                         <span class="s2">"or one of them must be a single direction, got "</span>
+                         <span class="sa">f</span><span class="s2">"</span><span class="si">{</span><span class="n">X1</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="si">}</span><span class="s2"> and </span><span class="si">{</span><span class="n">X2</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="si">}</span><span class="s2">"</span><span class="p">)</span>
+    <span class="c1"># dot products of unit vectors, clipped because roundoff can push them past +/-1</span>
+    <span class="n">cos_angles</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">clip</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">sum</span><span class="p">(</span><span class="n">X1</span> <span class="o">*</span> <span class="n">X2</span><span class="p">,</span> <span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">),</span> <span class="o">-</span><span class="mf">1.</span><span class="p">,</span> <span class="mf">1.</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">np</span><span class="o">.</span><span class="n">degrees</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">arccos</span><span class="p">(</span><span class="n">cos_angles</span><span class="p">))</span></div>
 
 
 
@@ -3267,37 +3279,6 @@
 
 
 
-<div class="viewcode-block" id="vspec">
-<a class="viewcode-back" href="../../api/api.html#pmagpy.pmag.vspec">[docs]</a>
-<span class="k">def</span><span class="w"> </span><span class="nf">vspec</span><span class="p">(</span><span class="n">data</span><span class="p">):</span>
-<span class="w">    </span><span class="sd">"""</span>
-<span class="sd">    Takes the vector mean of replicate measurements at a given step. Used in zeq_magic2.py.</span>
-<span class="sd">    """</span>
-    <span class="n">vdata</span><span class="p">,</span> <span class="n">Dirdata</span><span class="p">,</span> <span class="n">step_meth</span> <span class="o">=</span> <span class="p">[],</span> <span class="p">[],</span> <span class="p">[]</span>
-    <span class="n">tr0</span> <span class="o">=</span> <span class="n">data</span><span class="p">[</span><span class="mi">0</span><span class="p">][</span><span class="mi">0</span><span class="p">]</span>  <span class="c1"># set beginning treatment</span>
-    <span class="n">data</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="s2">"Stop"</span><span class="p">)</span>
-    <span class="n">k</span><span class="p">,</span> <span class="n">R</span> <span class="o">=</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">0</span>
-    <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">k</span><span class="p">,</span> <span class="nb">len</span><span class="p">(</span><span class="n">data</span><span class="p">)):</span>
-        <span class="n">Dirdata</span> <span class="o">=</span> <span class="p">[]</span>
-        <span class="k">if</span> <span class="n">data</span><span class="p">[</span><span class="n">i</span><span class="p">][</span><span class="mi">0</span><span class="p">]</span> <span class="o">!=</span> <span class="n">tr0</span><span class="p">:</span>
-            <span class="k">if</span> <span class="n">i</span> <span class="o">==</span> <span class="n">k</span><span class="p">:</span>  <span class="c1"># sample is unique</span>
-                <span class="n">vdata</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">data</span><span class="p">[</span><span class="n">i</span> <span class="o">-</span> <span class="mi">1</span><span class="p">])</span>
-                <span class="n">step_meth</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="s2">" "</span><span class="p">)</span>
-            <span class="k">else</span><span class="p">:</span>  <span class="c1"># sample is not unique</span>
-                <span class="k">for</span> <span class="n">l</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">k</span> <span class="o">-</span> <span class="mi">1</span><span class="p">,</span> <span class="n">i</span><span class="p">):</span>
-                    <span class="n">Dirdata</span><span class="o">.</span><span class="n">append</span><span class="p">([</span><span class="n">data</span><span class="p">[</span><span class="n">l</span><span class="p">][</span><span class="mi">1</span><span class="p">],</span> <span class="n">data</span><span class="p">[</span><span class="n">l</span><span class="p">][</span><span class="mi">2</span><span class="p">],</span> <span class="n">data</span><span class="p">[</span><span class="n">l</span><span class="p">][</span><span class="mi">3</span><span class="p">]])</span>
-                <span class="nb">dir</span><span class="p">,</span> <span class="n">R</span> <span class="o">=</span> <span class="n">vector_mean</span><span class="p">(</span><span class="n">Dirdata</span><span class="p">)</span>
-                <span class="n">vdata</span><span class="o">.</span><span class="n">append</span><span class="p">([</span><span class="n">data</span><span class="p">[</span><span class="n">i</span> <span class="o">-</span> <span class="mi">1</span><span class="p">][</span><span class="mi">0</span><span class="p">],</span> <span class="nb">dir</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="nb">dir</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span> <span class="n">R</span> <span class="o">/</span> <span class="p">(</span><span class="n">i</span> <span class="o">-</span> <span class="n">k</span> <span class="o">+</span> <span class="mi">1</span><span class="p">),</span> <span class="s1">'1'</span><span class="p">,</span> <span class="s1">'g'</span><span class="p">])</span>
-                <span class="n">step_meth</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="s2">"DE-VM"</span><span class="p">)</span>
-            <span class="n">tr0</span> <span class="o">=</span> <span class="n">data</span><span class="p">[</span><span class="n">i</span><span class="p">][</span><span class="mi">0</span><span class="p">]</span>
-            <span class="n">k</span> <span class="o">=</span> <span class="n">i</span> <span class="o">+</span> <span class="mi">1</span>
-            <span class="k">if</span> <span class="n">tr0</span> <span class="o">==</span> <span class="s2">"stop"</span><span class="p">:</span>
-                <span class="k">break</span>
-    <span class="k">del</span> <span class="n">data</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span>
-    <span class="k">return</span> <span class="n">step_meth</span><span class="p">,</span> <span class="n">vdata</span></div>
-
-
-
 <div class="viewcode-block" id="dir2cart">
 <a class="viewcode-back" href="../../api/api.html#pmagpy.pmag.dir2cart">[docs]</a>
 <span class="k">def</span><span class="w"> </span><span class="nf">dir2cart</span><span class="p">(</span><span class="n">d</span><span class="p">):</span>
@@ -3383,8 +3364,8 @@
 <span class="sd">          [354.2,    45.1, 45]])</span>
 <span class="sd">    &gt;&gt;&gt; pmag.dms2dd(data)</span>
 <span class="sd">    [ 16.   30.5   6.9 352.5 354.2] [43.  53.6 33.2 40.2 45.1] [33. 58.  8. 52. 45.]</span>
-<span class="sd">array([ 16.72583333333333 ,  31.409444444444446,   7.455555555555557,</span>
-<span class="sd">       353.18444444444447 , 354.96416666666664 ])</span>
+<span class="sd">    array([ 16.72583333333333 ,  31.409444444444446,   7.455555555555557,</span>
+<span class="sd">           353.18444444444447 , 354.96416666666664 ])</span>
 <span class="sd">    """</span>
     <span class="c1"># converts list or array of degree, minute, second locations to array of</span>
     <span class="c1"># decimal degrees</span>
@@ -3445,12 +3426,25 @@
 <span class="sd">    end : step being used as end of fit (often temperature maximum)</span>
 <span class="sd">    calculation_type : string describing type of calculation to be made</span>
 <span class="sd">    'DE-BFL' (line), 'DE-BFL-A' (line-anchored), 'DE-BFL-O' (line-with-origin),</span>
-<span class="sd">    'DE-BFP' (plane), 'DE-FM' (Fisher mean)</span>
+<span class="sd">    'DE-VM' (vector mean), 'DE-BFP' (plane), 'DE-FM' (Fisher mean)</span>
 
 <span class="sd">    Returns</span>
 <span class="sd">    -------</span>
-<span class="sd">    mpars : dictionary </span>
+<span class="sd">    mpars : dictionary</span>
 <span class="sd">        The keys within are "specimen_n","measurement_step_min", "measurement_step_max","specimen_mad","specimen_dec","specimen_inc".</span>
+
+<span class="sd">    Notes</span>
+<span class="sd">    -----</span>
+<span class="sd">    Lines and planes are principal component fits (Kirschvink, 1980). A free</span>
+<span class="sd">    line ('DE-BFL') is fit about the centre of mass of the selected steps; an</span>
+<span class="sd">    anchored line ('DE-BFL-A') is the principal eigenvector of the orientation</span>
+<span class="sd">    tensor taken about the origin, and its MAD is calculated from the same</span>
+<span class="sd">    tensor. Free lines point along the vector removed between the first and</span>
+<span class="sd">    last steps. Anchored lines point toward the selected steps (along their</span>
+<span class="sd">    vector sum), whichever of the first and last steps is the larger.</span>
+<span class="sd">    'specimen_dang' is not returned for anchored lines. A vector mean</span>
+<span class="sd">    ('DE-VM') is the direction of the sum of the selected steps, including</span>
+<span class="sd">    their intensities; it has no MAD, and its 'specimen_dang' is -1.</span>
 <span class="sd">    """</span>
     <span class="n">mpars</span> <span class="o">=</span> <span class="p">{}</span>
     <span class="n">datablock</span> <span class="o">=</span> <span class="p">[]</span>
@@ -3487,7 +3481,7 @@
 <span class="c1">#</span>
     <span class="n">fdata</span> <span class="o">=</span> <span class="p">[]</span>
     <span class="k">for</span> <span class="n">k</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">start</span><span class="p">,</span> <span class="n">end</span> <span class="o">+</span> <span class="mi">1</span><span class="p">):</span>
-        <span class="k">if</span> <span class="n">calculation_type</span> <span class="o">==</span> <span class="s1">'DE-BFL'</span> <span class="ow">or</span> <span class="n">calculation_type</span> <span class="o">==</span> <span class="s1">'DE-BFL-A'</span> <span class="ow">or</span> <span class="n">calculation_type</span> <span class="o">==</span> <span class="s1">'DE-BFL-O'</span><span class="p">:</span>  <span class="c1"># best-fit line</span>
+        <span class="k">if</span> <span class="n">calculation_type</span> <span class="ow">in</span> <span class="p">(</span><span class="s1">'DE-BFL'</span><span class="p">,</span> <span class="s1">'DE-BFL-A'</span><span class="p">,</span> <span class="s1">'DE-BFL-O'</span><span class="p">,</span> <span class="s1">'DE-VM'</span><span class="p">):</span>  <span class="c1"># lines and vector means use intensity</span>
             <span class="n">data</span> <span class="o">=</span> <span class="p">[</span><span class="n">datablock</span><span class="p">[</span><span class="n">k</span><span class="p">][</span><span class="mi">1</span><span class="p">],</span> <span class="n">datablock</span><span class="p">[</span><span class="n">k</span><span class="p">][</span><span class="mi">2</span><span class="p">],</span> <span class="n">datablock</span><span class="p">[</span><span class="n">k</span><span class="p">][</span><span class="mi">3</span><span class="p">]]</span>
         <span class="k">else</span><span class="p">:</span>
             <span class="n">data</span> <span class="o">=</span> <span class="p">[</span><span class="n">datablock</span><span class="p">[</span><span class="n">k</span><span class="p">][</span><span class="mi">1</span><span class="p">],</span> <span class="n">datablock</span><span class="p">[</span><span class="n">k</span><span class="p">][</span><span class="mi">2</span><span class="p">],</span> <span class="mf">1.0</span><span class="p">]</span>  <span class="c1"># unit weight</span>
@@ -3508,6 +3502,17 @@
         <span class="n">mpars</span><span class="p">[</span><span class="s2">"measurement_step_min"</span><span class="p">]</span> <span class="o">=</span> <span class="n">indata</span><span class="p">[</span><span class="n">start0</span><span class="p">][</span><span class="mi">0</span><span class="p">]</span>
         <span class="n">mpars</span><span class="p">[</span><span class="s2">"measurement_step_max"</span><span class="p">]</span> <span class="o">=</span> <span class="n">indata</span><span class="p">[</span><span class="n">end0</span><span class="p">][</span><span class="mi">0</span><span class="p">]</span>
         <span class="n">mpars</span><span class="p">[</span><span class="s2">"center_of_mass"</span><span class="p">]</span> <span class="o">=</span> <span class="n">cm</span>
+        <span class="n">mpars</span><span class="p">[</span><span class="s2">"specimen_dang"</span><span class="p">]</span> <span class="o">=</span> <span class="o">-</span><span class="mi">1</span>
+        <span class="k">return</span> <span class="n">mpars</span>
+    <span class="k">if</span> <span class="n">calculation_type</span> <span class="o">==</span> <span class="s1">'DE-VM'</span><span class="p">:</span>  <span class="c1"># vector mean, including the magnitudes of the steps</span>
+        <span class="n">Dir</span><span class="p">,</span> <span class="n">R</span> <span class="o">=</span> <span class="n">vector_mean</span><span class="p">(</span><span class="n">fdata</span><span class="p">)</span>
+        <span class="n">mpars</span><span class="p">[</span><span class="s2">"specimen_direction_type"</span><span class="p">]</span> <span class="o">=</span> <span class="s1">'l'</span>
+        <span class="n">mpars</span><span class="p">[</span><span class="s2">"specimen_dec"</span><span class="p">]</span> <span class="o">=</span> <span class="n">Dir</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+        <span class="n">mpars</span><span class="p">[</span><span class="s2">"specimen_inc"</span><span class="p">]</span> <span class="o">=</span> <span class="n">Dir</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span>
+        <span class="n">mpars</span><span class="p">[</span><span class="s2">"specimen_n"</span><span class="p">]</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">fdata</span><span class="p">)</span>
+        <span class="n">mpars</span><span class="p">[</span><span class="s2">"measurement_step_min"</span><span class="p">]</span> <span class="o">=</span> <span class="n">indata</span><span class="p">[</span><span class="n">start0</span><span class="p">][</span><span class="mi">0</span><span class="p">]</span>
+        <span class="n">mpars</span><span class="p">[</span><span class="s2">"measurement_step_max"</span><span class="p">]</span> <span class="o">=</span> <span class="n">indata</span><span class="p">[</span><span class="n">end0</span><span class="p">][</span><span class="mi">0</span><span class="p">]</span>
+        <span class="n">mpars</span><span class="p">[</span><span class="s2">"center_of_mass"</span><span class="p">]</span> <span class="o">=</span> <span class="n">cm</span>  <span class="c1"># the mean is drawn through the origin</span>
         <span class="n">mpars</span><span class="p">[</span><span class="s2">"specimen_dang"</span><span class="p">]</span> <span class="o">=</span> <span class="o">-</span><span class="mi">1</span>
         <span class="k">return</span> <span class="n">mpars</span>
 <span class="c1">#</span>
@@ -3546,7 +3551,18 @@
     <span class="k">if</span> <span class="n">t</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span> <span class="o">&lt;</span> <span class="mi">0</span><span class="p">:</span>
         <span class="n">t</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span> <span class="o">=</span> <span class="mi">0</span>  <span class="c1"># make positive</span>
     <span class="k">if</span> <span class="n">calculation_type</span> <span class="o">==</span> <span class="s1">'DE-BFL-A'</span><span class="p">:</span>
-        <span class="n">Dir</span><span class="p">,</span> <span class="n">R</span> <span class="o">=</span> <span class="n">vector_mean</span><span class="p">(</span><span class="n">fdata</span><span class="p">)</span>
+        <span class="c1"># anchored line: the principal eigenvector of the orientation tensor</span>
+        <span class="c1"># taken about the origin (Kirschvink, 1980). The line passes through</span>
+        <span class="c1"># the origin, so it points toward the selected steps (along their</span>
+        <span class="c1"># vector sum); the vector removed between the first and last steps,</span>
+        <span class="c1"># used for free lines, reverses when the last step is the larger</span>
+        <span class="n">v1</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="n">v1</span><span class="p">)</span><span class="o">.</span><span class="n">real</span>
+        <span class="n">control</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">sum</span><span class="p">([</span><span class="n">dir2cart</span><span class="p">(</span><span class="n">step</span><span class="p">)</span> <span class="k">for</span> <span class="n">step</span> <span class="ow">in</span> <span class="n">fdata</span><span class="p">],</span> <span class="n">axis</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span>
+        <span class="k">if</span> <span class="n">np</span><span class="o">.</span><span class="n">dot</span><span class="p">(</span><span class="n">v1</span><span class="p">,</span> <span class="n">control</span><span class="p">)</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>  <span class="c1"># steps balanced about the origin</span>
+            <span class="n">control</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="n">dir2cart</span><span class="p">(</span><span class="n">fdata</span><span class="p">[</span><span class="mi">0</span><span class="p">]))</span> <span class="o">-</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="n">dir2cart</span><span class="p">(</span><span class="n">fdata</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">]))</span>
+        <span class="k">if</span> <span class="n">np</span><span class="o">.</span><span class="n">dot</span><span class="p">(</span><span class="n">v1</span><span class="p">,</span> <span class="n">control</span><span class="p">)</span> <span class="o">&lt;</span> <span class="mi">0</span><span class="p">:</span>
+            <span class="n">v1</span> <span class="o">=</span> <span class="o">-</span><span class="n">v1</span>
+        <span class="n">Dir</span> <span class="o">=</span> <span class="n">cart2dir</span><span class="p">(</span><span class="n">v1</span><span class="p">)</span>
         <span class="n">mpars</span><span class="p">[</span><span class="s2">"specimen_direction_type"</span><span class="p">]</span> <span class="o">=</span> <span class="s1">'l'</span>
         <span class="n">mpars</span><span class="p">[</span><span class="s2">"specimen_dec"</span><span class="p">]</span> <span class="o">=</span> <span class="n">Dir</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
         <span class="n">mpars</span><span class="p">[</span><span class="s2">"specimen_inc"</span><span class="p">]</span> <span class="o">=</span> <span class="n">Dir</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span>
@@ -3558,7 +3574,6 @@
         <span class="n">MAD</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">arctan</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span><span class="n">t</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="o">+</span> <span class="n">t</span><span class="p">[</span><span class="mi">2</span><span class="p">])</span> <span class="o">/</span> <span class="n">s1</span><span class="p">)</span> <span class="o">/</span> <span class="n">rad</span>
         <span class="k">if</span> <span class="n">np</span><span class="o">.</span><span class="n">iscomplexobj</span><span class="p">(</span><span class="n">MAD</span><span class="p">):</span>
             <span class="n">MAD</span> <span class="o">=</span> <span class="n">MAD</span><span class="o">.</span><span class="n">real</span>
-        <span class="c1"># I think this is how it is done - i never anchor the "PCA" - check</span>
         <span class="n">mpars</span><span class="p">[</span><span class="s2">"specimen_mad"</span><span class="p">]</span> <span class="o">=</span> <span class="n">MAD</span>
         <span class="k">return</span> <span class="n">mpars</span>
     <span class="k">if</span> <span class="n">calculation_type</span> <span class="o">!=</span> <span class="s1">'DE-BFP'</span><span class="p">:</span>
@@ -3615,6 +3630,42 @@
     <span class="n">mpars</span><span class="p">[</span><span class="s2">"measurement_step_min"</span><span class="p">]</span> <span class="o">=</span> <span class="n">indata</span><span class="p">[</span><span class="n">start0</span><span class="p">][</span><span class="mi">0</span><span class="p">]</span>
     <span class="n">mpars</span><span class="p">[</span><span class="s2">"measurement_step_max"</span><span class="p">]</span> <span class="o">=</span> <span class="n">indata</span><span class="p">[</span><span class="n">end0</span><span class="p">][</span><span class="mi">0</span><span class="p">]</span>
     <span class="k">return</span> <span class="n">mpars</span></div>
+
+
+
+<div class="viewcode-block" id="anchored_line_stored_as_vector_mean">
+<a class="viewcode-back" href="../../api/api.html#pmagpy.pmag.anchored_line_stored_as_vector_mean">[docs]</a>
+<span class="k">def</span><span class="w"> </span><span class="nf">anchored_line_stored_as_vector_mean</span><span class="p">(</span><span class="n">data</span><span class="p">,</span> <span class="n">start</span><span class="p">,</span> <span class="n">end</span><span class="p">,</span> <span class="n">dec</span><span class="p">,</span> <span class="n">inc</span><span class="p">,</span> <span class="n">tolerance</span><span class="o">=</span><span class="mf">0.1</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">"""</span>
+<span class="sd">    Checks whether a direction stored as an anchored line (DE-BFL-A) is the</span>
+<span class="sd">    vector mean of its steps, as PmagPy computed anchored lines until they</span>
+<span class="sd">    became anchored principal components (#963).</span>
+
+<span class="sd">    Parameters</span>
+<span class="sd">    ----------</span>
+<span class="sd">    data : nested list of demagnetization data, as for domean</span>
+<span class="sd">    start : index of the first step of the fit</span>
+<span class="sd">    end : index of the last step of the fit</span>
+<span class="sd">    dec : stored declination of the fit</span>
+<span class="sd">    inc : stored inclination of the fit</span>
+<span class="sd">    tolerance : angle in degrees within which the stored direction matches</span>
+<span class="sd">        a fit (default 0.1, for directions stored to one decimal place)</span>
+
+<span class="sd">    Returns</span>
+<span class="sd">    -------</span>
+<span class="sd">    float or None</span>
+<span class="sd">        if the stored direction is the vector mean of the steps (DE-VM) and</span>
+<span class="sd">        not their anchored line, the angle in degrees between the stored</span>
+<span class="sd">        direction and the anchored line refit to the steps; otherwise None</span>
+<span class="sd">    """</span>
+    <span class="n">anchored</span> <span class="o">=</span> <span class="n">domean</span><span class="p">(</span><span class="n">data</span><span class="p">,</span> <span class="n">start</span><span class="p">,</span> <span class="n">end</span><span class="p">,</span> <span class="s1">'DE-BFL-A'</span><span class="p">)</span>
+    <span class="n">vector_mean</span> <span class="o">=</span> <span class="n">domean</span><span class="p">(</span><span class="n">data</span><span class="p">,</span> <span class="n">start</span><span class="p">,</span> <span class="n">end</span><span class="p">,</span> <span class="s1">'DE-VM'</span><span class="p">)</span>
+    <span class="n">stored</span> <span class="o">=</span> <span class="p">[</span><span class="nb">float</span><span class="p">(</span><span class="n">dec</span><span class="p">),</span> <span class="nb">float</span><span class="p">(</span><span class="n">inc</span><span class="p">),</span> <span class="mf">1.</span><span class="p">]</span>
+    <span class="n">to_anchored</span> <span class="o">=</span> <span class="n">angle</span><span class="p">(</span><span class="n">stored</span><span class="p">,</span> <span class="p">[</span><span class="n">anchored</span><span class="p">[</span><span class="s1">'specimen_dec'</span><span class="p">],</span> <span class="n">anchored</span><span class="p">[</span><span class="s1">'specimen_inc'</span><span class="p">],</span> <span class="mf">1.</span><span class="p">])[</span><span class="mi">0</span><span class="p">]</span>
+    <span class="n">to_vector_mean</span> <span class="o">=</span> <span class="n">angle</span><span class="p">(</span><span class="n">stored</span><span class="p">,</span> <span class="p">[</span><span class="n">vector_mean</span><span class="p">[</span><span class="s1">'specimen_dec'</span><span class="p">],</span> <span class="n">vector_mean</span><span class="p">[</span><span class="s1">'specimen_inc'</span><span class="p">],</span> <span class="mf">1.</span><span class="p">])[</span><span class="mi">0</span><span class="p">]</span>
+    <span class="k">if</span> <span class="n">to_vector_mean</span> <span class="o">&lt;=</span> <span class="n">tolerance</span> <span class="o">&lt;</span> <span class="n">to_anchored</span><span class="p">:</span>
+        <span class="k">return</span> <span class="n">to_anchored</span>
+    <span class="k">return</span> <span class="kc">None</span></div>
 
 
 
@@ -3844,6 +3895,22 @@
     <span class="n">xi</span><span class="p">,</span> <span class="n">yi</span><span class="p">,</span> <span class="n">diffcum</span> <span class="o">=</span> <span class="p">[],</span> <span class="p">[],</span> <span class="mi">0</span>
     <span class="n">xiz</span><span class="p">,</span> <span class="n">xzi</span><span class="p">,</span> <span class="n">yiz</span><span class="p">,</span> <span class="n">yzi</span> <span class="o">=</span> <span class="p">[],</span> <span class="p">[],</span> <span class="p">[],</span> <span class="p">[]</span>
     <span class="n">Nptrm</span><span class="p">,</span> <span class="n">dmax</span> <span class="o">=</span> <span class="mi">0</span><span class="p">,</span> <span class="o">-</span><span class="mf">1e-22</span>
+    <span class="c1"># A check after heating above the fit range cannot assess that range.</span>
+    <span class="c1"># Retain the heating history across consecutive lower-temperature checks.</span>
+    <span class="n">ptrm_starts</span><span class="p">,</span> <span class="n">zptrm_starts</span> <span class="o">=</span> <span class="p">{},</span> <span class="p">{}</span>
+    <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">ptrm_check</span><span class="p">)</span> <span class="ow">or</span> <span class="nb">len</span><span class="p">(</span><span class="n">zptrm_check</span><span class="p">):</span>
+        <span class="n">peak_temp</span> <span class="o">=</span> <span class="nb">float</span><span class="p">(</span><span class="s1">'-inf'</span><span class="p">)</span>
+        <span class="k">for</span> <span class="n">rec</span> <span class="ow">in</span> <span class="n">datablock</span><span class="p">:</span>
+            <span class="n">temperature</span> <span class="o">=</span> <span class="n">rec</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">temp_key</span><span class="p">)</span>
+            <span class="k">if</span> <span class="n">temperature</span> <span class="ow">is</span> <span class="kc">None</span> <span class="ow">or</span> <span class="n">temperature</span> <span class="o">==</span> <span class="s2">""</span><span class="p">:</span>
+                <span class="k">continue</span>
+            <span class="n">temperature</span> <span class="o">=</span> <span class="nb">float</span><span class="p">(</span><span class="n">temperature</span><span class="p">)</span>
+            <span class="n">methods</span> <span class="o">=</span> <span class="p">[</span><span class="n">m</span><span class="o">.</span><span class="n">strip</span><span class="p">()</span> <span class="k">for</span> <span class="n">m</span> <span class="ow">in</span> <span class="n">rec</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">meth_key</span><span class="p">,</span> <span class="s2">""</span><span class="p">)</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s2">":"</span><span class="p">)]</span>
+            <span class="k">if</span> <span class="s2">"LT-PTRM-I"</span> <span class="ow">in</span> <span class="n">methods</span><span class="p">:</span>
+                <span class="n">ptrm_starts</span><span class="o">.</span><span class="n">setdefault</span><span class="p">(</span><span class="n">temperature</span><span class="p">,</span> <span class="n">peak_temp</span><span class="p">)</span>
+            <span class="k">if</span> <span class="s2">"LT-PTRM-Z"</span> <span class="ow">in</span> <span class="n">methods</span><span class="p">:</span>
+                <span class="n">zptrm_starts</span><span class="o">.</span><span class="n">setdefault</span><span class="p">(</span><span class="n">temperature</span><span class="p">,</span> <span class="n">peak_temp</span><span class="p">)</span>
+            <span class="n">peak_temp</span> <span class="o">=</span> <span class="nb">max</span><span class="p">(</span><span class="n">peak_temp</span><span class="p">,</span> <span class="n">temperature</span><span class="p">)</span>
 <span class="c1"># check if even zero and infield steps</span>
     <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">first_Z</span><span class="p">)</span> <span class="o">&gt;</span> <span class="nb">len</span><span class="p">(</span><span class="n">first_I</span><span class="p">):</span>
         <span class="n">maxe</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">first_I</span><span class="p">)</span> <span class="o">-</span> <span class="mi">1</span>
@@ -3957,6 +4024,10 @@
     <span class="n">pars</span><span class="p">[</span><span class="n">z_key</span><span class="p">]</span> <span class="o">=</span> <span class="n">ZigZag</span>
     <span class="n">pars</span><span class="p">[</span><span class="n">meth_key</span><span class="p">]</span> <span class="o">=</span> <span class="n">methcode</span>
 <span class="c1"># do drats</span>
+    <span class="c1"># A repeat check needs an original in-field step at the same temperature.</span>
+    <span class="n">infield_steps</span> <span class="o">=</span> <span class="p">{</span><span class="n">rec</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="k">for</span> <span class="n">rec</span> <span class="ow">in</span> <span class="n">first_I</span><span class="p">}</span>
+    <span class="n">ptrm_check</span> <span class="o">=</span> <span class="p">[</span><span class="n">rec</span> <span class="k">for</span> <span class="n">rec</span> <span class="ow">in</span> <span class="n">ptrm_check</span> <span class="k">if</span> <span class="n">rec</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="ow">in</span> <span class="n">infield_steps</span><span class="p">]</span>
+    <span class="n">zptrm_check</span> <span class="o">=</span> <span class="p">[</span><span class="n">rec</span> <span class="k">for</span> <span class="n">rec</span> <span class="ow">in</span> <span class="n">zptrm_check</span> <span class="k">if</span> <span class="n">rec</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="ow">in</span> <span class="n">infield_steps</span><span class="p">]</span>
     <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">ptrm_check</span><span class="p">)</span> <span class="o">!=</span> <span class="mi">0</span><span class="p">:</span>
         <span class="n">diffcum</span><span class="p">,</span> <span class="n">drat_max</span> <span class="o">=</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span>
         <span class="k">for</span> <span class="n">prec</span> <span class="ow">in</span> <span class="n">ptrm_check</span><span class="p">:</span>
@@ -3965,7 +4036,9 @@
             <span class="n">zend</span> <span class="o">=</span> <span class="n">end</span>
             <span class="k">while</span> <span class="n">zend</span> <span class="o">&gt;</span> <span class="nb">len</span><span class="p">(</span><span class="n">zijdblock</span><span class="p">)</span> <span class="o">-</span> <span class="mi">1</span><span class="p">:</span>
                 <span class="n">zend</span> <span class="o">=</span> <span class="n">zend</span> <span class="o">-</span> <span class="mi">2</span>  <span class="c1"># don't count alteration that happens after this step</span>
-            <span class="k">if</span> <span class="n">step</span> <span class="o">&lt;</span> <span class="n">zijdblock</span><span class="p">[</span><span class="n">zend</span><span class="p">][</span><span class="mi">0</span><span class="p">]:</span>
+            <span class="c1"># Preprocessed callers may not supply raw check records.</span>
+            <span class="k">if</span> <span class="p">(</span><span class="n">step</span> <span class="o">&lt;</span> <span class="n">zijdblock</span><span class="p">[</span><span class="n">zend</span><span class="p">][</span><span class="mi">0</span><span class="p">]</span>
+                    <span class="ow">and</span> <span class="n">ptrm_starts</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">step</span><span class="p">,</span> <span class="n">step</span><span class="p">)</span> <span class="o">&lt;=</span> <span class="n">zijdblock</span><span class="p">[</span><span class="n">zend</span><span class="p">][</span><span class="mi">0</span><span class="p">]):</span>
                 <span class="n">Nptrm</span> <span class="o">+=</span> <span class="mi">1</span>
                 <span class="k">for</span> <span class="n">irec</span> <span class="ow">in</span> <span class="n">first_I</span><span class="p">:</span>
                     <span class="k">if</span> <span class="n">irec</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">==</span> <span class="n">step</span><span class="p">:</span>
@@ -3983,7 +4056,8 @@
             <span class="n">zend</span> <span class="o">=</span> <span class="n">end</span>
             <span class="k">while</span> <span class="n">zend</span> <span class="o">&gt;</span> <span class="nb">len</span><span class="p">(</span><span class="n">zijdblock</span><span class="p">)</span> <span class="o">-</span> <span class="mi">1</span><span class="p">:</span>
                 <span class="n">zend</span> <span class="o">=</span> <span class="n">zend</span> <span class="o">-</span> <span class="mi">1</span>
-            <span class="k">if</span> <span class="n">step</span> <span class="o">&lt;</span> <span class="n">zijdblock</span><span class="p">[</span><span class="n">zend</span><span class="p">][</span><span class="mi">0</span><span class="p">]:</span>
+            <span class="k">if</span> <span class="p">(</span><span class="n">step</span> <span class="o">&lt;</span> <span class="n">zijdblock</span><span class="p">[</span><span class="n">zend</span><span class="p">][</span><span class="mi">0</span><span class="p">]</span>
+                    <span class="ow">and</span> <span class="n">zptrm_starts</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">step</span><span class="p">,</span> <span class="n">step</span><span class="p">)</span> <span class="o">&lt;=</span> <span class="n">zijdblock</span><span class="p">[</span><span class="n">zend</span><span class="p">][</span><span class="mi">0</span><span class="p">]):</span>
                 <span class="n">Nptrm</span> <span class="o">+=</span> <span class="mi">1</span>
                 <span class="k">for</span> <span class="n">irec</span> <span class="ow">in</span> <span class="n">first_I</span><span class="p">:</span>
                     <span class="k">if</span> <span class="n">irec</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">==</span> <span class="n">step</span><span class="p">:</span>
@@ -4833,7 +4907,8 @@
 <span class="sd">    ----------</span>
 <span class="sd">    sundata : dictionary with these keys:</span>
 <span class="sd">        date: time string with the format 'yyyy:mm:dd:hr:min'</span>
-<span class="sd">        delta_u: time to SUBTRACT from local time for Universal time</span>
+<span class="sd">        delta_u: hours to SUBTRACT from local time for Universal time</span>
+<span class="sd">            (fractional offsets such as 5.5 are allowed)</span>
 <span class="sd">        lat: latitude of location (negative for south)</span>
 <span class="sd">        lon: longitude of location (negative for west)</span>
 <span class="sd">        shadow_angle: shadow angle of the desired direction with respect to the sun.</span>
@@ -4842,13 +4917,24 @@
 <span class="sd">    -------</span>
 <span class="sd">    sunaz : the declination of the desired direction with respect to true north</span>
 <span class="sd">    </span>
+<span class="sd">    Notes</span>
+<span class="sd">    -----</span>
+<span class="sd">    The azimuth of the sun is calculated from its local hour angle and</span>
+<span class="sd">    declination with atan2, which gives the correct quadrant at any time of</span>
+<span class="sd">    day. The azimuth of the shadow (the sun's azimuth + 180) plus the shadow</span>
+<span class="sd">    angle is returned.</span>
+<span class="sd">    </span>
+<span class="sd">    A UserWarning is issued if the sun is more than 1 degree below the</span>
+<span class="sd">    horizon at the given time, when it cannot cast a shadow. This usually</span>
+<span class="sd">    means that the time, the date or delta_u is wrong. The azimuth is still</span>
+<span class="sd">    returned.</span>
+
 <span class="sd">    Examples</span>
 <span class="sd">    --------</span>
 <span class="sd">    &gt;&gt;&gt; sundata={'date':'1994:05:23:16:9','delta_u':3,'lat':35,'lon':33,'shadow_angle':68}</span>
 <span class="sd">    &gt;&gt;&gt; pmag.dosundec(sundata)</span>
-<span class="sd">    154.24420046668928</span>
+<span class="sd">    154.13766831762484</span>
 <span class="sd">    """</span>
-    <span class="n">iday</span> <span class="o">=</span> <span class="mi">0</span>
     <span class="n">timedate</span> <span class="o">=</span> <span class="n">sundata</span><span class="p">[</span><span class="s2">"date"</span><span class="p">]</span>
     <span class="n">timedate</span> <span class="o">=</span> <span class="n">timedate</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s2">":"</span><span class="p">)</span>
     <span class="n">year</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="n">timedate</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span>
@@ -4856,7 +4942,7 @@
     <span class="n">day</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="n">timedate</span><span class="p">[</span><span class="mi">2</span><span class="p">])</span>
     <span class="n">hours</span> <span class="o">=</span> <span class="nb">float</span><span class="p">(</span><span class="n">timedate</span><span class="p">[</span><span class="mi">3</span><span class="p">])</span>
     <span class="nb">min</span> <span class="o">=</span> <span class="nb">float</span><span class="p">(</span><span class="n">timedate</span><span class="p">[</span><span class="mi">4</span><span class="p">])</span>
-    <span class="n">du</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="n">sundata</span><span class="p">[</span><span class="s2">"delta_u"</span><span class="p">])</span>
+    <span class="n">du</span> <span class="o">=</span> <span class="nb">float</span><span class="p">(</span><span class="n">sundata</span><span class="p">[</span><span class="s2">"delta_u"</span><span class="p">])</span>
     <span class="n">hrs</span> <span class="o">=</span> <span class="n">hours</span> <span class="o">-</span> <span class="n">du</span>
     <span class="k">if</span> <span class="n">hrs</span> <span class="o">&gt;</span> <span class="mi">24</span><span class="p">:</span>
         <span class="n">day</span> <span class="o">+=</span> <span class="mi">1</span>
@@ -4867,28 +4953,32 @@
     <span class="n">julian_day</span> <span class="o">=</span> <span class="n">julian</span><span class="p">(</span><span class="n">mon</span><span class="p">,</span> <span class="n">day</span><span class="p">,</span> <span class="n">year</span><span class="p">)</span>
     <span class="n">utd</span> <span class="o">=</span> <span class="p">(</span><span class="n">hrs</span> <span class="o">+</span> <span class="p">(</span><span class="nb">min</span> <span class="o">/</span> <span class="mi">60</span><span class="p">))</span> <span class="o">/</span> <span class="mi">24</span>
     <span class="n">greenwich_hour_angle</span><span class="p">,</span> <span class="n">delta</span> <span class="o">=</span> <span class="n">gha</span><span class="p">(</span><span class="n">julian_day</span><span class="p">,</span> <span class="n">utd</span><span class="p">)</span>
-    <span class="n">H</span> <span class="o">=</span> <span class="n">greenwich_hour_angle</span> <span class="o">+</span> <span class="nb">float</span><span class="p">(</span><span class="n">sundata</span><span class="p">[</span><span class="s2">"lon"</span><span class="p">])</span>
-    <span class="k">if</span> <span class="n">H</span> <span class="o">&gt;</span> <span class="mi">360</span><span class="p">:</span>
-        <span class="n">H</span> <span class="o">=</span> <span class="n">H</span> <span class="o">-</span> <span class="mi">360</span>
-    <span class="n">lat</span> <span class="o">=</span> <span class="nb">float</span><span class="p">(</span><span class="n">sundata</span><span class="p">[</span><span class="s2">"lat"</span><span class="p">])</span>
-    <span class="k">if</span> <span class="n">H</span> <span class="o">&gt;</span> <span class="mi">90</span> <span class="ow">and</span> <span class="n">H</span> <span class="o">&lt;</span> <span class="mi">270</span><span class="p">:</span>
-        <span class="n">lat</span> <span class="o">=</span> <span class="o">-</span><span class="n">lat</span>
-<span class="c1"># now do spherical trig to get azimuth to sun</span>
-    <span class="n">lat</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">radians</span><span class="p">(</span><span class="n">lat</span><span class="p">)</span>
+    <span class="c1"># local hour angle of the sun: zero at local apparent noon, increasing</span>
+    <span class="c1"># westward through the afternoon</span>
+    <span class="n">H</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">radians</span><span class="p">(</span><span class="n">greenwich_hour_angle</span> <span class="o">+</span> <span class="nb">float</span><span class="p">(</span><span class="n">sundata</span><span class="p">[</span><span class="s2">"lon"</span><span class="p">]))</span>
+    <span class="n">lat</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">radians</span><span class="p">(</span><span class="nb">float</span><span class="p">(</span><span class="n">sundata</span><span class="p">[</span><span class="s2">"lat"</span><span class="p">]))</span>
     <span class="n">delta</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">radians</span><span class="p">(</span><span class="n">delta</span><span class="p">)</span>
-    <span class="n">H</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">radians</span><span class="p">(</span><span class="n">H</span><span class="p">)</span>
-    <span class="n">ctheta</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">sin</span><span class="p">(</span><span class="n">lat</span><span class="p">)</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">sin</span><span class="p">(</span><span class="n">delta</span><span class="p">)</span> <span class="o">+</span> <span class="n">np</span><span class="o">.</span><span class="n">cos</span><span class="p">(</span><span class="n">lat</span><span class="p">)</span> <span class="o">*</span> \
-        <span class="n">np</span><span class="o">.</span><span class="n">cos</span><span class="p">(</span><span class="n">delta</span><span class="p">)</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">cos</span><span class="p">(</span><span class="n">H</span><span class="p">)</span>
-    <span class="n">theta</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">arccos</span><span class="p">(</span><span class="n">ctheta</span><span class="p">)</span>
-    <span class="n">beta</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">cos</span><span class="p">(</span><span class="n">delta</span><span class="p">)</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">sin</span><span class="p">(</span><span class="n">H</span><span class="p">)</span> <span class="o">/</span> <span class="n">np</span><span class="o">.</span><span class="n">sin</span><span class="p">(</span><span class="n">theta</span><span class="p">)</span>
-<span class="c1">#</span>
-<span class="c1">#       check which beta</span>
-<span class="c1">#</span>
-    <span class="n">beta</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">degrees</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">arcsin</span><span class="p">(</span><span class="n">beta</span><span class="p">))</span>
-    <span class="k">if</span> <span class="n">delta</span> <span class="o">&lt;</span> <span class="n">lat</span><span class="p">:</span>
-        <span class="n">beta</span> <span class="o">=</span> <span class="mi">180</span> <span class="o">-</span> <span class="n">beta</span>
-    <span class="n">sunaz</span> <span class="o">=</span> <span class="mi">180</span> <span class="o">-</span> <span class="n">beta</span>
-    <span class="n">sunaz</span> <span class="o">=</span> <span class="p">(</span><span class="n">sunaz</span> <span class="o">+</span> <span class="nb">float</span><span class="p">(</span><span class="n">sundata</span><span class="p">[</span><span class="s2">"shadow_angle"</span><span class="p">]))</span> <span class="o">%</span> <span class="mf">360.</span>  <span class="c1"># mod 360</span>
+    <span class="c1"># a shadow is impossible once the center of the sun is more than about</span>
+    <span class="c1"># 0.83 degrees (refraction + semidiameter) below the geometric horizon</span>
+    <span class="n">sun_altitude</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">degrees</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">arcsin</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">sin</span><span class="p">(</span><span class="n">lat</span><span class="p">)</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">sin</span><span class="p">(</span><span class="n">delta</span><span class="p">)</span> <span class="o">+</span>
+                                        <span class="n">np</span><span class="o">.</span><span class="n">cos</span><span class="p">(</span><span class="n">lat</span><span class="p">)</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">cos</span><span class="p">(</span><span class="n">delta</span><span class="p">)</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">cos</span><span class="p">(</span><span class="n">H</span><span class="p">)))</span>
+    <span class="k">if</span> <span class="n">sun_altitude</span> <span class="o">&lt;</span> <span class="o">-</span><span class="mi">1</span><span class="p">:</span>
+        <span class="n">warnings</span><span class="o">.</span><span class="n">warn</span><span class="p">(</span><span class="s1">'the sun is </span><span class="si">{:.1f}</span><span class="s1"> degrees below the horizon at </span><span class="si">{}</span><span class="s1"> (local time, '</span>
+                      <span class="s1">'delta_u = </span><span class="si">{}</span><span class="s1">), so no sun compass reading is possible; check the '</span>
+                      <span class="s1">'time, date and delta_u'</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="o">-</span><span class="n">sun_altitude</span><span class="p">,</span> <span class="n">sundata</span><span class="p">[</span><span class="s2">"date"</span><span class="p">],</span>
+                                                      <span class="n">sundata</span><span class="p">[</span><span class="s2">"delta_u"</span><span class="p">]),</span>
+                      <span class="ne">UserWarning</span><span class="p">,</span> <span class="n">stacklevel</span><span class="o">=</span><span class="mi">2</span><span class="p">)</span>
+<span class="c1"># now do spherical trig to get azimuth to sun (clockwise from true north).</span>
+<span class="c1"># atan2 resolves the quadrant, including when the sun is on the poleward side of</span>
+<span class="c1"># the east-west line in the early morning and late afternoon. The previous</span>
+<span class="c1"># arcsin solution chose the quadrant by comparing delta with lat, which is only</span>
+<span class="c1"># correct near local noon.</span>
+    <span class="n">sun_azimuth</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">degrees</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">arctan2</span><span class="p">(</span><span class="o">-</span><span class="n">np</span><span class="o">.</span><span class="n">sin</span><span class="p">(</span><span class="n">H</span><span class="p">)</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">cos</span><span class="p">(</span><span class="n">delta</span><span class="p">),</span>
+                                        <span class="n">np</span><span class="o">.</span><span class="n">cos</span><span class="p">(</span><span class="n">lat</span><span class="p">)</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">sin</span><span class="p">(</span><span class="n">delta</span><span class="p">)</span> <span class="o">-</span>
+                                        <span class="n">np</span><span class="o">.</span><span class="n">sin</span><span class="p">(</span><span class="n">lat</span><span class="p">)</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">cos</span><span class="p">(</span><span class="n">delta</span><span class="p">)</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">cos</span><span class="p">(</span><span class="n">H</span><span class="p">)))</span>
+    <span class="c1"># the shadow points away from the sun</span>
+    <span class="n">shadow_azimuth</span> <span class="o">=</span> <span class="n">sun_azimuth</span> <span class="o">+</span> <span class="mf">180.</span>
+    <span class="n">sunaz</span> <span class="o">=</span> <span class="p">(</span><span class="n">shadow_azimuth</span> <span class="o">+</span> <span class="nb">float</span><span class="p">(</span><span class="n">sundata</span><span class="p">[</span><span class="s2">"shadow_angle"</span><span class="p">]))</span> <span class="o">%</span> <span class="mf">360.</span>  <span class="c1"># mod 360</span>
     <span class="k">return</span> <span class="n">sunaz</span></div>
 
 
@@ -4901,25 +4991,27 @@
 <span class="sd">    </span>
 <span class="sd">    Parameters</span>
 <span class="sd">    ----------</span>
-<span class="sd">    julian_day : int, julian day</span>
-<span class="sd">    f : int </span>
+<span class="sd">    julian_day : int, julian day number of the date (as returned by julian,</span>
+<span class="sd">        which is the julian day at noon)</span>
+<span class="sd">    f : float</span>
 <span class="sd">        fraction of the day in Universal Time, (hrs + (min/60))/24</span>
 <span class="sd">    </span>
 <span class="sd">    Returns</span>
 <span class="sd">    -------</span>
-<span class="sd">    H: int, hour</span>
-<span class="sd">    delta: int, angle</span>
+<span class="sd">    H: float, Greenwich hour angle of the sun in degrees</span>
+<span class="sd">    delta: float, declination of the sun in degrees</span>
 <span class="sd">    </span>
 <span class="sd">    Examples</span>
 <span class="sd">    --------</span>
 <span class="sd">    &gt;&gt;&gt; julianday = pmag.julian(10,20,2000)</span>
-<span class="sd">    &gt;&gt;&gt; pmag.gha(julianday, 33)</span>
-<span class="sd">    (183.440612472039, -20.255315389871825)</span>
-<span class="sd">    &gt;&gt;&gt; pmag.gha(2451838, 33)</span>
-<span class="sd">    (183.440612472039, -20.255315389871825)</span>
+<span class="sd">    &gt;&gt;&gt; pmag.gha(julianday, 0.5)</span>
+<span class="sd">    (3.8138097463153713, -10.54983694801999)</span>
 <span class="sd">    """</span>
     <span class="n">rad</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">pi</span><span class="o">/</span><span class="mf">180.</span>
-    <span class="n">d</span> <span class="o">=</span> <span class="n">julian_day</span> <span class="o">-</span> <span class="mf">2451545.0</span> <span class="o">+</span> <span class="n">f</span>
+    <span class="c1"># days since J2000.0 (2000-01-01 12:00 UT). julian_day is the julian day at</span>
+    <span class="c1"># noon, so the julian date at 0 h UT, from which f is counted, is</span>
+    <span class="c1"># julian_day - 0.5</span>
+    <span class="n">d</span> <span class="o">=</span> <span class="n">julian_day</span> <span class="o">-</span> <span class="mf">0.5</span> <span class="o">+</span> <span class="n">f</span> <span class="o">-</span> <span class="mf">2451545.0</span>
     <span class="n">L</span> <span class="o">=</span> <span class="mf">280.460</span> <span class="o">+</span> <span class="mf">0.9856474</span> <span class="o">*</span> <span class="n">d</span>
     <span class="n">g</span> <span class="o">=</span> <span class="mf">357.528</span> <span class="o">+</span> <span class="mf">0.9856003</span> <span class="o">*</span> <span class="n">d</span>
     <span class="n">L</span> <span class="o">=</span> <span class="n">L</span> <span class="o">%</span> <span class="mf">360.</span>
@@ -5642,7 +5734,8 @@
                 <span class="n">V</span><span class="p">[</span><span class="n">c</span><span class="p">]</span> <span class="o">=</span> <span class="n">U</span><span class="p">[</span><span class="n">c</span><span class="p">]</span> <span class="o">/</span> <span class="n">R</span>
             <span class="n">XX</span> <span class="o">=</span> <span class="n">vclose</span><span class="p">(</span><span class="n">L</span><span class="p">[</span><span class="n">k</span><span class="p">],</span> <span class="n">V</span><span class="p">)</span>
             <span class="n">ang</span> <span class="o">=</span> <span class="n">XX</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">*</span> <span class="n">XV</span><span class="p">[</span><span class="n">k</span><span class="p">][</span><span class="mi">0</span><span class="p">]</span> <span class="o">+</span> <span class="n">XX</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="o">*</span> <span class="n">XV</span><span class="p">[</span><span class="n">k</span><span class="p">][</span><span class="mi">1</span><span class="p">]</span> <span class="o">+</span> <span class="n">XX</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span> <span class="o">*</span> <span class="n">XV</span><span class="p">[</span><span class="n">k</span><span class="p">][</span><span class="mi">2</span><span class="p">]</span>
-            <span class="n">angles</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">arccos</span><span class="p">(</span><span class="n">ang</span><span class="p">)</span> <span class="o">*</span> <span class="mf">180.</span> <span class="o">/</span> <span class="n">np</span><span class="o">.</span><span class="n">pi</span><span class="p">)</span>
+            <span class="c1"># unit-vector dot products can exceed 1 by rounding; clip before arccos</span>
+            <span class="n">angles</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">arccos</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">clip</span><span class="p">(</span><span class="n">ang</span><span class="p">,</span> <span class="o">-</span><span class="mf">1.0</span><span class="p">,</span> <span class="mf">1.0</span><span class="p">))</span> <span class="o">*</span> <span class="mf">180.</span> <span class="o">/</span> <span class="n">np</span><span class="o">.</span><span class="n">pi</span><span class="p">)</span>
             <span class="k">for</span> <span class="n">c</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">3</span><span class="p">):</span>
                 <span class="n">XV</span><span class="p">[</span><span class="n">k</span><span class="p">][</span><span class="n">c</span><span class="p">]</span> <span class="o">=</span> <span class="n">XX</span><span class="p">[</span><span class="n">c</span><span class="p">]</span>
                 <span class="n">U</span><span class="p">[</span><span class="n">c</span><span class="p">]</span> <span class="o">=</span> <span class="n">U</span><span class="p">[</span><span class="n">c</span><span class="p">]</span> <span class="o">+</span> <span class="n">XX</span><span class="p">[</span><span class="n">c</span><span class="p">]</span>
@@ -5740,11 +5833,13 @@
 <span class="sd">    or a virtual axial dipole moment (VADM).</span>
 <span class="sd">    </span>
 <span class="sd">    Parameters</span>
+<span class="sd">    ----------</span>
 <span class="sd">    B: local magnetic field strength in tesla, as a value or list of values</span>
 <span class="sd">    lat: latitude of site in degrees</span>
 
 <span class="sd">    Returns</span>
-<span class="sd">    VDM or V(A)DM in units of Am^2</span>
+<span class="sd">    -------</span>
+<span class="sd">    Vs : VDM or V(A)DM in units of Am^2</span>
 
 <span class="sd">    Examples</span>
 <span class="sd">    --------</span>
@@ -6737,8 +6832,7 @@
 <a class="viewcode-back" href="../../api/api.html#pmagpy.pmag.scoreit">[docs]</a>
 <span class="k">def</span><span class="w"> </span><span class="nf">scoreit</span><span class="p">(</span><span class="n">pars</span><span class="p">,</span> <span class="n">PmagSpecRec</span><span class="p">,</span> <span class="n">accept</span><span class="p">,</span> <span class="n">text</span><span class="p">,</span> <span class="n">verbose</span><span class="p">):</span>
 <span class="w">    </span><span class="sd">"""</span>
-<span class="sd">    This function produces a grade for a given set of data. Used in thellier_magic2.py and</span>
-<span class="sd">    microwave_magic.py.</span>
+<span class="sd">    This function produces a grade for a given set of data. Used in microwave_magic.py.</span>
 <span class="sd">    """</span>
     <span class="n">s</span> <span class="o">=</span> <span class="n">PmagSpecRec</span><span class="p">[</span><span class="s2">"er_specimen_name"</span><span class="p">]</span>
     <span class="n">PmagSpecRec</span><span class="p">[</span><span class="s2">"measurement_step_min"</span><span class="p">]</span> <span class="o">=</span> <span class="s1">'</span><span class="si">%8.3e</span><span class="s1">'</span> <span class="o">%</span> <span class="p">(</span>
@@ -8015,34 +8109,13 @@
 
 
 
-<div class="viewcode-block" id="Dir_anis_corr">
-<a class="viewcode-back" href="../../api/api.html#pmagpy.pmag.Dir_anis_corr">[docs]</a>
-<span class="k">def</span><span class="w"> </span><span class="nf">Dir_anis_corr</span><span class="p">(</span><span class="n">InDir</span><span class="p">,</span> <span class="n">AniSpec</span><span class="p">):</span>
-<span class="w">    </span><span class="sd">"""</span>
-<span class="sd">    This function takes the 6 element 's' vector and the Dec,Inc 'InDir' data and performs a</span>
-<span class="sd">    simple anisotropy correction, returning corrected Dec, Inc. Used in thellier_magic2.py. </span>
-<span class="sd">    """</span>
-    <span class="n">Dir</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">((</span><span class="mi">3</span><span class="p">),</span> <span class="s1">'f'</span><span class="p">)</span>
-    <span class="n">Dir</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">=</span> <span class="n">InDir</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
-    <span class="n">Dir</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="o">=</span> <span class="n">InDir</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span>
-    <span class="n">Dir</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span> <span class="o">=</span> <span class="mf">1.</span>
-    <span class="n">chi</span><span class="p">,</span> <span class="n">chi_inv</span> <span class="o">=</span> <span class="n">check_F</span><span class="p">(</span><span class="n">AniSpec</span><span class="p">)</span>
-    <span class="k">if</span> <span class="n">chi</span><span class="p">[</span><span class="mi">0</span><span class="p">][</span><span class="mi">0</span><span class="p">]</span> <span class="o">==</span> <span class="mf">1.</span><span class="p">:</span>
-        <span class="k">return</span> <span class="n">Dir</span>  <span class="c1"># isotropic</span>
-    <span class="n">X</span> <span class="o">=</span> <span class="n">dir2cart</span><span class="p">(</span><span class="n">Dir</span><span class="p">)</span>
-    <span class="n">M</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="n">X</span><span class="p">)</span>
-    <span class="n">H</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">dot</span><span class="p">(</span><span class="n">M</span><span class="p">,</span> <span class="n">chi_inv</span><span class="p">)</span>
-    <span class="k">return</span> <span class="n">cart2dir</span><span class="p">(</span><span class="n">H</span><span class="p">)</span></div>
-
-
-
 <div class="viewcode-block" id="doaniscorr">
 <a class="viewcode-back" href="../../api/api.html#pmagpy.pmag.doaniscorr">[docs]</a>
 <span class="k">def</span><span class="w"> </span><span class="nf">doaniscorr</span><span class="p">(</span><span class="n">PmagSpecRec</span><span class="p">,</span> <span class="n">AniSpec</span><span class="p">):</span>
 <span class="w">    </span><span class="sd">"""</span>
 <span class="sd">    This function takes the 6 element 's' vector and the Dec,Inc, Int 'Dir' data,</span>
 <span class="sd">    performs simple anisotropy correction, and returns corrected Dec, Inc, Int. This</span>
-<span class="sd">    is used in thellier_magic2.py. </span>
+<span class="sd">    is used in thellier_magic_redo.py (deprecated). </span>
 <span class="sd">    """</span>
     <span class="n">AniSpecRec</span> <span class="o">=</span> <span class="p">{}</span>
     <span class="k">for</span> <span class="n">key</span> <span class="ow">in</span> <span class="nb">list</span><span class="p">(</span><span class="n">PmagSpecRec</span><span class="o">.</span><span class="n">keys</span><span class="p">()):</span>
@@ -10066,7 +10139,9 @@
     <span class="n">GammaChecks</span> <span class="o">=</span> <span class="p">[]</span>  <span class="c1"># comparison of pTRM direction acquired and lab field</span>
     <span class="n">rec</span> <span class="o">=</span> <span class="n">datablock</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
     <span class="k">for</span> <span class="n">key</span> <span class="ow">in</span> <span class="n">Mkeys</span><span class="p">:</span>
-        <span class="k">if</span> <span class="n">key</span> <span class="ow">in</span> <span class="nb">list</span><span class="p">(</span><span class="n">rec</span><span class="o">.</span><span class="n">keys</span><span class="p">())</span> <span class="ow">and</span> <span class="n">rec</span><span class="p">[</span><span class="n">key</span><span class="p">]</span> <span class="o">!=</span> <span class="s2">""</span><span class="p">:</span>
+        <span class="c1"># the first magnitude column that holds a value: a table of several</span>
+        <span class="c1"># experiments can have a magnitude column that is empty for this specimen</span>
+        <span class="k">if</span> <span class="n">key</span> <span class="ow">in</span> <span class="nb">list</span><span class="p">(</span><span class="n">rec</span><span class="o">.</span><span class="n">keys</span><span class="p">())</span> <span class="ow">and</span> <span class="ow">not</span> <span class="n">pd</span><span class="o">.</span><span class="n">isnull</span><span class="p">(</span><span class="n">rec</span><span class="p">[</span><span class="n">key</span><span class="p">])</span> <span class="ow">and</span> <span class="nb">str</span><span class="p">(</span><span class="n">rec</span><span class="p">[</span><span class="n">key</span><span class="p">])</span><span class="o">.</span><span class="n">strip</span><span class="p">()</span> <span class="o">!=</span> <span class="s2">""</span><span class="p">:</span>
             <span class="n">momkey</span> <span class="o">=</span> <span class="n">key</span>
             <span class="k">break</span>
 <span class="c1"># first find all the steps</span>
@@ -10468,19 +10543,24 @@
 <span class="sd">    Optional Parameters</span>
 <span class="sd">    -------------------</span>
 <span class="sd">    coeffs : if True, then return the gh coefficients</span>
-<span class="sd">    mod  : model to use ('arch3k','cals3k','pfm9k','hfm10k','cals10k.2','cals10k.1b','shadif14k','shawq2k','shawqIA')</span>
+<span class="sd">    mod  : model to use ('arch3k','cals3k','pfm9k','hfm10k','cals10k.2','cals10k.1b','cals10k','shadif14k','shawq2k','shawqIA','ggf100k')</span>
 <span class="sd">        arch3k (Korte et al., 2009)</span>
 <span class="sd">        cals3k (Korte and Constable, 2011)</span>
 <span class="sd">        cals10k.1b (Korte et al., 2011)</span>
+<span class="sd">        cals10k (legacy alias for cals10k.1b)</span>
 <span class="sd">        pfm9k  (Nilsson et al., 2014)</span>
 <span class="sd">        hfm.OL1.A1 (Constable et al., 2016)</span>
 <span class="sd">        cals10k.2 (Constable et al., 2016)</span>
 <span class="sd">        shadif14k (Pavon-Carrasco et al., 2014)</span>
 <span class="sd">        shawq2k (Campuzano et al., 2019)</span>
 <span class="sd">        shawqIA (Osete et al., 2020)</span>
-<span class="sd">        ggf100k (Panofska et al., 2018) [in 200 year increments from -99950 to 1850 only]</span>
+<span class="sd">        ggf100k (Panovska et al., 2018) [from -98050 to 1990 only]</span>
 <span class="sd">          NB : the first four of these models, are constrained to agree</span>
 <span class="sd">               with gufm1 (Jackson et al., 2000) for the past four centuries</span>
+<span class="sd">    Raises</span>
+<span class="sd">    ------</span>
+<span class="sd">    ValueError</span>
+<span class="sd">        If mod is not a supported field model.</span>
 <span class="sd">    Returns</span>
 <span class="sd">    -------</span>
 <span class="sd">    x : north component of the magnetic field in nT</span>
@@ -10518,54 +10598,57 @@
         <span class="n">lon</span> <span class="o">=</span> <span class="n">lon</span> <span class="o">+</span> <span class="mf">360.</span>
 <span class="c1"># ensure all positive east longitudes</span>
     <span class="n">itype</span> <span class="o">=</span> <span class="mi">1</span>
+    <span class="n">model_name</span> <span class="o">=</span> <span class="n">kwargs</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">'mod'</span><span class="p">)</span>
+    <span class="n">model_loaders</span> <span class="o">=</span> <span class="p">{</span>
+        <span class="s1">'arch3k'</span><span class="p">:</span> <span class="n">cf</span><span class="o">.</span><span class="n">get_arch3k</span><span class="p">,</span>
+        <span class="s1">'cals3k'</span><span class="p">:</span> <span class="n">cf</span><span class="o">.</span><span class="n">get_cals3k</span><span class="p">,</span>
+        <span class="s1">'pfm9k'</span><span class="p">:</span> <span class="n">cf</span><span class="o">.</span><span class="n">get_pfm9k</span><span class="p">,</span>
+        <span class="s1">'hfm10k'</span><span class="p">:</span> <span class="n">cf</span><span class="o">.</span><span class="n">get_hfm10k</span><span class="p">,</span>
+        <span class="s1">'cals10k.2'</span><span class="p">:</span> <span class="n">cf</span><span class="o">.</span><span class="n">get_cals10k_2</span><span class="p">,</span>
+        <span class="s1">'cals10k.1b'</span><span class="p">:</span> <span class="n">cf</span><span class="o">.</span><span class="n">get_cals10k</span><span class="p">,</span>
+        <span class="s1">'cals10k'</span><span class="p">:</span> <span class="n">cf</span><span class="o">.</span><span class="n">get_cals10k</span><span class="p">,</span>
+        <span class="s1">'shadif14k'</span><span class="p">:</span> <span class="n">cf</span><span class="o">.</span><span class="n">get_shadif14k</span><span class="p">,</span>
+        <span class="s1">'shawq2k'</span><span class="p">:</span> <span class="n">cf</span><span class="o">.</span><span class="n">get_shawq2k</span><span class="p">,</span>
+        <span class="s1">'shawqIA'</span><span class="p">:</span> <span class="n">cf</span><span class="o">.</span><span class="n">get_shawqIA</span><span class="p">,</span>
+        <span class="s1">'ggf100k'</span><span class="p">:</span> <span class="n">cf</span><span class="o">.</span><span class="n">get_ggf100k</span><span class="p">,</span>
+    <span class="p">}</span>
+    <span class="k">if</span> <span class="s1">'mod'</span> <span class="ow">in</span> <span class="n">kwargs</span><span class="p">:</span>
+        <span class="k">if</span> <span class="ow">not</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">model_name</span><span class="p">,</span> <span class="nb">str</span><span class="p">)</span> <span class="ow">or</span> <span class="n">model_name</span> <span class="ow">not</span> <span class="ow">in</span> <span class="n">model_loaders</span><span class="p">:</span>
+            <span class="n">valid_models</span> <span class="o">=</span> <span class="s1">', '</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">model_loaders</span><span class="p">)</span>
+            <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span>
+                <span class="s2">"Unknown field model </span><span class="si">{!r}</span><span class="s2">. Valid models are: </span><span class="si">{}</span><span class="s2">"</span><span class="o">.</span><span class="n">format</span><span class="p">(</span>
+                    <span class="n">model_name</span><span class="p">,</span> <span class="n">valid_models</span><span class="p">))</span>
+        <span class="n">psvmodels</span><span class="p">,</span> <span class="n">psvcoeffs</span> <span class="o">=</span> <span class="n">model_loaders</span><span class="p">[</span><span class="n">model_name</span><span class="p">]()</span>
     <span class="n">models</span><span class="p">,</span> <span class="n">igrf14coeffs</span> <span class="o">=</span> <span class="n">cf</span><span class="o">.</span><span class="n">get_igrf14</span><span class="p">()</span>
-    <span class="k">if</span> <span class="s1">'mod'</span> <span class="ow">in</span> <span class="nb">list</span><span class="p">(</span><span class="n">kwargs</span><span class="o">.</span><span class="n">keys</span><span class="p">()):</span>
-        <span class="k">if</span> <span class="n">kwargs</span><span class="p">[</span><span class="s1">'mod'</span><span class="p">]</span> <span class="o">==</span> <span class="s1">'arch3k'</span><span class="p">:</span>
-            <span class="n">psvmodels</span><span class="p">,</span> <span class="n">psvcoeffs</span> <span class="o">=</span> <span class="n">cf</span><span class="o">.</span><span class="n">get_arch3k</span><span class="p">()</span>  <span class="c1"># use ARCH3k coefficients</span>
-        <span class="k">elif</span> <span class="n">kwargs</span><span class="p">[</span><span class="s1">'mod'</span><span class="p">]</span> <span class="o">==</span> <span class="s1">'cals3k'</span><span class="p">:</span>
-            <span class="c1"># use CALS3K_4b coefficients between -1000,1940</span>
-            <span class="n">psvmodels</span><span class="p">,</span> <span class="n">psvcoeffs</span> <span class="o">=</span> <span class="n">cf</span><span class="o">.</span><span class="n">get_cals3k</span><span class="p">()</span>
-        <span class="k">elif</span> <span class="n">kwargs</span><span class="p">[</span><span class="s1">'mod'</span><span class="p">]</span> <span class="o">==</span> <span class="s1">'pfm9k'</span><span class="p">:</span>
-            <span class="c1"># use PFM9k (Nilsson et al., 2014), coefficients from -7000 to 1900</span>
-            <span class="n">psvmodels</span><span class="p">,</span> <span class="n">psvcoeffs</span> <span class="o">=</span> <span class="n">cf</span><span class="o">.</span><span class="n">get_pfm9k</span><span class="p">()</span>
-        <span class="k">elif</span> <span class="n">kwargs</span><span class="p">[</span><span class="s1">'mod'</span><span class="p">]</span> <span class="o">==</span> <span class="s1">'hfm10k'</span><span class="p">:</span>
-            <span class="c1"># use HFM.OL1.A1 (Constable et al., 2016), coefficients from -8000</span>
-            <span class="c1"># to 1900</span>
-            <span class="n">psvmodels</span><span class="p">,</span> <span class="n">psvcoeffs</span> <span class="o">=</span> <span class="n">cf</span><span class="o">.</span><span class="n">get_hfm10k</span><span class="p">()</span>
-        <span class="k">elif</span> <span class="n">kwargs</span><span class="p">[</span><span class="s1">'mod'</span><span class="p">]</span> <span class="o">==</span> <span class="s1">'cals10k.2'</span><span class="p">:</span>
-            <span class="c1"># use CALS10k.2 (Constable et al., 2016), coefficients from -8000</span>
-            <span class="c1"># to 1900</span>
-            <span class="n">psvmodels</span><span class="p">,</span> <span class="n">psvcoeffs</span> <span class="o">=</span> <span class="n">cf</span><span class="o">.</span><span class="n">get_cals10k_2</span><span class="p">()</span>
-        <span class="k">elif</span> <span class="n">kwargs</span><span class="p">[</span><span class="s1">'mod'</span><span class="p">]</span> <span class="o">==</span> <span class="s1">'shadif14k'</span><span class="p">:</span>
-            <span class="c1"># use CALS10k.2 (Constable et al., 2016), coefficients from -8000</span>
-            <span class="c1"># to 1900</span>
-            <span class="n">psvmodels</span><span class="p">,</span> <span class="n">psvcoeffs</span> <span class="o">=</span> <span class="n">cf</span><span class="o">.</span><span class="n">get_shadif14k</span><span class="p">()</span>
-        <span class="k">elif</span> <span class="n">kwargs</span><span class="p">[</span><span class="s1">'mod'</span><span class="p">]</span> <span class="o">==</span> <span class="s1">'shawq2k'</span><span class="p">:</span>
-            <span class="n">psvmodels</span><span class="p">,</span> <span class="n">psvcoeffs</span> <span class="o">=</span> <span class="n">cf</span><span class="o">.</span><span class="n">get_shawq2k</span><span class="p">()</span>
-        <span class="k">elif</span> <span class="n">kwargs</span><span class="p">[</span><span class="s1">'mod'</span><span class="p">]</span> <span class="o">==</span> <span class="s1">'shawqIA'</span><span class="p">:</span>
-            <span class="n">psvmodels</span><span class="p">,</span> <span class="n">psvcoeffs</span> <span class="o">=</span> <span class="n">cf</span><span class="o">.</span><span class="n">get_shawqIA</span><span class="p">()</span>
-        <span class="k">elif</span> <span class="n">kwargs</span><span class="p">[</span><span class="s1">'mod'</span><span class="p">]</span> <span class="o">==</span> <span class="s1">'ggf100k'</span><span class="p">:</span>
-            <span class="n">psvmodels</span><span class="p">,</span> <span class="n">psvcoeffs</span> <span class="o">=</span> <span class="n">cf</span><span class="o">.</span><span class="n">get_ggf100k</span><span class="p">()</span>
-        <span class="k">else</span><span class="p">:</span>
-            <span class="c1"># Korte and Constable, 2011;  use prior to -1000, back to -8000</span>
-            <span class="n">psvmodels</span><span class="p">,</span> <span class="n">psvcoeffs</span> <span class="o">=</span> <span class="n">cf</span><span class="o">.</span><span class="n">get_cals10k</span><span class="p">()</span>
 <span class="c1"># use geodetic coordinates</span>
     <span class="k">if</span> <span class="s1">'models'</span> <span class="ow">in</span> <span class="n">kwargs</span><span class="p">:</span>
-        <span class="k">if</span> <span class="s1">'mod'</span> <span class="ow">in</span> <span class="nb">list</span><span class="p">(</span><span class="n">kwargs</span><span class="o">.</span><span class="n">keys</span><span class="p">()):</span>
+        <span class="k">if</span> <span class="n">model_name</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
             <span class="k">return</span> <span class="n">psvmodels</span><span class="p">,</span> <span class="n">psvcoeffs</span>
         <span class="k">else</span><span class="p">:</span>
             <span class="k">return</span> <span class="n">models</span><span class="p">,</span> <span class="n">igrf14coeffs</span>
+    <span class="k">if</span> <span class="n">model_name</span> <span class="o">==</span> <span class="s1">'ggf100k'</span><span class="p">:</span>
+        <span class="c1"># GGF100k is stored as cubic B-splines in time (Panovska et al., 2018):</span>
+        <span class="c1"># psvmodels holds the 606 knots and psvcoeffs the 602 spline</span>
+        <span class="c1"># coefficients, so the rows are not Gauss coefficients at epochs.</span>
+        <span class="c1"># The model is valid for the past 100 ka; the range below is the one</span>
+        <span class="c1"># given in the header of the distributed model file.</span>
+        <span class="kn">from</span><span class="w"> </span><span class="nn">scipy.interpolate</span><span class="w"> </span><span class="kn">import</span> <span class="n">BSpline</span>
+        <span class="n">start</span><span class="p">,</span> <span class="n">end</span> <span class="o">=</span> <span class="o">-</span><span class="mi">98050</span><span class="p">,</span> <span class="mi">1990</span>
+        <span class="k">if</span> <span class="n">date</span> <span class="o">&lt;</span> <span class="n">start</span> <span class="ow">or</span> <span class="n">date</span> <span class="o">&gt;</span> <span class="n">end</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s2">"ggf100k is only valid from </span><span class="si">%s</span><span class="s2"> to </span><span class="si">%s</span><span class="s2">"</span>
+                             <span class="o">%</span> <span class="p">(</span><span class="n">start</span><span class="p">,</span> <span class="n">end</span><span class="p">))</span>
+        <span class="n">spline</span> <span class="o">=</span> <span class="n">BSpline</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="n">psvmodels</span><span class="p">,</span> <span class="n">dtype</span><span class="o">=</span><span class="nb">float</span><span class="p">),</span>
+                         <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="n">psvcoeffs</span><span class="p">,</span> <span class="n">dtype</span><span class="o">=</span><span class="nb">float</span><span class="p">),</span> <span class="mi">3</span><span class="p">)</span>
+        <span class="n">gh</span> <span class="o">=</span> <span class="n">spline</span><span class="p">(</span><span class="n">date</span><span class="p">)</span>
+        <span class="n">sv</span> <span class="o">=</span> <span class="n">spline</span><span class="o">.</span><span class="n">derivative</span><span class="p">()(</span><span class="n">date</span><span class="p">)</span>
+        <span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="n">z</span><span class="p">,</span> <span class="n">f</span> <span class="o">=</span> <span class="n">magsyn</span><span class="p">(</span><span class="n">gh</span><span class="p">,</span> <span class="n">sv</span><span class="p">,</span> <span class="n">date</span><span class="p">,</span> <span class="n">date</span><span class="p">,</span> <span class="n">itype</span><span class="p">,</span> <span class="n">alt</span><span class="p">,</span> <span class="n">colat</span><span class="p">,</span> <span class="n">lon</span><span class="p">)</span>
+        <span class="k">if</span> <span class="s1">'coeffs'</span> <span class="ow">in</span> <span class="nb">list</span><span class="p">(</span><span class="n">kwargs</span><span class="o">.</span><span class="n">keys</span><span class="p">()):</span>
+            <span class="k">return</span> <span class="n">gh</span>
+        <span class="k">return</span> <span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="n">z</span><span class="p">,</span> <span class="n">f</span>
     <span class="k">if</span> <span class="n">date</span> <span class="o">&lt;</span> <span class="o">-</span><span class="mi">100000</span><span class="p">:</span>
         <span class="nb">print</span><span class="p">(</span><span class="s1">'too old'</span><span class="p">)</span>
         <span class="k">return</span>
-    <span class="k">if</span> <span class="s1">'mod'</span> <span class="ow">in</span> <span class="nb">list</span><span class="p">(</span><span class="n">kwargs</span><span class="o">.</span><span class="n">keys</span><span class="p">())</span> <span class="ow">and</span> <span class="n">kwargs</span><span class="p">[</span><span class="s1">'mod'</span><span class="p">]</span> <span class="o">==</span> <span class="s1">'ggf100k'</span><span class="p">:</span>
-        <span class="n">incr</span> <span class="o">=</span> <span class="mi">200</span>
-        <span class="n">model</span> <span class="o">=</span> <span class="n">date</span> <span class="o">-</span> <span class="n">date</span> <span class="o">%</span> <span class="n">incr</span>
-        <span class="n">model</span> <span class="o">=</span> <span class="n">date</span>
-        <span class="n">gh</span> <span class="o">=</span> <span class="n">psvcoeffs</span><span class="p">[</span><span class="n">psvmodels</span><span class="o">.</span><span class="n">index</span><span class="p">(</span><span class="nb">int</span><span class="p">(</span><span class="n">model</span><span class="p">))]</span>
-        <span class="n">sv</span> <span class="o">=</span> <span class="p">(</span><span class="n">psvcoeffs</span><span class="p">[</span><span class="n">psvmodels</span><span class="o">.</span><span class="n">index</span><span class="p">(</span><span class="nb">int</span><span class="p">(</span><span class="n">model</span> <span class="o">+</span> <span class="n">incr</span><span class="p">))]</span> <span class="o">-</span> <span class="n">gh</span><span class="p">)</span><span class="o">/</span> <span class="nb">float</span><span class="p">(</span><span class="n">incr</span><span class="p">)</span>
-        <span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="n">z</span><span class="p">,</span> <span class="n">f</span> <span class="o">=</span> <span class="n">magsyn</span><span class="p">(</span><span class="n">gh</span><span class="p">,</span> <span class="n">sv</span><span class="p">,</span> <span class="n">model</span><span class="p">,</span> <span class="n">date</span><span class="p">,</span> <span class="n">itype</span><span class="p">,</span> <span class="n">alt</span><span class="p">,</span> <span class="n">colat</span><span class="p">,</span> <span class="n">lon</span><span class="p">)</span>
-    <span class="k">elif</span> <span class="s1">'mod'</span> <span class="ow">in</span> <span class="nb">list</span><span class="p">(</span><span class="n">kwargs</span><span class="o">.</span><span class="n">keys</span><span class="p">())</span> <span class="ow">and</span> <span class="n">kwargs</span><span class="p">[</span><span class="s1">'mod'</span><span class="p">]</span> <span class="o">==</span> <span class="s1">'shadif14k'</span><span class="p">:</span>
+    <span class="k">if</span> <span class="n">model_name</span> <span class="o">==</span> <span class="s1">'shadif14k'</span><span class="p">:</span>
         <span class="k">if</span> <span class="n">date</span> <span class="o">&lt;</span> <span class="o">-</span><span class="mi">10000</span><span class="p">:</span>
             <span class="n">incr</span> <span class="o">=</span> <span class="mi">100</span>
         <span class="k">else</span><span class="p">:</span>
@@ -10575,29 +10658,32 @@
         <span class="n">sv</span> <span class="o">=</span> <span class="p">(</span><span class="n">psvcoeffs</span><span class="p">[</span><span class="n">psvmodels</span><span class="o">.</span><span class="n">index</span><span class="p">(</span><span class="nb">int</span><span class="p">(</span><span class="n">model</span> <span class="o">+</span> <span class="n">incr</span><span class="p">))]</span> <span class="o">-</span> <span class="n">gh</span><span class="p">)</span><span class="o">/</span> <span class="nb">float</span><span class="p">(</span><span class="n">incr</span><span class="p">)</span>
         <span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="n">z</span><span class="p">,</span> <span class="n">f</span> <span class="o">=</span> <span class="n">magsyn</span><span class="p">(</span><span class="n">gh</span><span class="p">,</span> <span class="n">sv</span><span class="p">,</span> <span class="n">model</span><span class="p">,</span> <span class="n">date</span><span class="p">,</span> <span class="n">itype</span><span class="p">,</span> <span class="n">alt</span><span class="p">,</span> <span class="n">colat</span><span class="p">,</span> <span class="n">lon</span><span class="p">)</span>
     <span class="k">elif</span> <span class="n">date</span> <span class="o">&lt;</span> <span class="o">-</span><span class="mi">1000</span><span class="p">:</span>
-        <span class="n">incr</span> <span class="o">=</span> <span class="mi">10</span>
+        <span class="k">if</span> <span class="n">model_name</span> <span class="ow">in</span> <span class="p">(</span><span class="s1">'cals10k'</span><span class="p">,</span> <span class="s1">'cals10k.1b'</span><span class="p">):</span>
+            <span class="n">incr</span> <span class="o">=</span> <span class="mi">50</span>
+        <span class="k">elif</span> <span class="n">model_name</span> <span class="o">==</span> <span class="s1">'shawqIA'</span><span class="p">:</span>
+            <span class="n">incr</span> <span class="o">=</span> <span class="mi">25</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="n">incr</span> <span class="o">=</span> <span class="mi">10</span>
         <span class="n">model</span> <span class="o">=</span> <span class="n">date</span> <span class="o">-</span> <span class="n">date</span> <span class="o">%</span> <span class="n">incr</span>
         <span class="n">gh</span> <span class="o">=</span> <span class="n">psvcoeffs</span><span class="p">[</span><span class="n">psvmodels</span><span class="o">.</span><span class="n">index</span><span class="p">(</span><span class="nb">int</span><span class="p">(</span><span class="n">model</span><span class="p">))]</span>
         <span class="n">sv</span> <span class="o">=</span> <span class="p">(</span><span class="n">psvcoeffs</span><span class="p">[</span><span class="n">psvmodels</span><span class="o">.</span><span class="n">index</span><span class="p">(</span><span class="nb">int</span><span class="p">(</span><span class="n">model</span> <span class="o">+</span> <span class="n">incr</span><span class="p">))]</span> <span class="o">-</span> <span class="n">gh</span><span class="p">)</span><span class="o">/</span><span class="nb">float</span><span class="p">(</span><span class="n">incr</span><span class="p">)</span>
         <span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="n">z</span><span class="p">,</span> <span class="n">f</span> <span class="o">=</span> <span class="n">magsyn</span><span class="p">(</span><span class="n">gh</span><span class="p">,</span> <span class="n">sv</span><span class="p">,</span> <span class="n">model</span><span class="p">,</span> <span class="n">date</span><span class="p">,</span> <span class="n">itype</span><span class="p">,</span> <span class="n">alt</span><span class="p">,</span> <span class="n">colat</span><span class="p">,</span> <span class="n">lon</span><span class="p">)</span>
     <span class="k">elif</span> <span class="n">date</span> <span class="o">&lt;</span> <span class="mi">1900</span><span class="p">:</span>
-        <span class="k">if</span> <span class="n">kwargs</span><span class="p">[</span><span class="s1">'mod'</span><span class="p">]</span> <span class="o">==</span> <span class="s1">'cals10k'</span><span class="p">:</span>
+        <span class="k">if</span> <span class="n">model_name</span> <span class="ow">in</span> <span class="p">(</span><span class="s1">'cals10k'</span><span class="p">,</span> <span class="s1">'cals10k.1b'</span><span class="p">):</span>
             <span class="n">incr</span> <span class="o">=</span> <span class="mi">50</span>
-        <span class="k">elif</span> <span class="n">kwargs</span><span class="p">[</span><span class="s1">'mod'</span><span class="p">]</span> <span class="o">==</span> <span class="s1">'shawq2k'</span> <span class="ow">or</span> <span class="n">kwargs</span><span class="p">[</span><span class="s1">'mod'</span><span class="p">]</span><span class="o">==</span><span class="s1">'shawqIA'</span><span class="p">:</span>
+        <span class="k">elif</span> <span class="n">model_name</span> <span class="o">==</span> <span class="s1">'shawq2k'</span> <span class="ow">or</span> <span class="n">model_name</span> <span class="o">==</span> <span class="s1">'shawqIA'</span><span class="p">:</span>
             <span class="n">incr</span> <span class="o">=</span> <span class="mi">25</span>
-        <span class="k">elif</span> <span class="n">kwargs</span><span class="p">[</span><span class="s1">'mod'</span><span class="p">]</span><span class="o">==</span><span class="s1">'ggk100k'</span><span class="p">:</span>
-            <span class="n">incr</span> <span class="o">=</span> <span class="mi">200</span>
         <span class="k">else</span><span class="p">:</span>
             <span class="n">incr</span> <span class="o">=</span> <span class="mi">10</span>
-        <span class="n">model</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="n">date</span> <span class="o">-</span> <span class="n">date</span> <span class="o">%</span> <span class="n">incr</span><span class="p">)</span>
-        <span class="n">gh</span> <span class="o">=</span> <span class="n">psvcoeffs</span><span class="p">[</span><span class="n">psvmodels</span><span class="o">.</span><span class="n">index</span><span class="p">(</span><span class="n">model</span><span class="p">)]</span>
-        <span class="k">if</span> <span class="n">model</span> <span class="o">+</span> <span class="n">incr</span> <span class="o">&lt;</span> <span class="mi">1900</span><span class="p">:</span>
-            <span class="n">sv</span> <span class="o">=</span> <span class="p">(</span><span class="n">psvcoeffs</span><span class="p">[</span><span class="n">psvmodels</span><span class="o">.</span><span class="n">index</span><span class="p">(</span><span class="n">model</span> <span class="o">+</span> <span class="n">incr</span><span class="p">)]</span> <span class="o">-</span> <span class="n">gh</span><span class="p">)</span><span class="o">/</span><span class="nb">float</span><span class="p">(</span><span class="n">incr</span><span class="p">)</span>
+        <span class="n">epoch</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="n">date</span> <span class="o">-</span> <span class="n">date</span> <span class="o">%</span> <span class="n">incr</span><span class="p">)</span>
+        <span class="n">gh</span> <span class="o">=</span> <span class="n">psvcoeffs</span><span class="p">[</span><span class="n">psvmodels</span><span class="o">.</span><span class="n">index</span><span class="p">(</span><span class="n">epoch</span><span class="p">)]</span>
+        <span class="k">if</span> <span class="n">epoch</span> <span class="o">+</span> <span class="n">incr</span> <span class="o">&lt;</span> <span class="mi">1900</span><span class="p">:</span>
+            <span class="n">sv</span> <span class="o">=</span> <span class="p">(</span><span class="n">psvcoeffs</span><span class="p">[</span><span class="n">psvmodels</span><span class="o">.</span><span class="n">index</span><span class="p">(</span><span class="n">epoch</span> <span class="o">+</span> <span class="n">incr</span><span class="p">)]</span> <span class="o">-</span> <span class="n">gh</span><span class="p">)</span><span class="o">/</span><span class="nb">float</span><span class="p">(</span><span class="n">incr</span><span class="p">)</span>
          
         <span class="k">else</span><span class="p">:</span>
             <span class="n">field2</span> <span class="o">=</span> <span class="n">igrf14coeffs</span><span class="p">[</span><span class="n">models</span><span class="o">.</span><span class="n">index</span><span class="p">(</span><span class="mi">1940</span><span class="p">)][</span><span class="mi">0</span><span class="p">:</span><span class="mi">120</span><span class="p">]</span>
-            <span class="n">sv</span> <span class="o">=</span> <span class="p">(</span><span class="n">field2</span> <span class="o">-</span> <span class="n">gh</span><span class="p">)</span><span class="o">/</span><span class="nb">float</span><span class="p">(</span><span class="mi">1940</span> <span class="o">-</span> <span class="n">model</span><span class="p">)</span>
-        <span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="n">z</span><span class="p">,</span> <span class="n">f</span> <span class="o">=</span> <span class="n">magsyn</span><span class="p">(</span><span class="n">gh</span><span class="p">,</span> <span class="n">sv</span><span class="p">,</span> <span class="n">model</span><span class="p">,</span> <span class="n">date</span><span class="p">,</span> <span class="n">itype</span><span class="p">,</span> <span class="n">alt</span><span class="p">,</span> <span class="n">colat</span><span class="p">,</span> <span class="n">lon</span><span class="p">)</span>
+            <span class="n">sv</span> <span class="o">=</span> <span class="p">(</span><span class="n">field2</span> <span class="o">-</span> <span class="n">gh</span><span class="p">)</span><span class="o">/</span><span class="nb">float</span><span class="p">(</span><span class="mi">1940</span> <span class="o">-</span> <span class="n">epoch</span><span class="p">)</span>
+        <span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="n">z</span><span class="p">,</span> <span class="n">f</span> <span class="o">=</span> <span class="n">magsyn</span><span class="p">(</span><span class="n">gh</span><span class="p">,</span> <span class="n">sv</span><span class="p">,</span> <span class="n">epoch</span><span class="p">,</span> <span class="n">date</span><span class="p">,</span> <span class="n">itype</span><span class="p">,</span> <span class="n">alt</span><span class="p">,</span> <span class="n">colat</span><span class="p">,</span> <span class="n">lon</span><span class="p">)</span>
     <span class="k">else</span><span class="p">:</span>
         <span class="n">model</span> <span class="o">=</span> <span class="n">date</span> <span class="o">-</span> <span class="n">date</span> <span class="o">%</span> <span class="mi">5</span>
         <span class="k">if</span> <span class="n">date</span> <span class="o">&lt;=</span><span class="mi">2030</span><span class="p">:</span>
@@ -14048,7 +14134,8 @@
 
 <span class="sd">    Optional Parameters</span>
 <span class="sd">    -------------------</span>
-<span class="sd">    mod  = model to use ('arch3k','cals3k','pfm9k','hfm10k','cals10k.2','shadif14k','cals10k.1b','custom')</span>
+<span class="sd">    mod  = model to use ('arch3k','cals3k','pfm9k','hfm10k','cals10k.2','shadif14k','cals10k.1b','cals10k','shawq2k','shawqIA','ggf100k','custom')</span>
+<span class="sd">           cals10k is a legacy alias for cals10k.1b</span>
 <span class="sd">    file = l m g h formatted filefor custom model</span>
 <span class="sd">    lon_0 : central longitude for Hammer projection</span>
 <span class="sd">    alt  = altitude</span>
@@ -14879,8 +14966,11 @@
 <a class="viewcode-back" href="../../api/api.html#pmagpy.pmag.form_Q">[docs]</a>
 <span class="k">def</span><span class="w"> </span><span class="nf">form_Q</span><span class="p">(</span><span class="n">a</span><span class="p">,</span><span class="n">b</span><span class="p">):</span>
 <span class="w">    </span><span class="sd">"""</span>
-<span class="sd">    Creates the rotation matrix Q so that Qb = a </span>
+<span class="sd">    Creates the rotation matrix Q so that Qb = a</span>
 <span class="sd">    (according to equations (9) and (10)Heslop et al., 2023)</span>
+
+<span class="sd">    If a and b are parallel, Q is the identity. If they are antiparallel, the</span>
+<span class="sd">    rotation is not unique and Q is a half turn about one axis perpendicular to a.</span>
 
 <span class="sd">    Parameters:</span>
 <span class="sd">        a (ndarray): Destination direction (unit vector).</span>
@@ -14888,6 +14978,9 @@
 
 <span class="sd">    Returns:</span>
 <span class="sd">        ndarray: Rotation matrix Q.</span>
+
+<span class="sd">    Raises:</span>
+<span class="sd">        ValueError: If a or b is a zero vector.</span>
 
 <span class="sd">    """</span>
 
@@ -14899,10 +14992,26 @@
     <span class="n">a</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">asarray</span><span class="p">(</span><span class="n">a</span><span class="p">,</span> <span class="n">dtype</span><span class="o">=</span><span class="nb">float</span><span class="p">)</span><span class="o">.</span><span class="n">reshape</span><span class="p">(</span><span class="mi">3</span><span class="p">,</span><span class="mi">1</span><span class="p">)</span>
     <span class="n">b</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">asarray</span><span class="p">(</span><span class="n">b</span><span class="p">,</span> <span class="n">dtype</span><span class="o">=</span><span class="nb">float</span><span class="p">)</span><span class="o">.</span><span class="n">reshape</span><span class="p">(</span><span class="mi">3</span><span class="p">,</span><span class="mi">1</span><span class="p">)</span>
 
-    <span class="n">c</span> <span class="o">=</span> <span class="n">b</span> <span class="o">-</span> <span class="n">a</span> <span class="o">@</span> <span class="p">(</span><span class="n">a</span><span class="o">.</span><span class="n">T</span> <span class="o">@</span> <span class="n">b</span><span class="p">)</span>
+    <span class="n">n</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">cross</span><span class="p">(</span><span class="n">a</span><span class="p">[:,</span> <span class="mi">0</span><span class="p">],</span> <span class="n">b</span><span class="p">[:,</span> <span class="mi">0</span><span class="p">])</span>
+    <span class="n">cos_ab</span> <span class="o">=</span> <span class="p">(</span><span class="n">a</span><span class="o">.</span><span class="n">T</span> <span class="o">@</span> <span class="n">b</span><span class="p">)</span><span class="o">.</span><span class="n">item</span><span class="p">()</span>
+    <span class="k">if</span> <span class="ow">not</span> <span class="n">np</span><span class="o">.</span><span class="n">any</span><span class="p">(</span><span class="n">n</span><span class="p">):</span>
+        <span class="k">if</span> <span class="n">cos_ab</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">:</span>
+            <span class="k">return</span> <span class="n">np</span><span class="o">.</span><span class="n">eye</span><span class="p">(</span><span class="mi">3</span><span class="p">)</span>
+        <span class="k">if</span> <span class="n">cos_ab</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
+            <span class="c1"># a x b and a.b both vanish only when a or b is a zero vector</span>
+            <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s2">"form_Q requires nonzero direction vectors"</span><span class="p">)</span>
+        <span class="c1"># A half turn may use any axis perpendicular to the antipodal pair.</span>
+        <span class="n">axis</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">cross</span><span class="p">(</span><span class="n">a</span><span class="p">[:,</span> <span class="mi">0</span><span class="p">],</span> <span class="n">np</span><span class="o">.</span><span class="n">eye</span><span class="p">(</span><span class="mi">3</span><span class="p">)[</span><span class="n">np</span><span class="o">.</span><span class="n">argmin</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">abs</span><span class="p">(</span><span class="n">a</span><span class="p">))])</span>
+        <span class="n">axis</span> <span class="o">/=</span> <span class="n">np</span><span class="o">.</span><span class="n">linalg</span><span class="o">.</span><span class="n">norm</span><span class="p">(</span><span class="n">axis</span><span class="p">)</span>
+        <span class="k">return</span> <span class="mi">2</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">outer</span><span class="p">(</span><span class="n">axis</span><span class="p">,</span> <span class="n">axis</span><span class="p">)</span> <span class="o">-</span> <span class="n">np</span><span class="o">.</span><span class="n">eye</span><span class="p">(</span><span class="mi">3</span><span class="p">)</span>
+
+    <span class="c1"># (a x b) x a is the part of b perpendicular to a. Unlike b - a(a.b), it stays</span>
+    <span class="c1"># perpendicular to a to working precision when b is nearly parallel or antiparallel to a.</span>
+    <span class="n">c</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">cross</span><span class="p">(</span><span class="n">n</span><span class="p">,</span> <span class="n">a</span><span class="p">[:,</span> <span class="mi">0</span><span class="p">])</span><span class="o">.</span><span class="n">reshape</span><span class="p">(</span><span class="mi">3</span><span class="p">,</span><span class="mi">1</span><span class="p">)</span>
     <span class="n">c</span> <span class="o">/=</span> <span class="n">np</span><span class="o">.</span><span class="n">linalg</span><span class="o">.</span><span class="n">norm</span><span class="p">(</span><span class="n">c</span><span class="p">)</span>
 
-    <span class="n">alpha</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">arccos</span><span class="p">(</span><span class="n">a</span><span class="o">.</span><span class="n">T</span> <span class="o">@</span> <span class="n">b</span><span class="p">)</span>
+    <span class="c1"># arctan2 is accurate near 0 and 180 degrees, where arccos of a rounded dot product is not</span>
+    <span class="n">alpha</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">arctan2</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">linalg</span><span class="o">.</span><span class="n">norm</span><span class="p">(</span><span class="n">n</span><span class="p">),</span> <span class="n">cos_ab</span><span class="p">)</span>
     <span class="n">A</span> <span class="o">=</span> <span class="n">a</span> <span class="o">@</span> <span class="n">c</span><span class="o">.</span><span class="n">T</span> <span class="o">-</span> <span class="n">c</span> <span class="o">@</span> <span class="n">a</span><span class="o">.</span><span class="n">T</span>
 
     <span class="n">Q</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">eye</span><span class="p">(</span><span class="mi">3</span><span class="p">)</span><span class="o">+</span><span class="n">np</span><span class="o">.</span><span class="n">multiply</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">sin</span><span class="p">(</span><span class="n">alpha</span><span class="p">),</span><span class="n">A</span><span class="p">)</span><span class="o">+</span><span class="n">np</span><span class="o">.</span><span class="n">multiply</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">cos</span><span class="p">(</span><span class="n">alpha</span><span class="p">)</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="n">a</span> <span class="o">@</span> <span class="n">a</span><span class="o">.</span><span class="n">T</span> <span class="o">+</span> <span class="n">c</span> <span class="o">@</span> <span class="n">c</span><span class="o">.</span><span class="n">T</span><span class="p">)</span>
@@ -15054,7 +15163,7 @@
 
 
 <span class="k">def</span><span class="w"> </span><span class="nf">main</span><span class="p">():</span>
-    <span class="nb">print</span><span class="p">(</span><span class="s2">"Full PmagPy documentation is available at: https://earthref.org/PmagPy/cookbook/"</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">"Full PmagPy documentation is available at: https://pmagpy.github.io/PmagPy-docs/"</span><span class="p">)</span>
 </pre></div>
 
                 </article>
