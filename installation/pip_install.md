@@ -7,6 +7,8 @@ These are the install instructions for PmagPy. There are two main ways to instal
 
 If you're not sure which to choose, go with the recommended way. Don't worry if some of the terms below are new — the steps are spelled out and you don't need a Python background to follow them.
 
+PmagPy and `pmagpy-cli` require Python 3.12 or later.
+
 (section_recommended_install)=
 ## Recommended approach: conda environment + pip install
 
@@ -37,13 +39,13 @@ Open a terminal:
 Then run this command, which creates a new environment called `pmagpy_env` and installs the packages PmagPy needs:
 
 ```bash
-conda create -n pmagpy_env -c conda-forge python=3.10 \
-    numpy scipy matplotlib pandas \
-    cartopy shapely \
-    wxpython pyqt jupyterlab
+conda create -n pmagpy_env -c conda-forge python=3.12 \
+    numpy scipy matplotlib pandas pytz requests \
+    cartopy shapely wxpython pillow appdirs \
+    jupyterlab ipython pip
 ```
 
-This may take a few minutes the first time. The `-c conda-forge` part tells conda to use the conda-forge community package channel, which has the most reliable versions of these packages.
+This may take a few minutes the first time. The `-c conda-forge` part tells conda to use the conda-forge community package channel, which has the most reliable versions of these packages. PyQt is not needed by current PmagPy installations.
 
 When it finishes, activate the environment:
 
