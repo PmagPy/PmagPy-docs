@@ -8,25 +8,11 @@ If you only want to use PmagPy as a library and don't need the latest unreleased
 
 The same three-step pattern works on macOS, Windows, and Linux:
 
-1. Create a conda environment with the scientific Python packages and GUI libraries.
-2. Clone the PmagPy repository.
+1. Clone the PmagPy repository.
+2. Create a conda environment with the scientific Python packages and GUI libraries.
 3. Install pmagpy as an *editable* package with `pip install -e .` so your imports point at the cloned repo.
 
-### Step 1: Create a conda environment
-
-If you don't already have a conda-based Python distribution, install [miniforge](https://github.com/conda-forge/miniforge) (recommended) or [Anaconda](https://www.anaconda.com/download).
-
-Create a fresh environment with the dependencies that benefit most from conda-forge:
-
-```bash
-conda create -n pmagpy_dev -c conda-forge python=3.10 \
-    numpy scipy matplotlib pandas \
-    cartopy shapely \
-    wxpython pyqt jupyterlab
-conda activate pmagpy_dev
-```
-
-### Step 2: Clone PmagPy
+### Step 1: Clone PmagPy
 
 If you don't have git, [install it](https://git-scm.com/downloads) first. Then change to the directory where you want the PmagPy folder, and clone:
 
@@ -37,6 +23,17 @@ cd PmagPy
 
 You now have a full local copy of the PmagPy source.
 
+### Step 2: Create a conda environment
+
+If you don't already have a conda-based Python distribution, install [miniforge](https://github.com/conda-forge/miniforge) (recommended) or [Anaconda](https://www.anaconda.com/download). From the PmagPy directory, create the development environment from the repository's `environment.yml`:
+
+```bash
+conda env create -f environment.yml -n pmagpy_dev
+conda activate pmagpy_dev
+```
+
+This installs Python 3.12 and the scientific, mapping, GUI, notebook, and test dependencies used by PmagPy. PmagPy requires Python 3.12 or later.
+
 ### Step 3: Install in editable mode
 
 From the PmagPy directory:
@@ -45,7 +42,7 @@ From the PmagPy directory:
 pip install -e ".[maps]"
 ```
 
-The `-e` flag installs PmagPy as an *editable* package — Python imports from your cloned repo directly, so any code changes (or `git pull`) take effect immediately without reinstalling. The `[maps]` part adds cartopy and shapely; you can drop it if you already installed those via conda above and would like pip to leave them alone. The quotes keep zsh (the macOS default shell) from treating the square brackets as a glob pattern.
+The `-e` flag installs PmagPy as an *editable* package — Python imports from your cloned repo directly, so any code changes (or `git pull`) take effect immediately without reinstalling. The `[maps]` part adds cartopy and shapely; you can drop it if you would like pip to leave the conda-installed mapping libraries alone. The quotes keep zsh (the macOS default shell) from treating the square brackets as a glob pattern.
 
 ## Running the command-line programs
 
@@ -64,7 +61,7 @@ No second install, no PATH changes. This is a fine default for most contributors
 
 ### Pattern B: Editable install of pmagpy-cli (not currently available)
 
-The command-line programs are packaged separately as `pmagpy-cli` from `command_line_setup.py`, and `pip install -e .` only reads `setup.py`. The older `python command_line_setup.py develop` route is deprecated by setuptools and, with current versions (setuptools 80 and later), no longer installs the program entry points, so there is at present no working editable install of the CLI. Use Pattern A to run the programs from the repository, or Pattern C to pair the editable library with the released CLI.
+The command-line programs are packaged separately as `pmagpy-cli` from `command_line_setup.py`, and `pip install -e .` only reads `setup.py`. The older `python command_line_setup.py develop` route is deprecated by setuptools and no longer installs the program entry points with current setuptools, so there is at present no working editable install of the CLI. Use Pattern A to run the programs from the repository, or Pattern C to pair the editable library with the released CLI.
 
 ### Pattern C: Editable library + released CLI
 
@@ -120,6 +117,8 @@ git checkout <branch-name>
 Your editable install will now import from that branch's code. Switching branches needs no reinstall.
 
 ## Platform notes
+
+PmagPy and `pmagpy-cli` require Python 3.12 or later.
 
 ### macOS
 
